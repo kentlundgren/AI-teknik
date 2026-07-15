@@ -12,6 +12,11 @@ Syftet är dubbelt (precis som hela projektet): dels ska vi förstå **teorin** 
 dels ska teorin sedan omsättas i **praktik**. Den här filen är "bakom kulisserna" –
 den visar tankearbetet innan en enda faktamening skrivs på själva sidan.
 
+![Färgglad illustration som sammanfattar projektet: en vikingaförfattare och en AI-robot som kontrollerar källor.](./FransGBentsson_och_RAG.png)
+
+> **Läs också blogginlägget** som beskriver och sätter projektet i ett större sammanhang:
+> [*"Kan man lita på det AI:n berättar om Frans G. Bengtsson?"*](https://klel.wordpress.com/2026/07/15/kan-man-lita-pa-det-ain-berattar-om-frans-g-bengtsson/)
+
 ---
 
 ## 1. Problemformulering

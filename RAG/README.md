@@ -63,6 +63,10 @@ Exemplet ligger i mappen [`Frans-G-Bengtsson/`](./Frans-G-Bengtsson/) och görs 
    och källor anges i Harvardformat med kontrollerade länkar.
 
 > **Live-sida:** https://kentlundgren.github.io/AI-teknik/RAG/Frans-G-Bengtsson/
+>
+> **Blogginlägg om projektet:** [*"Kan man lita på det AI:n berättar om Frans G. Bengtsson?"*](https://klel.wordpress.com/2026/07/15/kan-man-lita-pa-det-ain-berattar-om-frans-g-bengtsson/)
+
+![Färgglad illustration som sammanfattar Frans G. Bengtsson-exemplet och skillnaden mellan Classic och Advanced RAG.](./Frans-G-Bengtsson/FransGBentsson_och_RAG.png)
 
 Så här hänger teori och praktik ihop i exemplet:
 
