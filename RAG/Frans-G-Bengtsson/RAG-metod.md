@@ -1,11 +1,12 @@
 # RAG-metod: Så bygger vi en faktakorrekt sida om Frans G. Bengtsson
 
-> **Steg 1 av 2 – Konceptuell teori.**
-> Denna fil beskriver *hur* vi tänker använda RAG-ramverket (reglerna i
+> **Steg 1 (teori) OCH steg 2 (praktik) – båda klara.**
+> Denna fil beskriver *hur* vi använder RAG-ramverket (reglerna i
 > [`../agents.md`](../agents.md) och verktygen i [`../skills.md`](../skills.md)) för att bygga en
-> faktakorrekt biografisida om Frans G. Bengtsson. I detta steg görs **ingen** verklig
-> web-retrieval och **inga** overifierade sakpåståenden skrivs. Steg 2 utför den verkliga
-> sökningen och fyller i fakta med riktiga källor.
+> faktakorrekt biografisida om Frans G. Bengtsson.
+> Steg 1 beskrev teorin. **Steg 2 är nu utfört:** verklig web-retrieval har gjorts, fakta har
+> verifierats mot flera källor, och sidan [`index.html`](./index.html) är ifylld med källbelagd
+> text samt en Retrieval Summary (se avsnitt 5 nedan, som nu är ifyllt).
 
 Syftet är dubbelt (precis som hela projektet): dels ska vi förstå **teorin** bakom RAG,
 dels ska teorin sedan omsättas i **praktik**. Den här filen är "bakom kulisserna" –
@@ -118,34 +119,44 @@ Exempel på hur en färdig referens kan se ut (fylls med verkliga uppgifter i st
 
 ## 5. Transparenskrav: Retrieval Summary (mall att fylla i steg 2)
 
-Enligt `agents.md` ska varje svar innehålla en Retrieval Summary. Nedan är mallen som
-fylls i när den verkliga retrievalen är gjord i steg 2.
+Enligt `agents.md` ska varje svar innehålla en Retrieval Summary. Nedan är den **ifyllda**
+sammanfattningen från steg 2 (samma redovisas även på själva sidan).
 
-> **Retrieval Summary (fylls i steg 2)**
-> - **Teknik:** Advanced RAG (web/external + fusion)
-> - **Interna källor:** [antal / "inga relevanta"]
-> - **Externa källor:** [antal + vilka]
-> - **Reranking/källkritik:** [ja/nej + hur källor prioriterades]
-> - **Fusion:** [ja/nej + strategi]
-> - **Varför denna teknik:** [motivering]
-> - **Begränsningar/osäkerheter:** [motsägelser mellan källor, luckor]
+> **Retrieval Summary (steg 2 – utförd 2026-07-15)**
+> - **Teknik:** Advanced RAG (web/external retrieval + context fusion).
+> - **Interna källor:** inga relevanta (ingen intern data om författaren fanns i projektet).
+> - **Externa källor:** 4 st –
+>   1. Svenska Wikipedia – https://sv.wikipedia.org/wiki/Frans_G._Bengtsson
+>   2. English Wikipedia – https://en.wikipedia.org/wiki/Frans_G._Bengtsson
+>   3. Norstedts förlag – https://www.norstedts.se/116457-frans-g-bengtsson
+>   4. Frans G. Bengtsson-sällskapet (Minnesbiblioteket) – http://gullspang.fgb-sallskapet.org/om-frans-g-bengtsson/
+> - **Reranking/källkritik:** ja – uppslagsverk och förlags-/sällskapskällor prioriterades,
+>   och fakta korsverifierades mot minst två källor där det gick.
+> - **Fusion:** ja – `llm_synthesis`; uppgifter från flera källor vägdes samman till en
+>   sammanhängande text med bibehållna källhänvisningar.
+> - **Länkkontroll:** alla fyra länkar kontrollerades (fungerar + relevanta) enligt
+>   WORKFLOW.md, Regel 3.
+> - **Varför denna teknik:** biografisk fakta saknas i intern data → web krävs; hög
+>   faktakrav → Advanced RAG med fusion och källkritik.
+> - **Begränsningar/osäkerheter:** exakt födelseplats (Rössjöholm/Ramnekulla) och årtal för
+>   licentiatexamen (1930 vs 1931) skiljer sig mellan källorna och redovisas öppet på sidan.
 
 ---
 
 ## 6. Checklista för steg 2 (fakta som ska verifieras)
 
-Följande uppgifter ska hämtas och verifieras mot minst en högt rankad källa innan de
-skrivs in på sidan. (Alla fält lämnas medvetet tomma nu – de fylls i steg 2.)
+Följande uppgifter hämtades och verifierades i steg 2 mot minst en högt rankad källa
+(kryssade rutor = klart).
 
-- [ ] Födelseår och födelseort
-- [ ] Dödsår och dödsort
-- [ ] Uppväxt och familjebakgrund
-- [ ] Utbildning
-- [ ] Genombrott och viktigaste verk (t.ex. romanen *Röde Orm*)
-- [ ] Essäistik och poesi
-- [ ] Stil och teman i författarskapet
-- [ ] Eftermäle och betydelse i svensk litteratur
-- [ ] Källförteckning i Harvardformat med kontrollerade, fungerande och relevanta länkar
+- [x] Födelseår och födelseort (4 oktober 1894, Tåssjö socken, Skåne – med källkritisk not)
+- [x] Dödsår och dödsort (19 december 1954, Ribbingsfors, Amnehärad)
+- [x] Uppväxt och familjebakgrund (far förvaltare på Rössjöholm)
+- [x] Utbildning (studentexamen 1912, fil.kand. 1920, fil.lic. ca 1930/1931)
+- [x] Genombrott och viktigaste verk (*Röde Orm* 1941/1945, *Karl XII:s levnad* 1935–1936)
+- [x] Essäistik och poesi (*Tärningkast* 1923, *Litteratörer och militärer* 1929 m.fl.)
+- [x] Stil och teman i författarskapet (lärdom, humor, historiska motiv)
+- [x] Eftermäle och betydelse i svensk litteratur (3:e plats i Röda rummet 1998)
+- [x] Källförteckning i Harvardformat med kontrollerade, fungerande och relevanta länkar
 
 ---
 
@@ -158,4 +169,6 @@ skrivs in på sidan. (Alla fält lämnas medvetet tomma nu – de fylls i steg 2
 
 ---
 
-*Steg 1 (teori) klar. Nästa steg: verklig web-retrieval, källkritik, fusion och ifyllnad av fakta + Retrieval Summary.*
+*Steg 1 (teori) och steg 2 (praktik) är klara. Sidan är byggd med Advanced RAG: web-retrieval,
+källkritik, fusion och källbelagd text med Retrieval Summary. Jämför gärna Classic- och
+Advanced-versionen på [`index.html`](./index.html).*

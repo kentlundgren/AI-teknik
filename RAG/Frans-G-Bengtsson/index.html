@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <!--
   index.html - Frans G. Bengtsson
-  STEG 1 (konceptuellt): Detta är ett SKELETT. Sektionerna finns på plats men
-  faktainnehållet är platshållare i formen [FAKTA VERIFIERAS I STEG 2 - KÄLLA: ...].
-  I steg 2 hämtas och verifieras fakta via verklig web-retrieval (se RAG-metod.md),
-  varefter platshållarna ersätts med korrekt, källbelagd text.
+  STEG 2 (praktik): Sidan är nu ifylld med VERIFIERADE fakta som hämtats via verklig
+  web-retrieval (se RAG-metod.md). Sidan demonstrerar dessutom skillnaden mellan
+  Classic RAG och Advanced RAG genom att visa två versioner sida vid sida.
+
+  Här skedde en uppdatering (steg 1 -> steg 2):
+  - Platshållarna är ersatta med källbelagd text.
+  - En jämförelse Classic vs Advanced RAG har lagts till.
+  - Källor anges i Harvardformat med kontrollerade, fungerande länkar.
+  - En Retrieval Summary redovisar hur informationen hämtades.
 
   Koden är uppdelad enligt projektets regler:
     - index.html  (struktur/innehåll)
@@ -14,104 +19,285 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8" />
-  <!-- Responsiv design för mobil och desktop -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Frans G. Bengtsson – liv och författarskap</title>
-  <meta name="description" content="En sida om Frans G. Bengtssons liv och författarskap. Under uppbyggnad – fakta verifieras med RAG-tekniker i steg 2." />
+  <title>Frans G. Bengtsson – liv och författarskap (byggd med RAG)</title>
+  <meta name="description" content="En källbelagd sida om Frans G. Bengtssons liv, som samtidigt demonstrerar skillnaden mellan Classic RAG och Advanced RAG." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Tydlig statusbanner: sidan är ett skelett i steg 1 -->
+  <!-- Infobanner: fakta är nu verifierade via web-retrieval -->
   <div class="status-banner" role="status">
-    Steg 1 (skelett): faktainnehållet är platshållare och verifieras i steg 2 via
-    RAG-tekniker. Se <a href="https://github.com/kentlundgren/AI-teknik/blob/main/RAG/Frans-G-Bengtsson/RAG-metod.md" target="_blank" rel="noopener">RAG-metod.md</a>.
+    Faktan på sidan är hämtad och verifierad via web-retrieval. Se
+    <a href="#retrieval-summary">Retrieval Summary</a> och
+    <a href="https://github.com/kentlundgren/AI-teknik/blob/main/RAG/Frans-G-Bengtsson/RAG-metod.md" target="_blank" rel="noopener">RAG-metod.md</a>.
   </div>
 
   <!-- Sidhuvud -->
   <header class="site-header">
     <div class="container">
-      <p class="eyebrow">Svensk författare · biografisida under uppbyggnad</p>
+      <p class="eyebrow">Svensk författare (1894–1954) · sida byggd med RAG</p>
       <h1>Frans G. Bengtsson</h1>
       <p class="lead">
-        [FAKTA VERIFIERAS I STEG 2 – KÄLLA: ...] En kort, levande ingress om vem
-        Frans G. Bengtsson var och varför han är läsvärd.
+        Lyriker, essäist, översättare och biograf – men framför allt berättaren bakom
+        vikingaromanen <em>Röde Orm</em>. En författare som förenade enorm lärdom med
+        medryckande humor (Svenska Wikipedia, u.å.; Norstedts förlag, u.å.).
       </p>
     </div>
   </header>
 
-  <!-- Innehållsförteckning för snabb navigering -->
+  <!-- Innehållsförteckning -->
   <nav class="toc container" aria-label="Innehåll">
     <ul>
+      <li><a href="#hur-byggd">Så är sidan byggd</a></li>
+      <li><a href="#jamforelse">Classic vs Advanced RAG</a></li>
       <li><a href="#uppvaxt">Tidig levnad</a></li>
-      <li><a href="#utbildning">Utbildning</a></li>
+      <li><a href="#lund">Lund &amp; studier</a></li>
       <li><a href="#forfattarskap">Författarskap</a></li>
+      <li><a href="#andra-vk">Andra världskriget</a></li>
       <li><a href="#senare-liv">Senare liv</a></li>
       <li><a href="#eftermale">Eftermäle</a></li>
+      <li><a href="#visste-du">Visste du att…</a></li>
+      <li><a href="#retrieval-summary">Retrieval Summary</a></li>
       <li><a href="#kallor">Källor</a></li>
     </ul>
   </nav>
 
   <main class="container">
 
-    <!-- Sektion: Tidig levnad och uppväxt -->
+    <!-- Hur sidan är byggd -->
+    <section id="hur-byggd" class="card">
+      <h2>Så är den här sidan byggd</h2>
+      <p>
+        Sidan är ett praktiskt exempel i projektet <strong>AI-teknik</strong>. Den visar hur
+        man med RAG-tekniker (Retrieval-Augmented Generation) kan bygga en <strong>faktakorrekt</strong>
+        sida istället för att låta en språkmodell skriva fritt ur minnet. Metoden – vilken
+        retrieval-nivå som valdes och varför – beskrivs i
+        <a href="https://github.com/kentlundgren/AI-teknik/blob/main/RAG/Frans-G-Bengtsson/RAG-metod.md" target="_blank" rel="noopener">RAG-metod.md</a>.
+        Nedan jämförs först en enkel <em>Classic RAG</em>-version med en <em>Advanced RAG</em>-version.
+      </p>
+    </section>
+
+    <!-- Jämförelse Classic vs Advanced RAG (sida vid sida) -->
+    <section id="jamforelse">
+      <h2>Classic RAG vs Advanced RAG – samma person, olika resultat</h2>
+      <p class="section-intro">
+        Båda kolumnerna svarar på "Vem var Frans G. Bengtsson?" – men med olika teknik.
+        Lägg märke till hur den avancerade versionen är fylligare, källbelagd och hanterar
+        motstridiga uppgifter.
+      </p>
+
+      <div class="compare-grid">
+
+        <!-- Vänster: Classic RAG -->
+        <article class="card compare-col compare-classic">
+          <h3>Classic RAG-version</h3>
+          <p class="method-note">En källa · top-k likhetssökning · inga referenser · ingen källkritik</p>
+          <p>
+            Frans G. Bengtsson (1894–1954) var en svensk författare. Han är mest känd för
+            romanen <em>Röde Orm</em> och skrev även en biografi om Karl XII.
+          </p>
+          <p class="limitation">
+            Begränsning: kort och grund. Inga källor, ingen kontroll, och nyanser
+            (uppväxt, essäistik, hållning under kriget, motstridiga uppgifter) saknas helt.
+          </p>
+        </article>
+
+        <!-- Höger: Advanced RAG -->
+        <article class="card compare-col compare-advanced">
+          <h3>Advanced RAG-version</h3>
+          <p class="method-note">Flera källor · fusion · källkritik · Harvard-referenser</p>
+          <p>
+            Frans Gunnar Bengtsson (4 oktober 1894 – 19 december 1954) var en svensk
+            författare, lyriker, essäist, översättare och biograf (Svenska Wikipedia, u.å.;
+            English Wikipedia, u.å.). Han debuterade som poet 1923 men blev en av landets
+            främsta <em>essäister</em>, prisad även som översättare (Norstedts förlag, u.å.).
+            Hans mest folkkära verk är vikingaromanen <em>Röde Orm</em> (1941, 1945), medan
+            den tvådelade biografin <em>Karl XII:s levnad</em> (1935–1936) av somliga räknas
+            som hans främsta verk (Svenska Wikipedia, u.å.; Frans G. Bengtsson-sällskapet, u.å.).
+          </p>
+          <p class="strength">
+            Styrka: fler fakta, tydliga källhänvisningar, och motstridiga uppgifter (t.ex.
+            exakt födelseplats) kan redovisas öppet istället för att döljas.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Full biografi (Advanced RAG-resultat) -->
     <section id="uppvaxt" class="card">
       <h2>Tidig levnad och uppväxt</h2>
-      <p class="placeholder">
-        [FAKTA VERIFIERAS I STEG 2 – KÄLLA: ...] Födelseår, födelseort, familjebakgrund
-        och uppväxt.
+      <p>
+        Frans G. Bengtsson föddes den 4 oktober 1894 i Tåssjö socken i Skåne, där hans far
+        Sven Bengtsson var förvaltare på godset Rössjöholm nära Hallandsåsen (Svenska Wikipedia,
+        u.å.; Norstedts förlag, u.å.). Han var äldst i en syskonskara på fem, och barndomen
+        beskrivs som sjuklig (Norstedts förlag, u.å.). Den lantliga uppväxten skildrade han
+        senare kärleksfullt i minnesboken <em>Den lustgård som jag minns</em> (1953)
+        (Frans G. Bengtsson-sällskapet, u.å.).
+      </p>
+      <p class="source-note">
+        Källkritisk not: uppgifterna om exakt födelseplats varierar mellan källorna – från
+        "Rössjöholms slott" till "Ramnekulla gård" – men alla anger Tåssjö socken i Skåne och
+        att fadern var förvaltare på Rössjöholm (Svenska Wikipedia, u.å.).
       </p>
     </section>
 
-    <!-- Sektion: Utbildning -->
-    <section id="utbildning" class="card">
-      <h2>Utbildning</h2>
-      <p class="placeholder">
-        [FAKTA VERIFIERAS I STEG 2 – KÄLLA: ...] Studier och akademisk bakgrund.
+    <section id="lund" class="card">
+      <h2>Lund och studieåren</h2>
+      <p>
+        Efter studentexamen i Kristianstad 1912 började Bengtsson studera vid Lunds universitet
+        (Norstedts förlag, u.å.). Studierna gick långsamt – enligt egen utsago ägnade han mest
+        tid åt schack, och litteraturvetaren Sven Delblanc har sammanfattat det som att han
+        "läste mycket och tenterade sällan" (Svenska Wikipedia, u.å.). Han tog en filosofie
+        kandidatexamen 1920 och senare en licentiatexamen i litteraturhistoria (Svenska Wikipedia,
+        u.å.; Norstedts förlag, u.å.).
+      </p>
+      <p class="source-note">
+        Källkritisk not: årtalet för licentiatexamen anges olika – svenska Wikipedia uppger 1931,
+        medan engelska Wikipedia anger 1930 (Svenska Wikipedia, u.å.; English Wikipedia, u.å.).
       </p>
     </section>
 
-    <!-- Sektion: Författarskap -->
     <section id="forfattarskap" class="card">
       <h2>Författarskap</h2>
-      <p class="placeholder">
-        [FAKTA VERIFIERAS I STEG 2 – KÄLLA: ...] Genombrott, viktigaste verk (bl.a.
-        romanen <em>Röde Orm</em>), essäistik och poesi.
+      <p>
+        Bengtsson inledde sin bana som <strong>poet</strong> med diktsamlingen <em>Tärningkast</em>
+        (1923), som fick ett gott mottagande, följd av <em>Legenden om Babel</em> (1925). Reaktionen
+        mot modernismen märks i att han återupplivade äldre versformer (Svenska Wikipedia, u.å.;
+        English Wikipedia, u.å.).
       </p>
-      <ul class="placeholder-list">
-        <li>[VERK 1 – titel och årtal verifieras i steg 2]</li>
-        <li>[VERK 2 – titel och årtal verifieras i steg 2]</li>
-        <li>[VERK 3 – titel och årtal verifieras i steg 2]</li>
+      <p>
+        Han övergick sedan till <strong>essän</strong> och blev en av Sveriges främsta essäister –
+        av somliga betraktad som den som introducerade den informella essän i svensk litteratur.
+        Genombrottssamlingen var <em>Litteratörer och militärer</em> (1929), följd av bland andra
+        <em>Silversköldarna</em> (1931), <em>De långhåriga merovingerna</em> (1933) och
+        <em>Sällskap för en eremit</em> (1938) (Svenska Wikipedia, u.å.; Norstedts förlag, u.å.).
+      </p>
+      <p>
+        Som <strong>översättare</strong> tolkade han bland annat Henry David Thoreaus <em>Walden</em>
+        (<em>Skogsliv vid Walden</em>), John Miltons <em>Det förlorade paradiset</em> och
+        <em>Rolandssången</em> (Svenska Wikipedia, u.å.).
+      </p>
+      <p>
+        Hans stora <strong>biografi</strong> <em>Karl XII:s levnad</em> utkom i två delar 1935–1936
+        och gav honom en bred läsekrets (Svenska Wikipedia, u.å.; Norstedts förlag, u.å.).
+      </p>
+      <p>
+        Den definitiva framgången kom med vikingaromanen <strong><em>Röde Orm</em></strong>, utgiven
+        i två delar: <em>Sjöfarare i västerled</em> (1941) och <em>Hemma och i österled</em> (1945).
+        Berättelsen utspelar sig kring år 1000 och förenar fornnordisk och österländsk saga med
+        uppsluppen humor. Boken blev en försäljningssuccé och är översatt till ett tjugotal språk
+        (Norstedts förlag, u.å.; Frans G. Bengtsson-sällskapet, u.å.).
+      </p>
+    </section>
+
+    <section id="andra-vk" class="card">
+      <h2>Hållning under andra världskriget</h2>
+      <p>
+        Bengtsson var en uttalad motståndare till nazismen. När ett norskt förlag under
+        ockupationen ville ge ut <em>Röde Orm</em> "efter vissa strykningar" vägrade han i ett
+        brev 1942 med de berömda orden: "Varken ett komma eller en jude skall med mitt medgivande
+        borttagas ur boken" (Svenska Wikipedia, u.å.). Idéhistorikern Svante Nordin har beskrivit
+        honom som "en av de mest konsekventa och brinnande svenska antinazisterna" (Svenska
+        Wikipedia, u.å.).
+      </p>
+    </section>
+
+    <section id="senare-liv" class="card">
+      <h2>Senare liv och död</h2>
+      <p>
+        År 1939 gifte sig Bengtsson med Gerda Fineman (1901–1980), sekreterare på Norstedts förlag,
+        och paret bosatte sig på Ribbingsfors i norra Västergötland, där han bodde resten av livet
+        (Svenska Wikipedia, u.å.; Norstedts förlag, u.å.). Paret fick en son (English Wikipedia,
+        u.å.). Efter tilltagande sjukdom avled han den 19 december 1954 i Ribbingsfors och ligger
+        begraven på Amnehärads kyrkogård i Gullspång (Svenska Wikipedia, u.å.; Frans G.
+        Bengtsson-sällskapet, u.å.).
+      </p>
+    </section>
+
+    <section id="eftermale" class="card">
+      <h2>Eftermäle och stil</h2>
+      <p>
+        Bengtssons stil kännetecknas av stor lärdom, exakt formuleringskonst och medryckande humor
+        (Frans G. Bengtsson-sällskapet, u.å.). <em>Röde Orm</em> röstades 1998 fram till 1900-talets
+        tredje mest betydelsefulla svenska bok i SVT:s program <em>Röda rummet</em> (Svenska
+        Wikipedia, u.å.). Romanen läses och nytrycks alltjämt och räknas som en av få verkligt
+        levande svenska klassiker (Norstedts förlag, u.å.).
+      </p>
+    </section>
+
+    <!-- Kul faktarutor -->
+    <section id="visste-du" class="card highlight">
+      <h2>Visste du att…</h2>
+      <ul class="fun-facts">
+        <li>
+          … den trådlösa tekniken <strong>Bluetooth</strong> har en indirekt koppling till
+          Bengtsson? Tekniken är uppkallad efter vikingakungen Harald Blåtand, och namnidén
+          väcktes av en ingenjör som läst <em>Röde Orm</em> / <em>The Long Ships</em> (English
+          Wikipedia, u.å.).
+        </li>
+        <li>
+          … Bengtsson var en hängiven <strong>schackspelare</strong> – han lär ha ägnat mer tid
+          åt schack än åt tentor i Lund (Svenska Wikipedia, u.å.). Det finns till och med en bok
+          med titeln <em>Schackspelaren som blev författare</em> (Svenska Wikipedia, u.å.).
+        </li>
+        <li>
+          … hans dikt om "Franske kungens spelemän" ofta framhålls som den enda svenska dikt där
+          ordet "transubstansierat" förekommer – ett exempel på hans lek med språket (Norstedts
+          förlag, u.å.).
+        </li>
+        <li>
+          … <em>Röde Orm</em> är översatt till åtminstone ett tjugotal språk och blev en succé
+          redan under andra världskriget (Norstedts förlag, u.å.).
+        </li>
       </ul>
     </section>
 
-    <!-- Sektion: Senare liv och död -->
-    <section id="senare-liv" class="card">
-      <h2>Senare liv och död</h2>
-      <p class="placeholder">
-        [FAKTA VERIFIERAS I STEG 2 – KÄLLA: ...] Senare år, dödsår och dödsort.
-      </p>
+    <!-- Retrieval Summary (transparens enligt agents.md) -->
+    <section id="retrieval-summary" class="card retrieval-summary">
+      <h2>Retrieval Summary</h2>
+      <ul>
+        <li><strong>Teknik:</strong> Advanced RAG – web/external retrieval + context fusion.</li>
+        <li><strong>Interna källor:</strong> inga relevanta (ingen intern data om författaren).</li>
+        <li><strong>Externa källor:</strong> 4 st (svenska och engelska Wikipedia, Norstedts förlag,
+          Frans G. Bengtsson-sällskapet/Minnesbiblioteket).</li>
+        <li><strong>Källkritik/reranking:</strong> ja – källor prioriterades efter tillförlitlighet
+          och fakta korsverifierades mot minst två källor där det var möjligt.</li>
+        <li><strong>Fusion:</strong> ja – uppgifter från flera källor vägdes samman; motstridiga
+          uppgifter (födelseplats, examensår) redovisas öppet.</li>
+        <li><strong>Länkkontroll:</strong> alla käll-länkar kontrollerades så att de fungerar och är
+          relevanta (enligt WORKFLOW.md, Regel 3).</li>
+        <li><strong>Begränsningar:</strong> exakt födelseplats och årtal för licentiatexamen skiljer
+          sig mellan källorna.</li>
+      </ul>
     </section>
 
-    <!-- Sektion: Eftermäle och stil -->
-    <section id="eftermale" class="card">
-      <h2>Eftermäle och stil</h2>
-      <p class="placeholder">
-        [FAKTA VERIFIERAS I STEG 2 – KÄLLA: ...] Stil, teman och betydelse i svensk litteratur.
-      </p>
-    </section>
-
-    <!-- Sektion: Källor (fylls i steg 2 efter web-retrieval) -->
+    <!-- Källor i Harvardformat med kontrollerade länkar -->
     <section id="kallor" class="card">
       <h2>Källor</h2>
-      <p class="placeholder">
-        Källförteckningen fylls i steg 2 när fakta har hämtats och verifierats via
-        web-retrieval. Källorna anges i <strong>Harvardformat</strong> med kontrollerade
-        länkar (varje länk ska både fungera och vara relevant). Metoden beskrivs i
-        <a href="https://github.com/kentlundgren/AI-teknik/blob/main/RAG/Frans-G-Bengtsson/RAG-metod.md" target="_blank" rel="noopener">RAG-metod.md</a>.
-      </p>
-      <ol class="placeholder-list" id="kall-lista">
-        <li>[KÄLLA 1 – läggs till i steg 2]</li>
+      <p class="section-intro">Angivna i Harvardformat. Varje länk har kontrollerats (fungerar och är relevant) 2026-07-15.</p>
+      <ol class="reference-list">
+        <li>
+          Svenska Wikipedia (u.å.). <em>Frans G. Bengtsson</em>. Wikipedia.
+          <a href="https://sv.wikipedia.org/wiki/Frans_G._Bengtsson" target="_blank" rel="noopener">https://sv.wikipedia.org/wiki/Frans_G._Bengtsson</a>
+          (hämtad 2026-07-15).
+        </li>
+        <li>
+          English Wikipedia (u.å.). <em>Frans G. Bengtsson</em>. Wikipedia.
+          <a href="https://en.wikipedia.org/wiki/Frans_G._Bengtsson" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Frans_G._Bengtsson</a>
+          (hämtad 2026-07-15).
+        </li>
+        <li>
+          Norstedts förlag (u.å.). <em>Frans G. Bengtsson</em>. Norstedts.
+          <a href="https://www.norstedts.se/116457-frans-g-bengtsson" target="_blank" rel="noopener">https://www.norstedts.se/116457-frans-g-bengtsson</a>
+          (hämtad 2026-07-15).
+        </li>
+        <li>
+          Frans G. Bengtsson-sällskapet (u.å.). <em>Om Frans G. Bengtsson</em>. Minnesbiblioteket.
+          <a href="http://gullspang.fgb-sallskapet.org/om-frans-g-bengtsson/" target="_blank" rel="noopener">http://gullspang.fgb-sallskapet.org/om-frans-g-bengtsson/</a>
+          (hämtad 2026-07-15).
+        </li>
       </ol>
     </section>
 
@@ -125,7 +311,7 @@
         <a href="https://github.com/kentlundgren/AI-teknik" target="_blank" rel="noopener">GitHub-repo</a> ·
         <a href="https://github.com/kentlundgren/AI-teknik/blob/main/RAG/Frans-G-Bengtsson/RAG-metod.md" target="_blank" rel="noopener">Så byggs sidan (RAG-metod)</a>
       </p>
-      <p>&copy; <span id="year"></span> Kent Lundgren · Sidan är under uppbyggnad (steg 1 av 2).</p>
+      <p>&copy; <span id="year"></span> Kent Lundgren · Byggd med RAG (steg 2 av 2 klart).</p>
     </div>
   </footer>
 

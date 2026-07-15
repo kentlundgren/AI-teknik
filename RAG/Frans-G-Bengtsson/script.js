@@ -2,16 +2,15 @@
   script.js - Frans G. Bengtsson
   Enkel, kommenterad interaktivitet för biografisidan.
 
-  Funktioner:
-  1. Mjuk (smooth) scrollning när man klickar i innehållsförteckningen.
-  2. Räknar och visar antal kvarvarande platshållare (fakta som ännu inte verifierats)
-     - ett litet pedagogiskt kvitto på att sidan är i steg 1.
-  3. Sätter aktuellt årtal i sidfoten.
+  Här skedde en uppdatering (steg 1 -> steg 2):
+  - Den tidigare platshållarräknaren är borttagen eftersom platshållarna nu är
+    ersatta med verifierade fakta.
+  - Kvar finns mjuk scrollning och dynamiskt årtal, samt en ny funktion som
+    markerar vilken sektion man befinner sig i (aktiv länk i innehållsförteckningen).
 
   Ingen ES2023-funktionalitet används - bara brett stödd JavaScript.
 */
 
-// Kör när DOM:en är färdigladdad
 document.addEventListener("DOMContentLoaded", function () {
 
   // ---- 1. Mjuk scrollning från innehållsförteckningen ----
@@ -27,24 +26,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ---- 2. Räkna kvarvarande platshållare ----
-  // Vi letar efter texten "FAKTA VERIFIERAS" i platshållar-elementen.
-  const placeholders = document.querySelectorAll(".placeholder, .placeholder-list li");
-  let kvarAttVerifiera = 0;
-  placeholders.forEach(function (el) {
-    if (el.textContent.indexOf("VERIFIERAS") !== -1 ||
-        el.textContent.indexOf("KÄLLA") !== -1 ||
-        el.textContent.indexOf("steg 2") !== -1) {
-      kvarAttVerifiera++;
-    }
-  });
+  // ---- 2. Markera aktiv sektion i innehållsförteckningen ----
+  // Vi observerar när en sektion syns i vyn och markerar motsvarande TOC-länk.
+  const sections = document.querySelectorAll("main section[id]");
 
-  // Uppdaterar statusbannern med antalet, om den finns
-  const banner = document.querySelector(".status-banner");
-  if (banner && kvarAttVerifiera > 0) {
-    const info = document.createElement("span");
-    info.textContent = " (" + kvarAttVerifiera + " platshållare kvar att verifiera)";
-    banner.appendChild(info);
+  // IntersectionObserver är brett stödd och kräver ingen ES2023.
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        const id = entry.target.getAttribute("id");
+        const tocLink = document.querySelector('.toc a[href="#' + id + '"]');
+        if (tocLink && entry.isIntersecting) {
+          // Ta bort tidigare markering
+          tocLinks.forEach(function (l) { l.classList.remove("active"); });
+          tocLink.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+
+    sections.forEach(function (section) {
+      observer.observe(section);
+    });
   }
 
   // ---- 3. Dynamiskt årtal i sidfoten ----
