@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--
+  index.html - Frans G. Bengtsson
+  STEG 1 (konceptuellt): Detta är ett SKELETT. Sektionerna finns på plats men
+  faktainnehållet är platshållare i formen [FAKTA VERIFIERAS I STEG 2 - KÄLLA: ...].
+  I steg 2 hämtas och verifieras fakta via verklig web-retrieval (se RAG-metod.md),
+  varefter platshållarna ersätts med korrekt, källbelagd text.
+
+  Koden är uppdelad enligt projektets regler:
+    - index.html  (struktur/innehåll)
+    - styles.css  (utseende)
+    - script.js   (interaktivitet)
+-->
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Responsiv design för mobil och desktop -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frans G. Bengtsson – liv och författarskap</title>
+  <meta name="description" content="En sida om Frans G. Bengtssons liv och författarskap. Under uppbyggnad – fakta verifieras med RAG-tekniker i steg 2." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Tydlig statusbanner: sidan är ett skelett i steg 1 -->
+  <div class="status-banner" role="status">
+    Steg 1 (skelett): faktainnehållet är platshållare och verifieras i steg 2 via
+    RAG-tekniker. Se <a href="https://github.com/kentlundgren/AI-teknik/blob/main/RAG/Frans-G-Bengtsson/RAG-metod.md" target="_blank" rel="noopener">RAG-metod.md</a>.
+  </div>
+
+  <!-- Sidhuvud -->
+  <header class="site-header">
+    <div class="container">
+      <p class="eyebrow">Svensk författare · biografisida under uppbyggnad</p>
+      <h1>Frans G. Bengtsson</h1>
+      <p class="lead">
+        [FAKTA VERIFIERAS I STEG 2 – KÄLLA: ...] En kort, levande ingress om vem
+        Frans G. Bengtsson var och varför han är läsvärd.
+      </p>
+    </div>
+  </header>
+
+  <!-- Innehållsförteckning för snabb navigering -->
+  <nav class="toc container" aria-label="Innehåll">
+    <ul>
+      <li><a href="#uppvaxt">Tidig levnad</a></li>
+      <li><a href="#utbildning">Utbildning</a></li>
+      <li><a href="#forfattarskap">Författarskap</a></li>
+      <li><a href="#senare-liv">Senare liv</a></li>
+      <li><a href="#eftermale">Eftermäle</a></li>
+      <li><a href="#kallor">Källor</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+
+    <!-- Sektion: Tidig levnad och uppväxt -->
+    <section id="uppvaxt" class="card">
+      <h2>Tidig levnad och uppväxt</h2>
+      <p class="placeholder">
+        [FAKTA VERIFIERAS I STEG 2 – KÄLLA: ...] Födelseår, födelseort, familjebakgrund
+        och uppväxt.
+      </p>
+    </section>
+
+    <!-- Sektion: Utbildning -->
+    <section id="utbildning" class="card">
+      <h2>Utbildning</h2>
+      <p class="placeholder">
+        [FAKTA VERIFIERAS I STEG 2 – KÄLLA: ...] Studier och akademisk bakgrund.
+      </p>
+    </section>
+
+    <!-- Sektion: Författarskap -->
+    <section id="forfattarskap" class="card">
+      <h2>Författarskap</h2>
+      <p class="placeholder">
+        [FAKTA VERIFIERAS I STEG 2 – KÄLLA: ...] Genombrott, viktigaste verk (bl.a.
+        romanen <em>Röde Orm</em>), essäistik och poesi.
+      </p>
+      <ul class="placeholder-list">
+        <li>[VERK 1 – titel och årtal verifieras i steg 2]</li>
+        <li>[VERK 2 – titel och årtal verifieras i steg 2]</li>
+        <li>[VERK 3 – titel och årtal verifieras i steg 2]</li>
+      </ul>
+    </section>
+
+    <!-- Sektion: Senare liv och död -->
+    <section id="senare-liv" class="card">
+      <h2>Senare liv och död</h2>
+      <p class="placeholder">
+        [FAKTA VERIFIERAS I STEG 2 – KÄLLA: ...] Senare år, dödsår och dödsort.
+      </p>
+    </section>
+
+    <!-- Sektion: Eftermäle och stil -->
+    <section id="eftermale" class="card">
+      <h2>Eftermäle och stil</h2>
+      <p class="placeholder">
+        [FAKTA VERIFIERAS I STEG 2 – KÄLLA: ...] Stil, teman och betydelse i svensk litteratur.
+      </p>
+    </section>
+
+    <!-- Sektion: Källor (fylls i steg 2 efter web-retrieval) -->
+    <section id="kallor" class="card">
+      <h2>Källor</h2>
+      <p class="placeholder">
+        Källförteckningen fylls i steg 2 när fakta har hämtats och verifierats via
+        web-retrieval. Källorna anges i <strong>Harvardformat</strong> med kontrollerade
+        länkar (varje länk ska både fungera och vara relevant). Metoden beskrivs i
+        <a href="https://github.com/kentlundgren/AI-teknik/blob/main/RAG/Frans-G-Bengtsson/RAG-metod.md" target="_blank" rel="noopener">RAG-metod.md</a>.
+      </p>
+      <ol class="placeholder-list" id="kall-lista">
+        <li>[KÄLLA 1 – läggs till i steg 2]</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <!-- Sidfot -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        Del av projektet <strong>AI-teknik</strong> ·
+        <a href="https://github.com/kentlundgren/AI-teknik" target="_blank" rel="noopener">GitHub-repo</a> ·
+        <a href="https://github.com/kentlundgren/AI-teknik/blob/main/RAG/Frans-G-Bengtsson/RAG-metod.md" target="_blank" rel="noopener">Så byggs sidan (RAG-metod)</a>
+      </p>
+      <p>&copy; <span id="year"></span> Kent Lundgren · Sidan är under uppbyggnad (steg 1 av 2).</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

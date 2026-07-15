@@ -47,6 +47,26 @@ Det innebär:
 - Gissa inte kring viktiga val – stäm av med Kent.
 - Först när det är tydligt vad som ska göras påbörjas kodningen.
 
+## Regel 3: Källor och referenser i Harvardformat (med kontrollerade länkar)
+
+När agenten anger källor eller referenser gäller följande generellt i detta projekt:
+
+- **Harvardstil (Harvardformat).** Använd Harvard-referenssystemet:
+  - **In-text-hänvisning:** (Författare, år), t.ex. (Bengtsson, 1941) eller
+    (Nationalencyklopedin, 2024).
+  - **Referenslista:** fullständig referens i slutet, t.ex.
+    *Efternamn, Förnamnsinitial. (år). Titel. Utgivare/Webbplats. URL (hämtad ÅÅÅÅ-MM-DD).*
+- **Länkar till källorna.** Varje referens ska ha en **länk (URL)** till källan när en
+  sådan finns.
+- **Kontrollera varje länk.** Agenten ska kontrollera att varje länk
+  1. **fungerar** (svarar, inte död/404), och
+  2. är **relevant** (leder faktiskt till den information som påstås).
+  Länkar som inte kan verifieras markeras tydligt som ej verifierade eller utelämnas.
+
+*Not:* Länkkontrollen är särskilt aktuell när verkliga källor läggs in (t.ex. steg 2 i
+Frans G. Bengtsson-exemplet, där web-retrieval utförs). I steg med enbart platshållare
+finns inga länkar att kontrollera ännu.
+
 ## Påminnelse: PowerShell-miljö
 
 Kent använder oftast **PowerShell** på Windows. Tänk på:

@@ -1,0 +1,182 @@
+/*
+  styles.css - Frans G. Bengtsson
+  Utseende för biografisidan. Responsiv, semantisk och läsbar.
+  Platshållartext (fakta som ska verifieras i steg 2) markeras tydligt visuellt.
+*/
+
+/* ---- Färgtema via CSS-variabler ---- */
+:root {
+  --bg: #1a1410;            /* varm, mörk bakgrund (passar historiskt tema) */
+  --surface: #2a211a;
+  --surface-2: #3a2e24;
+  --text: #f2e9dc;
+  --muted: #c4b5a3;
+  --accent: #d9a441;        /* guld/ockra */
+  --accent-strong: #b9862a;
+  --border: #4a3b2d;
+  --warn-bg: #4a3410;
+  --warn-border: #d9a441;
+  --radius: 12px;
+  --maxw: 900px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif; /* serif passar litterärt ämne */
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---- Statusbanner (markerar att sidan är ett skelett) ---- */
+.status-banner {
+  background: var(--warn-bg);
+  border-bottom: 2px solid var(--warn-border);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 0.6rem 1rem;
+}
+
+.status-banner a {
+  color: var(--accent);
+}
+
+/* ---- Sidhuvud ---- */
+.site-header {
+  background: linear-gradient(160deg, #2a211a 0%, #1a1410 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 0 2.5rem;
+}
+
+.eyebrow {
+  font-family: system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.site-header h1 {
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.lead {
+  color: var(--muted);
+  max-width: 60ch;
+  font-size: 1.1rem;
+}
+
+/* ---- Innehållsförteckning ---- */
+.toc {
+  margin-top: 1.5rem;
+}
+
+.toc ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.toc a {
+  font-family: system-ui, sans-serif;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.3rem 0.8rem;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.toc a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ---- Sektioner/kort ---- */
+main section {
+  margin: 1.75rem 0;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+}
+
+h2 {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  margin-bottom: 0.9rem;
+  color: var(--accent);
+}
+
+/*
+  Platshållare: fakta som ska verifieras i steg 2.
+  Tydligt markerade så man direkt ser att texten inte är verifierad ännu.
+*/
+.placeholder {
+  color: var(--muted);
+  font-style: italic;
+  background: rgba(217, 164, 65, 0.08);
+  border-left: 3px solid var(--accent);
+  padding: 0.6rem 0.9rem;
+  border-radius: 4px;
+}
+
+.placeholder-list {
+  margin: 0.75rem 0 0 1.25rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.placeholder-list li {
+  margin-bottom: 0.35rem;
+}
+
+/* ---- Sidfot ---- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  padding: 2rem 0;
+  color: var(--muted);
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  color: var(--accent);
+}
+
+/* ---- Responsivt ---- */
+@media (max-width: 480px) {
+  .site-header {
+    padding: 2rem 0 1.75rem;
+  }
+  .card {
+    padding: 1.15rem 1.25rem;
+  }
+}
