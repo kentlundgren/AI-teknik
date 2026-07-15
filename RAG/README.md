@@ -45,6 +45,35 @@ Innehåller väldokumenterade, portabla skills:
 
 ---
 
+## Praktiskt exempel: Frans G. Bengtsson-projektet
+
+För att visa RAG **både teoretiskt och praktiskt** bygger vi ett skarpt exempel: en sida om
+författaren **Frans G. Bengtssons** liv. Poängen är att demonstrera hur man använder **"vanlig"
+(Classic) RAG** och **Advanced RAG** för att skapa en **bättre, mer faktakorrekt** sida än vad
+man får om man bara låter en språkmodell skriva ur minnet.
+
+Exemplet ligger i mappen [`Frans-G-Bengtsson/`](./Frans-G-Bengtsson/) och görs i **två steg**:
+
+1. **Teori (steg 1 – klart):** Filen [`RAG-metod.md`](./Frans-G-Bengtsson/RAG-metod.md) beskriver
+   "bakom kulisserna" hur beslutslogiken i `agents.md` och verktygen i `skills.md` tillämpas för
+   att säkra faktakorrekthet – vilken retrieval-nivå som väljs och varför, källkritik som
+   reranking, samt en mall för Retrieval Summary. Själva sidan finns som ett skelett med tydliga
+   platshållare.
+2. **Praktik (steg 2 – kommande):** Verklig web-retrieval utförs, fakta verifieras och fylls i,
+   och källor anges i Harvardformat med kontrollerade länkar.
+
+> **Live-sida:** https://kentlundgren.github.io/AI-teknik/RAG/Frans-G-Bengtsson/
+
+Så här hänger teori och praktik ihop i exemplet:
+
+| Steg | Vad | Fil |
+|------|-----|-----|
+| 1 | Teori/metod – hur RAG *ska* användas | [`RAG-metod.md`](./Frans-G-Bengtsson/RAG-metod.md) |
+| 1 | Sidans skelett med platshållare | [`index.html`](./Frans-G-Bengtsson/index.html) |
+| 2 | Praktik – verklig retrieval + faktaifyllnad | (kommande) |
+
+---
+
 ## Skillnaden mellan Classic RAG och Advanced RAG
 
 ### Classic RAG – den enkla pipelinen
@@ -116,6 +145,7 @@ Filerna är medvetet skrivna generellt och portabelt. Några användningssätt:
 
 Detta är ett levande projekt. Planerade tillägg framöver:
 
+- [ ] Frans G. Bengtsson-exemplet: **steg 2** (verklig web-retrieval, faktaifyllnad och Harvard-källor med kontrollerade länkar)
 - [ ] Konkreta kodexempel (t.ex. LangChain/LlamaIndex) för Classic och Advanced RAG
 - [ ] Exempel på chunking-strategier och embedding-val
 - [ ] Praktiska exempel på hybrid retrieval och reranking

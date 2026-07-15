@@ -88,6 +88,22 @@ h2 {
   padding: 1.5rem;
 }
 
+/* Framhävt kort (t.ex. Frans G. Bengtsson-exemplet) */
+.card.highlight {
+  border-color: var(--accent);
+  border-left-width: 4px;
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.06), var(--surface));
+}
+
+.card.highlight ul {
+  margin: 0.5rem 0 1rem 1.25rem;
+  color: var(--muted);
+}
+
+.card.highlight ul li {
+  margin-bottom: 0.35rem;
+}
+
 /* Rutnät för filkorten – responsivt via auto-fit */
 .file-grid {
   display: grid;
