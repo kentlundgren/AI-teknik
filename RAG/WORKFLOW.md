@@ -67,6 +67,21 @@ När agenten anger källor eller referenser gäller följande generellt i detta 
 Frans G. Bengtsson-exemplet, där web-retrieval utförs). I steg med enbart platshållare
 finns inga länkar att kontrollera ännu.
 
+## Regel 4: GitHub-länk på alla live-sidor (nere till vänster)
+
+Varje ny **live-sida** (HTML-sida som publiceras via GitHub Pages) i detta projekt ska
+ha en **länk till GitHub** placerad **längst ner till vänster** på sidan.
+
+- Länken visas som en liten, fast (fixed) "badge" i nedre vänstra hörnet, t.ex. med
+  texten `{ } GitHub`.
+- Länken pekar på sidans **källkod på GitHub** (den mapp/fil sidan bygger på), eller
+  på repots startsida om inget mer specifikt passar.
+- Länken ska öppnas i ny flik (`target="_blank" rel="noopener"`).
+- Denna badge läggs in **automatiskt när nya HTML-sidor skapas** i projektet.
+
+*Inspiration:* samma mönster används på t.ex.
+https://kentlundgren.github.io/foreningar/BjerredsSaltsjobad/medlemmar/
+
 ## Påminnelse: PowerShell-miljö
 
 Kent använder oftast **PowerShell** på Windows. Tänk på:
