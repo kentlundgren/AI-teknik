@@ -13,7 +13,9 @@ Projektet är under uppbyggnad och kommer att växa över tid med fler tekniker,
 - **[RAG – Retrieval-Augmented Generation](./RAG/)**
   Classic RAG och Advanced RAG. Här finns styrdokument och skills för en transparent, pedagogisk och kontrollerbar RAG-agent.
   Se [`RAG/README.md`](./RAG/README.md) för en utförlig beskrivning.
-  **Live-sida (GitHub Pages):** https://kentlundgren.github.io/AI-teknik/RAG/
+  **Live-sidor (GitHub Pages):**
+  - RAG-översikt: https://kentlundgren.github.io/AI-teknik/RAG/
+  - Frans G. Bengtsson-exemplet: https://kentlundgren.github.io/AI-teknik/RAG/Frans-G-Bengtsson/
 
 *Fler AI-tekniker tillkommer efter hand.*
 

@@ -165,10 +165,12 @@ Följande uppgifter hämtades och verifierades i steg 2 mot minst en högt ranka
 - [`../agents.md`](../agents.md) – **varför/när**: beslutslogiken som säger att vi ska använda web + fusion.
 - [`../skills.md`](../skills.md) – **hur/med vad**: de konkreta verktygen (web_external_retrieval, hybrid_retrieval_and_fusion m.fl.).
 - Denna fil (`RAG-metod.md`) – **tillämpningen**: hur ovanstående används på just Frans G. Bengtsson.
-- [`index.html`](./index.html) – **resultatet**: själva sidan (i steg 1 ett skelett med platshållare).
+- [`index.html`](./index.html) – **resultatet**: själva sidan (källkoden på GitHub).
+  Live-sida (GitHub Pages): <https://kentlundgren.github.io/AI-teknik/RAG/Frans-G-Bengtsson/>
 
 ---
 
 *Steg 1 (teori) och steg 2 (praktik) är klara. Sidan är byggd med Advanced RAG: web-retrieval,
 källkritik, fusion och källbelagd text med Retrieval Summary. Jämför gärna Classic- och
-Advanced-versionen på [`index.html`](./index.html).*
+Advanced-versionen på [`index.html`](./index.html) (källkod) eller direkt på
+**live-sidan**: <https://kentlundgren.github.io/AI-teknik/RAG/Frans-G-Bengtsson/>.*
