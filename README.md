@@ -17,6 +17,11 @@ Projektet är under uppbyggnad och kommer att växa över tid med fler tekniker,
   - RAG-översikt: https://kentlundgren.github.io/AI-teknik/RAG/
   - Frans G. Bengtsson-exemplet: https://kentlundgren.github.io/AI-teknik/RAG/Frans-G-Bengtsson/
 
+- **[Skills – hur AI-skills fungerar](./Skills/)**
+  En pedagogisk lärosida om själva skill-systemet: var skills bor på olika nivåer (globalt vs. projekt) och hur de nås, samt vad en `SKILL.md` är och hur man skapar en.
+  **Live-sida (GitHub Pages):**
+  - Skills-översikt: https://kentlundgren.github.io/AI-teknik/Skills/
+
 *Fler AI-tekniker tillkommer efter hand.*
 
 ## Struktur
@@ -24,14 +29,18 @@ Projektet är under uppbyggnad och kommer att växa över tid med fler tekniker,
 ```
 AI-teknik/
 ├── README.md          # Denna fil – översikt över hela projektet
-└── RAG/               # Retrieval-Augmented Generation
-    ├── README.md      # Utförlig beskrivning av RAG-delen
-    ├── agents.md      # Styrdokument: RAG-agentens beteende och beslutslogik
-    ├── skills.md      # Konkreta skills som agenten kan använda
-    ├── WORKFLOW.md    # Arbetsregler för AI-agenten (Git, frågor m.m.)
-    ├── index.html     # Live-sida (GitHub Pages) som förklarar RAG-mappen
+├── RAG/               # Retrieval-Augmented Generation
+│   ├── README.md      # Utförlig beskrivning av RAG-delen
+│   ├── agents.md      # Styrdokument: RAG-agentens beteende och beslutslogik
+│   ├── skills.md      # Konkreta skills som agenten kan använda
+│   ├── WORKFLOW.md    # Arbetsregler för AI-agenten (Git, frågor m.m.)
+│   ├── index.html     # Live-sida (GitHub Pages) som förklarar RAG-mappen
+│   ├── styles.css     # Utseende för live-sidan
+│   └── script.js      # Interaktivitet för live-sidan
+└── Skills/            # Lärosida om hur AI-skills fungerar
+    ├── index.html     # Live-sida: Del A (var skills bor) + Del B (skapa en skill)
     ├── styles.css     # Utseende för live-sidan
-    └── script.js      # Interaktivitet för live-sidan
+    └── script.js      # Interaktivitet (växlare mellan Del A och Del B)
 ```
 
 ---
