@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!--
+  index.html
+  Förklarande live-sida för RAG-mappen i projektet "AI-teknik".
+  Sidan ger en översikt av filerna i RAG-mappen samt en kort förklaring
+  av skillnaden mellan Classic RAG och Advanced RAG.
+
+  Enligt projektets regler är koden uppdelad i separata filer:
+    - index.html  (struktur/innehåll)
+    - styles.css  (utseende)
+    - script.js   (interaktivitet)
+-->
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Responsiv design: sidan ska fungera på både mobil och desktop -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAG – Classic &amp; Advanced Retrieval-Augmented Generation</title>
+  <meta name="description" content="Översikt av RAG-mappen: agents.md, skills.md och README, samt skillnaden mellan Classic RAG och Advanced RAG." />
+  <!-- Extern länkning till CSS enligt projektets regler -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Sidhuvud med rubrik och kort ingress -->
+  <header class="site-header">
+    <div class="container">
+      <p class="eyebrow">Projekt: AI-teknik</p>
+      <h1>RAG – Retrieval-Augmented Generation</h1>
+      <p class="lead">
+        En pedagogisk och kontrollerbar genomgång av <strong>Classic RAG</strong> och
+        <strong>Advanced RAG</strong>. Denna sida förklarar vad som finns i
+        <code>RAG/</code>-mappen och hur delarna hänger ihop.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Avsnitt 1: Vad är detta? -->
+    <section aria-labelledby="om-rubrik" class="card">
+      <h2 id="om-rubrik">Vad handlar RAG-mappen om?</h2>
+      <p>
+        RAG (Retrieval-Augmented Generation) innebär att man <em>hämtar</em> relevant
+        information och låter en språkmodell <em>generera</em> svar baserat på den
+        hämtade informationen. Det ger mer korrekta, källförankrade svar och minskar
+        risken för hallucinationer.
+      </p>
+      <p>
+        Målet med den här delen av projektet är att kunna <strong>förstå och styra</strong>
+        både klassisk och avancerad RAG – teoretiskt och praktiskt. Dokumenten är skrivna
+        så att de är portabla mellan olika AI-verktyg (Claude, Cursor, LangChain m.fl.).
+      </p>
+    </section>
+
+    <!-- Avsnitt 2: Filerna i RAG-mappen -->
+    <section aria-labelledby="filer-rubrik">
+      <h2 id="filer-rubrik">Filer i RAG-mappen</h2>
+      <div class="file-grid">
+
+        <article class="card file-card">
+          <h3>agents.md</h3>
+          <p class="tag">Styrdokument</p>
+          <p>
+            Definierar RAG-agentens beteende och beslutslogik: när Classic vs Advanced RAG
+            ska användas, prioritering av intern data före web, samt krav på en tydlig
+            <em>Retrieval Summary</em> i varje svar.
+          </p>
+          <!-- Länk till GitHubs vy så att markdown renderas snyggt -->
+          <a class="btn" href="https://github.com/kentlundgren/AI-teknik/blob/main/RAG/agents.md"
+             target="_blank" rel="noopener">Öppna agents.md</a>
+        </article>
+
+        <article class="card file-card">
+          <h3>skills.md</h3>
+          <p class="tag">Verktyg / skills</p>
+          <p>
+            Konkreta, väldokumenterade skills som agenten kan använda:
+            <code>internal_project_retrieval</code>, <code>web_external_retrieval</code>,
+            <code>hybrid_retrieval_and_fusion</code> och <code>explain_rag_technique</code>.
+          </p>
+          <a class="btn" href="https://github.com/kentlundgren/AI-teknik/blob/main/RAG/skills.md"
+             target="_blank" rel="noopener">Öppna skills.md</a>
+        </article>
+
+        <article class="card file-card">
+          <h3>README.md</h3>
+          <p class="tag">Dokumentation</p>
+          <p>
+            Fyllig och pedagogisk beskrivning av RAG-delen: syfte, filernas roller,
+            Classic vs Advanced RAG, hur filerna används samt en roadmap.
+          </p>
+          <a class="btn" href="https://github.com/kentlundgren/AI-teknik/blob/main/RAG/README.md"
+             target="_blank" rel="noopener">Öppna README.md</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Avsnitt 3: Classic vs Advanced RAG -->
+    <section aria-labelledby="jmf-rubrik">
+      <h2 id="jmf-rubrik">Classic RAG vs Advanced RAG</h2>
+
+      <!--
+        Knappar som styr vilken förklaring som visas.
+        Interaktiviteten hanteras i script.js (växlar mellan de två korten).
+      -->
+      <div class="toggle" role="tablist" aria-label="Välj RAG-typ">
+        <button class="toggle-btn is-active" id="btn-classic"
+                role="tab" aria-selected="true" aria-controls="panel-classic">
+          Classic RAG
+        </button>
+        <button class="toggle-btn" id="btn-advanced"
+                role="tab" aria-selected="false" aria-controls="panel-advanced">
+          Advanced RAG
+        </button>
+      </div>
+
+      <!-- Panel: Classic RAG -->
+      <div class="card panel" id="panel-classic" role="tabpanel" aria-labelledby="btn-classic">
+        <h3>Classic RAG – den enkla pipelinen</h3>
+        <pre class="pipeline">Fråga → Query Embedding → Similarity Search → Top-K → LLM → Svar</pre>
+        <p>
+          Frågan görs om till en vektor (embedding), man söker de mest lika textbitarna
+          i en vektordatabas och skickar de bästa träffarna till modellen.
+        </p>
+        <p><strong>Använd när:</strong> frågan är enkel, datamängden liten, eller som baseline.</p>
+        <p class="analogy">
+          Analogi: som att slå upp i en bok med bara innehållsförteckningen till hjälp.
+        </p>
+      </div>
+
+      <!-- Panel: Advanced RAG (dold från början, visas via script.js) -->
+      <div class="card panel is-hidden" id="panel-advanced" role="tabpanel" aria-labelledby="btn-advanced">
+        <h3>Advanced RAG – den utökade pipelinen</h3>
+        <pre class="pipeline">Fråga → Hybrid Retrieval (Dense + Sparse) → Metadata Filtering
+      → Reranking → Relevance Filtering → Context Fusion → LLM → Svar</pre>
+        <ul>
+          <li><strong>Hybrid Retrieval:</strong> kombinerar semantisk (dense) och nyckelord (sparse/BM25).</li>
+          <li><strong>Metadata Filtering:</strong> filtrerar på källa, datum, version m.m.</li>
+          <li><strong>Reranking:</strong> omvärderar träffarna för bättre ordning.</li>
+          <li><strong>Relevance Filtering:</strong> tar bort irrelevanta chunks.</li>
+          <li><strong>Context Fusion:</strong> syntetiserar ett sammanhängande svar med källhänvisningar.</li>
+        </ul>
+        <p><strong>Använd när:</strong> hög kvalitet krävs, tekniska domäner, stora datamängder.</p>
+        <p class="analogy">
+          Analogi: som en smart assistent som söker, sorterar, filtrerar och sammanfattar åt dig.
+        </p>
+      </div>
+
+      <p class="formula">Production/Advanced RAG = Retrieval + Ranking + Filtering + Fusion</p>
+    </section>
+
+  </main>
+
+  <!-- Sidfot -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        Projekt: <strong>AI-teknik</strong> ·
+        <a href="https://github.com/kentlundgren/AI-teknik" target="_blank" rel="noopener">GitHub-repo</a>
+      </p>
+      <!-- Årtalet sätts dynamiskt i script.js -->
+      <p>&copy; <span id="year"></span> Kent Lundgren · Sidan är under uppbyggnad.</p>
+    </div>
+  </footer>
+
+  <!-- Extern länkning till JavaScript enligt projektets regler -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -13,6 +13,7 @@ Projektet är under uppbyggnad och kommer att växa över tid med fler tekniker,
 - **[RAG – Retrieval-Augmented Generation](./RAG/)**
   Classic RAG och Advanced RAG. Här finns styrdokument och skills för en transparent, pedagogisk och kontrollerbar RAG-agent.
   Se [`RAG/README.md`](./RAG/README.md) för en utförlig beskrivning.
+  **Live-sida (GitHub Pages):** https://kentlundgren.github.io/AI-teknik/RAG/
 
 *Fler AI-tekniker tillkommer efter hand.*
 
@@ -24,7 +25,11 @@ AI-teknik/
 └── RAG/               # Retrieval-Augmented Generation
     ├── README.md      # Utförlig beskrivning av RAG-delen
     ├── agents.md      # Styrdokument: RAG-agentens beteende och beslutslogik
-    └── skills.md      # Konkreta skills som agenten kan använda
+    ├── skills.md      # Konkreta skills som agenten kan använda
+    ├── WORKFLOW.md    # Arbetsregler för AI-agenten (Git, frågor m.m.)
+    ├── index.html     # Live-sida (GitHub Pages) som förklarar RAG-mappen
+    ├── styles.css     # Utseende för live-sidan
+    └── script.js      # Interaktivitet för live-sidan
 ```
 
 ---

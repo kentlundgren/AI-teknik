@@ -2,6 +2,9 @@
 
 En pedagogisk och praktisk fördjupning i **RAG (Retrieval-Augmented Generation)**. Målet är att kunna **förstå och styra** både klassisk RAG och avancerad RAG – teoretiskt *och* praktiskt – och att skapa dokument som är portabla mellan olika AI-verktyg (Claude, Cursor, LangChain, LlamaIndex, Haystack, Grok m.fl.).
 
+> **Live-sida:** En interaktiv översikt av denna mapp finns publicerad via GitHub Pages:
+> **https://kentlundgren.github.io/AI-teknik/RAG/**
+
 ---
 
 ## Vad handlar detta om?

@@ -35,6 +35,18 @@ När agenten utför detta på begäran ska den:
 2. Använda ett tydligt commit-meddelande.
 3. Redovisa resultatet efteråt (t.ex. `git status` / `git log`).
 
+## Regel 2: Fråga alltid vid minsta oklarhet – innan du kodar
+
+Agenten ska **alltid** fråga Kent om något är oklart **innan** den börjar koda eller
+gör större ändringar. Detta gäller nu och framöver.
+
+Det innebär:
+
+- Om det finns flera rimliga tolkningar av en uppgift → fråga först.
+- Om det saknas information (t.ex. var filer ska ligga, namn, struktur, URL:er) → fråga först.
+- Gissa inte kring viktiga val – stäm av med Kent.
+- Först när det är tydligt vad som ska göras påbörjas kodningen.
+
 ## Påminnelse: PowerShell-miljö
 
 Kent använder oftast **PowerShell** på Windows. Tänk på:
