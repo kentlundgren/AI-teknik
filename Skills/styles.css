@@ -1,0 +1,278 @@
+/*
+  styles.css
+  Utseende för Skills-mappens förklarande live-sida (index.html).
+  Matchar RAG-sidornas mörka, moderna tema för ett konsekvent uttryck.
+  Responsiv design med enkel, läsbar layout.
+*/
+
+/* ---- Grundinställningar och färgtema (CSS-variabler) ---- */
+:root {
+  --bg: #0f172a;            /* mörk bakgrund */
+  --surface: #1e293b;       /* kort/paneler */
+  --surface-2: #334155;     /* accentyta */
+  --text: #e2e8f0;          /* huvudtext */
+  --muted: #94a3b8;         /* dämpad text */
+  --accent: #38bdf8;        /* accentfärg (ljusblå) */
+  --accent-strong: #0ea5e9;
+  --border: #334155;
+  --radius: 12px;
+  --maxw: 960px;
+}
+
+/* Nollställning och box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Centrerad innehållsbredd */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---- Sidhuvud ---- */
+.site-header {
+  background: linear-gradient(160deg, #1e293b 0%, #0f172a 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 0 2.5rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.site-header h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.lead {
+  color: var(--muted);
+  max-width: 65ch;
+}
+
+/* ---- Sektioner och rubriker ---- */
+main section {
+  margin: 2.5rem 0;
+}
+
+/* En "part" (Del A / Del B) grupperar flera sektioner */
+.part {
+  margin-top: 1.5rem;
+}
+
+h2 {
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--surface-2);
+}
+
+/* ---- Kort ---- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+/* Framhävt kort (t.ex. introt till Del A / Del B) */
+.card.highlight {
+  border-color: var(--accent);
+  border-left-width: 4px;
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.06), var(--surface));
+}
+
+.card ul {
+  margin: 0.5rem 0 0 1.25rem;
+  color: var(--muted);
+}
+
+.card ul li {
+  margin-bottom: 0.35rem;
+}
+
+/* Rutnät för korten – responsivt via auto-fit */
+.file-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.file-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.35rem;
+}
+
+/* Liten etikett (tag) på korten */
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.file-card p {
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+/* ---- Växlare (Del A / Del B) ---- */
+.toggle {
+  display: inline-flex;
+  gap: 0.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.toggle-btn {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 600;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+/* Aktiv växlarknapp */
+.toggle-btn.is-active {
+  background: var(--accent-strong);
+  color: #04141f;
+}
+
+/* Döljer element (styrs av script.js) */
+.is-hidden {
+  display: none;
+}
+
+/* Kod-/exempelruta (för SKILL.md-anatomin och nivåer) */
+.pipeline {
+  background: #0b1220;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  white-space: pre;
+}
+
+.analogy {
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* Sammanfattande formel/insikt */
+.formula {
+  margin-top: 1.25rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px dashed rgba(56, 189, 248, 0.35);
+  border-radius: 8px;
+  padding: 0.9rem;
+}
+
+/* Numrerad steg-lista (hur man skapar en skill) */
+.steps {
+  margin: 0.5rem 0 0 1.25rem;
+  color: var(--text);
+}
+
+.steps li {
+  margin-bottom: 0.6rem;
+}
+
+/* Inline-kod */
+code {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  background: var(--surface-2);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+  word-break: break-word;
+}
+
+/* ---- Sidfot ---- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  padding: 2rem 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  color: var(--accent);
+}
+
+/* ---- GitHub-badge (fast nere till vänster på alla live-sidor) ---- */
+.github-badge {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.github-badge:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* ---- Responsivt: mindre padding på små skärmar ---- */
+@media (max-width: 480px) {
+  .site-header {
+    padding: 2rem 0 1.75rem;
+  }
+  .card {
+    padding: 1.15rem;
+  }
+}

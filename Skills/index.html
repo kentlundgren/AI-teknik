@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<!--
+  index.html
+  Förklarande live-sida för mappen "Skills" i projektet "AI-teknik".
+
+  Syfte (lärande): samla och förklara hur AI-"skills" fungerar –
+    * DEL A: var skills bor (på olika "nivåer"/mappar) och hur de nås/läses.
+    * DEL B: vad en skill egentligen är, hur en SKILL.md är uppbyggd,
+             och hur man skapar en ny.
+
+  Enligt projektets regler är koden uppdelad i separata filer:
+    - index.html  (struktur/innehåll)
+    - styles.css  (utseende)
+    - script.js   (interaktivitet)
+
+  Not: detta är en NY fil (skapad 2026-07-15) som sammanfattar det vi
+  pratade om i chatten kring var skills ligger och hur de skapas.
+-->
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Responsiv design: sidan ska fungera på både mobil och desktop -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills – hur de skapas, var de bor och hur de läses</title>
+  <meta name="description" content="En pedagogisk genomgång av AI-skills: var de ligger (nivåer/mappar), hur de nås, samt vad en SKILL.md är och hur man skapar en." />
+  <!-- Extern länkning till CSS enligt projektets regler -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Sidhuvud med rubrik och kort ingress -->
+  <header class="site-header">
+    <div class="container">
+      <p class="eyebrow">Projekt: AI-teknik · Lärande om AI-tekniker</p>
+      <h1>Skills – hur de skapas, var de bor och hur de läses</h1>
+      <p class="lead">
+        En <strong>skill</strong> är en liten, återanvändbar instruktionsmodul som en
+        AI-agent kan plocka upp när den behövs. Den här sidan förklarar två saker,
+        tydligt åtskilda: <strong>Del A</strong> – var skills bor på olika "nivåer"
+        och hur de nås, och <strong>Del B</strong> – vad en skill är och hur man skapar en.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!--
+      Växlare mellan Del A och Del B.
+      Interaktiviteten (visa/dölj) hanteras i script.js.
+      Syftet är att hålla de två delarna tydligt åtskilda, enligt önskemål.
+    -->
+    <div class="toggle" role="tablist" aria-label="Välj del">
+      <button class="toggle-btn is-active" id="btn-a"
+              role="tab" aria-selected="true" aria-controls="part-a">
+        Del A · Var skills bor
+      </button>
+      <button class="toggle-btn" id="btn-b"
+              role="tab" aria-selected="false" aria-controls="part-b">
+        Del B · Skapa en skill
+      </button>
+    </div>
+
+    <!-- =====================================================================
+         DEL A – VAR SKILLS BOR (NIVÅER) OCH HUR DE NÅS
+         ===================================================================== -->
+    <section id="part-a" class="part" role="tabpanel" aria-labelledby="btn-a">
+
+      <section aria-labelledby="a-intro-rubrik" class="card highlight">
+        <h2 id="a-intro-rubrik">Del A · Var skills bor och hur de nås</h2>
+        <p>
+          Skills ligger inte på ett enda ställe. De finns i <strong>flera mappar
+          samtidigt</strong>, och ett verktyg som Cursor läser från fler än en av dem.
+          Nyckelinsikten: <strong><code>SKILL.md</code>-formatet är gemensamt</strong>,
+          så samma skill kan läsas av olika verktyg (Cursor, Claude Code, Cowork).
+        </p>
+      </section>
+
+      <!-- De fyra platserna på disken -->
+      <section aria-labelledby="a-platser-rubrik">
+        <h2 id="a-platser-rubrik">De fyra platserna (på Windows, under <code>C:\Users\&lt;du&gt;\</code>)</h2>
+        <div class="file-grid">
+
+          <article class="card file-card">
+            <h3>1. <code>.cursor\skills-cursor\</code></h3>
+            <p class="tag">Inbyggt i Cursor</p>
+            <p>
+              Följer med Cursor-installationen (t.ex. <code>canvas</code>,
+              <code>create-rule</code>, <code>sdk</code>, <code>automate</code>). Du har
+              inte skapat dem och de uppdateras när Cursor uppdateras.
+              <strong>Rör dem inte.</strong>
+            </p>
+          </article>
+
+          <article class="card file-card">
+            <h3>2. <code>.cursor\skills\</code></h3>
+            <p class="tag">Dina egna (Cursor)</p>
+            <p>
+              Den "rätta" hemvisten för <strong>egna</strong> skills gjorda för Cursor.
+              Här ligger t.ex. <code>bjerred-firebase-sync</code> och
+              <code>firebase-backend</code>.
+            </p>
+          </article>
+
+          <article class="card file-card">
+            <h3>3. <code>.claude\skills\</code></h3>
+            <p class="tag">Dina egna (Claude)</p>
+            <p>
+              Egna skills som ursprungligen skapats för <strong>Claude</strong>
+              (claude.ai / Claude Code / Cowork), t.ex. <code>kent-skrivstil</code>,
+              <code>kent-respons</code>, <code>skills-meta-guide</code>.
+              <strong>Cursor läser även denna mapp.</strong>
+            </p>
+          </article>
+
+          <article class="card file-card">
+            <h3>4. <code>.claude\plugins\marketplaces\…</code></h3>
+            <p class="tag">Plugin-skills</p>
+            <p>
+              En hög med skills som kommit in via Claudes officiella
+              plugin-marketplace (t.ex. <code>skill-creator</code>,
+              <code>frontend-design</code>). Inget du behöver hantera till vardags.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Varför Cursor kan läsa .claude -->
+      <section aria-labelledby="a-varfor-rubrik" class="card">
+        <h2 id="a-varfor-rubrik">Varför kan Cursor se och ändra <code>.claude</code>-skills?</h2>
+        <p>
+          Det är avsiktligt – inte en bugg. Eftersom <code>SKILL.md</code>-formatet är
+          gemensamt (samma struktur överallt) läser Cursor <strong>både</strong> sina egna
+          mappar (<code>.cursor\…</code>) <strong>och</strong> Claudes mappar
+          (<code>.claude\skills\</code> samt plugin-marketplace). Så oavsett var en skill
+          ligger dyker den upp – och kan redigeras – från Cursor.
+        </p>
+        <p class="formula">Ett gemensamt format + flera läsare = samma skills syns överallt</p>
+      </section>
+
+      <!-- Global vs projekt -->
+      <section aria-labelledby="a-niva-rubrik">
+        <h2 id="a-niva-rubrik">Två nivåer: global vs. projekt</h2>
+        <div class="file-grid">
+          <article class="card file-card">
+            <h3>Global nivå</h3>
+            <p class="tag">Gäller alla projekt</p>
+            <p>
+              Allt som ligger i din användarmapp <code>C:\Users\&lt;du&gt;\.cursor\…</code>
+              eller <code>…\.claude\…</code> gäller i <em>alla</em> dina projekt.
+            </p>
+          </article>
+          <article class="card file-card">
+            <h3>Projektnivå</h3>
+            <p class="tag">Gäller bara ett projekt</p>
+            <p>
+              En <code>.cursor\skills\</code>-mapp <em>inne i själva projektet</em>
+              (t.ex. i <code>AI-teknik</code>) gäller bara där. Bra för
+              projektspecifika verktyg.
+            </p>
+          </article>
+        </div>
+      </section>
+
+    </section>
+
+    <!-- =====================================================================
+         DEL B – VAD EN SKILL ÄR OCH HUR MAN SKAPAR EN
+         ===================================================================== -->
+    <section id="part-b" class="part is-hidden" role="tabpanel" aria-labelledby="btn-b">
+
+      <section aria-labelledby="b-intro-rubrik" class="card highlight">
+        <h2 id="b-intro-rubrik">Del B · Vad en skill är och hur man skapar en</h2>
+        <p>
+          En skill är en mapp med (minst) en fil: <code>SKILL.md</code>. Den innehåller
+          <strong>instruktioner</strong> som agenten laddar <em>vid behov</em> – inte hela
+          tiden. Det kallas <strong>progressiv laddning</strong>: agenten ser först bara
+          en kort beskrivning och laddar hela innehållet först när skillen är relevant.
+        </p>
+      </section>
+
+      <!-- SKILL.md-anatomi -->
+      <section aria-labelledby="b-anatomi-rubrik">
+        <h2 id="b-anatomi-rubrik">Anatomin i en <code>SKILL.md</code></h2>
+        <p>
+          Filen har två delar: ett <strong>frontmatter</strong> (metadata mellan
+          <code>---</code>) och en <strong>brödtext</strong> (själva instruktionerna i markdown).
+        </p>
+        <pre class="pipeline">---
+name: min-skill                      # kort, unikt namn (mapp-vänligt)
+description: Vad skillen gör OCH när  # detta är det viktigaste fältet
+             den ska användas – med
+             tydliga triggerfraser.
+---
+
+# Min skill
+
+Här skriver du instruktionerna: steg, regler, exempel,
+eventuella länkar till andra filer i skill-mappen.</pre>
+        <ul>
+          <li><strong>name:</strong> kort och unikt – motsvarar oftast mappnamnet.</li>
+          <li><strong>description:</strong> avgör <em>om</em> agenten plockar upp skillen.
+            Beskriv både <em>vad</em> den gör och <em>när</em> den ska användas, gärna med
+            konkreta triggerfraser ("använd när användaren ber om …").</li>
+          <li><strong>Brödtext:</strong> laddas först när skillen bedöms relevant – här får
+            det gärna vara utförligt.</li>
+        </ul>
+      </section>
+
+      <!-- Steg för att skapa -->
+      <section aria-labelledby="b-steg-rubrik" class="card">
+        <h2 id="b-steg-rubrik">Skapa en ny skill – steg för steg</h2>
+        <ol class="steps">
+          <li>Bestäm <strong>nivå</strong>: global (alla projekt) eller projekt (bara ett).</li>
+          <li>Skapa en <strong>mapp</strong> med skillens namn i rätt skills-katalog
+            (t.ex. <code>.cursor\skills\min-skill\</code>).</li>
+          <li>Lägg en <strong><code>SKILL.md</code></strong> i mappen med frontmatter
+            (<code>name</code> + <code>description</code>) och instruktioner.</li>
+          <li>Skriv en <strong>skarp description</strong> med triggerfraser – det är den
+            som gör att skillen faktiskt används.</li>
+          <li>Lägg ev. till <strong>hjälpfiler</strong> (mallar, exempel, skript) i samma
+            mapp och länka till dem från brödtexten.</li>
+          <li><strong>Testa</strong> genom att be om något som ska trigga skillen, och
+            justera beskrivningen tills den plockas upp rätt.</li>
+        </ol>
+      </section>
+
+      <!-- Analogi -->
+      <section aria-labelledby="b-analogi-rubrik">
+        <h2 id="b-analogi-rubrik">En enkel analogi</h2>
+        <p class="analogy">
+          Tänk på skills som recept i en kokbok. <strong>description</strong> är receptets
+          titel och när man använder det ("krämig svamppasta – vardagsmiddag på 20 min"),
+          och <strong>brödtexten</strong> är själva receptet. Agenten bläddrar i titlarna
+          och slår bara upp hela receptet när det passar måltiden.
+        </p>
+      </section>
+
+    </section>
+
+  </main>
+
+  <!-- Sidfot -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        Projekt: <strong>AI-teknik</strong> ·
+        <a href="../index.html">Tillbaka till start</a> ·
+        <a href="../RAG/">RAG-översikten</a> ·
+        <a href="https://github.com/kentlundgren/AI-teknik" target="_blank" rel="noopener">GitHub-repo</a>
+      </p>
+      <!-- Årtalet sätts dynamiskt i script.js -->
+      <p>&copy; <span id="year"></span> Kent Lundgren · Lärosida om AI-skills.</p>
+    </div>
+  </footer>
+
+  <!--
+    GitHub-länk nere till vänster (projektregel: alla live-sidor ska ha denna).
+    Pekar på Skills-mappens källkod på GitHub.
+  -->
+  <a class="github-badge" href="https://github.com/kentlundgren/AI-teknik/tree/main/Skills"
+     target="_blank" rel="noopener" aria-label="Visa källkoden på GitHub">
+    &lt;/&gt; GitHub
+  </a>
+
+  <!-- Extern länkning till JavaScript enligt projektets regler -->
+  <script src="script.js"></script>
+</body>
+</html>
