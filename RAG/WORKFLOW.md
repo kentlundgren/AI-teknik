@@ -82,6 +82,27 @@ ha en **länk till GitHub** placerad **längst ner till vänster** på sidan.
 *Inspiration:* samma mönster används på t.ex.
 https://kentlundgren.github.io/foreningar/BjerredsSaltsjobad/medlemmar/
 
+## Regel 5: Skapa en README-fil när det är lämpligt
+
+När agenten skapar en **ny mapp/del** i projektet ska den skapa en **`README.md`**
+i den mappen när det är lämpligt – dvs. när mappen innehåller något som behöver
+förklaras (syfte, innehåll, hur man använder det). Syftet är att varje del ska vara
+begriplig direkt på GitHub, utan att man behöver läsa koden.
+
+Riktlinjer:
+
+- **När:** vid ny mapp/delprojekt, eller när en befintlig mapp fått så mycket
+  innehåll att en översikt behövs. Små hjälpmappar (t.ex. bara bilder) behöver
+  oftast ingen README.
+- **Innehåll (typiskt):** kort syfte, vad som finns i mappen (filerna och deras
+  roll), ev. länk till live-sida (GitHub Pages) och relaterade delar, samt hur man
+  använder/läser materialet.
+- **Ton:** pedagogisk och kortfattad, i linje med projektets övriga READMEs.
+- **Korsreferenser:** länka gärna uppåt till projektets rot-README och till
+  besläktade delar, så att helheten hänger ihop.
+- Denna README skapas **automatiskt när nya delar/mappar tillkommer**, på samma
+  sätt som GitHub-badgen i Regel 4.
+
 ## Påminnelse: PowerShell-miljö
 
 Kent använder oftast **PowerShell** på Windows. Tänk på:
