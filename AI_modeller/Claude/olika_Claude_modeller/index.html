@@ -73,17 +73,49 @@
   .role-card{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:.9rem 1rem;}
   .role-card h3{margin:0 0 .3rem; font-size:1rem;}
   .role-card p{margin:0; font-size:.88rem; color:var(--muted);}
+
+  .intro-section p{margin:0 0 .8rem;}
+  .btn-link{
+    display:inline-block; background:var(--accent); color:#fff; text-decoration:none;
+    font-size:.88rem; padding:.5rem 1rem; border-radius:8px; border:none; cursor:pointer;
+    font-family:inherit;
+  }
+  .btn-link:hover{opacity:.9;}
+
+  .modal-overlay{
+    display:none; position:fixed; inset:0; background:rgba(31,29,27,.5);
+    align-items:center; justify-content:center; padding:1.5rem; z-index:10;
+  }
+  .modal-overlay.show{display:flex;}
+  .modal{
+    background:var(--panel); border-radius:14px; max-width:640px; width:100%;
+    max-height:85vh; overflow-y:auto; padding:1.5rem 1.7rem; position:relative;
+  }
+  .modal h2{margin-top:0;}
+  .modal-close{
+    position:absolute; top:.9rem; right:1rem; background:none; border:none;
+    font-size:1.3rem; cursor:pointer; color:var(--muted); line-height:1;
+  }
+  .modal ol{padding-left:1.2rem;}
+  .modal li{margin-bottom:.8rem; font-size:.92rem;}
 </style>
 </head>
 <body>
 
 <header>
   <h1>Claude-kompassen</h1>
-  <p>Tre faser, samma eftermiddag den 29 juli 2026: <strong>Fas 1</strong> — filerna som redan <strong>styr</strong> samarbetet innan man ens börjar. <strong>Fas 2</strong> — vilken <strong>yta</strong> man väljer att jobba i, med sina egna verktyg och modeller. <strong>Fas 3</strong> — versionhantering i Cursor och Git (3a), och leverans till GitHub där filerna blir levande sidor vem som helst kan nå via en URL (3b). Längst ner: en sammanfattning av hur den här sidan själv blev till. Klicka på en ruta.</p>
   <span class="dateline">Publicerad live: 29 juli 2026</span>
 </header>
 
 <main>
+
+  <section class="intro-section">
+    <p>Det här började som en fråga jag ställde till Claude Code en eftermiddag: kunde vi planera en bloggtext, och en kodningsövning, om det jag kämpat med att förstå i Claudes ekosystem? Jag länkade till två tidigare inlägg — <a href="https://klel.wordpress.com/2026/07/27/tappade-bort-mig-i-claudes-ekosystem/" target="_blank" rel="noopener">Tappade bort mig i Claudes ekosystem</a> och <a href="https://klel.wordpress.com/2026/06/01/claude-cowork-cursor-och-claude-code-tre-verktyg-ett-arbetsflode/" target="_blank" rel="noopener">Claude Cowork, Cursor och Claude Code</a> — och bad Claude titta på tre skärmdumpar jag just tagit i den här mappen, utan att själv veta vad de skulle bli.</p>
+    <p>Det som följde var inte en enda instruktion som gav ett färdigt resultat, utan flera timmars fram och tillbaka. Vi planerade i omgångar innan något skrevs. Vi verifierade fakta mot primärkällor istället för att gissa — bland annat en motsägelse om huruvida Claude Code faktiskt läser AGENTS.md. Vi skrev ett bloggtextutkast och byggde den här sidan parallellt, testade lokalt i webbläsaren steg för steg, och jag rättade Claude flera gånger när något lät mer som en teknisk sanning än min egen upplevelse av att jobba med Cursor och Git. Sidan gick live via GitHub Pages, fick ett eget avsnitt om hur den blev till, och till och med en liten samling egna skills som styr hur Claude ska bygga vidare på den.</p>
+    <p>Jag lägger ut det här inte som ett facit över Claudes ekosystem — jag tror inte man kan tala om en absolut sanning här — utan som <strong>en bild av</strong> hur det ser ut just nu, och ett konkret exempel på hur jag själv jobbar med generativ AI för att få fram både en färdig text och ett färdigt program på webben, med fler frågor, rättningar och omtag än man kanske väntar sig. Vill du se källorna bakom allt vi pratat om finns de samlade här:</p>
+    <button class="btn-link" onclick="document.getElementById('sources-modal').classList.add('show')">Källor och referenser →</button>
+    <p style="margin-top:1.3rem;">Så är sidan uppbyggd, i tre faser: <strong>Fas 1</strong> — filerna som redan <strong>styr</strong> samarbetet innan man ens börjar. <strong>Fas 2</strong> — vilken <strong>yta</strong> man väljer att jobba i, med sina egna verktyg och modeller. <strong>Fas 3</strong> — versionhantering i Cursor och Git (3a), och leverans till GitHub där filerna blir levande sidor vem som helst kan nå via en URL (3b). Längst ner: en sammanfattning av hur den här sidan själv blev till. Klicka på en ruta nedan.</p>
+  </section>
 
   <section id="sec-steer">
     <span class="tag">Fas 1</span>
@@ -139,7 +171,22 @@
 
 </main>
 
-
+<div class="modal-overlay" id="sources-modal" onclick="if(event.target===this) this.classList.remove('show')">
+  <div class="modal">
+    <button class="modal-close" aria-label="Stäng" onclick="document.getElementById('sources-modal').classList.remove('show')">×</button>
+    <h2>Källor och referenser</h2>
+    <p>Allt vi refererar till i texten, verktyget och research bakom det — Harvardformat, länkarna verifierade innan de togs med.</p>
+    <ol>
+      <li>Lundgren, K. (2026a) <em>Claude Cowork, Cursor och Claude Code – tre verktyg, ett arbetsflöde.</em> [Blogginlägg] klel.wordpress.com, 1/6 2026. Tillgänglig: <a href="https://klel.wordpress.com/2026/06/01/claude-cowork-cursor-och-claude-code-tre-verktyg-ett-arbetsflode/" target="_blank" rel="noopener">klel.wordpress.com/2026/06/01</a></li>
+      <li>Lundgren, K. (2026b) <em>Tappade bort mig i Claudes ekosystem.</em> [Blogginlägg] klel.wordpress.com, 27/7 2026. Tillgänglig: <a href="https://klel.wordpress.com/2026/07/27/tappade-bort-mig-i-claudes-ekosystem/" target="_blank" rel="noopener">klel.wordpress.com/2026/07/27</a></li>
+      <li>Lundgren, K. (2026c) <em>Namnet 'main' betyder inte alltid main.</em> [Blogginlägg] klel.wordpress.com, 28/7 2026. Tillgänglig: <a href="https://klel.wordpress.com/2026/07/28/namnet-main-betyder-inte-alltid-main/" target="_blank" rel="noopener">klel.wordpress.com/2026/07/28</a></li>
+      <li>Anthropic (2026a) <em>Glossary – Claude Code Docs.</em> [Webbsida] Anthropic. Tillgänglig: <a href="https://code.claude.com/docs/en/glossary" target="_blank" rel="noopener">code.claude.com/docs/en/glossary</a></li>
+      <li>Anthropic (2026b) <em>The Claude Cowork product guide.</em> [Blogginlägg] Anthropic. Tillgänglig: <a href="https://claude.com/blog/the-claude-cowork-product-guide" target="_blank" rel="noopener">claude.com/blog/the-claude-cowork-product-guide</a></li>
+      <li>agents.md (2026) <em>AGENTS.md — open format for guiding coding agents.</em> [Webbsida]. Tillgänglig: <a href="https://agents.md/" target="_blank" rel="noopener">agents.md</a></li>
+      <li>Repot för det här projektet, med hela historiken bakom den här sidan. Tillgänglig: <a href="https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/olika_Claude_modeller" target="_blank" rel="noopener">github.com/kentlundgren/AI-teknik</a></li>
+    </ol>
+  </div>
+</div>
 
 <script>
 const steerFiles = [
@@ -216,7 +263,7 @@ Kent anger källor i Harvardsystemet... Gissa aldrig på en URL.`,
         note:'Den här skillen fanns redan innan det här projektet startade, och triggade automatiskt när Kent bad om att planera bloggtexten.'
       }
     ],
-    tradeoff:'Fördelen med tre nivåer är att man kan välja hur brett en regel ska gälla. Nackdelen är att det blir svårt att hålla reda på var allt ligger — särskilt om man, som Kent, vill ha kontrollen själv: skapa, utveckla och förbättra sina egna skills, snarare än att lämna bort ägarskapet helt. Det är också svårt att i förväg veta om något hör hemma i en AGENTS.md-regel eller i en skill, och lika svårt att veta vilken av de tre nivåerna en ny skill bör läggas på — det kräver aktivt underhåll, inte ett engångsval.',
+    tradeoff:'Fördelen med tre nivåer är att man kan välja hur brett en regel ska gälla. Nackdelen är att det blir svårt att hålla reda på var allt ligger — särskilt om man, som Kent, vill ha kontrollen själv: skapa, utveckla och förbättra sina egna skills, snarare än att lämna bort ägarskapet helt. Det är också svårt att i förväg veta om något hör hemma i en AGENTS.md-regel eller i en skill, och lika svårt att veta vilken av de tre nivåerna en ny skill bör läggas på — det kräver aktivt underhåll, inte ett engångsval. <strong>Konkret exempel, upptäckt under det här projektet:</strong> skillen <code>kent-skrivstil</code> finns just nu på två ställen samtidigt — global nivå på den här datorn, och kontoanknuten — utan att vara synkade med varandra. När den ena uppdaterades (för att lägga till en ny regel) fick den andra ingen ändring alls. Det är precis den krocken, förvirringen och oordningen som är priset för flexibiliteten.',
     note:'Nu finns skills på alla tre nivåerna i det här projektet samtidigt.'
   }
 ];
