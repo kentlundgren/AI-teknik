@@ -51,11 +51,13 @@
   .pipeline .card-btn{flex:1 1 150px;}
   .arrow{color:var(--muted); font-size:1.3rem; padding:0 .2rem;}
 
-  .steer-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.8rem;}
-  .steer-card{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:.9rem 1rem;}
-  .steer-card h3{margin:0 0 .3rem; font-size:1rem;}
-  .steer-card p{margin:0; font-size:.88rem; color:var(--muted);}
   .fact{margin-top:1rem; background:var(--step-soft); border-radius:10px; padding:.8rem 1rem; font-size:.9rem;}
+  .excerpt{
+    background:#fbfaf7; border:1px solid var(--line); border-radius:8px; padding:.8rem 1rem;
+    font-family:Consolas,'Courier New',monospace; font-size:.82rem; white-space:pre-wrap;
+    margin:.7rem 0; color:#3a3632;
+  }
+  .sub-cards{margin:1rem 0 0; padding-left:1rem; border-left:3px solid var(--step);}
 
   footer{max-width:960px; margin:0 auto; padding:1rem 1.5rem 3rem; color:var(--muted); font-size:.8rem;}
   a{color:var(--accent);}
@@ -86,23 +88,8 @@
   <section id="sec-steer">
     <span class="tag">Fas 1</span>
     <h2>Filerna som styr samarbetet — innan man börjar</h2>
-    <div class="steer-grid">
-      <div class="steer-card">
-        <h3>CLAUDE.md</h3>
-        <p>Claude Codes egen instruktionsfil. Läses in vid varje session, oavsett vilken yta du sitter i (CLI, VS Code, JetBrains, Desktop, claude.ai).</p>
-      </div>
-      <div class="steer-card">
-        <h3>AGENTS.md</h3>
-        <p>Öppen, verktygsoberoende standard. Läses av bl.a. Cursor, VS Code, GitHub Copilot, Windsurf — men inte av Claude Code.</p>
-      </div>
-      <div class="steer-card">
-        <h3>SKILL.md</h3>
-        <p>Ämnesspecifika instruktioner som triggas kontextuellt, snarare än alltid inlästa. Byggd på den öppna "Agent Skills"-standarden.</p>
-      </div>
-    </div>
-    <div class="fact">
-      <strong>Verifierat, inte gissat:</strong> Claude Code läser bara sin egen CLAUDE.md — AGENTS.md nämns inte i Claude Codes officiella ordlista, och Claude/Claude Code finns inte med i agents.md:s egen lista över verktyg som stödjer standarden. Vill du styra både Claude Code och Cursor med samma regler behövs alltså <em>båda</em> filerna.
-    </div>
+    <div class="cards" id="steer-cards"></div>
+    <div class="detail" id="steer-detail"></div>
   </section>
 
   <section id="sec-surfaces">
@@ -157,6 +144,85 @@
 </footer>
 
 <script>
+const steerFiles = [
+  {
+    id:'claude', name:'CLAUDE.md', sub:'Alltid inläst',
+    intro:'Claude Codes egen instruktionsfil. Läses in vid varje session, oavsett vilken yta du sitter i (CLI, VS Code, JetBrains, Desktop, claude.ai).',
+    excerpt:`# Projekt: Syntestext + kodning — Claudes ekosystem, Cursor, Git, GitHub
+
+## Vad detta är
+Arbetsmapp för att skriva en bloggtext och bygga en liten kodningsövning
+("Claude-kompassen") om hur man hittar rätt bland Claudes olika ingångar...
+
+## Arbetsregler (utdrag)
+- Git commit/push görs alltid av Kent själv, via Cursor. Claude Code
+  förbereder, skriver och testar filer lokalt, men kör aldrig git commit/push
+  proaktivt eller som en genväg — även om det tekniskt fungerar lika bra
+  härifrån. Detta ger Kent kontroll och medvetenhet varje gång något nytt
+  publiceras.`,
+    note:'Det här är ett riktigt utdrag — inte ett påhittat exempel — ur CLAUDE.md-filen i just det här projektet. Hela filen ligger i samma mapp som den här sidan, och läses av Claude Code varje gång en ny session startar här.'
+  },
+  {
+    id:'agents', name:'AGENTS.md', sub:'Öppen standard',
+    intro:'Öppen, verktygsoberoende standard. Läses av bl.a. Cursor, VS Code, GitHub Copilot, Windsurf — men inte av Claude Code.',
+    fact:'<strong>Verifierat, inte gissat:</strong> Claude Code läser bara sin egen CLAUDE.md — AGENTS.md nämns inte i Claude Codes officiella ordlista, och Claude/Claude Code finns inte med i agents.md:s egen lista över verktyg som stödjer standarden. Vill du styra både Claude Code och Cursor med samma regler behövs alltså <em>båda</em> filerna.',
+    note:'Ingen egen AGENTS.md finns i det här projektet ännu — CLAUDE.md räcker så länge det bara är Claude Code som läser regler här. Den blir aktuell först om Cursor eller ett annat verktyg också ska styras av samma fil.'
+  },
+  {
+    id:'skill', name:'SKILL.md', sub:'Triggas kontextuellt',
+    intro:'Ämnesspecifika instruktioner som triggas kontextuellt, snarare än alltid inlästa. Byggd på den öppna "Agent Skills"-standarden.',
+    subLevels:[
+      {
+        id:'proj', name:'Projektnivå', sub:'claude-kompassen-konventioner',
+        where:'.claude\\skills\\ i den här mappen. Gäller bara det här projektet.',
+        excerpt:`---
+name: claude-kompassen-konventioner
+description: Projektspecifika konventioner för att vidareutveckla just
+  "Claude-kompassen" (index.html) i det här projektet...
+---
+
+## Struktur i index.html
+- Fyra sektioner, i ordning: Fas 1, Fas 2, Fas 3 (3a/3b), Sammanfattning.
+  Denna ordning är medvetet vald av Kent — ändra den inte utan att fråga.
+- Skärmdumparna refereras med sina exakta filnamn (t.ex. "Clalude..." —
+  en äkta stavning i originalfilnamnet, rätta den inte).`,
+        note:'Skapad samma dag som den här sidan, just för att den här sidan skulle finnas som ett konkret exempel på projektnivå.'
+      },
+      {
+        id:'global', name:'Global nivå', sub:'kent-bygg-sidor',
+        where:'C:\\Users\\kentl\\.claude\\skills\\. Gäller alla projekt på den här datorn, men följer inte med till en annan enhet.',
+        img:'Globala_Claude_skills_260729.jpg',
+        cap:'kent-bygg-sidor tillkom precis, samma dag som den här sidan byggdes — här bland de andra globala skillsen.',
+        excerpt:`# Kents regler för att bygga och förbättra interaktiva sidor
+
+## 1. Fråga vid minsta tvekan — det här är huvudregeln
+Om du är osäker på ett ordval, en layout, eller om en text ska spegla
+Kents upplevelse eller en teknisk sanning — fråga innan du kodar, inte efter.
+
+## 2. Kents upplevelse väger tyngre än en "mer korrekt" teknisk sanning
+När en sida beskriver Kents eget arbetssätt är hans upplevda sanning den
+som ska stå där, även om Claude vet något tekniskt annorlunda.`,
+        note:'Byggd av skill-creator under den här sessionen, se skärmdumpen ovan för ögonblicket den dök upp bland de andra globala skillsen.'
+      },
+      {
+        id:'konto', name:'Kontoanknuten', sub:'kent-meta-regler',
+        where:'Knuten till Claude-kontot. Följer med oavsett dator eller mobil.',
+        excerpt:`# Kents generella arbetsregler
+
+## Regel 1 — Fråga innan du börjar
+Kent vill alltid säkerställa att vi förstår varandra innan arbete
+påbörjas. Ställ en eller högst två riktade frågor om något är oklart.
+
+## Regel 2 — Källor alltid i Harvardformat med verifierade länkar
+Kent anger källor i Harvardsystemet... Gissa aldrig på en URL.`,
+        note:'Den här skillen fanns redan innan det här projektet startade, och triggade automatiskt när Kent bad om att planera bloggtexten.'
+      }
+    ],
+    tradeoff:'Fördelen med tre nivåer är att man kan välja hur brett en regel ska gälla. Nackdelen är att det blir svårt att hålla reda på var allt ligger — särskilt om man, som Kent, vill ha kontrollen själv: skapa, utveckla och förbättra sina egna skills, snarare än att lämna bort ägarskapet helt. Det är också svårt att i förväg veta om något hör hemma i en AGENTS.md-regel eller i en skill, och lika svårt att veta vilken av de tre nivåerna en ny skill bör läggas på — det kräver aktivt underhåll, inte ett engångsval.',
+    note:'Nu finns skills på alla tre nivåerna i det här projektet samtidigt.'
+  }
+];
+
 const surfaces = [
   {
     id:'web', name:'claude.ai (webbläsaren)', sub:'Startsidan',
@@ -212,6 +278,51 @@ const afterClaude = [
     note:'Här blir det som fördes över en URL vem som helst kan öppna, via GitHub Pages — hela projektet, eller bara den delmängd jag valde i steget innan.'
   }
 ];
+
+function renderSteer(){
+  const wrap = document.getElementById('steer-cards');
+  steerFiles.forEach(s=>{
+    const b = document.createElement('button');
+    b.className='card-btn'; b.dataset.id=s.id;
+    b.innerHTML = `<strong>${s.name}</strong><span>${s.sub}</span>`;
+    b.onclick = ()=>showSteer(s.id);
+    wrap.appendChild(b);
+  });
+}
+
+function showSteer(id){
+  document.querySelectorAll('#steer-cards .card-btn').forEach(b=>b.classList.toggle('active', b.dataset.id===id));
+  const s = steerFiles.find(x=>x.id===id);
+  const d = document.getElementById('steer-detail');
+  let html = `<p>${s.intro}</p>`;
+  if(s.excerpt) html += `<div class="excerpt">${s.excerpt}</div>`;
+  if(s.fact) html += `<div class="fact">${s.fact}</div>`;
+  if(s.img) html += `<img src="${s.img}" alt="${s.name}"><div class="cap">${s.cap}</div>`;
+  if(s.subLevels) html += `<div class="cards sub-cards" id="skill-level-cards"></div><div class="detail" id="skill-level-detail"></div>`;
+  if(s.tradeoff) html += `<div class="fact">${s.tradeoff}</div>`;
+  html += `<div class="note">${s.note}</div>`;
+  d.innerHTML = html;
+  d.classList.add('show');
+  if(s.subLevels) showSkillSub(s.subLevels, s.subLevels[0].id);
+}
+
+function showSkillSub(list, id){
+  const wrap = document.getElementById('skill-level-cards');
+  wrap.innerHTML = '';
+  list.forEach(lvl=>{
+    const b = document.createElement('button');
+    b.className='card-btn'+(lvl.id===id?' active':''); b.dataset.id=lvl.id;
+    b.innerHTML = `<strong>${lvl.name}</strong><span>${lvl.sub}</span>`;
+    b.onclick = ()=>showSkillSub(list, lvl.id);
+    wrap.appendChild(b);
+  });
+  const lvl = list.find(x=>x.id===id);
+  const d = document.getElementById('skill-level-detail');
+  d.innerHTML = `<p>${lvl.where}</p>` +
+    (lvl.img ? `<img src="${lvl.img}" alt="${lvl.name}"><div class="cap">${lvl.cap}</div>` : '') +
+    `<div class="excerpt">${lvl.excerpt}</div><div class="note">${lvl.note}</div>`;
+  d.classList.add('show');
+}
 
 function renderSurfaces(){
   const wrap = document.getElementById('surface-cards');
@@ -274,8 +385,10 @@ function showPipeline(id){
   d.classList.add('show');
 }
 
+renderSteer();
 renderSurfaces();
 renderPipeline();
+showSteer('claude');
 showSurface('web');
 showPipeline('gh');
 </script>
