@@ -58,13 +58,25 @@
 
   footer{max-width:960px; margin:0 auto; padding:1rem 1.5rem 3rem; color:var(--muted); font-size:.8rem;}
   a{color:var(--accent);}
+
+  .timeline{list-style:none; margin:0; padding:0; border-left:2px solid var(--line);}
+  .timeline li{position:relative; padding:0 0 1rem 1.1rem; font-size:.92rem;}
+  .timeline li::before{
+    content:''; position:absolute; left:-6px; top:.3rem; width:10px; height:10px;
+    border-radius:50%; background:var(--accent);
+  }
+  .timeline b{display:block; font-size:.94rem;}
+  .roles{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.8rem; margin-top:1rem;}
+  .role-card{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:.9rem 1rem;}
+  .role-card h3{margin:0 0 .3rem; font-size:1rem;}
+  .role-card p{margin:0; font-size:.88rem; color:var(--muted);}
 </style>
 </head>
 <body>
 
 <header>
   <h1>Claude-kompassen</h1>
-  <p>Fyra lager i samma eftermiddag, 29 juli 2026: vilken <strong>yta</strong> jag klickade i, vilka <strong>verktyg</strong> och <strong>modeller</strong> som fanns där, vad som hände <strong>efter Claude</strong> (Cursor → Git → GitHub), och vilka filer som <strong>styr</strong> hela samarbetet. Klicka på en ruta.</p>
+  <p>Fyra lager, samma eftermiddag den 29 juli 2026: vilken <strong>yta</strong> jag klickade i, vilka <strong>verktyg</strong> och <strong>modeller</strong> som fanns där, vad som hände <strong>efter Claude</strong> (Cursor → Git → GitHub), vilka filer som <strong>styr</strong> samarbetet — och längst ner, hur <strong>den här sidan själv</strong> blev till. Klicka på en ruta.</p>
 </header>
 
 <main>
@@ -102,6 +114,30 @@
     </div>
     <div class="fact">
       <strong>Verifierat, inte gissat:</strong> Claude Code läser bara sin egen CLAUDE.md — AGENTS.md nämns inte i Claude Codes officiella ordlista, och Claude/Claude Code finns inte med i agents.md:s egen lista över verktyg som stödjer standarden. Vill du styra både Claude Code och Cursor med samma regler behövs alltså <em>båda</em> filerna.
+    </div>
+  </section>
+
+  <section id="sec-meta">
+    <span class="tag step">Lager 4</span>
+    <h2>Hur den här sidan blev till</h2>
+    <p>Den här sidan är inte bara <em>om</em> att samarbeta med AI — den är själv byggd i ett sådant samarbete. Så här gick det till, 29 juli 2026:</p>
+    <ul class="timeline">
+      <li><b>Fem skärmdumpar under en eftermiddag</b> — Kent samlade dem i samma mapp, utan att först veta vad de skulle bli.</li>
+      <li><b>Flera omgångar planering</b> — innehållet formades i dialog innan något skrevs, inklusive research mot primärkällor (Claude Codes egen ordlista, agents.md) istället för att gissa på fakta.</li>
+      <li><b>CLAUDE.md skapades</b> som projektets minne — en fil den här mappen läser vid varje ny Claude Code-session.</li>
+      <li><b>Bloggtexten och den här sidan skrevs och testades lokalt</b> av Claude Code, i webbläsarförhandsvisning, innan något lämnade datorn.</li>
+      <li><b>Kent granskade, committade och pushade själv</b> — via Cursor, inte av Claude Code. Varje gång något går live är det hans beslut, inte ett automatiskt steg.</li>
+      <li><b>README.md skrevs</b> för att förklara projektet för nästa besökare — dig, just nu.</li>
+    </ul>
+    <div class="roles">
+      <div class="role-card">
+        <h3>Claude Codes roll</h3>
+        <p>Research, skrivande, kodning, lokal testning. Föreslår, bygger, verifierar — men rör aldrig git commit/push i det här projektet.</p>
+      </div>
+      <div class="role-card">
+        <h3>Kents roll</h3>
+        <p>Riktning, redigering, och det sista beslutet: vad som faktiskt publiceras, och när. Commit och push sker alltid av honom själv, via Cursor.</p>
+      </div>
     </div>
   </section>
 
