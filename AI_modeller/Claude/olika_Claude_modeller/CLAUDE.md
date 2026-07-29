@@ -23,11 +23,17 @@ projektkontext mellan sessioner.
 5. `Claude_i_Cursor.jpg` — Claude Code dubbelt inuti Cursor (sidopanel + terminal samtidigt)
 
 ## Status
-Planeringsfas, siktar mot en avgränsad "version 1". Fullständig, löpande plan finns i:
+**Version 1 klar** (29/7 2026): bloggtextutkast och kodningsövning skrivna efter Kents
+go-signal. Filer:
+- `bloggtext-utkast-surface-harness.md` — utkast, alla fem bilder inbäddade, Harvard-källor.
+- `claude-kompassen.html` — interaktivt referensverktyg, testat i webbläsarförhandsvisning
+  (fungerar). Lokal fil, inte publicerad som Artifact.
+
+Fullständig, löpande plan (med all bakgrund/research) finns i:
 `C:\Users\kentl\.claude\plans\abstract-leaping-lark.md`
 
-**Viktig regel:** skriv inte hela bloggtexten och börja inte koda "Claude-kompassen" förrän
-Kent uttryckligen säger till — han initierar själv det steget.
+**Kvarstår:** Kents genomläsning/redigering av utkastet, ev. humanizer-ton-pass, beslut om
+`claude-kompassen.html` ska publiceras som Artifact (kräver uttryckligt godkännande).
 
 ## Källhantering
 Harvard-format, klickbara länkar i löptext, inga gissade URL:er. Modellnamn och tekniska

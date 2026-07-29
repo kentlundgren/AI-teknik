@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude-kompassen</title>
+<style>
+  :root{
+    --bg:#faf9f7; --panel:#fff; --ink:#1f1d1b; --muted:#6b6560;
+    --line:#e4ddd3; --accent:#b5502e; --accent-soft:#f4e3da;
+    --step:#3d5a4c; --step-soft:#e2ece6;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:Georgia,'Iowan Old Style',serif; background:var(--bg); color:var(--ink);
+    line-height:1.5;
+  }
+  header{padding:2rem 1.5rem 1rem; max-width:960px; margin:0 auto;}
+  header h1{font-size:1.7rem; margin:0 0 .3rem;}
+  header p{color:var(--muted); font-size:.98rem; max-width:65ch;}
+  main{max-width:960px; margin:0 auto; padding:0 1.5rem 3rem;}
+  section{margin-top:2.2rem;}
+  h2{font-size:1.15rem; border-bottom:2px solid var(--line); padding-bottom:.4rem; margin-bottom:1rem;}
+  .tag{display:inline-block; font-size:.72rem; letter-spacing:.04em; text-transform:uppercase;
+       background:var(--accent-soft); color:var(--accent); padding:.15rem .5rem; border-radius:999px; margin-bottom:.6rem;}
+  .tag.step{background:var(--step-soft); color:var(--step);}
+
+  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.6rem;}
+  .card-btn{
+    text-align:left; background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    padding:.8rem .9rem; cursor:pointer; font:inherit; color:var(--ink);
+  }
+  .card-btn:hover{border-color:var(--accent);}
+  .card-btn.active{border-color:var(--accent); background:var(--accent-soft);}
+  .card-btn strong{display:block; font-size:.98rem;}
+  .card-btn span{display:block; font-size:.8rem; color:var(--muted); margin-top:.15rem;}
+
+  .detail{
+    margin-top:1rem; background:var(--panel); border:1px solid var(--line); border-radius:12px;
+    padding:1.1rem 1.2rem; display:none;
+  }
+  .detail.show{display:block;}
+  .detail img{max-width:100%; border-radius:8px; border:1px solid var(--line); display:block; margin:.7rem 0;}
+  .detail .cap{font-size:.82rem; color:var(--muted); margin-top:-.4rem;}
+  .detail ul{margin:.4rem 0 0; padding-left:1.2rem;}
+  .detail li{margin-bottom:.2rem;}
+  .note{font-size:.9rem; color:var(--muted); margin-top:.6rem; border-left:3px solid var(--accent); padding-left:.7rem;}
+
+  .pipeline{display:flex; flex-wrap:wrap; gap:.5rem; align-items:center;}
+  .pipeline .card-btn{flex:1 1 150px;}
+  .arrow{color:var(--muted); font-size:1.3rem; padding:0 .2rem;}
+
+  .steer-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.8rem;}
+  .steer-card{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:.9rem 1rem;}
+  .steer-card h3{margin:0 0 .3rem; font-size:1rem;}
+  .steer-card p{margin:0; font-size:.88rem; color:var(--muted);}
+  .fact{margin-top:1rem; background:var(--step-soft); border-radius:10px; padding:.8rem 1rem; font-size:.9rem;}
+
+  footer{max-width:960px; margin:0 auto; padding:1rem 1.5rem 3rem; color:var(--muted); font-size:.8rem;}
+  a{color:var(--accent);}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Claude-kompassen</h1>
+  <p>Fyra lager i samma eftermiddag, 29 juli 2026: vilken <strong>yta</strong> jag klickade i, vilka <strong>verktyg</strong> och <strong>modeller</strong> som fanns där, vad som hände <strong>efter Claude</strong> (Cursor → Git → GitHub), och vilka filer som <strong>styr</strong> hela samarbetet. Klicka på en ruta.</p>
+</header>
+
+<main>
+
+  <section id="sec-surfaces">
+    <span class="tag">Lager 1</span>
+    <h2>Ytor (surfaces)</h2>
+    <div class="cards" id="surface-cards"></div>
+    <div class="detail" id="surface-detail"></div>
+  </section>
+
+  <section id="sec-after">
+    <span class="tag step">Lager 2</span>
+    <h2>Efter Claude — Cursor → Git → GitHub</h2>
+    <div class="pipeline" id="pipeline-cards"></div>
+    <div class="detail" id="pipeline-detail"></div>
+  </section>
+
+  <section id="sec-steer">
+    <span class="tag">Lager 3</span>
+    <h2>Filerna som styr samarbetet</h2>
+    <div class="steer-grid">
+      <div class="steer-card">
+        <h3>CLAUDE.md</h3>
+        <p>Claude Codes egen instruktionsfil. Läses in vid varje session, oavsett vilken yta du sitter i (CLI, VS Code, JetBrains, Desktop, claude.ai).</p>
+      </div>
+      <div class="steer-card">
+        <h3>AGENTS.md</h3>
+        <p>Öppen, verktygsoberoende standard. Läses av bl.a. Cursor, VS Code, GitHub Copilot, Windsurf — men inte av Claude Code.</p>
+      </div>
+      <div class="steer-card">
+        <h3>SKILL.md</h3>
+        <p>Ämnesspecifika instruktioner som triggas kontextuellt, snarare än alltid inlästa. Byggd på den öppna "Agent Skills"-standarden.</p>
+      </div>
+    </div>
+    <div class="fact">
+      <strong>Verifierat, inte gissat:</strong> Claude Code läser bara sin egen CLAUDE.md — AGENTS.md nämns inte i Claude Codes officiella ordlista, och Claude/Claude Code finns inte med i agents.md:s egen lista över verktyg som stödjer standarden. Vill du styra både Claude Code och Cursor med samma regler behövs alltså <em>båda</em> filerna.
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Byggd som följeslagare till bloggtexten "Surface, harness och fem skärmdumpar". Bilderna är samma fem skärmdumpar som i texten, tagna 29 juli 2026.
+</footer>
+
+<script>
+const surfaces = [
+  {
+    id:'web', name:'claude.ai (webbläsaren)', sub:'Startsidan',
+    img:'Clalude_ai_tre_saker_i_en__260729.jpg',
+    cap:'Chat, Code och Cowork nås alla härifrån — Code/Cowork under "Products" i vänstermenyn, Chat är huvudvyn.',
+    tools:['Chat','Projects (funktion inuti Chat, inte egen yta)','Artifacts','Cowork','Code'],
+    models:['Opus','Sonnet','Haiku','Fable — namn/version ändras ofta, se Lager om modeller i texten'],
+    note:'Samma motor som alla andra ytor — bara en annan karta över var man klickar.'
+  },
+  {
+    id:'app', name:'Claude-appen (skrivbord)', sub:'Samma tre, annan layout',
+    img:'Clalude_appen_tre_saker_i_en__260729.jpg',
+    cap:'Code är en egen flik uppe till vänster. Chat/Cowork växlas med knappar vid inmatningsfältet.',
+    tools:['Chat','Cowork','Code (flik)'],
+    models:['Sonnet 4.6 syns i denna bild — versionsnamn ändras ofta'],
+    note:'Samma namn som webben, men du hittar dem på helt andra ställen.'
+  },
+  {
+    id:'cmd', name:'Kommandotolken', sub:'Ingen layout alls',
+    img:'kör_igång_Clalude_i_kommandotolken_260729.jpg',
+    cap:'`claude` körd direkt i Windows kommandotolk — en förtroendefråga innan något annat händer.',
+    tools:['Claude Code (CLI)'],
+    models:['Modell väljs i sessionen, t.ex. via /model'],
+    note:'Den mest ärliga ytan: ingen meny att gömma sig bakom.'
+  },
+  {
+    id:'cursor', name:'Cursor', sub:'Samma verktyg, två gånger',
+    img:'Claude_i_Cursor.jpg',
+    cap:'Höger sidopanel ("Plan, Build, /skills, @ for context") + Claude Code CLI i den inbyggda terminalen — samtidigt.',
+    tools:['Claude Code (sidopanel, trolig extension)','Claude Code (terminal)','Cursors egna redigeringsverktyg'],
+    models:['Sonnet 4.6 (sidopanel)','Opus 4.8 tillgänglig / Opus 5 nu standard (terminalens "What\'s new")'],
+    note:'Samma harness i två gränssnitt i ett och samma fönster — inte bara olika appar.'
+  }
+];
+
+const afterClaude = [
+  {
+    id:'cursor2', name:'Cursor', sub:'Redigering, diff, commit',
+    note:'Visuellt gränssnitt mot samma repo som Claude Code kan nå från terminalen. Ingen kapacitetsskillnad — bara olika gränssnitt.'
+  },
+  {
+    id:'git', name:'Git (lokalt)', sub:'Historik på din disk',
+    note:'Fungerar oavsett om du kör det via Cursor eller Claude Codes terminal. En regel du kommer ihåg är svagare än ett skydd (pre-push-hook) som stoppar dig.'
+  },
+  {
+    id:'gh', name:'GitHub / gh CLI', sub:'Fjärrplats + separat inloggning',
+    img:'GitHub_CLI_authentication_expired_260729.jpg',
+    cap:'"GitHub CLI authentication expired." — gh auth status visade att kontot inte var inloggat alls, trots att vanlig git-push/pull fungerade fint.',
+    note:'Tre separata lager: git själv, GitHub som fjärrplats, och gh som ett tredje, fristående autentiseringslager. Åtgärd: kör `gh auth login` i en interaktiv terminal.'
+  }
+];
+
+function renderSurfaces(){
+  const wrap = document.getElementById('surface-cards');
+  surfaces.forEach(s=>{
+    const b = document.createElement('button');
+    b.className='card-btn'; b.dataset.id=s.id;
+    b.innerHTML = `<strong>${s.name}</strong><span>${s.sub}</span>`;
+    b.onclick = ()=>showSurface(s.id);
+    wrap.appendChild(b);
+  });
+}
+
+function showSurface(id){
+  document.querySelectorAll('#surface-cards .card-btn').forEach(b=>b.classList.toggle('active', b.dataset.id===id));
+  const s = surfaces.find(x=>x.id===id);
+  const d = document.getElementById('surface-detail');
+  d.innerHTML = `
+    <img src="${s.img}" alt="${s.name}">
+    <div class="cap">${s.cap}</div>
+    <p><strong>Verktyg här:</strong></p>
+    <ul>${s.tools.map(t=>`<li>${t}</li>`).join('')}</ul>
+    <p><strong>Modeller synliga i bilden:</strong></p>
+    <ul>${s.models.map(m=>`<li>${m}</li>`).join('')}</ul>
+    <div class="note">${s.note}</div>
+  `;
+  d.classList.add('show');
+}
+
+function renderPipeline(){
+  const wrap = document.getElementById('pipeline-cards');
+  afterClaude.forEach((s,i)=>{
+    const b = document.createElement('button');
+    b.className='card-btn'; b.dataset.id=s.id;
+    b.innerHTML = `<strong>${s.name}</strong><span>${s.sub}</span>`;
+    b.onclick = ()=>showPipeline(s.id);
+    wrap.appendChild(b);
+    if(i < afterClaude.length-1){
+      const a = document.createElement('span');
+      a.className='arrow'; a.textContent='→';
+      wrap.appendChild(a);
+    }
+  });
+}
+
+function showPipeline(id){
+  document.querySelectorAll('#pipeline-cards .card-btn').forEach(b=>b.classList.toggle('active', b.dataset.id===id));
+  const s = afterClaude.find(x=>x.id===id);
+  const d = document.getElementById('pipeline-detail');
+  d.innerHTML = (s.img ? `<img src="${s.img}" alt="${s.name}"><div class="cap">${s.cap}</div>` : '') +
+    `<div class="note">${s.note}</div>`;
+  d.classList.add('show');
+}
+
+renderSurfaces();
+renderPipeline();
+showSurface('web');
+showPipeline('gh');
+</script>
+</body>
+</html>
