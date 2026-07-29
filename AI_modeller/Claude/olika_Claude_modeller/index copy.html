@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude-kompassen</title>
+<style>
+  :root{
+    --bg:#faf9f7; --panel:#fff; --ink:#1f1d1b; --muted:#6b6560;
+    --line:#e4ddd3; --accent:#b5502e; --accent-soft:#f4e3da;
+    --step:#3d5a4c; --step-soft:#e2ece6;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:Georgia,'Iowan Old Style',serif; background:var(--bg); color:var(--ink);
+    line-height:1.5;
+  }
+  header{padding:2rem 1.5rem 1rem; max-width:960px; margin:0 auto;}
+  header h1{font-size:1.7rem; margin:0 0 .3rem;}
+  header p{color:var(--muted); font-size:.98rem; max-width:65ch;}
+  .dateline{display:inline-block; margin-top:.7rem; font-size:.78rem; color:var(--step); background:var(--step-soft); padding:.2rem .6rem; border-radius:999px;}
+  main{max-width:960px; margin:0 auto; padding:0 1.5rem 3rem;}
+  section{margin-top:2.2rem;}
+  h2{font-size:1.15rem; border-bottom:2px solid var(--line); padding-bottom:.4rem; margin-bottom:1rem;}
+  .tag{display:inline-block; font-size:.72rem; letter-spacing:.04em; text-transform:uppercase;
+       background:var(--accent-soft); color:var(--accent); padding:.15rem .5rem; border-radius:999px; margin-bottom:.6rem;}
+  .tag.step{background:var(--step-soft); color:var(--step);}
+
+  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.6rem;}
+  .card-btn{
+    text-align:left; background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    padding:.8rem .9rem; cursor:pointer; font:inherit; color:var(--ink);
+  }
+  .card-btn:hover{border-color:var(--accent);}
+  .card-btn.active{border-color:var(--accent); background:var(--accent-soft);}
+  .card-btn strong{display:block; font-size:.98rem;}
+  .card-btn span{display:block; font-size:.8rem; color:var(--muted); margin-top:.15rem;}
+
+  .detail{
+    margin-top:1rem; background:var(--panel); border:1px solid var(--line); border-radius:12px;
+    padding:1.1rem 1.2rem; display:none;
+  }
+  .detail.show{display:block;}
+  .detail img{max-width:100%; border-radius:8px; border:1px solid var(--line); display:block; margin:.7rem 0;}
+  .detail .cap{font-size:.82rem; color:var(--muted); margin-top:-.4rem;}
+  .detail ul{margin:.4rem 0 0; padding-left:1.2rem;}
+  .detail li{margin-bottom:.2rem;}
+  .note{font-size:.9rem; color:var(--muted); margin-top:.6rem; border-left:3px solid var(--accent); padding-left:.7rem;}
+
+  .pipeline{display:flex; flex-wrap:wrap; gap:.5rem; align-items:center;}
+  .pipeline .card-btn{flex:1 1 150px;}
+  .arrow{color:var(--muted); font-size:1.3rem; padding:0 .2rem;}
+
+  .fact{margin-top:1rem; background:var(--step-soft); border-radius:10px; padding:.8rem 1rem; font-size:.9rem;}
+  .excerpt{
+    background:#fbfaf7; border:1px solid var(--line); border-radius:8px; padding:.8rem 1rem;
+    font-family:Consolas,'Courier New',monospace; font-size:.82rem; white-space:pre-wrap;
+    margin:.7rem 0; color:#3a3632;
+  }
+  .sub-cards{margin:1rem 0 0; padding-left:1rem; border-left:3px solid var(--step);}
+
+  footer{max-width:960px; margin:0 auto; padding:1rem 1.5rem 3rem; color:var(--muted); font-size:.8rem;}
+  a{color:var(--accent);}
+
+  .timeline{list-style:none; margin:0; padding:0; border-left:2px solid var(--line);}
+  .timeline li{position:relative; padding:0 0 1rem 1.1rem; font-size:.92rem;}
+  .timeline li::before{
+    content:''; position:absolute; left:-6px; top:.3rem; width:10px; height:10px;
+    border-radius:50%; background:var(--accent);
+  }
+  .timeline b{display:block; font-size:.94rem;}
+  .roles{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.8rem; margin-top:1rem;}
+  .role-card{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:.9rem 1rem;}
+  .role-card h3{margin:0 0 .3rem; font-size:1rem;}
+  .role-card p{margin:0; font-size:.88rem; color:var(--muted);}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Claude-kompassen</h1>
+  <p>Tre faser, samma eftermiddag den 29 juli 2026: <strong>Fas 1</strong> — filerna som redan <strong>styr</strong> samarbetet innan man ens börjar. <strong>Fas 2</strong> — vilken <strong>yta</strong> man väljer att jobba i, med sina egna verktyg och modeller. <strong>Fas 3</strong> — versionhantering i Cursor och Git (3a), och leverans till GitHub där filerna blir levande sidor vem som helst kan nå via en URL (3b). Längst ner: en sammanfattning av hur den här sidan själv blev till. Klicka på en ruta.</p>
+  <span class="dateline">Publicerad live: 29 juli 2026</span>
+</header>
+
+<main>
+
+  <section id="sec-steer">
+    <span class="tag">Fas 1</span>
+    <h2>Filerna som styr samarbetet — innan man börjar</h2>
+    <div class="cards" id="steer-cards"></div>
+    <div class="detail" id="steer-detail"></div>
+  </section>
+
+  <section id="sec-surfaces">
+    <span class="tag">Fas 2</span>
+    <h2>Ytor (surfaces) — var man väljer att jobba</h2>
+    <div class="cards" id="surface-cards"></div>
+    <div class="detail" id="surface-detail"></div>
+  </section>
+
+  <section id="sec-after">
+    <span class="tag step">Fas 3</span>
+    <h2>Cursor och Git (3a) → GitHub (3b)</h2>
+    <div class="pipeline" id="pipeline-cards"></div>
+    <div class="detail" id="pipeline-detail"></div>
+  </section>
+
+  <section id="sec-meta">
+    <span class="tag step">Sammanfattning</span>
+    <h2>Hur den här sidan blev till</h2>
+    <p>Den här sidan är inte bara <em>om</em> att samarbeta med AI — den är själv byggd i ett sådant samarbete. Så här gick det till, 29 juli 2026:</p>
+    <ul class="timeline">
+      <li><b>Fem skärmdumpar under en eftermiddag</b> — Kent samlade dem i samma mapp, utan att först veta vad de skulle bli.</li>
+      <li><b>Flera omgångar planering</b> — innehållet formades i dialog innan något skrevs, inklusive research mot primärkällor (Claude Codes egen ordlista, agents.md) istället för att gissa på fakta.</li>
+      <li><b>CLAUDE.md skapades</b> som projektets minne — en fil den här mappen läser vid varje ny Claude Code-session.</li>
+      <li><b>Bloggtexten och den här sidan skrevs och testades lokalt</b> av Claude Code, i webbläsarförhandsvisning, innan något lämnade datorn.</li>
+      <li><b>Kent granskade, committade och pushade själv</b> — via Cursor, inte av Claude Code. Varje gång något går live är det hans beslut, inte ett automatiskt steg.</li>
+      <li><b>README.md skrevs</b> för att förklara projektet för nästa besökare — dig, just nu.</li>
+    </ul>
+    <div class="roles">
+      <div class="role-card">
+        <h3>Claude Codes roll</h3>
+        <p>Research, skrivande, kodning, lokal testning. Föreslår, bygger, verifierar — men rör aldrig git commit/push i det här projektet.</p>
+      </div>
+      <div class="role-card">
+        <h3>Kents roll</h3>
+        <p>Riktning, redigering, och det sista beslutet: vad som faktiskt publiceras, och när. Commit och push sker alltid av honom själv, via Cursor.</p>
+      </div>
+    </div>
+
+    <div class="detail show">
+      <p><strong>Allt det här ligger öppet i ett riktigt GitHub-repo</strong> — inte bara beskrivet här, utan faktiskt granskningsbart.</p>
+      <img src="projektet_i_GitHub_260729.jpg" alt="Filerna i GitHub-repot för det här projektet">
+      <div class="cap">Repot samma dag: skärmdumparna, index.html, CLAUDE.md och README.md, med commit-historiken synlig till höger.</div>
+      <p><a href="https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/olika_Claude_modeller" target="_blank" rel="noopener">Se hela repot på GitHub →</a></p>
+    </div>
+  </section>
+
+</main>
+
+
+
+<script>
+const steerFiles = [
+  {
+    id:'claude', name:'CLAUDE.md', sub:'Alltid inläst',
+    intro:'Claude Codes egen instruktionsfil. Läses in vid varje session, oavsett vilken yta du sitter i (CLI, VS Code, JetBrains, Desktop, claude.ai).',
+    excerpt:`# Projekt: Syntestext + kodning — Claudes ekosystem, Cursor, Git, GitHub
+
+## Vad detta är
+Arbetsmapp för att skriva en bloggtext och bygga en liten kodningsövning
+("Claude-kompassen") om hur man hittar rätt bland Claudes olika ingångar...
+
+## Arbetsregler (utdrag)
+- Git commit/push görs alltid av Kent själv, via Cursor. Claude Code
+  förbereder, skriver och testar filer lokalt, men kör aldrig git commit/push
+  proaktivt eller som en genväg — även om det tekniskt fungerar lika bra
+  härifrån. Detta ger Kent kontroll och medvetenhet varje gång något nytt
+  publiceras.`,
+    note:'Det här är ett riktigt utdrag — inte ett påhittat exempel — ur CLAUDE.md-filen i just det här projektet. Hela filen ligger i samma mapp som den här sidan, och läses av Claude Code varje gång en ny session startar här.'
+  },
+  {
+    id:'agents', name:'AGENTS.md', sub:'Öppen standard',
+    intro:'Öppen, verktygsoberoende standard. Läses av bl.a. Cursor, VS Code, GitHub Copilot, Windsurf — men inte av Claude Code.',
+    fact:'<strong>Verifierat, inte gissat:</strong> Claude Code läser bara sin egen CLAUDE.md — AGENTS.md nämns inte i Claude Codes officiella ordlista, och Claude/Claude Code finns inte med i agents.md:s egen lista över verktyg som stödjer standarden. Vill du styra både Claude Code och Cursor med samma regler behövs alltså <em>båda</em> filerna.',
+    note:'Ingen egen AGENTS.md finns i det här projektet ännu — CLAUDE.md räcker så länge det bara är Claude Code som läser regler här. Den blir aktuell först om Cursor eller ett annat verktyg också ska styras av samma fil.'
+  },
+  {
+    id:'skill', name:'SKILL.md', sub:'Triggas kontextuellt',
+    intro:'Ämnesspecifika instruktioner som triggas kontextuellt, snarare än alltid inlästa. Byggd på den öppna "Agent Skills"-standarden.',
+    subLevels:[
+      {
+        id:'proj', name:'Projektnivå', sub:'claude-kompassen-konventioner',
+        where:'.claude\\skills\\ i den här mappen. Gäller bara det här projektet.',
+        excerpt:`---
+name: claude-kompassen-konventioner
+description: Projektspecifika konventioner för att vidareutveckla just
+  "Claude-kompassen" (index.html) i det här projektet...
+---
+
+## Struktur i index.html
+- Fyra sektioner, i ordning: Fas 1, Fas 2, Fas 3 (3a/3b), Sammanfattning.
+  Denna ordning är medvetet vald av Kent — ändra den inte utan att fråga.
+- Skärmdumparna refereras med sina exakta filnamn (t.ex. "Clalude..." —
+  en äkta stavning i originalfilnamnet, rätta den inte).`,
+        note:'Skapad samma dag som den här sidan, just för att den här sidan skulle finnas som ett konkret exempel på projektnivå.'
+      },
+      {
+        id:'global', name:'Global nivå', sub:'kent-bygg-sidor',
+        where:'C:\\Users\\kentl\\.claude\\skills\\. Gäller alla projekt på den här datorn, men följer inte med till en annan enhet.',
+        img:'Globala_Claude_skills_260729.jpg',
+        cap:'kent-bygg-sidor tillkom precis, samma dag som den här sidan byggdes — här bland de andra globala skillsen.',
+        excerpt:`# Kents regler för att bygga och förbättra interaktiva sidor
+
+## 1. Fråga vid minsta tvekan — det här är huvudregeln
+Om du är osäker på ett ordval, en layout, eller om en text ska spegla
+Kents upplevelse eller en teknisk sanning — fråga innan du kodar, inte efter.
+
+## 2. Kents upplevelse väger tyngre än en "mer korrekt" teknisk sanning
+När en sida beskriver Kents eget arbetssätt är hans upplevda sanning den
+som ska stå där, även om Claude vet något tekniskt annorlunda.`,
+        note:'Byggd av skill-creator under den här sessionen, se skärmdumpen ovan för ögonblicket den dök upp bland de andra globala skillsen.'
+      },
+      {
+        id:'konto', name:'Kontoanknuten', sub:'kent-meta-regler',
+        where:'Knuten till Claude-kontot. Följer med oavsett dator eller mobil.',
+        excerpt:`# Kents generella arbetsregler
+
+## Regel 1 — Fråga innan du börjar
+Kent vill alltid säkerställa att vi förstår varandra innan arbete
+påbörjas. Ställ en eller högst två riktade frågor om något är oklart.
+
+## Regel 2 — Källor alltid i Harvardformat med verifierade länkar
+Kent anger källor i Harvardsystemet... Gissa aldrig på en URL.`,
+        note:'Den här skillen fanns redan innan det här projektet startade, och triggade automatiskt när Kent bad om att planera bloggtexten.'
+      }
+    ],
+    tradeoff:'Fördelen med tre nivåer är att man kan välja hur brett en regel ska gälla. Nackdelen är att det blir svårt att hålla reda på var allt ligger — särskilt om man, som Kent, vill ha kontrollen själv: skapa, utveckla och förbättra sina egna skills, snarare än att lämna bort ägarskapet helt. Det är också svårt att i förväg veta om något hör hemma i en AGENTS.md-regel eller i en skill, och lika svårt att veta vilken av de tre nivåerna en ny skill bör läggas på — det kräver aktivt underhåll, inte ett engångsval.',
+    note:'Nu finns skills på alla tre nivåerna i det här projektet samtidigt.'
+  }
+];
+
+const surfaces = [
+  {
+    id:'web', name:'claude.ai (webbläsaren)', sub:'Startsidan',
+    img:'Clalude_ai_tre_saker_i_en__260729.jpg',
+    cap:'Chat, Code och Cowork nås alla härifrån — Code/Cowork under "Products" i vänstermenyn, Chat är huvudvyn.',
+    tools:['Chat','Projects (funktion inuti Chat, inte egen yta)','Artifacts','Cowork','Code'],
+    models:['Opus','Sonnet','Haiku','Fable — namn/version ändras ofta, se avsnittet om modeller i bloggtexten'],
+    note:'Samma motor som alla andra ytor — bara en annan karta över var man klickar.'
+  },
+  {
+    id:'app', name:'Claude-appen (skrivbord)', sub:'Samma tre, annan layout',
+    img:'Clalude_appen_tre_saker_i_en__260729.jpg',
+    cap:'Code är en egen flik uppe till vänster. Chat/Cowork växlas med knappar vid inmatningsfältet.',
+    tools:['Chat','Cowork','Code (flik)'],
+    models:['Sonnet 4.6 syns i denna bild — versionsnamn ändras ofta'],
+    note:'Samma namn som webben, men du hittar dem på helt andra ställen.'
+  },
+  {
+    id:'cmd', name:'Kommandotolken', sub:'Ingen layout alls',
+    img:'kör_igång_Clalude_i_kommandotolken_260729.jpg',
+    cap:'`claude` körd direkt i Windows kommandotolk — en förtroendefråga innan något annat händer.',
+    tools:['Claude Code (CLI)'],
+    models:['Modell väljs i sessionen, t.ex. via /model'],
+    note:'Den mest ärliga ytan: ingen meny att gömma sig bakom.'
+  },
+  {
+    id:'cursor', name:'Cursor', sub:'Samma verktyg, två gånger',
+    img:'Claude_i_Cursor.jpg',
+    cap:'Höger sidopanel ("Plan, Build, /skills, @ for context") + Claude Code CLI i den inbyggda terminalen — samtidigt.',
+    tools:['Claude Code (sidopanel, trolig extension)','Claude Code (terminal)','Cursors egna redigeringsverktyg'],
+    models:['Sonnet 4.6 (sidopanel)','Opus 4.8 tillgänglig / Opus 5 nu standard (terminalens "What\'s new")'],
+    note:'Samma harness i två gränssnitt i ett och samma fönster — inte bara olika appar.'
+  }
+];
+
+const afterClaude = [
+  {
+    id:'cursor2', name:'Cursor', sub:'Redigering, diff, commit',
+    note:'Här väljer jag aktivt Cursor, inte Claude Code. Jag ser filerna i projektet, har kontroll på versionshanteringen, kan granska allt i en webbläsare, och för över filer och program till Git och GitHub på ett sätt jag litar på. Claude Code känns i den här fasen helt värdelöst för mig — att hantera filer, versionshantering och överföring till webben. Det kan bero på att jag jobbat länge med Cursor och är van vid plattformen, inte på att Claude Code faktiskt saknar förmågan. Men det är så jag upplever det, och det är den upplevelsen som styr mitt val.'
+  },
+  {
+    id:'git', name:'Git (lokalt)', sub:'Historik på din disk',
+    note:'Jag sköter det här alltid via Cursor. En regel man kommer ihåg är svagare än ett skydd (pre-push-hook) som stoppar en — det gäller oavsett verktyg, men jag vill ha det skyddet i det gränssnitt jag faktiskt litar på.'
+  },
+  {
+    id:'cursor3', name:'Cursor', sub:'Väljer vad som förs över',
+    note:'Precis som i 3a är det Cursor som gör jobbet — men här väljer jag dessutom <em>vad</em> som förs över: hela mappen, eller bara en delmängd av filerna jag jobbar med lokalt. Jag har själv beskrivit hur man gör det senare, med en orphan-gren och en pre-push-hook, i <a href="https://klel.wordpress.com/2026/07/28/namnet-main-betyder-inte-alltid-main/" target="_blank" rel="noopener">Namnet \'main\' betyder inte alltid main</a>.'
+  },
+  {
+    id:'gh', name:'GitHub', sub:'Överföring till webben',
+    img:'projektet_i_GitHub_260729.jpg',
+    cap:'Repot på GitHub, samma dag — filerna som Cursor förde över dit, synliga för vem som helst.',
+    note:'Här blir det som fördes över en URL vem som helst kan öppna, via GitHub Pages — hela projektet, eller bara den delmängd jag valde i steget innan.'
+  }
+];
+
+function renderSteer(){
+  const wrap = document.getElementById('steer-cards');
+  steerFiles.forEach(s=>{
+    const b = document.createElement('button');
+    b.className='card-btn'; b.dataset.id=s.id;
+    b.innerHTML = `<strong>${s.name}</strong><span>${s.sub}</span>`;
+    b.onclick = ()=>showSteer(s.id);
+    wrap.appendChild(b);
+  });
+}
+
+function showSteer(id){
+  document.querySelectorAll('#steer-cards .card-btn').forEach(b=>b.classList.toggle('active', b.dataset.id===id));
+  const s = steerFiles.find(x=>x.id===id);
+  const d = document.getElementById('steer-detail');
+  let html = `<p>${s.intro}</p>`;
+  if(s.excerpt) html += `<div class="excerpt">${s.excerpt}</div>`;
+  if(s.fact) html += `<div class="fact">${s.fact}</div>`;
+  if(s.img) html += `<img src="${s.img}" alt="${s.name}"><div class="cap">${s.cap}</div>`;
+  if(s.subLevels) html += `<div class="cards sub-cards" id="skill-level-cards"></div><div class="detail" id="skill-level-detail"></div>`;
+  if(s.tradeoff) html += `<div class="fact">${s.tradeoff}</div>`;
+  html += `<div class="note">${s.note}</div>`;
+  d.innerHTML = html;
+  d.classList.add('show');
+  if(s.subLevels) showSkillSub(s.subLevels, s.subLevels[0].id);
+}
+
+function showSkillSub(list, id){
+  const wrap = document.getElementById('skill-level-cards');
+  wrap.innerHTML = '';
+  list.forEach(lvl=>{
+    const b = document.createElement('button');
+    b.className='card-btn'+(lvl.id===id?' active':''); b.dataset.id=lvl.id;
+    b.innerHTML = `<strong>${lvl.name}</strong><span>${lvl.sub}</span>`;
+    b.onclick = ()=>showSkillSub(list, lvl.id);
+    wrap.appendChild(b);
+  });
+  const lvl = list.find(x=>x.id===id);
+  const d = document.getElementById('skill-level-detail');
+  d.innerHTML = `<p>${lvl.where}</p>` +
+    (lvl.img ? `<img src="${lvl.img}" alt="${lvl.name}"><div class="cap">${lvl.cap}</div>` : '') +
+    `<div class="excerpt">${lvl.excerpt}</div><div class="note">${lvl.note}</div>`;
+  d.classList.add('show');
+}
+
+function renderSurfaces(){
+  const wrap = document.getElementById('surface-cards');
+  surfaces.forEach(s=>{
+    const b = document.createElement('button');
+    b.className='card-btn'; b.dataset.id=s.id;
+    b.innerHTML = `<strong>${s.name}</strong><span>${s.sub}</span>`;
+    b.onclick = ()=>showSurface(s.id);
+    wrap.appendChild(b);
+  });
+}
+
+function showSurface(id){
+  document.querySelectorAll('#surface-cards .card-btn').forEach(b=>b.classList.toggle('active', b.dataset.id===id));
+  const s = surfaces.find(x=>x.id===id);
+  const d = document.getElementById('surface-detail');
+  d.innerHTML = `
+    <img src="${s.img}" alt="${s.name}">
+    <div class="cap">${s.cap}</div>
+    <p><strong>Verktyg här:</strong></p>
+    <ul>${s.tools.map(t=>`<li>${t}</li>`).join('')}</ul>
+    <p><strong>Modeller synliga i bilden:</strong></p>
+    <ul>${s.models.map(m=>`<li>${m}</li>`).join('')}</ul>
+    <div class="note">${s.note}</div>
+  `;
+  d.classList.add('show');
+}
+
+const subPhase = {cursor2:'3a', git:'3a', cursor3:'3b', gh:'3b'};
+
+function renderPipeline(){
+  const wrap = document.getElementById('pipeline-cards');
+  afterClaude.forEach((s,i)=>{
+    const isFirstOfPhase = i===0 || subPhase[s.id] !== subPhase[afterClaude[i-1].id];
+    if(isFirstOfPhase){
+      const t = document.createElement('span');
+      t.className='tag'; t.style.flexBasis='100%';
+      t.textContent = 'Fas ' + subPhase[s.id];
+      wrap.appendChild(t);
+    }
+    const b = document.createElement('button');
+    b.className='card-btn'; b.dataset.id=s.id;
+    b.innerHTML = `<strong>${s.name}</strong><span>${s.sub}</span>`;
+    b.onclick = ()=>showPipeline(s.id);
+    wrap.appendChild(b);
+    if(i < afterClaude.length-1 && subPhase[s.id]===subPhase[afterClaude[i+1].id]){
+      const a = document.createElement('span');
+      a.className='arrow'; a.textContent='→';
+      wrap.appendChild(a);
+    }
+  });
+}
+
+function showPipeline(id){
+  document.querySelectorAll('#pipeline-cards .card-btn').forEach(b=>b.classList.toggle('active', b.dataset.id===id));
+  const s = afterClaude.find(x=>x.id===id);
+  const d = document.getElementById('pipeline-detail');
+  d.innerHTML = (s.img ? `<img src="${s.img}" alt="${s.name}"><div class="cap">${s.cap}</div>` : '') +
+    `<div class="note">${s.note}</div>`;
+  d.classList.add('show');
+}
+
+renderSteer();
+renderSurfaces();
+renderPipeline();
+showSteer('claude');
+showSurface('web');
+showPipeline('gh');
+</script>
+</body>
+</html>

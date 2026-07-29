@@ -26,8 +26,15 @@ projektkontext mellan sessioner.
 **Version 1 klar** (29/7 2026): bloggtextutkast och kodningsövning skrivna efter Kents
 go-signal. Filer:
 - `bloggtext-utkast-surface-harness.md` — utkast, alla fem bilder inbäddade, Harvard-källor.
-- `claude-kompassen.html` — interaktivt referensverktyg, testat i webbläsarförhandsvisning
-  (fungerar). Lokal fil, inte publicerad som Artifact.
+- `index.html` — interaktivt referensverktyg ("Claude-kompassen", döpt om från
+  `claude-kompassen.html`), publicerat live via GitHub Pages på
+  https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/
+
+**Viktigt — två index-filer i mappen, förväxla dem inte:**
+- `index.html` — den riktiga, aktiva filen. Jobba alltid med den här.
+- `index copy.html` — en manuell backup-kopia Kent själv skapade (29/7 2026), bara som
+  säkerhet om något går snett. Ignorera den helt, redigera den aldrig, och föreslå den
+  inte som källa för något.
 
 Fullständig, löpande plan (med all bakgrund/research) finns i:
 `C:\Users\kentl\.claude\plans\abstract-leaping-lark.md`
