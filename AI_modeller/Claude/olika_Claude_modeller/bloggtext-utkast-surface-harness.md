@@ -65,7 +65,7 @@ Här trodde jag länge att en enda fil skulle räcka för allt. Det gör den int
 
 Ingen av de fem ytorna är fel. Det var aldrig problemet. Problemet var att jag inte hade ord för skillnaden mellan en yta jag klickar på och en harness som faktiskt gör saker åt mig, eller för att tre olika modellnamn kan synas samtidigt i en enda skärmdump utan att något är trasigt. Nu har jag orden. Nästa gång jag tappar bort mig vet jag i alla fall vad jag letar efter.
 
-Jag har byggt en liten interaktiv karta av det här — samma fem bilder, samma lager, fast klickbart — som jag lägger med separat.
+Jag har byggt en liten interaktiv karta av det här — samma fem bilder, samma lager, fast klickbart. Den ligger nu live, på webben, tillgänglig för vem som helst som vill klicka runt själv: [Claude-kompassen](https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/). Sidan har till och med ett eget lager som visar hur den blev till — samma process som den här texten.
 
 ## Källförteckning
 
