@@ -35,6 +35,18 @@ Fullständig, löpande plan (med all bakgrund/research) finns i:
 **Kvarstår:** Kents genomläsning/redigering av utkastet, ev. humanizer-ton-pass, beslut om
 `claude-kompassen.html` ska publiceras som Artifact (kräver uttryckligt godkännande).
 
+## Arbetsregler (generella, gäller detta och liknande projekt i AI-teknik-repot)
+
+- **Git commit/push görs alltid av Kent själv, via Cursor.** Claude Code (jag) förbereder,
+  skriver och testar filer lokalt, men kör aldrig `git commit`/`git push` proaktivt eller
+  som en genväg — även om det tekniskt fungerar lika bra härifrån. Detta ger Kent kontroll
+  och medvetenhet varje gång något nytt publiceras. Read-only git-kommandon (status, diff,
+  log, remote -v) för diagnostik är däremot okej.
+- **README-konvention:** så fort ett nytt delprojekt eller en ny uppsättning filer skapas
+  i ett repo (särskilt ett som publiceras via GitHub Pages) ska en `README.md` skapas i
+  samma mapp — kort projektbeskrivning + länk till Live Page-URL:en. Mönster redan etablerat
+  i samma repo: `Skills/README.md`, `RAG/README.md`.
+
 ## Källhantering
 Harvard-format, klickbara länkar i löptext, inga gissade URL:er. Modellnamn och tekniska
 påståenden (t.ex. CLAUDE.md vs AGENTS.md-stöd i olika verktyg) verifieras mot primärkälla
