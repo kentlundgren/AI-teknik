@@ -1,24 +1,31 @@
-# Claudes ekosystem – ytor, verktyg, modeller, Cursor och Git
+# Claudes ekosystem – tre faser, Cursor och GitHub
 
-En **syntes-text och ett interaktivt kodningsverktyg** om att hitta rätt bland Claudes
-olika ytor (claude.ai, Claude-appen, kommandotolken, Cursor), verktyg (Chat, Projects,
-Artifacts, Cowork, Code), AI-modeller, och hur det kopplar vidare till Cursor, Git och
+En **bloggtext och ett interaktivt verktyg** om att hitta rätt bland Claudes olika
+ytor, verktyg och AI-modeller, och hur det kopplar vidare till Cursor, Git och
 GitHub — samt filerna (CLAUDE.md, AGENTS.md, SKILL.md) som styr samarbetet med AI:n.
+Byggt tillsammans med Claude Code, som ett konkret exempel på det de handlar om.
 
-## Live-sida (GitHub Pages)
+## Live-sida (GitHub Pages) och bloggtext
 
 - Claude-kompassen: https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/
+- Bloggtext: [En bild av Claudes ekosystem](https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/)
 
 ## Vad sidan tar upp
 
-Ett interaktivt verktyg i tre lager (klickbara kort):
+Verktyget är uppbyggt i **tre faser** (klickbara kort, med direktlänkar `#fas1`,
+`#fas2`, `#fas3`, `#sammanfattning`):
 
-- **Ytor** – claude.ai i webbläsaren, Claude-appen, kommandotolken och Cursor, med
-  varsin skärmdump och en lista över vilka verktyg och modeller som finns där.
-- **Efter Claude** – kedjan Cursor → Git → GitHub, inklusive en verklig diagnos av en
-  GitHub CLI-autentisering som gått ut (`gh auth status` vs. vanlig `git`).
-- **Filerna som styr** – kort om CLAUDE.md, AGENTS.md och SKILL.md, och det verifierade
-  faktumet att Claude Code bara läser sin egen CLAUDE.md, inte AGENTS.md.
+- **Fas 1 — filerna som styr**, innan man ens börjar: CLAUDE.md, AGENTS.md och
+  SKILL.md, inklusive ett verifierat faktum (Claude Code läser bara sin egen
+  CLAUDE.md, inte AGENTS.md) och ett verkligt exempel på när samma skill legat
+  på två nivåer samtidigt, osynkat.
+- **Fas 2 — ytorna**: claude.ai i webbläsaren, Claude-appen, kommandotolken och
+  Cursor — samma motor, olika kartor.
+- **Fas 3 — Cursor och Git (3a) → GitHub (3b)**: versionhantering och leverans
+  till webben, med Kents egen, subjektiva motivering för att välja Cursor framför
+  Claude Code i den här fasen.
+- **Sammanfattning**: hur sidan själv blev till, med en tidslinje och en
+  källmodal (Harvardformat) för allt som refereras.
 
 ## Filer i mappen
 
@@ -27,17 +34,21 @@ Ett interaktivt verktyg i tre lager (klickbara kort):
 | `index.html` | Claude-kompassen — hela verktyget i en självbärande fil |
 | `CLAUDE.md` | Projektkontext + arbetsregler för Claude Code i det här projektet |
 | `README.md` | Denna fil |
-| `bloggtext-utkast-surface-harness.md` | Arbetsutkast till den tillhörande bloggtexten (klel.wordpress.com) — ej färdigredigerat |
-| `*.jpg` | De skärmdumpar som både bloggtexten och verktyget bygger på |
+| `bloggtext-utkast-surface-harness.md` | Källutkastet till bloggtexten (publicerad, se länk ovan) |
+| `.claude/skills/` | Två projektnivå-skills: `claude-kompassen-konventioner` (struktur/konventioner för `index.html`) och `linkedin-ai-respons` (kommentarer på andras AI-inlägg) |
+| `*.jpg` | Skärmdumparna som både bloggtexten och verktyget bygger på |
 
 ## Kort sammanfattning
 
-- Bygger vidare på tre tidigare blogginlägg om samma återkommande tema: att tappa bort
-  sig, och gradvis hitta ord och struktur, i Claudes och det bredare AI-ekosystemet.
-- Skrivet och kodat i ett samarbete mellan Kent Lundgren och Claude Code — texten och
-  verktyget är själva ett exempel på det de handlar om.
+- Bygger vidare på tre tidigare blogginlägg om samma återkommande tema: att tappa
+  bort sig, och gradvis hitta ord och struktur, i Claudes och det bredare
+  AI-ekosystemet.
+- Skrivet och kodat i ett samarbete mellan Kent Lundgren och Claude Code, med
+  många rundor av frågor, rättningar och verifiering mot primärkällor — texten
+  och verktyget är själva ett exempel på det de handlar om.
 
 ## Relaterat
 
+- Claude-delens startsida: [`../README.md`](../README.md)
 - Projektets startsida: [`../../../README.md`](../../../README.md)
 - Skills-delen (samma repo, liknande tema om styrfiler): [`../../../Skills/`](../../../Skills/)

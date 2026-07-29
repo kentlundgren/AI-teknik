@@ -22,6 +22,14 @@ Projektet är under uppbyggnad och kommer att växa över tid med fler tekniker,
   **Live-sida (GitHub Pages):**
   - Skills-översikt: https://kentlundgren.github.io/AI-teknik/Skills/
 
+- **[Claude – att förstå och kontrollera Claudes ekosystem](./AI_modeller/Claude/)**
+  Bloggtext och interaktivt verktyg om Claudes tre faser: filerna som styr samarbetet (CLAUDE.md/AGENTS.md/SKILL.md), ytorna man väljer att jobba i, och vägen vidare via Cursor och Git till GitHub.
+  Se [`AI_modeller/Claude/README.md`](./AI_modeller/Claude/README.md) för en utförlig beskrivning.
+  **Live-sida (GitHub Pages):**
+  - Claude-kompassen: https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/
+  **Bloggtext:**
+  - [En bild av Claudes ekosystem](https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/)
+
 *Fler AI-tekniker tillkommer efter hand.*
 
 ## Struktur
@@ -37,10 +45,18 @@ AI-teknik/
 │   ├── index.html     # Live-sida (GitHub Pages) som förklarar RAG-mappen
 │   ├── styles.css     # Utseende för live-sidan
 │   └── script.js      # Interaktivitet för live-sidan
-└── Skills/            # Lärosida om hur AI-skills fungerar
-    ├── index.html     # Live-sida: Del A (var skills bor) + Del B (skapa en skill)
-    ├── styles.css     # Utseende för live-sidan
-    └── script.js      # Interaktivitet (växlare mellan Del A och Del B)
+├── Skills/            # Lärosida om hur AI-skills fungerar
+│   ├── index.html     # Live-sida: Del A (var skills bor) + Del B (skapa en skill)
+│   ├── styles.css     # Utseende för live-sidan
+│   └── script.js      # Interaktivitet (växlare mellan Del A och Del B)
+└── AI_modeller/
+    └── Claude/                    # Claudes ekosystem, Cursor och GitHub
+        ├── README.md              # Översikt över Claude-delen
+        └── olika_Claude_modeller/
+            ├── README.md          # Utförlig beskrivning av projektet
+            ├── index.html         # Live-sida: Claude-kompassen (tre faser)
+            ├── CLAUDE.md          # Projektkontext för Claude Code
+            └── bloggtext-utkast-surface-harness.md  # Bloggtextens källa
 ```
 
 ---
