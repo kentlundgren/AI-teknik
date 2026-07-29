@@ -195,17 +195,21 @@ const surfaces = [
 const afterClaude = [
   {
     id:'cursor2', name:'Cursor', sub:'Redigering, diff, commit',
-    note:'Visuellt gränssnitt mot samma repo som Claude Code kan nå från terminalen. Ingen kapacitetsskillnad — bara olika gränssnitt.'
+    note:'Här väljer jag aktivt Cursor, inte Claude Code. Jag ser filerna i projektet, har kontroll på versionshanteringen, kan granska allt i en webbläsare, och för över filer och program till Git och GitHub på ett sätt jag litar på. Claude Code känns i den här fasen helt värdelöst för mig — att hantera filer, versionshantering och överföring till webben. Det kan bero på att jag jobbat länge med Cursor och är van vid plattformen, inte på att Claude Code faktiskt saknar förmågan. Men det är så jag upplever det, och det är den upplevelsen som styr mitt val.'
   },
   {
     id:'git', name:'Git (lokalt)', sub:'Historik på din disk',
-    note:'Fungerar oavsett om du kör det via Cursor eller Claude Codes terminal. En regel du kommer ihåg är svagare än ett skydd (pre-push-hook) som stoppar dig.'
+    note:'Jag sköter det här alltid via Cursor. En regel man kommer ihåg är svagare än ett skydd (pre-push-hook) som stoppar en — det gäller oavsett verktyg, men jag vill ha det skyddet i det gränssnitt jag faktiskt litar på.'
   },
   {
-    id:'gh', name:'GitHub', sub:'Filerna blir levande sidor',
+    id:'cursor3', name:'Cursor', sub:'Väljer vad som förs över',
+    note:'Precis som i 3a är det Cursor som gör jobbet — men här väljer jag dessutom <em>vad</em> som förs över: hela mappen, eller bara en delmängd av filerna jag jobbar med lokalt. Jag har själv beskrivit hur man gör det senare, med en orphan-gren och en pre-push-hook, i <a href="https://klel.wordpress.com/2026/07/28/namnet-main-betyder-inte-alltid-main/" target="_blank" rel="noopener">Namnet \'main\' betyder inte alltid main</a>.'
+  },
+  {
+    id:'gh', name:'GitHub', sub:'Överföring till webben',
     img:'projektet_i_GitHub_260729.jpg',
     cap:'Repot på GitHub, samma dag — filerna som Cursor förde över dit, synliga för vem som helst.',
-    note:'Här blir filerna en URL vem som helst kan öppna, via GitHub Pages. Den här biten sköts helt i Cursor — det är där jag får ett samlat grepp om alla filer i projektet och för över dem till Git och GitHub. Kopplingen mellan Claude Code och GitHub direkt har jag aldrig riktigt satt mig in i, och det är precis därför jag växlar till Cursor här.'
+    note:'Här blir det som fördes över en URL vem som helst kan öppna, via GitHub Pages — hela projektet, eller bara den delmängd jag valde i steget innan.'
   }
 ];
 
@@ -236,7 +240,7 @@ function showSurface(id){
   d.classList.add('show');
 }
 
-const subPhase = {cursor2:'3a', git:'3a', gh:'3b'};
+const subPhase = {cursor2:'3a', git:'3a', cursor3:'3b', gh:'3b'};
 
 function renderPipeline(){
   const wrap = document.getElementById('pipeline-cards');
