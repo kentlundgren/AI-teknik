@@ -19,8 +19,9 @@
   header h1{font-size:1.7rem; margin:0 0 .3rem;}
   header p{color:var(--muted); font-size:.98rem; max-width:65ch;}
   .dateline{display:inline-block; margin-top:.7rem; font-size:.78rem; color:var(--step); background:var(--step-soft); padding:.2rem .6rem; border-radius:999px;}
+  html{scroll-behavior:smooth;}
   main{max-width:960px; margin:0 auto; padding:0 1.5rem 3rem;}
-  section{margin-top:2.2rem;}
+  section{margin-top:2.2rem; scroll-margin-top:1.2rem;}
   h2{font-size:1.15rem; border-bottom:2px solid var(--line); padding-bottom:.4rem; margin-bottom:1rem;}
   .tag{display:inline-block; font-size:.72rem; letter-spacing:.04em; text-transform:uppercase;
        background:var(--accent-soft); color:var(--accent); padding:.15rem .5rem; border-radius:999px; margin-bottom:.6rem;}
@@ -117,28 +118,28 @@
     <p style="margin-top:1.3rem;">Så är sidan uppbyggd, i tre faser: <strong>Fas 1</strong> — filerna som redan <strong>styr</strong> samarbetet innan man ens börjar. <strong>Fas 2</strong> — vilken <strong>yta</strong> man väljer att jobba i, med sina egna verktyg och modeller. <strong>Fas 3</strong> — versionhantering i Cursor och Git (3a), och leverans till GitHub där filerna blir levande sidor vem som helst kan nå via en URL (3b). Längst ner: en sammanfattning av hur den här sidan själv blev till. Klicka på en ruta nedan.</p>
   </section>
 
-  <section id="sec-steer">
+  <section id="fas1">
     <span class="tag">Fas 1</span>
     <h2>Filerna som styr samarbetet — innan man börjar</h2>
     <div class="cards" id="steer-cards"></div>
     <div class="detail" id="steer-detail"></div>
   </section>
 
-  <section id="sec-surfaces">
+  <section id="fas2">
     <span class="tag">Fas 2</span>
     <h2>Ytor (surfaces) — var man väljer att jobba</h2>
     <div class="cards" id="surface-cards"></div>
     <div class="detail" id="surface-detail"></div>
   </section>
 
-  <section id="sec-after">
+  <section id="fas3">
     <span class="tag step">Fas 3</span>
     <h2>Cursor och Git (3a) → GitHub (3b)</h2>
     <div class="pipeline" id="pipeline-cards"></div>
     <div class="detail" id="pipeline-detail"></div>
   </section>
 
-  <section id="sec-meta">
+  <section id="sammanfattning">
     <span class="tag step">Sammanfattning</span>
     <h2>Hur den här sidan blev till</h2>
     <p>Den här sidan är inte bara <em>om</em> att samarbeta med AI — den är själv byggd i ett sådant samarbete. Så här gick det till, 29 juli 2026:</p>
