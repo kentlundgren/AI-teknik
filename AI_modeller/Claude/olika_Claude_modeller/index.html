@@ -212,7 +212,7 @@ Arbetsmapp för att skriva en bloggtext och bygga en liten kodningsövning
   {
     id:'agents', name:'AGENTS.md', sub:'Öppen standard',
     intro:'Öppen, verktygsoberoende standard. Läses av bl.a. Cursor, VS Code, GitHub Copilot, Windsurf — men inte av Claude Code.',
-    fact:'<strong>Verifierat, inte gissat:</strong> Claude Code läser bara sin egen CLAUDE.md — AGENTS.md nämns inte i Claude Codes officiella ordlista, och Claude/Claude Code finns inte med i agents.md:s egen lista över verktyg som stödjer standarden. Vill du styra både Claude Code och Cursor med samma regler behövs alltså <em>båda</em> filerna.',
+    fact:'<strong>Verifierat, inte gissat:</strong> Claude Code läser bara sin egen CLAUDE.md — AGENTS.md nämns inte i Claude Codes officiella ordlista, och Claude/Claude Code finns inte med i agents.md:s egen lista över verktyg som stödjer standarden. Vill du styra både Claude Code och Cursor med samma regler behövs alltså <em>båda</em> filerna. <strong>Uppdatering 30 juli 2026:</strong> Påståendet att Claude Code <em>inte</em> läser AGENTS.md ifrågasattes i en senare dialog med Claude — det kan behöva verifieras på nytt mot aktuell dokumentation innan man litar på det som en absolut sanning.',
     note:'Ingen egen AGENTS.md finns i det här projektet ännu — CLAUDE.md räcker så länge det bara är Claude Code som läser regler här. Den blir aktuell först om Cursor eller ett annat verktyg också ska styras av samma fil.'
   },
   {
@@ -237,7 +237,7 @@ description: Projektspecifika konventioner för att vidareutveckla just
       },
       {
         id:'global', name:'Global nivå', sub:'kent-bygg-sidor',
-        where:'C:\\Users\\kentl\\.claude\\skills\\. Gäller alla projekt på den här datorn, men följer inte med till en annan enhet.',
+        where:'C:\\Users\\kentl\\.claude\\skills\\. Gäller alla projekt på den här datorn, men följer inte med till en annan enhet. <strong>OBS:</strong> detta är Claude Codes globala mapp. Claude Cowork lagrar sina skills på ett helt annat ställe — i AppData-mappen — via sin egen save_skill-funktion. De två mapparna synkas inte automatiskt, och samma skill kan alltså existera i två olika versioner utan att man märker det.',
         img:'Globala_Claude_skills_260729.jpg',
         cap:'kent-bygg-sidor tillkom precis, samma dag som den här sidan byggdes — här bland de andra globala skillsen.',
         excerpt:`# Kents regler för att bygga och förbättra interaktiva sidor
@@ -265,7 +265,7 @@ Kent anger källor i Harvardsystemet... Gissa aldrig på en URL.`,
         note:'Den här skillen fanns redan innan det här projektet startade, och triggade automatiskt när Kent bad om att planera bloggtexten.'
       }
     ],
-    tradeoff:'Fördelen med tre nivåer är att man kan välja hur brett en regel ska gälla. Nackdelen är att det blir svårt att hålla reda på var allt ligger — särskilt om man, som Kent, vill ha kontrollen själv: skapa, utveckla och förbättra sina egna skills, snarare än att lämna bort ägarskapet helt. Det är också svårt att i förväg veta om något hör hemma i en AGENTS.md-regel eller i en skill, och lika svårt att veta vilken av de tre nivåerna en ny skill bör läggas på — det kräver aktivt underhåll, inte ett engångsval. <strong>Konkret exempel, upptäckt under det här projektet:</strong> skillen <code>kent-skrivstil</code> finns just nu på två ställen samtidigt — global nivå på den här datorn, och kontoanknuten — utan att vara synkade med varandra. När den ena uppdaterades (för att lägga till en ny regel) fick den andra ingen ändring alls. Det är precis den krocken, förvirringen och oordningen som är priset för flexibiliteten.',
+    tradeoff:'Fördelen med tre nivåer är att man kan välja hur brett en regel ska gälla. Nackdelen är att det blir svårt att hålla reda på var allt ligger — särskilt om man, som Kent, vill ha kontrollen själv: skapa, utveckla och förbättra sina egna skills, snarare än att lämna bort ägarskapet helt. Det är också svårt att i förväg veta om något hör hemma i en AGENTS.md-regel eller i en skill, och lika svårt att veta vilken av de tre nivåerna en ny skill bör läggas på — det kräver aktivt underhåll, inte ett engångsval. <strong>Konkret exempel, upptäckt under det här projektet:</strong> skillen <code>kent-skrivstil</code> finns just nu på två ställen samtidigt — global nivå på den här datorn, och kontoanknuten — utan att vara synkade med varandra. När den ena uppdaterades (för att lägga till en ny regel) fick den andra ingen ändring alls. Det är precis den krocken, förvirringen och oordningen som är priset för flexibiliteten. <strong>Nytt problem, 30 juli 2026:</strong> det finns ytterligare en dimension av detta för den som — som Kent — använder <em>både</em> Claude Code och Claude Cowork. De lagrar sina skills i <em>helt separata</em> mappar och det finns inget inbyggt sätt att synka dem. En skill uppdaterad i Cowork når aldrig Claude Codes mapp automatiskt, och vice versa. Det är en designbrist i ekosystemet som drabbar den som rör sig mellan verktygen.',
     note:'Nu finns skills på alla tre nivåerna i det här projektet samtidigt.'
   }
 ];
@@ -285,7 +285,7 @@ const surfaces = [
     cap:'Code är en egen flik uppe till vänster. Chat/Cowork växlas med knappar vid inmatningsfältet.',
     tools:['Chat','Cowork','Code (flik)'],
     models:['Sonnet 4.6 syns i denna bild — versionsnamn ändras ofta'],
-    note:'Samma namn som webben, men du hittar dem på helt andra ställen.'
+    note:'Samma namn som webben, men du hittar dem på helt andra ställen. En konkret fallgrop: "Home"- och "Code"-knapparna uppe till vänster i appen sitter tätt intill varandra — det är lätt att klicka fel och hamna i Claude Code när man menade Cowork, eller tvärtom, utan att märka det direkt.'
   },
   {
     id:'cmd', name:'Kommandotolken', sub:'Ingen layout alls',
