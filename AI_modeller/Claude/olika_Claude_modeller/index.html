@@ -23,10 +23,14 @@
   main{max-width:960px; margin:0 auto; padding:0 1.5rem 3rem;}
   section{margin-top:2.2rem; scroll-margin-top:1.2rem;}
   h2{font-size:1.15rem; border-bottom:2px solid var(--line); padding-bottom:.4rem; margin-bottom:1rem;}
-  /* Klickbara ankarlänkrubriker — länken ärver rubrikens färg och stil */
+  /* Klickbara ankarlänkrubriker — alltid svagt synlig #, tydlig vid hover */
   h2 a.anchor-heading{color:inherit; text-decoration:none;}
-  h2 a.anchor-heading::after{content:'#'; margin-left:.45em; font-size:.75em; opacity:0; color:var(--accent); transition:opacity .15s;}
-  h2:hover a.anchor-heading::after{opacity:1;}
+  h2 a.anchor-heading::after{
+    content:' #'; font-size:.72em; font-weight:400;
+    opacity:.18; color:var(--accent); transition:opacity .15s;
+  }
+  h2 a.anchor-heading:hover{text-decoration:underline; text-decoration-color:var(--accent);}
+  h2 a.anchor-heading:hover::after{opacity:.9;}
   .tag{display:inline-block; font-size:.72rem; letter-spacing:.04em; text-transform:uppercase;
        background:var(--accent-soft); color:var(--accent); padding:.15rem .5rem; border-radius:999px; margin-bottom:.6rem;}
   .tag.step{background:var(--step-soft); color:var(--step);}
