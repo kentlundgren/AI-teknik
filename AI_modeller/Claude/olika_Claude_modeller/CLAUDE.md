@@ -30,7 +30,7 @@ publicerade. Filer och länkar:
   (29/7 2026, disposition "B" — speglar verktygets Fas-struktur).
 - `index.html` — Claude-kompassen, publicerad live via GitHub Pages på
   https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/
-  Fyra sektioner med ankarlänkar: `#fas1`, `#fas2`, `#fas3`, `#sammanfattning`.
+  Fem sektioner med ankarlänkar: `#fas1`, `#fas2`, `#fas3`, `#sammanfattning`, `#kallor`.
 - LinkedIn: [Vilken är din Claude favorit](https://www.linkedin.com/pulse/vilken-%C3%A4r-din-claude-favorit-kent-lundgren-atqye/)
   (30/7 2026, Kents egen slutredigering).
 - `README.md` (denna mapp), `../README.md` (Claude-mappen) och repots rot-`README.md`
@@ -47,12 +47,25 @@ publicerade. Filer och länkar:
 Fullständig, löpande plan (med all bakgrund/research) finns i:
 `C:\Users\kentl\.claude\plans\abstract-leaping-lark.md`
 
-**Öppet:** Kent har en kontoanknuten skill `kent-ekosystem-analys` (skapad 30/7 i en
-annan session) som sammanfattar samma ekosystem-förståelse för återanvändning i framtida
-konversationer. Den innehöll vid genomläsning 30/7 två sakfel (se skillens egen
-uppdateringslogg) som rättats där det går — men den filen ligger i en sessionscache
-Claude Code inte kan garantera synkas tillbaka till kontot. Stäm av direkt i skillen
-om den ser korrekt ut nästa gång den används.
+## Skill-inventering
+
+Skills finns på tre nivåer. Claude Code (Cursor) når bara nivå 1 och 2 — inte 3.
+
+**Nivå 1 — Projektnivå** (`.claude/skills/` i den här mappen, nås av Claude Code):
+- `claude-kompassen-konventioner` — konventioner för index.html i just det här projektet
+- `linkedin-ai-respons` — LinkedIn-kommentarer på andras AI-inlägg
+
+**Nivå 2 — Global på datorn**, nås av Claude Code:
+- `C:\Users\kentl\.claude\skills\`: `humanizer_ton`, `kent-bygg-sidor`, `kent-respons`,
+  `kent-skrivstil`, `skills-meta-guide`
+- `C:\Users\kentl\.cursor\skills\`: `bjerred-firebase-sync`, `firebase-backend`
+- `C:\Users\kentl\.cursor\skills-cursor\`: Cursor-inbyggda skills (automate, canvas,
+  create-hook, create-rule, create-skill, loop, sdk, m.fl.)
+
+**Nivå 3 — Kontoanknuten på claude.ai**, nås INTE av Claude Code — bara från claude.ai/Cowork:
+- `kent-ekosystem-analys` — sammanfattar Claudes ekosystem-förståelse för återanvändning.
+  Skapad 30/7 2026. Kent anser att den är korrekt. Kan bara läsas och redigeras direkt
+  i claude.ai eller Cowork — Claude Code ser den aldrig.
 
 ## Arbetsregler (generella, gäller detta och liknande projekt i AI-teknik-repot)
 
