@@ -108,6 +108,18 @@
   .modal ol{padding-left:1.2rem;}
   .modal li{margin-bottom:.8rem; font-size:.92rem;}
 
+  /* Tooltip-wrapper för kort som har hoover-förklaring */
+  .card-tip-wrap{position:relative;}
+  .card-tip{
+    display:none; position:absolute; bottom:calc(100% + .6rem); left:0;
+    background:var(--panel); border:1px solid var(--accent); border-radius:10px;
+    padding:.85rem 1rem; font-size:.8rem; line-height:1.6; width:300px;
+    box-shadow:0 4px 18px rgba(0,0,0,.13); z-index:30; white-space:normal;
+    pointer-events:none;
+  }
+  .card-tip strong{display:block; margin-bottom:.2rem; color:var(--accent);}
+  .card-tip-wrap:hover .card-tip{display:block;}
+
   /* Flytande knappar nere i hörnen — gemensam bas */
   .corner-btn{
     position:fixed; bottom:1.2rem; z-index:20;
@@ -427,6 +439,18 @@ const afterClaude = [
   }
 ];
 
+/* Tooltip-innehåll för SKILL.md-kortet — tre nivåer hämtade från CLAUDE.md */
+const skillTooltip = `
+  <strong>Skills finns på tre nivåer:</strong>
+  <b>Nivå 1 — Projektnivå</b> (.claude/skills/ i mappen)<br>
+  claude-kompassen-konventioner, linkedin-ai-respons<br><br>
+  <b>Nivå 2 — Global på datorn</b> (Claude Code når dem)<br>
+  .claude\\skills\\: humanizer_ton, kent-bygg-sidor, kent-respons, kent-skrivstil, skills-meta-guide<br>
+  .cursor\\skills\\: bjerred-firebase-sync, firebase-backend<br><br>
+  <b>Nivå 3 — Kontoanknuten på claude.ai</b> (Claude Code når den EJ)<br>
+  kent-ekosystem-analys
+`;
+
 function renderSteer(){
   const wrap = document.getElementById('steer-cards');
   steerFiles.forEach(s=>{
@@ -434,7 +458,20 @@ function renderSteer(){
     b.className='card-btn'; b.dataset.id=s.id;
     b.innerHTML = `<strong>${s.name}</strong><span>${s.sub}</span>`;
     b.onclick = ()=>showSteer(s.id);
-    wrap.appendChild(b);
+
+    /* SKILL.md-kortet får en tooltip-wrapper med tre-nivå-beskrivningen */
+    if(s.id === 'skill'){
+      const tipWrap = document.createElement('div');
+      tipWrap.className = 'card-tip-wrap';
+      const tip = document.createElement('div');
+      tip.className = 'card-tip';
+      tip.innerHTML = skillTooltip;
+      tipWrap.appendChild(b);
+      tipWrap.appendChild(tip);
+      wrap.appendChild(tipWrap);
+    } else {
+      wrap.appendChild(b);
+    }
   });
 }
 
