@@ -104,16 +104,19 @@
   .modal ol{padding-left:1.2rem;}
   .modal li{margin-bottom:.8rem; font-size:.92rem;}
 
-  /* Flytande tech-knapp nere till höger */
-  .tech-btn{
-    position:fixed; bottom:1.2rem; right:1.2rem; z-index:20;
+  /* Flytande knappar nere i hörnen — gemensam bas */
+  .corner-btn{
+    position:fixed; bottom:1.2rem; z-index:20;
     background:rgba(255,255,255,.55); backdrop-filter:blur(6px);
     border:1px solid var(--line); border-radius:999px;
     padding:.35rem .8rem; font:inherit; font-size:.75rem;
     color:var(--muted); cursor:pointer; letter-spacing:.03em;
+    text-decoration:none; display:inline-block;
     transition:background .15s, color .15s;
   }
-  .tech-btn:hover{background:rgba(255,255,255,.9); color:var(--ink);}
+  .corner-btn:hover{background:rgba(255,255,255,.9); color:var(--ink);}
+  .tech-btn{right:1.2rem;}
+  .github-btn{left:1.2rem;}
 
   /* Tech-modal: lite smalare än källmodalen */
   #tech-modal .modal{max-width:560px;}
@@ -213,8 +216,11 @@
   </div>
 </div>
 
+<!-- Diskret GitHub-länk, fast position nere till vänster -->
+<a class="corner-btn github-btn" href="https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/olika_Claude_modeller" target="_blank" rel="noopener" aria-label="GitHub-repot">{ } GitHub</a>
+
 <!-- Diskret tech-knapp, fast position nere till höger -->
-<button class="tech-btn" onclick="document.getElementById('tech-modal').classList.add('show')" aria-label="Tekniköversikt">&#60;/&#62; teknik</button>
+<button class="corner-btn tech-btn" onclick="document.getElementById('tech-modal').classList.add('show')" aria-label="Tekniköversikt">&#60;/&#62; teknik</button>
 
 <div class="modal-overlay" id="tech-modal" onclick="if(event.target===this) this.classList.remove('show')">
   <div class="modal">
