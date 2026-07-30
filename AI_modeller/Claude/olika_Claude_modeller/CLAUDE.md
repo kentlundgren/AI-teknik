@@ -23,12 +23,20 @@ projektkontext mellan sessioner.
 5. `Claude_i_Cursor.jpg` — Claude Code dubbelt inuti Cursor (sidopanel + terminal samtidigt)
 
 ## Status
-**Version 1 klar** (29/7 2026): bloggtextutkast och kodningsövning skrivna efter Kents
-go-signal. Filer:
-- `bloggtext-utkast-surface-harness.md` — utkast, alla fem bilder inbäddade, Harvard-källor.
-- `index.html` — interaktivt referensverktyg ("Claude-kompassen", döpt om från
-  `claude-kompassen.html`), publicerat live via GitHub Pages på
+**Klart och publicerat** (29–30/7 2026): bloggtext, verktyg och LinkedIn-inlägg alla
+publicerade. Filer och länkar:
+- `bloggtext-utkast-surface-harness.md` — källan till bloggtexten. Publicerad:
+  [En bild av Claudes ekosystem](https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/)
+  (29/7 2026, disposition "B" — speglar verktygets Fas-struktur).
+- `index.html` — Claude-kompassen, publicerad live via GitHub Pages på
   https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/
+  Fyra sektioner med ankarlänkar: `#fas1`, `#fas2`, `#fas3`, `#sammanfattning`.
+- LinkedIn: [Vilken är din Claude favorit](https://www.linkedin.com/pulse/vilken-%C3%A4r-din-claude-favorit-kent-lundgren-atqye/)
+  (30/7 2026, Kents egen slutredigering).
+- `README.md` (denna mapp), `../README.md` (Claude-mappen) och repots rot-`README.md`
+  alla uppdaterade för att spegla Fas-strukturen och de publicerade länkarna.
+- Projektnivå-skills i `.claude/skills/`: `claude-kompassen-konventioner` (struktur för
+  `index.html`) och `linkedin-ai-respons` (kommentarer på andras AI-inlägg).
 
 **Viktigt — två index-filer i mappen, förväxla dem inte:**
 - `index.html` — den riktiga, aktiva filen. Jobba alltid med den här.
@@ -39,8 +47,12 @@ go-signal. Filer:
 Fullständig, löpande plan (med all bakgrund/research) finns i:
 `C:\Users\kentl\.claude\plans\abstract-leaping-lark.md`
 
-**Kvarstår:** Kents genomläsning/redigering av utkastet, ev. humanizer-ton-pass, beslut om
-`claude-kompassen.html` ska publiceras som Artifact (kräver uttryckligt godkännande).
+**Öppet:** Kent har en kontoanknuten skill `kent-ekosystem-analys` (skapad 30/7 i en
+annan session) som sammanfattar samma ekosystem-förståelse för återanvändning i framtida
+konversationer. Den innehöll vid genomläsning 30/7 två sakfel (se skillens egen
+uppdateringslogg) som rättats där det går — men den filen ligger i en sessionscache
+Claude Code inte kan garantera synkas tillbaka till kontot. Stäm av direkt i skillen
+om den ser korrekt ut nästa gång den används.
 
 ## Arbetsregler (generella, gäller detta och liknande projekt i AI-teknik-repot)
 

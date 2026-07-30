@@ -18,10 +18,14 @@ konkret visa att alla tre nivåerna kan förekomma i samma projekt samtidigt.
 
 ## Struktur i index.html
 
-- Fyra sektioner, i ordning: **Fas 1** (`sec-steer`, styrfiler CLAUDE.md/AGENTS.md/
-  SKILL.md), **Fas 2** (`sec-surfaces`, ytor), **Fas 3** (`sec-after`, Cursor/Git/
-  GitHub, uppdelat i 3a och 3b), och **Sammanfattning** (`sec-meta`, processen bakom
-  sidan). Denna ordning och namngivning är medvetet vald av Kent — ändra den inte
+- Fyra sektioner, i ordning: **Fas 1** (`id="fas1"`, styrfiler CLAUDE.md/AGENTS.md/
+  SKILL.md), **Fas 2** (`id="fas2"`, ytor), **Fas 3** (`id="fas3"`, Cursor/Git/
+  GitHub, uppdelat i 3a och 3b), och **Sammanfattning** (`id="sammanfattning"`,
+  processen bakom sidan). Sektions-id:na döptes om från `sec-steer`/`sec-surfaces`/
+  `sec-after`/`sec-meta` (30/7) just för att kunna länkas direkt: `#fas1`, `#fas2`,
+  `#fas3`, `#sammanfattning` används redan i bloggtexten och i verktygets egen
+  introtext. Behåll dessa exakta id:n — de är en publik kontrakt, inte bara interna
+  namn. Denna ordning och namngivning är medvetet vald av Kent — ändra den inte
   utan att fråga.
 - Varje sektion använder samma mönster: en `.cards`-rad med klickbara knappar och
   en `.detail`-panel under som fylls via JavaScript (`showSteer`, `showSurface`,
