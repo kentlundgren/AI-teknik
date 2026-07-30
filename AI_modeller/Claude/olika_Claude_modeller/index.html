@@ -23,6 +23,10 @@
   main{max-width:960px; margin:0 auto; padding:0 1.5rem 3rem;}
   section{margin-top:2.2rem; scroll-margin-top:1.2rem;}
   h2{font-size:1.15rem; border-bottom:2px solid var(--line); padding-bottom:.4rem; margin-bottom:1rem;}
+  /* Klickbara ankarlänkrubriker — länken ärver rubrikens färg och stil */
+  h2 a.anchor-heading{color:inherit; text-decoration:none;}
+  h2 a.anchor-heading::after{content:'#'; margin-left:.45em; font-size:.75em; opacity:0; color:var(--accent); transition:opacity .15s;}
+  h2:hover a.anchor-heading::after{opacity:1;}
   .tag{display:inline-block; font-size:.72rem; letter-spacing:.04em; text-transform:uppercase;
        background:var(--accent-soft); color:var(--accent); padding:.15rem .5rem; border-radius:999px; margin-bottom:.6rem;}
   .tag.step{background:var(--step-soft); color:var(--step);}
@@ -118,28 +122,28 @@
 
   <section id="fas1">
     <span class="tag">Fas 1</span>
-    <h2>Filerna som styr samarbetet — innan man börjar</h2>
+    <h2><a class="anchor-heading" href="#fas1">Filerna som styr samarbetet — innan man börjar</a></h2>
     <div class="cards" id="steer-cards"></div>
     <div class="detail" id="steer-detail"></div>
   </section>
 
   <section id="fas2">
     <span class="tag">Fas 2</span>
-    <h2>Ytor (surfaces) — var man väljer att jobba</h2>
+    <h2><a class="anchor-heading" href="#fas2">Ytor (surfaces) — var man väljer att jobba</a></h2>
     <div class="cards" id="surface-cards"></div>
     <div class="detail" id="surface-detail"></div>
   </section>
 
   <section id="fas3">
     <span class="tag step">Fas 3</span>
-    <h2>Cursor och Git (3a) → GitHub (3b)</h2>
+    <h2><a class="anchor-heading" href="#fas3">Cursor och Git (3a) → GitHub (3b)</a></h2>
     <div class="pipeline" id="pipeline-cards"></div>
     <div class="detail" id="pipeline-detail"></div>
   </section>
 
   <section id="sammanfattning">
     <span class="tag step">Sammanfattning</span>
-    <h2>Hur den här sidan blev till</h2>
+    <h2><a class="anchor-heading" href="#sammanfattning">Hur den här sidan blev till</a></h2>
     <p>Den här sidan är inte bara <em>om</em> att samarbeta med AI — den är själv byggd i ett sådant samarbete. Så här gick det till, 29 juli 2026:</p>
     <ul class="timeline">
       <li><b>Fem skärmdumpar under en eftermiddag</b> — Kent samlade dem i samma mapp, utan att först veta vad de skulle bli.</li>
@@ -168,9 +172,9 @@
     </div>
   </section>
 
-  <section id="kallforteckning">
+  <section id="kallor">
     <span class="tag step">Källor</span>
-    <h2>Tidigare texter i ämnet och andra källor</h2>
+    <h2><a class="anchor-heading" href="#kallor">Tidigare texter i ämnet och andra källor</a></h2>
     <p style="font-size:.9rem; color:var(--muted); margin-bottom:.8rem;">Harvardformat. Länkarna verifierade innan de togs med.</p>
     <ol id="sources-list-bottom" style="font-size:.9rem; line-height:1.7; padding-left:1.2rem;"></ol>
   </section>

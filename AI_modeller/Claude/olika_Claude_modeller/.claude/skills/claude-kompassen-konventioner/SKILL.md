@@ -18,15 +18,30 @@ konkret visa att alla tre nivåerna kan förekomma i samma projekt samtidigt.
 
 ## Struktur i index.html
 
-- Fyra sektioner, i ordning: **Fas 1** (`id="fas1"`, styrfiler CLAUDE.md/AGENTS.md/
+- Fem sektioner, i ordning: **Fas 1** (`id="fas1"`, styrfiler CLAUDE.md/AGENTS.md/
   SKILL.md), **Fas 2** (`id="fas2"`, ytor), **Fas 3** (`id="fas3"`, Cursor/Git/
-  GitHub, uppdelat i 3a och 3b), och **Sammanfattning** (`id="sammanfattning"`,
-  processen bakom sidan). Sektions-id:na döptes om från `sec-steer`/`sec-surfaces`/
-  `sec-after`/`sec-meta` (30/7) just för att kunna länkas direkt: `#fas1`, `#fas2`,
-  `#fas3`, `#sammanfattning` används redan i bloggtexten och i verktygets egen
-  introtext. Behåll dessa exakta id:n — de är en publik kontrakt, inte bara interna
-  namn. Denna ordning och namngivning är medvetet vald av Kent — ändra den inte
-  utan att fråga.
+  GitHub, uppdelat i 3a och 3b), **Sammanfattning** (`id="sammanfattning"`,
+  processen bakom sidan), och **Källor** (`id="kallor"`, källförteckning längst ner).
+  Sektions-id:na döptes om (30/7) just för att kunna länkas direkt: `#fas1`,
+  `#fas2`, `#fas3`, `#sammanfattning`, `#kallor` används redan i bloggtexten och
+  i verktygets introtext. Behåll dessa exakta id:n — de är ett publikt kontrakt,
+  inte bara interna namn. Denna ordning och namngivning är medvetet vald av Kent
+  — ändra den inte utan att fråga.
+- **Allmän ankarlänksregel (gäller alla sektioner i index.html):** varje `<section>`
+  ska ha ett `id`-attribut med ett kort, läsbart svenskt ord (utan å/ä/ö, utan
+  mellanslag). Det gör att sektionen kan nås direkt via URL-fragment, t.ex.
+  `https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/#kallor`.
+  Lägg alltid till `id` när en ny sektion skapas. Fråga Kent vilket id den ska ha
+  om det inte är uppenbart — id:t är en publik länk och svårt att ändra i efterhand
+  utan att bryta externa referenser.
+- **Klickbara ankarlänkrubriker:** varje `<h2>` i en namngiven sektion ska vara
+  inlindad i `<a class="anchor-heading" href="#sektions-id">…</a>`. CSS-klassen
+  `anchor-heading` gör att: (1) länken ärver rubrikens färg och har ingen underline
+  normalt, (2) ett `#`-tecken i accent-färg tonas in på hover — ett diskret signal
+  om att rubriken är klickbar/länkbar. Mönstret gör att besökaren enkelt kan "få fatt
+  i" rätt URL för ett avsnitt och dela den med någon annan. Lägg alltid till detta
+  mönster för `<h2>` i nya sektioner. Befintliga rubriker med detta mönster (30/7
+  2026): `#fas1`, `#fas2`, `#fas3`, `#sammanfattning`, `#kallor`.
 - Varje sektion använder samma mönster: en `.cards`-rad med klickbara knappar och
   en `.detail`-panel under som fylls via JavaScript (`showSteer`, `showSurface`,
   `showPipeline`). Nya kort ska följa exakt detta mönster, inte uppfinna ett nytt.
