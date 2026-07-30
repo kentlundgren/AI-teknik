@@ -49,23 +49,34 @@ Fullständig, löpande plan (med all bakgrund/research) finns i:
 
 ## Skill-inventering
 
-Skills finns på tre nivåer. Claude Code (Cursor) når bara nivå 1 och 2 — inte 3.
+Skills finns på tre nivåer och fyra mappar. Vilka verktyg som når en skill beror på
+var den lagras — inte bara på nivån. Matris nedan:
 
-**Nivå 1 — Projektnivå** (`.claude/skills/` i den här mappen, nås av Claude Code):
-- `claude-kompassen-konventioner` — konventioner för index.html i just det här projektet
+| Mapp/plats | Claude Code | Cursor agent | Claude Cowork |
+|---|---|---|---|
+| `.claude/skills/` (projekt) | ✓ | ✓ | ✗ |
+| `C:\..\.claude\skills\` (global) | ✓ | ✓ | ✗ |
+| `C:\..\.cursor\skills\` | ✗ | ✓ | ✗ |
+| `C:\..\.cursor\skills-cursor\` | ✗ | ✓ | ✗ |
+| Cowork AppData-mapp | ✗ | ✗ | ✓ |
+| Kontoanknuten (claude.ai) | ✗ | ✗ | ✓ |
+
+**Nivå 1 — Projektnivå** — `.claude/skills/` i den här mappen:
+- Når dem: **Claude Code** och **Cursor agent**. Inte Cowork.
+- `claude-kompassen-konventioner` — konventioner för index.html i detta projekt
 - `linkedin-ai-respons` — LinkedIn-kommentarer på andras AI-inlägg
 
-**Nivå 2 — Global på datorn**, nås av Claude Code:
-- `C:\Users\kentl\.claude\skills\`: `humanizer_ton`, `kent-bygg-sidor`, `kent-respons`,
-  `kent-skrivstil`, `skills-meta-guide`
-- `C:\Users\kentl\.cursor\skills\`: `bjerred-firebase-sync`, `firebase-backend`
-- `C:\Users\kentl\.cursor\skills-cursor\`: Cursor-inbyggda skills (automate, canvas,
-  create-hook, create-rule, create-skill, loop, sdk, m.fl.)
+**Nivå 2 — Global på datorn:**
+- `C:\Users\kentl\.claude\skills\` — når dem: **Claude Code** och **Cursor agent**:
+  `humanizer_ton`, `kent-bygg-sidor`, `kent-respons`, `kent-skrivstil`, `skills-meta-guide`
+- `C:\Users\kentl\.cursor\skills\` — når dem: **Cursor agent** (ej Claude Code):
+  `bjerred-firebase-sync`, `firebase-backend`
+- `C:\Users\kentl\.cursor\skills-cursor\` — når dem: **Cursor agent** (ej Claude Code):
+  automate, canvas, create-hook, create-rule, create-skill, loop, sdk m.fl.
 
-**Nivå 3 — Kontoanknuten på claude.ai**, nås INTE av Claude Code — bara från claude.ai/Cowork:
-- `kent-ekosystem-analys` — sammanfattar Claudes ekosystem-förståelse för återanvändning.
-  Skapad 30/7 2026. Kent anser att den är korrekt. Kan bara läsas och redigeras direkt
-  i claude.ai eller Cowork — Claude Code ser den aldrig.
+**Nivå 3 — Kontoanknuten/Cowork** — når dem: **Claude Cowork** och **claude.ai** (ej Claude Code, ej Cursor):
+- `kent-ekosystem-analys` — sammanfattar Claudes ekosystem-förståelse.
+  Skapad 30/7 2026, Kent anser att den är korrekt.
 
 **Regel vid all skill-hantering:**
 När vi diskuterar, uppdaterar, justerar eller skapar en skill — oavsett anledning —

@@ -445,13 +445,18 @@ const afterClaude = [
 
 /* Tooltip-innehåll för SKILL.md-kortet — tre nivåer hämtade från CLAUDE.md */
 const skillTooltip = `
-  <strong>Skills finns på tre nivåer:</strong>
-  <b>Nivå 1 — Projektnivå</b> (.claude/skills/ i mappen)<br>
+  <strong>Skills — tre nivåer, fyra mappar, tre verktyg</strong>
+  <b>Nivå 1 — Projektnivå</b> (.claude/skills/ här)<br>
+  Når dem: Claude Code ✓ &nbsp;Cursor ✓ &nbsp;Cowork ✗<br>
   claude-kompassen-konventioner, linkedin-ai-respons<br><br>
-  <b>Nivå 2 — Global på datorn</b> (Claude Code når dem)<br>
-  .claude\\skills\\: humanizer_ton, kent-bygg-sidor, kent-respons, kent-skrivstil, skills-meta-guide<br>
-  .cursor\\skills\\: bjerred-firebase-sync, firebase-backend<br><br>
-  <b>Nivå 3 — Kontoanknuten på claude.ai</b> (Claude Code når den EJ)<br>
+  <b>Nivå 2a — Global, Claude Code + Cursor</b><br>
+  .claude\\skills\\: humanizer_ton, kent-bygg-sidor, kent-respons,<br>
+  &nbsp;&nbsp;kent-skrivstil, skills-meta-guide<br><br>
+  <b>Nivå 2b — Global, endast Cursor</b><br>
+  .cursor\\skills\\: bjerred-firebase-sync, firebase-backend<br>
+  .cursor\\skills-cursor\\: automate, canvas, sdk m.fl.<br><br>
+  <b>Nivå 3 — Kontoanknuten</b><br>
+  Når dem: Cowork ✓ &nbsp;claude.ai ✓ &nbsp;Claude Code ✗ &nbsp;Cursor ✗<br>
   kent-ekosystem-analys
 `;
 
