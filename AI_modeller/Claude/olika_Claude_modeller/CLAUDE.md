@@ -56,11 +56,13 @@ om den ser korrekt ut nästa gång den används.
 
 ## Arbetsregler (generella, gäller detta och liknande projekt i AI-teknik-repot)
 
-- **Git commit/push görs alltid av Kent själv, via Cursor.** Claude Code (jag) förbereder,
-  skriver och testar filer lokalt, men kör aldrig `git commit`/`git push` proaktivt eller
-  som en genväg — även om det tekniskt fungerar lika bra härifrån. Detta ger Kent kontroll
-  och medvetenhet varje gång något nytt publiceras. Read-only git-kommandon (status, diff,
-  log, remote -v) för diagnostik är däremot okej.
+- **Git commit/push: normalt gör Kent detta själv via Cursor.** Det ger kontroll och
+ medvetenhet varje gång något publiceras. Read-only git-kommandon (status, diff, log,
+ remote -v) för diagnostik är alltid okej.
+ **Undantag:** om Kent uttryckligen ber Claude Code att committa och/eller pusha — t.ex.
+ om Cursors egna commit/push-funktion hänger sig eller av annan anledning — kör Claude
+ Code dessa kommandon direkt, utan att tveka. Det är Kents explicita önskan som avgör,
+ inte en fast regel om vem som "alltid" ska trycka på knappen.
 - **README-konvention:** så fort ett nytt delprojekt eller en ny uppsättning filer skapas
   i ett repo (särskilt ett som publiceras via GitHub Pages) ska en `README.md` skapas i
   samma mapp — kort projektbeskrivning + länk till Live Page-URL:en. Mönster redan etablerat
