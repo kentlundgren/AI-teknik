@@ -111,10 +111,8 @@
 <main>
 
   <section class="intro-section">
-    <p>Det här började som en fråga jag ställde till Claude Code en eftermiddag: kunde vi planera en bloggtext, och en kodningsövning, om det jag kämpat med att förstå i Claudes ekosystem? Jag länkade till två tidigare inlägg — <a href="https://klel.wordpress.com/2026/07/27/tappade-bort-mig-i-claudes-ekosystem/" target="_blank" rel="noopener">Tappade bort mig i Claudes ekosystem</a> och <a href="https://klel.wordpress.com/2026/06/01/claude-cowork-cursor-och-claude-code-tre-verktyg-ett-arbetsflode/" target="_blank" rel="noopener">Claude Cowork, Cursor och Claude Code</a> — och bad Claude titta på tre skärmdumpar jag just tagit i den här mappen, utan att själv veta vad de skulle bli.</p>
-    <p>Det som följde var inte en enda instruktion som gav ett färdigt resultat, utan flera timmars fram och tillbaka. Vi planerade i omgångar innan något skrevs. Vi verifierade fakta mot primärkällor istället för att gissa — bland annat en motsägelse om huruvida Claude Code faktiskt läser AGENTS.md. Vi skrev en bloggtext och byggde den här sidan parallellt, testade lokalt i webbläsaren steg för steg, och jag rättade Claude flera gånger när något lät mer som en teknisk sanning än min egen upplevelse av att jobba med Cursor och Git. Sidan gick live via GitHub Pages, fick ett eget avsnitt om hur den blev till, och till och med en liten samling egna skills som styr hur Claude ska bygga vidare på den. Hela texten, med bilderna, finns på <a href="https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/" target="_blank" rel="noopener">En bild av Claudes ekosystem</a>.</p>
-    <p>Jag lägger ut det här inte som ett facit över Claudes ekosystem — jag tror inte man kan tala om en absolut sanning här — utan som <strong>en bild av</strong> hur det ser ut just nu, och ett konkret exempel på hur jag själv jobbar med generativ AI för att få fram både en färdig text och ett färdigt program på webben, med fler frågor, rättningar och omtag än man kanske väntar sig. Vill du se källorna bakom allt vi pratat om finns de samlade här:</p>
-    <button class="btn-link" onclick="document.getElementById('sources-modal').classList.add('show')">Källor och referenser →</button>
+    <p>Jag hade svårt att se hela processen — hur jag faktiskt jobbar med Claude, Cursor och GitHub när jag kodar. Den här sidan är mitt försök att rita upp det.</p>
+    <button class="btn-link" onclick="document.getElementById('sources-modal').classList.add('show')">Tidigare texter i ämnet och andra källor →</button>
     <p style="margin-top:1.3rem;">Så är sidan uppbyggd, i tre faser: <strong><a href="#fas1">Fas 1</a></strong> — filerna som redan <strong>styr</strong> samarbetet innan man ens börjar. <strong><a href="#fas2">Fas 2</a></strong> — vilken <strong>yta</strong> man väljer att jobba i, med sina egna verktyg och modeller. <strong><a href="#fas3">Fas 3</a></strong> — versionhantering i Cursor och Git (3a), och leverans till GitHub där filerna blir levande sidor vem som helst kan nå via en URL (3b). Längst ner: <a href="#sammanfattning">en sammanfattning</a> av hur den här sidan själv blev till. Klicka på en ruta nedan.</p>
   </section>
 
@@ -170,28 +168,53 @@
     </div>
   </section>
 
+  <section id="kallforteckning">
+    <span class="tag step">Källor</span>
+    <h2>Tidigare texter i ämnet och andra källor</h2>
+    <p style="font-size:.9rem; color:var(--muted); margin-bottom:.8rem;">Harvardformat. Länkarna verifierade innan de togs med.</p>
+    <ol id="sources-list-bottom" style="font-size:.9rem; line-height:1.7; padding-left:1.2rem;"></ol>
+  </section>
+
 </main>
 
 <div class="modal-overlay" id="sources-modal" onclick="if(event.target===this) this.classList.remove('show')">
   <div class="modal">
     <button class="modal-close" aria-label="Stäng" onclick="document.getElementById('sources-modal').classList.remove('show')">×</button>
-    <h2>Källor och referenser</h2>
-    <p>Allt vi refererar till i texten, verktyget och research bakom det — Harvardformat, länkarna verifierade innan de togs med.</p>
-    <ol>
-      <li>Lundgren, K. (2026a) <em>Claude Cowork, Cursor och Claude Code – tre verktyg, ett arbetsflöde.</em> [Blogginlägg] klel.wordpress.com, 1/6 2026. Tillgänglig: <a href="https://klel.wordpress.com/2026/06/01/claude-cowork-cursor-och-claude-code-tre-verktyg-ett-arbetsflode/" target="_blank" rel="noopener">klel.wordpress.com/2026/06/01</a></li>
-      <li>Lundgren, K. (2026b) <em>Tappade bort mig i Claudes ekosystem.</em> [Blogginlägg] klel.wordpress.com, 27/7 2026. Tillgänglig: <a href="https://klel.wordpress.com/2026/07/27/tappade-bort-mig-i-claudes-ekosystem/" target="_blank" rel="noopener">klel.wordpress.com/2026/07/27</a></li>
-      <li>Lundgren, K. (2026c) <em>Namnet 'main' betyder inte alltid main.</em> [Blogginlägg] klel.wordpress.com, 28/7 2026. Tillgänglig: <a href="https://klel.wordpress.com/2026/07/28/namnet-main-betyder-inte-alltid-main/" target="_blank" rel="noopener">klel.wordpress.com/2026/07/28</a></li>
-      <li>Lundgren, K. (2026d) <em>En bild av Claudes ekosystem.</em> [Blogginlägg] klel.wordpress.com, 29/7 2026. Tillgänglig: <a href="https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/" target="_blank" rel="noopener">klel.wordpress.com/2026/07/29</a></li>
-      <li>Lundgren, K. (2026e) <em>Vilken är din Claude favorit.</em> [LinkedIn-artikel] LinkedIn, 30/7 2026. Tillgänglig: <a href="https://www.linkedin.com/pulse/vilken-%C3%A4r-din-claude-favorit-kent-lundgren-atqye/" target="_blank" rel="noopener">linkedin.com/pulse/vilken-är-din-claude-favorit</a></li>
-      <li>Anthropic (2026a) <em>Glossary – Claude Code Docs.</em> [Webbsida] Anthropic. Tillgänglig: <a href="https://code.claude.com/docs/en/glossary" target="_blank" rel="noopener">code.claude.com/docs/en/glossary</a></li>
-      <li>Anthropic (2026b) <em>The Claude Cowork product guide.</em> [Blogginlägg] Anthropic. Tillgänglig: <a href="https://claude.com/blog/the-claude-cowork-product-guide" target="_blank" rel="noopener">claude.com/blog/the-claude-cowork-product-guide</a></li>
-      <li>agents.md (2026) <em>AGENTS.md — open format for guiding coding agents.</em> [Webbsida]. Tillgänglig: <a href="https://agents.md/" target="_blank" rel="noopener">agents.md</a></li>
-      <li>Repot för det här projektet, med hela historiken bakom den här sidan. Tillgänglig: <a href="https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/olika_Claude_modeller" target="_blank" rel="noopener">github.com/kentlundgren/AI-teknik</a></li>
-    </ol>
+    <h2>Tidigare texter i ämnet och andra källor</h2>
+    <p>Harvardformat, länkarna verifierade innan de togs med.</p>
+    <ol id="sources-list-modal"></ol>
   </div>
 </div>
 
 <script>
+/* ---------------------------------------------------------------
+   Källdata definieras på ETT ställe.
+   renderSources() skriver ut listan i både modal och botten-sektion.
+--------------------------------------------------------------- */
+const sourcesData = [
+  { ref: 'Lundgren, K. (2026a)', title: 'Claude Cowork, Cursor och Claude Code – tre verktyg, ett arbetsflöde.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 1/6 2026', url: 'https://klel.wordpress.com/2026/06/01/claude-cowork-cursor-och-claude-code-tre-verktyg-ett-arbetsflode/', urlLabel: 'klel.wordpress.com/2026/06/01' },
+  { ref: 'Lundgren, K. (2026b)', title: 'Tappade bort mig i Claudes ekosystem.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 27/7 2026', url: 'https://klel.wordpress.com/2026/07/27/tappade-bort-mig-i-claudes-ekosystem/', urlLabel: 'klel.wordpress.com/2026/07/27' },
+  { ref: 'Lundgren, K. (2026c)', title: "Namnet 'main' betyder inte alltid main.", type: '[Blogginlägg]', pub: 'klel.wordpress.com, 28/7 2026', url: 'https://klel.wordpress.com/2026/07/28/namnet-main-betyder-inte-alltid-main/', urlLabel: 'klel.wordpress.com/2026/07/28' },
+  { ref: 'Lundgren, K. (2026d)', title: 'En bild av Claudes ekosystem.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 29/7 2026', url: 'https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/', urlLabel: 'klel.wordpress.com/2026/07/29' },
+  { ref: 'Lundgren, K. (2026e)', title: 'Vilken är din Claude favorit.', type: '[LinkedIn-artikel]', pub: 'LinkedIn, 30/7 2026', url: 'https://www.linkedin.com/pulse/vilken-%C3%A4r-din-claude-favorit-kent-lundgren-atqye/', urlLabel: 'linkedin.com/pulse/vilken-är-din-claude-favorit' },
+  { ref: 'Anthropic (2026a)', title: 'Glossary – Claude Code Docs.', type: '[Webbsida]', pub: 'Anthropic', url: 'https://code.claude.com/docs/en/glossary', urlLabel: 'code.claude.com/docs/en/glossary' },
+  { ref: 'Anthropic (2026b)', title: 'The Claude Cowork product guide.', type: '[Blogginlägg]', pub: 'Anthropic', url: 'https://claude.com/blog/the-claude-cowork-product-guide', urlLabel: 'claude.com/blog/the-claude-cowork-product-guide' },
+  { ref: 'agents.md (2026)', title: 'AGENTS.md — open format for guiding coding agents.', type: '[Webbsida]', pub: '', url: 'https://agents.md/', urlLabel: 'agents.md' },
+  { ref: '', title: 'Repot för det här projektet, med hela historiken bakom den här sidan.', type: '', pub: '', url: 'https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/olika_Claude_modeller', urlLabel: 'github.com/kentlundgren/AI-teknik' }
+];
+
+function renderSources() {
+  const html = sourcesData.map(s => {
+    const meta = [s.type, s.pub].filter(Boolean).join(' ');
+    const refPart = s.ref ? `${s.ref} ` : '';
+    const metaPart = meta ? ` ${meta}.` : '';
+    return `<li>${refPart}<em>${s.title}</em>${metaPart} Tillgänglig: <a href="${s.url}" target="_blank" rel="noopener">${s.urlLabel}</a></li>`;
+  }).join('');
+  document.getElementById('sources-list-modal').innerHTML = html;
+  document.getElementById('sources-list-bottom').innerHTML = html;
+}
+renderSources();
+
 const steerFiles = [
   {
     id:'claude', name:'CLAUDE.md', sub:'Alltid inläst',
