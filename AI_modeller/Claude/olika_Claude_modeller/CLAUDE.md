@@ -67,15 +67,26 @@ Skills finns på tre nivåer. Claude Code (Cursor) når bara nivå 1 och 2 — i
   Skapad 30/7 2026. Kent anser att den är korrekt. Kan bara läsas och redigeras direkt
   i claude.ai eller Cowork — Claude Code ser den aldrig.
 
+**Regel vid all skill-hantering:**
+När vi diskuterar, uppdaterar, justerar eller skapar en skill — oavsett anledning —
+ska Claude Code alltid tydligt ange:
+1. **Skillens namn** (t.ex. `kent-skrivstil`)
+2. **Nivå** (1 = projektnivå, 2 = global på datorn, 3 = kontoanknuten)
+3. **Exakt sökväg** (t.ex. `C:\Users\kentl\.claude\skills\kent-skrivstil\SKILL.md`)
+
+Detta för att undvika att fel skill redigeras — samma skillnamn kan förekomma på flera
+nivåer samtidigt utan att vara synkade, vilket redan inträffat (kent-skrivstil, 30/7 2026).
+Om det råder minsta tvekan om vilken skill som avses: fråga Kent innan något redigeras.
+
 ## Arbetsregler (generella, gäller detta och liknande projekt i AI-teknik-repot)
 
 - **Git commit/push: normalt gör Kent detta själv via Cursor.** Det ger kontroll och
- medvetenhet varje gång något publiceras. Read-only git-kommandon (status, diff, log,
- remote -v) för diagnostik är alltid okej.
+ medvetenhet varje gång något publiceras. Claude Code föreslår aldrig commit/push
+ proaktivt och kör det aldrig utan att bli tillfrågad. Read-only git-kommandon
+ (status, diff, log, remote -v) för diagnostik är alltid okej.
  **Undantag:** om Kent uttryckligen ber Claude Code att committa och/eller pusha — t.ex.
- om Cursors egna commit/push-funktion hänger sig eller av annan anledning — kör Claude
- Code dessa kommandon direkt, utan att tveka. Det är Kents explicita önskan som avgör,
- inte en fast regel om vem som "alltid" ska trycka på knappen.
+ om Cursors egna commit/push-funktion hänger sig (inträffade 30/7 2026) — kör Claude
+ Code dessa kommandon direkt. Det är Kents explicita önskan som avgör.
 - **README-konvention:** så fort ett nytt delprojekt eller en ny uppsättning filer skapas
   i ett repo (särskilt ett som publiceras via GitHub Pages) ska en `README.md` skapas i
   samma mapp — kort projektbeskrivning + länk till Live Page-URL:en. Mönster redan etablerat
