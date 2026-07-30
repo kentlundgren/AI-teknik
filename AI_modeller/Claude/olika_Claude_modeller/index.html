@@ -103,6 +103,29 @@
   }
   .modal ol{padding-left:1.2rem;}
   .modal li{margin-bottom:.8rem; font-size:.92rem;}
+
+  /* Flytande tech-knapp nere till höger */
+  .tech-btn{
+    position:fixed; bottom:1.2rem; right:1.2rem; z-index:20;
+    background:rgba(255,255,255,.55); backdrop-filter:blur(6px);
+    border:1px solid var(--line); border-radius:999px;
+    padding:.35rem .8rem; font:inherit; font-size:.75rem;
+    color:var(--muted); cursor:pointer; letter-spacing:.03em;
+    transition:background .15s, color .15s;
+  }
+  .tech-btn:hover{background:rgba(255,255,255,.9); color:var(--ink);}
+
+  /* Tech-modal: lite smalare än källmodalen */
+  #tech-modal .modal{max-width:560px;}
+  #tech-modal .tech-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:.6rem; margin-top:.9rem;
+  }
+  #tech-modal .tech-card{
+    background:var(--accent-soft); border-radius:8px; padding:.7rem .9rem;
+  }
+  #tech-modal .tech-card h3{margin:0 0 .25rem; font-size:.9rem; color:var(--accent);}
+  #tech-modal .tech-card p{margin:0; font-size:.82rem; color:var(--ink); line-height:1.5;}
 </style>
 </head>
 <body>
@@ -187,6 +210,46 @@
     <h2>Tidigare texter i ämnet och andra källor</h2>
     <p>Harvardformat, länkarna verifierade innan de togs med.</p>
     <ol id="sources-list-modal"></ol>
+  </div>
+</div>
+
+<!-- Diskret tech-knapp, fast position nere till höger -->
+<button class="tech-btn" onclick="document.getElementById('tech-modal').classList.add('show')" aria-label="Tekniköversikt">&#60;/&#62; teknik</button>
+
+<div class="modal-overlay" id="tech-modal" onclick="if(event.target===this) this.classList.remove('show')">
+  <div class="modal">
+    <button class="modal-close" aria-label="Stäng" onclick="document.getElementById('tech-modal').classList.remove('show')">×</button>
+    <h2 style="margin-top:0;">Hur den här sidan är byggd</h2>
+    <p style="font-size:.9rem; color:var(--muted);">Ingen extern ram eller byggtool — ren HTML, CSS och JavaScript, publicerad direkt via GitHub Pages.</p>
+    <div class="tech-grid">
+      <div class="tech-card">
+        <h3>HTML5</h3>
+        <p>Semantiska element (<code>header</code>, <code>main</code>, <code>section</code>). Ankarlänkrubriker med <code>id</code>-attribut för direktlänkning till varje avsnitt.</p>
+      </div>
+      <div class="tech-card">
+        <h3>CSS — custom properties</h3>
+        <p>Färger och radier definierade som CSS-variabler i <code>:root</code>. CSS Grid för kortlayout. <code>backdrop-filter</code> för den här knappens glaseffekt.</p>
+      </div>
+      <div class="tech-card">
+        <h3>Vanilla JavaScript</h3>
+        <p>Inga ramverk. Data (kort, surfaces, pipeline, källor) definieras som JS-arrayer och renderas till DOM. En enda funktion driver alla tre expanderbara kortpaneler.</p>
+      </div>
+      <div class="tech-card">
+        <h3>En källa, två platser</h3>
+        <p>Källförteckningen definieras som ett JS-objekt på ett enda ställe och renderas automatiskt till både popup-modalen och avsnittet längst ner.</p>
+      </div>
+      <div class="tech-card">
+        <h3>Modaler</h3>
+        <p>CSS + klasstoggel (<code>.show</code>). Stängs via stängknapp eller klick utanför. Samma mönster används för den här modalen, källmodalen och bildpanelerna.</p>
+      </div>
+      <div class="tech-card">
+        <h3>GitHub Pages</h3>
+        <p>Statisk hosting direkt från repot — inga servrar, inget byggsteg. Kent committar och pushar via Cursor; GitHub Pages tar resten.</p>
+      </div>
+    </div>
+    <p style="font-size:.82rem; color:var(--muted); margin-top:1.1rem;">
+      Källkoden: <a href="https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/olika_Claude_modeller" target="_blank" rel="noopener">github.com/kentlundgren/AI-teknik</a>
+    </p>
   </div>
 </div>
 
