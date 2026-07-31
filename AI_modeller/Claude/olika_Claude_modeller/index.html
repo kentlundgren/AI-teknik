@@ -310,6 +310,7 @@ const sourcesData = [
   { ref: 'Lundgren, K. (2026d)', title: 'En bild av Claudes ekosystem.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 29/7 2026', url: 'https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/', urlLabel: 'klel.wordpress.com/2026/07/29' },
   { ref: 'Lundgren, K. (2026e)', title: 'Vilken är din Claude favorit.', type: '[LinkedIn-artikel]', pub: 'LinkedIn, 30/7 2026', url: 'https://www.linkedin.com/pulse/vilken-%C3%A4r-din-claude-favorit-kent-lundgren-atqye/', urlLabel: 'linkedin.com/pulse/vilken-är-din-claude-favorit' },
   { ref: 'Lundgren, K. (2026f)', title: 'PRD först – sedan CLAUDE.md.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 31/7 2026', url: 'https://klel.wordpress.com/2026/07/31/prd-forst-sedan-claude-md/', urlLabel: 'klel.wordpress.com/2026/07/31' },
+  { ref: 'Lundgren, K. (2026g)', title: 'Vet du ens var vi är?', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 31/7 2026', url: 'https://klel.wordpress.com/2026/07/31/vet-du-ens-var-vi-ar/', urlLabel: 'klel.wordpress.com/2026/07/31' },
   { ref: '', title: 'Repot för det här projektet, med hela historiken bakom den här sidan.', type: '', pub: '', url: 'https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/olika_Claude_modeller', urlLabel: 'github.com/kentlundgren/AI-teknik' }
 ];
 
@@ -336,6 +337,7 @@ const prdData = [
       'Uppdatera eller skapa CLAUDE.md med tekniska guardrails för denna leverans',
       'Börja kodningen'
     ],
+    fact:`<strong>Ett andra, skarpt exempel, samma dag:</strong> när den här Fas 0-sektionen redan fanns användes processen på ett ämne som direkt påverkar den här sidan: mappkontroll — hur Claude säkerställer att den arbetar i rätt mapp, rätt repo, rätt nivå. PRD:n växte från ett enda exempel till tre separata insikter under frågor-steget, innan den frystes. Läs dokumentet: <a href="https://github.com/kentlundgren/AI-teknik/blob/main/AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_mappkontroll.md" target="_blank" rel="noopener">PRD_mappkontroll.md →</a>, eller hela historien: <a href="https://klel.wordpress.com/2026/07/31/vet-du-ens-var-vi-ar/" target="_blank" rel="noopener">Vet du ens var vi är?</a> (klel.wordpress.com, 31/7 2026).`,
     note:`Källa: <a href="https://klel.wordpress.com/2026/07/31/prd-forst-sedan-claude-md/" target="_blank" rel="noopener">PRD först – sedan CLAUDE.md</a> (klel.wordpress.com, 31/7 2026). Verkligt exempel: <a href="https://github.com/kentlundgren/Ovrigt/blob/main/Fritid/ol_Tyskland/PRD_slap.md" target="_blank" rel="noopener">PRD_slap.md →</a> (från ett annat projekt).`
   }
 ];
@@ -357,6 +359,7 @@ function showPrd(id){
   const d = document.getElementById('prd-detail');
   d.innerHTML = `<p>${s.intro}</p>
     <ol>${s.steps.map(st=>`<li>${st}</li>`).join('')}</ol>
+    ${s.fact ? `<div class="fact">${s.fact}</div>` : ''}
     <div class="note">${s.note}</div>`;
   d.classList.add('show');
 }
@@ -377,6 +380,7 @@ Arbetsmapp för att skriva en bloggtext och bygga en liten kodningsövning
   proaktivt eller som en genväg — även om det tekniskt fungerar lika bra
   härifrån. Detta ger Kent kontroll och medvetenhet varje gång något nytt
   publiceras.`,
+    fact:`<strong>Ny upptäckt, 31 juli 2026:</strong> CLAUDE.md visade sig ha en egen, mindre nivå-uppdelning, parallell till SKILL.md:s tre nivåer (se korttipset ovan) — <b>projektnivå</b> (den här filen, i den här mappen) och <b>global nivå</b> (<code>C:\\Users\\kentl\\.claude\\CLAUDE.md</code>, läses av Claude Code i <em>alla</em> projekt på datorn, oavsett vilken mapp som är öppen). Anledningen den dök upp: en regel ("kontrollera att du står i rätt mapp innan du börjar") behövde vara garanterat aktiv i varje session — det löser bara en global CLAUDE.md, ingen skill triggas garanterat. Men CLAUDE.md räckte inte ensam heller: det fylligare resonemanget (fem regler, exempel, motivering) hörde hemma i en skill, <code>kent-meta-regler-for-code</code> (global nivå, <code>C:\\Users\\kentl\\.claude\\skills\\</code>). Regeln blev alltså både en CLAUDE.md-rad <em>och</em> en skill, inte det ena eller det andra. Hela historien: <a href="https://klel.wordpress.com/2026/07/31/vet-du-ens-var-vi-ar/" target="_blank" rel="noopener">Vet du ens var vi är?</a> (klel.wordpress.com, 31/7 2026).`,
     note:'Det här är ett riktigt utdrag — inte ett påhittat exempel — ur CLAUDE.md-filen i just det här projektet. Hela filen ligger i samma mapp som den här sidan, och läses av Claude Code varje gång en ny session startar här.'
   },
   {
@@ -482,6 +486,11 @@ const afterClaude = [
   },
   {
     id:'git', name:'Git (lokalt)', sub:'Historik på din disk',
+    fact:`<strong>Tre lägen, inte två, 31 juli 2026:</strong> innan Claude får röra Git/GitHub här kontrollerar jag numera vilket av tre lägen mappen faktiskt är i — inte bara "kopplat rätt / kopplat fel".<br><br>
+      <b>Känt-gott</b> — <code>git remote -v</code> pekar på rätt GitHub-repo, lokalt och globalt i synk. Fortsätt.<br>
+      <b>Känt-nytt</b> — inget repo än, men projektet är genuint nytt. Fortsätt, men säg det uttryckligen i stället för att tyst anta.<br>
+      <b>Okänt/avvikande</b> — repo saknas fast mappen redan har historik, eller pekar fel, eller har divergerat från det publicerade. Stanna, flagga, fråga.<br><br>
+      Frånvaro av koppling är bara ett problem om den är oväntad. Bakgrund: <a href="https://klel.wordpress.com/2026/07/31/vet-du-ens-var-vi-ar/" target="_blank" rel="noopener">Vet du ens var vi är?</a> (klel.wordpress.com, 31/7 2026).`,
     note:'Jag sköter det här alltid via Cursor. En regel man kommer ihåg är svagare än ett skydd (pre-push-hook) som stoppar en — det gäller oavsett verktyg, men jag vill ha det skyddet i det gränssnitt jag faktiskt litar på.'
   },
   {
@@ -510,7 +519,9 @@ const skillTooltip = `
   .cursor\\skills-cursor\\: automate, canvas, sdk m.fl.<br><br>
   <b>Nivå 3 — Kontoanknuten</b><br>
   Når dem: Cowork ✓ &nbsp;claude.ai ✓ &nbsp;Claude Code ✗ &nbsp;Cursor ✗<br>
-  kent-ekosystem-analys
+  kent-ekosystem-analys<br><br>
+  <b>OBS, 31/7:</b> CLAUDE.md har en egen, mindre hierarki parallell till
+  denna — projekt- och global nivå, se CLAUDE.md-kortet.
 `;
 
 function renderSteer(){
@@ -628,6 +639,7 @@ function showPipeline(id){
   const s = afterClaude.find(x=>x.id===id);
   const d = document.getElementById('pipeline-detail');
   d.innerHTML = (s.img ? `<img src="${s.img}" alt="${s.name}"><div class="cap">${s.cap}</div>` : '') +
+    (s.fact ? `<div class="fact">${s.fact}</div>` : '') +
     `<div class="note">${s.note}</div>`;
   d.classList.add('show');
 }

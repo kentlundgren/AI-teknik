@@ -153,18 +153,28 @@ faktiska, slutgiltiga innehåll och sökvägar (se 3c).
       (regel 5) med samma modell — klar, v2
 
 **Steg 2 — Blogg:**
-- [ ] Blogginlägg, publicerat på klel.wordpress.com — väver ihop budskap
-      A/B/C, med tydliga sökvägar och koppling till skill-nivåerna (3c)
+- [x] Blogginlägg, publicerat på klel.wordpress.com — väver ihop budskap
+      A/B/C, med tydliga sökvägar och koppling till skill-nivåerna (3c).
+      Publicerat 2026-07-31: [Vet du ens var vi är?](https://klel.wordpress.com/2026/07/31/vet-du-ens-var-vi-ar/)
+      Granskat: rubrikstruktur och länkar fungerar korrekt. **Kvarstående
+      fix (Kents egen, utanför denna PRD):** inlägget ligger i kategorin
+      "Okategoriserade", inte "AI" — behöver rättas i WordPress för att
+      synas på klel.wordpress.com/category/ai/.
 
 **Steg 3 — Kompass:**
-- [ ] Exempel-box i Fas 1-kortet i `index.html` (budskap A), inkl. exakta
-      sökvägar och koppling till skill-nivå-tabellen (3c)
-- [ ] Fördjupat exempel i Fas 3-kortet: tre-lägesmodellen (budskap B)
-- [ ] Kort tillägg i Fas 0 och/eller Sammanfattning: denna session som
-      andra exempel på PRD-först i praktiken (budskap C)
-- [ ] Ny post i `sourcesData`
-- [ ] (ev.) `README.md`-uppdatering i den här mappen, enligt repots
-      README-konvention, om nya filer/länkar tillkommer
+- [x] Exempel-box (`fact`) i CLAUDE.md-kortet i Fas 1, inkl. exakta
+      sökvägar och koppling till skill-nivå-tabellen (3c) — samt en kort
+      korsreferens tillagd i `skillTooltip`
+- [x] Fördjupat exempel (`fact`) i Git-kortet i Fas 3: tre-lägesmodellen
+      (budskap B)
+- [x] Tillägg (`fact`) i Fas 0-kortet (PRD): denna PRD som andra exempel
+      på PRD-först i praktiken (budskap C)
+- [x] Ny post i `sourcesData`: `Lundgren, K. (2026g)`, "Vet du ens var vi
+      är?", infogad efter 2026f
+- [ ] (ev.) `README.md`-uppdatering i den här mappen — bedömt ej nödvändigt
+      (PRD-mappen är inte en publicerad sida), hoppat över
+- [x] JS-syntax verifierad med `node --check` på det extraherade
+      `<script>`-blocket — klar, inga fel
 
 ## 6. Produktionsordning
 
@@ -199,9 +209,11 @@ att hårdkoda nummer i filnamnen. Kent har uttryckligen sagt "inget beslut
 
 ## 9. Status
 
-**Fryst.** Steg 1 (styrfiler) klart. Nästa steg: blogginlägg (steg 2).
-Git-commit/push av den här filen görs av Kent själv via Cursor, enligt
-projektets `CLAUDE.md`.
+**Alla tre steg klara.** Styrfiler (v1.1 / v2), blogg (publicerad, kategori
+behöver dock rättas manuellt av Kent), kompass (tre `fact`-exempel + ny
+källpost, JS-syntax verifierad). Inget kvarstår i den här PRD:n förutom
+Kents egen granskning i webbläsare och commit/push, enligt projektets
+`CLAUDE.md`.
 
 ## Ändringslogg
 
