@@ -293,17 +293,23 @@
 /* ---------------------------------------------------------------
    Källdata definieras på ETT ställe.
    renderSources() skriver ut listan i både modal och botten-sektion.
+   OBS: listan hålls i Harvard-stil ALFABETISK ordning (författare/
+   organisation/titel, skiftlägesokänsligt) — inte kronologisk. Verk av
+   samma författare grupperas ihop och behåller sin inbördes a/b/c-ordning
+   (kronologisk, för disambiguering), men gruppen som helhet placeras enligt
+   författarnamnets bokstavsordning. Lägg alltid till en ny källa på rätt
+   alfabetisk plats, inte sist i listan.
 --------------------------------------------------------------- */
 const sourcesData = [
+  { ref: 'agents.md (2026)', title: 'AGENTS.md — open format for guiding coding agents.', type: '[Webbsida]', pub: '', url: 'https://agents.md/', urlLabel: 'agents.md' },
+  { ref: 'Anthropic (2026a)', title: 'Glossary – Claude Code Docs.', type: '[Webbsida]', pub: 'Anthropic', url: 'https://code.claude.com/docs/en/glossary', urlLabel: 'code.claude.com/docs/en/glossary' },
+  { ref: 'Anthropic (2026b)', title: 'The Claude Cowork product guide.', type: '[Blogginlägg]', pub: 'Anthropic', url: 'https://claude.com/blog/the-claude-cowork-product-guide', urlLabel: 'claude.com/blog/the-claude-cowork-product-guide' },
   { ref: 'Lundgren, K. (2026a)', title: 'Claude Cowork, Cursor och Claude Code – tre verktyg, ett arbetsflöde.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 1/6 2026', url: 'https://klel.wordpress.com/2026/06/01/claude-cowork-cursor-och-claude-code-tre-verktyg-ett-arbetsflode/', urlLabel: 'klel.wordpress.com/2026/06/01' },
   { ref: 'Lundgren, K. (2026b)', title: 'Tappade bort mig i Claudes ekosystem.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 27/7 2026', url: 'https://klel.wordpress.com/2026/07/27/tappade-bort-mig-i-claudes-ekosystem/', urlLabel: 'klel.wordpress.com/2026/07/27' },
   { ref: 'Lundgren, K. (2026c)', title: "Namnet 'main' betyder inte alltid main.", type: '[Blogginlägg]', pub: 'klel.wordpress.com, 28/7 2026', url: 'https://klel.wordpress.com/2026/07/28/namnet-main-betyder-inte-alltid-main/', urlLabel: 'klel.wordpress.com/2026/07/28' },
   { ref: 'Lundgren, K. (2026d)', title: 'En bild av Claudes ekosystem.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 29/7 2026', url: 'https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/', urlLabel: 'klel.wordpress.com/2026/07/29' },
   { ref: 'Lundgren, K. (2026e)', title: 'Vilken är din Claude favorit.', type: '[LinkedIn-artikel]', pub: 'LinkedIn, 30/7 2026', url: 'https://www.linkedin.com/pulse/vilken-%C3%A4r-din-claude-favorit-kent-lundgren-atqye/', urlLabel: 'linkedin.com/pulse/vilken-är-din-claude-favorit' },
   { ref: 'Lundgren, K. (2026f)', title: 'PRD först – sedan CLAUDE.md.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 31/7 2026', url: 'https://klel.wordpress.com/2026/07/31/prd-forst-sedan-claude-md/', urlLabel: 'klel.wordpress.com/2026/07/31' },
-  { ref: 'Anthropic (2026a)', title: 'Glossary – Claude Code Docs.', type: '[Webbsida]', pub: 'Anthropic', url: 'https://code.claude.com/docs/en/glossary', urlLabel: 'code.claude.com/docs/en/glossary' },
-  { ref: 'Anthropic (2026b)', title: 'The Claude Cowork product guide.', type: '[Blogginlägg]', pub: 'Anthropic', url: 'https://claude.com/blog/the-claude-cowork-product-guide', urlLabel: 'claude.com/blog/the-claude-cowork-product-guide' },
-  { ref: 'agents.md (2026)', title: 'AGENTS.md — open format for guiding coding agents.', type: '[Webbsida]', pub: '', url: 'https://agents.md/', urlLabel: 'agents.md' },
   { ref: '', title: 'Repot för det här projektet, med hela historiken bakom den här sidan.', type: '', pub: '', url: 'https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/olika_Claude_modeller', urlLabel: 'github.com/kentlundgren/AI-teknik' }
 ];
 

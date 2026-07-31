@@ -56,6 +56,13 @@ konkret visa att alla tre nivåerna kan förekomma i samma projekt samtidigt.
 - Skärmdumparna i mappen refereras med sina exakta filnamn (t.ex.
   `Clalude_ai_tre_saker_i_en__260729.jpg`, med stavningen "Clalude" — en äkta
   stavning i det ursprungliga filnamnet, rätta den inte).
+- **`sourcesData`-ordning (31/7 2026):** listan ska stå i alfabetisk Harvard-ordning
+  (författare/organisation/titel, skiftlägesokänsligt), inte kronologisk — ändrat
+  från den ursprungliga kronologiska ordningen. Flera verk av samma författare
+  (t.ex. Lundgren, K. 2026a–f) grupperas ihop och behåller sin inbördes a/b/c-ordning,
+  men gruppen placeras enligt författarnamnets bokstavsplats. Lägg alltid en ny källa
+  på rätt alfabetisk plats i arrayen, inte sist. Samma regel gäller generellt, se
+  global skill `kent-meta-regler-for-code`.
 
 ## `index copy.html` — en återställningspunkt, inte en referens
 

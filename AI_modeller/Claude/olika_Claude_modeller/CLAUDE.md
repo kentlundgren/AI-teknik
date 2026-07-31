@@ -107,3 +107,8 @@ Om det råder minsta tvekan om vilken skill som avses: fråga Kent innan något 
 Harvard-format, klickbara länkar i löptext, inga gissade URL:er. Modellnamn och tekniska
 påståenden (t.ex. CLAUDE.md vs AGENTS.md-stöd i olika verktyg) verifieras mot primärkälla
 innan publicering — sekundära SEO-blogg-källor har visat sig motsägelsefulla sinsemellan.
+Källförteckningar listas alltid i alfabetisk ordning (författare/organisation/titel),
+aldrig kronologisk — standard Harvard-praxis. Flera verk av samma författare grupperas
+ihop och behåller sin inbördes a/b/c-ordning (kronologisk, för disambiguering), men
+gruppen som helhet placeras enligt författarnamnets bokstavsordning. Se `sourcesData`
+i `index.html` för tillämpningen (uppdaterat 31/7 2026, efter tidigare kronologisk ordning).
