@@ -5,7 +5,7 @@
 **Skapad:** 2026-07-31
 **Version:** 3 (fryst, 2026-07-31 — se Ändringslogg)
 **Status:** **Fryst.** Alla beslut fattade (avsnitt 4). Produktionsordning
-fastställd (avsnitt 9). Redo för steg 1 (styrfiler).
+fastställd (avsnitt 6). Redo för steg 1 (styrfiler).
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen och
 klel.wordpress.com), inte en grund-PRD för ett nytt projekt.
 
@@ -141,16 +141,16 @@ Fas 1-kortet, inte en ny sektion. Bloggen bär det fylliga resonemanget
 `kent-meta-regler-for-code`) med tre-lägesmodellen (avsnitt 3b) ingå som
 en leverans i den här PRD:n?**
 **Beslut: Ja, det ska ingå** — och görs som steg 1 i produktionsordningen
-(avsnitt 9), eftersom bloggen och kompassen ska citera dessa filers
+(avsnitt 6), eftersom bloggen och kompassen ska citera dessa filers
 faktiska, slutgiltiga innehåll och sökvägar (se 3c).
 
 ## 5. Leveranser
 
-**Steg 1 — Styrfiler (se avsnitt 9):**
-- [ ] Uppdatera `C:\Users\kentl\.claude\CLAUDE.md` med tre-lägesmodellen
-      (avsnitt 3b)
-- [ ] Uppdatera `C:\Users\kentl\.claude\skills\kent-meta-regler-for-code\SKILL.md`
-      (regel 5) med samma modell
+**Steg 1 — Styrfiler (se avsnitt 6):**
+- [x] Uppdatera `C:\Users\kentl\.claude\CLAUDE.md` med tre-lägesmodellen
+      (avsnitt 3b) — klar, v1.1
+- [x] Uppdatera `C:\Users\kentl\.claude\skills\kent-meta-regler-for-code\SKILL.md`
+      (regel 5) med samma modell — klar, v2
 
 **Steg 2 — Blogg:**
 - [ ] Blogginlägg, publicerat på klel.wordpress.com — väver ihop budskap
@@ -166,7 +166,7 @@ faktiska, slutgiltiga innehåll och sökvägar (se 3c).
 - [ ] (ev.) `README.md`-uppdatering i den här mappen, enligt repots
       README-konvention, om nya filer/länkar tillkommer
 
-## 9. Produktionsordning
+## 6. Produktionsordning
 
 **Styrfiler → Blogg → Kompass**, i den ordningen:
 
@@ -180,7 +180,7 @@ faktiska, slutgiltiga innehåll och sökvägar (se 3c).
    bloggens resonemang; lättare att skriva korrekt när den fulla texten
    redan finns.
 
-## 6. Namnkonvention för PRD:er (öppen fråga, inget beslut ännu)
+## 7. Namnkonvention för PRD:er (öppen fråga, inget beslut ännu)
 
 Diskuterad men inte avgjord: content-baserat namn utan nummer (som denna
 fil och `PRD_slap.md`) rekommenderas framför sekventiell numrering
@@ -189,7 +189,7 @@ linjärt. Ett eventuellt PRD-index (tabell i README) kan ge kronologin utan
 att hårdkoda nummer i filnamnen. Kent har uttryckligen sagt "inget beslut
 än" — återkom när fler PRD:er finns att jämföra.
 
-## 7. Källor
+## 8. Källor
 
 - Denna konversation (mappkontroll-incidenten och dess vidareutveckling,
   2026-07-31)
@@ -197,12 +197,11 @@ att hårdkoda nummer i filnamnen. Kent har uttryckligen sagt "inget beslut
 - `AI_modeller/Claude/olika_Claude_modeller/.claude/skills/claude-kompassen-konventioner/SKILL.md`
   — redan existerande dokumentation av tre skill-nivåer i samma projekt
 
-## 8. Status
+## 9. Status
 
-**Fryst.** Båda frågorna (4a, 4b) beslutade, kravet på transparenta
-sökvägar tillagt (3c), produktionsordning fastställd (9). Nästa steg:
-uppdatera styrfilerna (steg 1). Git-commit/push av den här filen görs av
-Kent själv via Cursor, enligt projektets `CLAUDE.md`.
+**Fryst.** Steg 1 (styrfiler) klart. Nästa steg: blogginlägg (steg 2).
+Git-commit/push av den här filen görs av Kent själv via Cursor, enligt
+projektets `CLAUDE.md`.
 
 ## Ändringslogg
 
@@ -214,4 +213,4 @@ Kent själv via Cursor, enligt projektets `CLAUDE.md`.
   styrfilerna.
 - 2026-07-31 (v3): Fryst. Beslut 4a och 4b fattade (båda ja). Tillagt
   krav 3c (tydliga sökvägar + koppling till skill-nivå-tabellen) och
-  avsnitt 9 (produktionsordning: styrfiler → blogg → kompass).
+  avsnitt 6 (produktionsordning: styrfiler → blogg → kompass).
