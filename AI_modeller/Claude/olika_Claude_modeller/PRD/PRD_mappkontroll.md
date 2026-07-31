@@ -3,8 +3,9 @@
 **Namn:** PRD_mappkontroll
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_mappkontroll.md`
 **Skapad:** 2026-07-31
-**Version:** 2 (breddad omfattning, 2026-07-31 — se Ändringslogg)
-**Status:** Utkast — två öppna frågor kvar innan frysning (se avsnitt 4)
+**Version:** 3 (fryst, 2026-07-31 — se Ändringslogg)
+**Status:** **Fryst.** Alla beslut fattade (avsnitt 4). Produktionsordning
+fastställd (avsnitt 9). Redo för steg 1 (styrfiler).
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen och
 klel.wordpress.com), inte en grund-PRD för ett nytt projekt.
 
@@ -110,28 +111,38 @@ Den centrala poängen: frånvaro av Git/GitHub-koppling är bara ett problem
 om det är *oväntat*. Skillnaden mellan "känt-nytt" och "okänt/avvikande"
 måste göras explicit, inte antas tyst.
 
-## 4. Öppna beslut (två kvarvarande frysningspunkter)
+### 3c. Krav: exakta sökvägar och koppling till skill-nivåerna (tillagt 31/7)
+
+Kent har uttryckligen bett om att det ska framgå **väldigt tydligt, bland
+annat i bloggtexten**, var de faktiska filerna finns på datorn:
+
+- `C:\Users\kentl\.claude\CLAUDE.md` — global CLAUDE.md, Claude Code, alla projekt
+- `C:\Users\kentl\.claude\skills\kent-meta-regler-for-code\SKILL.md` — global skill, Claude Code
+
+Det här ska dessutom **kopplas explicit till skill-nivåerna som redan finns
+dokumenterade** — i det här projektets egen skill
+`claude-kompassen-konventioner` (Skill-inventering, tre nivåer: projekt,
+global-på-datorn, kontoanknuten) och i motsvarande beskrivning i
+Claude-kompassen/bloggen. Poängen att göra tydlig: den nya globala
+`CLAUDE.md` är en **ny sorts nivå** som inte fanns med i den befintliga
+skill-nivå-tabellen — CLAUDE.md-filer har hittills bara diskuterats på
+projektnivå (denna mapps egen `CLAUDE.md`), inte på global datornivå. Både
+blogg och kompass bör visa dessa två hierarkier (skills tre nivåer +
+CLAUDE.md:s två nivåer) sida vid sida, inte bara nämna sökvägarna i förbigående.
+
+## 4. Beslut (fattade 2026-07-31)
 
 **4a. Hur ska "både–och"-exemplet (budskap A) visas konkret i Fas 1?**
-
-Rekommendation, ännu ej uttryckligen bekräftad: en avgränsad exempel-box i
+**Beslut: Ja, enligt rekommendationen.** En avgränsad exempel-box i
 Fas 1-kortet, inte en ny sektion. Bloggen bär det fylliga resonemanget
 (tabell/diagram); kompassen visar det konkreta, avgränsade exemplet.
 
 **4b. Ska uppdatering av de faktiska styrfilerna (global `CLAUDE.md` och
 `kent-meta-regler-for-code`) med tre-lägesmodellen (avsnitt 3b) ingå som
-en leverans i den här PRD:n, eller tas som ett separat, mindre uppdrag
-efteråt?**
-
-Det här är en skarpare regel än vad de filerna innehåller idag (de pratar
-bara om mappmatchning, inte om att skilja "nytt projekt" från "trasig
-koppling"). Hör tekniskt till ett annat repo (`C:\Users\kentl\.claude\`)
-än det här (`AI-teknik`), vilket talar för att hålla det separat — men det
-är samma upptäckt, samma dag, vilket talar för att ta det här. Väntar på
-Kents beslut.
-
-Väntar på svar på 4a och 4b innan frysning och första ändring av
-`index.html`.
+en leverans i den här PRD:n?**
+**Beslut: Ja, det ska ingå** — och görs som steg 1 i produktionsordningen
+(avsnitt 9), eftersom bloggen och kompassen ska citera dessa filers
+faktiska, slutgiltiga innehåll och sökvägar (se 3c).
 
 ## 5. Leveranser
 
