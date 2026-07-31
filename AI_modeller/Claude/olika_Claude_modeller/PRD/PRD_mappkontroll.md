@@ -3,9 +3,8 @@
 **Namn:** PRD_mappkontroll
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_mappkontroll.md`
 **Skapad:** 2026-07-31
-**Version:** 3 (fryst, 2026-07-31 — se Ändringslogg)
-**Status:** **Fryst.** Alla beslut fattade (avsnitt 4). Produktionsordning
-fastställd (avsnitt 6). Redo för steg 1 (styrfiler).
+**Version:** 4 (klar, 2026-07-31 — se Ändringslogg)
+**Status:** **Klar.** Alla tre steg genomförda (avsnitt 5). Se avsnitt 9.
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen och
 klel.wordpress.com), inte en grund-PRD för ett nytt projekt.
 
@@ -156,10 +155,9 @@ faktiska, slutgiltiga innehåll och sökvägar (se 3c).
 - [x] Blogginlägg, publicerat på klel.wordpress.com — väver ihop budskap
       A/B/C, med tydliga sökvägar och koppling till skill-nivåerna (3c).
       Publicerat 2026-07-31: [Vet du ens var vi är?](https://klel.wordpress.com/2026/07/31/vet-du-ens-var-vi-ar/)
-      Granskat: rubrikstruktur och länkar fungerar korrekt. **Kvarstående
-      fix (Kents egen, utanför denna PRD):** inlägget ligger i kategorin
-      "Okategoriserade", inte "AI" — behöver rättas i WordPress för att
-      synas på klel.wordpress.com/category/ai/.
+      Granskat: rubrikstruktur och länkar fungerar korrekt. Kategori
+      rättad av Kent (låg först som "Okategoriserade", ligger nu under
+      "AI", synligt på klel.wordpress.com/category/ai/).
 
 **Steg 3 — Kompass:**
 - [x] Exempel-box (`fact`) i CLAUDE.md-kortet i Fas 1, inkl. exakta
@@ -209,11 +207,10 @@ att hårdkoda nummer i filnamnen. Kent har uttryckligen sagt "inget beslut
 
 ## 9. Status
 
-**Alla tre steg klara.** Styrfiler (v1.1 / v2), blogg (publicerad, kategori
-behöver dock rättas manuellt av Kent), kompass (tre `fact`-exempel + ny
-källpost, JS-syntax verifierad). Inget kvarstår i den här PRD:n förutom
-Kents egen granskning i webbläsare och commit/push, enligt projektets
-`CLAUDE.md`.
+**Alla tre steg klara, inget kvarstår.** Styrfiler (v1.1 / v2), blogg
+(publicerad och rätt kategoriserad under "AI"), kompass (tre `fact`-exempel
++ ny källpost, JS-syntax verifierad). Kvar är bara Kents egen granskning i
+webbläsare och commit/push, enligt projektets `CLAUDE.md`.
 
 ## Ändringslogg
 
@@ -226,3 +223,5 @@ Kents egen granskning i webbläsare och commit/push, enligt projektets
 - 2026-07-31 (v3): Fryst. Beslut 4a och 4b fattade (båda ja). Tillagt
   krav 3c (tydliga sökvägar + koppling till skill-nivå-tabellen) och
   avsnitt 6 (produktionsordning: styrfiler → blogg → kompass).
+- 2026-07-31 (v4): Alla tre steg genomförda och avbockade. Blogg-kategorin
+  (tidigare "Okategoriserade") rättad av Kent till "AI". Inget kvarstår.
