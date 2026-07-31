@@ -9,6 +9,7 @@
     --bg:#faf9f7; --panel:#fff; --ink:#1f1d1b; --muted:#6b6560;
     --line:#e4ddd3; --accent:#b5502e; --accent-soft:#f4e3da;
     --step:#3d5a4c; --step-soft:#e2ece6;
+    --pre:#3d4a73; --pre-soft:#e2e6f2;
   }
   *{box-sizing:border-box}
   body{
@@ -34,6 +35,7 @@
   .tag{display:inline-block; font-size:.72rem; letter-spacing:.04em; text-transform:uppercase;
        background:var(--accent-soft); color:var(--accent); padding:.15rem .5rem; border-radius:999px; margin-bottom:.6rem;}
   .tag.step{background:var(--step-soft); color:var(--step);}
+  .tag.pre{background:var(--pre-soft); color:var(--pre);}
 
   .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.6rem;}
   .card-btn{
@@ -52,7 +54,7 @@
   .detail.show{display:block;}
   .detail img{max-width:100%; border-radius:8px; border:1px solid var(--line); display:block; margin:.7rem 0;}
   .detail .cap{font-size:.82rem; color:var(--muted); margin-top:-.4rem;}
-  .detail ul{margin:.4rem 0 0; padding-left:1.2rem;}
+  .detail ul, .detail ol{margin:.4rem 0 0; padding-left:1.2rem;}
   .detail li{margin-bottom:.2rem;}
   .note{font-size:.9rem; color:var(--muted); margin-top:.6rem; border-left:3px solid var(--accent); padding-left:.7rem;}
 
@@ -159,7 +161,14 @@
   <section class="intro-section">
     <p>Jag hade svårt att se hela processen — hur jag faktiskt jobbar med Claude, Cursor och GitHub när jag kodar. Den här sidan är mitt försök att rita upp det.</p>
     <button class="btn-link" onclick="document.getElementById('sources-modal').classList.add('show')">Tidigare texter i ämnet och andra källor →</button>
-    <p style="margin-top:1.3rem;">Så är sidan uppbyggd, i tre faser: <strong><a href="#fas1">Fas 1</a></strong> — filerna som redan <strong>styr</strong> samarbetet innan man ens börjar. <strong><a href="#fas2">Fas 2</a></strong> — vilken <strong>yta</strong> man väljer att jobba i, med sina egna verktyg och modeller. <strong><a href="#fas3">Fas 3</a></strong> — versionhantering i Cursor och Git (3a), och leverans till GitHub där filerna blir levande sidor vem som helst kan nå via en URL (3b). Längst ner: <a href="#sammanfattning">en sammanfattning</a> av hur den här sidan själv blev till. Klicka på en ruta nedan.</p>
+    <p style="margin-top:1.3rem;">Så är sidan uppbyggd: den börjar med <strong><a href="#fas0">Fas 0</a></strong> — kravdokumentet (PRD) som föregår allt annat — sedan tre faser: <strong><a href="#fas1">Fas 1</a></strong> — filerna som redan <strong>styr</strong> samarbetet innan man ens börjar. <strong><a href="#fas2">Fas 2</a></strong> — vilken <strong>yta</strong> man väljer att jobba i, med sina egna verktyg och modeller. <strong><a href="#fas3">Fas 3</a></strong> — versionhantering i Cursor och Git (3a), och leverans till GitHub där filerna blir levande sidor vem som helst kan nå via en URL (3b). Längst ner: <a href="#sammanfattning">en sammanfattning</a> av hur den här sidan själv blev till. Klicka på en ruta nedan.</p>
+  </section>
+
+  <section id="fas0">
+    <span class="tag pre">Fas 0</span>
+    <h2><a class="anchor-heading" href="#fas0" title="Länk till detta avsnitt">PRD — innan man ens skriver CLAUDE.md</a></h2>
+    <div class="cards" id="prd-cards"></div>
+    <div class="detail" id="prd-detail"></div>
   </section>
 
   <section id="fas1">
@@ -167,8 +176,7 @@
     <h2><a class="anchor-heading" href="#fas1" title="Länk till detta avsnitt">Filerna som styr samarbetet — innan man börjar</a></h2>
     <div class="cards" id="steer-cards"></div>
     <div class="detail" id="steer-detail"></div>
-    <!-- Uppdatering 31 juli 2026: kort notis om PRD, upptäckt saknades under ett annat projekts planering -->
-    <div class="note" style="margin-top:1rem;">En fjärde term värd att känna till, som skiljer sig från de tre ovan: <strong>PRD</strong> (Product Requirements Document). Till skillnad från CLAUDE.md/AGENTS.md/SKILL.md — som är ständigt aktiva styrfiler — är en PRD tidsbegränsad och funktionsspecifik: ett kravdokument för en enskild leverans, format i dialog och sedan fryst när kodningen startar. <a href="https://github.com/kentlundgren/Ovrigt/blob/main/Fritid/ol_Tyskland/PRD_slap.md" target="_blank" rel="noopener">Se ett verkligt exempel →</a> (från ett annat projekt, 31 juli 2026).</div>
+    <div class="note" style="margin-top:1rem;">PRD (Product Requirements Document) beskrivs i <a href="#fas0">Fas 0</a> ovan — kravdokumentet som föregår dessa styrfiler.</div>
   </section>
 
   <section id="fas2">
@@ -292,6 +300,7 @@ const sourcesData = [
   { ref: 'Lundgren, K. (2026c)', title: "Namnet 'main' betyder inte alltid main.", type: '[Blogginlägg]', pub: 'klel.wordpress.com, 28/7 2026', url: 'https://klel.wordpress.com/2026/07/28/namnet-main-betyder-inte-alltid-main/', urlLabel: 'klel.wordpress.com/2026/07/28' },
   { ref: 'Lundgren, K. (2026d)', title: 'En bild av Claudes ekosystem.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 29/7 2026', url: 'https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/', urlLabel: 'klel.wordpress.com/2026/07/29' },
   { ref: 'Lundgren, K. (2026e)', title: 'Vilken är din Claude favorit.', type: '[LinkedIn-artikel]', pub: 'LinkedIn, 30/7 2026', url: 'https://www.linkedin.com/pulse/vilken-%C3%A4r-din-claude-favorit-kent-lundgren-atqye/', urlLabel: 'linkedin.com/pulse/vilken-är-din-claude-favorit' },
+  { ref: 'Lundgren, K. (2026f)', title: 'PRD först – sedan CLAUDE.md.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 31/7 2026', url: 'https://klel.wordpress.com/2026/07/31/prd-forst-sedan-claude-md/', urlLabel: 'klel.wordpress.com/2026/07/31' },
   { ref: 'Anthropic (2026a)', title: 'Glossary – Claude Code Docs.', type: '[Webbsida]', pub: 'Anthropic', url: 'https://code.claude.com/docs/en/glossary', urlLabel: 'code.claude.com/docs/en/glossary' },
   { ref: 'Anthropic (2026b)', title: 'The Claude Cowork product guide.', type: '[Blogginlägg]', pub: 'Anthropic', url: 'https://claude.com/blog/the-claude-cowork-product-guide', urlLabel: 'claude.com/blog/the-claude-cowork-product-guide' },
   { ref: 'agents.md (2026)', title: 'AGENTS.md — open format for guiding coding agents.', type: '[Webbsida]', pub: '', url: 'https://agents.md/', urlLabel: 'agents.md' },
@@ -309,6 +318,42 @@ function renderSources() {
   document.getElementById('sources-list-bottom').innerHTML = html;
 }
 renderSources();
+
+const prdData = [
+  {
+    id:'prd', name:'PRD', sub:'Kravdokument, inte styrfil',
+    intro:`Product Requirements Document — svarar på en annan fråga än CLAUDE.md. Som jag skrev i <a href="https://klel.wordpress.com/2026/07/31/prd-forst-sedan-claude-md/" target="_blank" rel="noopener">PRD först – sedan CLAUDE.md</a>: "CLAUDE.md är utmärkt på att tala om <em>hur</em> något ska byggas... Men den svarar inte på den mer grundläggande frågan: <em>Vad</em> är det egentligen vi ska bygga – och varför?" En PRD tvingar fram klarhet kring vilket problem som löses, målgrupp, måste-ha-funktioner, kan-vänta-funktioner och vad som uttryckligen exkluderas. Till skillnad från CLAUDE.md/AGENTS.md/SKILL.md — som är ständigt aktiva styrfiler (se <a href="#fas1">Fas 1</a>) — är PRD:n tidsbegränsad och funktionsspecifik: skriven för en enskild leverans, och sedan fryst innan kodningen börjar.`,
+    steps:[
+      'Skriv (eller låt Claude hjälpa till att skriva) en kort PRD',
+      'Låt Claude ställa förtydligande frågor',
+      'Justera och frys dokumentet',
+      'Uppdatera eller skapa CLAUDE.md med tekniska guardrails för denna leverans',
+      'Börja kodningen'
+    ],
+    note:`Källa: <a href="https://klel.wordpress.com/2026/07/31/prd-forst-sedan-claude-md/" target="_blank" rel="noopener">PRD först – sedan CLAUDE.md</a> (klel.wordpress.com, 31/7 2026). Verkligt exempel: <a href="https://github.com/kentlundgren/Ovrigt/blob/main/Fritid/ol_Tyskland/PRD_slap.md" target="_blank" rel="noopener">PRD_slap.md →</a> (från ett annat projekt).`
+  }
+];
+
+function renderPrd(){
+  const wrap = document.getElementById('prd-cards');
+  prdData.forEach(s=>{
+    const b = document.createElement('button');
+    b.className='card-btn'; b.dataset.id=s.id;
+    b.innerHTML = `<strong>${s.name}</strong><span>${s.sub}</span>`;
+    b.onclick = ()=>showPrd(s.id);
+    wrap.appendChild(b);
+  });
+}
+
+function showPrd(id){
+  document.querySelectorAll('#prd-cards .card-btn').forEach(b=>b.classList.toggle('active', b.dataset.id===id));
+  const s = prdData.find(x=>x.id===id);
+  const d = document.getElementById('prd-detail');
+  d.innerHTML = `<p>${s.intro}</p>
+    <ol>${s.steps.map(st=>`<li>${st}</li>`).join('')}</ol>
+    <div class="note">${s.note}</div>`;
+  d.classList.add('show');
+}
 
 const steerFiles = [
   {
@@ -581,9 +626,11 @@ function showPipeline(id){
   d.classList.add('show');
 }
 
+renderPrd();
 renderSteer();
 renderSurfaces();
 renderPipeline();
+showPrd('prd');
 showSteer('claude');
 showSurface('web');
 showPipeline('gh');

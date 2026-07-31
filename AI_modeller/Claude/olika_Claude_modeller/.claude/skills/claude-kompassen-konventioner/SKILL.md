@@ -18,15 +18,20 @@ konkret visa att alla tre nivåerna kan förekomma i samma projekt samtidigt.
 
 ## Struktur i index.html
 
-- Fem sektioner, i ordning: **Fas 1** (`id="fas1"`, styrfiler CLAUDE.md/AGENTS.md/
-  SKILL.md), **Fas 2** (`id="fas2"`, ytor), **Fas 3** (`id="fas3"`, Cursor/Git/
-  GitHub, uppdelat i 3a och 3b), **Sammanfattning** (`id="sammanfattning"`,
-  processen bakom sidan), och **Källor** (`id="kallor"`, källförteckning längst ner).
-  Sektions-id:na döptes om (30/7) just för att kunna länkas direkt: `#fas1`,
-  `#fas2`, `#fas3`, `#sammanfattning`, `#kallor` används redan i bloggtexten och
-  i verktygets introtext. Behåll dessa exakta id:n — de är ett publikt kontrakt,
-  inte bara interna namn. Denna ordning och namngivning är medvetet vald av Kent
-  — ändra den inte utan att fråga.
+- Sex sektioner, i ordning: **Fas 0** (`id="fas0"`, PRD — kravdokumentet som
+  föregår allt annat, tillagd 31/7 2026), **Fas 1** (`id="fas1"`, styrfiler
+  CLAUDE.md/AGENTS.md/SKILL.md), **Fas 2** (`id="fas2"`, ytor), **Fas 3**
+  (`id="fas3"`, Cursor/Git/GitHub, uppdelat i 3a och 3b), **Sammanfattning**
+  (`id="sammanfattning"`, processen bakom sidan), och **Källor** (`id="kallor"`,
+  källförteckning längst ner). Sektions-id:na döptes om (30/7) just för att kunna
+  länkas direkt: `#fas0`, `#fas1`, `#fas2`, `#fas3`, `#sammanfattning`, `#kallor`
+  används redan i bloggtexten och i verktygets introtext. Behåll dessa exakta
+  id:n — de är ett publikt kontrakt, inte bara interna namn. Denna ordning och
+  namngivning är medvetet vald av Kent — ändra den inte utan att fråga. Fas 0
+  har ett eget färgpar i CSS-variablerna (`--pre`/`--pre-soft`, en dämpad
+  skiffer-indigo), tydligt skilt från Fas 1:s rost (`--accent`) och Fas 2/3:s
+  grönt (`--step`) — samma mönster med en tredje `.tag`-variant (`.tag.pre`)
+  ska följas om ytterligare en fas läggs till i framtiden.
 - **Allmän ankarlänksregel (gäller alla sektioner i index.html):** varje `<section>`
   ska ha ett `id`-attribut med ett kort, läsbart svenskt ord (utan å/ä/ö, utan
   mellanslag). Det gör att sektionen kan nås direkt via URL-fragment, t.ex.
@@ -40,11 +45,14 @@ konkret visa att alla tre nivåerna kan förekomma i samma projekt samtidigt.
   normalt, (2) ett `#`-tecken i accent-färg tonas in på hover — ett diskret signal
   om att rubriken är klickbar/länkbar. Mönstret gör att besökaren enkelt kan "få fatt
   i" rätt URL för ett avsnitt och dela den med någon annan. Lägg alltid till detta
-  mönster för `<h2>` i nya sektioner. Befintliga rubriker med detta mönster (30/7
-  2026): `#fas1`, `#fas2`, `#fas3`, `#sammanfattning`, `#kallor`.
+  mönster för `<h2>` i nya sektioner. Befintliga rubriker med detta mönster (31/7
+  2026): `#fas0`, `#fas1`, `#fas2`, `#fas3`, `#sammanfattning`, `#kallor`.
 - Varje sektion använder samma mönster: en `.cards`-rad med klickbara knappar och
-  en `.detail`-panel under som fylls via JavaScript (`showSteer`, `showSurface`,
-  `showPipeline`). Nya kort ska följa exakt detta mönster, inte uppfinna ett nytt.
+  en `.detail`-panel under som fylls via JavaScript (`showPrd`, `showSteer`,
+  `showSurface`, `showPipeline`). Nya kort ska följa exakt detta mönster, inte
+  uppfinna ett nytt — det gäller även när en sektion (som Fas 0) bara har ett
+  enda kort: samma `.cards`-grid + klickbar `.card-btn` + auto-visad `.detail`
+  vid sidladdning, inte ett specialfall utan klick-interaktion.
 - Skärmdumparna i mappen refereras med sina exakta filnamn (t.ex.
   `Clalude_ai_tre_saker_i_en__260729.jpg`, med stavningen "Clalude" — en äkta
   stavning i det ursprungliga filnamnet, rätta den inte).
