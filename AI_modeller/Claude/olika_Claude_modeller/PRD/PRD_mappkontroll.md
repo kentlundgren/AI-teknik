@@ -146,18 +146,39 @@ faktiska, slutgiltiga innehåll och sökvägar (se 3c).
 
 ## 5. Leveranser
 
-- [ ] Blogginlägg, publicerat på klel.wordpress.com
-- [ ] Exempel-box i Fas 1-kortet i `index.html` (budskap A)
+**Steg 1 — Styrfiler (se avsnitt 9):**
+- [ ] Uppdatera `C:\Users\kentl\.claude\CLAUDE.md` med tre-lägesmodellen
+      (avsnitt 3b)
+- [ ] Uppdatera `C:\Users\kentl\.claude\skills\kent-meta-regler-for-code\SKILL.md`
+      (regel 5) med samma modell
+
+**Steg 2 — Blogg:**
+- [ ] Blogginlägg, publicerat på klel.wordpress.com — väver ihop budskap
+      A/B/C, med tydliga sökvägar och koppling till skill-nivåerna (3c)
+
+**Steg 3 — Kompass:**
+- [ ] Exempel-box i Fas 1-kortet i `index.html` (budskap A), inkl. exakta
+      sökvägar och koppling till skill-nivå-tabellen (3c)
 - [ ] Fördjupat exempel i Fas 3-kortet: tre-lägesmodellen (budskap B)
 - [ ] Kort tillägg i Fas 0 och/eller Sammanfattning: denna session som
       andra exempel på PRD-först i praktiken (budskap C)
 - [ ] Ny post i `sourcesData`
-- [ ] (ev., beroende på svar på 4b) Uppdatering av
-      `C:\Users\kentl\.claude\CLAUDE.md` och
-      `C:\Users\kentl\.claude\skills\kent-meta-regler-for-code\SKILL.md`
-      med tre-lägesmodellen
 - [ ] (ev.) `README.md`-uppdatering i den här mappen, enligt repots
       README-konvention, om nya filer/länkar tillkommer
+
+## 9. Produktionsordning
+
+**Styrfiler → Blogg → Kompass**, i den ordningen:
+
+1. **Styrfiler först** — mekaniskt, innehållet är redan specificerat
+   (avsnitt 3b). Gör detta klart innan bloggen skrivs, så att sökvägar och
+   citerat innehåll i bloggtexten är de faktiska, slutgiltiga — inte en
+   föregripen beskrivning.
+2. **Blogg näst** — det är där hela resonemanget (budskap A/B/C) tänks
+   igenom i löptext. Rör inget publikt kontrakt, går fritt att omarbeta.
+3. **Kompass sist** — exempel-boxarna är komprimerade destillat av
+   bloggens resonemang; lättare att skriva korrekt när den fulla texten
+   redan finns.
 
 ## 6. Namnkonvention för PRD:er (öppen fråga, inget beslut ännu)
 
@@ -178,10 +199,10 @@ att hårdkoda nummer i filnamnen. Kent har uttryckligen sagt "inget beslut
 
 ## 8. Status
 
-Utkast, sparat. Två öppna frågor kvar (avsnitt 4a, 4b) innan frysning.
-Ingen kod eller blogg-text ska skrivas förrän den frysts. Git-commit/push
-av den här filen görs av Kent själv via Cursor, enligt projektets
-`CLAUDE.md`.
+**Fryst.** Båda frågorna (4a, 4b) beslutade, kravet på transparenta
+sökvägar tillagt (3c), produktionsordning fastställd (9). Nästa steg:
+uppdatera styrfilerna (steg 1). Git-commit/push av den här filen görs av
+Kent själv via Cursor, enligt projektets `CLAUDE.md`.
 
 ## Ändringslogg
 
@@ -191,3 +212,6 @@ av den här filen görs av Kent själv via Cursor, enligt projektets
   modell för repo-identitet (Fas 3), koppling till Fas 0/Sammanfattning
   som levande exempel, öppen fråga 4b om att uppdatera de faktiska
   styrfilerna.
+- 2026-07-31 (v3): Fryst. Beslut 4a och 4b fattade (båda ja). Tillagt
+  krav 3c (tydliga sökvägar + koppling till skill-nivå-tabellen) och
+  avsnitt 9 (produktionsordning: styrfiler → blogg → kompass).
