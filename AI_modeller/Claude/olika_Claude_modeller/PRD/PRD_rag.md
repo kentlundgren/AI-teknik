@@ -3,12 +3,10 @@
 **Namn:** PRD_rag
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_rag.md`
 **Skapad:** 2026-08-01
-**Version:** 13 (andra genomläsning: två nya stale-fläckar (engelska
-"stale" — information som blivit inaktuell/föråldrad utan att ha
-uppdaterats) rättade, ny Innehållsbrief-sektion tillagd, exempel-viktning
-för bloggen fastställd)
-**Status:** **Planering klar, inga öppna frågor.** Ingen kod, blogg eller
-källpost skriven ännu.
+**Version:** 14 (KLAR — blogginlägg publicerat, RAG-kortet kodat i Fas 1,
+`sourcesData` uppdaterad och omletterad, allt verifierat i webbläsaren)
+**Status:** **Genomfört.** Blogginlägg, RAG-kort och källdata är levererade
+och verifierade — se avsnitt 5. Ingen kod eller källpost kvarstår.
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen, Fas 1),
 inte en grund-PRD för ett nytt projekt.
 
@@ -303,14 +301,25 @@ spridnings-episoden (4e).
 - [x] Beslut: 2024-texterna endast i blogginlägget; Frans G. Bengtsson-
       inlägget in i både `sourcesData` (som ny `2026b`, med omlettring
       c–h) och blogginlägget
-- [ ] Text/innehåll skrivet för Fas 1-kortet (RAG)
-- [ ] Blogginlägg skrivet på klel.wordpress.com
-- [ ] Nya poster i `sourcesData`: Lewis (2020), Gao (2023), Anthropic (2024)
+- [x] Blogginlägg skrivet och publicerat: ["Sluta gissa – ragga i stället"](https://klel.wordpress.com/2026/08/01/sluta-gissa-ragga-i-stallet/)
+      (klel.wordpress.com, 1/8 2026)
+- [x] Text/innehåll skrivet för Fas 1-kortet (RAG) — fjärde kort i
+      `steerFiles`, med konceptbrygga, riktigt utdrag ur `RAG/agents.md`,
+      Classic/Advanced-förklaring, länk till Frans G. Bengtsson-exemplet
+      och bloggen, båda promptexemplen (A/B), och en avslutande reflektion
+- [x] Nya poster i `sourcesData`: Anthropic (2024), Gao (2023), Lewis (2020)
       på rätt alfabetisk plats, plus Frans G. Bengtsson-inlägget som ny
-      `2026b` (med omlettring av gamla b–g till c–h)
-- [ ] `sourcesData`-strukturen utökad med `annotation`-fält
-- [ ] JS-syntax verifierad efter kodändring (`node --check`), enligt praxis
-      från `PRD_mappkontroll.md`
+      `2026b` (omlettring av gamla b–g till c–h genomförd och verifierad
+      i webbläsaren)
+- [x] `sourcesData`-strukturen utökad med `annotation`-fält (`renderSources`
+      uppdaterad för att visa det, befintliga poster opåverkade)
+- [x] skillTooltip-stalefläcken fixad i samma svep: `linkedin-ai-respons`
+      borttagen, `kent-meta-regler-for-code` och `kent-advanced-rag`
+      tillagda i nivå 2a-listan
+- [x] JS-syntax verifierad efter kodändring (`node --check`) — OK
+- [x] Visuell koll i webbläsaren: kortet klickbart, detail-panel renderar,
+      länkar fungerar, källistan (`#kallor`) visar alla nya poster i rätt
+      ordning med annoteringar
 
 ## 6. Produktionsordning
 
@@ -377,17 +386,19 @@ kompasskortet blir ett komprimerat destillat av det).
 
 ## 8. Status
 
-**Utkast klart — inga öppna sakfrågor kvar.** Alla sex delfrågor (4a–4f) är
-beslutade: fjärde kort i Fas 1 (med AGENTS.md-bryggan som berättarkrok),
-Kents fulla RAG-historik (2024-texter → RAG/-projektet med Classic/Advanced
-→ Frans G. Bengtsson-exemplet), tre externa källor (Lewis, Gao, Anthropic),
-blogg + kompass som slutleverans, annoterad källförteckning (nu en generell
-regel, spridd till fem styrfiler), Advanced RAG-metaexperimentet med ny
-skill (`kent-advanced-rag`), och — sist löst — 2024-texterna stannar i
-blogginlägget medan Frans G. Bengtsson-inlägget går in i både `sourcesData`
-(som ny `2026b`, med omlettring c–h) och kompassen. Ingen kod, blogg eller
-källpost är skriven ännu — bara detta PRD. Nästa steg är produktionsordningen
-i avsnitt 6.
+**Genomfört.** Alla sex delfrågor (4a–4f) beslutade och levererade: fjärde
+kort i Fas 1 (med AGENTS.md-bryggan som berättarkrok), Kents fulla
+RAG-historik (2024-texter → RAG/-projektet med Classic/Advanced → Frans G.
+Bengtsson-exemplet), tre externa källor (Lewis, Gao, Anthropic), annoterad
+källförteckning (nu en generell regel, spridd till fem styrfiler),
+Advanced RAG-metaexperimentet med ny skill (`kent-advanced-rag`, global +
+projektkopia). Blogginlägget ["Sluta gissa – ragga i stället"](https://klel.wordpress.com/2026/08/01/sluta-gissa-ragga-i-stallet/)
+är publicerat (1/8 2026), med två promptexempel (fristående och en
+övertydlig påminnelseversion) som Kent själv slipade till efter flera
+rundor granskning. RAG-kortet är kodat i `index.html`, `sourcesData` är
+uppdaterad (tre nya källor, Frans G. Bengtsson som ny `2026b`, omlettring
+c–h, nytt `annotation`-fält), JS-syntaxen verifierad och kortet testat
+visuellt i webbläsaren. Inget kvarstår.
 
 ## 9. Innehållsbrief för skriv-/kodningsfasen
 
@@ -523,3 +534,22 @@ verifierad.
   projektet + Frans G. Bengtsson som ryggrad, spridnings-episoden som kort
   bisats, Advanced RAG-metaexperimentet/promptexemplet som avslutning —
   inte fyra jämnstora exempel.
+- 2026-08-01 (v14): **Genomfört.** Blogginlägget skrevs (`kent-skrivstil`),
+  fick titeln "Sluta gissa – ragga i stället" (Kents eget ordval, en
+  RAG/ragga-ordlek) och publicerades på klel.wordpress.com. Flera
+  granskningsrundor innan det stod klart: (1) källförteckningen orsakade
+  upprepade WordPress-inklistringsproblem — löstes till slut genom att
+  skriva källorna som fristående stycken utan punktlista (se
+  `feedback_wordpress_paste_long_lines` i minnet, och `kent-skrivstil`);
+  (2) promptexemplet utvecklades till två varianter — en fristående (för
+  läsare utan skillen) och en övertydlig påminnelseversion som medvetet
+  namnger den globala skillens exakta sökväg, som en motåtgärd mot just
+  det "svårt att hålla reda på allt"-problem hela materialet handlar om;
+  (3) mindre språkgranskning av Kents egna tillägg. Därefter kodades
+  RAG-kortet i `index.html` (fjärde kort i `steerFiles`, efter SKILL.md),
+  `sourcesData` uppdaterades (tre nya källor + `annotation`-fält + Frans G.
+  Bengtsson som ny `2026b` med omlettring c–h — bekräftat: inga andra
+  in-text-hänvisningar till bokstäverna fanns någon annanstans i filen),
+  och skillTooltip-stalefläcken (linkedin-ai-respons m.m.) fixades i samma
+  svep. JS-syntax verifierad (`node --check`), och kortet testat visuellt
+  i webbläsaren (klick, detail-panel, länkar, källista). Inget kvarstår.
