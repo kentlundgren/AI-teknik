@@ -38,12 +38,6 @@ publicerade. Filer och länkar:
 - Projektnivå-skills i `.claude/skills/`: `claude-kompassen-konventioner` (struktur för
   `index.html`) och `kent-advanced-rag` (kopia, se nedan).
 
-**Viktigt — två index-filer i mappen, förväxla dem inte:**
-- `index.html` — den riktiga, aktiva filen. Jobba alltid med den här.
-- `index copy.html` — en manuell backup-kopia Kent själv skapade (29/7 2026), bara som
-  säkerhet om något går snett. Ignorera den helt, redigera den aldrig, och föreslå den
-  inte som källa för något.
-
 Fullständig, löpande plan (med all bakgrund/research) finns i:
 `C:\Users\kentl\.claude\plans\abstract-leaping-lark.md`
 

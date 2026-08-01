@@ -69,29 +69,12 @@ konkret visa att alla tre nivåerna kan förekomma i samma projekt samtidigt.
   (avsnitt 4e) för exempel och bakgrund. Befintliga poster (Lundgren K. 2026a–g)
   skrivs inte om retroaktivt utan uttrycklig begäran.
 
-## `index copy.html` — en återställningspunkt, inte en referens
+## `index copy.html` — borttagen (1/8 2026)
 
-En manuell backup-kopia Kent själv skapade (29/7 2026) som säkerhet om
-`index.html` skulle gå sönder. Två helt olika lägen gäller, och de ska aldrig
-blandas ihop:
-
-**Normalläge (nästan alltid):** `index.html` är den aktiva, korrekta filen.
-`index copy.html` rörs inte alls — redigera den aldrig, uppdatera den aldrig,
-och använd den aldrig som källa, referens eller facit, även om den råkar
-innehålla en äldre eller till synes "renare" text. Om `index.html` och
-`index copy.html` skiljer sig åt är det **aldrig** ett tecken på att kopian är
-"rätt" — det är bara ett tecken på att filerna divergerat. Dra aldrig den
-slutsatsen på egen hand. Konkret exempel (30/7 2026): `index.html` fick en not
-som ifrågasatte om Claude Code läser AGENTS.md, som `index copy.html` saknade.
-Kent hade själv verifierat frågan och beslutat att `index.html` skulle stå kvar
-som den var — skillnaden mot kopian sa ingenting om vem som hade rätt.
-
-**Återställningsläge (bara när Kent uttryckligen säger till):** Om Kent säger
-något i stil med "något gick fel, gå tillbaka till index copy.html" eller
-"återställ från kopian" — då, och bara då, blir `index copy.html` den fil man
-utgår från för att återställa `index.html`. Det är hela poängen med att ha en
-backup. Vänta alltid på det uttryckliga beslutet — anta det aldrig själv utifrån
-att filerna skiljer sig åt eller att något "ser fel ut".
+Fanns tidigare som en manuell backup-kopia (skapad 29/7 2026, samma dag som
+`index.html`). Kent tog själv bort filen 1/8 2026 — det finns bara en
+index-fil i mappen nu. Om en framtida backup-kopia dyker upp igen: fråga
+Kent vilket läge som gäller innan den antas följa samma regler som förut.
 
 ## Kända, redan fattade beslut (fråga inte om dessa igen)
 

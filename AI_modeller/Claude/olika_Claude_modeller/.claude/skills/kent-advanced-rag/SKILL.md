@@ -17,10 +17,10 @@ metadata:
 > `C:\Users\kentl\.claude\skills\kent-advanced-rag\SKILL.md`. Ändringar görs
 > där — den här kopian finns bara för att den globala `.claude`-mappen inte
 > ingår i något Git-repo och därför inte går att se eller länka till på
-> GitHub. Samma mönster som `index copy.html` i det här projektet: en kopia
-> för synlighet/säkerhet, inte en källa att redigera. Om de två filerna
-> någon gång skiljer sig åt är det bara ett tecken på att kopian inte
-> synkats än (jfr. `kent-skrivstil`-exemplet i projektets `CLAUDE.md`) —
+> GitHub. En kopia för synlighet/länkbarhet, inte en källa att redigera. Om
+> de två filerna någon gång skiljer sig åt är det bara ett tecken på att
+> kopian inte synkats än (jfr. `kent-skrivstil`-exemplet i projektets
+> `CLAUDE.md`, om en skill som legat osynkad på två nivåer samtidigt) —
 > dra aldrig slutsatsen att kopian är den korrekta.
 
 # Kents Advanced RAG (kopia — se varningsruta ovan)
