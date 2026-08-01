@@ -65,44 +65,22 @@ Jag har mer material liggande om det här — annat jag byggt med RAG, som jag �
 
 ## Källförteckning
 
-- Anthropic (2024) *Introducing Contextual Retrieval.*
-  Blogginlägg, Anthropic Engineering, 19 september 2024.
-  Tillgänglig: https://www.anthropic.com/engineering/contextual-retrieval
-  (Anthropics egen vidareutveckling av RAG, upp till 67 procent färre missade träffar — visar var tekniken står idag, specifikt för Claude.)
+Anthropic (2024) Introducing Contextual Retrieval. Blogginlägg, Anthropic Engineering, 19 september 2024. Tillgänglig: https://www.anthropic.com/engineering/contextual-retrieval (Anthropics egen vidareutveckling av RAG, upp till 67 procent färre missade träffar — visar var tekniken står idag, specifikt för Claude.)
 
-- Gao, Y., Xiong, Y., Gao, X., Jia, K., Pan, J., Bi, Y., Dai, Y., Sun, J., Wang, M. och Wang, H. (2026a) *Retrieval-Augmented Generation for Large Language Models: A Survey.*
-  arXiv:2312.10997.
-  Tillgänglig: https://arxiv.org/abs/2312.10997
-  (Delar RAG i Naive, Advanced och Modular RAG — den vetenskapliga grunden för min egen Classic/Advanced-indelning.)
+Gao, Y., Xiong, Y., Gao, X., Jia, K., Pan, J., Bi, Y., Dai, Y., Sun, J., Wang, M. och Wang, H. (2026a) Retrieval-Augmented Generation for Large Language Models: A Survey. arXiv:2312.10997. Tillgänglig: https://arxiv.org/abs/2312.10997 (Delar RAG i Naive, Advanced och Modular RAG — den vetenskapliga grunden för min egen Classic/Advanced-indelning.)
 
-- Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttler, H., Lewis, M., Yih, W., Rocktäschel, T., Riedel, S. och Kiela, D. (2020) *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.*
-  Advances in Neural Information Processing Systems 33 (NeurIPS 2020), s. 9459–9474.
-  Tillgänglig: https://arxiv.org/abs/2005.11401
-  (Originalpappret som myntade termen RAG — historisk startpunkt för hela tekniken.)
+Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttler, H., Lewis, M., Yih, W., Rocktäschel, T., Riedel, S. och Kiela, D. (2020) Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. Advances in Neural Information Processing Systems 33 (NeurIPS 2020), s. 9459–9474. Tillgänglig: https://arxiv.org/abs/2005.11401 (Originalpappret som myntade termen RAG — historisk startpunkt för hela tekniken.)
 
-- Lundgren, K. (2024a) *Exempel på RAG.*
-  Blogginlägg, controllerutangranser.wordpress.com, 27 maj 2024.
-  Tillgänglig: https://controllerutangranser.wordpress.com/2024/05/27/exempel-pa-rag/
-  (Min första RAG-text, ett praktiskt Python/väder-exempel — innan Classic/Advanced-distinktionen fanns.)
+Lundgren, K. (2024a) Exempel på RAG. Blogginlägg, controllerutangranser.wordpress.com, 27 maj 2024. Tillgänglig: https://controllerutangranser.wordpress.com/2024/05/27/exempel-pa-rag/ (Min första RAG-text, ett praktiskt Python/väder-exempel — innan Classic/Advanced-distinktionen fanns.)
 
-- Lundgren, K. (2024b) *RAG för mer precisa AI-svar.*
-  Blogginlägg, klel.wordpress.com, 27 maj 2024.
-  Tillgänglig: https://klel.wordpress.com/2024/05/27/rag-for-mer-precisa-ai-svar/
-  (Utgångspunkten för mitt senare, mer utvecklade RAG-arbete.)
+Lundgren, K. (2024b) RAG för mer precisa AI-svar. Blogginlägg, klel.wordpress.com, 27 maj 2024. Tillgänglig: https://klel.wordpress.com/2024/05/27/rag-for-mer-precisa-ai-svar/ (Utgångspunkten för mitt senare, mer utvecklade RAG-arbete.)
 
-- Lundgren, K. (2026) *Kan man lita på det AI:n berättar om Frans G. Bengtsson?*
-  Blogginlägg, klel.wordpress.com, 15 juli 2026.
-  Tillgänglig: https://klel.wordpress.com/2026/07/15/kan-man-lita-pa-det-ain-berattar-om-frans-g-bengtsson/
-  (Min praktiska tillämpning av Classic vs. Advanced RAG på en verklig biografisida.)
+Lundgren, K. (2026) Kan man lita på det AI:n berättar om Frans G. Bengtsson? Blogginlägg, klel.wordpress.com, 15 juli 2026. Tillgänglig: https://klel.wordpress.com/2026/07/15/kan-man-lita-pa-det-ain-berattar-om-frans-g-bengtsson/ (Min praktiska tillämpning av Classic vs. Advanced RAG på en verklig biografisida.)
 
-- RAG-agentfil (agents.md).
-  Tillgänglig: https://github.com/kentlundgren/AI-teknik/blob/main/RAG/agents.md
+RAG-agentfil (agents.md). Tillgänglig: https://github.com/kentlundgren/AI-teknik/blob/main/RAG/agents.md
 
-- RAG-skills (skills.md).
-  Tillgänglig: https://github.com/kentlundgren/AI-teknik/blob/main/RAG/skills.md
+RAG-skills (skills.md). Tillgänglig: https://github.com/kentlundgren/AI-teknik/blob/main/RAG/skills.md
 
-- Frans G. Bengtsson-sidan (live).
-  Tillgänglig: https://kentlundgren.github.io/AI-teknik/RAG/Frans-G-Bengtsson/
+Frans G. Bengtsson-sidan (live). Tillgänglig: https://kentlundgren.github.io/AI-teknik/RAG/Frans-G-Bengtsson/
 
-- RAG-metod (metodresonemang).
-  Tillgänglig: https://github.com/kentlundgren/AI-teknik/blob/main/RAG/Frans-G-Bengtsson/RAG-metod.md
+RAG-metod (metodresonemang). Tillgänglig: https://github.com/kentlundgren/AI-teknik/blob/main/RAG/Frans-G-Bengtsson/RAG-metod.md
