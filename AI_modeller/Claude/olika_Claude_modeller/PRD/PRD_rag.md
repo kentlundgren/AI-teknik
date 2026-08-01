@@ -3,8 +3,8 @@
 **Namn:** PRD_rag
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_rag.md`
 **Skapad:** 2026-08-01
-**Version:** 11 (sista öppna punkten löst — inga öppna sakfrågor kvar,
-klar för skriv-/kodningsfasen)
+**Version:** 12 (obetydlig testrad, för att verifiera Kents commit/push
+via Cursor efter dagens incident)
 **Status:** **Planering klar, inga öppna frågor.** Ingen kod, blogg eller
 källpost skriven ännu.
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen, Fas 1),
@@ -463,3 +463,6 @@ i avsnitt 6.
   gamla b–g skiftar till c–h). Leveranser, Produktionsordning och Status
   uppdaterade för att spegla att alla sex delfrågorna (4a–4f) nu är
   beslutade — inga öppna sakfrågor kvar innan skriv-/kodningsfasen.
+- 2026-08-01 (v12): Obetydlig testrad, tillagd för att Kent skulle kunna
+  bekräfta att commit/push via Cursor fungerar som vanligt igen efter
+  incidenten tidigare samma dag.
