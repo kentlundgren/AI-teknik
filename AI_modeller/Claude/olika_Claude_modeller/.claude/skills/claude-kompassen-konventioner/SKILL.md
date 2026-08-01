@@ -63,6 +63,11 @@ konkret visa att alla tre nivåerna kan förekomma i samma projekt samtidigt.
   men gruppen placeras enligt författarnamnets bokstavsplats. Lägg alltid en ny källa
   på rätt alfabetisk plats i arrayen, inte sist. Samma regel gäller generellt, se
   global skill `kent-meta-regler-for-code`.
+- **Annoterad källförteckning (tillagt 1/8 2026):** varje ny post i `sourcesData`
+  ska, utöver Harvard-referensen, ha en kort mening (ett nytt `annotation`-fält) som
+  sammanfattar vad källan handlar om eller varför den är med. Se `PRD/PRD_rag.md`
+  (avsnitt 4e) för exempel och bakgrund. Befintliga poster (Lundgren K. 2026a–g)
+  skrivs inte om retroaktivt utan uttrycklig begäran.
 
 ## `index copy.html` — en återställningspunkt, inte en referens
 

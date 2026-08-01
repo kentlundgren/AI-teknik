@@ -67,6 +67,13 @@ När agenten anger källor eller referenser gäller följande generellt i detta 
 Frans G. Bengtsson-exemplet, där web-retrieval utförs). I steg med enbart platshållare
 finns inga länkar att kontrollera ännu.
 
+- **Annoterad källförteckning (tillagt 1/8 2026).** Varje referens ska, utöver vanligt
+  Harvard-format, avslutas med en kort, egen mening inom parentes som sammanfattar vad
+  källan handlar om och/eller varför den är med. Gäller nya källor framåt — se
+  `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_rag.md` (avsnitt 4e) för exempel och
+  bakgrund. Befintliga källor i Frans G. Bengtsson-exemplet skrivs inte om retroaktivt
+  utan uttrycklig begäran.
+
 ## Regel 4: GitHub-länk på alla live-sidor (nere till vänster)
 
 Varje ny **live-sida** (HTML-sida som publiceras via GitHub Pages) i detta projekt ska

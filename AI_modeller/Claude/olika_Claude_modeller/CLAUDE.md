@@ -112,3 +112,7 @@ aldrig kronologisk — standard Harvard-praxis. Flera verk av samma författare 
 ihop och behåller sin inbördes a/b/c-ordning (kronologisk, för disambiguering), men
 gruppen som helhet placeras enligt författarnamnets bokstavsordning. Se `sourcesData`
 i `index.html` för tillämpningen (uppdaterat 31/7 2026, efter tidigare kronologisk ordning).
+**Annoterad källförteckning (tillagt 1/8 2026):** varje referens avslutas med en kort,
+egen mening inom parentes som sammanfattar vad källan handlar om och/eller varför den är
+med — inte bara ren Harvard-referens. Se `PRD/PRD_rag.md`, avsnitt 4e, för exempel och
+bakgrund. Gäller nya källor framåt, skriver inte om befintliga poster retroaktivt.

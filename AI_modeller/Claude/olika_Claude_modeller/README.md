@@ -25,7 +25,7 @@ Verktyget är uppbyggt i **tre faser** (klickbara kort, med direktlänkar `#fas1
   till webben, med Kents egen, subjektiva motivering för att välja Cursor framför
   Claude Code i den här fasen.
 - **Sammanfattning**: hur sidan själv blev till, med en tidslinje och en
-  källmodal (Harvardformat) för allt som refereras.
+  källmodal (annoterat Harvardformat) för allt som refereras.
 
 ## Filer i mappen
 

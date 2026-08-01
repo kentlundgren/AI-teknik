@@ -3,8 +3,9 @@
 **Namn:** PRD_rag
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_rag.md`
 **Skapad:** 2026-08-01
-**Version:** 4 (4a och 4d beslutade, 4b i huvudsak löst, 4c: tre källor
-verifierade — väntar på Kents slutgiltiga urval)
+**Version:** 7 (4a–4e alla beslutade och bekräftade; annoterad
+källförteckning nu spridd till fem styrfiler; ett nytt, självupplevt
+"svårt att hålla reda på allt"-exempel tillagt som material för blogg/kort)
 **Status:** **Planering.** Ingen kod, blogg eller källa skriven ännu.
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen, Fas 1),
 inte en grund-PRD för ett nytt projekt.
@@ -37,6 +38,17 @@ att slutresultatet ska bli både ett blogginlägg och en uppdaterad kompass
 — han hittar just nu inte tillbaka till tidigare anteckningar och återkommer)
 och 4c (källa, se nedan).
 
+**Tillägg 2026-08-01, samma dag (nytt, levande exempel):** under själva
+planeringen av det här PRD:t inträffade en konkret instans av precis det
+problem Fas 1 redan beskriver — att styrfiler/skills sprids över många
+platser och är svåra att hålla reda på. Kent bad om en ny stående regel
+(annoterad källförteckning, se 4e), den lades först till på bara *ett* av
+fem ställen den borde gälla, och Kent fick själv upptäcka glappet och be om
+att det spreds "överallt" (global skill, projektets CLAUDE.md, ett annat
+projekts egen styrfil `RAG/WORKFLOW.md`, en projektskill, en README). Kent
+har uttryckligen bett att detta vävs in som material i det nya
+blogginlägget/RAG-kortet — se avsnitt 2 och 5.
+
 ## 2. Syfte
 
 Förklara RAG som begrepp i Claude-kompassen, och koppla det tydligt till den
@@ -51,6 +63,18 @@ Bron att göra explicit: styrfilerna är *förutbestämd* kontext (samma
 innehåll varje gång), RAG är *frågeberoende* kontext (olika innehåll hämtas
 beroende på vad som efterfrågas). Det är en skillnad i **när** och **hur**
 kunskap kommer in i samtalet, inte en tävling om vilken metod som är "bäst".
+
+**Andra tråd att väva in:** RAG-projektets egen `agents.md` visar samma
+spridningsproblem som Fas 1 redan tar upp — fast i renodlad form. Det är en
+portabel, generell styrfil (skriven för att fungera i Claude Projects,
+Cursor, LangChain m.fl.), medan `RAG/WORKFLOW.md` är en helt separat,
+projektspecifik regelfil i samma mapp. Och episoden som utspelade sig
+*under just den här PRD-processen* (se avsnitt 1, tillägg 2026-08-01) är ett
+skarpt, självupplevt exempel: en ny regel Kent ville ha "överallt" fanns
+efter första försöket bara på ett av fem ställen. Det är precis den
+"svårt att hålla reda på allt"-problematiken Fas 1 redan beskriver
+(jfr. tradeoff-texten om `kent-skrivstil` som legat osynkad på två nivåer
+samtidigt) — RAG-arbetet ger ett andra, fristående belägg för samma poäng.
 
 ## 3. Omfattning
 
@@ -146,10 +170,55 @@ att komplettera (inte upprepa) Kents egen RAG-erfarenhet (4b):
    specifik vidareutveckling av RAG (49–67 % färre missade träffar). Roll:
    "vad som hänt sen", extra relevant just i Claude-kompassen.
 
-**Öppen fråga:** Claude har rekommenderat att använda alla tre (olika roller:
-ursprung / vetenskaplig grund / Claude-specifik vidareutveckling), men Kent
-har ännu inte bekräftat urvalet. Regel 2 och regel 3 (`kent-meta-regler-for-
-code`) är uppfyllda för alla tre — inget fabricerat, alla länkar kontrollerade.
+**Beslut (2026-08-01): alla tre används.** Regel 2 och regel 3
+(`kent-meta-regler-for-code`) är uppfyllda för alla tre — inget fabricerat,
+alla länkar kontrollerade.
+
+**4e. Referensstil — BESLUTAT: kommenterad Harvard-referens (annotated
+bibliography)**
+Kent vill att varje källa, utöver vanligt Harvard-format, får en kort,
+egen mening i parentes efter referensen som sammanfattar vad källan handlar
+om och/eller varför den är med — ett mönster han använt i annat sammanhang.
+Exempel (format bekräftat av Claude, väntar på Kents ok på exakt längd/ton):
+
+> Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N.,
+> Küttler, H., Lewis, M., Yih, W., Rocktäschel, T., Riedel, S. and Kiela, D.
+> (2020) 'Retrieval-Augmented Generation for Knowledge-Intensive NLP
+> Tasks', *Advances in Neural Information Processing Systems 33* (NeurIPS
+> 2020), pp. 9459–9474. https://arxiv.org/abs/2005.11401 *(Originalpappret
+> som myntade termen RAG — historisk startpunkt för hela tekniken.)*
+>
+> Gao, Y., Xiong, Y., Gao, X., Jia, K., Pan, J., Bi, Y., Dai, Y., Sun, J.,
+> Wang, M. and Wang, H. (2023) 'Retrieval-Augmented Generation for Large
+> Language Models: A Survey', arXiv:2312.10997.
+> https://arxiv.org/abs/2312.10997 *(Delar RAG i Naive, Advanced och Modular
+> RAG — den vetenskapliga grunden för Classic/Advanced-indelningen i Kents
+> eget RAG-projekt.)*
+>
+> Anthropic (2024) 'Introducing Contextual Retrieval', *Anthropic
+> Engineering*, 19 September 2024.
+> https://www.anthropic.com/engineering/contextual-retrieval *(Anthropics
+> egen vidareutveckling av RAG, upp till 67 % färre missade träffar — visar
+> var tekniken står idag, specifikt för Claude.)*
+
+**Implementationsdetalj för kodningsfasen (ej akut nu):** `sourcesData`-
+arrayen i `index.html` har idag inget fält för en sådan kommentar (endast
+`ref`, `title`, `type`, `pub`, `url`, `urlLabel`). Ett nytt fält (t.ex.
+`annotation`) behöver läggas till när koden väl skrivs. Gäller bara de nya
+RAG-källorna — befintliga Lundgren-poster ändras inte utan uttrycklig
+begäran.
+
+**Bekräftat (2026-08-01):** Kent godkände exemplens ton och längd. Detta är
+inte längre bara ett projektspecifikt val — Kent bad uttryckligen om att
+det görs till en stående, generell regel. Genomfört: Regel 2 i skillen
+`kent-meta-regler-for-code` (nivå 2, global,
+`C:\Users\kentl\.claude\skills\kent-meta-regler-for-code\SKILL.md`) är
+uppdaterad med kravet på annoterad källförteckning (v3). Kontonivå-
+originalet (`kent-meta-regler`) kan Claude Code inte skriva till — Kent har
+fått kopierbar text om han vill synka den manuellt. Öppet: om projektets
+egen `CLAUDE.md` (avsnitt "Källhantering") och/eller `AI-teknik/RAG/
+WORKFLOW.md` (Regel 3, ett annat projekts styrfil) också ska uppdateras för
+konsekvens.
 
 **4d. Blogginlägg — ja eller nej? — BESLUTAT ✓**
 **Beslut (2026-08-01):** Båda — ett blogginlägg på klel.wordpress.com och en
@@ -214,3 +283,25 @@ blogg eller källpost är skriven ännu.
   inte som huvudmaterial. 4c: tre externa källor (Lewis et al. 2020, Gao et
   al. 2023, Anthropic 2024) researchade och verifierade (länk, titel,
   författare, datum kontrollerat) — väntar på Kents slutgiltiga urval.
+- 2026-08-01 (v5): 4a ombekräftat (Claude instämmer uttryckligen: fjärde
+  kort är rätt val). 4c beslutat — alla tre källor används. Ny punkt 4e
+  tillagd och beslutad: källor skrivs som kommenterad Harvard-referens
+  (annotated bibliography) — vanligt Harvard-format plus en kort
+  parentetisk sammanfattning/motivering per källa. Exempel skrivna för
+  samtliga tre källor, väntar på Kents ok av exakt ton/längd.
+  Implementationsdetalj noterad: `sourcesData` behöver ett nytt fält för
+  detta när kodningsfasen startar.
+- 2026-08-01 (v6): Kent bekräftade exemplens ton/längd och bad att kravet på
+  annoterad källförteckning görs till en stående, generell regel — inte
+  bara ett val för det här projektet. Genomfört i
+  `kent-meta-regler-for-code` (Regel 2, v3). Öppet om projekt-CLAUDE.md och
+  `RAG/WORKFLOW.md` också ska uppdateras för konsekvens.
+- 2026-08-01 (v7): Kent bad att spridningen görs "överallt" — genomfört i
+  ytterligare fyra filer (projektets `CLAUDE.md`, `RAG/WORKFLOW.md`,
+  `claude-kompassen-konventioner`, `README.md`). Kent kopplade detta
+  explicit till Fas 1:s tema om utspridda styrfiler och bad att episoden
+  vävs in som material i det nya blogginlägget/RAG-kortet — tillagt i
+  avsnitt 1 och 2. Ny stående regel sparad i minnessystemet
+  (`feedback_propagate_standing_rules`): vid framtida generella
+  regeländringar, sök proaktivt igenom kända styrfilsplatser istället för
+  att vänta på att Kent upptäcker glappet.
