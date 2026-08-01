@@ -1,77 +1,108 @@
-# RAG, och varfor jag slutade gissa
+# RAG, och varför jag slutade gissa
 
-Jag har en favoritprompt jag anvant i flera ar for att testa nya sprakmodeller: "Beratta om Frans G. Bengtssons liv och leverne." Den kanns ofarlig - en dod forfattare, valdokumenterad, inga asikter att navigera runt. Perfekt for att se hur en modell hanterar ren fakta.
+Jag har en favoritprompt jag använt i flera år för att testa nya språkmodeller: "Berätta om Frans G. Bengtssons liv och leverne." Den känns ofarlig — en död författare, väldokumenterad, inga åsikter att navigera runt. Perfekt för att se hur en modell hanterar ren fakta.
 
-I somras gjorde jag samma sak pa riktigt, inte bara som test. Jag byggde en hel sida om honom, med hjalp av tva tekniker for att hamta och verifiera information innan nagot skrevs. Och det forsta jag stotte pa var nagot som hander oftare an man tror nar man faktiskt kontrollerar: kallorna var inte overens.
+I somras gjorde jag samma sak på riktigt, inte bara som test. Jag byggde en hel sida om honom, med hjälp av två tekniker för att hämta och verifiera information innan något skrevs. Och det första jag stötte på var något som händer oftare än man tror när man faktiskt kontrollerar: källorna var inte överens.
 
-Var det 1930 eller 1931 han tog sin licentiatexamen? Foddes han pa Rossjoholm eller Ramnekulla? Jag kunde ha valt en av delarna och skrivit det som ett sakert faktum - ingen lasare hade markt skillnaden. Istallet skrev jag ut bada, oppet, och lat sidan visa att kallorna skiljde sig at.
+Var det 1930 eller 1931 han tog sin licentiatexamen? Föddes han på Rössjöholm eller Ramnekulla? Jag kunde ha valt en av delarna och skrivit det som ett säkert faktum — ingen läsare hade märkt skillnaden. Istället skrev jag ut båda, öppet, och lät sidan visa att källorna skiljde sig åt.
 
-Det ar i grunden vad det har inlagget handlar om.
+Det är i grunden vad det här inlägget handlar om.
 
-## Vad hande med RAG sen jag skrev om det 2024?
+## Vad hände med RAG sen jag skrev om det 2024?
 
-Jag skrev om RAG (Retrieval-Augmented Generation) redan 2024 - en enkel introduktion om hur en sprakmodell kan hamta extern information istallet for att bara lita pa det den "minns" fran traningen (Lundgren, 2024b). Samma vecka skrev jag ocksa ett mer praktiskt exempel, ett vader-API kopplat till en modell (Lundgren, 2024a). Ingen av texterna gjorde nagon skillnad pa enkla och avancerade varianter. RAG var bara RAG.
+Jag skrev om RAG (Retrieval-Augmented Generation) redan 2024 — en enkel introduktion om hur en språkmodell kan hämta extern information istället för att bara lita på det den "minns" från träningen (Lundgren, 2024b). Samma vecka skrev jag också ett mer praktiskt exempel, ett väder-API kopplat till en modell (Lundgren, 2024a). Ingen av texterna gjorde någon skillnad på enkla och avancerade varianter. RAG var bara RAG.
 
-Tva ar senare vet jag battre. Det finns inte en RAG-teknik, det finns (minst) tva.
+Två år senare vet jag bättre. Det finns inte en RAG-teknik, det finns (minst) två.
 
-### Retrieval, alltsa
+### Retrieval, alltså
 
-Innan jag gar vidare: R:et i RAG star for retrieval - hamtning. Innan modellen skriver ett svar soker systemet upp relevant material i en extern kalla (dokument, en databas, webben) och ger modellen det som underlag, istallet for att modellen bara skriver ur minnet. Det ar den mekanismen som ska minska hallucinationer - att svaret ar grundat i nagot man faktiskt kan peka pa, inte bara i det som lat troligt.
+Innan jag går vidare: R:et i RAG står för retrieval — hämtning. Innan modellen skriver ett svar söker systemet upp relevant material i en extern källa (dokument, en databas, webben) och ger modellen det som underlag, istället för att modellen bara skriver ur minnet. Det är den mekanismen som ska minska hallucinationer — att svaret är grundat i något man faktiskt kan peka på, inte bara i det som lät troligt.
 
-Jag ska vara arlig: jag holl fortfarande pa att reda ut exakt vad "retrieval" betyder nar jag skrev det har inlagget. Det ar inte ett begrepp jag haft klart for mig lange - men det ar precis den termen som binder ihop allt nedan.
+Jag ska vara ärlig: jag höll fortfarande på att reda ut exakt vad "retrieval" betyder när jag skrev det här inlägget. Det är inte ett begrepp jag haft klart för mig länge — men det är precis den termen som binder ihop allt nedan.
 
 ## Classic RAG kontra Advanced RAG
 
-Den enkla varianten, Classic RAG, ar en rak kedja:
+Den enkla varianten, Classic RAG, är en rak kedja:
 
-1. Fraga - gors om till en vektor (embedding)
-2. Sok efter de mest lika textbitarna i en vektordatabas
-3. Skicka de basta traffarna till sprakmodellen
-4. Modellen svarar utifran dem
+1. Fråga — görs om till en vektor (embedding)
+2. Sök efter de mest lika textbitarna i en vektordatabas
+3. Skicka de bästa träffarna till språkmodellen
+4. Modellen svarar utifrån dem
 
-Bra nar fragan ar enkel och faktabaserad. Ungefar som att sla upp i en bok med bara innehallsforteckningen till hjalp.
+Bra när frågan är enkel och faktabaserad. Ungefär som att slå upp i en bok med bara innehållsförteckningen till hjälp.
 
-Advanced RAG lagger till flera steg: en kombination av semantisk sokning och nyckelordssokning (hybrid retrieval), filtrering pa kalla/datum (metadata filtering), en omvardering av traffarna (reranking) och en sammanvagning av flera kallor till ett sammanhangande svar (context fusion) - med en oppen redovisning av vad som gjordes och varfor.
+Advanced RAG lägger till flera steg: en kombination av semantisk sökning och nyckelordssökning (hybrid retrieval), filtrering på källa/datum (metadata filtering), en omvärdering av träffarna (reranking) och en sammanvägning av flera källor till ett sammanhängande svar (context fusion) — med en öppen redovisning av vad som gjordes och varför.
 
-Det har ar inte bara min egen indelning. En omfattande forskningsoversikt (Gao m.fl., 2026a) delar in faltet i just Naive, Advanced och Modular RAG (de sager "Naive", jag har kallat det "Classic" - samma ide, olika ord). Sjalva grundtekniken gar tillbaka till Lewis m.fl. (2020), pappret som myntade termen RAG.
+Det här är inte bara min egen indelning. En omfattande forskningsöversikt (Gao m.fl., 2026a) delar in fältet i just Naive, Advanced och Modular RAG (de säger "Naive", jag har kallat det "Classic" — samma idé, olika ord). Själva grundtekniken går tillbaka till Lewis m.fl. (2020), pappret som myntade termen RAG.
 
 ## Frans G. Bengtsson, i praktiken
 
-Tillbaka till min favoritprompt. Den har gangen korde jag den inte som ett engangstest, utan byggde en sida med en Classic-version och en Advanced-version sida vid sida, och skrev ner hela metodresonemanget innan en enda mening om Bengtsson skrevs.
+Tillbaka till min favoritprompt. Den här gången körde jag den inte som ett engångstest, utan byggde en sida med en Classic-version och en Advanced-version sida vid sida, och skrev ner hela metodresonemanget innan en enda mening om Bengtsson skrevs.
 
-Eftersom en biografi ar komplex och faktakanslig landade jag i Advanced-laget: fyra externa kallor (svenska och engelska Wikipedia, Norstedts forlag, Frans G. Bengtsson-sallskapet), korsverifierade mot varandra dar det gick. Och just dar dok de motstridiga uppgifterna upp - fodelseort, examensar. Istallet for att gomma osakerheten skrev jag ut en Retrieval Summary: vilken teknik jag anvant, vilka kallor, om jag gjort kallkritik, och varfor just den tekniken.
+Eftersom en biografi är komplex och faktakänslig landade jag i Advanced-läget: fyra externa källor (svenska och engelska Wikipedia, Norstedts förlag, Frans G. Bengtsson-sällskapet), korsverifierade mot varandra där det gick. Och just där dök de motstridiga uppgifterna upp — födelseort, examensår. Istället för att gömma osäkerheten skrev jag ut en Retrieval Summary: vilken teknik jag använt, vilka källor, om jag gjort källkritik, och varför just den tekniken.
 
-Det ar den delen jag ar mest nojd med. Inte att sidan blev perfekt - den ar inte det, tva saker ar fortfarande oppet redovisade som osakra - utan att den ar arlig om vad den inte vet sakert.
+Det är den delen jag är mest nöjd med. Inte att sidan blev perfekt — den är inte det, två saker är fortfarande öppet redovisade som osäkra — utan att den är ärlig om vad den inte vet säkert.
 
-### En regel som bara nadde ett av fem stallen
+### En regel som bara nådde ett av fem ställen
 
-Ett litet sidosparr, for att det hande mig bokstavligen medan jag skrev det har: jag bad om att alla kallor jag anger framover ocksa ska ha en kort, egen kommentar om vad de handlar om - utover det vanliga Harvard-formatet. Regeln lades in pa ratt stalle, men bara pa ett av fem stallen den borde galla. Jag fick sjalv upptacka glappet och be om att den spreds till resten.
+Ett litet sidospår, för att det hände mig bokstavligen medan jag skrev det här: jag bad om att alla källor jag anger framöver också ska ha en kort, egen kommentar om vad de handlar om — utöver det vanliga Harvard-formatet. Regeln lades in på rätt ställe, men bara på ett av fem ställen den borde gälla. Jag fick själv upptäcka glappet och be om att den spreds till resten.
 
-Det ar exakt det problem jag redan skrivit om nar det galler styrfiler och skills som ligger utspridda pa olika nivaer utan att synkas. Den har gangen var det inte en gammal iakttagelse - det hande i realtid, mitt i arbetet med den har texten.
+Det är exakt det problem jag redan skrivit om när det gäller styrfiler och skills som ligger utspridda på olika nivåer utan att synkas. Den här gången var det inte en gammal iakttagelse — det hände i realtid, mitt i arbetet med den här texten.
 
-## Testa det sjalv
+## Testa det själv
 
-Jag har nu skrivit ner min egen Advanced RAG-policy som en agentfil och konkreta skills - portabla, tankta att fungera oavsett vilket AI-verktyg man anvander. Mitt i arbetet med det har inlagget testade jag att krava att Claude faktiskt foljde min egen policy pa arbetet med att skriva om den - inte bokstavlig teknisk RAG (ingen vektordatabas, inga embeddings), men samma beslutslogik: minst tva oberoende kallor, kallkritik, och en oppen redovisning pa slutet.
+Jag har nu skrivit ner min egen Advanced RAG-policy som en agentfil och konkreta skills — portabla, tänkta att fungera oavsett vilket AI-verktyg man använder. Mitt i arbetet med det här inlägget testade jag att kräva att Claude faktiskt följde min egen policy på arbetet med att skriva om den — inte bokstavlig teknisk RAG (ingen vektordatabas, inga embeddings), men samma beslutslogik: minst två oberoende källor, källkritik, och en öppen redovisning på slutet.
 
-Vill du testa samma sak, utan att ha nagon specialbyggd AI-koppling, racker det med en prompt:
+Vill du testa samma sak, utan att ha någon specialbyggd AI-koppling, räcker det med en prompt:
 
-"Anvand Advanced RAG enligt agents.md och skills.md pa det har: verifiera varje sakpastaende mot minst tva oberoende kallor, rangordna kallorna efter tillforlitlighet, och avsluta med en Retrieval Summary (teknik, kallor, reranking, varfor)."
+"Använd Advanced RAG enligt agents.md och skills.md på det här: verifiera varje sakpåstående mot minst två oberoende källor, rangordna källorna efter tillförlitlighet, och avsluta med en Retrieval Summary (teknik, källor, reranking, varför)."
 
-(Lankar till agents.md och skills.md finns i kallforteckningen nedan.)
+(Länkar till agents.md och skills.md finns i källförteckningen nedan.)
 
-Och en brasklapp, eftersom "akta tvivel" kanns viktigare har an att lata smart: det ar inte riktig teknisk RAG. Ingen vektordatabas, ingen chunking. Det ar samma krav och samma arlighet, tillampade manuellt av en AI-agent med vanliga sokverktyg. Skillnaden mellan att hitta nagot och att verifiera det - vilket, apropa ingressen, var precis vad jag borde gjort med Frans G. Bengtsson fran borjan.
+Och en brasklapp, eftersom "äkta tvivel" känns viktigare här än att låta smart: det är inte riktig teknisk RAG. Ingen vektordatabas, ingen chunking. Det är samma krav och samma ärlighet, tillämpade manuellt av en AI-agent med vanliga sökverktyg. Skillnaden mellan att hitta något och att verifiera det — vilket, apropå ingressen, var precis vad jag borde gjort med Frans G. Bengtsson från början.
 
-Jag har mer material liggande om det har - annat jag byggt med RAG, som jag annu inte hittat tillbaka till helt. Det aterkommer jag till.
+Jag har mer material liggande om det här — annat jag byggt med RAG, som jag ännu inte hittat tillbaka till helt. Det återkommer jag till.
 
-## Kallforteckning
+## Källförteckning
 
-- Anthropic (2024) Introducing Contextual Retrieval. Blogginlagg, Anthropic Engineering, 19 september 2024. https://www.anthropic.com/engineering/contextual-retrieval (Anthropics egen vidareutveckling av RAG, upp till 67 procent farre missade traffar - visar var tekniken star idag, specifikt for Claude.)
-- Gao, Y., Xiong, Y., Gao, X., Jia, K., Pan, J., Bi, Y., Dai, Y., Sun, J., Wang, M. och Wang, H. (2026a) Retrieval-Augmented Generation for Large Language Models: A Survey. arXiv:2312.10997. https://arxiv.org/abs/2312.10997 (Delar RAG i Naive, Advanced och Modular RAG - den vetenskapliga grunden for min egen Classic/Advanced-indelning.)
-- Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Kuttler, H., Lewis, M., Yih, W., Rocktaschel, T., Riedel, S. och Kiela, D. (2020) Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. Advances in Neural Information Processing Systems 33 (NeurIPS 2020), s. 9459-9474. https://arxiv.org/abs/2005.11401 (Originalpappret som myntade termen RAG - historisk startpunkt for hela tekniken.)
-- Lundgren, K. (2024a) Exempel pa RAG. Blogginlagg, controllerutangranser.wordpress.com, 27 maj 2024. https://controllerutangranser.wordpress.com/2024/05/27/exempel-pa-rag/ (Min forsta RAG-text, ett praktiskt Python/vader-exempel - innan Classic/Advanced-distinktionen fanns.)
-- Lundgren, K. (2024b) RAG for mer precisa AI-svar. Blogginlagg, klel.wordpress.com, 27 maj 2024. https://klel.wordpress.com/2024/05/27/rag-for-mer-precisa-ai-svar/ (Utgangspunkten for mitt senare, mer utvecklade RAG-arbete.)
-- Lundgren, K. (2026) Kan man lita pa det AI:n berattar om Frans G. Bengtsson? Blogginlagg, klel.wordpress.com, 15 juli 2026. https://klel.wordpress.com/2026/07/15/kan-man-lita-pa-det-ain-berattar-om-frans-g-bengtsson/ (Min praktiska tillampning av Classic vs. Advanced RAG pa en verklig biografisida.)
-- RAG-agentfil (agents.md): https://github.com/kentlundgren/AI-teknik/blob/main/RAG/agents.md
-- RAG-skills (skills.md): https://github.com/kentlundgren/AI-teknik/blob/main/RAG/skills.md
-- Frans G. Bengtsson-sidan (live): https://kentlundgren.github.io/AI-teknik/RAG/Frans-G-Bengtsson/
-- RAG-metod (metodresonemang): https://github.com/kentlundgren/AI-teknik/blob/main/RAG/Frans-G-Bengtsson/RAG-metod.md
+- Anthropic (2024) *Introducing Contextual Retrieval.*
+  Blogginlägg, Anthropic Engineering, 19 september 2024.
+  Tillgänglig: https://www.anthropic.com/engineering/contextual-retrieval
+  (Anthropics egen vidareutveckling av RAG, upp till 67 procent färre missade träffar — visar var tekniken står idag, specifikt för Claude.)
+
+- Gao, Y., Xiong, Y., Gao, X., Jia, K., Pan, J., Bi, Y., Dai, Y., Sun, J., Wang, M. och Wang, H. (2026a) *Retrieval-Augmented Generation for Large Language Models: A Survey.*
+  arXiv:2312.10997.
+  Tillgänglig: https://arxiv.org/abs/2312.10997
+  (Delar RAG i Naive, Advanced och Modular RAG — den vetenskapliga grunden för min egen Classic/Advanced-indelning.)
+
+- Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttler, H., Lewis, M., Yih, W., Rocktäschel, T., Riedel, S. och Kiela, D. (2020) *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.*
+  Advances in Neural Information Processing Systems 33 (NeurIPS 2020), s. 9459–9474.
+  Tillgänglig: https://arxiv.org/abs/2005.11401
+  (Originalpappret som myntade termen RAG — historisk startpunkt för hela tekniken.)
+
+- Lundgren, K. (2024a) *Exempel på RAG.*
+  Blogginlägg, controllerutangranser.wordpress.com, 27 maj 2024.
+  Tillgänglig: https://controllerutangranser.wordpress.com/2024/05/27/exempel-pa-rag/
+  (Min första RAG-text, ett praktiskt Python/väder-exempel — innan Classic/Advanced-distinktionen fanns.)
+
+- Lundgren, K. (2024b) *RAG för mer precisa AI-svar.*
+  Blogginlägg, klel.wordpress.com, 27 maj 2024.
+  Tillgänglig: https://klel.wordpress.com/2024/05/27/rag-for-mer-precisa-ai-svar/
+  (Utgångspunkten för mitt senare, mer utvecklade RAG-arbete.)
+
+- Lundgren, K. (2026) *Kan man lita på det AI:n berättar om Frans G. Bengtsson?*
+  Blogginlägg, klel.wordpress.com, 15 juli 2026.
+  Tillgänglig: https://klel.wordpress.com/2026/07/15/kan-man-lita-pa-det-ain-berattar-om-frans-g-bengtsson/
+  (Min praktiska tillämpning av Classic vs. Advanced RAG på en verklig biografisida.)
+
+- RAG-agentfil (agents.md).
+  Tillgänglig: https://github.com/kentlundgren/AI-teknik/blob/main/RAG/agents.md
+
+- RAG-skills (skills.md).
+  Tillgänglig: https://github.com/kentlundgren/AI-teknik/blob/main/RAG/skills.md
+
+- Frans G. Bengtsson-sidan (live).
+  Tillgänglig: https://kentlundgren.github.io/AI-teknik/RAG/Frans-G-Bengtsson/
+
+- RAG-metod (metodresonemang).
+  Tillgänglig: https://github.com/kentlundgren/AI-teknik/blob/main/RAG/Frans-G-Bengtsson/RAG-metod.md
