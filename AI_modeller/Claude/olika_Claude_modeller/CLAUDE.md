@@ -121,3 +121,10 @@ i `index.html` för tillämpningen (uppdaterat 31/7 2026, efter tidigare kronolo
 egen mening inom parentes som sammanfattar vad källan handlar om och/eller varför den är
 med — inte bara ren Harvard-referens. Se `PRD/PRD_rag.md`, avsnitt 4e, för exempel och
 bakgrund. Gäller nya källor framåt, skriver inte om befintliga poster retroaktivt.
+**Källförteckningar i WordPress-blogginlägg (tillagt 1/8 2026):** skriv varje källa som
+ett fristående stycke (tom rad mellan, ingen punktlista, ingen kursiv titel) — aldrig en
+punktlista med flerradiga, indragna poster, det tolkas olika beroende på om Kent klistrar
+in renderat innehåll eller rå markdown-text. Fullständig bakgrund och felsökning i
+`kent-skrivstil`-skillen (nivå 2, global,
+`C:\Users\kentl\.claude\skills\kent-skrivstil\SKILL.md`, avsnitt "Källhantering") och i
+minnet `feedback-wordpress-paste-long-lines`.
