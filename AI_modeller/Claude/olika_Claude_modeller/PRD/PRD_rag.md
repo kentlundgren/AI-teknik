@@ -3,11 +3,10 @@
 **Namn:** PRD_rag
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_rag.md`
 **Skapad:** 2026-08-01
-**Version:** 10 (avsnitt 4 omdöpt från "Öppna frågor" till "Frågor och
-beslut" — rubriken hade blivit missvisande efter att allt utom en delfråga
-lösts)
-**Status:** **Planering, praktiskt taget skrivklart.** Ingen kod, blogg
-eller källpost skriven ännu.
+**Version:** 11 (sista öppna punkten löst — inga öppna sakfrågor kvar,
+klar för skriv-/kodningsfasen)
+**Status:** **Planering klar, inga öppna frågor.** Ingen kod, blogg eller
+källpost skriven ännu.
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen, Fas 1),
 inte en grund-PRD för ett nytt projekt.
 
@@ -143,17 +142,22 @@ förbi dem) men ska ändå vävas in som **historia/referenser i det nya
 blogginlägget**, för att visa hur Kents eget RAG-tänkande utvecklats över två
 år.
 
-**Öppen delfråga (utökad — gäller inte bara 2024-texterna):** ska de två
-äldre 2024-texterna, och/eller Frans G. Bengtsson-blogginlägget (15/7 2026),
-även läggas in i Claude-kompassens egen `sourcesData` i `index.html`, eller
-bara nämnas/länkas i det externa blogginlägget utan att bli en post i
-index.html? **Konkret implikation, upptäckt vid genomläsning 2026-08-01 men
-tidigare bara nämnd i chatten, aldrig skriven in här:** Frans G.
-Bengtsson-inlägget är daterat 15/7 2026 — kronologiskt *mellan* de
-befintliga posterna `Lundgren, K. (2026a)` (1/6) och `(2026b)` (27/7) i
-`sourcesData`. Att lägga in det skulle alltså kräva **omlettring** av hela
-gruppen (nuvarande b–g blir c–h), inte bara en ny post sist i listan. Detta
-avgörs när blogginlägget och RAG-kortets text faktiskt skrivs.
+**BESLUTAT ✓ (2026-08-01) — sista öppna punkten löst:**
+- **2024-texterna:** bara i blogginlägget, som historia/referenser. Går
+  **inte** in i `sourcesData` — enklare, och Kent bedömde att de inte
+  tillför nog sakligt för att förtjäna en egen kompasspost.
+- **Frans G. Bengtsson-inlägget (15/7 2026):** in i **både** Claude-
+  kompassen och blogginlägget. Det betyder att det *ska* läggas in i
+  `sourcesData` — och därmed slår den tidigare identifierade
+  omletterings-konsekvensen in på riktigt: inlägget är daterat 15/7 2026,
+  kronologiskt *mellan* `Lundgren, K. (2026a)` (1/6) och `(2026b)` (27/7).
+  **Konkret vid kodningen:** ny post blir `Lundgren, K. (2026b)` (15/7,
+  Frans G. Bengtsson), och alla efterföljande poster skiftar en bokstav:
+  gamla `2026b` (27/7) → `2026c`, `2026c` (28/7) → `2026d`, `2026d` (29/7)
+  → `2026e`, `2026e` (30/7, LinkedIn) → `2026f`, `2026f` (31/7, "PRD
+  först") → `2026g`, `2026g` (31/7, "Vet du ens var vi är?") → `2026h`. Alla
+  in-text-hänvisningar till dessa bokstäver i `index.html` måste uppdateras
+  i samma svep, inte bara listan i `sourcesData`.
 
 **4c. Källor. — BESLUTAT ✓ (tre externa källor)**
 Tre externa akademiska/officiella källor har researchats och verifierats
@@ -292,31 +296,33 @@ spridnings-episoden (4e).
 - [x] Beslut 4f (Advanced RAG på arbetet självt) — skillen `kent-advanced-rag`
       skapad (global + projektkopia), promptexempel bekräftat och
       länkverifierat, CLAUDE.md:s Skill-inventering uppdaterad
-- [ ] Öppen delfråga: ska 2024-texterna och/eller Frans G. Bengtsson-posten
-      läggas in i `sourcesData` (med ev. omlettring av 2026a–g), eller bara
-      nämnas i blogginlägget?
+- [x] Beslut: 2024-texterna endast i blogginlägget; Frans G. Bengtsson-
+      inlägget in i både `sourcesData` (som ny `2026b`, med omlettring
+      c–h) och blogginlägget
 - [ ] Text/innehåll skrivet för Fas 1-kortet (RAG)
 - [ ] Blogginlägg skrivet på klel.wordpress.com
-- [ ] Nya poster i `sourcesData` (alfabetisk plats) för de tre källorna
-      (+ ev. historik, beroende på öppen delfråga ovan)
+- [ ] Nya poster i `sourcesData`: Lewis (2020), Gao (2023), Anthropic (2024)
+      på rätt alfabetisk plats, plus Frans G. Bengtsson-inlägget som ny
+      `2026b` (med omlettring av gamla b–g till c–h)
 - [ ] `sourcesData`-strukturen utökad med `annotation`-fält
 - [ ] JS-syntax verifierad efter kodändring (`node --check`), enligt praxis
       från `PRD_mappkontroll.md`
 
 ## 6. Produktionsordning
 
-Alla fem sakfrågor (4a–4e) är redan beslutade. Kvar är en liten avstämning
-och själva skrivandet. Samma mönster som `PRD_mappkontroll.md`: innehåll/
-källa klart → blogg → kompass (bloggen bär det fulla resonemanget,
+Alla sakfrågor (4a–4f) är nu beslutade — inget kvarstår att stämma av. Kvar
+är bara själva skrivandet. Samma mönster som `PRD_mappkontroll.md`:
+innehåll/källa klart → blogg → kompass (bloggen bär det fulla resonemanget,
 kompasskortet blir ett komprimerat destillat av det).
 
-1. Kents ok på öppen delfråga: historik/Frans G. Bengtsson-posten in i
-   `sourcesData` eller ej? (litet beslut, inte blockerande för resten)
-2. Blogginlägg skrivs (fullt resonemang: koncept + Kents erfarenhet +
-   spridnings-episoden från avsnitt 1–2)
-3. RAG-kortet i Fas 1 skrivs — destillat av bloggen
-4. `sourcesData` uppdaterad (nytt `annotation`-fält + nya poster),
-   JS-syntax verifierad
+1. Blogginlägg skrivs (fullt resonemang: koncept + Kents erfarenhet +
+   spridnings-episoden + Advanced RAG-metaexperimentet, från avsnitt 1–2
+   och 4f)
+2. RAG-kortet i Fas 1 skrivs — destillat av bloggen
+3. `sourcesData` uppdaterad: nytt `annotation`-fält, tre nya källor
+   (Lewis/Gao/Anthropic), Frans G. Bengtsson-inlägget som ny `2026b` med
+   omlettring av gamla b–g till c–h
+4. JS-syntax verifierad efter kodändring (`node --check`)
 
 ## 7. Källor
 
@@ -367,16 +373,17 @@ kompasskortet blir ett komprimerat destillat av det).
 
 ## 8. Status
 
-**Utkast, i planeringsstadiet — praktiskt taget skrivklart.** Alla fem
-sakfrågor (4a–4e) är beslutade: fjärde kort i Fas 1 (med AGENTS.md-bryggan
-som berättarkrok), Kents fulla RAG-historik (2024-texter → RAG/-projektet
-med Classic/Advanced → Frans G. Bengtsson-exemplet), tre externa källor
-(Lewis, Gao, Anthropic), blogg + kompass som slutleverans, och annoterad
-källförteckning (nu en generell regel, spridd till fem styrfiler). Enda
-kvarstående öppna punkten: om de äldre texterna/Frans G. Bengtsson-posten
-även ska in i `index.html`s `sourcesData` (med möjlig omlettring av den
-befintliga Lundgren-gruppen) eller bara nämnas i blogginlägget. Ingen kod,
-blogg eller källpost är skriven ännu — bara detta PRD.
+**Utkast klart — inga öppna sakfrågor kvar.** Alla sex delfrågor (4a–4f) är
+beslutade: fjärde kort i Fas 1 (med AGENTS.md-bryggan som berättarkrok),
+Kents fulla RAG-historik (2024-texter → RAG/-projektet med Classic/Advanced
+→ Frans G. Bengtsson-exemplet), tre externa källor (Lewis, Gao, Anthropic),
+blogg + kompass som slutleverans, annoterad källförteckning (nu en generell
+regel, spridd till fem styrfiler), Advanced RAG-metaexperimentet med ny
+skill (`kent-advanced-rag`), och — sist löst — 2024-texterna stannar i
+blogginlägget medan Frans G. Bengtsson-inlägget går in i både `sourcesData`
+(som ny `2026b`, med omlettring c–h) och kompassen. Ingen kod, blogg eller
+källpost är skriven ännu — bara detta PRD. Nästa steg är produktionsordningen
+i avsnitt 6.
 
 ## Ändringslogg
 
@@ -449,3 +456,10 @@ blogg eller källpost är skriven ännu — bara detta PRD.
   stale-rubrik-problem som avsnitt 7/8 hade i v8. Rubriken döpt om till
   "Frågor och beslut", med en kort not om varför. Enda kvarvarande genuint
   öppna punkten: delfrågan under 4b (sourcesData/omlettring).
+- 2026-08-01 (v11): Kent löste den sista öppna punkten: 2024-texterna
+  stannar i blogginlägget (går inte in i `sourcesData`), medan Frans G.
+  Bengtsson-inlägget (15/7) går in i **både** kompassen och blogginlägget —
+  vilket utlöser den tidigare identifierade omletteringen (ny `2026b`,
+  gamla b–g skiftar till c–h). Leveranser, Produktionsordning och Status
+  uppdaterade för att spegla att alla sex delfrågorna (4a–4f) nu är
+  beslutade — inga öppna sakfrågor kvar innan skriv-/kodningsfasen.
