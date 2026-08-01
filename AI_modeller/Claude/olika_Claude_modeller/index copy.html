@@ -9,6 +9,7 @@
     --bg:#faf9f7; --panel:#fff; --ink:#1f1d1b; --muted:#6b6560;
     --line:#e4ddd3; --accent:#b5502e; --accent-soft:#f4e3da;
     --step:#3d5a4c; --step-soft:#e2ece6;
+    --pre:#3d4a73; --pre-soft:#e2e6f2;
   }
   *{box-sizing:border-box}
   body{
@@ -23,9 +24,18 @@
   main{max-width:960px; margin:0 auto; padding:0 1.5rem 3rem;}
   section{margin-top:2.2rem; scroll-margin-top:1.2rem;}
   h2{font-size:1.15rem; border-bottom:2px solid var(--line); padding-bottom:.4rem; margin-bottom:1rem;}
+  /* Klickbara ankarlänkrubriker — tydlig länkikon, underline vid hover */
+  h2 a.anchor-heading{color:inherit; text-decoration:none; cursor:pointer;}
+  h2 a.anchor-heading::after{
+    content:' ¶'; font-size:.78em; font-weight:400;
+    opacity:.45; color:var(--accent); transition:opacity .15s;
+  }
+  h2 a.anchor-heading:hover{text-decoration:underline; text-decoration-color:var(--accent);}
+  h2 a.anchor-heading:hover::after{opacity:1;}
   .tag{display:inline-block; font-size:.72rem; letter-spacing:.04em; text-transform:uppercase;
        background:var(--accent-soft); color:var(--accent); padding:.15rem .5rem; border-radius:999px; margin-bottom:.6rem;}
   .tag.step{background:var(--step-soft); color:var(--step);}
+  .tag.pre{background:var(--pre-soft); color:var(--pre);}
 
   .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.6rem;}
   .card-btn{
@@ -44,7 +54,7 @@
   .detail.show{display:block;}
   .detail img{max-width:100%; border-radius:8px; border:1px solid var(--line); display:block; margin:.7rem 0;}
   .detail .cap{font-size:.82rem; color:var(--muted); margin-top:-.4rem;}
-  .detail ul{margin:.4rem 0 0; padding-left:1.2rem;}
+  .detail ul, .detail ol{margin:.4rem 0 0; padding-left:1.2rem;}
   .detail li{margin-bottom:.2rem;}
   .note{font-size:.9rem; color:var(--muted); margin-top:.6rem; border-left:3px solid var(--accent); padding-left:.7rem;}
 
@@ -99,6 +109,44 @@
   }
   .modal ol{padding-left:1.2rem;}
   .modal li{margin-bottom:.8rem; font-size:.92rem;}
+
+  /* Tooltip-wrapper för kort som har hoover-förklaring */
+  .card-tip-wrap{position:relative;}
+  .card-tip{
+    display:none; position:absolute; bottom:calc(100% + .6rem); left:0;
+    background:var(--panel); border:1px solid var(--accent); border-radius:10px;
+    padding:.85rem 1rem; font-size:.8rem; line-height:1.6; width:300px;
+    box-shadow:0 4px 18px rgba(0,0,0,.13); z-index:30; white-space:normal;
+    pointer-events:none;
+  }
+  .card-tip strong{display:block; margin-bottom:.2rem; color:var(--accent);}
+  .card-tip-wrap:hover .card-tip{display:block;}
+
+  /* Flytande knappar nere i hörnen — gemensam bas */
+  .corner-btn{
+    position:fixed; bottom:1.2rem; z-index:20;
+    background:rgba(255,255,255,.55); backdrop-filter:blur(6px);
+    border:1px solid var(--line); border-radius:999px;
+    padding:.35rem .8rem; font:inherit; font-size:.75rem;
+    color:var(--muted); cursor:pointer; letter-spacing:.03em;
+    text-decoration:none; display:inline-block;
+    transition:background .15s, color .15s;
+  }
+  .corner-btn:hover{background:rgba(255,255,255,.9); color:var(--ink);}
+  .tech-btn{right:1.2rem;}
+  .github-btn{left:1.2rem;}
+
+  /* Tech-modal: lite smalare än källmodalen */
+  #tech-modal .modal{max-width:560px;}
+  #tech-modal .tech-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:.6rem; margin-top:.9rem;
+  }
+  #tech-modal .tech-card{
+    background:var(--accent-soft); border-radius:8px; padding:.7rem .9rem;
+  }
+  #tech-modal .tech-card h3{margin:0 0 .25rem; font-size:.9rem; color:var(--accent);}
+  #tech-modal .tech-card p{margin:0; font-size:.82rem; color:var(--ink); line-height:1.5;}
 </style>
 </head>
 <body>
@@ -111,37 +159,43 @@
 <main>
 
   <section class="intro-section">
-    <p>Det här började som en fråga jag ställde till Claude Code en eftermiddag: kunde vi planera en bloggtext, och en kodningsövning, om det jag kämpat med att förstå i Claudes ekosystem? Jag länkade till två tidigare inlägg — <a href="https://klel.wordpress.com/2026/07/27/tappade-bort-mig-i-claudes-ekosystem/" target="_blank" rel="noopener">Tappade bort mig i Claudes ekosystem</a> och <a href="https://klel.wordpress.com/2026/06/01/claude-cowork-cursor-och-claude-code-tre-verktyg-ett-arbetsflode/" target="_blank" rel="noopener">Claude Cowork, Cursor och Claude Code</a> — och bad Claude titta på tre skärmdumpar jag just tagit i den här mappen, utan att själv veta vad de skulle bli.</p>
-    <p>Det som följde var inte en enda instruktion som gav ett färdigt resultat, utan flera timmars fram och tillbaka. Vi planerade i omgångar innan något skrevs. Vi verifierade fakta mot primärkällor istället för att gissa — bland annat en motsägelse om huruvida Claude Code faktiskt läser AGENTS.md. Vi skrev en bloggtext och byggde den här sidan parallellt, testade lokalt i webbläsaren steg för steg, och jag rättade Claude flera gånger när något lät mer som en teknisk sanning än min egen upplevelse av att jobba med Cursor och Git. Sidan gick live via GitHub Pages, fick ett eget avsnitt om hur den blev till, och till och med en liten samling egna skills som styr hur Claude ska bygga vidare på den. Hela texten, med bilderna, finns på <a href="https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/" target="_blank" rel="noopener">En bild av Claudes ekosystem</a>.</p>
-    <p>Jag lägger ut det här inte som ett facit över Claudes ekosystem — jag tror inte man kan tala om en absolut sanning här — utan som <strong>en bild av</strong> hur det ser ut just nu, och ett konkret exempel på hur jag själv jobbar med generativ AI för att få fram både en färdig text och ett färdigt program på webben, med fler frågor, rättningar och omtag än man kanske väntar sig. Vill du se källorna bakom allt vi pratat om finns de samlade här:</p>
-    <button class="btn-link" onclick="document.getElementById('sources-modal').classList.add('show')">Källor och referenser →</button>
-    <p style="margin-top:1.3rem;">Så är sidan uppbyggd, i tre faser: <strong><a href="#fas1">Fas 1</a></strong> — filerna som redan <strong>styr</strong> samarbetet innan man ens börjar. <strong><a href="#fas2">Fas 2</a></strong> — vilken <strong>yta</strong> man väljer att jobba i, med sina egna verktyg och modeller. <strong><a href="#fas3">Fas 3</a></strong> — versionhantering i Cursor och Git (3a), och leverans till GitHub där filerna blir levande sidor vem som helst kan nå via en URL (3b). Längst ner: <a href="#sammanfattning">en sammanfattning</a> av hur den här sidan själv blev till. Klicka på en ruta nedan.</p>
+    <p>Jag hade svårt att se hela processen — hur jag faktiskt jobbar med Claude, Cursor och GitHub när jag kodar. Den här sidan är mitt försök att rita upp det.</p>
+    <button class="btn-link" onclick="document.getElementById('sources-modal').classList.add('show')">Tidigare texter i ämnet och andra källor →</button>
+    <p style="margin-top:1.3rem;">Så är sidan uppbyggd: den börjar med <strong><a href="#fas0">Fas 0</a></strong> — kravdokumentet (PRD) som föregår allt annat — sedan tre faser: <strong><a href="#fas1">Fas 1</a></strong> — filerna som redan <strong>styr</strong> samarbetet innan man ens börjar. <strong><a href="#fas2">Fas 2</a></strong> — vilken <strong>yta</strong> man väljer att jobba i, med sina egna verktyg och modeller. <strong><a href="#fas3">Fas 3</a></strong> — versionhantering i Cursor och Git (3a), och leverans till GitHub där filerna blir levande sidor vem som helst kan nå via en URL (3b). Längst ner: <a href="#sammanfattning">en sammanfattning</a> av hur den här sidan själv blev till. Klicka på en ruta nedan.</p>
+  </section>
+
+  <section id="fas0">
+    <span class="tag pre">Fas 0</span>
+    <h2><a class="anchor-heading" href="#fas0" title="Länk till detta avsnitt">PRD — innan man ens skriver CLAUDE.md</a></h2>
+    <div class="cards" id="prd-cards"></div>
+    <div class="detail" id="prd-detail"></div>
   </section>
 
   <section id="fas1">
     <span class="tag">Fas 1</span>
-    <h2>Filerna som styr samarbetet — innan man börjar</h2>
+    <h2><a class="anchor-heading" href="#fas1" title="Länk till detta avsnitt">Filerna som styr samarbetet — innan man börjar</a></h2>
     <div class="cards" id="steer-cards"></div>
     <div class="detail" id="steer-detail"></div>
+    <div class="note" style="margin-top:1rem;">PRD (Product Requirements Document) beskrivs i <a href="#fas0">Fas 0</a> ovan — kravdokumentet som föregår dessa styrfiler.</div>
   </section>
 
   <section id="fas2">
     <span class="tag">Fas 2</span>
-    <h2>Ytor (surfaces) — var man väljer att jobba</h2>
+    <h2><a class="anchor-heading" href="#fas2" title="Länk till detta avsnitt">Ytor (surfaces) — var man väljer att jobba</a></h2>
     <div class="cards" id="surface-cards"></div>
     <div class="detail" id="surface-detail"></div>
   </section>
 
   <section id="fas3">
     <span class="tag step">Fas 3</span>
-    <h2>Cursor och Git (3a) → GitHub (3b)</h2>
+    <h2><a class="anchor-heading" href="#fas3" title="Länk till detta avsnitt">Cursor och Git (3a) → GitHub (3b)</a></h2>
     <div class="pipeline" id="pipeline-cards"></div>
     <div class="detail" id="pipeline-detail"></div>
   </section>
 
   <section id="sammanfattning">
     <span class="tag step">Sammanfattning</span>
-    <h2>Hur den här sidan blev till</h2>
+    <h2><a class="anchor-heading" href="#sammanfattning" title="Länk till detta avsnitt">Hur den här sidan blev till</a></h2>
     <p>Den här sidan är inte bara <em>om</em> att samarbeta med AI — den är själv byggd i ett sådant samarbete. Så här gick det till, 29 juli 2026:</p>
     <ul class="timeline">
       <li><b>Fem skärmdumpar under en eftermiddag</b> — Kent samlade dem i samma mapp, utan att först veta vad de skulle bli.</li>
@@ -170,28 +224,146 @@
     </div>
   </section>
 
+  <section id="kallor">
+    <span class="tag step">Källor</span>
+    <h2><a class="anchor-heading" href="#kallor" title="Länk till detta avsnitt">Tidigare texter i ämnet och andra källor</a></h2>
+    <p style="font-size:.9rem; color:var(--muted); margin-bottom:.8rem;">Harvardformat. Länkarna verifierade innan de togs med.</p>
+    <ol id="sources-list-bottom" style="font-size:.9rem; line-height:1.7; padding-left:1.2rem;"></ol>
+  </section>
+
 </main>
 
 <div class="modal-overlay" id="sources-modal" onclick="if(event.target===this) this.classList.remove('show')">
   <div class="modal">
     <button class="modal-close" aria-label="Stäng" onclick="document.getElementById('sources-modal').classList.remove('show')">×</button>
-    <h2>Källor och referenser</h2>
-    <p>Allt vi refererar till i texten, verktyget och research bakom det — Harvardformat, länkarna verifierade innan de togs med.</p>
-    <ol>
-      <li>Lundgren, K. (2026a) <em>Claude Cowork, Cursor och Claude Code – tre verktyg, ett arbetsflöde.</em> [Blogginlägg] klel.wordpress.com, 1/6 2026. Tillgänglig: <a href="https://klel.wordpress.com/2026/06/01/claude-cowork-cursor-och-claude-code-tre-verktyg-ett-arbetsflode/" target="_blank" rel="noopener">klel.wordpress.com/2026/06/01</a></li>
-      <li>Lundgren, K. (2026b) <em>Tappade bort mig i Claudes ekosystem.</em> [Blogginlägg] klel.wordpress.com, 27/7 2026. Tillgänglig: <a href="https://klel.wordpress.com/2026/07/27/tappade-bort-mig-i-claudes-ekosystem/" target="_blank" rel="noopener">klel.wordpress.com/2026/07/27</a></li>
-      <li>Lundgren, K. (2026c) <em>Namnet 'main' betyder inte alltid main.</em> [Blogginlägg] klel.wordpress.com, 28/7 2026. Tillgänglig: <a href="https://klel.wordpress.com/2026/07/28/namnet-main-betyder-inte-alltid-main/" target="_blank" rel="noopener">klel.wordpress.com/2026/07/28</a></li>
-      <li>Lundgren, K. (2026d) <em>En bild av Claudes ekosystem.</em> [Blogginlägg] klel.wordpress.com, 29/7 2026. Tillgänglig: <a href="https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/" target="_blank" rel="noopener">klel.wordpress.com/2026/07/29</a></li>
-      <li>Lundgren, K. (2026e) <em>Vilken är din Claude favorit.</em> [LinkedIn-artikel] LinkedIn, 30/7 2026. Tillgänglig: <a href="https://www.linkedin.com/pulse/vilken-%C3%A4r-din-claude-favorit-kent-lundgren-atqye/" target="_blank" rel="noopener">linkedin.com/pulse/vilken-är-din-claude-favorit</a></li>
-      <li>Anthropic (2026a) <em>Glossary – Claude Code Docs.</em> [Webbsida] Anthropic. Tillgänglig: <a href="https://code.claude.com/docs/en/glossary" target="_blank" rel="noopener">code.claude.com/docs/en/glossary</a></li>
-      <li>Anthropic (2026b) <em>The Claude Cowork product guide.</em> [Blogginlägg] Anthropic. Tillgänglig: <a href="https://claude.com/blog/the-claude-cowork-product-guide" target="_blank" rel="noopener">claude.com/blog/the-claude-cowork-product-guide</a></li>
-      <li>agents.md (2026) <em>AGENTS.md — open format for guiding coding agents.</em> [Webbsida]. Tillgänglig: <a href="https://agents.md/" target="_blank" rel="noopener">agents.md</a></li>
-      <li>Repot för det här projektet, med hela historiken bakom den här sidan. Tillgänglig: <a href="https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/olika_Claude_modeller" target="_blank" rel="noopener">github.com/kentlundgren/AI-teknik</a></li>
-    </ol>
+    <h2>Tidigare texter i ämnet och andra källor</h2>
+    <p>Harvardformat, länkarna verifierade innan de togs med.</p>
+    <ol id="sources-list-modal"></ol>
+  </div>
+</div>
+
+<!-- Diskret GitHub-länk, fast position nere till vänster -->
+<a class="corner-btn github-btn" href="https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/olika_Claude_modeller" target="_blank" rel="noopener" aria-label="GitHub-repot">{ } GitHub</a>
+
+<!-- Diskret tech-knapp, fast position nere till höger -->
+<button class="corner-btn tech-btn" onclick="document.getElementById('tech-modal').classList.add('show')" aria-label="Tekniköversikt">&#60;/&#62; teknik</button>
+
+<div class="modal-overlay" id="tech-modal" onclick="if(event.target===this) this.classList.remove('show')">
+  <div class="modal">
+    <button class="modal-close" aria-label="Stäng" onclick="document.getElementById('tech-modal').classList.remove('show')">×</button>
+    <h2 style="margin-top:0;">Hur den här sidan är byggd</h2>
+    <p style="font-size:.9rem; color:var(--muted);">Ingen extern ram eller byggtool — ren HTML, CSS och JavaScript, publicerad direkt via GitHub Pages.</p>
+    <div class="tech-grid">
+      <div class="tech-card">
+        <h3>HTML5</h3>
+        <p>Semantiska element (<code>header</code>, <code>main</code>, <code>section</code>). Ankarlänkrubriker med <code>id</code>-attribut för direktlänkning till varje avsnitt.</p>
+      </div>
+      <div class="tech-card">
+        <h3>CSS — custom properties</h3>
+        <p>Färger och radier definierade som CSS-variabler i <code>:root</code>. CSS Grid för kortlayout. <code>backdrop-filter</code> för den här knappens glaseffekt.</p>
+      </div>
+      <div class="tech-card">
+        <h3>Vanilla JavaScript</h3>
+        <p>Inga ramverk. Data (kort, surfaces, pipeline, källor) definieras som JS-arrayer och renderas till DOM. En enda funktion driver alla tre expanderbara kortpaneler.</p>
+      </div>
+      <div class="tech-card">
+        <h3>En källa, två platser</h3>
+        <p>Källförteckningen definieras som ett JS-objekt på ett enda ställe och renderas automatiskt till både popup-modalen och avsnittet längst ner.</p>
+      </div>
+      <div class="tech-card">
+        <h3>Modaler</h3>
+        <p>CSS + klasstoggel (<code>.show</code>). Stängs via stängknapp eller klick utanför. Samma mönster används för den här modalen, källmodalen och bildpanelerna.</p>
+      </div>
+      <div class="tech-card">
+        <h3>Hover-tooltips</h3>
+        <p>SKILL.md-kortet visar en informationspanel vid hover — CSS <code>position:absolute</code> + <code>display:none/block</code> på en <code>.card-tip-wrap:hover .card-tip</code>-selektor. Inget JavaScript behövs för själva visningen.</p>
+      </div>
+      <div class="tech-card">
+        <h3>GitHub Pages</h3>
+        <p>Statisk hosting direkt från repot — inga servrar, inget byggsteg. Kent committar och pushar via Cursor; GitHub Pages tar resten.</p>
+      </div>
+    </div>
+    <p style="font-size:.82rem; color:var(--muted); margin-top:1.1rem;">
+      Källkoden: <a href="https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/olika_Claude_modeller" target="_blank" rel="noopener">github.com/kentlundgren/AI-teknik</a>
+    </p>
   </div>
 </div>
 
 <script>
+/* ---------------------------------------------------------------
+   Källdata definieras på ETT ställe.
+   renderSources() skriver ut listan i både modal och botten-sektion.
+   OBS: listan hålls i Harvard-stil ALFABETISK ordning (författare/
+   organisation/titel, skiftlägesokänsligt) — inte kronologisk. Verk av
+   samma författare grupperas ihop och behåller sin inbördes a/b/c-ordning
+   (kronologisk, för disambiguering), men gruppen som helhet placeras enligt
+   författarnamnets bokstavsordning. Lägg alltid till en ny källa på rätt
+   alfabetisk plats, inte sist i listan.
+--------------------------------------------------------------- */
+const sourcesData = [
+  { ref: 'agents.md (2026)', title: 'AGENTS.md — open format for guiding coding agents.', type: '[Webbsida]', pub: '', url: 'https://agents.md/', urlLabel: 'agents.md' },
+  { ref: 'Anthropic (2026a)', title: 'Glossary – Claude Code Docs.', type: '[Webbsida]', pub: 'Anthropic', url: 'https://code.claude.com/docs/en/glossary', urlLabel: 'code.claude.com/docs/en/glossary' },
+  { ref: 'Anthropic (2026b)', title: 'The Claude Cowork product guide.', type: '[Blogginlägg]', pub: 'Anthropic', url: 'https://claude.com/blog/the-claude-cowork-product-guide', urlLabel: 'claude.com/blog/the-claude-cowork-product-guide' },
+  { ref: 'Lundgren, K. (2026a)', title: 'Claude Cowork, Cursor och Claude Code – tre verktyg, ett arbetsflöde.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 1/6 2026', url: 'https://klel.wordpress.com/2026/06/01/claude-cowork-cursor-och-claude-code-tre-verktyg-ett-arbetsflode/', urlLabel: 'klel.wordpress.com/2026/06/01' },
+  { ref: 'Lundgren, K. (2026b)', title: 'Tappade bort mig i Claudes ekosystem.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 27/7 2026', url: 'https://klel.wordpress.com/2026/07/27/tappade-bort-mig-i-claudes-ekosystem/', urlLabel: 'klel.wordpress.com/2026/07/27' },
+  { ref: 'Lundgren, K. (2026c)', title: "Namnet 'main' betyder inte alltid main.", type: '[Blogginlägg]', pub: 'klel.wordpress.com, 28/7 2026', url: 'https://klel.wordpress.com/2026/07/28/namnet-main-betyder-inte-alltid-main/', urlLabel: 'klel.wordpress.com/2026/07/28' },
+  { ref: 'Lundgren, K. (2026d)', title: 'En bild av Claudes ekosystem.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 29/7 2026', url: 'https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/', urlLabel: 'klel.wordpress.com/2026/07/29' },
+  { ref: 'Lundgren, K. (2026e)', title: 'Vilken är din Claude favorit.', type: '[LinkedIn-artikel]', pub: 'LinkedIn, 30/7 2026', url: 'https://www.linkedin.com/pulse/vilken-%C3%A4r-din-claude-favorit-kent-lundgren-atqye/', urlLabel: 'linkedin.com/pulse/vilken-är-din-claude-favorit' },
+  { ref: 'Lundgren, K. (2026f)', title: 'PRD först – sedan CLAUDE.md.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 31/7 2026', url: 'https://klel.wordpress.com/2026/07/31/prd-forst-sedan-claude-md/', urlLabel: 'klel.wordpress.com/2026/07/31' },
+  { ref: 'Lundgren, K. (2026g)', title: 'Vet du ens var vi är?', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 31/7 2026', url: 'https://klel.wordpress.com/2026/07/31/vet-du-ens-var-vi-ar/', urlLabel: 'klel.wordpress.com/2026/07/31' },
+  { ref: '', title: 'Repot för det här projektet, med hela historiken bakom den här sidan.', type: '', pub: '', url: 'https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/olika_Claude_modeller', urlLabel: 'github.com/kentlundgren/AI-teknik' }
+];
+
+function renderSources() {
+  const html = sourcesData.map(s => {
+    const meta = [s.type, s.pub].filter(Boolean).join(' ');
+    const refPart = s.ref ? `${s.ref} ` : '';
+    const metaPart = meta ? ` ${meta}.` : '';
+    return `<li>${refPart}<em>${s.title}</em>${metaPart} Tillgänglig: <a href="${s.url}" target="_blank" rel="noopener">${s.urlLabel}</a></li>`;
+  }).join('');
+  document.getElementById('sources-list-modal').innerHTML = html;
+  document.getElementById('sources-list-bottom').innerHTML = html;
+}
+renderSources();
+
+const prdData = [
+  {
+    id:'prd', name:'PRD', sub:'Kravdokument, inte styrfil',
+    intro:`Product Requirements Document — svarar på en annan fråga än CLAUDE.md. Som jag skrev i <a href="https://klel.wordpress.com/2026/07/31/prd-forst-sedan-claude-md/" target="_blank" rel="noopener">PRD först – sedan CLAUDE.md</a>: "CLAUDE.md är utmärkt på att tala om <em>hur</em> något ska byggas... Men den svarar inte på den mer grundläggande frågan: <em>Vad</em> är det egentligen vi ska bygga – och varför?" En PRD tvingar fram klarhet kring vilket problem som löses, målgrupp, måste-ha-funktioner, kan-vänta-funktioner och vad som uttryckligen exkluderas. Till skillnad från CLAUDE.md/AGENTS.md/SKILL.md — som är ständigt aktiva styrfiler (se <a href="#fas1">Fas 1</a>) — är PRD:n tidsbegränsad och funktionsspecifik: skriven för en enskild leverans, och sedan fryst innan kodningen börjar.`,
+    steps:[
+      'Skriv (eller låt Claude hjälpa till att skriva) en kort PRD',
+      'Låt Claude ställa förtydligande frågor',
+      'Justera och frys dokumentet',
+      'Uppdatera eller skapa CLAUDE.md med tekniska guardrails för denna leverans',
+      'Börja kodningen'
+    ],
+    fact:`<strong>Ett andra, skarpt exempel, samma dag:</strong> när den här Fas 0-sektionen redan fanns användes processen på ett ämne som direkt påverkar den här sidan: mappkontroll — hur Claude säkerställer att den arbetar i rätt mapp, rätt repo, rätt nivå. PRD:n växte från ett enda exempel till tre separata insikter under frågor-steget, innan den frystes. Läs dokumentet: <a href="https://github.com/kentlundgren/AI-teknik/blob/main/AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_mappkontroll.md" target="_blank" rel="noopener">PRD_mappkontroll.md →</a>, eller hela historien: <a href="https://klel.wordpress.com/2026/07/31/vet-du-ens-var-vi-ar/" target="_blank" rel="noopener">Vet du ens var vi är?</a> (klel.wordpress.com, 31/7 2026).`,
+    note:`Källa: <a href="https://klel.wordpress.com/2026/07/31/prd-forst-sedan-claude-md/" target="_blank" rel="noopener">PRD först – sedan CLAUDE.md</a> (klel.wordpress.com, 31/7 2026). Verkligt exempel: <a href="https://github.com/kentlundgren/Ovrigt/blob/main/Fritid/ol_Tyskland/PRD_slap.md" target="_blank" rel="noopener">PRD_slap.md →</a> (från ett annat projekt).`
+  }
+];
+
+function renderPrd(){
+  const wrap = document.getElementById('prd-cards');
+  prdData.forEach(s=>{
+    const b = document.createElement('button');
+    b.className='card-btn'; b.dataset.id=s.id;
+    b.innerHTML = `<strong>${s.name}</strong><span>${s.sub}</span>`;
+    b.onclick = ()=>showPrd(s.id);
+    wrap.appendChild(b);
+  });
+}
+
+function showPrd(id){
+  document.querySelectorAll('#prd-cards .card-btn').forEach(b=>b.classList.toggle('active', b.dataset.id===id));
+  const s = prdData.find(x=>x.id===id);
+  const d = document.getElementById('prd-detail');
+  d.innerHTML = `<p>${s.intro}</p>
+    <ol>${s.steps.map(st=>`<li>${st}</li>`).join('')}</ol>
+    ${s.fact ? `<div class="fact">${s.fact}</div>` : ''}
+    <div class="note">${s.note}</div>`;
+  d.classList.add('show');
+}
+
 const steerFiles = [
   {
     id:'claude', name:'CLAUDE.md', sub:'Alltid inläst',
@@ -208,6 +380,7 @@ Arbetsmapp för att skriva en bloggtext och bygga en liten kodningsövning
   proaktivt eller som en genväg — även om det tekniskt fungerar lika bra
   härifrån. Detta ger Kent kontroll och medvetenhet varje gång något nytt
   publiceras.`,
+    fact:`<strong>Ny upptäckt, 31 juli 2026:</strong> CLAUDE.md visade sig ha en egen, mindre nivå-uppdelning, parallell till SKILL.md:s tre nivåer (se korttipset ovan) — <b>projektnivå</b> (den här filen, i den här mappen) och <b>global nivå</b> (<code>C:\\Users\\kentl\\.claude\\CLAUDE.md</code>, läses av Claude Code i <em>alla</em> projekt på datorn, oavsett vilken mapp som är öppen). Anledningen den dök upp: en regel ("kontrollera att du står i rätt mapp innan du börjar") behövde vara garanterat aktiv i varje session — det löser bara en global CLAUDE.md, ingen skill triggas garanterat. Men CLAUDE.md räckte inte ensam heller: det fylligare resonemanget (fem regler, exempel, motivering) hörde hemma i en skill, <code>kent-meta-regler-for-code</code> (global nivå, <code>C:\\Users\\kentl\\.claude\\skills\\</code>). Regeln blev alltså både en CLAUDE.md-rad <em>och</em> en skill, inte det ena eller det andra. Hela historien: <a href="https://klel.wordpress.com/2026/07/31/vet-du-ens-var-vi-ar/" target="_blank" rel="noopener">Vet du ens var vi är?</a> (klel.wordpress.com, 31/7 2026).`,
     note:'Det här är ett riktigt utdrag — inte ett påhittat exempel — ur CLAUDE.md-filen i just det här projektet. Hela filen ligger i samma mapp som den här sidan, och läses av Claude Code varje gång en ny session startar här.'
   },
   {
@@ -313,6 +486,11 @@ const afterClaude = [
   },
   {
     id:'git', name:'Git (lokalt)', sub:'Historik på din disk',
+    fact:`<strong>Tre lägen, inte två, 31 juli 2026:</strong> innan Claude får röra Git/GitHub här kontrollerar jag numera vilket av tre lägen mappen faktiskt är i — inte bara "kopplat rätt / kopplat fel".<br><br>
+      <b>Känt-gott</b> — <code>git remote -v</code> pekar på rätt GitHub-repo, lokalt och globalt i synk. Fortsätt.<br>
+      <b>Känt-nytt</b> — inget repo än, men projektet är genuint nytt. Fortsätt, men säg det uttryckligen i stället för att tyst anta.<br>
+      <b>Okänt/avvikande</b> — repo saknas fast mappen redan har historik, eller pekar fel, eller har divergerat från det publicerade. Stanna, flagga, fråga.<br><br>
+      Frånvaro av koppling är bara ett problem om den är oväntad. Bakgrund: <a href="https://klel.wordpress.com/2026/07/31/vet-du-ens-var-vi-ar/" target="_blank" rel="noopener">Vet du ens var vi är?</a> (klel.wordpress.com, 31/7 2026).`,
     note:'Jag sköter det här alltid via Cursor. En regel man kommer ihåg är svagare än ett skydd (pre-push-hook) som stoppar en — det gäller oavsett verktyg, men jag vill ha det skyddet i det gränssnitt jag faktiskt litar på.'
   },
   {
@@ -327,6 +505,25 @@ const afterClaude = [
   }
 ];
 
+/* Tooltip-innehåll för SKILL.md-kortet — tre nivåer hämtade från CLAUDE.md */
+const skillTooltip = `
+  <strong>Skills — tre nivåer, fyra mappar, tre verktyg</strong>
+  <b>Nivå 1 — Projektnivå</b> (.claude/skills/ här)<br>
+  Når dem: Claude Code ✓ &nbsp;Cursor ✓ &nbsp;Cowork ✗<br>
+  claude-kompassen-konventioner, linkedin-ai-respons<br><br>
+  <b>Nivå 2a — Global, Claude Code + Cursor</b><br>
+  .claude\\skills\\: humanizer_ton, kent-bygg-sidor, kent-respons,<br>
+  &nbsp;&nbsp;kent-skrivstil, skills-meta-guide<br><br>
+  <b>Nivå 2b — Global, endast Cursor</b><br>
+  .cursor\\skills\\: bjerred-firebase-sync, firebase-backend<br>
+  .cursor\\skills-cursor\\: automate, canvas, sdk m.fl.<br><br>
+  <b>Nivå 3 — Kontoanknuten</b><br>
+  Når dem: Cowork ✓ &nbsp;claude.ai ✓ &nbsp;Claude Code ✗ &nbsp;Cursor ✗<br>
+  kent-ekosystem-analys<br><br>
+  <b>OBS, 31/7:</b> CLAUDE.md har en egen, mindre hierarki parallell till
+  denna — projekt- och global nivå, se CLAUDE.md-kortet.
+`;
+
 function renderSteer(){
   const wrap = document.getElementById('steer-cards');
   steerFiles.forEach(s=>{
@@ -334,7 +531,20 @@ function renderSteer(){
     b.className='card-btn'; b.dataset.id=s.id;
     b.innerHTML = `<strong>${s.name}</strong><span>${s.sub}</span>`;
     b.onclick = ()=>showSteer(s.id);
-    wrap.appendChild(b);
+
+    /* SKILL.md-kortet får en tooltip-wrapper med tre-nivå-beskrivningen */
+    if(s.id === 'skill'){
+      const tipWrap = document.createElement('div');
+      tipWrap.className = 'card-tip-wrap';
+      const tip = document.createElement('div');
+      tip.className = 'card-tip';
+      tip.innerHTML = skillTooltip;
+      tipWrap.appendChild(b);
+      tipWrap.appendChild(tip);
+      wrap.appendChild(tipWrap);
+    } else {
+      wrap.appendChild(b);
+    }
   });
 }
 
@@ -429,13 +639,16 @@ function showPipeline(id){
   const s = afterClaude.find(x=>x.id===id);
   const d = document.getElementById('pipeline-detail');
   d.innerHTML = (s.img ? `<img src="${s.img}" alt="${s.name}"><div class="cap">${s.cap}</div>` : '') +
+    (s.fact ? `<div class="fact">${s.fact}</div>` : '') +
     `<div class="note">${s.note}</div>`;
   d.classList.add('show');
 }
 
+renderPrd();
 renderSteer();
 renderSurfaces();
 renderPipeline();
+showPrd('prd');
 showSteer('claude');
 showSurface('web');
 showPipeline('gh');
