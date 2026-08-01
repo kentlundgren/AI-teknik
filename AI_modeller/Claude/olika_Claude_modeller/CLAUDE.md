@@ -36,7 +36,7 @@ publicerade. Filer och länkar:
 - `README.md` (denna mapp), `../README.md` (Claude-mappen) och repots rot-`README.md`
   alla uppdaterade för att spegla Fas-strukturen och de publicerade länkarna.
 - Projektnivå-skills i `.claude/skills/`: `claude-kompassen-konventioner` (struktur för
-  `index.html`) och `linkedin-ai-respons` (kommentarer på andras AI-inlägg).
+  `index.html`) och `kent-advanced-rag` (kopia, se nedan).
 
 **Viktigt — två index-filer i mappen, förväxla dem inte:**
 - `index.html` — den riktiga, aktiva filen. Jobba alltid med den här.
@@ -64,7 +64,6 @@ var den lagras — inte bara på nivån. Matris nedan:
 **Nivå 1 — Projektnivå** — `.claude/skills/` i den här mappen:
 - Når dem: **Claude Code** och **Cursor agent**. Inte Cowork.
 - `claude-kompassen-konventioner` — konventioner för index.html i detta projekt
-- `linkedin-ai-respons` — LinkedIn-kommentarer på andras AI-inlägg
 - `kent-advanced-rag` — **kopia** (ej auktoritativ, se varningsruta i filen) av
   den globala skillen med samma namn. Ligger här bara för synlighet/länkbarhet
   på GitHub, eftersom den globala `.claude`-mappen inte ingår i något repo.

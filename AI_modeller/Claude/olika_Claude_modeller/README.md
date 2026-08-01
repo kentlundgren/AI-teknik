@@ -35,7 +35,7 @@ Verktyget är uppbyggt i **tre faser** (klickbara kort, med direktlänkar `#fas1
 | `CLAUDE.md` | Projektkontext + arbetsregler för Claude Code i det här projektet |
 | `README.md` | Denna fil |
 | `bloggtext-utkast-surface-harness.md` | Källutkastet till bloggtexten (publicerad, se länk ovan) |
-| `.claude/skills/` | Två projektnivå-skills: `claude-kompassen-konventioner` (struktur/konventioner för `index.html`) och `linkedin-ai-respons` (kommentarer på andras AI-inlägg) |
+| `.claude/skills/` | Två projektnivå-skills: `claude-kompassen-konventioner` (struktur/konventioner för `index.html`) och `kent-advanced-rag` (kopia av en global skill, se `CLAUDE.md`) |
 | `*.jpg` | Skärmdumparna som både bloggtexten och verktyget bygger på |
 
 ## Kort sammanfattning
