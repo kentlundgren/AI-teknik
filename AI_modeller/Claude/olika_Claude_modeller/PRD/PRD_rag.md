@@ -3,8 +3,9 @@
 **Namn:** PRD_rag
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_rag.md`
 **Skapad:** 2026-08-01
-**Version:** 9 (ny skill `kent-advanced-rag` skapad, promptexempel bekräftat
-som publikt kompass-/blogginnehåll)
+**Version:** 10 (avsnitt 4 omdöpt från "Öppna frågor" till "Frågor och
+beslut" — rubriken hade blivit missvisande efter att allt utom en delfråga
+lösts)
 **Status:** **Planering, praktiskt taget skrivklart.** Ingen kod, blogg
 eller källpost skriven ännu.
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen, Fas 1),
@@ -93,7 +94,11 @@ samtidigt) — RAG-arbetet ger ett andra, fristående belägg för samma poäng.
 - Implementation av en faktisk RAG-pipeline i det här projektet. Kompassen
   *beskriver* RAG, den *bygger* inte en.
 
-## 4. Öppna frågor
+## 4. Frågor och beslut
+
+*(Hette ursprungligen "Öppna frågor" — döpt om 2026-08-01 när Kent påpekade
+att rubriken blivit missvisande: alla sex delfrågorna nedan är nu besvarade
+utom en liten delfråga under 4b. Se Ändringslogg.)*
 
 **4a. Nytt kort i Fas 1, eller tillägg i ett befintligt kort? — BESLUTAT ✓**
 **Beslut (2026-08-01):** Fjärde kort, parallellt med CLAUDE.md/AGENTS.md/
@@ -439,3 +444,8 @@ blogg eller källpost är skriven ännu — bara detta PRD.
   i praktiken). Kents promptexempel (med riktiga GitHub-länkar till
   `agents.md`/`skills.md`) verifierat och godkänt som fjärde levande exempel
   i blogg/kompass, med brasklapp om att det inte är teknisk RAG.
+- 2026-08-01 (v10): Kent frågade varför avsnitt 4 fortfarande heter "Öppna
+  frågor" när nästan allt är beslutat — ännu en instans av samma
+  stale-rubrik-problem som avsnitt 7/8 hade i v8. Rubriken döpt om till
+  "Frågor och beslut", med en kort not om varför. Enda kvarvarande genuint
+  öppna punkten: delfrågan under 4b (sourcesData/omlettring).
