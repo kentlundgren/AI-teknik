@@ -3,7 +3,8 @@
 **Namn:** PRD_rag
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_rag.md`
 **Skapad:** 2026-08-01
-**Version:** 2 (två av fyra öppna frågor lösta — se avsnitt 4)
+**Version:** 4 (4a och 4d beslutade, 4b i huvudsak löst, 4c: tre källor
+verifierade — väntar på Kents slutgiltiga urval)
 **Status:** **Planering.** Ingen kod, blogg eller källa skriven ännu.
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen, Fas 1),
 inte en grund-PRD för ett nytt projekt.
@@ -82,26 +83,73 @@ inte är en fil Claude Code läser in på samma sätt som de tre andra — men
 Kent har uttryckligen valt att ändå visa det som ett jämbördigt fjärde kort,
 och det beslutet gäller, oavsett vad som är tekniskt "mest exakt".
 
-**4b. Vad är Kents konkreta RAG-erfarenhet? — ÖPPEN**
-Väntar på beskrivning av det/de andra projekt Kent nämner. Han har själv sagt
-(2026-08-01) att han för tillfället inte hittar tillbaka till tidigare
-anteckningar om detta och återkommer. Påverkar hur stort avsnitt 2 (vinkel b)
-blir, och vilka konkreta detaljer som kan användas. Inget att göra här förrän
-Kent hör av sig.
+**4b. Vad är Kents konkreta RAG-erfarenhet? — I HUVUDSAK LÖST ✓**
+**Huvudmaterial (2026-08-01):** hela projektet på
+`C:\Users\kentl\OneDrive\AI\AI-teknik\RAG\` (live:
+https://kentlundgren.github.io/AI-teknik/RAG/), bekräftat av Kent som det
+material han menade. Innehåller:
+- `RAG/README.md` — Classic RAG vs. Advanced RAG, med pipelines och
+  jämförelsetabell.
+- `RAG/agents.md` — en portabel, generell AGENTS.md-styrfil för en
+  RAG-agent (beslutslogik Classic/Advanced, transparenskrav). **Central
+  poäng:** detta är strukturellt samma filtyp som AGENTS.md-kortet i Fas 1,
+  bara tillämpad på retrieval — den naturliga bryggan mellan RAG och
+  Fas 1:s befintliga logik.
+- `RAG/skills.md` — fyra konkreta skills (`internal_project_retrieval`,
+  `web_external_retrieval`, `hybrid_retrieval_and_fusion`,
+  `explain_rag_technique`).
+- `RAG/Frans-G-Bengtsson/` — praktiskt tillämpat exempel: en biografisida
+  byggd med både Classic och Advanced RAG sida vid sida, med verifierade
+  Harvard-källor och en ifylld Retrieval Summary. Kopplat blogginlägg:
+  Lundgren, K. (2026). *"Kan man lita på det AI:n berättar om Frans G.
+  Bengtsson?"* klel.wordpress.com, 15/7 2026.
+  https://klel.wordpress.com/2026/07/15/kan-man-lita-pa-det-ain-berattar-om-frans-g-bengtsson/
 
-**4c. Källor. — ÖPPEN, medvetet kopplad till 4b**
-Ingen källa är ännu vald eller verifierad. Regel 2 (Harvard-format,
-verifierade länkar, ingen gissad URL) och regel 3 (inga fabricerade fakta)
-gäller båda här — se `kent-meta-regler-for-code`. Kent har uttryckligen
-valt (2026-08-01) att vänta med källvalet tills hans egen RAG-erfarenhet
-(4b) hittats — den kan påverka vilken källa som blir relevant (t.ex. om
-hans eget tidigare material pekar mot en specifik artikel/dokumentation,
-eller om han själv vill använda eget material som en av källorna). Kandidat
-att undersöka och verifiera när arbetet återupptas: originalpappret som
-myntade termen RAG (Lewis et al., 2020) — **inte verifierat än** (länk,
-exakt titel, publikationskanal) och ska inte skrivas in i `sourcesData`
-eller nämnas i text förrän det är kontrollerat. Ev. även en primärkälla från
-Anthropic om retrieval/RAG med Claude, om en sådan finns och kan verifieras.
+**Historik, hittad och verifierad 2026-08-01 (två äldre, enklare texter,
+inte Classic/Advanced-uppdelade):**
+- Lundgren, K. (2024) *"RAG för mer precisa AI-svar."* klel.wordpress.com,
+  27/5 2024. https://klel.wordpress.com/2024/05/27/rag-for-mer-precisa-ai-svar/
+- Lundgren, K. (2024) *"Exempel på RAG."* controllerutangranser.wordpress.com,
+  27/5 2024. https://controllerutangranser.wordpress.com/2024/05/27/exempel-pa-rag/
+
+**Beslut (2026-08-01):** dessa två 2024-texter tillför inte mycket sakligt
+längre (ingen Classic/Advanced-distinktion, RAG/-projektet från 2026 har gått
+förbi dem) men ska ändå vävas in som **historia/referenser i det nya
+blogginlägget**, för att visa hur Kents eget RAG-tänkande utvecklats över två
+år. **Öppen delfråga:** ska dessa två äldre poster också läggas in i
+Claude-kompassens egen `sourcesData`, eller bara nämnas/länkas i det externa
+blogginlägget utan att bli en post i index.html? Avgörs när blogginlägget och
+RAG-kortets text faktiskt skrivs.
+
+**4c. Källor. — TRE KANDIDATER VERIFIERADE, väntar på Kents slutgiltiga urval**
+Tre externa akademiska/officiella källor har researchats och verifierats
+(länk kontrollerad, titel/författare/datum bekräftat) 2026-08-01, valda för
+att komplettera (inte upprepa) Kents egen RAG-erfarenhet (4b):
+
+1. Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N.,
+   Küttler, H., Lewis, M., Yih, W., Rocktäschel, T., Riedel, S. and Kiela, D.
+   (2020) 'Retrieval-Augmented Generation for Knowledge-Intensive NLP
+   Tasks', *Advances in Neural Information Processing Systems 33* (NeurIPS
+   2020), pp. 9459–9474. https://arxiv.org/abs/2005.11401 — originalpappret
+   som myntade termen RAG. Roll: historiskt ursprung, parallellt med Kents
+   egna 2024-texter.
+2. Gao, Y., Xiong, Y., Gao, X., Jia, K., Pan, J., Bi, Y., Dai, Y., Sun, J.,
+   Wang, M. and Wang, H. (2023) 'Retrieval-Augmented Generation for Large
+   Language Models: A Survey', arXiv:2312.10997.
+   https://arxiv.org/abs/2312.10997 — delar RAG i Naive/Advanced/Modular
+   RAG. Roll: vetenskaplig grund för Kents egen Classic/Advanced-indelning
+   (notera terminologiskillnad: pappret säger "Naive", Kent säger "Classic"
+   — ska inte likställas rakt av i text).
+3. Anthropic (2024) 'Introducing Contextual Retrieval', *Anthropic
+   Engineering*, 19 September 2024.
+   https://www.anthropic.com/engineering/contextual-retrieval — Claude-
+   specifik vidareutveckling av RAG (49–67 % färre missade träffar). Roll:
+   "vad som hänt sen", extra relevant just i Claude-kompassen.
+
+**Öppen fråga:** Claude har rekommenderat att använda alla tre (olika roller:
+ursprung / vetenskaplig grund / Claude-specifik vidareutveckling), men Kent
+har ännu inte bekräftat urvalet. Regel 2 och regel 3 (`kent-meta-regler-for-
+code`) är uppfyllda för alla tre — inget fabricerat, alla länkar kontrollerade.
 
 **4d. Blogginlägg — ja eller nej? — BESLUTAT ✓**
 **Beslut (2026-08-01):** Båda — ett blogginlägg på klel.wordpress.com och en
@@ -138,11 +186,14 @@ Inga ännu — se öppen fråga 4c. Inget fabricerat eller ogranskat citeras hä
 
 ## 8. Status
 
-**Utkast, i planeringsstadiet.** Placering (Fas 1, fjärde kort) och
-slutleverans (blogg + kompass) beslutade. Två öppna frågor kvarstår innan
-skrivarbetet kan börja: 4b (Kents egen RAG-erfarenhet, väntar på honom) och
-4c (val och verifiering av minst en källa). Ingen kod, blogg eller källa är
-skriven.
+**Utkast, i planeringsstadiet — nära skrivklart.** Placering (Fas 1, fjärde
+kort, med AGENTS.md-bryggan som berättarkrok), slutleverans (blogg + kompass)
+och Kents RAG-erfarenhet (RAG/-projektet, Classic vs Advanced, Frans G.
+Bengtsson-exemplet, plus två 2024-texter som historia) är på plats. Enda
+kvarstående öppna punkten: Kents slutgiltiga urval bland de tre verifierade
+källkandidaterna (4c), samt den mindre delfrågan om de två 2024-texterna
+även ska in i `sourcesData` eller bara nämnas i blogginlägget. Ingen kod,
+blogg eller källpost är skriven ännu.
 
 ## Ändringslogg
 
@@ -155,3 +206,11 @@ skriven.
 - 2026-08-01 (v3): Förtydligat att 4c medvetet väntar på 4b — Kent valde
   uttryckligen att inte research:a källor än, eftersom hans egen RAG-
   erfarenhet kan påverka vilken källa som blir relevant.
+- 2026-08-01 (v4): 4b i huvudsak löst — Kent bekräftade
+  `AI-teknik/RAG/`-projektet som huvudmaterial, och hittade två äldre
+  (27/5 2024) introduktionstexter om RAG (klel.wordpress.com och
+  controllerutangranser.wordpress.com), båda verifierade. Beslutat: de två
+  äldre texterna vävs in som historia/referenser i det nya blogginlägget,
+  inte som huvudmaterial. 4c: tre externa källor (Lewis et al. 2020, Gao et
+  al. 2023, Anthropic 2024) researchade och verifierade (länk, titel,
+  författare, datum kontrollerat) — väntar på Kents slutgiltiga urval.
