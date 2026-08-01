@@ -89,15 +89,19 @@ anteckningar om detta och återkommer. Påverkar hur stort avsnitt 2 (vinkel b)
 blir, och vilka konkreta detaljer som kan användas. Inget att göra här förrän
 Kent hör av sig.
 
-**4c. Källor. — ÖPPEN**
+**4c. Källor. — ÖPPEN, medvetet kopplad till 4b**
 Ingen källa är ännu vald eller verifierad. Regel 2 (Harvard-format,
 verifierade länkar, ingen gissad URL) och regel 3 (inga fabricerade fakta)
-gäller båda här — se `kent-meta-regler-for-code`. Kandidat att undersöka och
-verifiera innan den citeras: originalpappret som myntade termen RAG (Lewis
-et al., 2020) — men detta är **inte verifierat än** (länk, exakt titel,
-publikationskanal) och ska inte skrivas in i `sourcesData` eller nämnas i
-text förrän det är kontrollerat. Ev. även en primärkälla från Anthropic om
-retrieval/RAG med Claude, om en sådan finns och kan verifieras.
+gäller båda här — se `kent-meta-regler-for-code`. Kent har uttryckligen
+valt (2026-08-01) att vänta med källvalet tills hans egen RAG-erfarenhet
+(4b) hittats — den kan påverka vilken källa som blir relevant (t.ex. om
+hans eget tidigare material pekar mot en specifik artikel/dokumentation,
+eller om han själv vill använda eget material som en av källorna). Kandidat
+att undersöka och verifiera när arbetet återupptas: originalpappret som
+myntade termen RAG (Lewis et al., 2020) — **inte verifierat än** (länk,
+exakt titel, publikationskanal) och ska inte skrivas in i `sourcesData`
+eller nämnas i text förrän det är kontrollerat. Ev. även en primärkälla från
+Anthropic om retrieval/RAG med Claude, om en sådan finns och kan verifieras.
 
 **4d. Blogginlägg — ja eller nej? — BESLUTAT ✓**
 **Beslut (2026-08-01):** Båda — ett blogginlägg på klel.wordpress.com och en
@@ -148,3 +152,6 @@ skriven.
 - 2026-08-01 (v2): 4a beslutat (fjärde kort i Fas 1, efter SKILL.md, enligt
   Kents skiss) och 4d beslutat (både blogg och kompass). 4b och 4c kvarstår
   öppna på Kents egen begäran.
+- 2026-08-01 (v3): Förtydligat att 4c medvetet väntar på 4b — Kent valde
+  uttryckligen att inte research:a källor än, eftersom hans egen RAG-
+  erfarenhet kan påverka vilken källa som blir relevant.
