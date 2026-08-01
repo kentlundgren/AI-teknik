@@ -3,8 +3,8 @@
 **Namn:** PRD_rag
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_rag.md`
 **Skapad:** 2026-08-01
-**Version:** 14 (KLAR — blogginlägg publicerat, RAG-kortet kodat i Fas 1,
-`sourcesData` uppdaterad och omletterad, allt verifierat i webbläsaren)
+**Version:** 15 (begriplighetstest kört, RAG-kortets undertext/öppning
+skärpt som svar på testresultatet)
 **Status:** **Genomfört.** Blogginlägg, RAG-kort och källdata är levererade
 och verifierade — se avsnitt 5. Ingen kod eller källpost kvarstår.
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen, Fas 1),
@@ -553,3 +553,20 @@ verifierad.
   och skillTooltip-stalefläcken (linkedin-ai-respons m.m.) fixades i samma
   svep. JS-syntax verifierad (`node --check`), och kortet testat visuellt
   i webbläsaren (klick, detail-panel, länkar, källista). Inget kvarstår.
+- 2026-08-01 (v15): Kent körde ett begriplighetstest — en ny, kontextlös
+  Claude Code-session (öppnad utanför projektmappen) läste den publicerade
+  kompassen och sammanfattade den med egna ord, se
+  `Omdomen/omdome_260801.md` (omformaterad till riktig markdown). Testet
+  bekräftade stark begriplighet överlag, men visade konkret att RAG-kortet
+  krävde en andra genomläsning: öppningsmeningen påstod parallellitet med
+  CLAUDE.md/AGENTS.md/SKILL.md ("en fjärde sorts styrfil") och motsade sig
+  sedan själv två meningar senare. Verifierat samtidigt: en knapp märkt
+  "Tekniköversikt" som testsessionen inte lyckades klicka fram finns
+  faktiskt och fungerar (rad ~249 i `index.html`) — ett verktygsproblem i
+  testsessionen, inte en bugg på sidan. Åtgärdat: RAG-kortets undertext
+  ändrad från "Classic → Advanced" till "Ingen fil — en policy", och
+  öppningsmeningen omskriven för att leda med skillnaden istället för
+  likheten. Medvetet valt bort: en egen tag-färg för kortet, eftersom det
+  skulle bryta mot `claude-kompassen-konventioner`s regel att nya
+  färgvarianter hör till nya faser, inte enskilda kort. JS-syntax
+  verifierad, ändringen bekräftad i webbläsaren.
