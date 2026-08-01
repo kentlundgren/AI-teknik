@@ -3,8 +3,8 @@
 **Namn:** PRD_rag
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_rag.md`
 **Skapad:** 2026-08-01
-**Version:** 12 (obetydlig testrad, för att verifiera Kents commit/push
-via Cursor efter dagens incident)
+**Version:** 13 (andra genomläsning: två nya stale-fläckar rättade, ny
+Innehållsbrief-sektion tillagd, exempel-viktning för bloggen fastställd)
 **Status:** **Planering klar, inga öppna frågor.** Ingen kod, blogg eller
 källpost skriven ännu.
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen, Fas 1),
@@ -81,8 +81,10 @@ samtidigt) — RAG-arbetet ger ett andra, fristående belägg för samma poäng.
    (4b): `AI-teknik/RAG/`-projektet (Classic vs. Advanced, Frans G.
    Bengtsson-exemplet) plus två äldre 2024-texter som historia.
 3. Tre nya källposter i `sourcesData` (alfabetisk plats) för de tre valda
-   källorna om RAG-konceptet (4c, beslutat — se avsnitt 4c för vilka).
-   Eventuellt ytterligare poster för historiken, se öppen delfråga under 4b.
+   källorna om RAG-konceptet (4c, beslutat — se avsnitt 4c för vilka), plus
+   Frans G. Bengtsson-inlägget som ny `2026b` med omlettring av `2026b–g`
+   till `2026c–h` (beslutat, se 4b). 2024-texterna går inte in i
+   `sourcesData`, bara i blogginlägget.
 4. Blogginlägg på klel.wordpress.com **och** uppdaterad kompass — båda,
    beslutat 2026-08-01 (4d).
 
@@ -107,7 +109,7 @@ inte är en fil Claude Code läser in på samma sätt som de tre andra — men
 Kent har uttryckligen valt att ändå visa det som ett jämbördigt fjärde kort,
 och det beslutet gäller, oavsett vad som är tekniskt "mest exakt".
 
-**4b. Vad är Kents konkreta RAG-erfarenhet? — I HUVUDSAK LÖST ✓**
+**4b. Vad är Kents konkreta RAG-erfarenhet? — BESLUTAT ✓**
 **Huvudmaterial (2026-08-01):** hela projektet på
 `C:\Users\kentl\OneDrive\AI\AI-teknik\RAG\` (live:
 https://kentlundgren.github.io/AI-teknik/RAG/), bekräftat av Kent som det
@@ -285,9 +287,9 @@ spridnings-episoden (4e).
 ## 5. Leveranser
 
 - [x] Beslut 4a (kortstruktur i Fas 1) — fjärde kort, efter SKILL.md
-- [x] Kents RAG-erfarenhet identifierad (4b) — RAG/-projektet + två
-      2024-texter som historia (kvarstår bara den öppna delfrågan om
-      historiken/Frans G. Bengtsson-posten även ska in i `sourcesData`)
+- [x] Kents RAG-erfarenhet identifierad och avgränsad (4b) — RAG/-projektet
+      + Frans G. Bengtsson-exemplet (huvudmaterial) plus två 2024-texter
+      (historia, blogg-endast)
 - [x] Tre källor valda och verifierade (4c) — Lewis 2020, Gao 2023,
       Anthropic 2024
 - [x] Beslut 4d (blogg och kompass, båda)
@@ -385,6 +387,43 @@ blogginlägget medan Frans G. Bengtsson-inlägget går in i både `sourcesData`
 källpost är skriven ännu — bara detta PRD. Nästa steg är produktionsordningen
 i avsnitt 6.
 
+## 9. Innehållsbrief för skriv-/kodningsfasen
+
+*(Nytt avsnitt, tillagt på Kents begäran efter en andra genomläsning: en
+kort, avgränsad sammanfattning av exakt vad som ska skrivas — utan
+processhistorik — så att skriv-/kodningsfasen inte behöver sortera ut
+signal från brus i resten av dokumentet.)*
+
+**Fyra levande exempel finns, men de ska INTE vägas lika i bloggen:**
+
+1. **Ryggraden (huvuddelen av texten): RAG/-projektet + Frans G.
+   Bengtsson-exemplet, som en enda rörelse.** Börja med konceptbryggan
+   (avsnitt 2: styrfiler = förutbestämd kontext, RAG = frågeberoende
+   kontext). Förklara sedan Classic vs. Advanced RAG med Kents eget
+   ramverk (`RAG/agents.md`/`skills.md`), och landa i Frans G.
+   Bengtsson-sidan som konkret bevis — teori följt av praktik.
+2. **Kort, avgränsad bisats: spridnings-episoden** (avsnitt 4e). Egen
+   avgränsad ruta/stycke, inte ett huvudavsnitt — den bevisar Fas 1:s
+   poäng om utspridda styrfiler, men handlar om process, inte om RAG i
+   sig.
+3. **Avslutningen: Advanced RAG-metaexperimentet** (avsnitt 4f), med
+   promptexemplet som sista, konkreta, kopierbara rad i inlägget — ett
+   "gör det här själv nu"-avslut, inte begravt i mitten.
+
+**RAG-kortet i Fas 1 (kompassen):** ett komprimerat destillat av punkt 1
+ovan (konceptbryggan + Classic/Advanced + länk till Frans G. Bengtsson),
+plus promptexemplet från punkt 3 som en fact-box. Spridnings-episoden
+(punkt 2) är blogg-material, inte kompass-material — för kort/konkret för
+ett kort, hör hemma i det längre resonemanget.
+
+**Källor att använda:** se avsnitt 7 i sin helhet (redan i annoterat
+Harvard-format, klart att återanvända rakt av).
+
+**Konkreta kodändringar, se avsnitt 5/6 för fullständig lista:** fjärde
+kort i `steerFiles`, tre nya källor + Frans G. Bengtsson som ny `2026b`
+(med omlettring c–h) i `sourcesData`, nytt `annotation`-fält, JS-syntax
+verifierad.
+
 ## Ändringslogg
 
 - 2026-08-01 (v1): Skapad. Bakgrund och syfte utifrån Kents två svar om
@@ -466,3 +505,15 @@ i avsnitt 6.
 - 2026-08-01 (v12): Obetydlig testrad, tillagd för att Kent skulle kunna
   bekräfta att commit/push via Cursor fungerar som vanligt igen efter
   incidenten tidigare samma dag.
+- 2026-08-01 (v13): Kent bad om en andra genomläsning innan skriv-/
+  kodningsfasen, plus jämförelse mot `PRD_generell.md`. Strukturen matchar
+  mallen exakt (avsnitt för avsnitt). Två nya stale-fläckar hittade och
+  rättade: avsnitt 3 (Omfattning) och avsnitt 5 (Leveranser) hänvisade
+  fortfarande till "öppen delfråga" under 4b, trots att den löstes i v11;
+  4b:s egen statustagg uppgraderad från "I huvudsak löst" till "Beslutat".
+  Ny sektion 9 (Innehållsbrief) tillagd på Kents begäran, som svar på oron
+  att PRD:t blivit så processtungt att skriv-/kodningsfasen riskerar att
+  blanda ihop sakinnehåll med historik. Exempel-viktning fastställd: RAG/-
+  projektet + Frans G. Bengtsson som ryggrad, spridnings-episoden som kort
+  bisats, Advanced RAG-metaexperimentet/promptexemplet som avslutning —
+  inte fyra jämnstora exempel.
