@@ -3,7 +3,8 @@
 **Namn:** PRD_generell
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_generell.md`
 **Skapad:** 2026-08-01
-**Version:** 1
+**Version:** 2 (engelska termen "stale" förklarad inom parentes, på Kents
+begäran)
 **Status:** Referensdokument — inte en PRD för ett verkligt uppdrag. En
 genomgång av strukturen, framtagen som ett medvetet metastopp under arbetet
 med `PRD_rag.md`, på Kents begäran ("jag vill se och lära hela tiden, även
@@ -34,7 +35,8 @@ konversation som glöms bort.
 - **Version** — löpnummer plus en kort parentes om vad senaste ändringen
   gällde, så man ser utvecklingen utan att läsa hela ändringsloggen.
 - **Status** — en enda rad, uppdaterad i *varje* version (annars blir den
-  stale — se lärdom).
+  **stale** — engelska för information som blivit inaktuell/föråldrad
+  utan att uppdateras; se lärdom, avsnitt 3).
 - **Typ** — grund-PRD (helt nytt projekt) eller tilläggs-PRD (bygger på
   befintlig struktur).
 
@@ -74,9 +76,9 @@ gärna externa, citerbara källor från interna projektreferenser (filer,
 konversationer) som inte är Harvard-citerbara.
 
 **8. Status** — en sammanfattande lägesbild på en handfull meningar.
-Uppdateras i *varje* version — det är den sektion som lättast blir stale
-eftersom den sammanfattar resten istället för att själv innehålla ny
-information (se lärdom).
+Uppdateras i *varje* version — det är den sektion som lättast blir
+**stale** (engelska, se ovan) eftersom den sammanfattar resten istället
+för att själv innehålla ny information (se lärdom).
 
 **Ändringslogg** — en punkt per version: vad ändrades och varför. Det här
 är vad som gör det möjligt att läsa om en PRD senare och förstå *hur*
@@ -90,7 +92,9 @@ besluten växte fram, inte bara vad slutresultatet blev.
   själv fråga varför rubriken inte stämde. Bättre: en neutral rubrik
   ("Frågor och beslut") med statustaggar per delfråga, så texten aldrig
   behöver hinna ikapp en rubrik.
-- **Sammanfattande sektioner (Status, Källor) blir lättast stale**, eftersom
+- **Sammanfattande sektioner (Status, Källor) blir lättast stale**
+  (engelska: inaktuella/föråldrade, utan att någon aktivt gjort dem fel),
+  eftersom
   de inte uppdateras av samma redigering som ändrar detaljerna längre upp i
   dokumentet. `PRD_rag.md` hade vid ett tillfälle en Källor-sektion som
   fortfarande sa "inga ännu", trots att källorna varit beslutade i flera
@@ -125,3 +129,8 @@ besluten växte fram, inte bara vad slutresultatet blev.
 - 2026-08-01 (v1): Skapad, på Kents begäran, som ett metastopp under arbetet
   med `PRD_rag.md`. Struktur och lärdomar destillerade ur `PRD_mappkontroll.md`
   och `PRD_rag.md` — inget i den här filen är påhittat i förväg.
+- 2026-08-01 (v2): Kent frågade om "stale" (använt genomgående i denna fil
+  och i `PRD_rag.md`) är ett etablerat svenskt ord — nej, det är engelska,
+  lånord i svenskt facksammanhang för information som blivit inaktuell/
+  föråldrad utan att uppdateras. Förklaring tillagd inom parentes vid varje
+  förekomst.

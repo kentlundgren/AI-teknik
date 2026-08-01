@@ -3,8 +3,10 @@
 **Namn:** PRD_rag
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_rag.md`
 **Skapad:** 2026-08-01
-**Version:** 13 (andra genomläsning: två nya stale-fläckar rättade, ny
-Innehållsbrief-sektion tillagd, exempel-viktning för bloggen fastställd)
+**Version:** 13 (andra genomläsning: två nya stale-fläckar (engelska
+"stale" — information som blivit inaktuell/föråldrad utan att ha
+uppdaterats) rättade, ny Innehållsbrief-sektion tillagd, exempel-viktning
+för bloggen fastställd)
 **Status:** **Planering klar, inga öppna frågor.** Ingen kod, blogg eller
 källpost skriven ännu.
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen, Fas 1),
@@ -492,7 +494,8 @@ verifierad.
   i blogg/kompass, med brasklapp om att det inte är teknisk RAG.
 - 2026-08-01 (v10): Kent frågade varför avsnitt 4 fortfarande heter "Öppna
   frågor" när nästan allt är beslutat — ännu en instans av samma
-  stale-rubrik-problem som avsnitt 7/8 hade i v8. Rubriken döpt om till
+  stale-rubrik-problem (engelska "stale", se v13) som avsnitt 7/8 hade i
+  v8. Rubriken döpt om till
   "Frågor och beslut", med en kort not om varför. Enda kvarvarande genuint
   öppna punkten: delfrågan under 4b (sourcesData/omlettring).
 - 2026-08-01 (v11): Kent löste den sista öppna punkten: 2024-texterna
@@ -507,8 +510,11 @@ verifierad.
   incidenten tidigare samma dag.
 - 2026-08-01 (v13): Kent bad om en andra genomläsning innan skriv-/
   kodningsfasen, plus jämförelse mot `PRD_generell.md`. Strukturen matchar
-  mallen exakt (avsnitt för avsnitt). Två nya stale-fläckar hittade och
-  rättade: avsnitt 3 (Omfattning) och avsnitt 5 (Leveranser) hänvisade
+  mallen exakt (avsnitt för avsnitt). Två nya stale-fläckar (engelska
+  "stale" — inaktuell/föråldrad information; termen "stale-fläckar" är en
+  egen, inte etablerad svensk-engelsk hybrid, se Kents fråga samma dag)
+  hittade och rättade: avsnitt 3 (Omfattning) och avsnitt 5 (Leveranser)
+  hänvisade
   fortfarande till "öppen delfråga" under 4b, trots att den löstes i v11;
   4b:s egen statustagg uppgraderad från "I huvudsak löst" till "Beslutat".
   Ny sektion 9 (Innehållsbrief) tillagd på Kents begäran, som svar på oron
