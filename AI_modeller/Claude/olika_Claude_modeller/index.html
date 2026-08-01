@@ -298,19 +298,26 @@
    samma författare grupperas ihop och behåller sin inbördes a/b/c-ordning
    (kronologisk, för disambiguering), men gruppen som helhet placeras enligt
    författarnamnets bokstavsordning. Lägg alltid till en ny källa på rätt
-   alfabetisk plats, inte sist i listan.
+   alfabetisk plats, inte sist i listan. Sedan 1/8 2026: nya källor ska ha
+   ett `annotation`-fält (kort mening om vad källan handlar om/varför den
+   är med) — se kent-meta-regler-for-code, Regel 2. Befintliga poster
+   utan annotation ändras inte retroaktivt.
 --------------------------------------------------------------- */
 const sourcesData = [
   { ref: 'agents.md (2026)', title: 'AGENTS.md — open format for guiding coding agents.', type: '[Webbsida]', pub: '', url: 'https://agents.md/', urlLabel: 'agents.md' },
+  { ref: 'Anthropic (2024)', title: 'Introducing Contextual Retrieval.', type: '[Blogginlägg]', pub: 'Anthropic Engineering, 19/9 2024', url: 'https://www.anthropic.com/engineering/contextual-retrieval', urlLabel: 'anthropic.com/engineering/contextual-retrieval', annotation: 'Anthropics egen vidareutveckling av RAG, upp till 67 % färre missade träffar — visar var tekniken står idag, specifikt för Claude.' },
   { ref: 'Anthropic (2026a)', title: 'Glossary – Claude Code Docs.', type: '[Webbsida]', pub: 'Anthropic', url: 'https://code.claude.com/docs/en/glossary', urlLabel: 'code.claude.com/docs/en/glossary' },
   { ref: 'Anthropic (2026b)', title: 'The Claude Cowork product guide.', type: '[Blogginlägg]', pub: 'Anthropic', url: 'https://claude.com/blog/the-claude-cowork-product-guide', urlLabel: 'claude.com/blog/the-claude-cowork-product-guide' },
+  { ref: 'Gao, Y. m.fl. (2023)', title: 'Retrieval-Augmented Generation for Large Language Models: A Survey.', type: '[Forskningsöversikt]', pub: 'arXiv:2312.10997', url: 'https://arxiv.org/abs/2312.10997', urlLabel: 'arxiv.org/abs/2312.10997', annotation: 'Delar RAG i Naive, Advanced och Modular RAG — den vetenskapliga grunden för min egen Classic/Advanced-indelning.' },
+  { ref: 'Lewis, P. m.fl. (2020)', title: 'Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.', type: '[Konferenspapper]', pub: 'NeurIPS 2020', url: 'https://arxiv.org/abs/2005.11401', urlLabel: 'arxiv.org/abs/2005.11401', annotation: 'Originalpappret som myntade termen RAG — historisk startpunkt för hela tekniken.' },
   { ref: 'Lundgren, K. (2026a)', title: 'Claude Cowork, Cursor och Claude Code – tre verktyg, ett arbetsflöde.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 1/6 2026', url: 'https://klel.wordpress.com/2026/06/01/claude-cowork-cursor-och-claude-code-tre-verktyg-ett-arbetsflode/', urlLabel: 'klel.wordpress.com/2026/06/01' },
-  { ref: 'Lundgren, K. (2026b)', title: 'Tappade bort mig i Claudes ekosystem.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 27/7 2026', url: 'https://klel.wordpress.com/2026/07/27/tappade-bort-mig-i-claudes-ekosystem/', urlLabel: 'klel.wordpress.com/2026/07/27' },
-  { ref: 'Lundgren, K. (2026c)', title: "Namnet 'main' betyder inte alltid main.", type: '[Blogginlägg]', pub: 'klel.wordpress.com, 28/7 2026', url: 'https://klel.wordpress.com/2026/07/28/namnet-main-betyder-inte-alltid-main/', urlLabel: 'klel.wordpress.com/2026/07/28' },
-  { ref: 'Lundgren, K. (2026d)', title: 'En bild av Claudes ekosystem.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 29/7 2026', url: 'https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/', urlLabel: 'klel.wordpress.com/2026/07/29' },
-  { ref: 'Lundgren, K. (2026e)', title: 'Vilken är din Claude favorit.', type: '[LinkedIn-artikel]', pub: 'LinkedIn, 30/7 2026', url: 'https://www.linkedin.com/pulse/vilken-%C3%A4r-din-claude-favorit-kent-lundgren-atqye/', urlLabel: 'linkedin.com/pulse/vilken-är-din-claude-favorit' },
-  { ref: 'Lundgren, K. (2026f)', title: 'PRD först – sedan CLAUDE.md.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 31/7 2026', url: 'https://klel.wordpress.com/2026/07/31/prd-forst-sedan-claude-md/', urlLabel: 'klel.wordpress.com/2026/07/31' },
-  { ref: 'Lundgren, K. (2026g)', title: 'Vet du ens var vi är?', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 31/7 2026', url: 'https://klel.wordpress.com/2026/07/31/vet-du-ens-var-vi-ar/', urlLabel: 'klel.wordpress.com/2026/07/31' },
+  { ref: 'Lundgren, K. (2026b)', title: 'Kan man lita på det AI:n berättar om Frans G. Bengtsson?', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 15/7 2026', url: 'https://klel.wordpress.com/2026/07/15/kan-man-lita-pa-det-ain-berattar-om-frans-g-bengtsson/', urlLabel: 'klel.wordpress.com/2026/07/15', annotation: 'Min praktiska tillämpning av Classic vs. Advanced RAG på en verklig biografisida.' },
+  { ref: 'Lundgren, K. (2026c)', title: 'Tappade bort mig i Claudes ekosystem.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 27/7 2026', url: 'https://klel.wordpress.com/2026/07/27/tappade-bort-mig-i-claudes-ekosystem/', urlLabel: 'klel.wordpress.com/2026/07/27' },
+  { ref: 'Lundgren, K. (2026d)', title: "Namnet 'main' betyder inte alltid main.", type: '[Blogginlägg]', pub: 'klel.wordpress.com, 28/7 2026', url: 'https://klel.wordpress.com/2026/07/28/namnet-main-betyder-inte-alltid-main/', urlLabel: 'klel.wordpress.com/2026/07/28' },
+  { ref: 'Lundgren, K. (2026e)', title: 'En bild av Claudes ekosystem.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 29/7 2026', url: 'https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/', urlLabel: 'klel.wordpress.com/2026/07/29' },
+  { ref: 'Lundgren, K. (2026f)', title: 'Vilken är din Claude favorit.', type: '[LinkedIn-artikel]', pub: 'LinkedIn, 30/7 2026', url: 'https://www.linkedin.com/pulse/vilken-%C3%A4r-din-claude-favorit-kent-lundgren-atqye/', urlLabel: 'linkedin.com/pulse/vilken-är-din-claude-favorit' },
+  { ref: 'Lundgren, K. (2026g)', title: 'PRD först – sedan CLAUDE.md.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 31/7 2026', url: 'https://klel.wordpress.com/2026/07/31/prd-forst-sedan-claude-md/', urlLabel: 'klel.wordpress.com/2026/07/31' },
+  { ref: 'Lundgren, K. (2026h)', title: 'Vet du ens var vi är?', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 31/7 2026', url: 'https://klel.wordpress.com/2026/07/31/vet-du-ens-var-vi-ar/', urlLabel: 'klel.wordpress.com/2026/07/31' },
   { ref: '', title: 'Repot för det här projektet, med hela historiken bakom den här sidan.', type: '', pub: '', url: 'https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/olika_Claude_modeller', urlLabel: 'github.com/kentlundgren/AI-teknik' }
 ];
 
@@ -319,7 +326,8 @@ function renderSources() {
     const meta = [s.type, s.pub].filter(Boolean).join(' ');
     const refPart = s.ref ? `${s.ref} ` : '';
     const metaPart = meta ? ` ${meta}.` : '';
-    return `<li>${refPart}<em>${s.title}</em>${metaPart} Tillgänglig: <a href="${s.url}" target="_blank" rel="noopener">${s.urlLabel}</a></li>`;
+    const annotationPart = s.annotation ? ` (${s.annotation})` : '';
+    return `<li>${refPart}<em>${s.title}</em>${metaPart} Tillgänglig: <a href="${s.url}" target="_blank" rel="noopener">${s.urlLabel}</a>${annotationPart}</li>`;
   }).join('');
   document.getElementById('sources-list-modal').innerHTML = html;
   document.getElementById('sources-list-bottom').innerHTML = html;
@@ -441,6 +449,26 @@ Kent anger källor i Harvardsystemet... Gissa aldrig på en URL.`,
     ],
     tradeoff:'Fördelen med tre nivåer är att man kan välja hur brett en regel ska gälla. Nackdelen är att det blir svårt att hålla reda på var allt ligger — särskilt om man, som Kent, vill ha kontrollen själv: skapa, utveckla och förbättra sina egna skills, snarare än att lämna bort ägarskapet helt. Det är också svårt att i förväg veta om något hör hemma i en AGENTS.md-regel eller i en skill, och lika svårt att veta vilken av de tre nivåerna en ny skill bör läggas på — det kräver aktivt underhåll, inte ett engångsval. <strong>Konkret exempel, upptäckt under det här projektet:</strong> skillen <code>kent-skrivstil</code> finns just nu på två ställen samtidigt — global nivå på den här datorn, och kontoanknuten — utan att vara synkade med varandra. När den ena uppdaterades (för att lägga till en ny regel) fick den andra ingen ändring alls. Det är precis den krocken, förvirringen och oordningen som är priset för flexibiliteten. <strong>Nytt problem, 30 juli 2026:</strong> det finns ytterligare en dimension av detta för den som — som Kent — använder <em>både</em> Claude Code och Claude Cowork. De lagrar sina skills i <em>helt separata</em> mappar och det finns inget inbyggt sätt att synka dem. En skill uppdaterad i Cowork når aldrig Claude Codes mapp automatiskt, och vice versa. Det är en designbrist i ekosystemet som drabbar den som rör sig mellan verktygen.',
     note:''
+  },
+  {
+    id:'rag', name:'RAG', sub:'Classic → Advanced',
+    intro:'En fjärde sorts styrfil, upptäckt när jag arbetade med det här projektet sommaren 2026 — inte en fil Claude Code läser in automatiskt som de tre ovan, utan en policy jag själv skrivit för hur en AI-agent ska hämta och verifiera information innan den svarar: Retrieval-Augmented Generation (RAG). Samma grundfråga som CLAUDE.md, AGENTS.md och SKILL.md redan löser — hur får modellen kunskap den inte redan har? — men löst dynamiskt istället för statiskt. Styrfilerna ger samma innehåll varje gång; RAG hämtar olika innehåll beroende på vad som faktiskt efterfrågas.',
+    excerpt:`# RAG Retrieval Agent – Pedagogisk & Kontrollerbar
+
+**Syfte med denna fil**
+Denna \`agents.md\` definierar en agent som både **utför** retrieval på ett
+smart sätt och **förklarar** vad den gör och varför. Målet är dubbelt:
+1. Ge högkvalitativ, kontrollerbar retrieval (Classic RAG → Advanced RAG).
+2. Hjälpa användaren (och andra AI-modeller) att **förstå** RAG-koncepten
+   i praktiken.
+
+Filen är skriven generellt så att den kan användas i Claude Projects,
+Cursor, LangChain/LlamaIndex-agenter, Grok custom agents eller liknande
+miljöer.`,
+    fact:`<strong>Classic RAG kontra Advanced RAG:</strong> Classic är en rak kedja (fråga → embedding → sökning → topp-träffar → svar), bra för enkla frågor. Advanced lägger till hybrid-sökning, reranking och källkritik, för komplexa eller faktakänsliga frågor. Jag har byggt ett konkret exempel som visar båda sida vid sida: en biografisida om författaren Frans G. Bengtsson, med en öppen <em>Retrieval Summary</em> som redovisar vilken teknik som användes och varför — se <a href="https://kentlundgren.github.io/AI-teknik/RAG/Frans-G-Bengtsson/" target="_blank" rel="noopener">live-sidan</a> och hela <a href="https://klel.wordpress.com/2026/08/01/sluta-gissa-ragga-i-stallet/" target="_blank" rel="noopener">resonemanget i bloggen</a>.<br><br>
+<strong>Testa det själv, med en prompt:</strong> "Använd Advanced RAG enligt <a href="https://github.com/kentlundgren/AI-teknik/blob/main/RAG/agents.md" target="_blank" rel="noopener">agents.md</a> och <a href="https://github.com/kentlundgren/AI-teknik/blob/main/RAG/skills.md" target="_blank" rel="noopener">skills.md</a> på det här: verifiera varje sakpåstående mot minst två oberoende källor, rangordna källorna efter tillförlitlighet, och avsluta med en Retrieval Summary (teknik, källor, reranking, varför)."<br><br>
+Har du redan min globala skill <code>kent-advanced-rag</code> laddad (se <a href="https://github.com/kentlundgren/AI-teknik/blob/main/AI_modeller/Claude/olika_Claude_modeller/.claude/skills/kent-advanced-rag/SKILL.md" target="_blank" rel="noopener">kopian i det här repot</a>) räcker en kortare påminnelse: "Kör det här i Advanced RAG-läge." Men en ärlig brasklapp: det här är <em>inte</em> riktig teknisk RAG — ingen vektordatabas, inga embeddings. Samma krav och samma ärlighet, tillämpade manuellt av en AI-agent med vanliga sökverktyg.`,
+    note:'Jag testade den här policyn på arbetet med det här kortet självt — bad Claude verifiera sina källor mot minst två oberoende ställen innan något skrevs, precis som jag kräver i Frans G. Bengtsson-exemplet. Det kändes som ett naturligt sätt att avsluta Fas 1 på: inte bara beskriva RAG, utan faktiskt använda det.'
   }
 ];
 
