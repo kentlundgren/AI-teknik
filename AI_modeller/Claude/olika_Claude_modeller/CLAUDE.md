@@ -65,10 +65,16 @@ var den lagras — inte bara på nivån. Matris nedan:
 - Når dem: **Claude Code** och **Cursor agent**. Inte Cowork.
 - `claude-kompassen-konventioner` — konventioner för index.html i detta projekt
 - `linkedin-ai-respons` — LinkedIn-kommentarer på andras AI-inlägg
+- `kent-advanced-rag` — **kopia** (ej auktoritativ, se varningsruta i filen) av
+  den globala skillen med samma namn. Ligger här bara för synlighet/länkbarhet
+  på GitHub, eftersom den globala `.claude`-mappen inte ingår i något repo.
+  Tillkom 1/8 2026 under `PRD/PRD_rag.md`.
 
 **Nivå 2 — Global på datorn:**
 - `C:\Users\kentl\.claude\skills\` — når dem: **Claude Code** och **Cursor agent**:
-  `humanizer_ton`, `kent-bygg-sidor`, `kent-respons`, `kent-skrivstil`, `skills-meta-guide`
+  `humanizer_ton`, `kent-advanced-rag` (ny, 1/8 2026 — Advanced RAG-policy från
+  `AI-teknik/RAG/agents.md`/`skills.md`, tillämpad manuellt), `kent-bygg-sidor`,
+  `kent-meta-regler-for-code`, `kent-respons`, `kent-skrivstil`, `skills-meta-guide`
 - `C:\Users\kentl\.cursor\skills\` — når dem: **Cursor agent** (ej Claude Code):
   `bjerred-firebase-sync`, `firebase-backend`
 - `C:\Users\kentl\.cursor\skills-cursor\` — når dem: **Cursor agent** (ej Claude Code):

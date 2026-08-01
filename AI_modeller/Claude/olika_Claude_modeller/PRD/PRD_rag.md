@@ -3,8 +3,8 @@
 **Namn:** PRD_rag
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_rag.md`
 **Skapad:** 2026-08-01
-**Version:** 8 (genomläst med "nya ögon" — flera stale/inkonsekventa avsnitt
-rättade, se Ändringslogg)
+**Version:** 9 (ny skill `kent-advanced-rag` skapad, promptexempel bekräftat
+som publikt kompass-/blogginnehåll)
 **Status:** **Planering, praktiskt taget skrivklart.** Ingen kod, blogg
 eller källpost skriven ännu.
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen, Fas 1),
@@ -232,6 +232,47 @@ stående praxis sparad i minnessystemet
 regeländringar söker Claude proaktivt igenom kända styrfilsplatser, istället
 för att vänta på att Kent upptäcker glapp och ber om spridning separat.
 
+**4f. Advanced RAG tillämpat på arbetet självt — BESLUTAT ✓ (nytt, metanivå)**
+Kent föreslog (2026-08-01) att tillämpa sin egen Advanced RAG-policy
+(`RAG/agents.md`/`skills.md`) på själva arbetet med den här PRD:n och
+Claude-kompassen — inte bara beskriva RAG, utan praktisera den: verifiera
+sakpåståenden mot minst två oberoende källor, med en transparent Retrieval
+Summary. **Viktig ärlighetsdetalj:** detta är inte teknisk RAG (inga
+embeddings/vektordatabas) — det är samma beslutslogik och transparenskrav,
+tillämpade manuellt av Claude som agent med egna sökverktyg (WebSearch,
+WebFetch). Skillnad mot grundnivån (`kent-meta-regler-for-code`, Regel 2/3,
+som redan kräver verifierade länkar och inget fabricerat): kravet på
+**minst två oberoende källor** och en **skriven Retrieval Summary**.
+
+**Genomfört:** en ny skill skapad i två versioner:
+- **Auktoritativ:** `kent-advanced-rag`, nivå 2 (global),
+  `C:\Users\kentl\.claude\skills\kent-advanced-rag\SKILL.md`.
+- **Kopia** (ej auktoritativ, tydligt markerad som sådan i filen), nivå 1
+  (projekt), `.claude/skills/kent-advanced-rag/SKILL.md` i den här mappen —
+  skapad för att Kent ska kunna se och länka till skillen på GitHub (den
+  globala `.claude`-mappen ingår inte i något repo). Skillen länkar tillbaka
+  till Claude-kompassen och till det här PRD:t, så sammanhanget den skapades
+  i går att hitta senare.
+- Projektets `CLAUDE.md` (Skill-inventeringen) uppdaterad med den nya
+  skillen på båda nivåerna — samma spridningspraxis som i 4e, tillämpad
+  direkt i stunden istället för att vänta på att Kent upptäcker glappet.
+
+**Kents promptexempel (2026-08-01), bekräftat och länkverifierat:**
+
+> "Använd Advanced RAG enligt
+> [AI-teknik/RAG/agents.md](https://github.com/kentlundgren/AI-teknik/blob/main/RAG/agents.md)
+> och [skills.md](https://github.com/kentlundgren/AI-teknik/blob/main/RAG/skills.md)
+> på det här: verifiera varje sakpåstående mot minst två oberoende källor,
+> rangordna källorna efter tillförlitlighet, och avsluta med en Retrieval
+> Summary (teknik, källor, reranking, varför)."
+
+**Beslut:** detta promptexempel ska med i både Claude-kompassen (RAG-kortet
+i Fas 1) och det nya blogginlägget, som ett praktiskt exempel på "hur man
+promptar RAG" — tillsammans med brasklappen att det inte är riktig teknisk
+RAG (se ärlighetsdetaljen ovan). Blir ett fjärde "levande exempel" i
+materialet, bredvid RAG/-projektet, Frans G. Bengtsson-exemplet och
+spridnings-episoden (4e).
+
 ## 5. Leveranser
 
 - [x] Beslut 4a (kortstruktur i Fas 1) — fjärde kort, efter SKILL.md
@@ -243,6 +284,9 @@ för att vänta på att Kent upptäcker glapp och ber om spridning separat.
 - [x] Beslut 4d (blogg och kompass, båda)
 - [x] Beslut 4e (annoterad källförteckning) — genomfört, spridd till fem
       styrfiler
+- [x] Beslut 4f (Advanced RAG på arbetet självt) — skillen `kent-advanced-rag`
+      skapad (global + projektkopia), promptexempel bekräftat och
+      länkverifierat, CLAUDE.md:s Skill-inventering uppdaterad
 - [ ] Öppen delfråga: ska 2024-texterna och/eller Frans G. Bengtsson-posten
       läggas in i `sourcesData` (med ev. omlettring av 2026a–g), eller bara
       nämnas i blogginlägget?
@@ -384,3 +428,14 @@ blogg eller källpost är skriven ännu — bara detta PRD.
   läggs in — hade aldrig skrivits in i själva PRD:t; tillagt under 4b:s
   öppna delfråga. Produktionsordning (6) och Leveranser (5) omskrivna för
   att spegla att 4a–4e faktiskt är klara.
+- 2026-08-01 (v9): Ny punkt 4f — Kent föreslog att tillämpa sin egen
+  Advanced RAG-policy på arbetet med den här PRD:n/kompassen självt, inte
+  bara beskriva den. Genomfört: ny skill `kent-advanced-rag` skapad i två
+  versioner (nivå 2 global, auktoritativ; nivå 1 projekt, tydligt markerad
+  kopia för synlighet/länkbarhet på GitHub) — båda länkar tillbaka till
+  Claude-kompassen och det här PRD:t. Projektets `CLAUDE.md`
+  (Skill-inventeringen) uppdaterad direkt, utan att vänta på att Kent
+  efterfrågar det separat (tillämpning av `feedback_propagate_standing_rules`
+  i praktiken). Kents promptexempel (med riktiga GitHub-länkar till
+  `agents.md`/`skills.md`) verifierat och godkänt som fjärde levande exempel
+  i blogg/kompass, med brasklapp om att det inte är teknisk RAG.
