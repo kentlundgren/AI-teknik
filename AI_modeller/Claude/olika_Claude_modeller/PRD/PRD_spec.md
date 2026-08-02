@@ -3,11 +3,10 @@
 **Namn:** PRD_spec
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_spec.md`
 **Skapad:** 2026-08-02
-**Version:** 2 (delfråga a/c beslutade och sammanslagna efter Kents svar;
-4d omtolkad och väntar på scope-beslut)
-**Status:** Utkast — 2 av 4 delfrågor beslutade (a, c). Väntar på Kents
-scope-beslut om multiagent-idén (d) och rekommendationen i (b) innan
-frysning.
+**Version:** 3 (delfråga d beslutad — enda SPEC.md, multiagent-idén noterad
+som framtida riktning, ej i scope)
+**Status:** Utkast — 3 av 4 delfrågor beslutade (a, c, d). Väntar bara på
+Kents ställningstagande till rekommendationen i (b) innan frysning.
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen, Fas 0),
 inte en grund-PRD för ett nytt projekt.
 
@@ -96,18 +95,22 @@ ställning till", inte "gör alltid". Riktmärke: tekniskt komplexa eller
 starkt agent-drivna leveranser, se det levande exemplet under 4a för hur
 riktmärket tillämpas.
 
-**d) Namnkonvention — ÖPPEN, mer komplex än ursprungsfrågan.** Ursprungsfrågan
-gällde en axel: en enda fil (`SPEC.md`, à la `CLAUDE.md`/`AGENTS.md`) kontra
-flera filer uppdelade *efter fas inom samma leverans* (`requirements.md`/
-`design.md`/`tasks.md`, à la Kiro — krav vs. design vs. uppgifter, fortfarande
-en arbetstråd). Kent har lyft en annan, distinkt idé under diskussionen:
-flera filer uppdelade *efter specialiserad agent-roll* (t.ex. en design-/
-layoutagent, en researchagent, en språkgranskare, en kritiker) — embryot till
-ett fullständigt multiagent-arbetsflöde för att bygga/förbättra kompassen,
-inte bara en filnamnskonvention. Den idén är större än vad 4d ursprungligen
-avsåg och väntar på ett scope-beslut från Kent (se separat fråga i chatten):
-notera den bara som framtida riktning här, eller bredda den här PRD:ns
-scope för att utforska den nu.
+**d) Namnkonvention — BESLUTAT ✓.** En enda `SPEC.md`, för visuell och
+begreppsmässig konsekvens med `CLAUDE.md`/`AGENTS.md`/`SKILL.md` i Fas 1.
+Kent lyfte under diskussionen en distinkt, större idé: flera spec-filer
+uppdelade *efter specialiserad agent-roll* (t.ex. en design-/layoutagent, en
+researchagent, en språkgranskare, en kritiker) — embryot till ett
+fullständigt multiagent-arbetsflöde för att bygga/förbättra kompassen,
+snarare än en filnamnskonvention för en enskild leverans. Kent beslutade att
+hålla den här PRD:n avgränsad: idén noteras här som framtida riktning (se
+`fact`-liknande notering nedan) men avgörs inte i det här dokumentet — en
+eventuell multiagent-arbetsflödes-PRD blir ett eget, senare dokument.
+
+*Framtida riktning, ej beslutad här:* ett SPEC-steg som i sig består av
+flera rollspecifika filer (design/layout, research, språkgranskning,
+kritisk granskning) skulle kunna styra ett multiagent-arbetsflöde för
+kompassens egen produktion. Väcker frågor om orkestrering (jfr Workflow-
+verktyget) som ligger utanför den här PRD:ns omfattning.
 
 ## 5. Leveranser
 
@@ -115,7 +118,7 @@ scope för att utforska den nu.
 - [x] Beslut om delfråga a (arbetssätt vs. bara visning på sidan) — checkpoint-fråga, inte obligatoriskt SPEC.md
 - [ ] Beslut om delfråga b (eget kort vs. rad i stegkedjan)
 - [x] Beslut om delfråga c (obligatoriskt vs. valfritt) — valfritt, samma beslut som a
-- [ ] Beslut om delfråga d (namnkonvention) — väntar på Kents scope-beslut om multiagent-idén
+- [x] Beslut om delfråga d (namnkonvention) — en enda SPEC.md; multiagent-idén noterad som framtida riktning, egen PRD senare
 - [ ] Ny/utökad kortdata i `index.html`, Fas 0, enligt besluten ovan
 - [ ] `PRD_generell.md` uppdaterad med ny stående delfråga: "Behövs ett
       SPEC.md-steg härifrån?"
@@ -160,13 +163,15 @@ beständiga filen mellan sessioner.)*
 
 ## 8. Status
 
-Delfrågorna a och c är beslutade och sammanslagna: SPEC.md blir en
+Tre av fyra delfrågor är beslutade. a och c slogs ihop: SPEC.md blir en
 checkpoint-fråga i varje framtida PRD (`PRD_generell.md`), inte ett
-obligatoriskt dokument. Delfråga b är i huvudsak löst genom Kents eget
-förslag ("steg 0.5"), med en kvarstående detalj (eget kort vs. rad) där jag
-lagt en rekommendation. Delfråga d visade sig rymma en större, distinkt idé
-(multiagent-uppdelade specer) som väntar på ett scope-beslut från Kent innan
-PRD:n kan frysas.
+obligatoriskt dokument — med ett levande exempel tillämpat på PRD:n själv
+(svaret blev nej för denna leverans). d landade i en enda `SPEC.md`, med
+Kents multiagent-idé medvetet lämnad utanför scope som en framtida,
+separat PRD. Enda kvarstående punkten innan frysning är b: Kents eget
+"steg 0.5"-förslag för placering är i huvudsak löst, men detaljen eget
+syskonkort vs. rad i stegkedjan väntar på hans slutgiltiga godkännande av
+min rekommendation (eget kort).
 
 ## Ändringslogg
 
@@ -178,3 +183,7 @@ PRD:n kan frysas.
   exempel tillämpat på PRD:n själv. Delfråga d omtolkad efter Kents fråga —
   hans multiagent-idé är en annan axel än den ursprungliga
   fil-per-fas-frågan och väntar på ett separat scope-beslut.
+- 2026-08-02 (v3): Delfråga d beslutad efter Kents scope-svar — en enda
+  SPEC.md, multiagent-idén medvetet lämnad utanför scope som framtida,
+  egen PRD. Endast delfråga b (rekommendationen om eget syskonkort) kvarstår
+  innan frysning.
