@@ -3,9 +3,10 @@
 **Namn:** PRD_spec
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_spec.md`
 **Skapad:** 2026-08-02
-**Version:** 4 (delfråga b beslutad — alla fyra delfrågor nu avgjorda)
-**Status:** Redo att frysas — alla fyra delfrågor (a–d) beslutade. Väntar på
-Kents formella "frys".
+**Version:** 5 (genomläsning med nya ögon gjord, tre glapp rättade;
+blogginlägg innan kodning bekräftat som en del av produktionsordningen)
+**Status:** Redo att frysas — alla fyra delfrågor (a–d) beslutade, PRD:n
+genomläst en gång till. Väntar på Kents formella "frys".
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen, Fas 0),
 inte en grund-PRD för ett nytt projekt.
 
@@ -50,6 +51,10 @@ utanför den här PRD:ns scope (se avsnitt 3, "Ingår inte").
   textinnehåll på hög nivå — inte färdig HTML-kod).
 - Beslutsunderlag för om SPEC.md ska bli en del av projektets eget
   arbetssätt.
+- Ett blogginlägg till klel.wordpress.com/category/ai/ som sammanfattar och
+  reflekterar kring PRD vs. SPEC.md-distinktionen, skrivet innan kodningen
+  börjar — Kents etablerade mönster för att samla tankarna innan en
+  leverans byggs, bekräftat för den här PRD:n 2026-08-02.
 
 **Ingår inte:**
 - Att skriva om Fas 1–3 i kompassen.
@@ -61,9 +66,9 @@ utanför den här PRD:ns scope (se avsnitt 3, "Ingår inte").
 - Att avgöra frågan för Kents projekt utanför det här repot (rekommendationen
   kan återanvändas, men det är inte vad som avgörs här).
 - Att avgöra om `index.html` ska delas upp i separata HTML/CSS/JS-filer —
-  se Tillägg 2026-08-02 i avsnitt 1. Det är en egen, större arkitekturfråga
-  som inte gates:as av eller påverkar SPEC-kortets placering (se 4b), och
-  hör hemma i en egen framtida PRD.
+  se Tillägg 2026-08-02 ("ny fråga under 4b-diskussionen") i avsnitt 1. Det
+  är en egen, större arkitekturfråga som inte gates:as av eller påverkar
+  SPEC-kortets placering (se 4b), och hör hemma i en egen framtida PRD.
 
 ## 4. Frågor och beslut
 
@@ -126,26 +131,28 @@ verktyget) som ligger utanför den här PRD:ns omfattning.
 
 ## 5. Leveranser
 
+- [x] Genomläsning med nya ögon genomförd (2026-08-02, tre glapp hittade och rättade)
 - [ ] PRD frusen och godkänd av Kent
 - [x] Beslut om delfråga a (arbetssätt vs. bara visning på sidan) — checkpoint-fråga, inte obligatoriskt SPEC.md
 - [x] Beslut om delfråga b (eget kort vs. rad i stegkedjan) — eget syskonkort inom Fas 0, inte ny Fas 0.5
 - [x] Beslut om delfråga c (obligatoriskt vs. valfritt) — valfritt, samma beslut som a
 - [x] Beslut om delfråga d (namnkonvention) — en enda SPEC.md; multiagent-idén noterad som framtida riktning, egen PRD senare
+- [ ] Blogginlägg skrivet och publicerat (klel.wordpress.com/category/ai/), innan kodning
 - [ ] Ny/utökad kortdata i `index.html`, Fas 0, enligt besluten ovan
 - [ ] `PRD_generell.md` uppdaterad med ny stående delfråga: "Behövs ett
       SPEC.md-steg härifrån?"
 
 ## 6. Produktionsordning
 
-1. Frys den här PRD:n efter Kents justeringar (väntar på b och d).
-2. Uppdatera `PRD_generell.md` **innan** kompassen kodas — mallen ska styra
-   hur nästa PRD skrivs, inte tvärtom. Lägg till den stående delfrågan från
-   4a/4c.
-3. Uppdatera `index.html`, Fas 0, enligt besluten i avsnitt 4.
-4. Möjlig framtida leverans (out of scope att besluta här, nämns bara för
-   spårbarhet): ett blogginlägg om PRD vs. SPEC.md, i linje med det
-   återkommande mönstret käll-/innehållsarbete → blogg → kompass som
-   `PRD_generell.md` beskriver.
+1. Genomläsning med nya ögon (gjord 2026-08-02, se Ändringslogg v5).
+2. Frys den här PRD:n.
+3. Skriv och publicera blogginlägget till klel.wordpress.com/category/ai/ —
+   *innan* kodning, samma mönster som `PRD_generell.md` beskriver
+   (käll-/innehållsarbete klart → blogginlägg bär det fulla resonemanget →
+   kod/kompass blir ett komprimerat destillat av bloggen).
+4. Uppdatera `PRD_generell.md` med den stående delfrågan från 4a/4c —
+   mallen ska styra hur nästa PRD skrivs, inte tvärtom.
+5. Uppdatera `index.html`, Fas 0, enligt besluten i avsnitt 4.
 
 ## 7. Källor
 
@@ -184,7 +191,12 @@ PRD. b landade i ett eget syskonkort inom Fas 0 — inte en ny "Fas 0.5" —
 ett informationsarkitektur-/designval som inte rör kompassens processflöde.
 En till separat fråga restes under samma diskussion (bör `index.html` delas
 upp i HTML/CSS/JS?) och lades medvetet utanför scope, se Tillägg 2026-08-02
-i avsnitt 1 och "Ingår inte" i avsnitt 3. PRD:n är redo att frysas.
+("ny fråga under 4b-diskussionen") i avsnitt 1 och "Ingår inte" i avsnitt 3.
+En genomläsning med nya ögon (Kents etablerade praxis innan kodning startar)
+hittade tre glapp — en stale rad i produktionsordningen, en tvetydig
+korsreferens mellan två likadant daterade Tillägg, och bloggmomentet
+felaktigt skrivet som "out of scope" trots att Kent bekräftat det — alla
+rättade i v5. PRD:n är redo att frysas.
 
 ## Ändringslogg
 
@@ -205,3 +217,10 @@ i avsnitt 1 och "Ingår inte" i avsnitt 3. PRD:n är redo att frysas.
   processflödesändring. Kents fråga om att dela upp `index.html` i
   HTML/CSS/JS noterad och medvetet lagd utanför scope. Alla fyra delfrågor
   nu beslutade — PRD:n redo att frysas.
+- 2026-08-02 (v5): Genomläsning med nya ögon, på Kents begäran innan
+  kodning. Tre glapp hittade och rättade: stale "(väntar på b och d)" i
+  produktionsordningen, tvetydig korsreferens mellan två likadant daterade
+  Tillägg i avsnitt 1, och bloggmomentet felskrivet som "out of scope" trots
+  att Kent bekräftat att han vill ha ett blogginlägg till
+  klel.wordpress.com/category/ai/ innan kodningen — flyttat in i Omfattning,
+  Leveranser och Produktionsordning.
