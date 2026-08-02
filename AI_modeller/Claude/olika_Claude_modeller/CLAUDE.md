@@ -15,12 +15,30 @@ projektkontext mellan sessioner.
 - [Tappade bort mig i Claudes ekosystem](https://klel.wordpress.com/2026/07/27/tappade-bort-mig-i-claudes-ekosystem/) (27/7 2026)
 - [Namnet 'main' betyder inte alltid main](https://klel.wordpress.com/2026/07/28/namnet-main-betyder-inte-alltid-main/) (28/7 2026)
 
-## Bilder i mappen (ska väva in i text + kod, inte bara illustrera)
-1. `Clalude_ai_tre_saker_i_en__260729.jpg` — claude.ai webb: Chat/Code/Cowork på en startsida
-2. `Clalude_appen_tre_saker_i_en__260729.jpg` — Claude-appen: samma tre, annan layout
-3. `kör_igång_Clalude_i_kommandotolken_260729.jpg` — Claude Code i fristående kommandotolk
-4. `GitHub_CLI_authentication_expired_260729.jpg` — gh-autentisering, ej inloggad (diagnostiserat)
-5. `Claude_i_Cursor.jpg` — Claude Code dubbelt inuti Cursor (sidopanel + terminal samtidigt)
+## Bilder (i `Bilder/`-mappen, ska väva in i text + kod, inte bara illustrera)
+
+**Tillägg 2/8 2026:** alla bilder som tidigare låg direkt i projektroten flyttades
+till en egen `Bilder/`-mapp, för att hålla rotmappen ren. Alla kopplingar
+(index.html, denna fil, bloggtextutkast, skillen `claude-kompassen-konventioner`)
+uppdaterades samtidigt.
+
+1. `Bilder/Clalude_ai_tre_saker_i_en__260729.jpg` — claude.ai webb: Chat/Code/Cowork på en startsida
+2. `Bilder/Clalude_appen_tre_saker_i_en__260729.jpg` — Claude-appen: samma tre, annan layout
+3. `Bilder/kör_igång_Clalude_i_kommandotolken_260729.jpg` — Claude Code i fristående kommandotolk
+4. `Bilder/GitHub_CLI_authentication_expired_260729.jpg` — gh-autentisering, ej inloggad (diagnostiserat)
+5. `Bilder/Claude_i_Cursor.jpg` — Claude Code dubbelt inuti Cursor (sidopanel + terminal samtidigt)
+
+Även invävda i index.html: `Bilder/Globala_Claude_skills_260729.jpg` och
+`Bilder/projektet_i_GitHub_260729.jpg` (repo-skärmdumpen).
+
+Används bara i `bloggtext-utkast-surface-harness.md` (utkast, inte
+publicerat): `Bilder/Claude_i_Cursor_steg2.jpg`, `Bilder/projektet_i_GitHub_bild2_260729.jpg`.
+
+Ej refererade någonstans ännu (flyttade oförändrat, ingen koppling att
+uppdatera): `Bilder/Claude_Cowork_och_Claude_Code.jpg`,
+`Bilder/Filer_som_styr_samarbetet_bl_a_Skills_på_tre_olika_nivåer.jpg`,
+`Bilder/Globala_Claude_skills__260729.jpg` (obs, dubblett-likt filnamn —
+dubbelt understreck, skilj från punkten ovan), `Bilder/ratt_mapp.jpg`.
 
 ## Status
 **Klart och publicerat** (29–30/7 2026): bloggtext, verktyg och LinkedIn-inlägg alla

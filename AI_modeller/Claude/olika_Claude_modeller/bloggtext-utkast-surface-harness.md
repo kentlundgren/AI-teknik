@@ -12,7 +12,7 @@ Innan jag väljer var jag ska jobba har jag redan filer som formar hur Claude be
 
 **CLAUDE.md** läser Claude Code vid varje session, oavsett vilken yta jag sitter i. **AGENTS.md** är en öppen standard som Cursor och en lång rad andra verktyg läser — men inte Claude Code. **SKILL.md** är ämnesspecifika instruktioner som triggas kontextuellt, snarare än alltid inlästa, och de finns på tre olika ställen samtidigt: projektnivå, global nivå på min dator, och kontoanknutet till mitt Claude-konto.
 
-![Global nivå för Claude-skills på min dator, med kent-bygg-sidor nytillkommen](Globala_Claude_skills_260729.jpg)
+![Global nivå för Claude-skills på min dator, med kent-bygg-sidor nytillkommen](Bilder/Globala_Claude_skills_260729.jpg)
 *Min egen `.claude\skills`-mapp, samma dag en ny skill (kent-bygg-sidor) tillkom.*
 
 Det tredje stället blev ett konkret problem, inte bara en teoretisk risk. Skillen `kent-skrivstil` — den som formar just den här texten — visade sig ligga på **två** ställen samtidigt: globalt på datorn, och kontoanknutet, utan att vara synkade. Jag uppdaterade den ena för att lägga till en regel. Den andra fick ingen ändring alls. Det är precis den krocken jag menar när jag säger att flera nivåer är både en fördel och en nackdel — flexibiliteten att välja hur brett en regel ska gälla kostar överblick, särskilt när man, som jag, vill ha kontrollen själv istället för att lämna bort ägarskapet över sina egna skills helt.
@@ -23,16 +23,16 @@ Det tredje stället blev ett konkret problem, inte bara en teoretisk risk. Skill
 
 Nästa val är var jag faktiskt klickar. Anthropic har ett eget ord för det: **surface**. Claude Codes egen ordlista definierar det ordagrant som varje plats man når Claude Code från — CLI, VS Code, JetBrains, Desktop, claude.ai — och tillägger att alla ytor delar samma motor [(Anthropic, 2026a)](https://code.claude.com/docs/en/glossary).
 
-![Claude.ai i webbläsaren med Chat, Code och Cowork på samma startsida](Clalude_ai_tre_saker_i_en__260729.jpg)
+![Claude.ai i webbläsaren med Chat, Code och Cowork på samma startsida](Bilder/Clalude_ai_tre_saker_i_en__260729.jpg)
 *claude.ai: Chat, Code och Cowork nås härifrån, men Code och Cowork ligger under "Products" i menyn.*
 
-![Claude-appen på skrivbordet, samma tre saker i en annan layout](Clalude_appen_tre_saker_i_en__260729.jpg)
+![Claude-appen på skrivbordet, samma tre saker i en annan layout](Bilder/Clalude_appen_tre_saker_i_en__260729.jpg)
 *Samma namn som webben. Helt andra platser att hitta dem på.*
 
-![Kommandotolken med Claude Code och en förtroendefråga](kör_igång_Clalude_i_kommandotolken_260729.jpg)
+![Kommandotolken med Claude Code och en förtroendefråga](Bilder/kör_igång_Clalude_i_kommandotolken_260729.jpg)
 *Den mest ärliga ytan: ingen meny att gömma sig bakom, bara en fråga om förtroende innan något annat händer.*
 
-![Cursor med Claude Code i både sidopanel och inbyggd terminal samtidigt](Claude_i_Cursor.jpg)
+![Cursor med Claude Code i både sidopanel och inbyggd terminal samtidigt](Bilder/Claude_i_Cursor.jpg)
 *Samma harness, två gränssnitt, ett fönster — inte bara fyra olika appar, utan samma verktyg som dyker upp fler gånger än man tror.*
 
 "Harness" är för övrigt inte ett ord jag skulle sätta på alla fyra bilderna ovan. Anthropic reserverar det specifikt för Claude Code: verktygen, kontexthanteringen och exekveringsmiljön som gör modellen till en kapabel agent [(Anthropic, 2026a)](https://code.claude.com/docs/en/glossary). Chatten i webbläsaren pratar. Claude Code kan röra filer och köra kommandon. Skillnaden mellan bild ett och bild fyra är inte bara utseende.
@@ -43,14 +43,14 @@ Nästa val är var jag faktiskt klickar. Anthropic har ett eget ord för det: **
 
 Den sista fasen handlar om vad som händer efter Claude, och här är jag inte objektiv, och tänker inte låtsas vara det.
 
-![Cursor med filträdet för hela projektet synligt i sidopanelen](Claude_i_Cursor_steg2.jpg)
+![Cursor med filträdet för hela projektet synligt i sidopanelen](Bilder/Claude_i_Cursor_steg2.jpg)
 *Här väljer jag Cursor. Jag ser alla filer i projektet, har kontroll på versionshanteringen, kan granska allt i en webbläsare.*
 
 Jag väljer aktivt Cursor för det här — inte Claude Code. Claude Code känns i den här fasen helt värdelöst för mig när det gäller att hantera filer, versionshantering och överföring till webben. Det kan bero på att jag jobbat länge med Cursor och är van vid plattformen, inte på att Claude Code faktiskt saknar förmågan (jag har sett Claude Code köra samma git-kommandon lika bra från sin egen terminal). Men det är så jag upplever det, och det är upplevelsen som styr valet, inte en teknisk jämförelse.
 
 Det är också i Cursor jag väljer **vad** som förs över till GitHub — hela mappen, eller bara en delmängd. Jag har själv skrivit om hur man gör det senare, med en orphan-gren och en pre-push-hook, i [Namnet 'main' betyder inte alltid main](https://klel.wordpress.com/2026/07/28/namnet-main-betyder-inte-alltid-main/) [(Lundgren, 2026c)](https://klel.wordpress.com/2026/07/28/namnet-main-betyder-inte-alltid-main/).
 
-![Repot på GitHub, med alla filer som byggde den här sidan](projektet_i_GitHub_bild2_260729.jpg)
+![Repot på GitHub, med alla filer som byggde den här sidan](Bilder/projektet_i_GitHub_bild2_260729.jpg)
 *Det som förs över blir en URL vem som helst kan öppna, via GitHub Pages — hela projektet, eller bara den delmängd jag valde.*
 
 ## En bild av, inte facit

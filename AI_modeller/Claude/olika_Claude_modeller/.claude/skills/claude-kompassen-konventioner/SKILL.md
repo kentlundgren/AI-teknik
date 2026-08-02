@@ -74,9 +74,12 @@ konkret visa att alla tre nivåerna kan förekomma i samma projekt samtidigt.
   det motsade `kent-skrivstil`s egna konvention. Befintliga kort skrivs inte
   om retroaktivt utan uttrycklig begäran, men nya/redigerade kort får länka
   externa källor inline när det hjälper läsaren.
-- Skärmdumparna i mappen refereras med sina exakta filnamn (t.ex.
-  `Clalude_ai_tre_saker_i_en__260729.jpg`, med stavningen "Clalude" — en äkta
-  stavning i det ursprungliga filnamnet, rätta den inte).
+- **Alla bilder ligger i en egen `Bilder/`-mapp** (flyttat dit 2/8 2026,
+  låg tidigare direkt i projektroten). Referera dem med sökvägen
+  `Bilder/<filnamn>`, t.ex. `Bilder/Clalude_ai_tre_saker_i_en__260729.jpg` —
+  stavningen "Clalude" i flera filnamn är en äkta stavning i de ursprungliga
+  filnamnen, rätta den inte. Nya bilder som läggs till i projektet ska också
+  läggas i `Bilder/`, inte i roten.
 - **`sourcesData`-ordning (31/7 2026):** listan ska stå i alfabetisk Harvard-ordning
   (författare/organisation/titel, skiftlägesokänsligt), inte kronologisk — ändrat
   från den ursprungliga kronologiska ordningen. Flera verk av samma författare
