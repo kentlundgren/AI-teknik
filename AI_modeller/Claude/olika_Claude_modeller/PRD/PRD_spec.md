@@ -3,9 +3,10 @@
 **Namn:** PRD_spec
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_spec.md`
 **Skapad:** 2026-08-02
-**Version:** 6 (fryst av Kent 2026-08-02)
-**Status:** **Fryst.** Nästa steg enligt produktionsordningen: blogginlägg
-→ `PRD_generell.md`-uppdatering → `index.html`, Fas 0.
+**Version:** 7 (blogginlägg publicerat och verifierat)
+**Status:** **Fryst.** Blogginlägget publicerat och verifierat (rätt
+kategori, alla källänkar, PRD_spec.md-länken på plats). Nästa steg:
+`PRD_generell.md`-uppdatering → `index.html`, Fas 0.
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen, Fas 0),
 inte en grund-PRD för ett nytt projekt.
 
@@ -136,7 +137,7 @@ verktyget) som ligger utanför den här PRD:ns omfattning.
 - [x] Beslut om delfråga b (eget kort vs. rad i stegkedjan) — eget syskonkort inom Fas 0, inte ny Fas 0.5
 - [x] Beslut om delfråga c (obligatoriskt vs. valfritt) — valfritt, samma beslut som a
 - [x] Beslut om delfråga d (namnkonvention) — en enda SPEC.md; multiagent-idén noterad som framtida riktning, egen PRD senare
-- [ ] Blogginlägg skrivet och publicerat (klel.wordpress.com/category/ai/), innan kodning
+- [x] Blogginlägg skrivet och publicerat (klel.wordpress.com/category/ai/), innan kodning — [Behöver jag en spec.md?](https://klel.wordpress.com/2026/08/02/behover-jag-en-spec-md/), 2026-08-02
 - [ ] Ny/utökad kortdata i `index.html`, Fas 0, enligt besluten ovan
 - [ ] `PRD_generell.md` uppdaterad med ny stående delfråga: "Behövs ett
       SPEC.md-steg härifrån?"
@@ -225,3 +226,8 @@ rättade i v5. PRD:n är redo att frysas.
   Leveranser och Produktionsordning.
 - 2026-08-02 (v6): PRD fryst av Kent. Nästa steg: blogginlägg, sedan
   `PRD_generell.md`, sedan `index.html`.
+- 2026-08-02 (v7): Blogginlägget publicerat
+  ([Behöver jag en spec.md?](https://klel.wordpress.com/2026/08/02/behover-jag-en-spec-md/))
+  och verifierat med webbläsarens accessibility-träd, inte bara löptext:
+  rätt kategori (AI), alla fem källänkar korrekta, PRD_spec.md-länken på
+  plats efter en första publicering som saknade den och låg i fel kategori.
