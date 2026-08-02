@@ -3,28 +3,29 @@
 **Namn:** PRD_generell
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_generell.md`
 **Skapad:** 2026-08-01
-**Version:** 3 (ny stående delfråga om SPEC.md tillagd, efter `PRD_spec.md`)
+**Version:** 4 (klickbara länkar till de tre PRD:erna och till Claude-kompassen tillagda, onödig bakgrundsdetalj i Status borttagen)
 **Status:** Referensdokument — inte en PRD för ett verkligt uppdrag. En
-genomgång av strukturen, framtagen som ett medvetet metastopp under arbetet
-med `PRD_rag.md`, på Kents begäran ("jag vill se och lära hela tiden, även
-ur ett metaperspektiv").
+genomgång av strukturen, destillerad ur tre genomförda PRD:er (se länkar
+nedan).
 **Typ:** Referens/mall — inte grund- eller tilläggs-PRD.
 
 Den här filen beskriver *inte* ett riktigt uppdrag. Den är destillerad ur de
 tre riktiga PRD:er som faktiskt tagits fram hittills i det här projektet —
-`PRD_mappkontroll.md` (klar), `PRD_rag.md` (klar) och `PRD_spec.md` (klar,
-tillförde inget nytt strukturavsnitt men väl en ny stående delfråga, se
-avsnitt 2 nedan) — för att visa mönstret som återkommer i dem, snarare än
+[PRD_mappkontroll.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_mappkontroll.md)
+(klar), [PRD_rag.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_rag.md)
+(klar) och [PRD_spec.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_spec.md)
+(klar, tillförde inget nytt strukturavsnitt men väl en ny stående delfråga,
+se avsnitt 2 nedan) — för att visa mönstret som återkommer i dem, snarare än
 att uppfinna ett nytt.
 
 ## 1. Varför en PRD innan kodning?
 
-Grundprincipen som Claude-kompassens egen Fas 0 beskriver: kom överens om
-*vad* och *varför* innan något kodas eller publiceras. En felaktig
-utgångspunkt är dyr att rätta till i efterhand — särskilt om kod eller
-publicerad text redan byggts på den. En PRD är den skriftliga platsen där
-den avstämningen sker och blir spårbar, istället för att bara finnas i en
-konversation som glöms bort.
+Grundprincipen som [Claude-kompassens](https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/)
+egen Fas 0 beskriver: kom överens om *vad* och *varför* innan något kodas
+eller publiceras. En felaktig utgångspunkt är dyr att rätta till i
+efterhand — särskilt om kod eller publicerad text redan byggts på den. En
+PRD är den skriftliga platsen där den avstämningen sker och blir spårbar,
+istället för att bara finnas i en konversation som glöms bort.
 
 ## 2. Grundstruktur, avsnitt för avsnitt
 
@@ -144,9 +145,9 @@ besluten växte fram, inte bara vad slutresultatet blev.
 
 ## 4. De tre riktiga PRD:er den här mallen är destillerad från
 
-- `PRD_mappkontroll.md` — tilläggs-PRD, klar och avslutad.
-- `PRD_rag.md` — tilläggs-PRD, klar och avslutad.
-- `PRD_spec.md` — tilläggs-PRD, fryst och avslutad. Tillförde ingen ny
+- [PRD_mappkontroll.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_mappkontroll.md) — tilläggs-PRD, klar och avslutad.
+- [PRD_rag.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_rag.md) — tilläggs-PRD, klar och avslutad.
+- [PRD_spec.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_spec.md) — tilläggs-PRD, fryst och avslutad. Tillförde ingen ny
   strukturdel, men väl den stående delfrågan om SPEC.md i avsnitt 2 ovan.
 
 ## Ändringslogg
@@ -163,3 +164,9 @@ besluten växte fram, inte bara vad slutresultatet blev.
   SPEC.md-steg härifrån?"), beslutad i `PRD_spec.md` (4a/4c). Två nya
   lärdomar tillagda i avsnitt 3. Räknarna i rubrikerna uppdaterade från två
   till tre PRD:er.
+- 2026-08-02 (v4): På Kents begäran: (1) den utförliga bakgrunden i Status
+  om varför filen skapades ("medvetet metastopp ... metaperspektiv") togs
+  bort som onödig information, (2) `PRD_mappkontroll.md`, `PRD_rag.md` och
+  `PRD_spec.md` länkas nu direkt till GitHub på sina två ställen (intro och
+  avsnitt 4) så läsaren lätt hittar konkreta exempel, (3) "Claude-kompassen"
+  i avsnitt 1 länkas till den skarpa, publicerade versionen.
