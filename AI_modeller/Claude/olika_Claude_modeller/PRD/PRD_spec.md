@@ -3,10 +3,9 @@
 **Namn:** PRD_spec
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_spec.md`
 **Skapad:** 2026-08-02
-**Version:** 3 (delfråga d beslutad — enda SPEC.md, multiagent-idén noterad
-som framtida riktning, ej i scope)
-**Status:** Utkast — 3 av 4 delfrågor beslutade (a, c, d). Väntar bara på
-Kents ställningstagande till rekommendationen i (b) innan frysning.
+**Version:** 4 (delfråga b beslutad — alla fyra delfrågor nu avgjorda)
+**Status:** Redo att frysas — alla fyra delfrågor (a–d) beslutade. Väntar på
+Kents formella "frys".
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen, Fas 0),
 inte en grund-PRD för ett nytt projekt.
 
@@ -25,6 +24,14 @@ spegla den skillnaden.
 bli en del av projektets *eget* arbetssätt (inte bara en förklaring för
 läsaren) öppen — se 4a. Han föreslog själv en konkret placering: SPEC.md som
 ett "steg 0.5", efter PRD men före CLAUDE.md — se 4b.
+
+**Tillägg 2026-08-02, ny fråga under 4b-diskussionen:** Kent lyfte en separat
+arkitekturfråga — om `index.html` (som växer i storlek och komplexitet) bör
+delas upp i separata HTML/CSS/JS-filer, och om det i så fall påverkar var/hur
+SPEC.md-konceptet visualiseras. Bedömning: det påverkar inte 4b — samma
+kortdatastruktur (`id`/`name`/`sub`/`intro`/`steps`/`fact`/`note`) fungerar
+oavsett om koden ligger i en fil eller flera. Frågan är egen och läggs
+utanför den här PRD:ns scope (se avsnitt 3, "Ingår inte").
 
 ## 2. Syfte
 
@@ -53,6 +60,10 @@ ett "steg 0.5", efter PRD men före CLAUDE.md — se 4b.
   beskriver.
 - Att avgöra frågan för Kents projekt utanför det här repot (rekommendationen
   kan återanvändas, men det är inte vad som avgörs här).
+- Att avgöra om `index.html` ska delas upp i separata HTML/CSS/JS-filer —
+  se Tillägg 2026-08-02 i avsnitt 1. Det är en egen, större arkitekturfråga
+  som inte gates:as av eller påverkar SPEC-kortets placering (se 4b), och
+  hör hemma i en egen framtida PRD.
 
 ## 4. Frågor och beslut
 
@@ -74,18 +85,19 @@ utan SPEC.md). Den kvalificerar inte som tekniskt komplex eller starkt
 agent-driven. Det blir kompassens första konkreta, *negativa* exempel på
 checkpoint-frågan — lika lärorikt som ett positivt exempel hade varit.
 
-**b) Var i Fas 0 ska SPEC-konceptet placeras? — I HUVUDSAK LÖST ✓, en
-detalj kvar.** Kent föreslog själv "steg 0.5": SPEC.md kommer efter PRD,
-före CLAUDE.md. Källorna stödjer det rakt av — GitHub Spec-Kits
-Specify→Plan→Tasks→Implement och Kiros requirements→design→tasks placerar
-båda den precisa specifikationen mellan högnivå-intention och
-implementation (Delimarsky, 2025; Kiro, 2026). Kvarstående detalj: ska
-SPEC.md få **ett eget syskonkort** i Fas 0 (samma format som dagens
-PRD-kort — egen intro, eget "varför skiljer den sig") eller bara **en rad**
-i PRD-kortets befintliga stegkedja? Min rekommendation: eget syskonkort.
-PRD-kortet får sin tyngd just av att förklara *varför* det skiljer sig från
-grannen (CLAUDE.md) — SPEC.md förtjänar samma utrymme gentemot sin egen
-granne (PRD), annars blir det en osynlig detalj i en punktlista.
+**b) Var i Fas 0 ska SPEC-konceptet placeras? — BESLUTAT ✓.** Ett eget
+syskonkort inom Fas 0 (samma format som dagens PRD-kort), **inte** en ny
+egen "Fas 0.5" som Kent först föreslog. Kent bekräftade riktningen men var
+osäker på om valet var rent visuellt eller om det påverkade kompassens
+processflöde/logik — värt att reda ut explicit: **det är ett
+informationsarkitektur-/designval, inte ett logikval.** Fas 0 representerar
+redan hela "innan CLAUDE.md skrivs"-steget; att lägga ett andra kort i
+samma Fas-sektion ändrar inte sekvensen Fas 0 → Fas 1 → Fas 2 → Fas 3 — det
+är samma mönster som redan finns i Fas 1, som har flera kort (CLAUDE.md,
+AGENTS.md, SKILL.md, RAG) inom en och samma fas utan att fasindelningen
+påverkas. Källorna stödjer ordningen PRD → SPEC → kodning i sak (Delimarsky,
+2025; Kiro, 2026), men *var på sidan* det visas är separat från *i vilken
+ordning* det sker.
 
 **c) Ska SPEC.md vara obligatoriskt efter varje PRD, eller valfritt? —
 BESLUTAT ✓, samma svar som 4a.** Valfritt. Thoughtworks (Liu, 2025) varnar
@@ -116,7 +128,7 @@ verktyget) som ligger utanför den här PRD:ns omfattning.
 
 - [ ] PRD frusen och godkänd av Kent
 - [x] Beslut om delfråga a (arbetssätt vs. bara visning på sidan) — checkpoint-fråga, inte obligatoriskt SPEC.md
-- [ ] Beslut om delfråga b (eget kort vs. rad i stegkedjan)
+- [x] Beslut om delfråga b (eget kort vs. rad i stegkedjan) — eget syskonkort inom Fas 0, inte ny Fas 0.5
 - [x] Beslut om delfråga c (obligatoriskt vs. valfritt) — valfritt, samma beslut som a
 - [x] Beslut om delfråga d (namnkonvention) — en enda SPEC.md; multiagent-idén noterad som framtida riktning, egen PRD senare
 - [ ] Ny/utökad kortdata i `index.html`, Fas 0, enligt besluten ovan
@@ -163,15 +175,16 @@ beständiga filen mellan sessioner.)*
 
 ## 8. Status
 
-Tre av fyra delfrågor är beslutade. a och c slogs ihop: SPEC.md blir en
+Alla fyra delfrågor är beslutade. a och c slogs ihop: SPEC.md blir en
 checkpoint-fråga i varje framtida PRD (`PRD_generell.md`), inte ett
 obligatoriskt dokument — med ett levande exempel tillämpat på PRD:n själv
 (svaret blev nej för denna leverans). d landade i en enda `SPEC.md`, med
-Kents multiagent-idé medvetet lämnad utanför scope som en framtida,
-separat PRD. Enda kvarstående punkten innan frysning är b: Kents eget
-"steg 0.5"-förslag för placering är i huvudsak löst, men detaljen eget
-syskonkort vs. rad i stegkedjan väntar på hans slutgiltiga godkännande av
-min rekommendation (eget kort).
+Kents multiagent-idé medvetet lämnad utanför scope som en framtida, separat
+PRD. b landade i ett eget syskonkort inom Fas 0 — inte en ny "Fas 0.5" —
+ett informationsarkitektur-/designval som inte rör kompassens processflöde.
+En till separat fråga restes under samma diskussion (bör `index.html` delas
+upp i HTML/CSS/JS?) och lades medvetet utanför scope, se Tillägg 2026-08-02
+i avsnitt 1 och "Ingår inte" i avsnitt 3. PRD:n är redo att frysas.
 
 ## Ändringslogg
 
@@ -187,3 +200,8 @@ min rekommendation (eget kort).
   SPEC.md, multiagent-idén medvetet lämnad utanför scope som framtida,
   egen PRD. Endast delfråga b (rekommendationen om eget syskonkort) kvarstår
   innan frysning.
+- 2026-08-02 (v4): Delfråga b beslutad — eget syskonkort inom Fas 0, inte
+  ny Fas 0.5, klargjort som design-/informationsarkitekturval snarare än
+  processflödesändring. Kents fråga om att dela upp `index.html` i
+  HTML/CSS/JS noterad och medvetet lagd utanför scope. Alla fyra delfrågor
+  nu beslutade — PRD:n redo att frysas.
