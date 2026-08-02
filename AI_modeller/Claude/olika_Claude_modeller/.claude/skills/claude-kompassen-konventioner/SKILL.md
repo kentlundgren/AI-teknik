@@ -18,8 +18,10 @@ konkret visa att alla tre nivåerna kan förekomma i samma projekt samtidigt.
 
 ## Struktur i index.html
 
-- Sex sektioner, i ordning: **Fas 0** (`id="fas0"`, PRD — kravdokumentet som
-  föregår allt annat, tillagd 31/7 2026), **Fas 1** (`id="fas1"`, styrfiler
+- Sex sektioner, i ordning: **Fas 0** (`id="fas0"`, PRD och SPEC.md —
+  kravdokument och (ibland) agent-specifikation som föregår allt annat,
+  PRD-kortet tillagt 31/7 2026, SPEC.md-kortet tillagt 2/8 2026, se
+  `PRD/PRD_spec.md`), **Fas 1** (`id="fas1"`, styrfiler
   CLAUDE.md/AGENTS.md/SKILL.md), **Fas 2** (`id="fas2"`, ytor), **Fas 3**
   (`id="fas3"`, Cursor/Git/GitHub, uppdelat i 3a och 3b), **Sammanfattning**
   (`id="sammanfattning"`, processen bakom sidan), och **Källor** (`id="kallor"`,
@@ -50,9 +52,23 @@ konkret visa att alla tre nivåerna kan förekomma i samma projekt samtidigt.
 - Varje sektion använder samma mönster: en `.cards`-rad med klickbara knappar och
   en `.detail`-panel under som fylls via JavaScript (`showPrd`, `showSteer`,
   `showSurface`, `showPipeline`). Nya kort ska följa exakt detta mönster, inte
-  uppfinna ett nytt — det gäller även när en sektion (som Fas 0) bara har ett
-  enda kort: samma `.cards`-grid + klickbar `.card-btn` + auto-visad `.detail`
-  vid sidladdning, inte ett specialfall utan klick-interaktion.
+  uppfinna ett nytt — det gäller även när en sektion bara har ett enda kort
+  (t.ex. Fas 0 fram till 2/8 2026, då den fick sitt andra kort, SPEC.md): samma
+  `.cards`-grid + klickbar `.card-btn` + auto-visad `.detail` vid sidladdning
+  (första kortet i arrayen), inte ett specialfall utan klick-interaktion. Ett
+  nytt kort i en befintlig sektion (som SPEC.md i Fas 0) läggs helt enkelt till
+  som ett nytt objekt i samma data-array (t.ex. `prdData`) — ingen ny
+  JS-funktion eller ny sektion-`id` krävs, `renderPrd`/`showPrd` hanterar det
+  redan generiskt.
+- **Externa (icke-Kent) källor citeras bara via `sourcesData`, aldrig som
+  inline-länk i kort-texten** (`intro`/`fact`/`note`). Etablerat mönster: RAG-
+  kortets Gao/Lewis-referenser och SPEC.md-kortets Delimarsky/Kiro/Liu/Osmani-
+  referenser nämns bara vid namn i löptexten, med fullständig Harvard-post och
+  annotering i `sourcesData` — länka dit med `<a href="#kallor">Källor</a>` om
+  ett kort behöver peka dit. Inline-länkar i kort-texten är reserverade för
+  Kents egna sidor (blogginlägg, andra sidor i samma repo) och för direkt
+  verifierbara, "levande" exempel (t.ex. länk till en riktig PRD-fil på
+  GitHub).
 - Skärmdumparna i mappen refereras med sina exakta filnamn (t.ex.
   `Clalude_ai_tre_saker_i_en__260729.jpg`, med stavningen "Clalude" — en äkta
   stavning i det ursprungliga filnamnet, rätta den inte).
@@ -84,6 +100,11 @@ Kent vilket läge som gäller innan den antas följa samma regler som förut.
   "objektiv" kapacitetsjämförelse).
 - Git commit/push görs alltid av Kent själv via Cursor — den här skillen kodar
   inte om det, se `kent-bygg-sidor` för fullständig regel.
+- **SPEC.md-checkpointen gäller alla framtida PRD:er, inte bara Claude-
+  kompassen** (beslutat i `PRD/PRD_spec.md`, 2/8 2026, dokumenterat i
+  `PRD/PRD_generell.md`): varje ny PRD — oavsett projekt — ska explicit ta
+  ställning till "Behövs ett SPEC.md-steg härifrån?". Svaret är oftast nej;
+  det är själva frågan, inte ett obligatoriskt dokument, som är regeln.
 
 ## Relaterat
 

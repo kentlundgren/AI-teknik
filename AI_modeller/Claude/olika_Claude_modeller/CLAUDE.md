@@ -30,13 +30,24 @@ publicerade. Filer och länkar:
   (29/7 2026, disposition "B" — speglar verktygets Fas-struktur).
 - `index.html` — Claude-kompassen, publicerad live via GitHub Pages på
   https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/
-  Fem sektioner med ankarlänkar: `#fas1`, `#fas2`, `#fas3`, `#sammanfattning`, `#kallor`.
+  Sex sektioner med ankarlänkar: `#fas0`, `#fas1`, `#fas2`, `#fas3`,
+  `#sammanfattning`, `#kallor`.
 - LinkedIn: [Vilken är din Claude favorit](https://www.linkedin.com/pulse/vilken-%C3%A4r-din-claude-favorit-kent-lundgren-atqye/)
   (30/7 2026, Kents egen slutredigering).
 - `README.md` (denna mapp), `../README.md` (Claude-mappen) och repots rot-`README.md`
   alla uppdaterade för att spegla Fas-strukturen och de publicerade länkarna.
 - Projektnivå-skills i `.claude/skills/`: `claude-kompassen-konventioner` (struktur för
   `index.html`) och `kent-advanced-rag` (kopia, se nedan).
+
+**Tillägg efter 30/7 2026 (Fas 0 vuxit, PRD-process etablerad):** Fas 0
+utökades från ett PRD-kort till två — PRD och `SPEC.md` (2/8 2026, se
+`PRD/PRD_spec.md` och blogginlägget
+[Behöver jag en spec.md?](https://klel.wordpress.com/2026/08/02/behover-jag-en-spec-md/)).
+Fas 1 fick ett fjärde kort, RAG (1/8 2026, se `PRD/PRD_rag.md`). PRD-processen
+själv är nu dokumenterad i `PRD/PRD_generell.md` — inklusive en stående
+delfråga som varje ny PRD i vilket projekt som helst ska ställa: *"Behövs
+ett SPEC.md-steg härifrån?"* Tre PRD:er är klara i mappen `PRD/`:
+`PRD_mappkontroll.md`, `PRD_rag.md`, `PRD_spec.md`.
 
 Fullständig, löpande plan (med all bakgrund/research) finns i:
 `C:\Users\kentl\.claude\plans\abstract-leaping-lark.md`
