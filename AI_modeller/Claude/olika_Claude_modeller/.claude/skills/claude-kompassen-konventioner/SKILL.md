@@ -60,15 +60,20 @@ konkret visa att alla tre nivåerna kan förekomma i samma projekt samtidigt.
   som ett nytt objekt i samma data-array (t.ex. `prdData`) — ingen ny
   JS-funktion eller ny sektion-`id` krävs, `renderPrd`/`showPrd` hanterar det
   redan generiskt.
-- **Externa (icke-Kent) källor citeras bara via `sourcesData`, aldrig som
-  inline-länk i kort-texten** (`intro`/`fact`/`note`). Etablerat mönster: RAG-
-  kortets Gao/Lewis-referenser och SPEC.md-kortets Delimarsky/Kiro/Liu/Osmani-
-  referenser nämns bara vid namn i löptexten, med fullständig Harvard-post och
-  annotering i `sourcesData` — länka dit med `<a href="#kallor">Källor</a>` om
-  ett kort behöver peka dit. Inline-länkar i kort-texten är reserverade för
-  Kents egna sidor (blogginlägg, andra sidor i samma repo) och för direkt
-  verifierbara, "levande" exempel (t.ex. länk till en riktig PRD-fil på
-  GitHub).
+- **Externa (icke-Kent) källor får gärna länkas inline i kort-texten**
+  (`intro`/`fact`/`note`), särskilt den enskilt mest relevanta källan för
+  kortets resonemang — samma mönster som Kents egna blogginlägg (se
+  `kent-skrivstil`: `(Författare, år)` som klickbar länk i löptext, *plus*
+  full post i källförteckningen, inte antingen/eller). Kräv alltid en
+  fullständig, annoterad Harvard-post i `sourcesData` oavsett — inline-länken
+  är ett komplement till källförteckningen, aldrig en ersättning för den.
+  **Rättat 2/8 2026:** en tidigare version av den här regeln sa att externa
+  källor *aldrig* skulle länkas inline, bara nämnas vid namn (mönstret i
+  RAG-kortets Gao/Lewis och SPEC.md-kortets Delimarsky/Kiro/Liu/Osmani). Det
+  var en övertolkning från två exempel, inte ett beslut Kent fattat — och
+  det motsade `kent-skrivstil`s egna konvention. Befintliga kort skrivs inte
+  om retroaktivt utan uttrycklig begäran, men nya/redigerade kort får länka
+  externa källor inline när det hjälper läsaren.
 - Skärmdumparna i mappen refereras med sina exakta filnamn (t.ex.
   `Clalude_ai_tre_saker_i_en__260729.jpg`, med stavningen "Clalude" — en äkta
   stavning i det ursprungliga filnamnet, rätta den inte).
