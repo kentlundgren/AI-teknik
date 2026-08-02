@@ -3,8 +3,11 @@
 **Namn:** PRD_spec
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_spec.md`
 **Skapad:** 2026-08-02
-**Version:** 1 (skapad efter klargörande frågor och research)
-**Status:** Utkast — väntar på Kents granskning och justering innan frysning.
+**Version:** 2 (delfråga a/c beslutade och sammanslagna efter Kents svar;
+4d omtolkad och väntar på scope-beslut)
+**Status:** Utkast — 2 av 4 delfrågor beslutade (a, c). Väntar på Kents
+scope-beslut om multiagent-idén (d) och rekommendationen i (b) innan
+frysning.
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen, Fas 0),
 inte en grund-PRD för ett nytt projekt.
 
@@ -55,10 +58,22 @@ ett "steg 0.5", efter PRD men före CLAUDE.md — se 4b.
 ## 4. Frågor och beslut
 
 **a) Ska SPEC.md bli en del av projektets eget arbetssätt, eller bara
-förklaras som koncept på sidan? — ÖPPEN.** Kent svarade uttryckligen
-"osäker, PRD:n får utforska". Konsekvens om svaret blir ja: `PRD_generell.md`
-behöver ett nytt avsnitt om när ett SPEC.md-steg läggs till efter en PRD.
-Konsekvens om nej: bara textinnehållet i `index.html` berörs.
+förklaras som koncept på sidan? — BESLUTAT ✓ (sammanslagen med tidigare
+4c).** SPEC.md ska inte alltid skrivas — men varje PRD-arbete i det här
+projektet ska explicit ta ställning till om ett SPEC.md-steg behövs som
+nästa steg, innan CLAUDE.md uppdateras eller kodning börjar. Det är själva
+ställningstagandet, inte artefakten, som blir den nya stående praktiken.
+Konsekvens: `PRD_generell.md` får en ny, återkommande delfråga i avsnitt 4
+("Frågor och beslut") för alla framtida PRD:er: *"Behövs ett SPEC.md-steg
+härifrån?"*
+
+**Levande exempel, tillämpat på denna PRD:** behöver *den här* leveransen
+(nytt/utökat kort i Fas 0) ett eget SPEC.md innan kodning? Svar: nej —
+uppgiften är innehålls-/textarbete inom en redan etablerad kortmall (samma
+fält — id/name/sub/intro/steps/fact/note — som `PRD_rag.md` redan levererade
+utan SPEC.md). Den kvalificerar inte som tekniskt komplex eller starkt
+agent-driven. Det blir kompassens första konkreta, *negativa* exempel på
+checkpoint-frågan — lika lärorikt som ett positivt exempel hade varit.
 
 **b) Var i Fas 0 ska SPEC-konceptet placeras? — I HUVUDSAK LÖST ✓, en
 detalj kvar.** Kent föreslog själv "steg 0.5": SPEC.md kommer efter PRD,
@@ -74,32 +89,43 @@ grannen (CLAUDE.md) — SPEC.md förtjänar samma utrymme gentemot sin egen
 granne (PRD), annars blir det en osynlig detalj i en punktlista.
 
 **c) Ska SPEC.md vara obligatoriskt efter varje PRD, eller valfritt? —
-ÖPPEN, ny fråga identifierad under researchen.** Thoughtworks (Liu, 2025)
-varnar för "spec drift" och avsaknad av kvalitetsstandard när specifikationer
-används slentrianmässigt. Rekommendation: valfritt — ett steg som används
-för tekniskt komplexa eller starkt agent-drivna leveranser, inte för varje
-liten ändring.
+BESLUTAT ✓, samma svar som 4a.** Valfritt. Thoughtworks (Liu, 2025) varnar
+för "spec drift" och avsaknad av kvalitetsstandard när specifikationer
+används slentrianmässigt — vilket är precis varför 4a landade i "ta
+ställning till", inte "gör alltid". Riktmärke: tekniskt komplexa eller
+starkt agent-drivna leveranser, se det levande exemplet under 4a för hur
+riktmärket tillämpas.
 
-**d) Namnkonvention: en enda `SPEC.md` (à la `CLAUDE.md`/`AGENTS.md`) eller
-flera filer (`requirements.md`/`design.md`/`tasks.md` à la Kiro)? — ÖPPEN.**
-Rekommendation: en enda `SPEC.md`, för visuell och begreppsmässig konsekvens
-med de andra `.md`-styrfilerna som redan finns i Fas 1.
+**d) Namnkonvention — ÖPPEN, mer komplex än ursprungsfrågan.** Ursprungsfrågan
+gällde en axel: en enda fil (`SPEC.md`, à la `CLAUDE.md`/`AGENTS.md`) kontra
+flera filer uppdelade *efter fas inom samma leverans* (`requirements.md`/
+`design.md`/`tasks.md`, à la Kiro — krav vs. design vs. uppgifter, fortfarande
+en arbetstråd). Kent har lyft en annan, distinkt idé under diskussionen:
+flera filer uppdelade *efter specialiserad agent-roll* (t.ex. en design-/
+layoutagent, en researchagent, en språkgranskare, en kritiker) — embryot till
+ett fullständigt multiagent-arbetsflöde för att bygga/förbättra kompassen,
+inte bara en filnamnskonvention. Den idén är större än vad 4d ursprungligen
+avsåg och väntar på ett scope-beslut från Kent (se separat fråga i chatten):
+notera den bara som framtida riktning här, eller bredda den här PRD:ns
+scope för att utforska den nu.
 
 ## 5. Leveranser
 
 - [ ] PRD frusen och godkänd av Kent
-- [ ] Beslut om delfråga a (arbetssätt vs. bara visning på sidan)
+- [x] Beslut om delfråga a (arbetssätt vs. bara visning på sidan) — checkpoint-fråga, inte obligatoriskt SPEC.md
 - [ ] Beslut om delfråga b (eget kort vs. rad i stegkedjan)
-- [ ] Beslut om delfråga c (obligatoriskt vs. valfritt)
-- [ ] Beslut om delfråga d (namnkonvention)
+- [x] Beslut om delfråga c (obligatoriskt vs. valfritt) — valfritt, samma beslut som a
+- [ ] Beslut om delfråga d (namnkonvention) — väntar på Kents scope-beslut om multiagent-idén
 - [ ] Ny/utökad kortdata i `index.html`, Fas 0, enligt besluten ovan
-- [ ] `PRD_generell.md` uppdaterad, om delfråga a besvaras "ja"
+- [ ] `PRD_generell.md` uppdaterad med ny stående delfråga: "Behövs ett
+      SPEC.md-steg härifrån?"
 
 ## 6. Produktionsordning
 
-1. Frys den här PRD:n efter Kents justeringar.
-2. Om delfråga a = ja: uppdatera `PRD_generell.md` **innan** kompassen kodas
-   — mallen ska styra hur nästa PRD skrivs, inte tvärtom.
+1. Frys den här PRD:n efter Kents justeringar (väntar på b och d).
+2. Uppdatera `PRD_generell.md` **innan** kompassen kodas — mallen ska styra
+   hur nästa PRD skrivs, inte tvärtom. Lägg till den stående delfrågan från
+   4a/4c.
 3. Uppdatera `index.html`, Fas 0, enligt besluten i avsnitt 4.
 4. Möjlig framtida leverans (out of scope att besluta här, nämns bara för
    spårbarhet): ett blogginlägg om PRD vs. SPEC.md, i linje med det
@@ -134,14 +160,21 @@ beständiga filen mellan sessioner.)*
 
 ## 8. Status
 
-PRD:n är ett förstautkast, inte frusen. Delfråga a lämnas medvetet öppen på
-Kents egen begäran. Delfråga b är i huvudsak löst genom Kents eget förslag
-("steg 0.5"), med en återstående detalj (eget kort vs. rad) där jag lagt en
-rekommendation. Delfrågorna c och d är nya, identifierade under researchen,
-och väntar på Kents ställningstagande innan PRD:n kan frysas.
+Delfrågorna a och c är beslutade och sammanslagna: SPEC.md blir en
+checkpoint-fråga i varje framtida PRD (`PRD_generell.md`), inte ett
+obligatoriskt dokument. Delfråga b är i huvudsak löst genom Kents eget
+förslag ("steg 0.5"), med en kvarstående detalj (eget kort vs. rad) där jag
+lagt en rekommendation. Delfråga d visade sig rymma en större, distinkt idé
+(multiagent-uppdelade specer) som väntar på ett scope-beslut från Kent innan
+PRD:n kan frysas.
 
 ## Ändringslogg
 
 - 2026-08-02 (v1): Skapad efter tre klargörande frågor till Kent (syfte,
   placering, källkrav) och en researchrunda med fyra oberoende källor om
   spec-driven development.
+- 2026-08-02 (v2): Delfråga a och c beslutade och sammanslagna efter Kents
+  svar (checkpoint per PRD, inte obligatoriskt SPEC.md), med ett levande
+  exempel tillämpat på PRD:n själv. Delfråga d omtolkad efter Kents fråga —
+  hans multiagent-idé är en annan axel än den ursprungliga
+  fil-per-fas-frågan och väntar på ett separat scope-beslut.
