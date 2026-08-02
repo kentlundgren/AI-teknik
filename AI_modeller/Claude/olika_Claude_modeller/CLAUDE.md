@@ -34,6 +34,25 @@ uppdaterades samtidigt.
 Används bara i `bloggtext-utkast-surface-harness.md` (utkast, inte
 publicerat): `Bilder/Claude_i_Cursor_steg2.jpg`, `Bilder/projektet_i_GitHub_bild2_260729.jpg`.
 
+**Tillägg 2/8 2026, samma dag: två nya, illustrerade bilder tillkom, kopplade
+till dagens PRD/SPEC.md-arbete.** Används i LinkedIn-artikeln
+[Min "samvaro" med Claude](https://www.linkedin.com/pulse/min-samvaro-med-claude-kent-lundgren-gdjee/)
+(2/8 2026) — inte (ännu) i `index.html`. Kandidater för återanvändning direkt
+i kompassen, särskilt den andra:
+
+- `Bilder/Claude_kompassens_fas0_260802.jpg` — illustration i tre steg: "Fråga
+  hellre en gång för mycket" → "Riktigt samtal innan kod" → "Formell PRD
+  (Fas 0) + ibland SPEC". Speglar den personliga utvecklingsresan i
+  LinkedIn-artikeln, inte kompassens fulla struktur.
+- `Bilder/Claude_kompassens_tre_faser_260802.jpg` — en lagrad
+  översiktsbild av hela kompassen: Fas 0 (PRD, ibland SPEC.md) i kärnan,
+  Fas 1 (levande styrfiler: CLAUDE.md/AGENTS.md/SKILL.md), Fas 2 (val av
+  yta: CLI/desktop/Cursor), Fas 3 (Cursor + Git → GitHub Pages) som yttre
+  lager, med "Claude-kompassen" märkt som kompassnålen överst. Den här är
+  den starkaste kandidaten att väva in direkt i kompassen — den visar i
+  bildform exakt det index.html redan beskriver i text och kort, men har
+  ingen egen samlad översiktsbild av idag.
+
 Ej refererade någonstans ännu (flyttade oförändrat, ingen koppling att
 uppdatera): `Bilder/Claude_Cowork_och_Claude_Code.jpg`,
 `Bilder/Filer_som_styr_samarbetet_bl_a_Skills_på_tre_olika_nivåer.jpg`,
