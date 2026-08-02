@@ -3,10 +3,9 @@
 **Namn:** PRD_spec
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_spec.md`
 **Skapad:** 2026-08-02
-**Version:** 5 (genomläsning med nya ögon gjord, tre glapp rättade;
-blogginlägg innan kodning bekräftat som en del av produktionsordningen)
-**Status:** Redo att frysas — alla fyra delfrågor (a–d) beslutade, PRD:n
-genomläst en gång till. Väntar på Kents formella "frys".
+**Version:** 6 (fryst av Kent 2026-08-02)
+**Status:** **Fryst.** Nästa steg enligt produktionsordningen: blogginlägg
+→ `PRD_generell.md`-uppdatering → `index.html`, Fas 0.
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen, Fas 0),
 inte en grund-PRD för ett nytt projekt.
 
@@ -132,7 +131,7 @@ verktyget) som ligger utanför den här PRD:ns omfattning.
 ## 5. Leveranser
 
 - [x] Genomläsning med nya ögon genomförd (2026-08-02, tre glapp hittade och rättade)
-- [ ] PRD frusen och godkänd av Kent
+- [x] PRD frusen och godkänd av Kent (2026-08-02)
 - [x] Beslut om delfråga a (arbetssätt vs. bara visning på sidan) — checkpoint-fråga, inte obligatoriskt SPEC.md
 - [x] Beslut om delfråga b (eget kort vs. rad i stegkedjan) — eget syskonkort inom Fas 0, inte ny Fas 0.5
 - [x] Beslut om delfråga c (obligatoriskt vs. valfritt) — valfritt, samma beslut som a
@@ -224,3 +223,5 @@ rättade i v5. PRD:n är redo att frysas.
   att Kent bekräftat att han vill ha ett blogginlägg till
   klel.wordpress.com/category/ai/ innan kodningen — flyttat in i Omfattning,
   Leveranser och Produktionsordning.
+- 2026-08-02 (v6): PRD fryst av Kent. Nästa steg: blogginlägg, sedan
+  `PRD_generell.md`, sedan `index.html`.
