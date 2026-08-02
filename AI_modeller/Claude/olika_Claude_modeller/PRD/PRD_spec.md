@@ -3,10 +3,10 @@
 **Namn:** PRD_spec
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_spec.md`
 **Skapad:** 2026-08-02
-**Version:** 7 (blogginlägg publicerat och verifierat)
-**Status:** **Fryst.** Blogginlägget publicerat och verifierat (rätt
-kategori, alla källänkar, PRD_spec.md-länken på plats). Nästa steg:
-`PRD_generell.md`-uppdatering → `index.html`, Fas 0.
+**Version:** 8 (genomfört — `PRD_generell.md` och `index.html` uppdaterade)
+**Status:** **Genomfört.** Blogginlägg, `PRD_generell.md`-uppdatering och
+SPEC.md-kortet i `index.html` (Fas 0) är alla levererade och verifierade i
+webbläsaren. Ingen kod eller källpost kvarstår.
 **Typ:** Tilläggs-PRD (bygger på befintlig struktur i Claude-kompassen, Fas 0),
 inte en grund-PRD för ett nytt projekt.
 
@@ -138,9 +138,9 @@ verktyget) som ligger utanför den här PRD:ns omfattning.
 - [x] Beslut om delfråga c (obligatoriskt vs. valfritt) — valfritt, samma beslut som a
 - [x] Beslut om delfråga d (namnkonvention) — en enda SPEC.md; multiagent-idén noterad som framtida riktning, egen PRD senare
 - [x] Blogginlägg skrivet och publicerat (klel.wordpress.com/category/ai/), innan kodning — [Behöver jag en spec.md?](https://klel.wordpress.com/2026/08/02/behover-jag-en-spec-md/), 2026-08-02
-- [ ] Ny/utökad kortdata i `index.html`, Fas 0, enligt besluten ovan
-- [ ] `PRD_generell.md` uppdaterad med ny stående delfråga: "Behövs ett
-      SPEC.md-steg härifrån?"
+- [x] Ny/utökad kortdata i `index.html`, Fas 0, enligt besluten ovan — verifierat i webbläsaren (kortväxling, källänkar, `sourcesData`)
+- [x] `PRD_generell.md` uppdaterad med ny stående delfråga: "Behövs ett
+      SPEC.md-steg härifrån?" (v3)
 
 ## 6. Produktionsordning
 
@@ -231,3 +231,11 @@ rättade i v5. PRD:n är redo att frysas.
   och verifierat med webbläsarens accessibility-träd, inte bara löptext:
   rätt kategori (AI), alla fem källänkar korrekta, PRD_spec.md-länken på
   plats efter en första publicering som saknade den och låg i fel kategori.
+- 2026-08-02 (v8): Genomfört. `PRD_generell.md` uppdaterad med den stående
+  delfrågan (v3 där). `index.html`, Fas 0, fick ett nytt SPEC.md-syskonkort
+  till PRD-kortet (id `spec`, samma kortformat), plus fyra nya källor i
+  `sourcesData` (Delimarsky, Kiro, Liu, Osmani) och det egna blogginlägget
+  som en femte (Lundgren 2026j), alla i rätt alfabetisk ordning. Fas 0:s
+  intro, H2 och Fas 1-noten justerade för att nämna SPEC.md. Verifierat
+  live i webbläsaren: kortväxling fungerar, alla länkar och källor
+  renderas korrekt, inga konsolfel.

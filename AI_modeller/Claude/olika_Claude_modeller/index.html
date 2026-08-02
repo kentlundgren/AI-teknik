@@ -191,12 +191,12 @@
   <section class="intro-section">
     <p>Jag hade svårt att se hela processen — hur jag faktiskt jobbar med Claude, Cursor och GitHub när jag kodar. Den här sidan är mitt försök att rita upp det.</p>
     <button class="btn-link" onclick="document.getElementById('sources-modal').classList.add('show')">Tidigare texter i ämnet och andra källor →</button>
-    <p style="margin-top:1.3rem;">Så är sidan uppbyggd: den börjar med <strong><a href="#fas0">Fas 0</a></strong> — kravdokumentet (PRD) som föregår allt annat — sedan tre faser: <strong><a href="#fas1">Fas 1</a></strong> — filerna som redan <strong>styr</strong> samarbetet innan man ens börjar. <strong><a href="#fas2">Fas 2</a></strong> — vilken <strong>yta</strong> man väljer att jobba i, med sina egna verktyg och modeller. <strong><a href="#fas3">Fas 3</a></strong> — versionhantering i Cursor och Git (3a), och leverans till GitHub där filerna blir levande sidor vem som helst kan nå via en URL (3b). Längst ner: <a href="#sammanfattning">en sammanfattning</a> av hur den här sidan själv blev till. Klicka på en ruta nedan.</p>
+    <p style="margin-top:1.3rem;">Så är sidan uppbyggd: den börjar med <strong><a href="#fas0">Fas 0</a></strong> — kravdokumentet (PRD), och ibland en agent-orienterad specifikation (SPEC.md), som föregår allt annat — sedan tre faser: <strong><a href="#fas1">Fas 1</a></strong> — filerna som redan <strong>styr</strong> samarbetet innan man ens börjar. <strong><a href="#fas2">Fas 2</a></strong> — vilken <strong>yta</strong> man väljer att jobba i, med sina egna verktyg och modeller. <strong><a href="#fas3">Fas 3</a></strong> — versionhantering i Cursor och Git (3a), och leverans till GitHub där filerna blir levande sidor vem som helst kan nå via en URL (3b). Längst ner: <a href="#sammanfattning">en sammanfattning</a> av hur den här sidan själv blev till. Klicka på en ruta nedan.</p>
   </section>
 
   <section id="fas0">
     <span class="tag pre">Fas 0</span>
-    <h2><a class="anchor-heading" href="#fas0" title="Länk till detta avsnitt">PRD — innan man ens skriver CLAUDE.md</a></h2>
+    <h2><a class="anchor-heading" href="#fas0" title="Länk till detta avsnitt">PRD (och ibland SPEC.md) — innan man ens skriver CLAUDE.md</a></h2>
     <div class="cards" id="prd-cards"></div>
     <div class="detail" id="prd-detail"></div>
   </section>
@@ -206,7 +206,7 @@
     <h2><a class="anchor-heading" href="#fas1" title="Länk till detta avsnitt">Filerna som styr samarbetet — innan man börjar</a></h2>
     <div class="cards" id="steer-cards"></div>
     <div class="detail" id="steer-detail"></div>
-    <div class="note" style="margin-top:1rem;">PRD (Product Requirements Document) beskrivs i <a href="#fas0">Fas 0</a> ovan — kravdokumentet som föregår dessa styrfiler.</div>
+    <div class="note" style="margin-top:1rem;">PRD (Product Requirements Document) och SPEC.md beskrivs i <a href="#fas0">Fas 0</a> ovan — kravdokumenten som föregår dessa styrfiler.</div>
   </section>
 
   <section id="fas2">
@@ -338,8 +338,11 @@ const sourcesData = [
   { ref: 'Anthropic (2024)', title: 'Introducing Contextual Retrieval.', type: '[Blogginlägg]', pub: 'Anthropic Engineering, 19/9 2024', url: 'https://www.anthropic.com/engineering/contextual-retrieval', urlLabel: 'anthropic.com/engineering/contextual-retrieval', annotation: 'Anthropics egen vidareutveckling av RAG, upp till 67 % färre missade träffar — visar var tekniken står idag, specifikt för Claude.' },
   { ref: 'Anthropic (2026a)', title: 'Glossary – Claude Code Docs.', type: '[Webbsida]', pub: 'Anthropic', url: 'https://code.claude.com/docs/en/glossary', urlLabel: 'code.claude.com/docs/en/glossary' },
   { ref: 'Anthropic (2026b)', title: 'The Claude Cowork product guide.', type: '[Blogginlägg]', pub: 'Anthropic', url: 'https://claude.com/blog/the-claude-cowork-product-guide', urlLabel: 'claude.com/blog/the-claude-cowork-product-guide' },
+  { ref: 'Delimarsky, D. (2025)', title: 'Spec-driven development with AI: Get started with a new open source toolkit.', type: '[Blogginlägg]', pub: 'GitHub Blog, 2/9 2025', url: 'https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/', urlLabel: 'github.blog/ai-and-ml/generative-ai', annotation: 'Officiell GitHub-annonsering av verktyget Spec-Kit och arbetsflödet Specify → Plan → Tasks → Implement — en av källorna bakom SPEC.md-kortet i Fas 0.' },
   { ref: 'Gao, Y. m.fl. (2023)', title: 'Retrieval-Augmented Generation for Large Language Models: A Survey.', type: '[Forskningsöversikt]', pub: 'arXiv:2312.10997', url: 'https://arxiv.org/abs/2312.10997', urlLabel: 'arxiv.org/abs/2312.10997', annotation: 'Delar RAG i Naive, Advanced och Modular RAG — den vetenskapliga grunden för min egen Classic/Advanced-indelning.' },
+  { ref: 'Kiro (2026)', title: 'Specs.', type: '[Produktdokumentation]', pub: 'Kiro Docs, Amazon Web Services, uppdaterad 22/7 2026', url: 'https://kiro.dev/docs/specs/', urlLabel: 'kiro.dev/docs/specs', annotation: 'AWS produktdokumentation som visar ett alternativt spec-mönster — tre separata filer i stället för en enda SPEC.md.' },
   { ref: 'Lewis, P. m.fl. (2020)', title: 'Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.', type: '[Konferenspapper]', pub: 'NeurIPS 2020', url: 'https://arxiv.org/abs/2005.11401', urlLabel: 'arxiv.org/abs/2005.11401', annotation: 'Originalpappret som myntade termen RAG — historisk startpunkt för hela tekniken.' },
+  { ref: 'Liu, S. (2025)', title: "Spec-driven development: Unpacking one of 2025's key new AI-assisted engineering practices.", type: '[Blogginlägg]', pub: 'Thoughtworks Insights, 4/12 2025', url: 'https://www.thoughtworks.com/en-us/insights/blog/agile-engineering-practices/spec-driven-development-unpacking-2025-new-engineering-practices', urlLabel: 'thoughtworks.com/insights', annotation: 'Oberoende konsultanalys, inte en verktygsleverantör — varnar för "spec drift", grunden för att SPEC.md blev en fråga snarare än ett krav i mitt eget arbetssätt.' },
   { ref: 'Lundgren, K. (2026a)', title: 'Claude Cowork, Cursor och Claude Code – tre verktyg, ett arbetsflöde.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 1/6 2026', url: 'https://klel.wordpress.com/2026/06/01/claude-cowork-cursor-och-claude-code-tre-verktyg-ett-arbetsflode/', urlLabel: 'klel.wordpress.com/2026/06/01' },
   { ref: 'Lundgren, K. (2026b)', title: 'Kan man lita på det AI:n berättar om Frans G. Bengtsson?', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 15/7 2026', url: 'https://klel.wordpress.com/2026/07/15/kan-man-lita-pa-det-ain-berattar-om-frans-g-bengtsson/', urlLabel: 'klel.wordpress.com/2026/07/15', annotation: 'Min praktiska tillämpning av Classic vs. Advanced RAG på en verklig biografisida.' },
   { ref: 'Lundgren, K. (2026c)', title: 'Tappade bort mig i Claudes ekosystem.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 27/7 2026', url: 'https://klel.wordpress.com/2026/07/27/tappade-bort-mig-i-claudes-ekosystem/', urlLabel: 'klel.wordpress.com/2026/07/27' },
@@ -349,6 +352,8 @@ const sourcesData = [
   { ref: 'Lundgren, K. (2026g)', title: 'PRD först – sedan CLAUDE.md.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 31/7 2026', url: 'https://klel.wordpress.com/2026/07/31/prd-forst-sedan-claude-md/', urlLabel: 'klel.wordpress.com/2026/07/31' },
   { ref: 'Lundgren, K. (2026h)', title: 'Vet du ens var vi är?', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 31/7 2026', url: 'https://klel.wordpress.com/2026/07/31/vet-du-ens-var-vi-ar/', urlLabel: 'klel.wordpress.com/2026/07/31' },
   { ref: 'Lundgren, K. (2026i)', title: 'Sluta gissa – ragga i stället.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 1/8 2026', url: 'https://klel.wordpress.com/2026/08/01/sluta-gissa-ragga-i-stallet/', urlLabel: 'klel.wordpress.com/2026/08/01', annotation: 'Blogginlägget bakom RAG-kortet i Fas 1 — hela resonemanget om Classic/Advanced RAG, Frans G. Bengtsson-exemplet och spridnings-episoden.' },
+  { ref: 'Lundgren, K. (2026j)', title: 'Behöver jag en spec.md?', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 2/8 2026', url: 'https://klel.wordpress.com/2026/08/02/behover-jag-en-spec-md/', urlLabel: 'klel.wordpress.com/2026/08/02', annotation: 'Blogginlägget bakom SPEC.md-kortet i Fas 0 — hela resonemanget om PRD_spec.md, det negativa exemplet och multiagent-idén jag valde bort.' },
+  { ref: 'Osmani, A. (2026)', title: 'How to write a good spec for AI agents.', type: '[Blogginlägg]', pub: 'addyosmani.com, 13/1 2026', url: 'https://addyosmani.com/blog/good-spec/', urlLabel: 'addyosmani.com/blog/good-spec', annotation: 'Den mest direkt relevanta källan — namnger uttryckligen SPEC.md som en beständig fil mellan AI-sessioner.' },
   { ref: '', title: 'Repot för det här projektet, med hela historiken bakom den här sidan.', type: '', pub: '', url: 'https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/olika_Claude_modeller', urlLabel: 'github.com/kentlundgren/AI-teknik' }
 ];
 
@@ -378,6 +383,19 @@ const prdData = [
     ],
     fact:`<strong>Ett andra, skarpt exempel, samma dag:</strong> när den här Fas 0-sektionen redan fanns användes processen på ett ämne som direkt påverkar den här sidan: mappkontroll — hur Claude säkerställer att den arbetar i rätt mapp, rätt repo, rätt nivå. PRD:n växte från ett enda exempel till tre separata insikter under frågor-steget, innan den frystes. Läs dokumentet: <a href="https://github.com/kentlundgren/AI-teknik/blob/main/AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_mappkontroll.md" target="_blank" rel="noopener">PRD_mappkontroll.md →</a>, eller hela historien: <a href="https://klel.wordpress.com/2026/07/31/vet-du-ens-var-vi-ar/" target="_blank" rel="noopener">Vet du ens var vi är?</a> (klel.wordpress.com, 31/7 2026).`,
     note:`Källa: <a href="https://klel.wordpress.com/2026/07/31/prd-forst-sedan-claude-md/" target="_blank" rel="noopener">PRD först – sedan CLAUDE.md</a> (klel.wordpress.com, 31/7 2026). Verkligt exempel: <a href="https://github.com/kentlundgren/Ovrigt/blob/main/Fritid/ol_Tyskland/PRD_slap.md" target="_blank" rel="noopener">PRD_slap.md →</a> (från ett annat projekt).`
+  },
+  {
+    id:'spec', name:'SPEC.md', sub:'Ett precisionslager, inte alltid nödvändigt',
+    intro:`En spec går ett steg längre än PRD:n till vänster — den beskriver inte bara <em>vad</em> och <em>varför</em>, utan <em>exakt hur</em>: indata, utdata, gränsfall, vad som räknas som klart. Skälet: en människa som läser en lite vag PRD fyller själv i luckorna med organisatorisk kontext hon redan har. En AI-agent fyller i samma luckor också — men med en gissning. Flera verktyg (GitHub Spec-Kit, AWS Kiros specs) bygger hela arbetsflöden kring den insikten, och namnger filen SPEC.md som en beständig fil AI:n kan återvända till mellan sessioner. Men en spec är inte ett nytt obligatoriskt steg för varje PRD — den är ett extra precisionslager för leveranser som faktiskt är tekniskt komplexa eller starkt agent-drivna. Se <a href="https://klel.wordpress.com/2026/08/02/behover-jag-en-spec-md/" target="_blank" rel="noopener">Behöver jag en spec.md?</a> för hela resonemanget.`,
+    steps:[
+      'Efter att PRD:n frysts: ställ frågan — behövs ett SPEC.md-steg härifrån?',
+      'Om nej: gå direkt vidare till CLAUDE.md, som PRD-kortet beskriver',
+      'Om ja: skriv exakta gränsfall, indata/utdata och tekniska begränsningar i en egen SPEC.md',
+      'Uppdatera eller skapa CLAUDE.md med tekniska guardrails',
+      'Börja kodningen'
+    ],
+    fact:`<strong>Ett negativt exempel, på det här kortet självt:</strong> behövde just den här leveransen — att lägga till ett kort i Fas 0 — ett eget SPEC.md innan den kodades? Nej. Det är textarbete i en redan etablerad kortmall, inget som kräver exakta gränsfall eller tekniska begränsningar. Hela resonemanget, inklusive en idé jag valde bort (spec-filer uppdelade per specialiserad AI-agentroll — design, research, språk, kritiker), finns i <a href="https://github.com/kentlundgren/AI-teknik/blob/main/AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_spec.md" target="_blank" rel="noopener">PRD_spec.md →</a>.`,
+    note:`Källa: <a href="https://klel.wordpress.com/2026/08/02/behover-jag-en-spec-md/" target="_blank" rel="noopener">Behöver jag en spec.md?</a> (klel.wordpress.com, 2/8 2026). Se <a href="#kallor">Källor</a> för Delimarsky (2025), Kiro (2026), Liu (2025) och Osmani (2026) — de fyra källorna resonemanget bygger på.`
   }
 ];
 
