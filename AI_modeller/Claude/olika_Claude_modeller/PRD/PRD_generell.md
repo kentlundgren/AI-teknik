@@ -3,8 +3,7 @@
 **Namn:** PRD_generell
 **Plats:** `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_generell.md`
 **Skapad:** 2026-08-01
-**Version:** 2 (engelska termen "stale" förklarad inom parentes, på Kents
-begäran)
+**Version:** 3 (ny stående delfråga om SPEC.md tillagd, efter `PRD_spec.md`)
 **Status:** Referensdokument — inte en PRD för ett verkligt uppdrag. En
 genomgång av strukturen, framtagen som ett medvetet metastopp under arbetet
 med `PRD_rag.md`, på Kents begäran ("jag vill se och lära hela tiden, även
@@ -12,9 +11,11 @@ ur ett metaperspektiv").
 **Typ:** Referens/mall — inte grund- eller tilläggs-PRD.
 
 Den här filen beskriver *inte* ett riktigt uppdrag. Den är destillerad ur de
-två riktiga PRD:er som faktiskt tagits fram hittills i det här projektet —
-`PRD_mappkontroll.md` (klar) och `PRD_rag.md` (pågående) — för att visa
-mönstret som återkommer i båda, snarare än att uppfinna ett nytt.
+tre riktiga PRD:er som faktiskt tagits fram hittills i det här projektet —
+`PRD_mappkontroll.md` (klar), `PRD_rag.md` (klar) och `PRD_spec.md` (klar,
+tillförde inget nytt strukturavsnitt men väl en ny stående delfråga, se
+avsnitt 2 nedan) — för att visa mönstret som återkommer i dem, snarare än
+att uppfinna ett nytt.
 
 ## 1. Varför en PRD innan kodning?
 
@@ -60,6 +61,16 @@ delfråga får en bokstav (a, b, c …) och en statustagg direkt i rubriken
 att man behöver läsa hela texten. När en delfråga besluta, uppdatera
 statustaggen på plats — skriv inte bara ett nytt stycke längre ner.
 
+**Stående delfråga, obligatorisk i varje PRD framöver (tillagd 2026-08-02,
+se `PRD_spec.md`):** en av delfrågorna i avsnitt 4 ska alltid vara *"Behövs
+ett SPEC.md-steg härifrån?"* — dvs. ska en agent-orienterad specifikation
+(exakta gränsfall, acceptanskriterier, tekniska begränsningar) skrivas som
+ett eget steg mellan den här PRD:n och kodningen. Svaret är oftast nej —
+`PRD_spec.md` själv landade i nej för sin egen leverans (ett textkort i en
+redan etablerad mall) — men frågan ska ändå ställas varje gång, medvetet,
+inte bara när uppgiften känns teknisk. Det är själva ställningstagandet,
+inte ett obligatoriskt SPEC.md-dokument, som är den nya stående praktiken.
+
 **5. Leveranser** — checklista (`[x]`/`[ ]`), en rad per konkret,
 avprickningsbar sak. Ska alltid spegla samma sanning som avsnitt 4 — om en
 fråga är beslutad där ska motsvarande leverans vara avbockad här.
@@ -84,7 +95,7 @@ för att själv innehålla ny information (se lärdom).
 är vad som gör det möjligt att läsa om en PRD senare och förstå *hur*
 besluten växte fram, inte bara vad slutresultatet blev.
 
-## 3. Lärdomar (från att faktiskt ha byggt två PRD:er, inte i förväg tänkta)
+## 3. Lärdomar (från att faktiskt ha byggt tre PRD:er, inte i förväg tänkta)
 
 - **En rubrik som beskriver ett tillstånd blir missvisande när tillståndet
   ändras men rubriken inte gör det.** `PRD_rag.md` hette avsnitt 4 "Öppna
@@ -117,12 +128,26 @@ besluten växte fram, inte bara vad slutresultatet blev.
   och Kent fick själv be om att det spreds till resten. Numera en sparad,
   stående vana (`feedback_propagate_standing_rules`) att göra det
   proaktivt.
+- **En ny stående praktik kan vara en fråga, inte ett nytt obligatoriskt
+  dokument.** `PRD_spec.md` undersökte om SPEC.md (agent-orienterad
+  specifikation) skulle bli en del av arbetssättet. Svaret blev inte "gör
+  det alltid", utan "fråga varje gång" — och tillämpat på sin egen leverans
+  blev svaret nej. En lättviktig checkpoint-fråga sprider sig lättare och
+  mår bättre än ett tungt nytt artefaktkrav.
+- **En genomläsning "med nya ögon" hittar glapp även efter att alla
+  delfrågor är beslutade, inte bara under själva framtagandet.**
+  `PRD_spec.md` v5 hittade tre separata glapp (en stale rad i
+  produktionsordningen, en tvetydig korsreferens, ett moment felaktigt
+  skrivet som "out of scope") i en enda genomläsning gjord precis innan
+  kodningsfasen — samma mönster som `PRD_rag.md` v8, nu bekräftat en andra
+  gång.
 
-## 4. De två riktiga PRD:er den här mallen är destillerad från
+## 4. De tre riktiga PRD:er den här mallen är destillerad från
 
 - `PRD_mappkontroll.md` — tilläggs-PRD, klar och avslutad.
-- `PRD_rag.md` — tilläggs-PRD, pågående (samma projekt som denna mall
-  skrevs under).
+- `PRD_rag.md` — tilläggs-PRD, klar och avslutad.
+- `PRD_spec.md` — tilläggs-PRD, fryst och avslutad. Tillförde ingen ny
+  strukturdel, men väl den stående delfrågan om SPEC.md i avsnitt 2 ovan.
 
 ## Ändringslogg
 
@@ -134,3 +159,7 @@ besluten växte fram, inte bara vad slutresultatet blev.
   lånord i svenskt facksammanhang för information som blivit inaktuell/
   föråldrad utan att uppdateras. Förklaring tillagd inom parentes vid varje
   förekomst.
+- 2026-08-02 (v3): Ny stående delfråga tillagd i avsnitt 2 ("Behövs ett
+  SPEC.md-steg härifrån?"), beslutad i `PRD_spec.md` (4a/4c). Två nya
+  lärdomar tillagda i avsnitt 3. Räknarna i rubrikerna uppdaterade från två
+  till tre PRD:er.
