@@ -1,0 +1,91 @@
+// Fas 1 — sju projekt. Lägg till/ta bort ett projekt = lägg till/ta bort en post här.
+// kind: "screenshot" (bild finns i images/) eller "code" (renderas som kodkort, inget bildfil behövs).
+
+const PROJECTS = [
+  {
+    id: "temperatur",
+    kind: "code",
+    year: "2023",
+    title: "temperatur",
+    caption: "2023, tidigt: bad ChatGPT skriva pythonkod som hämtar temperaturen i Sveriges fem största städer från SMHI:s öppna API. Jag körde koden i PyCharm — och den fungerade.",
+    url: "https://github.com/kentlundgren/temperatur",
+    code:
+`<span class="cmt"># temperatur.py — hämtar väder från SMHI:s öppna API</span>
+<span class="cmt"># Pythonkod skriven av ChatGPT, hämtat via Poe</span>
+<span class="cmt"># Kört i PyCharm</span>
+
+cities = {
+    <span class="str">'Stockholm'</span>: <span class="str">'97510'</span>,
+    <span class="str">'Göteborg'</span>:  <span class="str">'98210'</span>,
+    <span class="str">'Malmö'</span>:     <span class="str">'96430'</span>,
+}
+
+<span class="kw">for</span> city, station <span class="kw">in</span> cities.items():
+    url = f<span class="str">'.../station/{station}/period/latest-hour/data.json'</span>
+    response = requests.get(url)
+    <span class="kw">if</span> response.status_code == 200:
+        temp = response.json()[<span class="str">'value'</span>][0][<span class="str">'value'</span>]
+        print(f<span class="str">'{city}: {temp} °C'</span>)`
+  },
+  {
+    id: "transkribering",
+    kind: "code",
+    year: "2023",
+    title: "transkribering",
+    caption: "Samma vår, tredje försöket: ett program som skulle transkribera ljud till text med OpenAIs Whisper. Det gick inte hela vägen — hittade aldrig ffmpeg — men det var så jag lärde mig.",
+    url: "https://github.com/kentlundgren/transkribering",
+    code:
+`<span class="cmt"># main.py — tredje försöket</span>
+<span class="cmt"># Peppad av podden "Teknik i akademi"</span>
+<span class="cmt"># Transkriberar ljud till text med OpenAI Whisper</span>
+
+audio_path = input(<span class="str">"Ange sökväg till ljudfilen: "</span>)
+
+response = requests.get(audio_path)
+<span class="kw">with</span> open(<span class="str">"audio.mp3"</span>, <span class="str">"wb"</span>) <span class="kw">as</span> f:
+    f.write(response.content)
+
+subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>, <span class="str">"audio.mp3"</span>, <span class="str">"audio.wav"</span>])
+<span class="cmt"># ...hittar fortfarande inte ffmpeg på rad 29 ;)</span>`
+  },
+  {
+    id: "claude-kompassen",
+    kind: "screenshot",
+    title: "Claude-kompassen",
+    caption: "Ett interaktivt verktyg som kartlägger Claudes ekosystem — ytor, styrfiler och de tre faserna i mitt eget AI-drivna arbetssätt, från idé till kod.",
+    url: "https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/",
+    image: "images/claude-kompassen.png"
+  },
+  {
+    id: "statsskuld",
+    kind: "screenshot",
+    title: "Statsskuld: Sverige & USA",
+    caption: "En interaktiv jämförelse av Sveriges och USA:s statsskulder, byggd tillsammans med Gemini — med fokus på att visa själva beslutsvägen, inte bara slutsiffran.",
+    url: "https://kentlundgren.github.io/Ekonomi/statsskuld/sverige_amerika/index.html",
+    image: "images/statsskuld.png"
+  },
+  {
+    id: "bjerred-saltsjobad",
+    kind: "screenshot",
+    title: "Bjärred Saltsjöbad",
+    caption: "En samlingssida med information om Bjärred Saltsjöbad — allt från öppettider till praktisk information på ett och samma ställe.",
+    url: "https://kentlundgren.github.io/foreningar/BjerredsSaltsjobad/",
+    image: "images/bjerred-saltsjobad.png"
+  },
+  {
+    id: "vindkraftskalkyl",
+    kind: "screenshot",
+    title: "Vindkraftskalkyl",
+    caption: "Vindkraftens lönsamhet, synlig och interaktiv — den senaste i en lång rad kalkyler som växt fram från Excel-ark till webbapplikation.",
+    url: "https://kentlundgren.github.io/Vindkraft/vindkraftskalkyl/vindkraftskalkyl.html",
+    image: "images/vindkraftskalkyl.png"
+  },
+  {
+    id: "fredagsquiz",
+    kind: "screenshot",
+    title: "Fredagsquiz",
+    caption: "Varje fredag sedan 22 augusti 2025: ett nytt quiz om Simrishamns kommun, frågorna skrivna av Claude, kodat i Cursor. Under hösten flyttade jag projektet till GitHub Pages — och skrev på köpet två egna guider om hur Git och GitHub faktiskt fungerar.",
+    url: "https://kentlundgren.github.io/quiz/0/",
+    image: "images/fredagsquiz.png"
+  }
+];

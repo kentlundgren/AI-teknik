@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Kent Lundgren — AI-projekt, en resa</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="En självspelande resa genom AI-projekt Kent Lundgren byggt, från 2023 till idag.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <header id="chrome">
+    <div id="brand">Kent Lundgren <span>— AI-projekt, en resa</span></div>
+    <nav id="speed-switch" aria-label="Hastighet">
+      <button data-speed="rapp">Rapp</button>
+      <button data-speed="lagom">Lagom</button>
+      <button data-speed="serios">Seriös</button>
+    </nav>
+  </header>
+
+  <main id="stage">
+    <div class="slide-layer" id="layer-a"></div>
+    <div class="slide-layer" id="layer-b"></div>
+  </main>
+
+  <footer id="progress-track" aria-hidden="true"></footer>
+
+</div>
+
+<script src="projects.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -3,8 +3,8 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 10 (grundprincip om kreativitet/glädje tillagd; SPEC.md-frågan löst till nej; fräscha-ögon-pass rättade tre stale ställen)
-**Status:** Alla delfrågor utom 4d (var/när visas fysiskt) beslutade. PRD:n är innehålls- och teknikmässigt komplett och redo för byggfasen — 4d blockerar inte att börja bygga.
+**Version:** 11 (fas 1 byggd och testad — index.html/style.css/script.js/projects.js klara, alla sju projekt på plats)
+**Status:** Fas 1 är byggd, ifylld med riktigt innehåll och testkörd (desktop + mobil, alla tre hastigheter, loop bekräftad). Enda kvarvarande öppna frågan är 4d (var/när presentationen visas fysiskt) — påverkar inte det som redan är levererat.
 **Typ:** Grund-PRD (helt nytt projekt)
 
 > **Viktig utgångspunkt, oavsett hur lång den här PRD:n blir:** den här
@@ -337,15 +337,17 @@ kod-/terminalskärmdump i stället).
 ## 5. Leveranser
 
 - [x] Vindkraftskalkyl — rätt/senaste länk bekräftad (4a)
-- [ ] PRD låst — alla delfrågor (4a–4k) beslutade
-- [ ] Datadriven projektlista (`projects.js` eller motsvarande) med struktur
-      för {titel, bild, text, url} per projekt
-- [ ] Innehåll (bild + text) insamlat för startomgången av projekt (fas 1,
-      se 4i)
-- [ ] Självspelande HTML/CSS/JS-sida byggd: tre hastighetsvarianter
+- [x] PRD låst — alla delfrågor (4a–4k) beslutade
+- [x] Datadriven projektlista (`projects.js`) med struktur
+      för {titel, bild/kod, text, url} per projekt
+- [x] Innehåll (bild + text) insamlat för samtliga sju fas 1-projekt —
+      skärmdumpar för de fem live-sidorna (`images/`), kodkort för
+      `temperatur`/`transkribering` (API-nyckeln exkluderad, se 4j)
+- [x] Självspelande HTML/CSS/JS-sida byggd: tre hastighetsvarianter
       (rapp 7s / lagom 20s / seriös 45s) via URL-parameter, loop, mjuk
       crossfade-övergång, PowerPoint-liknande utseende
-- [ ] Testkörning i kiosk-/helskärmsläge, alla tre hastighetsvarianter
+- [x] Testkörning i kiosk-/helskärmsläge (desktop + mobil), alla tre
+      hastighetsvarianter samt loop bekräftad
 
 ## 6. Produktionsordning
 
@@ -385,6 +387,13 @@ projekt, växling via tre separata URL:er, mjuk crossfade + skalning som
 går direkt till byggfasen. Kvarstår enbart: exakta skärmdumpar/textutsnitt
 per projekt (produktionsarbete, inte ett PRD-beslut) samt var/när
 presentationen visas fysiskt (4d), som inte blockerar byggstart.
+
+**Byggt 2026-08-04 (v11):** `index.html`, `style.css`, `script.js` och
+`projects.js` finns i `Presentationer/Nr1/`. Skärmdumpar för de fem
+live-sidorna hämtade via headless Chrome och sparade i `images/`; kodkort
+för `temperatur`/`transkribering` renderas direkt i HTML/CSS (API-nyckeln
+är inte med i utsnittet). Testat i webbläsare: crossfade, alla tre
+hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
 
 ## Ändringslogg
 
@@ -466,3 +475,13 @@ presentationen visas fysiskt (4d), som inte blockerar byggstart.
   hastighetsvarianterna, och Produktionsordningen var fortfarande märkt
   "preliminär, låses när 4h–4i beslutas" trots att båda länge varit
   beslutade.
+- 2026-08-04 (v11): Fas 1 byggd. `index.html`/`style.css`/`script.js`/
+  `projects.js` skapade i `Presentationer/Nr1/`. Skärmdumpar av de fem
+  live-projekten tagna med headless Chrome (`--headless=new --screenshot`)
+  och sparade i `images/`. Kodkort för `temperatur`/`transkribering`
+  renderade direkt i HTML/CSS, API-nyckeln utelämnad helt (inte bara
+  beskuren). Testat i webbläsare via lokal HTTP-server: crossfade, alla
+  tre hastighetsvarianter, loop och responsiv mobillayout — allt
+  fungerar. Ett mindre CSS-fix under testet: kod-textraderna radbryts nu
+  på smala skärmar i stället för att klippas av. Leveranslistan (avsnitt
+  5) helt avbockad.
