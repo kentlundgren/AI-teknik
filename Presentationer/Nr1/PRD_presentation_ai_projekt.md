@@ -3,8 +3,8 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 4 (2023-öppning vald: `temperatur` + `transkribering`, med en säkerhetsflagga för en hårdkodad API-nyckel att beskära bort)
-**Status:** Under uppbyggnad — kärninnehåll, teknik, fasindelning och presentationens öppning beslutade. Kvar: resten av fas 1-listan, exakta skärmdumpar/textutsnitt, samt var/när presentationen visas fysiskt.
+**Version:** 8 (timingbeslutet i 4c omprövat till tre hastighetsvarianter i stället för en fast siffra)
+**Status:** Fas 1-innehållet (sju projekt), teknikval och distributionsform beslutade. Timing (4c) öppnad igen — tre varianter (rapp/lagom/seriös) föreslagna, exakta sekundvärden och växlingsmekanism kvar att bekräfta. Kvar även: exakta skärmdumpar/textutsnitt per projekt, var/när presentationen visas fysiskt, samt SPEC.md-checkpointen.
 **Typ:** Grund-PRD (helt nytt projekt)
 
 ## 1. Bakgrund
@@ -62,8 +62,29 @@ Kent bekräftade 2026-08-04: senaste versionen ligger på
 En bild (skärmdump) per projekt plus kort text till bilden. Samma format för
 alla projekt i presentationen.
 
-**c. Antal slides och sekunder per bildväxling — BESLUTAT ✓**
-20 sekunder per projekt/bild, automatisk växling.
+**c. Antal slides och sekunder per bildväxling — ÖPPEN (omprövad 2026-08-04)**
+Ursprungligt beslut var 20 sekunder per projekt/bild. Kent föreslog samma
+dag att i stället erbjuda **tre hastighetsvarianter** av samma innehåll,
+snarare än att låsa en enda siffra:
+- **Rapp** — kort och snabb, ca 5–10 sek/projekt
+- **Lagom** — ursprungsförslaget, ca 20 sek/projekt
+- **Seriös** — längre, mer eftertänksam, för den som faktiskt vill läsa
+
+**Tekniskt enkelt givet 4g-beslutet:** eftersom sidan redan är datadriven
+(samma `projects.js` för allt innehåll), behöver varianterna inte tre
+separata sidor eller tre separata innehållsfiler — bara en konfigurerbar
+tid per slide, t.ex. styrd via en URL-parameter
+(`index.html?hastighet=rapp` / `lagom` / `serios`) som slår upp
+sekundvärdet i en liten tabell. Ett innehåll, tre länkar att dela beroende
+på sammanhang (snabb social scroll kontra en rekryterare som faktiskt
+sitter och tittar).
+
+**Kvar att bekräfta med Kent:**
+1. Exakta sekundvärden för "rapp" och "seriös" (förslag ovan: 5–10 resp.
+   längre — ingen specifik siffra bestämd för den tredje varianten än).
+2. Växlingsmekanism: URL-parameter (enklast, delbart som tre olika länkar)
+   eller en synlig växlingsknapp på själva sidan (kräver att viewern redan
+   är inne på sidan)?
 
 **d. Var och när ska presentationen visas? — ÖPPEN**
 Kiosk-/självspelande-läge är beslutat (se fråga om visningssätt nedan), men
@@ -198,6 +219,75 @@ Kvar innan produktion: de exakta skärmdumparna (vilket kodutsnitt, hur
 beskuret — särskilt beskärningen som tar bort den exponerade API-nyckeln,
 se säkerhetsflaggan nedan).
 
+**Tillägg 2026-08-04 — sjunde fas 1-projektet: Fredagsquiz — BESLUTAT ✓**
+Kent vill redan nu lägga till
+[kentlundgren.se/program/quiz/0/](https://kentlundgren.se/program/quiz/0/):
+ett nytt quiz varje fredag om Simrishamns kommun, sedan 22 augusti 2025,
+under hela hösten. Frågorna genereras med Claude, kodningen (HTML/CSS/JS)
+gjord i Cursor. Bra passform: visar ett *återkommande* AI-drivet projekt
+över tid, inte bara enstaka experiment.
+
+**Kompletterad samma dag:** Kent jobbade parallellt med samma quiz på
+GitHub Pages, [kentlundgren.github.io/quiz/0/](https://kentlundgren.github.io/quiz/0/)
+— "på den tiden gick jag över mer och mer till GitHub", ett skifte han
+vill ska synas i presentationen. Repots egen README bekräftar precis den
+resan: GitHub-versionen beskrivs uttryckligen som *"Ursprungligen
+publicerad på kentlundgren.se/program/quiz/0/"*, och innehåller dessutom
+två egenskrivna pedagogiska guider om övergången (`GitHub.html` om
+Git/GitHub-begrepp, `GitHub_pages.html` om hur GitHub Pages fungerar) samt
+en undermapp ("00") som specifikt förklarar AI-samarbetet mellan Claude
+och Cursor bakom quizet. Repots commit-historik (jan–feb 2026) visar att
+själva GitHub-migreringen skedde några månader efter att quizserien startat
+på kentlundgren.se hösten 2025 — tidslinjen stämmer med Kents minnesbild.
+
+**Beslut:** använd `kentlundgren.github.io/quiz/0/`-länken som den
+kanoniska länken för sliden (undviker dessutom WAF-blockeringen som
+upptäcktes på kentlundgren.se-domänen, se produktionsanteckning i 4k), och
+väv in GitHub-flytten i bildtexten snarare än att göra den till ett eget,
+åttonde projekt — håller fas 1 vid sju poster om inte Kent vill annat.
+
+Fas 1 är sju projekt totalt:
+1. `temperatur` (2023-öppning)
+2. `transkribering` (2023-öppning)
+3. Claude-kompassen
+4. Statsskuld Sverige/USA
+5. Bjärred Saltsjöbad
+6. Vindkraftskalkyl
+7. Fredagsquiz
+
+Föreslagen bildtext (justeras när skärmdump tas fram): "Varje fredag sedan
+22 augusti 2025: ett nytt quiz om Simrishamns kommun, frågorna skrivna av
+Claude, kodat i Cursor. Under hösten flyttade jag projektet till GitHub
+Pages — och skrev på köpet två egna guider om hur Git och GitHub faktiskt
+fungerar."
+
+**k. Distributionsformat: LinkedIn, X/Twitter, bloggarna — BESLUTAT ✓**
+Kent förtydligade 2026-08-04: han vill bara att **URL:en/länken** som delas
+på LinkedIn, X eller en blogg ska öppna och spela upp presentationen — inte
+att den spelas upp inbäddad direkt i flödet. Det betyder att 4g-beslutet
+(självspelande, datadriven HTML/CSS/JS-sida) redan täcker det här kravet
+fullt ut, utan ändring. Ingen video-export eller annat extra byggsteg
+behövs. Konflikten som identifierades tidigare i frågan var alltså skenbar
+— löst genom att förtydliga vad "spelas upp" faktiskt avsåg.
+
+*Bakgrundsinfo till Kent, efterfrågad:* en **LinkedIn-PDF-karusell**
+("dokumentinlägg") är ett separat, LinkedIn-specifikt postformat — man
+laddar upp en PDF, och LinkedIn visar den som ett antal svep-bara sidor
+direkt i flödet (ungefär som ett bildspel man bläddrar i manuellt, inte
+autospelande). Populärt för infografik/portfolio-innehåll eftersom det
+håller kvar besökaren i flödet i stället för att länka bort. Ingen
+motsvarighet finns på X. Eftersom Kent redan bekräftat att en vanlig länk
+räcker (ovan) behövs inte det här formatet nu — noterat här som bakgrund,
+inte som en leverans.
+
+*Produktionsanteckning:* ett automatiserat `curl`-anrop mot
+`kentlundgren.se` blockerades av sidans brandvägg (WAF, "455 Security
+Incident Detected", Simply.com-hosting) medan ett webbläsarbaserat
+hämtningsverktyg (WebFetch) kom igenom utan problem. Värt att komma ihåg
+när skärmdumpar/skärminspelningar ska tas fram senare — enkel
+`curl`/scriptad hämtning kan blockeras av samma skydd, en riktig
+webbläsare (eller manuell skärmdump) fungerar bättre för den domänen.
+
 **Viktigt, säkerhet — flaggat innan produktion:** `main.py` i
 `transkribering`-repot innehåller en hårdkodad OpenAI-liknande API-nyckel i
 klartext (`sk-...`), synlig i den publika koden sedan 2023. Sannolikt redan
@@ -216,7 +306,7 @@ kod-/terminalskärmdump i stället).
 ## 5. Leveranser
 
 - [x] Vindkraftskalkyl — rätt/senaste länk bekräftad (4a)
-- [ ] PRD låst — alla delfrågor (4a–4i) beslutade
+- [ ] PRD låst — alla delfrågor (4a–4k) beslutade
 - [ ] Datadriven projektlista (`projects.js` eller motsvarande) med struktur
       för {titel, bild, text, url} per projekt
 - [ ] Innehåll (bild + text) insamlat för startomgången av projekt (fas 1,
@@ -247,15 +337,20 @@ verktyg):
 - Vindkraftskalkyl — https://kentlundgren.github.io/Vindkraft/vindkraftskalkyl/vindkraftskalkyl.html
 - controllerutangranser.wordpress.com/category/ai/ och
   klel.wordpress.com/category/ai/ — bild- och textkälla för fler kandidatprojekt (4h)
+- Fredagsquiz — https://kentlundgren.github.io/quiz/0/ (kanonisk länk för presentationen; ursprungligen publicerad på https://kentlundgren.se/program/quiz/0/)
 
 ## 8. Status
 
-Kärninnehåll (bildformat, timing, fasindelning) och teknikval (HTML/CSS/JS,
-omprövat 2026-08-04) beslutade. Presentationens öppning bestämd:
-`temperatur` → `transkribering` (2023, se 4j), med en säkerhetsflagga att
-beskära bort en synlig API-nyckel i skärmdumpen. Kvarstår: resten av
-fas 1-listan (4h), var/när presentationen visas fysiskt (4d), och
-SPEC.md-checkpointen (4f).
+Fas 1-listan låst till sju projekt (4h/4j, tillägg 2026-08-04):
+`temperatur`, `transkribering` (2023-öppning), Claude-kompassen, statsskuld
+Sverige/USA, Bjärred Saltsjöbad, vindkraftskalkyl, Fredagsquiz. Bildformat,
+teknikval (HTML/CSS/JS) och distributionsform (4k — vanlig länk, inget
+videoexportsteg) beslutade. Timing (4c) omprövad 2026-08-04: tre
+hastighetsvarianter (rapp/lagom/seriös) via en gemensam, datadriven sida
+i stället för en enda fast siffra — exakta sekundvärden och
+växlingsmekanism (URL-parameter eller knapp) kvar att bekräfta. Kvarstår
+även: exakta skärmdumpar/textutsnitt per projekt, var/när presentationen
+visas fysiskt (4d), och SPEC.md-checkpointen (4f).
 
 ## Ändringslogg
 
@@ -286,3 +381,30 @@ SPEC.md-checkpointen (4f).
   OpenAI-liknande API-nyckel hittad i klartext i `transkribering/main.py`
   flaggad som en säkerhetsanmärkning — ska beskäras bort ur skärmdumpen,
   ingen ändring av själva repot ingår i denna PRD.
+- 2026-08-04 (v5): Fas 1 bekräftad av Kent till sex projekt (de fyra
+  kärnprojekten plus 2023-öppningen). Nytt krav tillkom samtidigt:
+  presentationen ska kunna "spelas upp" på LinkedIn, X/Twitter och
+  bloggarna. Ny delfråga 4k tillagd, olöst: detta krockar delvis med
+  HTML/CSS/JS-beslutet i 4g, eftersom sociala plattformar inte autospelar
+  fristående webbsidor i flödet — bara video, GIF eller (på LinkedIn)
+  PDF-karuseller. Föreslagen lösning (behåll HTML-sidan som källa, lägg
+  till ett video-exportsteg) väntar på Kents bekräftelse.
+- 2026-08-04 (v6): Distributionsfrågan (4k) löst — Kent förtydligade att en
+  vanlig länk räcker, presentationen ska inte vara inbäddad direkt i
+  LinkedIn/X-flödet. Ingen videoexport eller PDF-karusell behövs.
+  LinkedIn-PDF-karusellformatet förklarat på Kents begäran, men inte valt.
+  Fredagsquiz (kentlundgren.se/program/quiz/0/) tillagt som sjunde
+  fas 1-projekt.
+- 2026-08-04 (v7): Kompletterat att Kent även jobbade parallellt på en
+  GitHub Pages-version av Fredagsquiz (kentlundgren.github.io/quiz/0/) —
+  repots README bekräftade att GitHub-versionen är en migrering av
+  originalet, med två egenskrivna guider om Git/GitHub som bonus. Kanonisk
+  länk för sliden bytt till GitHub Pages-versionen (undviker även
+  WAF-blockeringen upptäckt på kentlundgren.se), bildtext uppdaterad med
+  migrationsvinkeln ("gick över mer och mer till GitHub").
+- 2026-08-04 (v8): Timingbeslutet i 4c omprövat på Kents förslag: i stället
+  för en fast siffra (20 sek) erbjuds tre hastighetsvarianter av samma
+  innehåll — rapp (~5–10 sek), lagom (~20 sek), seriös (längre). Tekniskt
+  löst via samma datadrivna sida (4g) med en konfigurerbar tid per slide,
+  t.ex. en URL-parameter — ingen ny innehållsfil per variant. Exakta
+  sekundvärden för rapp/seriös samt växlingsmekanism kvar att bekräfta.
