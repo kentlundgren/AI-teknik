@@ -13,16 +13,21 @@
 
   <header id="chrome">
     <div id="brand">Kent Lundgren <span>— AI-projekt, en resa</span></div>
-    <nav id="speed-switch" aria-label="Hastighet">
-      <button data-speed="rapp">Rapp</button>
-      <button data-speed="lagom">Lagom</button>
-      <button data-speed="serios">Seriös</button>
-    </nav>
+    <div id="controls">
+      <button type="button" id="playPauseBtn" aria-label="Pausa bildspelet">&#10073;&#10073;</button>
+      <nav id="speed-switch" aria-label="Hastighet">
+        <button data-speed="rapp">Rapp</button>
+        <button data-speed="lagom">Lagom</button>
+        <button data-speed="serios">Seriös</button>
+      </nav>
+    </div>
   </header>
 
   <main id="stage">
     <div class="slide-layer" id="layer-a"></div>
     <div class="slide-layer" id="layer-b"></div>
+    <button type="button" class="nav-arrow nav-prev" id="prevBtn" aria-label="Föregående">&#8249;</button>
+    <button type="button" class="nav-arrow nav-next" id="nextBtn" aria-label="Nästa">&#8250;</button>
   </main>
 
   <footer id="progress-track" aria-hidden="true"></footer>
@@ -51,6 +56,10 @@
         <div class="tech-card">
           <h3>Ingen data skickas någonstans</h3>
           <p>Sidan pratar inte med någon server. Allt körs lokalt i din webbläsare — inget spåras, inget sparas.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Styr själv</h3>
+          <p>Pilar, svep på mobil eller piltangenter byter bild manuellt. Play/paus-knappen (eller mellanslag) stoppar bildspelet utan att tappa var du var.</p>
         </div>
       </div>
     </div>

@@ -3,8 +3,8 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 14 (milestone-avbrott byggda med verifierade primärkällor; Bjärred Saltsjöbad-caption rättad; lokal CLAUDE.md skapad för Presentationer/)
-**Status:** Tio slides totalt (åtta projekt + två milestone-avbrott), i kronologisk ordning, alla testkörda. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt) och det obekräftade exakta datumet för Bjärred Saltsjöbad (4m).
+**Version:** 15 (manuell styrning tillagd — pilar, svep, paus — och standardhastighet ändrad till rapp)
+**Status:** Tio slides totalt (åtta projekt + två milestone-avbrott), i kronologisk ordning, med både automatisk uppspelning (rapp som standard) och full manuell styrning. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt) och det obekräftade exakta datumet för Bjärred Saltsjöbad (4m).
 **Typ:** Grund-PRD (helt nytt projekt)
 
 > **Viktig utgångspunkt, oavsett hur lång den här PRD:n blir:** den här
@@ -389,10 +389,38 @@ tekniska/faktapåståenden. Se avsnitt 7 för fullständig källista. En källa
 (sannolikt bot-skydd, inte en död länk) — utelämnad ur milestone-slidesen
 för att hålla påståendena helt verifierade, inte för att den bedöms falsk.
 
+**o. Manuell styrning (pilar, svep, paus) + ny standardhastighet — BESLUTAT ✓ och BYGGT (2026-08-04)**
+Kent ville kunna styra bildspelet själv, utöver den automatiska
+uppspelningen:
+- **Diskreta pilknappar** (‹ ›), fast positionerade i kanterna av
+  bildytan, halvtransparenta i vila (samma "diskreta"-princip som
+  hörnknapparna, se `kent-bygg-sidor`).
+- **Svep vänster/höger på mobil** — `touchstart`/`touchend`-lyssnare på
+  `#stage`, tröskel 40px och krav på att röressriktningen är övervägande
+  horisontell (annars tolkas det inte som ett sidbyte).
+- **Paus/spela-knapp**, synlig i huvudet (inte bara mellanslag, som inte
+  är upptäckbart på en mobil utan tangentbord). Manuell navigering (pilar,
+  svep, piltangenter) fungerar även när bildspelet är pausat, och håller
+  sig pausat efteråt — bläddring ska inte tyst starta om autoplay.
+- **Standardhastighet ändrad från lagom till rapp.** Kent ville att en
+  besökare direkt ska uppfatta att det är ett bildspel, inte en statisk
+  sida — rapp (7 sek/projekt) är nu default när ingen `?hastighet=`-
+  parameter anges. `lagom` och `seriös` oförändrade i övrigt.
+
+Testat i webbläsaren: paus stoppar verkligen (bekräftat att inget
+avancerar under en väntan), pilknapp under paus byter bild utan att
+återuppta autoplay, återupptagning startar om aktuell bilds tid utan att
+trigga en onödig ny crossfade. Svep kunde inte simuleras direkt med
+webbläsarverktyget (ingen touch-emulering tillgänglig) — koden följer
+standardmönstret för `touchstart`/`touchend`, men Kent bör själv
+bekräfta på en riktig mobil.
+
 ## 5. Leveranser
 
 - [x] Vindkraftskalkyl — rätt/senaste länk bekräftad (4a)
-- [x] PRD låst — alla delfrågor (4a–4n) beslutade utom 4d/4m
+- [x] PRD låst — alla delfrågor (4a–4o) beslutade utom 4d/4m
+- [x] Manuell styrning: pilknappar, svep på mobil, paus/spela-knapp (4o)
+- [x] Standardhastighet ändrad till rapp (4o)
 - [x] Datadriven projektlista (`projects.js`) med struktur
       för {titel, bild/kod, text, url} per projekt
 - [x] Innehåll (bild + text) insamlat för samtliga åtta fas 1-projekt —
@@ -661,3 +689,11 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   behövde en egen CLAUDE.md och konstaterat att den enda befintliga i
   AI-teknik-repot (`olika_Claude_modeller/CLAUDE.md`) ligger utanför denna
   mapps sökväg och därför aldrig lästes in för det här arbetet.
+- 2026-08-04 (v15): Ny delfråga 4o beslutad och byggd: diskreta pilknappar,
+  svep vänster/höger på mobil, och en synlig paus/spela-knapp (mellanslag
+  fungerade redan, men är inte upptäckbart på touch-enheter). Manuell
+  navigering respekterar pausat läge — startar inte om autoplay av sig
+  själv. Standardhastighet ändrad från `lagom` till `rapp`, på Kents
+  begäran, så ett bildspel känns igen direkt. README och tech-modalen i
+  `index.html` uppdaterade i samma veva (var stale: nämnde fortfarande
+  sju projekt/fem skärmdumpar/lagom-standard).

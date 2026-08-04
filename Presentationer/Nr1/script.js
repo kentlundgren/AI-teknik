@@ -4,16 +4,21 @@
 
   const params = new URLSearchParams(location.search);
   let speedKey = params.get("hastighet");
-  if (!DURATIONS[speedKey]) speedKey = "lagom";
+  if (!DURATIONS[speedKey]) speedKey = "rapp"; // rapp = standard, så det syns direkt att det är ett bildspel
 
+  const stage = document.getElementById("stage");
   const layers = [document.getElementById("layer-a"), document.getElementById("layer-b")];
   const progressTrack = document.getElementById("progress-track");
   const speedButtons = Array.from(document.querySelectorAll("#speed-switch button"));
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const playPauseBtn = document.getElementById("playPauseBtn");
 
   let activeLayerIndex = 0;
   let current = 0;
   let segments = [];
   let advanceTimer = null;
+  let isPaused = false;
 
   function placeholderSrc(title) {
     const svg =
@@ -135,17 +140,57 @@
       const fill = segments[index].querySelector(".fill");
       // force reflow so the transition actually runs
       void fill.offsetWidth;
-      fill.style.transition = `width ${duration}ms linear`;
-      fill.classList.add("animating");
-      fill.style.width = "100%";
+      if (!isPaused) {
+        fill.style.transition = `width ${duration}ms linear`;
+        fill.classList.add("animating");
+        fill.style.width = "100%";
+      }
     }
 
     clearTimeout(advanceTimer);
-    advanceTimer = setTimeout(next, duration);
+    if (!isPaused) advanceTimer = setTimeout(next, duration);
   }
 
   function next() {
     goTo((current + 1) % PROJECTS.length);
+  }
+
+  function prev() {
+    goTo((current - 1 + PROJECTS.length) % PROJECTS.length);
+  }
+
+  function setPlayPauseUI() {
+    document.body.classList.toggle("paused", isPaused);
+    playPauseBtn.innerHTML = isPaused ? "&#9654;" : "&#10073;&#10073;";
+    playPauseBtn.setAttribute("aria-label", isPaused ? "Spela" : "Pausa bildspelet");
+  }
+
+  function pause() {
+    if (isPaused) return;
+    isPaused = true;
+    clearTimeout(advanceTimer);
+    const fill = segments[current].querySelector(".fill");
+    fill.style.transition = "none";
+    setPlayPauseUI();
+  }
+
+  function resume() {
+    if (!isPaused) return;
+    isPaused = false;
+    setPlayPauseUI();
+    // starta om tiden för aktuell bild, utan att röra crossfaden (ingen ny render)
+    const duration = durationFor(PROJECTS[current]);
+    const fill = segments[current].querySelector(".fill");
+    void fill.offsetWidth;
+    fill.style.transition = `width ${duration}ms linear`;
+    fill.classList.add("animating");
+    fill.style.width = "100%";
+    clearTimeout(advanceTimer);
+    advanceTimer = setTimeout(next, duration);
+  }
+
+  function togglePlayPause() {
+    isPaused ? resume() : pause();
   }
 
   function setSpeed(key) {
@@ -177,15 +222,37 @@
     if (techModal.classList.contains("show")) return;
     if (e.code === "Space") {
       e.preventDefault();
-      clearTimeout(advanceTimer);
-      const paused = document.body.classList.toggle("paused");
-      if (!paused) advanceTimer = setTimeout(next, durationFor(PROJECTS[current]));
+      togglePlayPause();
     } else if (e.key === "ArrowRight") {
       next();
     } else if (e.key === "ArrowLeft") {
-      goTo((current - 1 + PROJECTS.length) % PROJECTS.length);
+      prev();
     }
   });
+
+  playPauseBtn.addEventListener("click", togglePlayPause);
+  nextBtn.addEventListener("click", next);
+  prevBtn.addEventListener("click", prev);
+
+  // Svep vänster/höger på mobil
+  let touchStartX = null;
+  let touchStartY = null;
+  stage.addEventListener("touchstart", (e) => {
+    const t = e.changedTouches[0];
+    touchStartX = t.clientX;
+    touchStartY = t.clientY;
+  }, { passive: true });
+  stage.addEventListener("touchend", (e) => {
+    if (touchStartX === null) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touchStartX;
+    const dy = t.clientY - touchStartY;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      if (dx < 0) next(); else prev();
+    }
+    touchStartX = null;
+    touchStartY = null;
+  }, { passive: true });
 
   buildProgress();
   setSpeedUI();

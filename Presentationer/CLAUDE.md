@@ -44,7 +44,8 @@ interaktiva sidor — gäller alltid tillsammans med det lokala skillet.
 ## Status
 
 - **`Nr1`** — klar, byggd 2026-08-04. Åtta projekt + två milestone-avbrott
-  (2024, 2025–2026), tre hastighetsvarianter (rapp/lagom/seriös). Se
+  (2024, 2025–2026), tre hastighetsvarianter (rapp/lagom/seriös, rapp är
+  standard), manuell styrning (pilar, svep på mobil, paus/spela-knapp). Se
   `Nr1/PRD_presentation_ai_projekt.md` för fullständig beslutshistorik.
   Ännu inte publicerad till GitHub Pages eller committad — Kent gör det
   själv när han är redo.

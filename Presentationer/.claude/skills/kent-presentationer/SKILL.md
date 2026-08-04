@@ -76,6 +76,32 @@ Lägg också till en liten, diskret växlingsknapp-rad i sidhuvudet så
 hastigheten kan bytas utan att skriva om URL:en för hand — uppdatera URL:en
 med `history.replaceState` när den byts, så länken förblir delbar.
 
+**Standard utan `?hastighet=`-parameter: `rapp`, inte `lagom`.** Kent vill
+att en besökare direkt uppfattar att det är ett bildspel (snabb rörelse
+signalerar det), inte en statisk sida — beslutat 2026-08-04, gäller som
+standardval framåt om inget annat sägs.
+
+## 2b. Manuell styrning är standard, inte ett extra-tillval
+
+Bygg alltid in manuell kontroll vid sidan av autoplay, inte bara som en
+eftertanke:
+- **Diskreta pilknappar** (‹ ›) i kanterna av bildytan, halvtransparenta i
+  vila (samma "diskret tills man hovrar/tittar dit"-princip som
+  hörnknapparna i `kent-bygg-sidor`).
+- **Svep vänster/höger på mobil** — `touchstart`/`touchend` på scenen,
+  tröskel runt 40px, kräv att rörelsen är övervägande horisontell så det
+  inte krockar med vertikal skroll.
+- **En synlig paus/spela-knapp**, inte bara en tangentbordsgenväg
+  (mellanslag är osynligt och oåtkomligt på en touch-enhet utan
+  tangentbord).
+- **Manuell navigering ska respektera pausat läge** — att bläddra manuellt
+  medan bildspelet är pausat ska inte tyst starta om autoplay. Håll ett
+  eget `isPaused`-flagga i stället för att härleda pausstatus från om en
+  timer råkar vara aktiv.
+- Vid återupptagning: starta om **bara** förloppsindikatorn och timern för
+  aktuell bild — anropa inte hela render-/crossfade-funktionen igen, det
+  ger en onödig blinkning av en bild som redan visas.
+
 ## 3. Skärmdumpar: headless Chrome, absolut Windows-sökväg
 
 För poster med en levande webbsida — ta en riktig skärmdump, gissa inte
@@ -209,3 +235,8 @@ beskrivning (se `kent-bygg-sidor`, regel 2: Kents upplevelse väger tyngre
   om ett projekts verkliga syfte, fråga Kent i stället för att gissa fram
   en plausibel beskrivning (lärdom från en felaktig Bjärred Saltsjöbad-
   caption, rättad samma dag).
+- 2026-08-04 (v4): Ny Regel 2b tillagd: manuell styrning (pilknappar, svep
+  på mobil, synlig paus/spela-knapp) är standard, inte ett tillval — och
+  ska respektera pausat läge i stället för att autoplay tyst startar om
+  vid manuell navigering. Standardhastighet i Regel 2 ändrad från `lagom`
+  till `rapp`, så ett bildspel känns igen direkt.
