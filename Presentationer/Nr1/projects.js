@@ -51,6 +51,15 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
 <span class="cmt"># ...hittar fortfarande inte ffmpeg på rad 29 ;)</span>`
   },
   {
+    id: "milestone-2024",
+    kind: "milestone",
+    year: "2024",
+    facts: [
+      { text: "Anthropic lanserar Claude 3 — Opus, Sonnet och Haiku.", source: { label: "Anthropic, mars 2024", url: "https://www.anthropic.com/news/claude-3-haiku" } },
+      { text: "EU:s AI-förordning (AI Act) träder i kraft — världens första heltäckande AI-lag.", source: { label: "Europeiska kommissionen, 1 aug 2024", url: "https://commission.europa.eu/news-and-media/news/ai-act-enters-force-2024-08-01_en" } }
+    ]
+  },
+  {
     id: "fredagsquiz",
     kind: "screenshot",
     year: "2025",
@@ -58,6 +67,15 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     caption: "Varje fredag sedan 22 augusti 2025: ett nytt quiz om Simrishamns kommun, frågorna skrivna av Claude, kodat i Cursor. Under hösten flyttade jag projektet till GitHub Pages — och skrev på köpet två egna guider om hur Git och GitHub faktiskt fungerar.",
     url: "https://kentlundgren.github.io/quiz/0/",
     image: "images/fredagsquiz.png"
+  },
+  {
+    id: "milestone-2025-2026",
+    kind: "milestone",
+    year: "2025–2026",
+    facts: [
+      { text: "Anthropic lanserar Claude Cowork — AI som sköter hela arbetsuppgifter, inte bara kod.", source: { label: "Anthropic", url: "https://www.anthropic.com/product/claude-cowork" } },
+      { text: "Claude Code — verktyget bakom just den här presentationen — blir vardagsmat bland utvecklare." }
+    ]
   },
   {
     id: "vindkraftskalkyl",
@@ -104,7 +122,7 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     kind: "screenshot",
     year: "2026",
     title: "Bjärred Saltsjöbad",
-    caption: "En samlingssida med information om Bjärred Saltsjöbad — allt från öppettider till praktisk information på ett och samma ställe.",
+    caption: "Intern styrelsedata — elförbrukning, medlemsstatistik, inpassering — som jag sammanställt och lagt ut öppet på GitHub, så att en styrelse utspridd i sydvästra Sverige kan nå den. Ett litet pro bono-bidrag: transparens som en föreningsmedlem kan ge på köpet.",
     url: "https://kentlundgren.github.io/foreningar/BjerredsSaltsjobad/",
     image: "images/bjerred-saltsjobad.png"
   }

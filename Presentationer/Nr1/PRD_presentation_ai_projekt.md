@@ -3,8 +3,8 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 13 (årtal på alla åtta projekt, kronologisk ordning; skill flyttas till projektet på Kents begäran; ny idé om korta "milestone"-avbrott under diskussion)
-**Status:** Åtta projekt byggda, testkörda och nu i kronologisk ordning med synligt årtal på varje slide. Öppna frågor: 4d (var/när visas fysiskt), 4m (exakt datum för Bjärred Saltsjöbad, okänt), samt den nya milestone-idén (avsnitt 4n) som ännu inte är ett beslut.
+**Version:** 14 (milestone-avbrott byggda med verifierade primärkällor; Bjärred Saltsjöbad-caption rättad; lokal CLAUDE.md skapad för Presentationer/)
+**Status:** Tio slides totalt (åtta projekt + två milestone-avbrott), i kronologisk ordning, alla testkörda. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt) och det obekräftade exakta datumet för Bjärred Saltsjöbad (4m).
 **Typ:** Grund-PRD (helt nytt projekt)
 
 > **Viktig utgångspunkt, oavsett hur lång den här PRD:n blir:** den här
@@ -354,22 +354,45 @@ utan specifik månad) snarare än att hitta på en dag. Kent kan bekräfta ett
 exakt datum om han har ett, annars ligger den kvar som "2026" utan vidare
 precision.
 
-**n. "Milestone"-avbrott mellan projekt — under diskussion, INTE beslutat**
-Kent tänkte högt 2026-08-04: korta, snabba avbrott mellan projekt-slides
-som lyfter stora/uppmärksammade händelser inom generativ AI under ett
-givet år (mellan 2023 och juli 2026), för att ge ett tidsperspektiv utan
-att sakta ner presentationen. Tekniskt enkelt att lägga till (en ny
-`kind: "milestone"` med en fast, kort visningstid som ignorerar
-`hastighet`-inställningen), men **inte byggt än** — kräver dels att Kent
-bekräftar att det ska byggas nu, dels research av faktiska, verifierade
-händelser (Claudes/Claude Codes egen kunskap räcker inte förbi ca januari
-2026, så allt efter det måste webbsökas och styrkas, inte gissas — se
-`kent-meta-regler-for-code`, Regel 3).
+**Innehållsrättelse 2026-08-04:** ursprungscaptionen ("samlingssida med
+information ... öppettider till praktisk information") var fel — byggd på
+en antagen tolkning av skärmdumpens kort, inte på vad Kent faktiskt sagt
+om sidan. Kent rättade: det är **intern styrelsedata** (elförbrukning,
+medlems- och inpasseringsstatistik) som han sammanställt och lagt ut öppet
+på GitHub så att en geografiskt utspridd styrelse/funktionärskår ska kunna
+nå den — ett pro bono-transparensbidrag, inte en allmän infosida. Caption
+omskriven i `projects.js` för att spegla detta. Generaliserbar poäng Kent
+lyfte: en föreningsmedlem kan bidra med transparens som en del av sitt
+ideella engagemang — värt att ha i åtanke om fler föreningsprojekt läggs
+till senare.
+
+**n. "Milestone"-avbrott mellan projekt — BESLUTAT ✓ och BYGGT (2026-08-04)**
+Kent bekräftade: bygg dem. Ny `kind: "milestone"` i `projects.js`/`script.js`
+— fast visningstid (4 sekunder, `MILESTONE_DURATION`) som ignorerar
+`hastighet`-inställningen, egen mörk, centrerad visuell stil (skiljer sig
+tydligt från bild+text-layouten), inga URL:er till projekt utan en lista
+`facts` (text + valfri Harvard-källa per faktapunkt).
+
+Två avbrott insatta i de tomma gapen i tidslinjen:
+- **2024** (mellan `transkribering` och `Fredagsquiz`): Claude 3
+  (Anthropic, mars 2024) och EU:s AI-förordning (träder i kraft 1 aug
+  2024).
+- **2025–2026** (mellan `Fredagsquiz` och `Vindkraftskalkyl`): Claude
+  Cowork (Anthropic) och en självreferens till att Claude Code — verktyget
+  bakom denna presentation — blivit vardagsmat.
+
+Källor sökta och i huvudsak verifierade mot **primärkällor** (Anthropic,
+EU-kommissionen), i linje med `olika_Claude_modeller/CLAUDE.md`s
+källhanteringsregel om att undvika sekundära SEO-blogg-källor för
+tekniska/faktapåståenden. Se avsnitt 7 för fullständig källista. En källa
+(OpenAIs Sora-sida) hittades men gav 403 vid automatiserad verifiering
+(sannolikt bot-skydd, inte en död länk) — utelämnad ur milestone-slidesen
+för att hålla påståendena helt verifierade, inte för att den bedöms falsk.
 
 ## 5. Leveranser
 
 - [x] Vindkraftskalkyl — rätt/senaste länk bekräftad (4a)
-- [x] PRD låst — alla delfrågor (4a–4k) beslutade
+- [x] PRD låst — alla delfrågor (4a–4n) beslutade utom 4d/4m
 - [x] Datadriven projektlista (`projects.js`) med struktur
       för {titel, bild/kod, text, url} per projekt
 - [x] Innehåll (bild + text) insamlat för samtliga åtta fas 1-projekt —
@@ -377,6 +400,9 @@ händelser (Claudes/Claude Codes egen kunskap räcker inte förbi ca januari
       `temperatur`/`transkribering` (API-nyckeln exkluderad, se 4j)
 - [x] Harvard-citerbara bloggkällor kopplade där en verifierad, relevant
       träff finns (fyra av åtta projekt, se avsnitt 7)
+- [x] Milestone-avbrott (2024, 2025–2026) byggda med verifierade
+      primärkällor (4n)
+- [x] Lokal `CLAUDE.md` skapad för `Presentationer/`
 - [x] Självspelande HTML/CSS/JS-sida byggd: tre hastighetsvarianter
       (rapp 7s / lagom 20s / seriös 45s) via URL-parameter, loop, mjuk
       crossfade-övergång, PowerPoint-liknande utseende
@@ -442,6 +468,30 @@ controllerutangranser.wordpress.com. Publicerad 2026-07-29.
 https://controllerutangranser.wordpress.com/2026/07/29/hur-manga-ol-till-break-even/
 *(Ursprungsinlägget för Ölkalkylen, den som fick över 3 000 klick på
 LinkedIn enligt Kent — källa för `ol-tyskland`-sliden.)*
+
+**Källor för milestone-avbrotten (4n), verifierade primärkällor:**
+
+Anthropic (2024) 'Claude 3 Haiku: our fastest model yet'. [Nyhetssida]
+anthropic.com. Publicerad 2024-03-13.
+https://www.anthropic.com/news/claude-3-haiku
+*(Primärkälla för Claude 3-familjens lansering — källa för
+`milestone-2024`-sliden.)*
+
+Anthropic (odat.) 'Claude Cowork'. [Produktsida] anthropic.com.
+https://www.anthropic.com/product/claude-cowork
+*(Primärkälla för Claude Cowork — källa för
+`milestone-2025-2026`-sliden. Kompletterande detalj om webb/mobil-
+utbyggnaden 7/7 2026: https://claude.com/blog/cowork-web-mobile.)*
+
+Europeiska kommissionen (2024) 'AI Act enters into force'. [Nyhetssida]
+commission.europa.eu. Publicerad 2024-08-01.
+https://commission.europa.eu/news-and-media/news/ai-act-enters-force-2024-08-01_en
+*(Primärkälla, EU:s egen kommission — källa för `milestone-2024`-sliden.)*
+
+**Övervägd men bortvald:** OpenAIs officiella Sora-sida
+(https://openai.com/index/sora/) gav HTTP 403 vid automatiserad
+verifiering (troligen bot-skydd, sidan existerar och syns i sökresultat)
+— utelämnad ur milestone-innehållet snarare än citerad ovverifierad.
 
 ## 8. Status
 
@@ -592,3 +642,22 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   nivå ovanför `Nr1` så den täcker framtida `Nr2`/`Nr3` automatiskt), efter
   att Kent valt den platsen bland tre alternativ. Ett tunt pekar-skill
   lämnat kvar globalt.
+- 2026-08-04 (v14): Delfråga 4n (milestone-avbrott) beslutad och byggd:
+  två nya `kind: "milestone"`-slides (2024, 2025–2026) med fast 4-sekunders
+  visningstid oavsett hastighetsval, mörk egen visuell stil, och fakta
+  med verifierade primärkällor (Anthropic, Europeiska kommissionen) — inte
+  sekundära SEO-blogg-källor, i linje med källhanteringsregeln i
+  `olika_Claude_modeller/CLAUDE.md`. En kandidatkälla (OpenAIs Sora-sida)
+  utelämnad efter att automatiserad verifiering gav HTTP 403. Testat i
+  webbläsaren via `get_page_text` (skärmdumpar av det 4-sekunders-korta
+  avbrottet visade sig svåra att fånga i tid, men DOM-innehållet
+  bekräftades korrekt två gånger). Bjärred Saltsjöbad-captionen rättad
+  efter att Kent klargjorde att sidan är intern styrelsedata
+  (elförbrukning, medlems-/inpasseringsstatistik) publicerad öppet som ett
+  pro bono-transparensbidrag — inte en allmän infosida, vilket den
+  ursprungliga (felaktiga) captionen antytt. Ny lokal `CLAUDE.md` skapad
+  för `Presentationer/` (samma nivå som skillet), med "Vad detta är",
+  skill-inventering och arbetsregler — efter att Kent frågade om mappen
+  behövde en egen CLAUDE.md och konstaterat att den enda befintliga i
+  AI-teknik-repot (`olika_Claude_modeller/CLAUDE.md`) ligger utanför denna
+  mapps sökväg och därför aldrig lästes in för det här arbetet.

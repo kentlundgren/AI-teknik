@@ -1,5 +1,6 @@
 (function () {
   const DURATIONS = { rapp: 7000, lagom: 20000, serios: 45000 };
+  const MILESTONE_DURATION = 4000; // alltid rapp, oavsett hastighet
 
   const params = new URLSearchParams(location.search);
   let speedKey = params.get("hastighet");
@@ -37,8 +38,26 @@
     });
   }
 
+  function durationFor(project) {
+    return project.kind === "milestone" ? MILESTONE_DURATION : DURATIONS[speedKey];
+  }
+
   function renderSlide(container, project, index) {
     container.innerHTML = "";
+
+    if (project.kind === "milestone") {
+      const pane = document.createElement("div");
+      pane.className = "milestone-pane";
+      const facts = (project.facts || [])
+        .map((f) => `<li>${f.text}${f.source ? ` <a href="${f.source.url}" target="_blank" rel="noopener">${f.source.label}</a>` : ""}</li>`)
+        .join("");
+      pane.innerHTML = `
+        <div class="milestone-year">${project.year}</div>
+        <ul class="milestone-facts">${facts}</ul>
+      `;
+      container.appendChild(pane);
+      return;
+    }
 
     const media = document.createElement("div");
     media.className = "media-pane";
@@ -110,17 +129,19 @@
       }
     });
 
+    const duration = durationFor(PROJECTS[index]);
+
     if (!opts.markCurrentDone) {
       const fill = segments[index].querySelector(".fill");
       // force reflow so the transition actually runs
       void fill.offsetWidth;
-      fill.style.transition = `width ${DURATIONS[speedKey]}ms linear`;
+      fill.style.transition = `width ${duration}ms linear`;
       fill.classList.add("animating");
       fill.style.width = "100%";
     }
 
     clearTimeout(advanceTimer);
-    advanceTimer = setTimeout(next, DURATIONS[speedKey]);
+    advanceTimer = setTimeout(next, duration);
   }
 
   function next() {
@@ -158,7 +179,7 @@
       e.preventDefault();
       clearTimeout(advanceTimer);
       const paused = document.body.classList.toggle("paused");
-      if (!paused) advanceTimer = setTimeout(next, DURATIONS[speedKey]);
+      if (!paused) advanceTimer = setTimeout(next, durationFor(PROJECTS[current]));
     } else if (e.key === "ArrowRight") {
       next();
     } else if (e.key === "ArrowLeft") {

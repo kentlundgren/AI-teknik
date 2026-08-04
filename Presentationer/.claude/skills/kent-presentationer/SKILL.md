@@ -150,16 +150,42 @@ text, ett blogginlägg, ett repos push-datum, eller Kents egen uppgift — och
 var öppen i PRD:n om ett datum är en uppskattning snarare än bekräftat.
 Hitta aldrig på ett exakt datum för att slippa en lucka.
 
-## 9. Möjligt framtida mönster: korta "milestone"-avbrott (ej byggt än)
+## 9. "Milestone"-avbrott mellan projekt
 
-Kent har föreslagit (men inte beslutat, per 2026-08-04) korta, snabba
-avbrott mellan projekt-slides som lyfter stora händelser inom generativ AI
-för ett givet år — för att ge tidsperspektiv utan att sakta ner tempot.
-Om det byggs: en ny `kind: "milestone"` med en **fast, kort** visningstid
-som ignorerar `hastighet`-inställningen (avbrotten ska alltid vara rappa,
-oavsett vilken hastighetsvariant som spelas). Kräver research av faktiska,
-verifierade händelser — särskilt allt efter Claudes kunskapscutoff (kring
-januari 2026) måste webbsökas och styrkas, aldrig fyllas i från minnet.
+Korta, snabba avbrott mellan projekt-slides som lyfter stora händelser
+inom generativ AI för ett givet år — ger tidsperspektiv utan att sakta ner
+tempot. Implementerat som en egen `kind: "milestone"` med en **fast, kort**
+visningstid (4 sekunder fungerade bra) som ignorerar `hastighet`-
+inställningen helt — avbrotten ska alltid vara rappa, oavsett vilken
+hastighetsvariant som spelas. Egen, mörk, centrerad visuell stil (stort
+årtal + korta punkter) så de tydligt läses som ett avbrott, inte ett
+projekt. Sätt dem i de kronologiska gap där inget faktiskt projekt finns
+(t.ex. ett år utan egen slide).
+
+**Research-kravet är strikt:** särskilt allt efter Claudes kunskapscutoff
+(kring januari 2026) måste websökas och styrkas, aldrig fyllas i från
+minnet. Föredra **primärkällor** (leverantörens egen nyhetssida/blogg,
+myndighetens egen sida) framför sekundära SEO-aggregatorer — samma regel
+som redan gäller i `olika_Claude_modeller/CLAUDE.md`s källhantering.
+Verifiera varje länk med en HTTP-statuskontroll; en 403 vid automatiserad
+hämtning betyder ofta bot-skydd snarare än en död länk, men uteslut ändå
+källan ur slidesen om den inte går att bekräfta — hellre en kortare,
+helt verifierad lista än en längre med en osäker post.
+
+## 10. Ta inte en skärmdump för sanning — fråga om innebörden
+
+En skärmdump visar *vad* som står på en sida, inte alltid *varför* den
+finns eller vad den egentligen betyder för Kent. Bjärred Saltsjöbad-sliden
+fick första gången en generisk caption ("samlingssida med information...
+öppettider") byggd på en rimlig men fel tolkning av korten i skärmdumpen —
+sidan var i själva verket intern styrelsedata (elförbrukning, medlems-
+/inpasseringsstatistik) publicerad öppet som ett pro bono-
+transparensbidrag till en geografiskt utspridd styrelse. Skärmdumpen
+räcker för *att bilden ska visas*, men inte alltid för *att texten ska
+vara sann* — vid minsta osäkerhet om vad ett projekt faktiskt är eller
+varför det finns, fråga Kent i stället för att gissa fram en plausibel
+beskrivning (se `kent-bygg-sidor`, regel 2: Kents upplevelse väger tyngre
+än en "rimlig" tolkning utifrån).
 
 ## Uppdateringslogg
 
@@ -175,3 +201,11 @@ januari 2026) måste webbsökas och styrkas, aldrig fyllas i från minnet.
   globalt. Ny Regel 8 (årtal på varje post + kronologisk standardordning)
   och Regel 9 (den ännu obyggda milestone-avbrotts-idén, dokumenterad som
   kandidat snarare än beslutad) tillagda samma dag.
+- 2026-08-04 (v3): Regel 9 uppdaterad från kandidat till byggt mönster —
+  milestone-avbrotten implementerades samma dag, med skärpt krav på
+  primärkällor (inte sekundära SEO-aggregatorer) efter research av
+  faktiska generativ AI-händelser 2024–2026. Ny Regel 10 tillagd: en
+  skärmdump visar inte alltid *varför* ett projekt finns — vid osäkerhet
+  om ett projekts verkliga syfte, fråga Kent i stället för att gissa fram
+  en plausibel beskrivning (lärdom från en felaktig Bjärred Saltsjöbad-
+  caption, rättad samma dag).
