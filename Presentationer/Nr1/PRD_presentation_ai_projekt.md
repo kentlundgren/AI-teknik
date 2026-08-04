@@ -3,8 +3,8 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 12 (Ölkalkylen tillagd som åttonde projekt; Harvard-citerbara bloggkällor kopplade till fyra av projekten)
-**Status:** Åtta projekt byggda och testkörda. Enda kvarvarande öppna frågan är 4d (var/när presentationen visas fysiskt) — påverkar inte det som redan är levererat.
+**Version:** 13 (årtal på alla åtta projekt, kronologisk ordning; skill flyttas till projektet på Kents begäran; ny idé om korta "milestone"-avbrott under diskussion)
+**Status:** Åtta projekt byggda, testkörda och nu i kronologisk ordning med synligt årtal på varje slide. Öppna frågor: 4d (var/när visas fysiskt), 4m (exakt datum för Bjärred Saltsjöbad, okänt), samt den nya milestone-idén (avsnitt 4n) som ännu inte är ett beslut.
 **Typ:** Grund-PRD (helt nytt projekt)
 
 > **Viktig utgångspunkt, oavsett hur lång den här PRD:n blir:** den här
@@ -334,6 +334,38 @@ blir skärmdumpen för respektive projekt (ingen av dem har en webbsida att
 fotografera, till skillnad från övriga kandidater — bilden blir en
 kod-/terminalskärmdump i stället).
 
+**l. Årtal på alla slides + kronologisk ordning — BESLUTAT ✓ (2026-08-04)**
+Kent ville ha ett synligt årtal på samtliga åtta projekt (tidigare bara på
+de två 2023-kodkorten), och att ordningen ska följa tidsordningen.
+Genomfört: `year`-fältet är nu satt på alla poster i `projects.js`, och
+ordningen är: `temperatur` (2023) → `transkribering` (2023) →
+`Fredagsquiz` (2025, bekräftat av Kent) → `Vindkraftskalkyl` (2026, källa:
+blogginlägg 13/7) → `Statsskuld` (2026, källa: sidans egen text "Upprättad:
+2026-07-28") → `Claude-kompassen` (2026, källa: sidans egen text
+"Publicerad live: 29 juli 2026") → `Ölkalkylen` (2026, källa: blogginlägg
+29/7) → `Bjärred Saltsjöbad` (2026, se 4m — inget exakt datum hittat).
+Badgen (samma komponent som redan fanns för kodkorten) visas nu även ovanpå
+skärmdumparna, testat och läsbart.
+
+**m. Bjärred Saltsjöbads exakta datum — ÖPPEN**
+Ingen sida eller bloggpost gav ett datum för sidan (till skillnad från de
+andra sju posterna). Placerad sist i ordningen som bästa gissning (2026,
+utan specifik månad) snarare än att hitta på en dag. Kent kan bekräfta ett
+exakt datum om han har ett, annars ligger den kvar som "2026" utan vidare
+precision.
+
+**n. "Milestone"-avbrott mellan projekt — under diskussion, INTE beslutat**
+Kent tänkte högt 2026-08-04: korta, snabba avbrott mellan projekt-slides
+som lyfter stora/uppmärksammade händelser inom generativ AI under ett
+givet år (mellan 2023 och juli 2026), för att ge ett tidsperspektiv utan
+att sakta ner presentationen. Tekniskt enkelt att lägga till (en ny
+`kind: "milestone"` med en fast, kort visningstid som ignorerar
+`hastighet`-inställningen), men **inte byggt än** — kräver dels att Kent
+bekräftar att det ska byggas nu, dels research av faktiska, verifierade
+händelser (Claudes/Claude Codes egen kunskap räcker inte förbi ca januari
+2026, så allt efter det måste webbsökas och styrkas, inte gissas — se
+`kent-meta-regler-for-code`, Regel 3).
+
 ## 5. Leveranser
 
 - [x] Vindkraftskalkyl — rätt/senaste länk bekräftad (4a)
@@ -543,3 +575,20 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   saknade båda — tillagda proaktivt (mönstret säger uttryckligen "fråga
   inte varje gång"), testade i webbläsaren inklusive Escape-tangenten för
   att stänga modalen.
+- 2026-08-04 (v13): Nya delfrågor 4l (löst) och 4m (öppen) tillagda.
+  Årtal-badge nu satt på samtliga åtta projekt (inte bara de två
+  2023-kodkorten), och ordningen i `projects.js` ändrad till kronologisk:
+  temperatur → transkribering → Fredagsquiz → Vindkraftskalkyl →
+  Statsskuld → Claude-kompassen → Ölkalkylen → Bjärred Saltsjöbad.
+  Bjärred Saltsjöbad saknar ett bekräftat datum — flaggat öppet i stället
+  för att gissa. Testat i webbläsaren att badgen nu även syns snyggt ovanpå
+  skärmdumpar, inte bara kodkort. Ny delfråga 4n tillagd, **inte
+  beslutad**: Kents idé om korta "milestone"-avbrott mellan projekten som
+  lyfter stora händelser inom generativ AI år för år — tekniskt enkelt
+  (ny `kind`), men kräver dels ett go från Kent, dels webbsökt/verifierad
+  research eftersom perioden sträcker sig förbi Claudes kunskapscutoff.
+  Slutligen: skillen `kent-presentationer` flyttad från kontonivå till
+  `Presentationer/.claude/skills/kent-presentationer/` (projekt-lokal, en
+  nivå ovanför `Nr1` så den täcker framtida `Nr2`/`Nr3` automatiskt), efter
+  att Kent valt den platsen bland tre alternativ. Ett tunt pekar-skill
+  lämnat kvar globalt.

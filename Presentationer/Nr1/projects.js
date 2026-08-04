@@ -1,5 +1,7 @@
-// Fas 1 — sju projekt. Lägg till/ta bort ett projekt = lägg till/ta bort en post här.
+// Fas 1 — åtta projekt, i kronologisk ordning (äldst → nyast).
+// Lägg till/ta bort ett projekt = lägg till/ta bort en post här.
 // kind: "screenshot" (bild finns i images/) eller "code" (renderas som kodkort, inget bildfil behövs).
+// year: visas alltid som en liten badge på sliden — ange bästa kända år (se PRD 4h/4l för källa per post).
 
 const PROJECTS = [
   {
@@ -49,34 +51,18 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
 <span class="cmt"># ...hittar fortfarande inte ffmpeg på rad 29 ;)</span>`
   },
   {
-    id: "claude-kompassen",
+    id: "fredagsquiz",
     kind: "screenshot",
-    title: "Claude-kompassen",
-    caption: "Ett interaktivt verktyg som kartlägger Claudes ekosystem — ytor, styrfiler och de tre faserna i mitt eget AI-drivna arbetssätt, från idé till kod.",
-    url: "https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/",
-    image: "images/claude-kompassen.png",
-    source: { label: "Läs mer: En bild av Claudes ekosystem", url: "https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/" }
-  },
-  {
-    id: "statsskuld",
-    kind: "screenshot",
-    title: "Statsskuld: Sverige & USA",
-    caption: "En interaktiv jämförelse av Sveriges och USA:s statsskulder, byggd tillsammans med Gemini — med fokus på att visa själva beslutsvägen, inte bara slutsiffran.",
-    url: "https://kentlundgren.github.io/Ekonomi/statsskuld/sverige_amerika/index.html",
-    image: "images/statsskuld.png",
-    source: { label: "Läs mer: Vad ett beslutsträd om statsskuld lär oss om vibe-kodning", url: "https://controllerutangranser.wordpress.com/2026/07/28/vad-ett-beslutstrad-om-statsskuld-lar-oss-om-vibe-kodning/" }
-  },
-  {
-    id: "bjerred-saltsjobad",
-    kind: "screenshot",
-    title: "Bjärred Saltsjöbad",
-    caption: "En samlingssida med information om Bjärred Saltsjöbad — allt från öppettider till praktisk information på ett och samma ställe.",
-    url: "https://kentlundgren.github.io/foreningar/BjerredsSaltsjobad/",
-    image: "images/bjerred-saltsjobad.png"
+    year: "2025",
+    title: "Fredagsquiz",
+    caption: "Varje fredag sedan 22 augusti 2025: ett nytt quiz om Simrishamns kommun, frågorna skrivna av Claude, kodat i Cursor. Under hösten flyttade jag projektet till GitHub Pages — och skrev på köpet två egna guider om hur Git och GitHub faktiskt fungerar.",
+    url: "https://kentlundgren.github.io/quiz/0/",
+    image: "images/fredagsquiz.png"
   },
   {
     id: "vindkraftskalkyl",
     kind: "screenshot",
+    year: "2026",
     title: "Vindkraftskalkyl",
     caption: "Vindkraftens lönsamhet, synlig och interaktiv — den senaste i en lång rad kalkyler som växt fram från Excel-ark till webbapplikation.",
     url: "https://kentlundgren.github.io/Vindkraft/vindkraftskalkyl/vindkraftskalkyl.html",
@@ -84,20 +70,42 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     source: { label: "Läs mer: Att göra vindkraftens ekonomi synlig", url: "https://controllerutangranser.wordpress.com/2026/07/13/att-gora-vindkraftens-ekonomi-synlig/" }
   },
   {
-    id: "fredagsquiz",
+    id: "statsskuld",
     kind: "screenshot",
-    title: "Fredagsquiz",
-    caption: "Varje fredag sedan 22 augusti 2025: ett nytt quiz om Simrishamns kommun, frågorna skrivna av Claude, kodat i Cursor. Under hösten flyttade jag projektet till GitHub Pages — och skrev på köpet två egna guider om hur Git och GitHub faktiskt fungerar.",
-    url: "https://kentlundgren.github.io/quiz/0/",
-    image: "images/fredagsquiz.png"
+    year: "2026",
+    title: "Statsskuld: Sverige & USA",
+    caption: "En interaktiv jämförelse av Sveriges och USA:s statsskulder, byggd tillsammans med Gemini — med fokus på att visa själva beslutsvägen, inte bara slutsiffran.",
+    url: "https://kentlundgren.github.io/Ekonomi/statsskuld/sverige_amerika/index.html",
+    image: "images/statsskuld.png",
+    source: { label: "Läs mer: Vad ett beslutsträd om statsskuld lär oss om vibe-kodning", url: "https://controllerutangranser.wordpress.com/2026/07/28/vad-ett-beslutstrad-om-statsskuld-lar-oss-om-vibe-kodning/" }
+  },
+  {
+    id: "claude-kompassen",
+    kind: "screenshot",
+    year: "2026",
+    title: "Claude-kompassen",
+    caption: "Ett interaktivt verktyg som kartlägger Claudes ekosystem — ytor, styrfiler och de tre faserna i mitt eget AI-drivna arbetssätt, från idé till kod.",
+    url: "https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/",
+    image: "images/claude-kompassen.png",
+    source: { label: "Läs mer: En bild av Claudes ekosystem", url: "https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/" }
   },
   {
     id: "ol-tyskland",
     kind: "screenshot",
+    year: "2026",
     title: "Ölkalkylen",
     caption: "Kanske inte den mest seriösa frågan: hur många öl måste du köpa för att resan till Tyskland ska löna sig? Den fick över 3 000 klick på LinkedIn.",
     url: "https://kentlundgren.github.io/Ovrigt/Fritid/ol_Tyskland/index.html",
     image: "images/ol-tyskland.png",
     source: { label: "Läs mer: Hur många öl till break-even?", url: "https://controllerutangranser.wordpress.com/2026/07/29/hur-manga-ol-till-break-even/" }
+  },
+  {
+    id: "bjerred-saltsjobad",
+    kind: "screenshot",
+    year: "2026",
+    title: "Bjärred Saltsjöbad",
+    caption: "En samlingssida med information om Bjärred Saltsjöbad — allt från öppettider till praktisk information på ett och samma ställe.",
+    url: "https://kentlundgren.github.io/foreningar/BjerredsSaltsjobad/",
+    image: "images/bjerred-saltsjobad.png"
   }
 ];

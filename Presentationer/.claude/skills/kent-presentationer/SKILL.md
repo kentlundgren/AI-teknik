@@ -1,0 +1,177 @@
+---
+name: kent-presentationer
+description: >
+  Bygger självspelande, datadrivna presentationer åt Kent Lundgren som visar upp flera
+  projekt/länkar i följd — t.ex. en portfolio-genomgång av AI-projekt, med bild+text per
+  post, automatisk bildväxling och flera hastighetslägen. Använd när Kent ber om att
+  bygga, ändra eller utöka en "presentation", ett "bildspel", eller vill visa upp flera
+  projekt i en självspelande sekvens, särskilt om han nämner PowerPoint-liknande
+  utseende, automatisk uppspelning, eller att lätt kunna lägga till/ta bort poster över
+  tid. Kompletterar `kent-bygg-sidor` (allmänna regler för Kents interaktiva sidor) med
+  mönster specifika för just presentationer/bildspel — läs `kent-bygg-sidor` också.
+metadata:
+  type: process
+---
+
+# Kents presentationer — mönster och beslut
+
+Destillerad ur den första riktiga presentationen som byggdes enligt det här
+mönstret: `Presentationer/Nr1` i AI-teknik-repot (PRD:
+`Presentationer/Nr1/PRD_presentation_ai_projekt.md`), en portfolio-genomgång
+av åtta AI/webb-projekt. Se den PRD:n för fullständig beslutshistorik och
+resonemang — den här skillen destillerar bara mönstren som generaliserar.
+
+**Placering:** medvetet lagd här, i `Presentationer/.claude/skills/`, inte
+kontonivå/globalt — Kent vill kunna se och länka till skillet på GitHub när
+repot är pushat, och en nivå ovanför `Nr1` täcker automatiskt `Nr2`, `Nr3`
+osv utan att behöva flyttas igen. Ett tunt pekar-skill finns kvar globalt
+(`~/.claude/skills/kent-presentationer/`) för sessioner som inte är öppnade
+i AI-teknik-repot — håll det pekar-skillet i synk med namnet/syftet här,
+men lägg inget innehåll där.
+
+Gäller tillsammans med [[kent-bygg-sidor]] — den skillen har de allmänna
+reglerna för Kents interaktiva sidor (fråga vid minsta tvekan, bygg/testa
+lokalt, publicera aldrig utan godkännande, Kents upplevelse väger tyngst,
+Regel 6 om `{ } GitHub`/`</> teknik`-hörnorna). Upprepa inte de reglerna
+här — bara det som är specifikt för presentationer.
+
+## 1. Arkitektur: motor + data, alltid separerade
+
+Fyra filer, aldrig hårdkodat innehåll i HTML:
+
+- `index.html` — skalet, byggs en gång
+- `style.css` — utseendet
+- `script.js` — motorn: läser datan, autoplay, övergångar, progress
+- `projects.js` — **all data**, en post per projekt/sak att visa
+
+En post = `{titel, bild/kod, text, url, year}`. Att lägga till eller ta
+bort en post är en redigering i `projects.js`, aldrig en ändring i de
+andra tre filerna. Det här är kärnkravet Kent alltid ställer ("lätt att
+lägga till och ta bort") — bygg för det direkt, fråga inte om det ska vara
+så.
+
+Två poständ, välj rätt:
+- `kind: "screenshot"` — kräver en bild i `images/` (se avsnitt 3)
+- `kind: "code"` — renderas som ett stiliserat kodkort direkt i HTML/CSS,
+  inget bildfilsbehov. Använd när posten inte har en levande webbsida att
+  fotografera (gamla projekt, ren backend-kod, notebook-kod).
+
+## 2. Flera hastigheter = en URL-parameter, inte flera filer
+
+Om Kent vill kunna dela olika tempo till olika sammanhang (snabbt för
+sociala flöden, seriöst för en rekryterare som faktiskt sitter och
+tittar): lös det med **en enda sida och en query-parameter**
+(`?hastighet=rapp/lagom/serios` eller motsvarande), inte tre separata
+HTML-filer. Samma `projects.js` för alla varianter — bara sekunderna per
+post skiljer. Ger Kent exakt vad han vill ha: flera delbara URL:er, en
+enda fil att underhålla.
+
+Kalibrering som fungerade bra i det första projektet (justera efter
+sammanhang, inte en universell sanning): rapp ~7 sek, lagom ~20 sek,
+seriös ~45 sek per post. Räkna alltid ut och nämn total speltid per
+variant (antal poster × sekunder) — det hjälper Kent bedöma om siffrorna
+känns rätt.
+
+Lägg också till en liten, diskret växlingsknapp-rad i sidhuvudet så
+hastigheten kan bytas utan att skriva om URL:en för hand — uppdatera URL:en
+med `history.replaceState` när den byts, så länken förblir delbar.
+
+## 3. Skärmdumpar: headless Chrome, absolut Windows-sökväg
+
+För poster med en levande webbsida — ta en riktig skärmdump, gissa inte
+och bygg inte platshållare som "klart nog":
+
+```bash
+"/c/Program Files/Google/Chrome/Application/chrome.exe" --headless=new \
+  --disable-gpu --hide-scrollbars --window-size=1600,1000 \
+  --screenshot="C:\Users\kentl\...\images\namn.png" "https://url"
+```
+
+**Viktig fallgrop:** `--screenshot` måste vara en **absolut Windows-sökväg**
+(`C:\...`), annars ger Chrome "Åtkomst nekad" trots att bash-arbetskatalogen
+redan är rätt mapp — en relativ sökväg (`namn.png`) misslyckas tyst med
+den felkoden.
+
+Bygg alltid en fallback i `script.js` för trasiga/saknade bilder (`onerror`
+på `<img>` som byter till en genererad platshållare med projektnamnet) —
+motorn ska aldrig visa ett trasigt bild-ikon.
+
+## 4. Säkerhet i återanvänd kod: uteslut, beskär inte
+
+Om ett kodkort (`kind: "code"`) återger riktig kod från ett äldre projekt
+och den koden råkar innehålla en hårdkodad nyckel/hemlighet: **ta helt
+bort den raden ur textsträngen** som skrivs in i `projects.js`, lita inte
+på CSS-beskärning eller att "det syns inte på skärmen ändå". Flagga fyndet
+för Kent även om nyckeln sannolikt redan är död (gammal, publik i flera
+år) — han ska få veta, inte bara få det tyst fixat.
+
+## 5. Testa lokalt: HTTP-server, inte `file://`
+
+Claude Browser-panelen renderar filer utanför projektmappen som statiska
+ögonblicksbilder — CSS och JS körs inte. Starta i stället en enkel lokal
+server innan testning:
+
+```bash
+cd <mapp> && python -m http.server 8791 &
+```
+
+Navigera Browser-panelen till `http://localhost:8791/index.html`, inte
+till `file://...`. Testa: crossfade-övergången, samtliga
+hastighetsvarianter, loopen (går den runt till post 1 igen?), och
+responsiv layout på mobilbredd (`resize_window` preset `mobile`).
+
+## 6. Källor: leta upp, verifiera, annotera — tvinga aldrig fram en koppling
+
+Om projekten som visas har motsvarande blogginlägg (Kents två bloggar,
+`controllerutangranser.wordpress.com` och `klel.wordpress.com`, båda med
+en `/category/ai/`): sök upp exakta permalänkar, verifiera med en HTTP-
+statuskontroll att de fungerar, och lägg till som en diskret, annoterad
+Harvard-källa per post — men bara där en äkta, innehållsmässig matchning
+finns. Lämna resten omärkta hellre än att gissa fram en svag koppling
+(se `kent-meta-regler-for-code`, Regel 2 och 3).
+
+## 7. Behåll kreativiteten — särskilt viktigt just här
+
+Presentationer av det här slaget riskerar att bli en ren checklista av
+beslutade format. Kent har uttryckligen bett om att strukturen aldrig ska
+kväva lusten att göra något roligt eller oväntat (se PRD:ns inledande
+citat). Udda, lekfulla projekt hör hemma här på samma villkor som de
+seriösa — ett av de starkaste exemplen hittills var en öl-kalkyl för en
+resa till Tyskland, som fick över 3 000 klick på LinkedIn. Föreslå gärna
+sådana inslag proaktivt i stället för att bara vänta på seriösa kandidater.
+
+## 8. Årtal på varje post, kronologisk ordning som standard
+
+Varje post ska ha ett synligt årtal (en liten badge, samma komponent
+oavsett `kind`), och standardordningen är kronologisk (äldst → nyast) om
+inte Kent uttryckligen vill något annat (t.ex. senaste-först, eller
+grupperat tematiskt). Ange bästa kända källa för varje årtal — sidans egen
+text, ett blogginlägg, ett repos push-datum, eller Kents egen uppgift — och
+var öppen i PRD:n om ett datum är en uppskattning snarare än bekräftat.
+Hitta aldrig på ett exakt datum för att slippa en lucka.
+
+## 9. Möjligt framtida mönster: korta "milestone"-avbrott (ej byggt än)
+
+Kent har föreslagit (men inte beslutat, per 2026-08-04) korta, snabba
+avbrott mellan projekt-slides som lyfter stora händelser inom generativ AI
+för ett givet år — för att ge tidsperspektiv utan att sakta ner tempot.
+Om det byggs: en ny `kind: "milestone"` med en **fast, kort** visningstid
+som ignorerar `hastighet`-inställningen (avbrotten ska alltid vara rappa,
+oavsett vilken hastighetsvariant som spelas). Kräver research av faktiska,
+verifierade händelser — särskilt allt efter Claudes kunskapscutoff (kring
+januari 2026) måste webbsökas och styrkas, aldrig fyllas i från minnet.
+
+## Uppdateringslogg
+
+- 2026-08-04 (v1): Skapad efter det första fullständiga projektet i det
+  här mönstret (`Presentationer/Nr1`, åtta projekt). Kent frågade
+  uttryckligen om ett sådant här skill skulle vara lämpligt att skapa nu,
+  med uttrycklig avsikt att det utvecklas vidare över tid i takt med fler
+  presentationer.
+- 2026-08-04 (v2): Flyttad från kontonivå (`~/.claude/skills/`) till
+  `Presentationer/.claude/skills/` på Kents uttryckliga begäran — han vill
+  kunna se och länka till skillet på GitHub, och en nivå ovanför `Nr1`
+  täcker framtida `Nr2`/`Nr3` automatiskt. Ett tunt pekar-skill lämnat kvar
+  globalt. Ny Regel 8 (årtal på varje post + kronologisk standardordning)
+  och Regel 9 (den ännu obyggda milestone-avbrotts-idén, dokumenterad som
+  kandidat snarare än beslutad) tillagda samma dag.
