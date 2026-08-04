@@ -3,8 +3,8 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 2 (bild+text-format, 20 sek/projekt och teknikval beslutade; fullständig projektlista fortfarande öppen)
-**Status:** Under uppbyggnad — kärninnehåll och teknik beslutade, men den fullständiga listan av projekt att visa är ännu inte låst.
+**Version:** 3 (teknikval omprövat till HTML/CSS/JS för extensibilitet; fasindelad utbyggnad beslutad; fullständig projektlista fortfarande öppen)
+**Status:** Under uppbyggnad — kärninnehåll, teknik och fasindelning beslutade, men den fullständiga listan av projekt (fas 1 vs senare) är ännu inte låst.
 **Typ:** Grund-PRD (helt nytt projekt)
 
 ## 1. Bakgrund
@@ -31,15 +31,21 @@ retrieval-lösning. Ingen RAG-komponent ingår alltså i det här projektet.
 ## 3. Omfattning
 
 **Ingår:**
-- En PowerPoint-presentation (.pptx) med automatiska, förhållandevis snabba
-  bildväxlingar — självspelande, utan att någon behöver klicka (kiosk-läge,
-  t.ex. på en skärm/monter).
+- En HTML/CSS/JS-sida som *härmar* en PowerPoint-presentation visuellt, med
+  automatiska, förhållandevis snabba bildväxlingar — självspelande, utan att
+  någon behöver klicka (kiosk-läge i webbläsare, t.ex. på en skärm/monter).
+  Se 4g för det omprövade teknikbeslutet.
+- En datadriven struktur (t.ex. `projects.js`) där varje projekt är en post
+  i en lista — så att lägga till eller ta bort ett projekt är en enkel
+  redigering, inte en ombyggnad av sidans kod.
 - Innehåll som lyfter fram minst: Claude-kompassen, statsskuld
   Sverige/USA, Bjärred Saltsjöbad, vindkraftskalkyl.
 - Denna PRD-process, enligt Claude-kompassens `PRD_generell.md`-mall.
 
 **Ingår inte:**
 - Teknisk RAG-lösning (bekräftat bortvalt — se Bakgrund, var en felsägning).
+- En riktig `.pptx`-fil öppningsbar i PowerPoint-programvaran (se avvägning
+  i 4g — kan bli ett separat, senare steg om behovet uppstår).
 - Ljud, video-inspelning eller Kent som presentatör på plats — presentationen
   ska kunna gå av sig själv.
 - Vidareutveckling av de underliggande källprojekten (Claude-kompassen m.fl.)
@@ -76,15 +82,33 @@ tekniskt komplext) — men möjligen ja för det tekniska bygget av .pptx-filen
 om exakta timing-/övergångsvärden ska scriptas (t.ex. via python-pptx).
 Avgörs när produktionsordningen (avsnitt 6) är konkret.
 
-**g. Vilken teknik byggs presentationen med? — BESLUTAT ✓**
-En äkta `.pptx`-fil (öppnas i riktiga PowerPoint), byggd med `pptxgenjs`
-(ett Node/JavaScript-baserat byggverktyg — men det är ett byggverktyg, inte
-slutformatet). Automatisk bildväxling var 20:e sekund och loop läggs till
-genom att direkt redigera presentationens underliggande XML efter att
-grundfilen genererats (pptx är i botten en zip-arkiverad samling XML-filer).
-**Inte** en HTML/CSS/JS-webbsida som efterliknar PowerPoint — Kent frågade
-uttryckligen om det, men "PowerPoint-format" i ursprungsönskemålet tolkas
-som ett krav på en riktig `.pptx`-fil.
+**g. Vilken teknik byggs presentationen med? — BESLUTAT ✓ (omprövat 2026-08-04)**
+Ursprungligt beslut var en äkta `.pptx`-fil via `pptxgenjs`. Kent förtydligade
+samma dag: "PowerPoint-format" avsåg utseendet/upplägget ("härma"
+PowerPoint), inte kravet att filen faktiskt måste öppnas i PowerPoint-
+programvaran — och han vill dessutom kunna lägga till och ta bort projekt
+relativt enkelt över tid.
+
+**Nytt beslut: HTML/CSS/JS**, av tre skäl:
+1. **Extensibilitet** — en datadriven lista (t.ex. `projects.js`, en array
+   med `{titel, bild, text, url}` per projekt) gör det till en enrads-ändring
+   att lägga till eller ta bort ett projekt, utan att bygga om en binärfil.
+   En `.pptx` kräver att byggskriptet körs om för varje ändring.
+2. **Konsekvens med Kents övriga arbetssätt** — samtliga källprojekt
+   (Claude-kompassen, statsskuld, Bjärred Saltsjöbad, vindkraftskalkylen)
+   är redan HTML/CSS/JS-sidor publicerade via GitHub Pages. Samma
+   teknik och samma publiceringsflöde för presentationen själv.
+3. **Självspelande i kiosk-läge är enkelt** — en webbläsarflik i helskärm
+   (F11) med `setInterval`/CSS-transitions för automatisk bildväxling och
+   loop är ett naturligt sätt att visa upp innehållet på en skärm/monter,
+   utan att PowerPoint-programvara behöver finnas installerad där.
+
+**Avvägning, redovisad öppet:** det blir *inte* längre en fil som kan
+öppnas i riktiga PowerPoint eller bifogas i en ansökan som `.pptx`. Om det
+behovet uppstår senare (t.ex. bifoga i en jobbansökan) är närmaste väg att
+skärminspela webbsidan som video, eller — som ett separat, senare steg —
+bygga en `.pptx`-export av samma datalista. Ingen sådan export ingår i
+denna PRD:s omfattning (se avsnitt 3).
 
 **h. Fullständig lista av projekt att visa — ÖPPEN**
 Kent vill ha fler än de fyra ursprungliga exemplen, prioriterat mot senast
@@ -135,22 +159,37 @@ Detta breddar kandidatlistan ytterligare och gör frågan om **hur många
 projekt totalt** (och därmed total speltid vid 20 sek/projekt) ännu
 viktigare att låsa med Kent innan produktion startar.
 
+**i. Fasindelning: starta smalt, bygg ut löpande — BESLUTAT ✓**
+Kent föreslog 2026-08-04 att börja med ett mindre antal projekt (de fyra
+kärnprojekten) och lägga till fler över tid, snarare än att låsa hela
+listan innan något byggs. Detta passar den datadrivna HTML/CSS/JS-lösningen
+i 4g väl — fas 2+ är bara nya poster i `projects.js`, inget nytt
+utvecklingsarbete. Fas 1-omfattning (exakt vilka fyra, och om något extra
+ska med redan från start) är fortfarande en del av öppen fråga 4h.
+
 ## 5. Leveranser
 
-- [ ] PRD låst — alla delfrågor (4a–4f) beslutade
-- [ ] Innehållslista per källprojekt: vad visas, i vilken ordning
-- [ ] Vindkraftskalkyl — rätt/senaste länk bekräftad (4a)
-- [ ] .pptx-fil producerad med autoplay-timing
-- [ ] Testkörning i självspelande läge
+- [x] Vindkraftskalkyl — rätt/senaste länk bekräftad (4a)
+- [ ] PRD låst — alla delfrågor (4a–4i) beslutade
+- [ ] Datadriven projektlista (`projects.js` eller motsvarande) med struktur
+      för {titel, bild, text, url} per projekt
+- [ ] Innehåll (bild + text) insamlat för startomgången av projekt (fas 1,
+      se 4i)
+- [ ] Självspelande HTML/CSS/JS-sida byggd: autoplay 20 sek/projekt, loop,
+      PowerPoint-liknande utseende
+- [ ] Testkörning i kiosk-/helskärmsläge
 
 ## 6. Produktionsordning
 
-Preliminärt, låses när fråga 4b–4c är beslutade:
-1. Innehållsinsamling/urval per källprojekt (skärmdumpar, exempel, siffror)
-2. PRD låst
-3. Strukturera slides: antal, ordning, timing per bild
-4. Bygg .pptx-filen
-5. Testkör i självspelande/kiosk-läge
+Preliminärt, låses när fråga 4h–4i är beslutade:
+1. PRD låst
+2. Bygg grundstrukturen: tom, datadriven sida som läser `projects.js` och
+   spelar upp i loop (20 sek/projekt) — testas med 1–2 platshållarprojekt
+3. Innehållsinsamling för fas 1-listan (skärmdumpar + text, återanvänd
+   blogginläggens text där det passar)
+4. Fyll på `projects.js` med fas 1-projekten, testkör i kiosk-läge
+5. Lägg till fler projekt löpande (fas 2+) genom att bara utöka
+   `projects.js` — ingen ombyggnad av sidans kod krävs
 
 ## 7. Källor
 
@@ -159,13 +198,16 @@ verktyg):
 - Bjärred Saltsjöbad — https://kentlundgren.github.io/foreningar/BjerredsSaltsjobad/
 - Claude-kompassen — https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/
 - Statsskuld Sverige/USA — https://kentlundgren.github.io/Ekonomi/statsskuld/sverige_amerika/index.html
-- Vindkraftskalkyl — länk obekräftad, se fråga 4a
+- Vindkraftskalkyl — https://kentlundgren.github.io/Vindkraft/vindkraftskalkyl/vindkraftskalkyl.html
+- controllerutangranser.wordpress.com/category/ai/ och
+  klel.wordpress.com/category/ai/ — bild- och textkälla för fler kandidatprojekt (4h)
 
 ## 8. Status
 
-Brainstorming-fas. Fem av sex delfrågor öppna (a–d, f); en löst (e — mapp
-bekräftad). Nästa steg: bekräfta vindkraftskalkyl-länk, bestämma
-innehållsdjup samt antal slides/timing per bild.
+Kärninnehåll (bildformat, timing, fasindelning) och teknikval (HTML/CSS/JS,
+omprövat 2026-08-04) beslutade. Kvarstår: exakt vilka projekt som ingår i
+fas 1 respektive läggs till senare (4h), var/när presentationen visas
+fysiskt (4d), och SPEC.md-checkpointen (4f).
 
 ## Ändringslogg
 
@@ -174,3 +216,18 @@ innehållsdjup samt antal slides/timing per bild.
   (avsåg PRD, inte en teknisk RAG-lösning). Repo-identitet kontrollerad för
   AI-teknik (känt-gott — `origin` pekar rätt, `main` i synk med
   `origin/main`). Mapp `Presentationer/Nr1/` bekräftad som rätt plats.
+- 2026-08-04 (v2): Vindkraftskalkyl-länk bekräftad (4a). Innehållsformat
+  (bild + text, 20 sek/projekt) beslutat (4b, 4c). Teknikval för själva
+  bygget (`.pptx` via pptxgenjs) beslutat (4g). Fullständig kandidatlista
+  utökad med fem GitHub-repos med bekräftad live-sida samt en tabell över
+  vilka kandidater som saknar sida (4h).
+- 2026-08-04 (v3): Teknikbeslutet i 4g omprövat efter att Kent förtydligade
+  att "PowerPoint-format" syftade på utseendet, inte filformatet, samt att
+  enkel till-/frånläggning av projekt är ett krav — bytt till HTML/CSS/JS
+  med en datadriven projektlista. Avvägningen (ingen riktig `.pptx`-fil)
+  redovisad öppet i 4g och i Omfattning. Ny delfråga 4i tillagd och
+  beslutad: fasindelad utbyggnad (starta smalt, lägg till löpande). Två
+  bloggars AI-kategorier tillagda som ytterligare käll-/bild-/textkälla,
+  med fem nya kandidatprojekt identifierade (4h, uppdaterad). Leveranser
+  och produktionsordning omskrivna för att spegla HTML/CSS/JS och
+  fasindelningen.
