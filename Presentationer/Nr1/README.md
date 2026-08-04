@@ -49,3 +49,4 @@ Redigera `projects.js` — en post per projekt, ingen ändring av
 - `projects.js` — allt innehåll (fas 1: åtta projekt + två milestones)
 - `images/` — skärmdumpar av de sex live-projekten
 - `PRD_presentation_ai_projekt.md` — hela beslutshistoriken
+- `SPEAKER_NOTES.md` — Kents egna presentatörsanteckningar per projekt (id-kopplat, inte del av sidan)

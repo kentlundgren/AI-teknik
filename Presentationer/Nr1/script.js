@@ -76,6 +76,7 @@
       const img = document.createElement("img");
       img.src = project.image;
       img.alt = project.title;
+      if (project.imagePosition) img.style.objectPosition = project.imagePosition;
       img.onerror = function () {
         this.onerror = null;
         this.src = placeholderSrc(project.title);

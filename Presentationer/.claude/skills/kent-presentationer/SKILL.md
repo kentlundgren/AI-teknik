@@ -122,6 +122,17 @@ Bygg alltid en fallback i `script.js` för trasiga/saknade bilder (`onerror`
 på `<img>` som byter till en genererad platshållare med projektnamnet) —
 motorn ska aldrig visa ett trasigt bild-ikon.
 
+**Beskärning: gör `object-position` per projekt, gissa inte en global
+regel.** Prövat båda hållen (2026-08-04): en global `left top`-regel för
+alla skärmdumpar såg bra ut för vissa sidor men klippte fel för andra —
+det beror på var i just den skärmdumpen det viktiga innehållet råkar
+sitta, inte på en generell sanning om webbsidors layout. Lägg därför till
+ett valfritt `imagePosition`-fält per post i `projects.js`
+(`img.style.objectPosition = project.imagePosition || <standard>`) och
+låt Kent titta på varje bild och avgöra. Standard (`top center`) fungerar
+för de flesta; sätt en override bara där Kent konkret pekat ut att den
+klipper fel.
+
 ## 4. Säkerhet i återanvänd kod: uteslut, beskär inte
 
 Om ett kodkort (`kind: "code"`) återger riktig kod från ett äldre projekt
@@ -166,15 +177,24 @@ seriösa — ett av de starkaste exemplen hittills var en öl-kalkyl för en
 resa till Tyskland, som fick över 3 000 klick på LinkedIn. Föreslå gärna
 sådana inslag proaktivt i stället för att bara vänta på seriösa kandidater.
 
-## 8. Årtal på varje post, kronologisk ordning som standard
+## 8. Datumbadge på varje post — månad när den finns, kronologisk ordning som standard
 
-Varje post ska ha ett synligt årtal (en liten badge, samma komponent
-oavsett `kind`), och standardordningen är kronologisk (äldst → nyast) om
-inte Kent uttryckligen vill något annat (t.ex. senaste-först, eller
-grupperat tematiskt). Ange bästa kända källa för varje årtal — sidans egen
-text, ett blogginlägg, ett repos push-datum, eller Kents egen uppgift — och
+Varje post ska ha en synlig datumbadge (samma komponent oavsett `kind`),
+och standardordningen är kronologisk (äldst → nyast) om inte Kent
+uttryckligen vill något annat (t.ex. senaste-först, eller grupperat
+tematiskt). Ange bästa kända källa för varje datum — sidans egen text, ett
+blogginlägg, ett repos commit-/push-datum, eller Kents egen uppgift — och
 var öppen i PRD:n om ett datum är en uppskattning snarare än bekräftat.
 Hitta aldrig på ett exakt datum för att slippa en lucka.
+
+**Använd månad när den är känd, inte bara år.** Formatet `<mån><år>` utan
+mellanslag (`apr2023`, `jul2026`) i stället för bara `2023`/`2026` — ett
+helt år är en grov enhet, och skillnaden mellan tidigt och sent på året
+(t.ex. jan kontra dec samma år) kan vara nästan lika stor som skillnaden
+mellan två olika år. Månadsprecision avgör dessutom den faktiska
+ordningen mellan poster som annars bara delar årtal — kontrollera alltid
+om en ny/ändrad datumkälla flyttar en post i sekvensen, inte bara vad som
+står i badgen.
 
 ## 9. "Milestone"-avbrott mellan projekt
 
@@ -213,6 +233,22 @@ varför det finns, fråga Kent i stället för att gissa fram en plausibel
 beskrivning (se `kent-bygg-sidor`, regel 2: Kents upplevelse väger tyngre
 än en "rimlig" tolkning utifrån).
 
+## 11. Presentatörsanteckningar: en egen `SPEAKER_NOTES.md`, kopplad via `id`
+
+Samma idé som PowerPoints presentatörsanteckningar — bakgrundsdata Kent
+vill ha till hands när han pratar om en bild live, men som aldrig ska
+synas på själva sidan eller för publiken. Lägg det i en fristående fil,
+`SPEAKER_NOTES.md`, ett avsnitt per projekt, rubricerat med **samma `id`**
+som redan finns på varje post i `projects.js` — det är den naturliga
+nyckeln, ingen anledning att hitta på ett nytt kopplingsschema. Fyll på
+efter behov (tomma avsnitt är okej, betyder bara "inget antecknat än").
+Koppla **inte** filen till sidans UI/kod — den är ett rent
+referensdokument för Kent, inte en funktion i presentationen. Länkar Kent
+ger till egna, privata källor (t.ex. ett Google Sheets-dokument) sparas
+som de är utan HTTP-verifiering — det är hans egna anteckningar till sig
+själv, inte en publik källa som ska styrkas (skilj det från Regel 6:s
+krav på verifierade länkar, som gäller citerbara/publika källor).
+
 ## Uppdateringslogg
 
 - 2026-08-04 (v1): Skapad efter det första fullständiga projektet i det
@@ -240,3 +276,23 @@ beskrivning (se `kent-bygg-sidor`, regel 2: Kents upplevelse väger tyngre
   ska respektera pausat läge i stället för att autoplay tyst startar om
   vid manuell navigering. Standardhastighet i Regel 2 ändrad från `lagom`
   till `rapp`, så ett bildspel känns igen direkt.
+- 2026-08-04 (v5): Lärdom tillagd i Regel 3: bildbeskärning ska ankras
+  `left top`, inte centreras — en centrerad beskärning klipper bort
+  rubriken/vänsterkanten på skärmdumpar så fort bildkällan är bredare än
+  visningsytan. Upptäckt av Kent via två skärmdumpar med markerade pilar.
+- 2026-08-04 (v6): Regel 3 omprövad samma dag — Kent testade `left top`
+  mot alla sex skärmdumpsprojekt och ville ha centrerad beskärning
+  tillbaka för fem av dem, bara Vindkraftskalkyl blev bättre med
+  vänsterankring. Global regel ersatt med ett per-projekt `imagePosition`-
+  fält — rätt beskärning är en bild-för-bild-bedömning, inte en generell
+  sanning. Ny Regel 11: en fristående `SPEAKER_NOTES.md`, kopplad via
+  projektens `id`, för Kents egna presentatörsanteckningar (bakgrundsdata,
+  historik, privata källänkar) — samma idé som PowerPoints
+  presentatörsvy, aldrig synlig på själva sidan.
+- 2026-08-04 (v7): Regel 8 utökad: använd `<mån><år>`-format på
+  datumbadgen när månaden är känd, inte bara år — Kent påpekade att
+  skillnaden mellan t.ex. jan och dec samma år är nästan ett helt år, en
+  skillnad en ren årtalsbadge döljer. Månadsprecisionen avslöjade att en
+  post (Bjärred Saltsjöbad) låg fel placerad i sekvensen — kontrollera
+  alltid om ett mer exakt datum flyttar en posts plats, inte bara dess
+  badge-text.

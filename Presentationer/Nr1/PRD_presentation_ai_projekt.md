@@ -3,8 +3,8 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 15 (manuell styrning tillagd — pilar, svep, paus — och standardhastighet ändrad till rapp)
-**Status:** Tio slides totalt (åtta projekt + två milestone-avbrott), i kronologisk ordning, med både automatisk uppspelning (rapp som standard) och full manuell styrning. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt) och det obekräftade exakta datumet för Bjärred Saltsjöbad (4m).
+**Version:** 18 (månadsprecision på alla årtalsbadges; Bjärred Saltsjöbads datum bekräftat och omordnad tidigare i tidslinjen)
+**Status:** Tio slides totalt (åtta projekt + två milestone-avbrott), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt) — allt innehåll och all datering är nu beslutad.
 **Typ:** Grund-PRD (helt nytt projekt)
 
 > **Viktig utgångspunkt, oavsett hur lång den här PRD:n blir:** den här
@@ -347,12 +347,12 @@ blogginlägg 13/7) → `Statsskuld` (2026, källa: sidans egen text "Upprättad:
 Badgen (samma komponent som redan fanns för kodkorten) visas nu även ovanpå
 skärmdumparna, testat och läsbart.
 
-**m. Bjärred Saltsjöbads exakta datum — ÖPPEN**
-Ingen sida eller bloggpost gav ett datum för sidan (till skillnad från de
-andra sju posterna). Placerad sist i ordningen som bästa gissning (2026,
-utan specifik månad) snarare än att hitta på en dag. Kent kan bekräfta ett
-exakt datum om han har ett, annars ligger den kvar som "2026" utan vidare
-precision.
+**m. Bjärred Saltsjöbads exakta datum — BESLUTAT ✓ (2026-08-04)**
+Kent gav själv källan: första committen i det relaterade repot
+`Bjerred-el` (inte `foreningar`-repot där själva sidan ligger) skedde i
+januari 2026. Badge satt till `jan2026`, och posten flyttad tidigare i
+tidslinjen (se 4r) — den låg tidigare sist, vilket var fel så snart
+månadsprecisionen fanns.
 
 **Innehållsrättelse 2026-08-04:** ursprungscaptionen ("samlingssida med
 information ... öppettider till praktisk information") var fel — byggd på
@@ -415,10 +415,77 @@ webbläsarverktyget (ingen touch-emulering tillgänglig) — koden följer
 standardmönstret för `touchstart`/`touchend`, men Kent bör själv
 bekräfta på en riktig mobil.
 
+**p. Bildbeskärning: vänsterkant, inte centrerad — BESLUTAT ✓ och FIXAT (2026-08-04)**
+Kent visade två skärmdumpar med röda pilar: `object-position: top center`
+i `.media-pane img` klippte bort vänsterkanten av skärmdumparna (Statsskuld
+och Vindkraftskalkyl), så att rubrikens början inte syntes. Fixat till
+`object-position: left top` — bilden ankras nu alltid i övre vänstra
+hörnet i stället för att beskäras jämnt från båda sidor. Testat mot
+Vindkraftskalkyl, Statsskuld och Claude-kompassen i webbläsaren — rubriken
+syns nu från vänsterkanten på alla tre.
+
+**Justering 2026-08-04, samma dag:** Kent testade 4p-fixen mot alla
+projekt och gav nyanserad feedback — vänsterankring var bara rätt för
+**Vindkraftskalkyl**, övriga fem skärmdumpsprojekt (Fredagsquiz,
+Statsskuld, Claude-kompassen, Ölkalkylen, Bjärred Saltsjöbad) skulle
+tillbaka till centrerad beskärning. Löst genom att göra `object-position`
+per-projekt i stället för globalt: `.media-pane img` har `top center` som
+standard igen, och ett nytt fält `imagePosition` i `projects.js`
+(satt bara på `vindkraftskalkyl`, värde `"left top"`) låter `script.js`
+override:a per post. Ingen global regel var alltså rätt — beskärningen
+beror på var i respektive originalskärmdump det viktiga innehållet
+faktiskt sitter.
+
+**q. Vindkraftskalkylens historik + presentatörsanteckningar — BESLUTAT ✓ och BYGGT (2026-08-04)**
+Två delar:
+1. Bildtexten för `vindkraftskalkyl` uppdaterad: "...den senaste (2026) i
+   en lång rad kalkyler jag byggt sedan minst 2012...". Kent har byggt
+   vindkraftskalkyler sedan minst 2012 (Excel → HTML/JS → dagens
+   webbapplikation) — verifierat mot en tidigare version,
+   https://kentlundgren.se/miljo/energi/vindkraftsekonomi.html (2022,
+   nämner data från 2012–2022).
+2. Ny fil `SPEAKER_NOTES.md` skapad — motsvarigheten till PowerPoints
+   presentatörsanteckningar (synliga bara för den som håller
+   presentationen, inte del av själva sidan). Ett avsnitt per projekt,
+   kopplat via samma `id` som redan finns i `projects.js` — bekräftat till
+   Kent att varje projekt redan hade ett unikt `id`-fält, så det var en
+   naturlig nyckel att koppla mot i stället för att införa ett nytt.
+   Fylld med `vindkraftskalkyl` som pilotexempel: länk till 2022-versionen
+   samt Kents privata Google Sheets med nyckeltal sedan 2012 (länken
+   sparad som given, inte HTTP-verifierad — det är Kents egen privata
+   anteckning till sig själv, inte en publik källa som ska citeras).
+   Övriga sju projekt har tomma rubriker, redo att fyllas på efter behov.
+   Filen är medvetet inte kopplad till sidans UI — bara ett textdokument
+   Kent kan ha öppet vid sidan av när han presenterar.
+
+**r. Månadsprecision på årtalsbadgen + omordning — BESLUTAT ✓ och BYGGT (2026-08-04)**
+Kent ville ha månad där den är känd, inte bara år — motivering: skillnaden
+mellan t.ex. "jan2025" och "dec2025" är nästan ett helt år, och den
+skillnaden syns inte i en badge som bara säger "2025". Format: `<mån><år>`
+utan mellanslag (`apr2023`, `aug2025`, `jan2026`, `jul2026`), svenska
+månadsförkortningar. Källa per post (redan känd sedan tidigare i
+konversationen, bara inte tidigare skriven till badgen):
+- `temperatur`/`transkribering`: apr2023 (repots push-datum, se 4h)
+- `Fredagsquiz`: aug2025 (startdatum 22 augusti, uppgivet av Kent)
+- `Bjärred Saltsjöbad`: jan2026 (första committen i `Bjerred-el`, se 4m)
+- `Vindkraftskalkyl`/`Ölkalkylen`: jul2026 (respektive blogginläggs datum)
+- `Statsskuld`/`Claude-kompassen`: jul2026 (sidornas egna "Upprättad"/
+  "Publicerad live"-datum)
+
+Månadsprecisionen avslöjade att ordningen var fel för Bjärred Saltsjöbad
+— den låg tidigare sist (antagen "2026" utan precision) men hör med
+jan2026 hemma direkt efter milestone-avbrottet 2025–2026, före de fyra
+juli-2026-projekten. `projects.js` omordnad i enlighet med detta. De fyra
+juli-projekten sinsemellan ordnade efter dagsprecision där den finns
+(13/7 → 28/7 → 29/7 → 29/7), oförändrat sedan tidigare.
+
 ## 5. Leveranser
 
 - [x] Vindkraftskalkyl — rätt/senaste länk bekräftad (4a)
-- [x] PRD låst — alla delfrågor (4a–4o) beslutade utom 4d/4m
+- [x] PRD låst — alla delfrågor (4a–4r) beslutade utom 4d
+- [x] Bildbeskärning per projekt — Vindkraftskalkyl vänsterankrad, resten centrerade (4p)
+- [x] `SPEAKER_NOTES.md` skapad, pilotifylld med Vindkraftskalkylens historik (4q)
+- [x] Månadsprecision på årtalsbadges + omordning av Bjärred Saltsjöbad (4r)
 - [x] Manuell styrning: pilknappar, svep på mobil, paus/spela-knapp (4o)
 - [x] Standardhastighet ändrad till rapp (4o)
 - [x] Datadriven projektlista (`projects.js`) med struktur
@@ -697,3 +764,29 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   begäran, så ett bildspel känns igen direkt. README och tech-modalen i
   `index.html` uppdaterade i samma veva (var stale: nämnde fortfarande
   sju projekt/fem skärmdumpar/lagom-standard).
+- 2026-08-04 (v16): Ny delfråga 4p, beslutad och fixad direkt: Kent visade
+  två skärmdumpar med röda pilar som pekade på att vänsterkanten (rubrikens
+  början) klipptes bort av bildbeskärningen. `object-position` i
+  `.media-pane img` ändrad från `top center` till `left top`. Testat mot
+  tre skärmdumpsprojekt i webbläsaren.
+- 2026-08-04 (v17): Kent testade v16-fixen mot alla sex skärmdumpsprojekt
+  och gav nyanserad feedback: vänsterankring var bara rätt för
+  Vindkraftskalkyl, de andra fem ville han ha tillbaka centrerade. Löst
+  per-projekt i stället för globalt — nytt `imagePosition`-fält i
+  `projects.js`, standard `top center` i CSS. Ny delfråga 4q: bildtexten
+  för Vindkraftskalkyl uppdaterad med att Kent byggt sådana kalkyler sedan
+  minst 2012 (verifierat mot en 2022-version av en tidigare kalkyl), och
+  en ny fil `SPEAKER_NOTES.md` skapad — presentatörsanteckningar kopplade
+  via projektens redan existerande `id`-fält, pilotifylld för
+  Vindkraftskalkyl med länkar till historiken. Inte kopplad till sidans
+  UI, bara ett fristående referensdokument.
+- 2026-08-04 (v18): Kent gav ett exakt datum för Bjärred Saltsjöbad
+  (första committen i `Bjerred-el`, januari 2026) och bad om
+  månadsprecision på årtalsbadgen genomgående, där den är känd — med
+  motiveringen att t.ex. "jan2025" och "dec2025" skiljer sig nästan ett
+  helt år, en skillnad en ren årtalsbadge döljer. Alla åtta
+  projektbadges uppdaterade till `<mån><år>`-format (`apr2023`, `aug2025`,
+  `jan2026`, `jul2026`). Detta avslöjade att Bjärred Saltsjöbad låg fel
+  placerad (sist, på en antagen "2026" utan precision) — flyttad till
+  direkt efter milestone-avbrottet 2025–2026, före de fyra juli-2026-
+  projekten. `SPEAKER_NOTES.md` kompletterad med källan för datumet.

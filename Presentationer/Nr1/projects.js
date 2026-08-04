@@ -1,13 +1,14 @@
 // Fas 1 — åtta projekt, i kronologisk ordning (äldst → nyast).
 // Lägg till/ta bort ett projekt = lägg till/ta bort en post här.
 // kind: "screenshot" (bild finns i images/) eller "code" (renderas som kodkort, inget bildfil behövs).
-// year: visas alltid som en liten badge på sliden — ange bästa kända år (se PRD 4h/4l för källa per post).
+// year: visas alltid som en liten badge på sliden. Månad + år där det är känt (t.ex. "jul2026"),
+// annars bara år — se PRD 4h/4l/4r för källa per post. Ordningen styrs av denna precision.
 
 const PROJECTS = [
   {
     id: "temperatur",
     kind: "code",
-    year: "2023",
+    year: "apr2023",
     title: "temperatur",
     caption: "2023, tidigt: bad ChatGPT skriva pythonkod som hämtar temperaturen i Sveriges fem största städer från SMHI:s öppna API. Jag körde koden i PyCharm — och den fungerade.",
     url: "https://github.com/kentlundgren/temperatur",
@@ -32,7 +33,7 @@ cities = {
   {
     id: "transkribering",
     kind: "code",
-    year: "2023",
+    year: "apr2023",
     title: "transkribering",
     caption: "Samma vår, tredje försöket: ett program som skulle transkribera ljud till text med OpenAIs Whisper. Det gick inte hela vägen — hittade aldrig ffmpeg — men det var så jag lärde mig.",
     url: "https://github.com/kentlundgren/transkribering",
@@ -62,7 +63,7 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
   {
     id: "fredagsquiz",
     kind: "screenshot",
-    year: "2025",
+    year: "aug2025",
     title: "Fredagsquiz",
     caption: "Varje fredag sedan 22 augusti 2025: ett nytt quiz om Simrishamns kommun, frågorna skrivna av Claude, kodat i Cursor. Under hösten flyttade jag projektet till GitHub Pages — och skrev på köpet två egna guider om hur Git och GitHub faktiskt fungerar.",
     url: "https://kentlundgren.github.io/quiz/0/",
@@ -78,19 +79,29 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     ]
   },
   {
+    id: "bjerred-saltsjobad",
+    kind: "screenshot",
+    year: "jan2026",
+    title: "Bjärred Saltsjöbad",
+    caption: "Intern styrelsedata — elförbrukning, medlemsstatistik, inpassering — som jag sammanställt och lagt ut öppet på GitHub, så att en styrelse utspridd i sydvästra Sverige kan nå den. Ett litet pro bono-bidrag: transparens som en föreningsmedlem kan ge på köpet.",
+    url: "https://kentlundgren.github.io/foreningar/BjerredsSaltsjobad/",
+    image: "images/bjerred-saltsjobad.png"
+  },
+  {
     id: "vindkraftskalkyl",
     kind: "screenshot",
-    year: "2026",
+    year: "jul2026",
     title: "Vindkraftskalkyl",
-    caption: "Vindkraftens lönsamhet, synlig och interaktiv — den senaste i en lång rad kalkyler som växt fram från Excel-ark till webbapplikation.",
+    caption: "Vindkraftens lönsamhet, synlig och interaktiv — den senaste (2026) i en lång rad kalkyler jag byggt sedan minst 2012, från Excel-ark till webbapplikation.",
     url: "https://kentlundgren.github.io/Vindkraft/vindkraftskalkyl/vindkraftskalkyl.html",
     image: "images/vindkraftskalkyl.png",
+    imagePosition: "left top",
     source: { label: "Läs mer: Att göra vindkraftens ekonomi synlig", url: "https://controllerutangranser.wordpress.com/2026/07/13/att-gora-vindkraftens-ekonomi-synlig/" }
   },
   {
     id: "statsskuld",
     kind: "screenshot",
-    year: "2026",
+    year: "jul2026",
     title: "Statsskuld: Sverige & USA",
     caption: "En interaktiv jämförelse av Sveriges och USA:s statsskulder, byggd tillsammans med Gemini — med fokus på att visa själva beslutsvägen, inte bara slutsiffran.",
     url: "https://kentlundgren.github.io/Ekonomi/statsskuld/sverige_amerika/index.html",
@@ -100,7 +111,7 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
   {
     id: "claude-kompassen",
     kind: "screenshot",
-    year: "2026",
+    year: "jul2026",
     title: "Claude-kompassen",
     caption: "Ett interaktivt verktyg som kartlägger Claudes ekosystem — ytor, styrfiler och de tre faserna i mitt eget AI-drivna arbetssätt, från idé till kod.",
     url: "https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/",
@@ -110,20 +121,11 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
   {
     id: "ol-tyskland",
     kind: "screenshot",
-    year: "2026",
+    year: "jul2026",
     title: "Ölkalkylen",
     caption: "Kanske inte den mest seriösa frågan: hur många öl måste du köpa för att resan till Tyskland ska löna sig? Den fick över 3 000 klick på LinkedIn.",
     url: "https://kentlundgren.github.io/Ovrigt/Fritid/ol_Tyskland/index.html",
     image: "images/ol-tyskland.png",
     source: { label: "Läs mer: Hur många öl till break-even?", url: "https://controllerutangranser.wordpress.com/2026/07/29/hur-manga-ol-till-break-even/" }
-  },
-  {
-    id: "bjerred-saltsjobad",
-    kind: "screenshot",
-    year: "2026",
-    title: "Bjärred Saltsjöbad",
-    caption: "Intern styrelsedata — elförbrukning, medlemsstatistik, inpassering — som jag sammanställt och lagt ut öppet på GitHub, så att en styrelse utspridd i sydvästra Sverige kan nå den. Ett litet pro bono-bidrag: transparens som en föreningsmedlem kan ge på köpet.",
-    url: "https://kentlundgren.github.io/foreningar/BjerredsSaltsjobad/",
-    image: "images/bjerred-saltsjobad.png"
   }
 ];
