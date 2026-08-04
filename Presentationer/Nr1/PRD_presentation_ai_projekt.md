@@ -3,8 +3,8 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 3 (teknikval omprövat till HTML/CSS/JS för extensibilitet; fasindelad utbyggnad beslutad; fullständig projektlista fortfarande öppen)
-**Status:** Under uppbyggnad — kärninnehåll, teknik och fasindelning beslutade, men den fullständiga listan av projekt (fas 1 vs senare) är ännu inte låst.
+**Version:** 4 (2023-öppning vald: `temperatur` + `transkribering`, med en säkerhetsflagga för en hårdkodad API-nyckel att beskära bort)
+**Status:** Under uppbyggnad — kärninnehåll, teknik, fasindelning och presentationens öppning beslutade. Kvar: resten av fas 1-listan, exakta skärmdumpar/textutsnitt, samt var/när presentationen visas fysiskt.
 **Typ:** Grund-PRD (helt nytt projekt)
 
 ## 1. Bakgrund
@@ -167,6 +167,51 @@ i 4g väl — fas 2+ är bara nya poster i `projects.js`, inget nytt
 utvecklingsarbete. Fas 1-omfattning (exakt vilka fyra, och om något extra
 ska med redan från start) är fortfarande en del av öppen fråga 4h.
 
+**j. Öppning: ett eller två 2023-projekt som "startskott" — BESLUTAT ✓**
+Kent bekräftade 2026-08-04: `temperatur` → `transkribering`, i den
+ordningen, med förslagen bildtext nedan. Kvar innan produktion: de exakta
+skärmdumparna (vilket kodutsnitt, hur beskuret — särskilt beskärningen som
+tar bort den exponerade API-nyckeln i `transkribering`).
+Kent vill inleda presentationen med 1–2 projekt från 2023 för att sätta en
+ton: "så här jobbade jag med generativ AI då, utan att skämmas — det var en
+start." Granskade båda 2023-kandidaterna (4h) i detalj:
+
+- **`temperatur`** (24/4-2023) — hämtar aktuell temperatur för Sveriges fem
+  största städer via SMHI:s öppna API. Kent skriver själv i README:t att
+  koden är "skriven av ChatGPT, hämtat via Poe", körd i PyCharm — ett rent,
+  fungerande exempel på "AI skrev koden, jag körde den".
+- **`transkribering`** (28/4-2023) — ett självdeklarerat "tredje försök"
+  (peppad av podden "Teknik i akademi") att bygga ett program som
+  transkriberar ljud till text via OpenAI Whisper. README erkänner öppet
+  det olösta buggen ("hittar inte ffmpeg på rad 29") — precis den
+  ambitiösa-men-ofärdiga, ärliga tonen Kent efterfrågar.
+
+**Rekommendation:** använd båda, i ordningen `temperatur` → `transkribering`
+— ett litet bågnarrativ: "det här fungerade" följt av "och det här kämpade
+jag fortfarande med". Föreslagen brödtext, återanvänder Kents egna ord där
+möjligt:
+- *temperatur:* "2023, tidigt: bad ChatGPT skriva pythonkod som hämtar
+  temperaturen i Sveriges fem största städer från SMHI:s öppna API. Jag
+  körde koden i PyCharm — och den fungerade."
+- *transkribering:* "Samma vår, tredje försöket: ett program som skulle
+  transkribera ljud till text med OpenAIs Whisper. Det gick inte hela
+  vägen — hittade aldrig ffmpeg — men det var så jag lärde mig."
+
+**Viktigt, säkerhet — flaggat innan produktion:** `main.py` i
+`transkribering`-repot innehåller en hårdkodad OpenAI-liknande API-nyckel i
+klartext (`sk-...`), synlig i den publika koden sedan 2023. Sannolikt redan
+död/spärrad (GitHub/OpenAI spärrar automatiskt läckta nycklar av den här
+typen, och den har legat publikt i över tre år) — men **beskär bort den
+raden ur bilden/skärmdumpen** innan den visas i presentationen, i stället
+för att anta att det är okej bara för att repot redan är publikt. Ingen
+åtgärd på själva repot ingår i denna PRD:s omfattning — bara en
+försiktighetsåtgärd för skärmdumpen.
+
+**Kvarstår innan helt löst:** exakt vilken kodrad/vilket textutsnitt som
+blir skärmdumpen för respektive projekt (ingen av dem har en webbsida att
+fotografera, till skillnad från övriga kandidater — bilden blir en
+kod-/terminalskärmdump i stället).
+
 ## 5. Leveranser
 
 - [x] Vindkraftskalkyl — rätt/senaste länk bekräftad (4a)
@@ -205,9 +250,11 @@ verktyg):
 ## 8. Status
 
 Kärninnehåll (bildformat, timing, fasindelning) och teknikval (HTML/CSS/JS,
-omprövat 2026-08-04) beslutade. Kvarstår: exakt vilka projekt som ingår i
-fas 1 respektive läggs till senare (4h), var/när presentationen visas
-fysiskt (4d), och SPEC.md-checkpointen (4f).
+omprövat 2026-08-04) beslutade. Presentationens öppning bestämd:
+`temperatur` → `transkribering` (2023, se 4j), med en säkerhetsflagga att
+beskära bort en synlig API-nyckel i skärmdumpen. Kvarstår: resten av
+fas 1-listan (4h), var/när presentationen visas fysiskt (4d), och
+SPEC.md-checkpointen (4f).
 
 ## Ändringslogg
 
@@ -231,3 +278,10 @@ fysiskt (4d), och SPEC.md-checkpointen (4f).
   med fem nya kandidatprojekt identifierade (4h, uppdaterad). Leveranser
   och produktionsordning omskrivna för att spegla HTML/CSS/JS och
   fasindelningen.
+- 2026-08-04 (v4): Ny delfråga 4j tillagd och i huvudsak löst: presentationen
+  öppnar med två 2023-projekt, `temperatur` och `transkribering` (i den
+  ordningen), valda efter genomgång av respektive README/källkod på
+  GitHub. Förslag till bildtext för båda inkluderat. En hårdkodad
+  OpenAI-liknande API-nyckel hittad i klartext i `transkribering/main.py`
+  flaggad som en säkerhetsanmärkning — ska beskäras bort ur skärmdumpen,
+  ingen ändring av själva repot ingår i denna PRD.
