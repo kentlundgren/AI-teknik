@@ -3,9 +3,18 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 9 (timingvärden, länkmekanism och visuell övergång för de tre hastighetsvarianterna låsta)
-**Status:** Fas 1-innehåll (sju projekt), teknik, distributionsform och timing (tre varianter: rapp 7s / lagom 20s / seriös 45s) alla beslutade. Kvar innan produktion: exakta skärmdumpar/textutsnitt per projekt, var/när presentationen visas fysiskt, samt SPEC.md-checkpointen. Redo att gå vidare till byggfasen.
+**Version:** 10 (grundprincip om kreativitet/glädje tillagd; SPEC.md-frågan löst till nej; fräscha-ögon-pass rättade tre stale ställen)
+**Status:** Alla delfrågor utom 4d (var/när visas fysiskt) beslutade. PRD:n är innehålls- och teknikmässigt komplett och redo för byggfasen — 4d blockerar inte att börja bygga.
 **Typ:** Grund-PRD (helt nytt projekt)
+
+> **Viktig utgångspunkt, oavsett hur lång den här PRD:n blir:** den här
+> presentationen ska vara **kul att göra**. Allt nedan är ramar och beslut
+> till för att slippa onödiga omtag och otydligheter — inte ett recept som
+> ska kväva lust, lekfullhet eller impulsen att testa något oväntat under
+> själva byggandet. Dyker ett kreativt infall upp som inte redan är
+> beslutat här: testa det först, uppdatera PRD:n efteråt om det håller.
+> Strukturen finns för att tjäna glädjen, inte tvärtom. (Kents tillägg,
+> 2026-08-04 — se Ändringslogg v10.)
 
 ## 1. Bakgrund
 
@@ -38,8 +47,10 @@ retrieval-lösning. Ingen RAG-komponent ingår alltså i det här projektet.
 - En datadriven struktur (t.ex. `projects.js`) där varje projekt är en post
   i en lista — så att lägga till eller ta bort ett projekt är en enkel
   redigering, inte en ombyggnad av sidans kod.
-- Innehåll som lyfter fram minst: Claude-kompassen, statsskuld
-  Sverige/USA, Bjärred Saltsjöbad, vindkraftskalkyl.
+- Fas 1-innehåll, sju projekt: `temperatur` och `transkribering`
+  (2023-öppning), Claude-kompassen, statsskuld Sverige/USA, Bjärred
+  Saltsjöbad, vindkraftskalkyl, Fredagsquiz (se 4h/4i/4j för fullständig
+  lista, ordning och bildtexter).
 - Denna PRD-process, enligt Claude-kompassens `PRD_generell.md`-mall.
 
 **Ingår inte:**
@@ -114,11 +125,14 @@ ansökan) är inte klarlagt.
 (känt-nytt läge, inget git-repo krävs utöver det befintliga AI-teknik-repot
 som redan täcker mappen).
 
-**f. Behövs ett SPEC.md-steg härifrån? — ÖPPEN**
-Sannolikt nej för själva innehålls-/designvalet (det är redaktionellt, inte
-tekniskt komplext) — men möjligen ja för det tekniska bygget av .pptx-filen
-om exakta timing-/övergångsvärden ska scriptas (t.ex. via python-pptx).
-Avgörs när produktionsordningen (avsnitt 6) är konkret.
+**f. Behövs ett SPEC.md-steg härifrån? — BESLUTAT ✓ (2026-08-04): Nej**
+Kent konstaterade att han inte har något att tillföra i ett SPEC.md-steg
+(det är agent-orienterat, inte ett beslut han behöver fatta). Eftersom
+PRD:n redan innehåller den tekniska precision en SPEC.md annars skulle
+finnas till för — datastruktur (4g), exakta timingvärden och
+övergångsspecifikation (4c), säkerhetshantering av skärmdumpen (4j) — vore
+ett separat dokument redundant. Går direkt från denna PRD till byggfasen.
+(Samma mönster som `PRD_spec.md` själv landade i: svaret är oftast nej.)
 
 **g. Vilken teknik byggs presentationen med? — BESLUTAT ✓ (omprövat 2026-08-04)**
 Ursprungligt beslut var en äkta `.pptx`-fil via `pptxgenjs`. Kent förtydligade
@@ -328,16 +342,18 @@ kod-/terminalskärmdump i stället).
       för {titel, bild, text, url} per projekt
 - [ ] Innehåll (bild + text) insamlat för startomgången av projekt (fas 1,
       se 4i)
-- [ ] Självspelande HTML/CSS/JS-sida byggd: autoplay 20 sek/projekt, loop,
-      PowerPoint-liknande utseende
-- [ ] Testkörning i kiosk-/helskärmsläge
+- [ ] Självspelande HTML/CSS/JS-sida byggd: tre hastighetsvarianter
+      (rapp 7s / lagom 20s / seriös 45s) via URL-parameter, loop, mjuk
+      crossfade-övergång, PowerPoint-liknande utseende
+- [ ] Testkörning i kiosk-/helskärmsläge, alla tre hastighetsvarianter
 
 ## 6. Produktionsordning
 
-Preliminärt, låses när fråga 4h–4i är beslutade:
+Låst (alla portande delfrågor 4a–4k beslutade, se avsnitt 8):
 1. PRD låst
 2. Bygg grundstrukturen: tom, datadriven sida som läser `projects.js` och
-   spelar upp i loop (20 sek/projekt) — testas med 1–2 platshållarprojekt
+   spelar upp i loop med de tre hastighetsvarianterna — testas med 1–2
+   platshållarprojekt
 3. Innehållsinsamling för fas 1-listan (skärmdumpar + text, återanvänd
    blogginläggens text där det passar)
 4. Fyll på `projects.js` med fas 1-projekten, testkör i kiosk-läge
@@ -365,9 +381,10 @@ teknikval (HTML/CSS/JS) och distributionsform (4k — vanlig länk, inget
 videoexportsteg) beslutade. Timing (4c) omprövad och låst 2026-08-04: tre hastighetsvarianter via en
 gemensam, datadriven sida — rapp 7 sek, lagom 20 sek, seriös 45 sek per
 projekt, växling via tre separata URL:er, mjuk crossfade + skalning som
-övergång, tunn förloppsindikator. Kvarstår: exakta skärmdumpar/textutsnitt
-per projekt, var/när presentationen visas fysiskt (4d), och
-SPEC.md-checkpointen (4f).
+övergång, tunn förloppsindikator. SPEC.md-frågan (4f) besvarad: nej,
+går direkt till byggfasen. Kvarstår enbart: exakta skärmdumpar/textutsnitt
+per projekt (produktionsarbete, inte ett PRD-beslut) samt var/när
+presentationen visas fysiskt (4d), som inte blockerar byggstart.
 
 ## Ändringslogg
 
@@ -433,3 +450,19 @@ SPEC.md-checkpointen (4f).
   förloppsindikator, responsiv layout (sida vid sida på breda skärmar,
   staplat på smala). Med detta är samtliga delfrågor utom 4d och 4f
   beslutade — PRD:n redo för byggfasen.
+- 2026-08-04 (v10): Kent bad om en sista, viktig grundprincip innan ett
+  ev. SPEC.md-steg: att PRD:ns omfång inte ska kväva kreativiteten och
+  glädjen i själva byggandet. Tillagd som ett tydligt markerat citat
+  direkt efter header-fälten, så det inte kan drunkna i resten av
+  dokumentet. Kents kommentar om att han "inte kan tillföra något" i ett
+  SPEC.md tolkades som svar på delfråga 4f — löst till nej, med
+  motivering (PRD:n bär redan den tekniska precision en SPEC.md annars
+  skulle ge). Passade samtidigt på med en fräscha-ögon-genomläsning
+  (Regel 7) inför att PRD:n närmar sig klar: hittade och rättade tre
+  stale ställen — Omfattning (avsnitt 3) listade fortfarande bara de
+  fyra ursprungliga kärnprojekten i stället för alla sju i fas 1,
+  Leveranser/Produktionsordning (avsnitt 5–6) refererade fortfarande till
+  den övergivna "20 sek/projekt"-siffran i stället för de tre
+  hastighetsvarianterna, och Produktionsordningen var fortfarande märkt
+  "preliminär, låses när 4h–4i beslutas" trots att båda länge varit
+  beslutade.
