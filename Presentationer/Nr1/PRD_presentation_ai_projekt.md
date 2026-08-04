@@ -3,8 +3,8 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 8 (timingbeslutet i 4c omprövat till tre hastighetsvarianter i stället för en fast siffra)
-**Status:** Fas 1-innehållet (sju projekt), teknikval och distributionsform beslutade. Timing (4c) öppnad igen — tre varianter (rapp/lagom/seriös) föreslagna, exakta sekundvärden och växlingsmekanism kvar att bekräfta. Kvar även: exakta skärmdumpar/textutsnitt per projekt, var/när presentationen visas fysiskt, samt SPEC.md-checkpointen.
+**Version:** 9 (timingvärden, länkmekanism och visuell övergång för de tre hastighetsvarianterna låsta)
+**Status:** Fas 1-innehåll (sju projekt), teknik, distributionsform och timing (tre varianter: rapp 7s / lagom 20s / seriös 45s) alla beslutade. Kvar innan produktion: exakta skärmdumpar/textutsnitt per projekt, var/när presentationen visas fysiskt, samt SPEC.md-checkpointen. Redo att gå vidare till byggfasen.
 **Typ:** Grund-PRD (helt nytt projekt)
 
 ## 1. Bakgrund
@@ -62,7 +62,7 @@ Kent bekräftade 2026-08-04: senaste versionen ligger på
 En bild (skärmdump) per projekt plus kort text till bilden. Samma format för
 alla projekt i presentationen.
 
-**c. Antal slides och sekunder per bildväxling — ÖPPEN (omprövad 2026-08-04)**
+**c. Antal slides och sekunder per bildväxling — BESLUTAT ✓ (omprövad 2026-08-04)**
 Ursprungligt beslut var 20 sekunder per projekt/bild. Kent föreslog samma
 dag att i stället erbjuda **tre hastighetsvarianter** av samma innehåll,
 snarare än att låsa en enda siffra:
@@ -79,12 +79,29 @@ sekundvärdet i en liten tabell. Ett innehåll, tre länkar att dela beroende
 på sammanhang (snabb social scroll kontra en rekryterare som faktiskt
 sitter och tittar).
 
-**Kvar att bekräfta med Kent:**
-1. Exakta sekundvärden för "rapp" och "seriös" (förslag ovan: 5–10 resp.
-   längre — ingen specifik siffra bestämd för den tredje varianten än).
-2. Växlingsmekanism: URL-parameter (enklast, delbart som tre olika länkar)
-   eller en synlig växlingsknapp på själva sidan (kräver att viewern redan
-   är inne på sidan)?
+**Sekundvärden — BESLUTAT ✓ (Kent bad Claude föreslå, 2026-08-04):**
+- **Rapp:** 7 sek/projekt — snabbare än 10, men fortfarande läsbart (en
+  kort bildtext på ~15–20 ord hinner läsas på ~5–6 sek). Totalt ~50 sek
+  för alla sju fas 1-projekt — under en minut, passar en snabb social scroll.
+- **Lagom:** 20 sek/projekt (oförändrat). Totalt ~2,3 min.
+- **Seriös:** 45 sek/projekt — ungefär dubbelt så länge som lagom, ger tid
+  att faktiskt läsa hela texten och studera skärmdumpen i lugn takt, utan
+  att kännas outhärdligt segt. Totalt ~5,25 min.
+
+**Växlingsmekanism — BESLUTAT ✓:** tre separata URL:er/länkar (via en
+URL-parameter, t.ex. `?hastighet=rapp` / `lagom` / `serios`), inte en
+knapp på sidan. Kent bekräftade att tre olika länkar att dela — en snabb
+för t.ex. X, en seriös för LinkedIn — är rätt upplägg.
+
+**Visuell övergång ("snygg växling") — BESLUTAT ✓:** mjuk crossfade (ca
+0,6–0,8 sek, ease-in-out) mellan bilderna, kombinerat med en subtil
+skalning/lyft (bilden tonar in något förstorad och landar, ingen hård
+klippning). En tunn, odramatisk förloppsindikator längst ned (en linje som
+fylls i under varje projekts visningstid, ett segment per projekt) visar
+var i loopen man befinner sig — utan att bli ett sådant där dekorativt
+"accent-streck" som ser AI-genererat/klichéartat ut. Layout: bild och text
+sida vid sida på breda skärmar (kiosk/monter), staplat vertikalt på smala
+skärmar (mobil, delad länk).
 
 **d. Var och när ska presentationen visas? — ÖPPEN**
 Kiosk-/självspelande-läge är beslutat (se fråga om visningssätt nedan), men
@@ -345,12 +362,12 @@ Fas 1-listan låst till sju projekt (4h/4j, tillägg 2026-08-04):
 `temperatur`, `transkribering` (2023-öppning), Claude-kompassen, statsskuld
 Sverige/USA, Bjärred Saltsjöbad, vindkraftskalkyl, Fredagsquiz. Bildformat,
 teknikval (HTML/CSS/JS) och distributionsform (4k — vanlig länk, inget
-videoexportsteg) beslutade. Timing (4c) omprövad 2026-08-04: tre
-hastighetsvarianter (rapp/lagom/seriös) via en gemensam, datadriven sida
-i stället för en enda fast siffra — exakta sekundvärden och
-växlingsmekanism (URL-parameter eller knapp) kvar att bekräfta. Kvarstår
-även: exakta skärmdumpar/textutsnitt per projekt, var/när presentationen
-visas fysiskt (4d), och SPEC.md-checkpointen (4f).
+videoexportsteg) beslutade. Timing (4c) omprövad och låst 2026-08-04: tre hastighetsvarianter via en
+gemensam, datadriven sida — rapp 7 sek, lagom 20 sek, seriös 45 sek per
+projekt, växling via tre separata URL:er, mjuk crossfade + skalning som
+övergång, tunn förloppsindikator. Kvarstår: exakta skärmdumpar/textutsnitt
+per projekt, var/när presentationen visas fysiskt (4d), och
+SPEC.md-checkpointen (4f).
 
 ## Ändringslogg
 
@@ -408,3 +425,11 @@ visas fysiskt (4d), och SPEC.md-checkpointen (4f).
   löst via samma datadrivna sida (4g) med en konfigurerbar tid per slide,
   t.ex. en URL-parameter — ingen ny innehållsfil per variant. Exakta
   sekundvärden för rapp/seriös samt växlingsmekanism kvar att bekräfta.
+- 2026-08-04 (v9): Kent bad Claude föreslå konkreta sekundvärden. Låst:
+  rapp 7 sek, lagom 20 sek (oförändrat), seriös 45 sek per projekt — med
+  motivering (läshastighet, total looptid per variant). Växlingsmekanism
+  bekräftad som tre separata URL:er (inte en knapp). Visuell övergång
+  specificerad: mjuk crossfade + subtil skalning, tunn segmenterad
+  förloppsindikator, responsiv layout (sida vid sida på breda skärmar,
+  staplat på smala). Med detta är samtliga delfrågor utom 4d och 4f
+  beslutade — PRD:n redo för byggfasen.
