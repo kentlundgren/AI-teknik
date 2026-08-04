@@ -7,15 +7,19 @@ till idag. Byggd enligt [PRD_presentation_ai_projekt.md](PRD_presentation_ai_pro
 
 ## Använda
 
-Öppna `index.html` i en webbläsare. Tre hastighetsvarianter via
-URL-parameter:
+Ett enda `index.html`, men tre olika, delbara URL:er — en per
+hastighetsvariant (styrs av `?hastighet=`-parametern, se `script.js`).
+Efter publicering till GitHub Pages blir de tre länkarna:
 
-- `index.html?hastighet=rapp` — 7 sek/projekt
-- `index.html?hastighet=lagom` — 20 sek/projekt (standard)
-- `index.html?hastighet=serios` — 45 sek/projekt
+- **Rapp** (7 sek/projekt): https://kentlundgren.github.io/AI-teknik/Presentationer/Nr1/index.html?hastighet=rapp
+- **Lagom** (20 sek/projekt, standard): https://kentlundgren.github.io/AI-teknik/Presentationer/Nr1/index.html?hastighet=lagom
+- **Seriös** (45 sek/projekt): https://kentlundgren.github.io/AI-teknik/Presentationer/Nr1/index.html?hastighet=serios
 
-Hastigheten kan även bytas löpande med knapparna uppe till höger.
-Mellanslag pausar/återupptar, piltangenterna byter bild manuellt.
+Bara ett `index.html` att underhålla, men tre fullständiga URL:er att dela
+beroende på sammanhang — det var precis poängen med att lösa det via en
+parameter i stället för tre separata filer (se PRD:n, 4c). Hastigheten kan
+även bytas löpande med knapparna uppe till höger på sidan. Mellanslag
+pausar/återupptar, piltangenterna byter bild manuellt.
 
 ## Lägga till eller ta bort ett projekt
 

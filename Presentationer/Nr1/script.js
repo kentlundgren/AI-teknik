@@ -66,6 +66,10 @@
       media.appendChild(badge);
     }
 
+    const sourceLink = project.source
+      ? `<a class="visit source" href="${project.source.url}" target="_blank" rel="noopener">${project.source.label}</a>`
+      : "";
+
     const text = document.createElement("div");
     text.className = "text-pane";
     text.innerHTML = `
@@ -73,6 +77,7 @@
       <h1>${project.title}</h1>
       <p>${project.caption}</p>
       <a class="visit" href="${project.url}" target="_blank" rel="noopener">${project.url.replace(/^https?:\/\//, "")}</a>
+      ${sourceLink}
     `;
 
     container.appendChild(media);
@@ -134,7 +139,21 @@
 
   speedButtons.forEach((b) => b.addEventListener("click", () => setSpeed(b.dataset.speed)));
 
+  const techBtn = document.getElementById("techBtn");
+  const techModal = document.getElementById("techModal");
+  const techClose = document.getElementById("techClose");
+  const openModal = () => techModal.classList.add("show");
+  const closeModal = () => techModal.classList.remove("show");
+  techBtn.addEventListener("click", openModal);
+  techClose.addEventListener("click", closeModal);
+  techModal.addEventListener("click", (e) => { if (e.target === techModal) closeModal(); });
+
   document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeModal();
+      return;
+    }
+    if (techModal.classList.contains("show")) return;
     if (e.code === "Space") {
       e.preventDefault();
       clearTimeout(advanceTimer);

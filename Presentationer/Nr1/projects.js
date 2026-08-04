@@ -54,7 +54,8 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     title: "Claude-kompassen",
     caption: "Ett interaktivt verktyg som kartlägger Claudes ekosystem — ytor, styrfiler och de tre faserna i mitt eget AI-drivna arbetssätt, från idé till kod.",
     url: "https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/",
-    image: "images/claude-kompassen.png"
+    image: "images/claude-kompassen.png",
+    source: { label: "Läs mer: En bild av Claudes ekosystem", url: "https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/" }
   },
   {
     id: "statsskuld",
@@ -62,7 +63,8 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     title: "Statsskuld: Sverige & USA",
     caption: "En interaktiv jämförelse av Sveriges och USA:s statsskulder, byggd tillsammans med Gemini — med fokus på att visa själva beslutsvägen, inte bara slutsiffran.",
     url: "https://kentlundgren.github.io/Ekonomi/statsskuld/sverige_amerika/index.html",
-    image: "images/statsskuld.png"
+    image: "images/statsskuld.png",
+    source: { label: "Läs mer: Vad ett beslutsträd om statsskuld lär oss om vibe-kodning", url: "https://controllerutangranser.wordpress.com/2026/07/28/vad-ett-beslutstrad-om-statsskuld-lar-oss-om-vibe-kodning/" }
   },
   {
     id: "bjerred-saltsjobad",
@@ -78,7 +80,8 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     title: "Vindkraftskalkyl",
     caption: "Vindkraftens lönsamhet, synlig och interaktiv — den senaste i en lång rad kalkyler som växt fram från Excel-ark till webbapplikation.",
     url: "https://kentlundgren.github.io/Vindkraft/vindkraftskalkyl/vindkraftskalkyl.html",
-    image: "images/vindkraftskalkyl.png"
+    image: "images/vindkraftskalkyl.png",
+    source: { label: "Läs mer: Att göra vindkraftens ekonomi synlig", url: "https://controllerutangranser.wordpress.com/2026/07/13/att-gora-vindkraftens-ekonomi-synlig/" }
   },
   {
     id: "fredagsquiz",
@@ -87,5 +90,14 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     caption: "Varje fredag sedan 22 augusti 2025: ett nytt quiz om Simrishamns kommun, frågorna skrivna av Claude, kodat i Cursor. Under hösten flyttade jag projektet till GitHub Pages — och skrev på köpet två egna guider om hur Git och GitHub faktiskt fungerar.",
     url: "https://kentlundgren.github.io/quiz/0/",
     image: "images/fredagsquiz.png"
+  },
+  {
+    id: "ol-tyskland",
+    kind: "screenshot",
+    title: "Ölkalkylen",
+    caption: "Kanske inte den mest seriösa frågan: hur många öl måste du köpa för att resan till Tyskland ska löna sig? Den fick över 3 000 klick på LinkedIn.",
+    url: "https://kentlundgren.github.io/Ovrigt/Fritid/ol_Tyskland/index.html",
+    image: "images/ol-tyskland.png",
+    source: { label: "Läs mer: Hur många öl till break-even?", url: "https://controllerutangranser.wordpress.com/2026/07/29/hur-manga-ol-till-break-even/" }
   }
 ];

@@ -27,6 +27,35 @@
 
   <footer id="progress-track" aria-hidden="true"></footer>
 
+  <a class="corner corner-left" href="https://github.com/kentlundgren/AI-teknik/tree/main/Presentationer/Nr1" target="_blank" rel="noopener">{ } GitHub</a>
+  <button type="button" class="corner corner-right" id="techBtn" aria-label="Tekniköversikt">&lt;/&gt; teknik</button>
+
+  <div class="modal-overlay" id="techModal">
+    <div class="modal">
+      <button type="button" class="modal-close" id="techClose" aria-label="Stäng">&times;</button>
+      <h2>Hur den här sidan är byggd</h2>
+      <p>En kort teknisk översikt — inget påhittat, bara det som faktiskt är sant om den här sidan.</p>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>Vanilla JS, inga ramverk</h3>
+          <p>Ren HTML/CSS/JavaScript, inga bibliotek eller byggsteg. Samma teknikval som de flesta av projekten som visas här.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Ett innehåll, tre URL:er</h3>
+          <p><code>?hastighet=rapp/lagom/serios</code> styr sekunder per bild. Samma <code>projects.js</code> för alla tre — ingen duplicerad innehållsfil.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Lägg till/ta bort ett projekt</h3>
+          <p>En post i <code>projects.js</code> — antingen <code>kind:"screenshot"</code> (bild i <code>images/</code>) eller <code>kind:"code"</code> (kodkort, ingen bildfil behövs).</p>
+        </div>
+        <div class="tech-card">
+          <h3>Ingen data skickas någonstans</h3>
+          <p>Sidan pratar inte med någon server. Allt körs lokalt i din webbläsare — inget spåras, inget sparas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <script src="projects.js"></script>

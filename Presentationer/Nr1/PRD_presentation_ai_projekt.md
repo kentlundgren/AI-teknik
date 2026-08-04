@@ -3,8 +3,8 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 11 (fas 1 byggd och testad — index.html/style.css/script.js/projects.js klara, alla sju projekt på plats)
-**Status:** Fas 1 är byggd, ifylld med riktigt innehåll och testkörd (desktop + mobil, alla tre hastigheter, loop bekräftad). Enda kvarvarande öppna frågan är 4d (var/när presentationen visas fysiskt) — påverkar inte det som redan är levererat.
+**Version:** 12 (Ölkalkylen tillagd som åttonde projekt; Harvard-citerbara bloggkällor kopplade till fyra av projekten)
+**Status:** Åtta projekt byggda och testkörda. Enda kvarvarande öppna frågan är 4d (var/när presentationen visas fysiskt) — påverkar inte det som redan är levererat.
 **Typ:** Grund-PRD (helt nytt projekt)
 
 > **Viktig utgångspunkt, oavsett hur lång den här PRD:n blir:** den här
@@ -47,10 +47,10 @@ retrieval-lösning. Ingen RAG-komponent ingår alltså i det här projektet.
 - En datadriven struktur (t.ex. `projects.js`) där varje projekt är en post
   i en lista — så att lägga till eller ta bort ett projekt är en enkel
   redigering, inte en ombyggnad av sidans kod.
-- Fas 1-innehåll, sju projekt: `temperatur` och `transkribering`
+- Fas 1-innehåll, åtta projekt: `temperatur` och `transkribering`
   (2023-öppning), Claude-kompassen, statsskuld Sverige/USA, Bjärred
-  Saltsjöbad, vindkraftskalkyl, Fredagsquiz (se 4h/4i/4j för fullständig
-  lista, ordning och bildtexter).
+  Saltsjöbad, vindkraftskalkyl, Fredagsquiz, Ölkalkylen (se 4h/4i/4j samt
+  Ändringslogg v12 för fullständig lista, ordning och bildtexter).
 - Denna PRD-process, enligt Claude-kompassens `PRD_generell.md`-mall.
 
 **Ingår inte:**
@@ -340,9 +340,11 @@ kod-/terminalskärmdump i stället).
 - [x] PRD låst — alla delfrågor (4a–4k) beslutade
 - [x] Datadriven projektlista (`projects.js`) med struktur
       för {titel, bild/kod, text, url} per projekt
-- [x] Innehåll (bild + text) insamlat för samtliga sju fas 1-projekt —
-      skärmdumpar för de fem live-sidorna (`images/`), kodkort för
+- [x] Innehåll (bild + text) insamlat för samtliga åtta fas 1-projekt —
+      skärmdumpar för de sex live-sidorna (`images/`), kodkort för
       `temperatur`/`transkribering` (API-nyckeln exkluderad, se 4j)
+- [x] Harvard-citerbara bloggkällor kopplade där en verifierad, relevant
+      träff finns (fyra av åtta projekt, se avsnitt 7)
 - [x] Självspelande HTML/CSS/JS-sida byggd: tre hastighetsvarianter
       (rapp 7s / lagom 20s / seriös 45s) via URL-parameter, loop, mjuk
       crossfade-övergång, PowerPoint-liknande utseende
@@ -373,6 +375,41 @@ verktyg):
 - controllerutangranser.wordpress.com/category/ai/ och
   klel.wordpress.com/category/ai/ — bild- och textkälla för fler kandidatprojekt (4h)
 - Fredagsquiz — https://kentlundgren.github.io/quiz/0/ (kanonisk länk för presentationen; ursprungligen publicerad på https://kentlundgren.se/program/quiz/0/)
+- Ölkalkylen — https://kentlundgren.github.io/Ovrigt/Fritid/ol_Tyskland/index.html (tillagt 2026-08-04, se Ändringslogg v12)
+
+**Externa, Harvard-citerbara källor (annoterade, alfabetisk ordning):**
+Motsvarande blogginlägg letades upp för samtliga fas 1/2-projekt på
+`controllerutangranser.wordpress.com/category/ai/` och
+`klel.wordpress.com/category/ai/` (2026-08-04). Fyra fungerande, relevanta
+träffar hittades och verifierades (HTTP 200 + innehållskontroll); ingen
+matchande bloggpost hittades för `temperatur`, `transkribering`, Bjärred
+Saltsjöbad eller Fredagsquiz — snarare än att gissa fram en svag koppling
+lämnas de utan blogg-källa.
+
+Lundgren, K. (2026a) 'Att göra vindkraftens ekonomi synlig'. [Blogginlägg]
+controllerutangranser.wordpress.com. Publicerad 2026-07-13.
+https://controllerutangranser.wordpress.com/2026/07/13/att-gora-vindkraftens-ekonomi-synlig/
+*(Beskriver resan från Excel-kalkyler till webbaserad vindkraftskalkyl —
+källa för `vindkraftskalkyl`-sliden.)*
+
+Lundgren, K. (2026b) 'Vad ett beslutsträd om statsskuld lär oss om
+vibe-kodning'. [Blogginlägg] controllerutangranser.wordpress.com.
+Publicerad 2026-07-28.
+https://controllerutangranser.wordpress.com/2026/07/28/vad-ett-beslutstrad-om-statsskuld-lar-oss-om-vibe-kodning/
+*(Bakgrunden till statsskuld-verktyget, byggt med Gemini — källa för
+`statsskuld`-sliden.)*
+
+Lundgren, K. (2026c) 'En bild av Claudes ekosystem'. [Blogginlägg]
+klel.wordpress.com. Publicerad 2026-07-29.
+https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/
+*(Beskriver Claude-kompassens tre faser — källa för
+`claude-kompassen`-sliden.)*
+
+Lundgren, K. (2026d) 'Hur många öl till break-even?'. [Blogginlägg]
+controllerutangranser.wordpress.com. Publicerad 2026-07-29.
+https://controllerutangranser.wordpress.com/2026/07/29/hur-manga-ol-till-break-even/
+*(Ursprungsinlägget för Ölkalkylen, den som fick över 3 000 klick på
+LinkedIn enligt Kent — källa för `ol-tyskland`-sliden.)*
 
 ## 8. Status
 
@@ -485,3 +522,24 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   fungerar. Ett mindre CSS-fix under testet: kod-textraderna radbryts nu
   på smala skärmar i stället för att klippas av. Leveranslistan (avsnitt
   5) helt avbockad.
+- 2026-08-04 (v12): Tre saker på Kents begäran. (1) README förtydligat: de
+  tre hastighetsvarianterna är redan tre distinkta, delbara URL:er via
+  `?hastighet=`, inte tre separata filer — fullständiga länkar skrivna ut
+  explicit så det inte kan missförstås igen. (2) Nytt åttonde projekt,
+  Ölkalkylen (kentlundgren.github.io/Ovrigt/Fritid/ol_Tyskland/index.html)
+  tillagt — skärmdump tagen, bildtext skriven (inkl. "3 000 klick på
+  LinkedIn"-datapunkten Kent uppgav). (3) Letade upp motsvarande
+  blogginlägg för samtliga åtta projekt på de två bloggarnas AI-kategorier;
+  fyra verifierade träffar (HTTP 200 + innehållskontroll) kopplade som
+  annoterade Harvard-källor i både `projects.js` (synligt som en andra,
+  diskret länk på sliden) och avsnitt 7 nedan. Ingen bloggkälla fanns för
+  `temperatur`, `transkribering`, Bjärred Saltsjöbad eller Fredagsquiz —
+  lämnade dem omärkta i stället för att gissa fram en svag koppling.
+  (4) Upptäckte i samband med skill-arbetet (se avsnitt 8/Kents fråga om
+  ett nytt presentations-skill) att skillen `kent-bygg-sidor` har en
+  stående Regel 6: alla Kents interaktiva sidor ska ha en `{ } GitHub`-
+  hörna nere till vänster och en `</> teknik`-hörna nere till höger som
+  öppnar en faktabaserad modal om sidans egen uppbyggnad. Presentationen
+  saknade båda — tillagda proaktivt (mönstret säger uttryckligen "fråga
+  inte varje gång"), testade i webbläsaren inklusive Escape-tangenten för
+  att stänga modalen.
