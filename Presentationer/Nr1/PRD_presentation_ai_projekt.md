@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 18 (månadsprecision på alla årtalsbadges; Bjärred Saltsjöbads datum bekräftat och omordnad tidigare i tidslinjen)
+**Version:** 19 (Fredagsquiz-captionen rättad till avslutad serie, 23 quiz; Kents generella reflektion om projektlivscykler tillagd i presentatörsanteckningarna)
 **Status:** Tio slides totalt (åtta projekt + två milestone-avbrott), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt) — allt innehåll och all datering är nu beslutad.
 **Typ:** Grund-PRD (helt nytt projekt)
 
@@ -479,10 +479,29 @@ juli-2026-projekten. `projects.js` omordnad i enlighet med detta. De fyra
 juli-projekten sinsemellan ordnade efter dagsprecision där den finns
 (13/7 → 28/7 → 29/7 → 29/7), oförändrat sedan tidigare.
 
+**s. Fredagsquiz avslutad, inte pågående — BESLUTAT ✓ och RÄTTAT (2026-08-04)**
+Kent rättade: serien var inte längre öppen/pågående som captionen antydde
+— den kördes 22 augusti 2025 till 6 februari 2026, 23 quiz totalt
+(verifierat mot sidans egen lista, https://kentlundgren.github.io/quiz/0/,
+som numrerar #1–#23 inklusive ett #15A/#15B samma vecka, med ett
+tvåveckors juluppehåll v52–v1). Caption i `projects.js` omskriven till
+dåtid med start- och slutdatum samt antal. Badgen (`aug2025`) oförändrad
+— ankrad till startdatumet, i linje med hur övriga poster dateras.
+
+**Generell reflektion, tillagd på Kents begäran:** han ser ett mönster i
+hur han jobbar med generativ AI — håller på med en sak ett tag, blir
+bättre och bättre på den, når sedan en punkt där det finns så mycket
+annat att utforska och "leka med" tillsammans med AI, och går vidare.
+Inte ett misslyckande, snarare den naturliga livscykeln för den här
+sortens sidoprojekt. Skrivet ut i `SPEAKER_NOTES.md` under
+`fredagsquiz`, med en notering om att samma mönster är värt att leta
+efter i fler av presentationens projekt.
+
 ## 5. Leveranser
 
 - [x] Vindkraftskalkyl — rätt/senaste länk bekräftad (4a)
-- [x] PRD låst — alla delfrågor (4a–4r) beslutade utom 4d
+- [x] PRD låst — alla delfrågor (4a–4s) beslutade utom 4d
+- [x] Fredagsquiz-caption rättad till avslutad serie (23 quiz, 4s)
 - [x] Bildbeskärning per projekt — Vindkraftskalkyl vänsterankrad, resten centrerade (4p)
 - [x] `SPEAKER_NOTES.md` skapad, pilotifylld med Vindkraftskalkylens historik (4q)
 - [x] Månadsprecision på årtalsbadges + omordning av Bjärred Saltsjöbad (4r)
@@ -790,3 +809,12 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   placerad (sist, på en antagen "2026" utan precision) — flyttad till
   direkt efter milestone-avbrottet 2025–2026, före de fyra juli-2026-
   projekten. `SPEAKER_NOTES.md` kompletterad med källan för datumet.
+- 2026-08-04 (v19): Kent rättade Fredagsquiz-captionen — serien var inte
+  längre pågående, den avslutades 6 februari 2026 efter 23 quiz (verifierat
+  mot sidans egen lista). Caption skriven om till dåtid med start-/
+  slutdatum och antal. Kent bad samtidigt om en generell reflektion: han
+  ser ett återkommande mönster i hur han jobbar med generativ AI — håller
+  på med en sak, blir bättre och bättre, når sedan en punkt där annat
+  lockar mer och går vidare. Skrivet ut i `SPEAKER_NOTES.md` under
+  `fredagsquiz`, med en notering om att samma mönster kan vara värt att
+  leta efter i fler av presentationens projekt.

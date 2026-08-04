@@ -196,6 +196,16 @@ ordningen mellan poster som annars bara delar årtal — kontrollera alltid
 om en ny/ändrad datumkälla flyttar en post i sekvensen, inte bara vad som
 står i badgen.
 
+**Anta inte att ett projekt fortfarande pågår.** Skriv inte per automatik
+"varje vecka sedan ..." om inte serien faktiskt är aktiv — kolla källan
+(t.ex. sidans egen lista) för ett slutdatum och antal, och skriv i dåtid
+med start och slut om projektet är avslutat. Kent har ett återkommande
+mönster: håller på med en sak, blir bättre och bättre på den, når sedan
+en punkt där annat lockar mer och går vidare — det är inte ett
+misslyckande, utan den naturliga livscykeln för den här sortens
+sidoprojekt. Bra kontext att ha med i `SPEAKER_NOTES.md` när ett projekt
+faktiskt tagit slut, inte bara i den synliga captionen.
+
 ## 9. "Milestone"-avbrott mellan projekt
 
 Korta, snabba avbrott mellan projekt-slides som lyfter stora händelser
@@ -296,3 +306,10 @@ krav på verifierade länkar, som gäller citerbara/publika källor).
   post (Bjärred Saltsjöbad) låg fel placerad i sekvensen — kontrollera
   alltid om ett mer exakt datum flyttar en posts plats, inte bara dess
   badge-text.
+- 2026-08-04 (v8): Lärdom tillagd i Regel 8: anta inte att ett projekt
+  fortfarande pågår — Fredagsquiz-captionen sa fortfarande "varje fredag
+  sedan ..." trots att serien avslutats efter 23 quiz. Kolla källan för
+  ett slutdatum innan en pågående-formulering används. Kents eget
+  återkommande arbetsmönster (håller på en sak, blir bättre, går sedan
+  vidare till nästa när annat lockar mer) dokumenterat som kontext att
+  väva in i `SPEAKER_NOTES.md` när ett projekt visar sig ha tagit slut.

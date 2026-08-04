@@ -65,7 +65,7 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     kind: "screenshot",
     year: "aug2025",
     title: "Fredagsquiz",
-    caption: "Varje fredag sedan 22 augusti 2025: ett nytt quiz om Simrishamns kommun, frågorna skrivna av Claude, kodat i Cursor. Under hösten flyttade jag projektet till GitHub Pages — och skrev på köpet två egna guider om hur Git och GitHub faktiskt fungerar.",
+    caption: "Varje fredag, 22 augusti 2025 till 6 februari 2026: 23 quiz om Simrishamns kommun, frågorna skrivna av Claude, kodat i Cursor. Under hösten flyttade jag projektet till GitHub Pages — och skrev på köpet två egna guider om hur Git och GitHub faktiskt fungerar. Sedan var det dags för nästa sak att utforska.",
     url: "https://kentlundgren.github.io/quiz/0/",
     image: "images/fredagsquiz.png"
   },

@@ -28,6 +28,20 @@ byggt vindkraftskalkyler sedan **minst 2012**, i flera generationer
 
 ## fredagsquiz
 
+Serien pågick 22 augusti 2025 – 6 februari 2026: 23 quiz totalt (#1–#23,
+varav #15A och #15B publicerades samma vecka), med ett tvåveckors
+juluppehåll (vecka 52–1). Källa: https://kentlundgren.github.io/quiz/0/
+
+**Kents egen reflektion, värd att ha med när man pratar om varför den tog
+slut just då:** ett generellt mönster i hur han jobbar med generativ AI —
+han håller på med en sak ett tag, blir bättre och bättre på den (kvaliteten
+på quizen ökade märkbart över säsongen, se t.ex. hur ämnena fördjupas mot
+slutet), och når sedan en punkt där det finns så mycket annat att göra,
+utforska och "leka med" tillsammans med AI. Inte ett misslyckande eller
+att projektet dog — snarare det naturliga slutet på en fas. Samma mönster
+är sannolikt värt att leta efter i fler av projekten i den här
+presentationen, inte bara i Fredagsquiz.
+
 ## statsskuld
 
 ## claude-kompassen
