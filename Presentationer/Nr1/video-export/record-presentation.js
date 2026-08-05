@@ -7,16 +7,16 @@ const { chromium } = require('playwright');
   });
   const page = await context.newPage();
 
-  // Öppna presentationen med "lagom" hastighet
-  const url = 'https://kentlundgren.github.io/AI-teknik/Presentationer/Nr1/?hastighet=lagom';
+  // Öppna presentationen med "rapp" (snabb) hastighet
+  const url = 'https://kentlundgren.github.io/AI-teknik/Presentationer/Nr1/?hastighet=rapp';
   console.log(`Öppnar: ${url}`);
 
   await page.goto(url, { waitUntil: 'networkidle' });
 
-  // Vänta på att presentationen spelar (lagom = ca 2min 20sec för 7 projekt + intro + outro)
+  // Vänta på att presentationen spelar (rapp = ca 50sec för 7 projekt + intro + outro)
   // Lägg till lite buffer för säkerhet
-  console.log('Presentationen spelar... väntar ca 3 minuter');
-  await page.waitForTimeout(180000); // 3 minuter
+  console.log('Presentationen spelar... väntar ca 90 sekunder');
+  await page.waitForTimeout(90000); // 90 sekunder
 
   await context.close();
   await browser.close();
