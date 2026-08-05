@@ -3,8 +3,8 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 29 ("Jobbsökning"-framing borttagen överallt på Kents begäran — syftet är att testa/leka/lära med generativ AI, inte jobbsökning, se avsnitt 2; `</> teknik`-modalen fick en ny Metoden-sektion; Årskorten byggda: åtta nya `kind: "year-card"`-slides — två per år 2023–2026 — ersatte de två gamla milstolparna; tier-system så innehållsmängd växer med vald hastighet; bibliografin utökad 10→23 källor)
-**Status:** Arton slides totalt (åtta projekt + åtta årskort + två avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Tre bruttolistor (`Claude_familjen.md`, `Kents_work_with_AI.md`, `AI_branschen_brett.md`) matade in en delmängd i årskorten — inte allt innehåll därifrån syns i presentationen. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt).
+**Version:** 30 (Stickfigur Spel (mar2024) infört som ny projekt-slide, med ny `promptReveal`-funktion — hovra/tryck visar hela originalprompten; ny fil `Kandidatprojekt.md` — löpande idébank för framtida projekt-slides; "Jobbsökning"-framing borttagen överallt på Kents begäran; `</> teknik`-modalen fick en ny Metoden-sektion; Årskorten byggda — åtta `kind: "year-card"`-slides, tier-system)
+**Status:** Nitton slides totalt (nio projekt + åtta årskort + två avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Tre bruttolistor (`Claude_familjen.md`, `Kents_work_with_AI.md`, `AI_branschen_brett.md`) matade in en delmängd i årskorten, och en fjärde (`Kandidatprojekt.md`) fångar tänkbara framtida projekt-slides löpande. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt).
 **Typ:** Grund-PRD (helt nytt projekt)
 
 > **Viktig utgångspunkt, oavsett hur lång den här PRD:n blir:** den här
@@ -1160,3 +1160,37 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   gäller alla projekt, inte bara den här presentationen. Se chatten för
   Claudes förklaring av skillnaden mellan minnessystemet och CLAUDE.md-
   filer, som Kent uttryckligen frågade om.
+- 2026-08-05 (v30): **Stickfigur Spel infört som riktig projekt-slide**,
+  samtidigt som en ny process-rutin etablerades.
+  (1) **Ny fil `Kandidatprojekt.md`** — löpande idébank för tänkbara
+  framtida projekt-slides, på Kents begäran ("förstår du vad jag menar?" —
+  ja: så fort ett tänkbart projekt nämns i konversation ska det loggas
+  direkt, inte bara memoreras i chatten). Stickfigur Spel var första
+  posten, och gick direkt från "noterat" till "infört" samma dag — inget
+  väntetid denna gång, men mönstret finns nu på plats för nästa gång.
+  (2) **`stickfigur-spel` tillagd i `projects.js`** (mar2024, mellan
+  årskorten för 2024 och 2025 — kronologiskt rätt plats, den enda
+  2024-projektslide som finns). Bild: `Bilder/KulSpel_Sticky_spel.gif`
+  (animerad GIF, en annan mapp än den etablerade `images/` — fungerade
+  direkt utan kodändring, `<img>` animerar GIF:ar automatiskt). URL till
+  det faktiska spelresultatet (`AI_test_240314F.html`) och blogginlägget
+  HTTP-verifierade innan de skrevs in.
+  (3) **Ny funktion: `promptReveal`.** Ett valfritt fält på
+  `screenshot`/`code`-poster som visar en fullständig text i en overlay
+  vid hovring (`:hover`, önskat av Kent) — kompletterat med
+  klick/tryck-toggling i `script.js` som fallback för touch-enheter, där
+  `:hover` inte finns naturligt (samma "hover + tappbart"-princip som
+  redan används för badge-tooltips i andra av Kents projekt). Ny CSS:
+  `.prompt-hint` (diskret badge, "Hovra/tryck för prompten") och
+  `.prompt-reveal` (mörk overlay, monospace-text, `\n` konverterat till
+  `<br>`, grundläggande HTML-escaping av prompttexten). Kents exakta
+  prompt-formulering (från detta meddelande, inte den tidigare
+  blogg-extraherade varianten — små skillnader i böjning) användes
+  ordagrant.
+  (4) **`Kents_work_with_AI.md` fick Kents exakta ord** om vad
+  ögonblicket betydde — "fascinerad och häpen och 'omtöcknad'" — citerat
+  rakt av, med hänvisning till att det nu är en riktig slide.
+  Testat i webbläsaren (desktop-hover och mobil-tap båda bekräftade
+  fungera, GIF:en animerar, 19 slides bekräftat). En falsklarm-konsolfel
+  under testet spårades till en gammal, cachad flik — inte en riktig bugg.
+  README och denna PRD synkade.

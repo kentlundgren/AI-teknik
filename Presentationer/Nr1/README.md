@@ -2,9 +2,9 @@
 
 **Live Page (efter publicering):** https://kentlundgren.github.io/AI-teknik/Presentationer/Nr1/
 
-Självspelande, datadriven presentation av åtta AI/webb-projekt, åtta
+Självspelande, datadriven presentation av nio AI/webb-projekt, åtta
 årskort (två per år 2023–2026: "Vad som hände" / "Hur jag jobbade") och
-två avslutande referens-slides (begreppslista + källförteckning) — arton
+två avslutande referens-slides (begreppslista + källförteckning) — nitton
 slides totalt, i kronologisk ordning. Viktiga AI-modeller/AI-verktyg är
 klickbara första gången de nämns. Årskorten visar olika mycket innehåll
 beroende på vald hastighet (fler fakta vid Seriös än vid Rapp) — se
@@ -45,21 +45,29 @@ parameter i stället för tre separata filer (se PRD:n, 4c).
 Redigera `projects.js` — en post per projekt, ingen ändring av
 `index.html`/`style.css`/`script.js` behövs. Två typer:
 
-- `kind: "screenshot"` — kräver en bild i `images/`
+- `kind: "screenshot"` — kräver en bild i `images/` (eller annan mapp, se `Bilder/`); en animerad `.gif` fungerar direkt, ingen specialkod behövs
 - `kind: "code"` — renderas som ett kodkort direkt i HTML/CSS, ingen bildfil behövs
 - `kind: "year-card"` (`variant: "tech"`/`"personal"`) — årskort med årtal + fakta,
   varje fact har en `tier` (1 = alltid, 2 = lagom+seriös, 3 = bara seriös)
 - `kind: "glossary"` — avslutande slide, alfabetisk lista över alla klickbara begrepp
 - `kind: "bibliography"` — avslutande slide, annoterad Harvard-källförteckning
 
+Valfritt fält `promptReveal` på `screenshot`/`code`-poster: visar en fullständig
+text (t.ex. en originalprompt) i en overlay vid hovring eller tryck/klick —
+se `stickfigur-spel`-posten för ett exempel.
+
+Nya kandidat-projekt loggas först i [Kandidatprojekt.md](Kandidatprojekt.md)
+innan de eventuellt läggs in här — se den filen för rutinen.
+
 ## Filer
 
 - `index.html` / `style.css` / `script.js` — motorn
-- `projects.js` — allt innehåll (åtta projekt + åtta årskort + två referens-slides)
+- `projects.js` — allt innehåll (nio projekt + åtta årskort + två referens-slides)
 - `glossary.js` — delad ordlista (AI-modeller/AI-verktyg), länkar första förekomsten av varje term
-- `images/` — skärmdumpar av de sex live-projekten
+- `images/` — skärmdumpar av de flesta live-projekten; `Bilder/` — enstaka nyare bilder/GIF:ar (t.ex. Stickfigur Spel)
 - `PRD_presentation_ai_projekt.md` — hela beslutshistoriken
 - `SPEAKER_NOTES.md` — Kents egna presentatörsanteckningar per projekt (id-kopplat, inte del av sidan)
 - `Claude_familjen.md` — fullständig, primärkälleverifierad tidslinje över hela Claude-familjen (18 lanseringar, 2023–2026); bruttolista att välja en delmängd ur till kommande årskort, inte allt härifrån visas nödvändigtvis i presentationen
 - `Kents_work_with_AI.md` — personlig reflektion över hur Kents eget arbetssätt med AI-verktyg utvecklats 2023–2026 (Perplexity → Claude Projects → Claude Code/Cursor/GitHub → Claude 4.6), korsreferererar `Claude_familjen.md`; bruttolista, delmängd blir egna slides i ett senare steg
 - `AI_branschen_brett.md` — bruttolista över hela AI-branschens (inte bara Anthropics) mest häpnadsväckande händelser 2023–2026 (GPT-4, Sora, Llama 3, Altman-dramat, m.fl.), primärkälleverifierad, korsreferererar `Claude_familjen.md` i stället för att duplicera Claude-lanseringarna
+- `Kandidatprojekt.md` — löpande idébank över tänkbara framtida projekt-slides, loggas direkt när ett projekt nämns i konversation
