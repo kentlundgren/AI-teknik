@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 24 (Diskussion inför årskort-strukturen: innehåll ska variera med hastighet via tiering, ej separata texter; Stickfigur Spel-materialet tillagt i `Kents_work_with_AI.md` och fyller delvis 2025-luckan; ny fil `Kents_work_with_AI.md` — Kents personliga AI-arbetsresa 2023–2026; rättat faktafel: `statsskuld`-sliden angav fel AI-verktyg, Gemini → Claude; `Claude_familjen.md` nu 18 poster)
+**Version:** 26 (Ny fil `AI_branschen_brett.md` — hela AI-branschens milstolpar 2023–2026, primärkälleverifierad, två sakfel i en Grok-genererad startlista rättade; Örebro-frågan avgjord (stannar utanför presentationen); tre bruttolistor nu totalt vid sidan av `projects.js`: `Claude_familjen.md`, `Kents_work_with_AI.md`, `AI_branschen_brett.md`)
 **Status:** Tolv slides totalt (åtta projekt + ett milstolpe-avbrott (2024) + ett milstolpe-avbrott (2025–2026) + två avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt) — allt innehåll och all datering är nu beslutad.
 **Typ:** Grund-PRD (helt nytt projekt)
 
@@ -1025,3 +1025,56 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   global `CLAUDE.md` och `kent-meta-regler-for-code` (se respektive
   filers egna ändringsloggar, 2026-08-05) — inte specifik för det här
   projektet, men beslutad under samma session.
+- 2026-08-05 (v25): Två svar på öppna frågor från v24.
+  (1) **Det "objektiva/tekniska" kortets omfattning beslutad:** hela
+  AI-branschen, det objektivt mest häpnadsväckande — inte begränsat till
+  Claude-familjen. Innebär mer research per år framöver (inte bara
+  `Claude_familjen.md`), inte påbörjat än.
+  (2) **Allvarligt material tillagt i `Kents_work_with_AI.md`, 2025-
+  avsnittet:** Kent länkade två egna blogginlägg (4 februari 2025,
+  samma dag) om etiken i att använda generativ AI (Perplexity) för att
+  utforma krisbudskap — skrivna samma dag som Sveriges dödligaste
+  skolskjutning, Campus Risbergska/Komvux i Örebro (elva döda, inkl.
+  gärningsmannen). Underliggande händelse oberoende verifierad
+  (Wikipedia/SVT/BBC) innan den skrevs in, i linje med Regel 3. Skrivet
+  återhållsamt, fokus på Kents etiska resonemang, inte på våldet.
+  **Explicit flaggat som en öppen fråga i filen** — om/hur det här ska
+  visas i själva presentationen (jobbsökningssyfte, verklig tragedi) är
+  ett ton-/lämplighetsval Claude inte tar ställning till åt Kent.
+  Sammanfattningstabellen uppdaterad. Stickfigur-materialet (v24)
+  oförändrat.
+- 2026-08-05 (v26): Kents svar på v25:s öppna frågor, plus en ny bruttolista.
+  (1) **Örebro-frågan avgjord:** stannar i `Kents_work_with_AI.md` som
+  bakgrund, blir ingen slide i presentationen. Öppen fråga markerad löst
+  i filen (genomstruken).
+  (2) **Kents egen sammanfattning av sitt förhållningssätt** tillagd
+  ordagrant i filens inledning — "jag 'testar', leker och lär mig..."
+  plus tillägget om att generativ AI (i hans formulering) "testar och
+  'leker' med oss människor" — citerat exakt, inte omskrivet eller
+  färdigtolkat av Claude.
+  (3) **Ny fil `AI_branschen_brett.md`** — bruttolista över hela
+  AI-branschens (inte bara Anthropics) mest häpnadsväckande händelser
+  2023–2026. Startpunkt: en lista Kent fått från Grok, verifierad post
+  för post av Claude mot primärkällor (OpenAI, Meta, Microsoft, Wikipedia
+  för Altman-sagan) innan något skrevs in — två sakfel i Groks lista
+  rättade under vägen: (a) Bing/GPT-4-integrationen skedde FÖRE GPT-4:s
+  egen officiella lansering, inte efter (7 feb 2023 mot 14 mars 2023, en
+  intern modell utan GPT-4-namnet användes i Bing först); (b)
+  "resonemangsmodeller blir mainstream" placerades av Grok i 2025, men
+  själva ursprunget (OpenAI o1) är ett 2024-event (förhandsvisning sep,
+  fullversion dec) — den breda normaliseringen fortsatte in i 2025 via
+  o3, så båda årtalen noterade i stället för att tvinga in det i ett.
+  Filen duplicerar inte Claude-familjens egna lanseringar utan
+  korsreferererar `Claude_familjen.md` per år, samma mönster som
+  `Kents_work_with_AI.md` redan använder. README:s filinventering
+  uppdaterad. Tre öppna frågor i filen, bl.a. om Google/Gemini saknas.
+  (4) **Skill-kontra-fil-idé väckt av Kent** (bara en tanke, inte
+  beslutad): omforma `Kents_work_with_AI.md` till en skill i stället
+  för en vanlig .md-fil. Claudes svar i chatten: håll isär syftena —
+  den här filen är presentationsinnehåll (narrativ, citat, kronologi),
+  en skill är operativ vägledning som styr Claudes eget beteende i
+  framtida sessioner (samma kategori som `kent-meta-regler-for-code`,
+  `kent-skrivstil`). Rekommendation: behåll filen som den är, men bygg
+  eventuellt en SEPARAT, ny skill som fångar Kents faktiska
+  samarbetsmönster med generativ AI som operativ vägledning — inte ett
+  beslut, väntar på Kents besked.

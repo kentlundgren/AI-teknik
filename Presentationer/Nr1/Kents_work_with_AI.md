@@ -7,6 +7,15 @@ Bruttolista i samma anda som `Claude_familjen.md` — en delmängd väljs ut
 till egna slides i presentationen i ett senare steg, inte allt härifrån
 ska nödvändigtvis synas där.*
 
+**Kents egen sammanfattning av sitt förhållningssätt** (2026-08-05,
+ordagrant): *"jag 'testar', leker och lär mig så mycket som möjligt hur
+generativ AI fungerar och kan uträtta"* — med ett tillägg han brukar
+göra: *"innan generativ AI, testar och 'leker' med oss människor..."*
+(citerat exakt som Kent formulerade det — en poäng om att förhållandet
+mellan människa och verktyg känns omvänt jämfört med äldre, mer rigid
+teknik, snarare än en färdigformulerad tanke Claude bör fylla i åt
+honom).
+
 **Korsreferens till `Claude_familjen.md`:** varje gång en specifik
 Claude-lansering nämns nedan pekas den ut med samma namn och
 `<mån><år>`-badge som används där — t.ex. *(se [Claude_familjen.md](Claude_familjen.md)
@@ -89,6 +98,33 @@ byggt det själv från grunden.
 
 ## 2025 — Claude Code, Cursor och GitHub blir vardagsverktyg
 
+**Generativ AI och kriskommunikationsetik (4 februari 2025).** Den 4
+februari 2025 inträffade Sveriges dödligaste skolskjutning, vid
+vuxenutbildningen Campus Risbergska i Örebro — elva döda, inklusive
+gärningsmannen, flera skadade (oberoende bekräftat, se källa nedan).
+Samma dag skrev Kent två reflekterande blogginlägg om en svår etisk
+fråga, inte om händelsen i sig: kan eller bör generativ AI användas för
+att formulera officiella krisbudskap efter en tragedi av det här slaget?
+Han använde **Perplexity** för att skissa tre exempelkommunikationer (en
+tänkt journalistintervju med ett kommunalråd, ett tänkt tal av
+statsministern, ett tänkt radiouttalande av kungen) — inte för att de
+skulle användas skarpt, utan som ett sätt att konkret undersöka frågan:
+kan AI-genererade budskap förmedla äkta empati, eller riskerar de att
+uppfattas som kalla och opersonliga? Slutsatsen var att en balans mellan
+teknik och genuin medkänsla är nödvändig — varken ett förkastande av AI i
+krissammanhang eller ett oreflekterat användande.
+Lundgren, K. (2025a) 'Vad kan sägas efter ett illdåd?', Controller, lärare och coach utan gränser reflekterar. Publicerad 4 februari 2025.
+https://controllerutangranser.wordpress.com/2025/02/04/vad-kan-sagas-efter-ett-illdad/
+Lundgren, K. (2025b) 'Generativ AI i kriskommunikation: Etiska överväganden efter illdådet på Komvux', Tankar i tiden från Lund. Publicerad 4 februari 2025.
+https://klel.wordpress.com/2025/02/04/generativ-ai-i-kriskommunikation-etiska-overvaganden-efter-illdadet-pa-komvux/
+Faktagrund om händelsen (oberoende av Kents egna inlägg): Wikipedia (2026)
+'Skolskjutningen i Örebro 2025', Wikipedia. Available at:
+https://sv.wikipedia.org/wiki/Skolskjutningen_i_%C3%96rebro_2025 (Accessed: 5 augusti 2026).
+*(Det enda inlägget i den här filen som utgår från en verklig tragedi
+snarare än ett tekniskt experiment eller ett arbetsverktyg — medvetet
+skrivet återhållsamt. Kent beslutade 2026-08-05 att det stannar här som
+bakgrund, men blir ingen slide i presentationen — se Öppna frågor.)*
+
 Med **Claude Code** (feb2025, se `Claude_familjen.md`) flyttade Kents
 arbetssätt från chatt-baserad kodhjälp till agentisk kodning direkt i
 terminalen — samma verktyg den här presentationen faktiskt är byggd med.
@@ -139,11 +175,15 @@ lansering, som är kärnan i den här filen.
 |---|---|---|
 | 2023 | ChatGPT (kodning), OpenAI Whisper, Perplexity (research) | Löst experimenterande, ett verktyg per uppgift |
 | 2024 | Claude 3, Claude Projects, Perplexity/GPT-4 (jämförelsetest) | Första gången källor/kunskapsbas aktivt styrs, RAG-liknande |
-| 2025 | Claude Code, Cursor, GitHub, Claude 3.7 Sonnet | Agentisk kodning blir vardag; samma stickfigur-test klart med en justering |
+| 2025 | Perplexity (etikreflektion), Claude Code, Cursor, GitHub, Claude 3.7 Sonnet | Agentisk kodning blir vardag; samma stickfigur-test klart med en justering |
 | 2026 | Claude Cowork, Claude 4.6 | Från att rätta AI:ns kod till att bara lägga till mer |
 
 ## Öppna frågor / att besluta i nästa steg
 
+- ~~Örebro-inlägget — ska det med i presentationen alls?~~ **Beslutat
+  2026-08-05: nej, inte i själva presentationen.** Materialet stannar
+  här, som en del av bilden av hur Kent testar/utforskar generativ AI —
+  men blir ingen slide.
 - Vilken delmängd av det här (citat, tabellen, ett urval år) ska bli
   "ett par slides" i presentationen, som Kent efterfrågade? Kent avgör.
 - Ska citaten från Kent visas ordagrant i presentationen, eller bara
