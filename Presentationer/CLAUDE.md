@@ -32,6 +32,29 @@ undermapp.
 Se även `kent-bygg-sidor` (global, nivå 2) för Kents allmänna regler för
 interaktiva sidor — gäller alltid tillsammans med det lokala skillet.
 
+## Underhållsregel — versionsdatum i varje NrX-presentation
+
+Varje gång innehållet i en presentationsmapp (`Nr1/`, `Nr2/` ...) ändras
+— nytt projekt läggs till, en slide redigeras, ordning ändras, texter
+uppdateras — **uppdatera alltid datumet i varumärkestexten** i mappens
+`index.html`. För `Nr1` är det rad 15:
+
+```html
+<div id="brand">Kent Lundgren
+  <span>— AI-projekt, en resa — version Nr1 per den [DATUM]</span>
+</div>
+```
+
+Sätt `[DATUM]` till ändringsdagen (format: `5 aug 2026`).
+Versionsnumret (`Nr1`, `Nr2` ...) ändras bara vid en strukturellt ny
+generation av presentationen — **inte** vid löpande innehållsuppdateringar.
+
+Syftet: besökaren ska direkt se att presentationen är levande och aktuell.
+Datumet är den enda signalen om när innehållet senast ändrades.
+
+Regeln finns även dokumenterad lokalt i respektive `NrX/README.md` under
+rubriken "Underhållsregler".
+
 ## Arbetsregler (samma som övriga AI-teknik-repot)
 
 - **Git commit/push: Kent gör det själv, via Cursor.** Claude Code föreslår

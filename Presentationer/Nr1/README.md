@@ -40,6 +40,12 @@ parameter i stället för tre separata filer (se PRD:n, 4c).
   efteråt — bildspelet startar inte om sig självt bara för att man bläddrat.
 - Hastigheten kan också bytas löpande med knapparna uppe till höger.
 
+## En levande presentation
+
+Presentationen är inte statisk — projekt tillkommer, texter uppdateras.
+Därför visas alltid ett datum i rubriken ("version Nr1 per den X") så att
+besökaren direkt ser hur aktuellt innehållet är.
+
 ## Lägga till eller ta bort ett projekt
 
 Redigera `projects.js` — en post per projekt, ingen ändring av
