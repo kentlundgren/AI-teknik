@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 27 (Årskorten byggda: åtta nya `kind: "year-card"`-slides — två per år 2023–2026, "Vad som hände"/"Hur jag jobbade" — ersatte de två gamla milstolparna; tier-system så innehållsmängd växer med vald hastighet; bibliografin utökad 10→23 källor; `glossary.js` +6 termer)
+**Version:** 28 (`</> teknik`-modalen uppdaterad med en ny Metoden-sektion — bruttolista/verifiering/diskussion-före-kodning/PRD-som-minne — vid sidan av Tekniken-sektionen; Årskorten byggda: åtta nya `kind: "year-card"`-slides — två per år 2023–2026 — ersatte de två gamla milstolparna; tier-system så innehållsmängd växer med vald hastighet; bibliografin utökad 10→23 källor)
 **Status:** Arton slides totalt (åtta projekt + åtta årskort + två avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Tre bruttolistor (`Claude_familjen.md`, `Kents_work_with_AI.md`, `AI_branschen_brett.md`) matade in en delmängd i årskorten — inte allt innehåll därifrån syns i presentationen. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt).
 **Typ:** Grund-PRD (helt nytt projekt)
 
@@ -1119,3 +1119,17 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
     flerordstermer ("OpenAI Whisper") bekräftad korrekt trots ny kortare
     "OpenAI"-term i listan, mobilvy, inga konsolfel. README och denna
     PRD synkade.
+- 2026-08-05 (v28): `</> teknik`-modalen uppdaterad, på Kents begäran
+  efter att han frågade hur tier-tekniken funkar. Modalen delades i två
+  sektioner: **Tekniken** (befintliga fem kort + två nya: tier-filtret
+  som styr innehållsmängd per hastighet, och den delade ordlistan för
+  klickbara begrepp) och en helt ny **Metoden**-sektion (fyra kort:
+  bruttolista-före-urval-mönstret, verifiering-innan-det-skrivs-in med
+  två konkreta exempel på fel som fångades, diskussion-före-kodning för
+  beslut med verkligt genomslag, PRD:n som versionerat beslutsminne,
+  länkad direkt från modalen). Ny CSS-klass `.tech-section-title`. Kent
+  frågade också om tier-tekniken var "ny" — svarat i chatten: nej, ett
+  vanligt filter/progressive-disclosure-mönster, bara ovanligt tillämpat
+  (mot vald uppspelningshastighet i stället för skärmstorlek). Testat i
+  webbläsaren, båda sektionerna och samtliga nio kort bekräftade
+  synliga och scrollbara, inga konsolfel.
