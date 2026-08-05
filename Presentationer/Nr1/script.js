@@ -133,6 +133,26 @@
       media.appendChild(badge);
     }
 
+    if (project.promptReveal) {
+      media.classList.add("has-prompt-reveal");
+      const hint = document.createElement("div");
+      hint.className = "prompt-hint";
+      hint.textContent = "Hovra/tryck för prompten";
+      const overlay = document.createElement("div");
+      overlay.className = "prompt-reveal";
+      const escaped = project.promptReveal
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+        .replace(/\n/g, "<br>");
+      overlay.innerHTML = `<p class="prompt-reveal-label">Prompten, ordagrant</p><p class="prompt-reveal-text">${escaped}</p>`;
+      media.appendChild(hint);
+      media.appendChild(overlay);
+      // Tap/klick växlar (för touch, där :hover inte finns) — hover funkar redan via CSS.
+      media.addEventListener("click", (e) => {
+        if (e.target.closest("a")) return;
+        media.classList.toggle("show-prompt");
+      });
+    }
+
     const sourceLink = project.source
       ? `<a class="visit source" href="${project.source.url}" target="_blank" rel="noopener">${project.source.label}</a>`
       : "";

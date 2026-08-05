@@ -74,6 +74,12 @@ AI-verktyg mot samma uppgift i stället för att bara lita på ett — se
 2025-avsnittet nedan för uppföljningen ett år senare, med ett tredje
 verktyg och ett mycket annorlunda resultat.)*
 
+**Vad det betydde för Kent, i hans egna ord (2026-08-05):** *"Detta var
+ett (av många) ögonblick då jag blev fascinerad och häpen och
+'omtöcknad' av vad generativ AI kan göra!"* — citerat ordagrant, inte
+omskrivet. Nu en egen slide i presentationen (`stickfigur-spel`, mar2024),
+med en hovra/tryck-funktion som visar hela originalprompten.
+
 Claude 3 (mar2024, se `Claude_familjen.md`) var första gången Kent på
 allvar började använda Claude. Men det som Kent själv, i efterhand,
 pekar ut som den verkliga vändpunkten är **Claude Projects** (jun2024,

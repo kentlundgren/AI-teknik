@@ -113,6 +113,17 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     ]
   },
   {
+    id: "stickfigur-spel",
+    kind: "screenshot",
+    year: "mar2024",
+    title: "Stickfigur Spel",
+    caption: "Samma engelska prompt till två olika AI-verktyg — Perplexity och OpenAI:s GPT-4-playground — för att se hur de klarade att generera ett litet JavaScript-spel. Ett av flera ögonblick då jag blev fascinerad, häpen och nästan omtöcknad av vad generativ AI kan göra.",
+    url: "https://kentlundgren.se/AI/AIspel/AI_test_240314F.html",
+    image: "Bilder/KulSpel_Sticky_spel.gif",
+    promptReveal: "Write code for a javascript game where there is a stick figure on the screen.\nThe stick figure move left and right with the A and D buttons and jump with the space bar.\nCoins should also place randomly on the screen where the player can reach them. When a player touches a coin,\nthe coin should disappear and be collected by the player.",
+    source: { label: "Läs mer: Testa AI-modeller genom att göra spel", url: "https://controllerutangranser.wordpress.com/2024/03/17/testa-ai-modeller-genom-att-gora-spel/" }
+  },
+  {
     id: "year-2025-tech",
     kind: "year-card",
     variant: "tech",

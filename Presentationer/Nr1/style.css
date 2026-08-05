@@ -197,6 +197,64 @@ body.paused #playPauseBtn { color: var(--accent); border-color: var(--accent); }
   border-radius: 999px;
 }
 
+/* ---------- prompt-reveal (hovra/tryck för att visa en fullständig prompt) ---------- */
+
+.media-pane.has-prompt-reveal { cursor: pointer; }
+
+.prompt-hint {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--navy);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.32rem 0.7rem;
+  border-radius: 999px;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.media-pane.has-prompt-reveal:hover .prompt-hint,
+.media-pane.has-prompt-reveal.show-prompt .prompt-hint {
+  opacity: 0;
+}
+
+.prompt-reveal {
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 39, 97, 0.95);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.8rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.media-pane.has-prompt-reveal:hover .prompt-reveal,
+.media-pane.has-prompt-reveal.show-prompt .prompt-reveal {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.prompt-reveal-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin: 0 0 0.6rem;
+}
+
+.prompt-reveal-text {
+  font-family: "Courier New", Courier, monospace;
+  font-size: clamp(0.78rem, 1.3vw, 0.95rem);
+  line-height: 1.6;
+  margin: 0;
+}
+
 /* code-card slides (no live screenshot) */
 .code-card {
   width: 100%;
