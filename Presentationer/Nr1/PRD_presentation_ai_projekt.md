@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 32 (`Kandidatprojekt.md` byggd om till blockformat med fullständiga, verifierade, klickbara länkar; ny kandidat "Tidig vindkraftskalkyl"; ny stående regel i `kent-presentationer`-skillen — Claude ska proaktivt söka kandidater i Kents bloggar/X; PRD-städning 1197→~1090 rader, se v31)
+**Version:** 33 (Delfråga 4k återöppnad — LinkedIn-länken autospelar inte i flödet, fem videometoder listade, öppen fråga; `Kandidatprojekt.md` byggd om till blockformat med verifierade, klickbara länkar; ny stående regel i `kent-presentationer`-skillen om proaktiv kandidatsökning; PRD-städning 1197→~1090 rader, se v31)
 **Status:** Nitton slides totalt (nio projekt + åtta årskort + två avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Tre bruttolistor (`Claude_familjen.md`, `Kents_work_with_AI.md`, `AI_branschen_brett.md`) matade in en delmängd i årskorten, och en fjärde (`Kandidatprojekt.md`) fångar tänkbara framtida projekt-slides löpande. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt).
 **Typ:** Grund-PRD (helt nytt projekt)
 
@@ -205,6 +205,41 @@ håller kvar besökaren i flödet i stället för att länka bort. Ingen
 motsvarighet finns på X. Eftersom Kent redan bekräftat att en vanlig länk
 räcker (ovan) behövs inte det här formatet nu — noterat här som bakgrund,
 inte som en leverans.
+
+**Återöppnad 2026-08-05:** Kent testade att faktiskt klistra in länken i
+LinkedIn och upptäckte att den, som väntat, bara ger ett statiskt
+förhandsgranskningskort — inte ett autospelande bildspel direkt i flödet.
+Bekräftat via research (2026-08-05): LinkedIn kör aldrig en delad sidas
+egen JS/CSS i flödet, oavsett hur sidan är byggd — en plattforms-
+begränsning, inte något som går att koda bort. Länken fungerar fortfarande
+"rätt" i teknisk mening (självspelande så fort någon klickar sig in), men
+uppfyller inte "direkt, utan klick"-önskemålet.
+
+**Fem metoder identifierade för att få något som autospelar direkt i
+flödet, ÖPPEN — inget valt än:**
+1. **Skärminspelning → video (MP4), manuellt.** Spela upp `rapp`-varianten,
+   spela in skärmen (Xbox Game Bar/Win+G eller OBS Studio), ladda upp som
+   ett video-inlägg (inte en länk) — LinkedIn autospelar native video.
+   Enklast, inget nytt att bygga, men manuellt varje gång innehållet ändras.
+2. **Automatiserad videoinspelning via headless webbläsare.** Samma princip
+   som skärmdumparna (headless Chrome, se `kent-bygg-sidor`), men med ett
+   verktyg med videostöd (t.ex. Playwright) — ett skript spelar in en hel
+   loop och sparar som .mp4. Repeterbart, men Playwright finns inte i
+   projektet idag.
+3. **Animerad GIF.** Samma inspelning, exporterad som .gif. Bekräftat via
+   research: LinkedIn ger riktig video (MP4) bättre autoplay-status än
+   GIF-som-bild. Med 19 slides blir en GIF av hela loopen stor/tung —
+   bättre för ett kort utdrag (teaser) än hela presentationen.
+4. **PDF-karusell** (se ovan) — reservlösning, autospelar inte alls.
+5. **OpenGraph-taggar** (`og:image`/`og:title`) saknas helt i `index.html`
+   idag — löser inte autoplay-frågan, men länkkortet är troligen tomt/
+   generiskt just nu. Billig, oberoende förbättring oavsett vilken metod
+   som väljs för resten.
+
+Claudes rekommendation, inte ett beslut: börja med metod 1 för nästa
+delning (inget att bygga), överväg metod 2 om videogenerering ska bli
+återkommande. Väntar på Kents besked om vilken metod (om någon) som ska
+byggas.
 
 *Produktionsanteckning:* ett automatiserat `curl`-anrop mot
 `kentlundgren.se` blockerades av sidans brandvägg (WAF, "455 Security
@@ -1135,3 +1170,18 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   websökning hittade tre enskilda, redan indexerade inlägg som en
   ofullständig omväg — dokumenterat som en känd begränsning i skillen,
   inte dolt eller påstått fungera fullt ut.
+- 2026-08-05 (v33): **Delfråga 4k återöppnad** — Kent testade länken i
+  LinkedIn på riktigt och upptäckte att den bara ger ett statiskt
+  förhandsgranskningskort, inte ett direkt autospelande bildspel i
+  flödet. Bekräftat via research: en plattformsbegränsning (LinkedIn kör
+  aldrig delade sidors JS/CSS i flödet), inte något som går att lösa
+  genom att bygga om sidan. Fem metoder listade för att få ett faktiskt
+  autospelande inlägg: (1) manuell skärminspelning → MP4, (2)
+  automatiserad videoinspelning via headless webbläsare med videostöd
+  (t.ex. Playwright — inte i projektet idag), (3) animerad GIF (bäst för
+  korta utdrag, LinkedIn ger riktig video bättre autoplay-status än
+  GIF-som-bild enligt research), (4) PDF-karusell (redan bortvald,
+  autospelar inte), (5) OpenGraph-taggar (löser inte autoplay, men
+  `index.html` saknar helt `og:image`/`og:title` idag — billig
+  sidoförbättring oavsett). **Inget valt än — öppen fråga,** Claude gav
+  en rekommendation (börja med metod 1) men fattade inget beslut åt Kent.
