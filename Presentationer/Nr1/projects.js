@@ -56,7 +56,7 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     kind: "milestone",
     year: "2024",
     facts: [
-      { text: "Anthropic lanserar Claude 3 — Opus, Sonnet och Haiku.", source: { label: "Anthropic, mars 2024", url: "https://www.anthropic.com/news/claude-3-haiku" } },
+      { text: "Anthropic lanserar Claude 3 — Opus, Sonnet och Haiku (mars 2024). Jämför: Claude 4 kom drygt ett år senare (maj 2025), och Claude 5 ytterligare drygt ett år efter det (juni–juli 2026, i tre steg: Fable, Sonnet, Opus) — tre modellgenerationer på knappt två och ett halvt år.", source: { label: "Anthropic, 4 mars 2024", url: "https://www.anthropic.com/news/claude-3-family" } },
       { text: "EU:s AI-förordning (AI Act) träder i kraft — världens första heltäckande AI-lag.", source: { label: "Europeiska kommissionen, 1 aug 2024", url: "https://commission.europa.eu/news-and-media/news/ai-act-enters-force-2024-08-01_en" } }
     ]
   },
@@ -74,8 +74,8 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     kind: "milestone",
     year: "2025–2026",
     facts: [
-      { text: "Anthropic lanserar Claude Cowork — AI som sköter hela arbetsuppgifter, inte bara kod.", source: { label: "Anthropic", url: "https://www.anthropic.com/product/claude-cowork" } },
-      { text: "Claude Code — verktyget bakom just den här presentationen — blir vardagsmat bland utvecklare." }
+      { text: "Anthropic lanserar Claude Code (februari 2025) — verktyget bakom just den här presentationen.", source: { label: "Anthropic, 24 feb 2025", url: "https://www.anthropic.com/news/claude-3-7-sonnet" } },
+      { text: "Anthropic lanserar Claude Cowork (januari 2026) — AI som sköter hela arbetsuppgifter, inte bara kod.", source: { label: "Anthropic, 12 jan 2026", url: "https://claude.com/blog/cowork-research-preview" } }
     ]
   },
   {
@@ -127,5 +127,85 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     url: "https://kentlundgren.github.io/Ovrigt/Fritid/ol_Tyskland/index.html",
     image: "images/ol-tyskland.png",
     source: { label: "Läs mer: Hur många öl till break-even?", url: "https://controllerutangranser.wordpress.com/2026/07/29/hur-manga-ol-till-break-even/" }
+  },
+  {
+    id: "begreppslista",
+    kind: "glossary",
+    title: "Begrepp och verktyg",
+    intro: "Varje AI-modell och AI-verktyg ovan var klickbar första gången den nämndes. Här är samtliga, samlade på ett ställe."
+  },
+  {
+    id: "kallforteckning",
+    kind: "bibliography",
+    title: "Källförteckning",
+    intro: "Harvard-format, alfabetisk ordning. Egna blogginlägg som ligger bakom enskilda slides, plus ett fåtal källor som markerar verkliga brytpunkter i AI-utvecklingen.",
+    refs: [
+      {
+        cite: "Anthropic (2024) 'Claude 3 family', Anthropic.",
+        url: "https://www.anthropic.com/news/claude-3-family",
+        date: "Publicerad 4 mars 2024",
+        note: "Familjen Opus, Sonnet och Haiku — startpunkten för den lanseringstakt som jämförs i milstolpen för 2024."
+      },
+      {
+        cite: "Anthropic (2025a) 'Claude 3.7 Sonnet and Claude Code', Anthropic.",
+        url: "https://www.anthropic.com/news/claude-3-7-sonnet",
+        date: "Publicerad 24 februari 2025",
+        note: "Samma annonsering som introducerade Claude Code — verktyget den här presentationen är byggd med — som en command line-forskningsförhandsvisning."
+      },
+      {
+        cite: "Anthropic (2025b) 'Introducing Claude 4', Anthropic.",
+        url: "https://www.anthropic.com/news/claude-4",
+        date: "Publicerad 22 maj 2025",
+        note: "Opus 4 och Sonnet 4, drygt ett år efter Claude 3 — det första tydliga tecknet på den accelererande lanseringstakten."
+      },
+      {
+        cite: "Anthropic (2026a) 'Claude Cowork', Claude by Anthropic.",
+        url: "https://claude.com/blog/cowork-research-preview",
+        date: "Publicerad 12 januari 2026 (datum bekräftat av Kent samt oberoende nyhetsbevakning, inte synligt vid automatiserad hämtning av sidan)",
+        note: "Skiftet från rent kodningsverktyg till AI som sköter hela arbetsuppgifter — nämnt i milstolpen för 2025–2026."
+      },
+      {
+        cite: "Anthropic (2026b) 'Introducing Claude Sonnet 5', Anthropic.",
+        url: "https://www.anthropic.com/news/claude-sonnet-5",
+        date: "Publicerad 30 juni 2026",
+        note: "Fjärde generationsbytet på drygt två år — Fable 5 (9 juni) och Opus 5 (23 juli) lanserades samma sommar."
+      },
+      {
+        cite: "Europeiska kommissionen (2024) 'AI Act enters into force', European Commission.",
+        url: "https://commission.europa.eu/news-and-media/news/ai-act-enters-force-2024-08-01_en",
+        date: "Publicerad 1 augusti 2024",
+        note: "Världens första heltäckande AI-lag — en motvikt till den rena modellkapplöpningen i samma milstolpe."
+      },
+      {
+        cite: "Lundgren, K. (2026a) 'Att göra vindkraftens ekonomi synlig', Controller, lärare och coach utan gränser reflekterar.",
+        url: "https://controllerutangranser.wordpress.com/2026/07/13/att-gora-vindkraftens-ekonomi-synlig/",
+        date: "Publicerad 13 juli 2026",
+        note: "Bakgrundstext till Vindkraftskalkyl-sliden."
+      },
+      {
+        cite: "Lundgren, K. (2026b) 'Vad ett beslutsträd om statsskuld lär oss om vibe-kodning', Controller, lärare och coach utan gränser reflekterar.",
+        url: "https://controllerutangranser.wordpress.com/2026/07/28/vad-ett-beslutstrad-om-statsskuld-lar-oss-om-vibe-kodning/",
+        date: "Publicerad 28 juli 2026",
+        note: "Bakgrundstext till Statsskuld-sliden."
+      },
+      {
+        cite: "Lundgren, K. (2026c) 'En bild av Claudes ekosystem', Tankar i tiden från Lund.",
+        url: "https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/",
+        date: "Publicerad 29 juli 2026",
+        note: "Bakgrundstext till Claude-kompassen-sliden."
+      },
+      {
+        cite: "Lundgren, K. (2026d) 'Hur många öl till break-even?', Controller, lärare och coach utan gränser reflekterar.",
+        url: "https://controllerutangranser.wordpress.com/2026/07/29/hur-manga-ol-till-break-even/",
+        date: "Publicerad 29 juli 2026",
+        note: "Ursprungsinlägget för Ölkalkylen, som fick över 3 000 klick på LinkedIn enligt Kent."
+      },
+      {
+        cite: "Vaswani, A. et al. (2017) 'Attention is all you need', arXiv preprint arXiv:1706.03762.",
+        url: "https://arxiv.org/abs/1706.03762",
+        date: "Publicerad 12 juni 2017",
+        note: "Introducerade Transformer-arkitekturen, som gjorde det möjligt att träna stora språkmodeller parallellt och effektivt — grunden för all modern generativ AI, Claude inräknat."
+      }
+    ]
   }
 ];

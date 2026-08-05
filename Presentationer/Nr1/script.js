@@ -2,6 +2,10 @@
   const DURATIONS = { rapp: 7000, lagom: 20000, serios: 45000 };
   const MILESTONE_DURATION = 4000; // alltid rapp, oavsett hastighet
 
+  // Bakar in klickbara ordlista-länkar (första förekomst, i PROJECTS egen
+  // ordning) innan något renderas — se glossary.js.
+  linkifyAllProjects(PROJECTS);
+
   const params = new URLSearchParams(location.search);
   let speedKey = params.get("hastighet");
   if (!DURATIONS[speedKey]) speedKey = "rapp"; // rapp = standard, så det syns direkt att det är ett bildspel
@@ -54,11 +58,43 @@
       const pane = document.createElement("div");
       pane.className = "milestone-pane";
       const facts = (project.facts || [])
-        .map((f) => `<li>${f.text}${f.source ? ` <a href="${f.source.url}" target="_blank" rel="noopener">${f.source.label}</a>` : ""}</li>`)
+        .map((f) => `<li>${f.text}${f.source ? ` <a class="fact-source" href="${f.source.url}" target="_blank" rel="noopener">${f.source.label}</a>` : ""}</li>`)
         .join("");
       pane.innerHTML = `
         <div class="milestone-year">${project.year}</div>
         <ul class="milestone-facts">${facts}</ul>
+      `;
+      container.appendChild(pane);
+      return;
+    }
+
+    if (project.kind === "glossary") {
+      const pane = document.createElement("div");
+      pane.className = "reference-pane";
+      const items = GLOSSARY
+        .slice()
+        .sort((a, b) => a.term.localeCompare(b.term, "sv"))
+        .map((g) => `<a href="${g.url}" target="_blank" rel="noopener">${g.term}</a>`)
+        .join("");
+      pane.innerHTML = `
+        <h1>${project.title}</h1>
+        <p class="ref-intro">${project.intro || ""}</p>
+        <div class="glossary-grid">${items}</div>
+      `;
+      container.appendChild(pane);
+      return;
+    }
+
+    if (project.kind === "bibliography") {
+      const pane = document.createElement("div");
+      pane.className = "reference-pane";
+      const items = (project.refs || [])
+        .map((r) => `<li>${r.cite} <a href="${r.url}" target="_blank" rel="noopener">${r.url.replace(/^https?:\/\//, "")}</a> (${r.date}). <span class="annot">${r.note}</span></li>`)
+        .join("");
+      pane.innerHTML = `
+        <h1>${project.title}</h1>
+        <p class="ref-intro">${project.intro || ""}</p>
+        <ul class="bib-list">${items}</ul>
       `;
       container.appendChild(pane);
       return;

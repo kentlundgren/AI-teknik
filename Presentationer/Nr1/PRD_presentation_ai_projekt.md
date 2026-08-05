@@ -3,8 +3,8 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 19 (Fredagsquiz-captionen rättad till avslutad serie, 23 quiz; Kents generella reflektion om projektlivscykler tillagd i presentatörsanteckningarna)
-**Status:** Tio slides totalt (åtta projekt + två milestone-avbrott), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt) — allt innehåll och all datering är nu beslutad.
+**Version:** 20 (Milstolpen för 2024 fick månadsprecision + en jämförelse mot Claude 4/5-lanseringarna; klickbara ordlista-termer vid första förekomst; två nya avslutande slides — begreppslista och Harvard-källförteckning)
+**Status:** Tolv slides totalt (åtta projekt + ett milstolpe-avbrott (2024) + ett milstolpe-avbrott (2025–2026) + två avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt) — allt innehåll och all datering är nu beslutad.
 **Typ:** Grund-PRD (helt nytt projekt)
 
 > **Viktig utgångspunkt, oavsett hur lång den här PRD:n blir:** den här
@@ -585,17 +585,46 @@ LinkedIn enligt Kent — källa för `ol-tyskland`-sliden.)*
 
 **Källor för milestone-avbrotten (4n), verifierade primärkällor:**
 
-Anthropic (2024) 'Claude 3 Haiku: our fastest model yet'. [Nyhetssida]
-anthropic.com. Publicerad 2024-03-13.
-https://www.anthropic.com/news/claude-3-haiku
+Anthropic (2024) 'Claude 3 family'. [Nyhetssida] anthropic.com.
+Publicerad 2024-03-04. https://www.anthropic.com/news/claude-3-family
 *(Primärkälla för Claude 3-familjens lansering — källa för
-`milestone-2024`-sliden.)*
+`milestone-2024`-sliden. Bytt 2026-08-05 från den snävare
+`claude-3-haiku`-sidan (13 mars 2024, Haiku-specifik) till den faktiska
+familje-annonseringen, sedan Kent bad om exakt månad+år för Claude 3.)*
 
-Anthropic (odat.) 'Claude Cowork'. [Produktsida] anthropic.com.
-https://www.anthropic.com/product/claude-cowork
-*(Primärkälla för Claude Cowork — källa för
-`milestone-2025-2026`-sliden. Kompletterande detalj om webb/mobil-
-utbyggnaden 7/7 2026: https://claude.com/blog/cowork-web-mobile.)*
+Anthropic (2025a) 'Claude 3.7 Sonnet and Claude Code'. [Nyhetssida]
+anthropic.com. Publicerad 2025-02-24.
+https://www.anthropic.com/news/claude-3-7-sonnet
+*(Tillagd 2026-08-05, källa Kent — primärkälla för Claude Code, verktyget
+den här presentationen är byggd med. Introducerades som en command
+line-forskningsförhandsvisning i samma annonsering som Claude 3.7 Sonnet.
+Källa för `milestone-2025-2026`-sliden.)*
+
+Anthropic (2025b) 'Introducing Claude 4'. [Nyhetssida] anthropic.com.
+Publicerad 2025-05-22. https://www.anthropic.com/news/claude-4
+*(Tillagd 2026-08-05 — källa för jämförelsen "hur fort det går" i
+`milestone-2024`-sliden och för `kallforteckning`-sliden.)*
+
+Anthropic (2026a) 'Claude Cowork'. [Blogginlägg] claude.com.
+Publicerad 2026-01-12. https://claude.com/blog/cowork-research-preview
+*(Primärkälla för Claude Cowork — källa för `milestone-2025-2026`-sliden.
+URL uppdaterad 2026-08-05 till den faktiska lanseringsposten (tidigare
+länkad till produktsidan, som nu 308-redirectar till claude.com/product/cowork).
+Publiceringsdatumet 12 januari 2026 syns inte vid automatiserad hämtning av
+sidan — Claude kunde bara bekräfta "januari 2026" självständigt via
+oberoende nyhetsbevakning (InfoQ m.fl.); exakt dag tillagd efter att Kent
+själv uppgav och citerade den (12 januari, forskningsförhandsvisning).
+Kompletterande detalj om webb/mobil-utbyggnaden 7/7 2026:
+https://claude.com/blog/cowork-web-mobile.)*
+
+Anthropic (2026b) 'Introducing Claude Sonnet 5'. [Nyhetssida] anthropic.com.
+Publicerad 2026-06-30. https://www.anthropic.com/news/claude-sonnet-5
+*(Tillagd 2026-08-05. Kent trodde först "Claude 5" lanserades juni 2025,
+rättade sig själv mid-konversation till juni 2026 — verifierat korrekt.
+"Claude 5" var ingen enskild lansering: Fable 5 kom 9 juni, Sonnet 5 (denna
+källa) 30 juni, Opus 5 23 juli 2026 — alla 2026. Sonnet 5 valdes som
+representativ länk. Källa för jämförelsen i `milestone-2024`-sliden och för
+`kallforteckning`-sliden.)*
 
 Europeiska kommissionen (2024) 'AI Act enters into force'. [Nyhetssida]
 commission.europa.eu. Publicerad 2024-08-01.
@@ -606,6 +635,28 @@ https://commission.europa.eu/news-and-media/news/ai-act-enters-force-2024-08-01_
 (https://openai.com/index/sora/) gav HTTP 403 vid automatiserad
 verifiering (troligen bot-skydd, sidan existerar och syns i sökresultat)
 — utelämnad ur milestone-innehållet snarare än citerad ovverifierad.
+
+**Landmärke i AI-utvecklingen, tillagd 2026-08-05 på Kents förslag:**
+
+Vaswani, A. et al. (2017) 'Attention is all you need'. arXiv preprint
+arXiv:1706.03762. Publicerad 2017-06-12.
+https://arxiv.org/abs/1706.03762
+*(Introducerade Transformer-arkitekturen, grunden för alla moderna
+generativa språkmodeller (Claude inräknat) — Claude instämmer i Kents
+bedömning att det här är en verklig brytpunkt, inte bara ännu en artikel.
+Källa för `kallforteckning`-sliden.)*
+
+**Ordlista/glossary för klickbara begrepp (nytt 2026-08-05):** en delad
+lista i `glossary.js` (16 termer: AI-modeller, AI-verktyg, organisationer)
+länkar varje term vid dess FÖRSTA förekomst i presentationens egen
+array-ordning — oberoende av hur en besökare faktiskt bläddrar (bakåt,
+loop). Tre av URL:erna (ChatGPT, OpenAI Whisper, Poe) svarade 403 på
+automatiserad hämtning (både `curl` och `WebFetch`) — bekräftade ändå som
+korrekta, aktuella primärlänkar via oberoende sekundärkällor i sökträffar
+(samma "403 = troligen bot-skydd, inte död länk"-resonemang som redan
+gäller för milestone-källorna, se ovan). ChatGPT-länken byttes samtidigt
+från den gissade `openai.com/chatgpt` till den bekräftade
+`openai.com/index/chatgpt/`.
 
 ## 8. Status
 
@@ -818,3 +869,57 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   lockar mer och går vidare. Skrivet ut i `SPEAKER_NOTES.md` under
   `fredagsquiz`, med en notering om att samma mönster kan vara värt att
   leta efter i fler av presentationens projekt.
+- 2026-08-05 (v20): Fyra beslutade tillägg på Kents begäran, plus en öppen
+  fråga.
+  (1) **Precisa datum i milstolparna.** `milestone-2024`s Claude 3-fakta
+  fick månadsprecision (mars 2024, verifierat mot primärkällan — bytt från
+  den Haiku-specifika `claude-3-haiku`-sidan till den faktiska
+  familje-annonseringen `claude-3-family`) och en jämförande mening om
+  Claude 4 (maj 2025) och Claude 5 (juni–juli 2026, tre steg: Fable/
+  Sonnet/Opus) för att visa lanseringstakten. `milestone-2025-2026`s
+  vaga "blir vardagsmat"-formulering ersattes med två daterade fakta:
+  Claude Code (24 feb 2025, källa Kent, verifierad) och Claude Cowork
+  (12 jan 2026, källa Kent + oberoende nyhetsbevakning — sidan själv
+  exponerar inte datumet vid automatiserad hämtning). Samtliga tre
+  Claude-generationsdatum Kent själv gissade (Claude 3 mars 2024, Claude 4
+  maj 2025) visade sig stämma efter verifiering; Claude 5 rättade han
+  själv mitt i konversationen från "juni 2025" till korrekta "juni 2026".
+  (2) **Klickbara begrepp vid första förekomst.** Ny delad fil
+  `glossary.js` (16 termer: AI-modeller, AI-verktyg, organisationer) —
+  länkar varje term bara en gång, vid dess första förekomst i PROJECTS
+  egen array-ordning (inte i den ordning en besökare bläddrar). Kent bad
+  uttryckligen om **diskret** markering (ingen färg, inget solitt
+  understreck) — löst med `border-bottom: 1px dotted currentColor`, som
+  smälter in i omgivande text oavsett bakgrund (kodkort, ljus text-pane,
+  mörk milestone-pane). En verklig bugg upptäcktes och rättades under
+  testet: den befintliga regeln `.milestone-facts a { display: block }`
+  (avsedd bara för käll-badgen) gjorde av misstag varje inline-term till
+  en egen rad — löst genom att skopa regeln till en ny klass
+  (`a.fact-source`) och ge term-länkar en egen, oskopad regel.
+  (3) **Två nya avslutande slides.** `kind: "glossary"` (alfabetisk lista
+  över samtliga `GLOSSARY`-termer) och `kind: "bibliography"` (Harvard-
+  format, annoterad, alfabetisk källförteckning — egna blogginlägg +
+  redan citerade milstolpekällor + en nytillagd landmärkeskälla). Båda
+  respekterar vald hastighet (`rapp`/`lagom`/`serios`) i stället för
+  milstolparnas fasta 4 sekunder, eftersom de har betydligt mer text; egen
+  `overflow-y: auto` ifall listan växer. Presentationen är nu tolv slides.
+  (4) **Vaswani et al. (2017), 'Attention is all you need'** tillagd i
+  källförteckningen på Kents förslag — Claude instämmer att Transformer-
+  arkitekturen är en verklig brytpunkt (grunden för parallell träning av
+  stora språkmodeller, Claude inräknat), inte bara ännu en artikel.
+  Samtidigt bekräftades: Regel 2:s krav på **annoterad** Harvard-
+  källförteckning är redan en stående regel sedan 2026-08-01
+  (`kent-meta-regler-for-code`) — inget nytt regelbeslut behövdes, bara
+  tillämpning.
+  **Verifieringsanteckning:** tre glossary-URL:er (ChatGPT, OpenAI
+  Whisper, Poe) gav HTTP 403 vid både `curl` och `WebFetch` — bekräftade
+  ändå som korrekta via oberoende sekundärkällor i sökträffar, samma
+  "403 = troligen bot-skydd"-resonemang som redan användes för
+  milstolpekällorna (se avsnitt 7). ChatGPT-länken byttes från den gissade
+  `openai.com/chatgpt` till den verifierade `openai.com/index/chatgpt/`.
+  **Öppen fråga, inte beslutad:** Kent väckte idén om en större "brutto"-
+  källpool (fler kandidat-begrepp/referenser än vad som visas) med ett
+  urvalssteg som väljer ut en delmängd per presentation — se Claudes svar
+  i chatten (rekommendation: enkel `id`+urval-lista i linje med
+  `PROJECTS`-mönstret, inte en ny UI). Inte byggt än, avvaktar Kents
+  besked.

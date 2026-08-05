@@ -259,6 +259,83 @@ som de är utan HTTP-verifiering — det är hans egna anteckningar till sig
 själv, inte en publik källa som ska styrkas (skilj det från Regel 6:s
 krav på verifierade länkar, som gäller citerbara/publika källor).
 
+## 12. Klickbara begrepp vid första förekomst — diskret, delad ordlista
+
+Om presentationen nämner AI-modeller/AI-verktyg/organisationer (Claude,
+Cursor, GitHub, Anthropic osv): bygg en delad `glossary.js` med
+`{term, url}`-poster och länka **bara den första förekomsten** av varje
+term, i innehållets egen kronologiska ordning (array-ordningen i
+`projects.js`) — inte i den ordning en besökare råkar bläddra (bakåt,
+loop). Kör länkningen en gång vid sidladdning, innan något renderas, så
+resultatet är oberoende av navigeringsriktning. Sortera termlistan
+längst-först vid matchning så "Claude Code" vinner över "Claude",
+"GitHub Pages" över "GitHub" osv — annars dubbelmatchas delsträngar.
+
+**Håll markeringen diskret** (Kents uttryckliga krav, 2026-08-05): ingen
+egen färg, inget solitt understreck — `border-bottom: 1px dotted
+currentColor` smälter in i omgivande text oavsett bakgrund (kodkort, ljus
+text-pane, mörk milestone-pane) och signalerar "klickbar" utan att skrika.
+
+**Fallgrop att kolla efter:** om presentationen redan har en `a`-regel
+skopad till en föräldraklass (t.ex. `.milestone-facts a { display:
+block }`, tänkt för en käll-badge) — den regeln träffar även dina nya
+inline-term-länkar om de delar förälder. Skopa den befintliga regeln till
+en egen klass (t.ex. `a.fact-source`) i stället för att låta den vara
+generisk, annars blir varje länkad term sin egen rad.
+
+## 13. Precisa datum i milstolpar — jämför lanseringstakt, gissa aldrig
+
+När en milstolpe nämner en produktlansering (t.ex. "Claude 3 lanseras
+2024"): ange månad+år, inte bara år, och verifiera mot primärkällan (se
+Regel 9 om primärkällor). Om flera generationer av samma produkt nämns
+(Claude 3 → 4 → 5): väv in en kort jämförelse av tiden mellan lanseringar
+direkt i brödtexten — det konkretiserar "hur fort det går" bättre än att
+bara lista årtal separat. Exempel: "Claude 3 (mars 2024) ... Claude 4 kom
+drygt ett år senare (maj 2025)."
+
+**Var ärlig om staggerade lanseringar.** Om en "generation" (t.ex. "Claude
+5") i själva verket rullades ut i flera separata steg (Fable, Sonnet,
+Opus, olika datum) — skriv inte som om det var en enda lansering. En kort
+parentes ("i tre steg: Fable, Sonnet, Opus") räcker, hellre än att
+fabricera ett enda datum för något som inte var en enda händelse.
+
+**En 403 vid verifiering är inte alltid en död länk** (se redan Regel 9),
+men om primärkällans sida är JS-renderad kan även en riktig, levande sida
+döljas för `curl`/`WebFetch` (inget datum syns i rå-HTML). Om användaren
+själv anger ett datum du inte kan verifiera direkt mot primärkällan:
+kontrollera mot oberoende sekundärkällor (nyhetsbevakning) innan du litar
+på det, men skriv inte "obekräftat" om två oberoende källor redan stämmer
+överens — notera i stället varifrån precisionen kommer.
+
+## 14. Avslutande referens-slides — begreppslista + Harvard-källförteckning
+
+Om presentationen har externa källor (blogginlägg, milstolpekällor,
+landmärkes-artiklar) och/eller ett `glossary.js` (Regel 12): avsluta
+sekvensen med två egna `kind`-slides innan loopen går runt igen:
+
+- `kind: "glossary"` — alfabetisk lista över **samtliga** termer i
+  `GLOSSARY`, oavsett om de faktiskt blev inline-länkade (en besökare som
+  missade en snabb slide ska ändå kunna hitta termen här).
+- `kind: "bibliography"` — full, annoterad Harvard-källförteckning
+  (alfabetisk, se `kent-meta-regler-for-code` Regel 2) som samlar **alla**
+  källor som redan citerats någonstans i presentationen (milstolpe-badges,
+  projekt-`source`-länkar) plus egna blogginlägg. En källa citerad inline
+  ska alltid ha en fullständig motsvarighet här — annars är citeringen
+  ofullständig.
+
+Låt båda respektera vald hastighet (`rapp`/`lagom`/`serios`) i stället för
+milstolparnas fasta korta visningstid — de har mer text än ett
+milstolpe-avbrott och är inte tänkta att vara lika snabba. Ge panelen egen
+`overflow-y: auto` eftersom källistan växer över tid.
+
+**Möjlig framtida utökning, inte byggd än (flaggad 2026-08-05):** en
+gemensam "brutto"-källpool över flera presentationer (`Nr1`, `Nr2`, ...)
+med ett enkelt urvalssteg per presentation, i stället för att varje
+presentation håller sin egen kompletta lista. Se PRD:n för `Nr1`,
+Ändringslogg v20, för Claudes rekommendation om enkel `id`+urval-lista i
+`PROJECTS`-mönstret — inte beslutad, kräver Kents godkännande innan den
+byggs.
+
 ## Uppdateringslogg
 
 - 2026-08-04 (v1): Skapad efter det första fullständiga projektet i det
@@ -313,3 +390,17 @@ krav på verifierade länkar, som gäller citerbara/publika källor).
   återkommande arbetsmönster (håller på en sak, blir bättre, går sedan
   vidare till nästa när annat lockar mer) dokumenterat som kontext att
   väva in i `SPEAKER_NOTES.md` när ett projekt visar sig ha tagit slut.
+- 2026-08-05 (v9): Tre nya regler efter en session i `Nr1` som lade till
+  klickbara begrepp, precisa milstolpe-datum och avslutande referens-
+  slides. Regel 12: delad `glossary.js`, länkar bara första förekomsten
+  (i innehållets egen ordning, inte besökarens), diskret
+  `border-bottom: dotted`-stil på uttrycklig begäran (ingen färg/solitt
+  streck) — med en verklig fallgrop dokumenterad (en `a`-regel skopad till
+  fel förälder kan av misstag göra inline-länkar till block-element).
+  Regel 13: milstolpar ska ange månad+år och jämföra lanseringstakt mellan
+  produktgenerationer, aldrig fabricera ett enda datum för en staggerad
+  lansering. Regel 14: två avslutande `kind`-slides (`glossary`,
+  `bibliography`) som samlar allt som redan citerats, egen scrollbar
+  hastighet. En öppen, obeslutad idé flaggad: en delad "brutto"-källpool
+  över flera presentationer med per-presentation urval — se `Nr1`s PRD,
+  Ändringslogg v20.
