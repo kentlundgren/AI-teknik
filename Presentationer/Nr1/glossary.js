@@ -18,7 +18,13 @@ const GLOSSARY = [
   { term: "Cursor", url: "https://cursor.com" },
   { term: "ffmpeg", url: "https://ffmpeg.org" },
   { term: "Poe", url: "https://poe.com" },
-  { term: "AI Act", url: "https://commission.europa.eu/news-and-media/news/ai-act-enters-force-2024-08-01_en" }
+  { term: "AI Act", url: "https://commission.europa.eu/news-and-media/news/ai-act-enters-force-2024-08-01_en" },
+  { term: "GPT-4o", url: "https://openai.com/index/hello-gpt-4o/" },
+  { term: "GPT-4", url: "https://openai.com/index/gpt-4-research/" },
+  { term: "Sora", url: "https://openai.com/index/sora/" },
+  { term: "Llama 3", url: "https://ai.meta.com/blog/meta-llama-3/" },
+  { term: "OpenAI", url: "https://openai.com" },
+  { term: "Perplexity", url: "https://www.perplexity.ai" }
 ];
 
 // Längst-först, så "Claude Code" matchar före "Claude", "GitHub Pages" före
@@ -58,7 +64,7 @@ function linkifyOnePass(text, usedTerms) {
 function linkifyAllProjects(projects) {
   const usedTerms = new Set();
   projects.forEach(function (project) {
-    if (project.kind === "milestone") {
+    if (project.kind === "milestone" || project.kind === "year-card") {
       (project.facts || []).forEach(function (f) {
         f.text = linkifyOnePass(f.text, usedTerms);
       });

@@ -39,7 +39,9 @@
     <div class="modal">
       <button type="button" class="modal-close" id="techClose" aria-label="Stäng">&times;</button>
       <h2>Hur den här sidan är byggd</h2>
-      <p>En kort teknisk översikt — inget påhittat, bara det som faktiskt är sant om den här sidan.</p>
+      <p>Två delar: tekniken i sidan, och metoden vi faktiskt använde för att ta fram den. Inget påhittat, bara det som är sant.</p>
+
+      <h3 class="tech-section-title">Tekniken</h3>
       <div class="tech-grid">
         <div class="tech-card">
           <h3>Vanilla JS, inga ramverk</h3>
@@ -50,8 +52,16 @@
           <p><code>?hastighet=rapp/lagom/serios</code> styr sekunder per bild. Samma <code>projects.js</code> för alla tre — ingen duplicerad innehållsfil.</p>
         </div>
         <div class="tech-card">
+          <h3>Olika mängd innehåll per hastighet</h3>
+          <p>Varje fakta i årskorten har en <code>tier</code> (1–3). Rapp visar bara tier 1, Seriös visar allt. Inget nytt påfund tekniskt sett — ett vanligt filter (<code>tier ≤ vald nivå</code>) som körs om varje gång hastigheten byts — men ett ovanligt sätt att använda det: de flesta sajter anpassar innehåll efter skärmstorlek, den här anpassar efter vald uppspelningstakt.</p>
+        </div>
+        <div class="tech-card">
           <h3>Lägg till/ta bort ett projekt</h3>
           <p>En post i <code>projects.js</code> — antingen <code>kind:"screenshot"</code> (bild i <code>images/</code>) eller <code>kind:"code"</code> (kodkort, ingen bildfil behövs).</p>
+        </div>
+        <div class="tech-card">
+          <h3>Klickbara begrepp, en gång var</h3>
+          <p>En delad ordlista (<code>glossary.js</code>) länkar varje AI-modell/AI-verktyg diskret vid dess första förekomst i presentationens egen ordning — aldrig fler gånger, oavsett hur en besökare bläddrar.</p>
         </div>
         <div class="tech-card">
           <h3>Ingen data skickas någonstans</h3>
@@ -60,6 +70,26 @@
         <div class="tech-card">
           <h3>Styr själv</h3>
           <p>Pilar, svep på mobil eller piltangenter byter bild manuellt. Play/paus-knappen (eller mellanslag) stoppar bildspelet utan att tappa var du var.</p>
+        </div>
+      </div>
+
+      <h3 class="tech-section-title">Metoden</h3>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>Bruttolista före urval</h3>
+          <p>Innehållet i årskorten kommer inte direkt ur huvudet — det byggdes först upp i tre separata bakgrundsfiler (<code>Claude_familjen.md</code>, <code>Kents_work_with_AI.md</code>, <code>AI_branschen_brett.md</code>), medvetet med mer material än vad som visas, innan en delmängd curerades in i själva presentationen.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Verifierat innan det skrevs in</h3>
+          <p>Varje datum och källa i årskorten kontrollerades mot primärkällor innan den fick synas — det hände flera gånger under arbetet att det avslöjade och rättade faktiska fel (bl.a. att en tidigare slide påstod fel AI-verktyg för ett projekt, och att en AI-genererad startlista hade fel årtal för en händelse).</p>
+        </div>
+        <div class="tech-card">
+          <h3>Diskussion före kodning</h3>
+          <p>Beslut med verkligt genomslag — som hur mycket en presentation för jobbsökning bör referera en verklig, allvarlig händelse — togs som ett uttryckligt samtal innan något skrevs, inte som en tyst avvägning i efterhand.</p>
+        </div>
+        <div class="tech-card">
+          <h3>En PRD som minne</h3>
+          <p>Varje beslut, även de som senare ändrades, loggat versionerat i <a href="PRD_presentation_ai_projekt.md">en enda PRD</a> — inte bara i en chatthistorik som glöms bort.</p>
         </div>
       </div>
     </div>

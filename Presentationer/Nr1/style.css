@@ -377,6 +377,17 @@ body.paused #playPauseBtn { color: var(--accent); border-color: var(--accent); }
   padding: 2rem;
 }
 
+.year-card-label {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.year-card-personal .year-card-label { color: #E8B4D8; }
+
 .milestone-year {
   font-family: var(--font-head);
   font-size: clamp(3.5rem, 9vw, 6rem);
@@ -401,6 +412,14 @@ body.paused #playPauseBtn { color: var(--accent); border-color: var(--accent); }
   line-height: 1.5;
   color: #E8EAF6;
 }
+
+.milestone-facts li.quote {
+  font-style: italic;
+  color: #fff;
+}
+
+.milestone-facts li.quote::before { content: "\201C"; }
+.milestone-facts li.quote::after { content: "\201D"; }
 
 .milestone-facts a.fact-source {
   display: block;
@@ -527,6 +546,16 @@ body.paused #playPauseBtn { color: var(--accent); border-color: var(--accent); }
   color: var(--muted);
   cursor: pointer;
 }
+
+.tech-section-title {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 1.4rem 0 0.7rem;
+}
+
+.tech-section-title:first-of-type { margin-top: 0.4rem; }
 
 .tech-grid {
   display: grid;

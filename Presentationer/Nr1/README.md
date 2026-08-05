@@ -2,11 +2,14 @@
 
 **Live Page (efter publicering):** https://kentlundgren.github.io/AI-teknik/Presentationer/Nr1/
 
-Självspelande, datadriven presentation av åtta AI/webb-projekt, två korta
-"milestone"-avbrott och två avslutande referens-slides (begreppslista +
-källförteckning) — tolv slides totalt, från 2023 till idag, i kronologisk
-ordning. Viktiga AI-modeller/AI-verktyg är klickbara första gången de
-nämns. Byggd enligt [PRD_presentation_ai_projekt.md](PRD_presentation_ai_projekt.md).
+Självspelande, datadriven presentation av åtta AI/webb-projekt, åtta
+årskort (två per år 2023–2026: "Vad som hände" / "Hur jag jobbade") och
+två avslutande referens-slides (begreppslista + källförteckning) — arton
+slides totalt, i kronologisk ordning. Viktiga AI-modeller/AI-verktyg är
+klickbara första gången de nämns. Årskorten visar olika mycket innehåll
+beroende på vald hastighet (fler fakta vid Seriös än vid Rapp) — se
+`script.js`s tier-system. Byggd enligt
+[PRD_presentation_ai_projekt.md](PRD_presentation_ai_projekt.md).
 
 ## Använda
 
@@ -19,8 +22,9 @@ Efter publicering till GitHub Pages blir de tre länkarna:
 - **Seriös** (45 sek/projekt): https://kentlundgren.github.io/AI-teknik/Presentationer/Nr1/index.html?hastighet=serios
 
 Rapp är standard utan `?hastighet=`-parameter — så det syns direkt att det
-är ett bildspel, inte en statisk sida. Milestone-avbrotten (2024,
-2025–2026) visas alltid i 4 sekunder, oavsett hastighetsval.
+är ett bildspel, inte en statisk sida. Årskorten respekterar vald
+hastighet både för visningstid och innehållsmängd — vid Rapp visas bara
+de viktigaste fakta (tier 1), vid Seriös visas allt (tier 1–3).
 
 Bara ett `index.html` att underhålla, men tre fullständiga URL:er att dela
 beroende på sammanhang — det var precis poängen med att lösa det via en
@@ -43,14 +47,15 @@ Redigera `projects.js` — en post per projekt, ingen ändring av
 
 - `kind: "screenshot"` — kräver en bild i `images/`
 - `kind: "code"` — renderas som ett kodkort direkt i HTML/CSS, ingen bildfil behövs
-- `kind: "milestone"` — kort avbrott med årtal + fakta, ingen bild eller länk
+- `kind: "year-card"` (`variant: "tech"`/`"personal"`) — årskort med årtal + fakta,
+  varje fact har en `tier` (1 = alltid, 2 = lagom+seriös, 3 = bara seriös)
 - `kind: "glossary"` — avslutande slide, alfabetisk lista över alla klickbara begrepp
 - `kind: "bibliography"` — avslutande slide, annoterad Harvard-källförteckning
 
 ## Filer
 
 - `index.html` / `style.css` / `script.js` — motorn
-- `projects.js` — allt innehåll (åtta projekt + två milestones + två referens-slides)
+- `projects.js` — allt innehåll (åtta projekt + åtta årskort + två referens-slides)
 - `glossary.js` — delad ordlista (AI-modeller/AI-verktyg), länkar första förekomsten av varje term
 - `images/` — skärmdumpar av de sex live-projekten
 - `PRD_presentation_ai_projekt.md` — hela beslutshistoriken

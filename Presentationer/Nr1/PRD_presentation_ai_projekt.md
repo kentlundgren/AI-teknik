@@ -3,8 +3,8 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 26 (Ny fil `AI_branschen_brett.md` — hela AI-branschens milstolpar 2023–2026, primärkälleverifierad, två sakfel i en Grok-genererad startlista rättade; Örebro-frågan avgjord (stannar utanför presentationen); tre bruttolistor nu totalt vid sidan av `projects.js`: `Claude_familjen.md`, `Kents_work_with_AI.md`, `AI_branschen_brett.md`)
-**Status:** Tolv slides totalt (åtta projekt + ett milstolpe-avbrott (2024) + ett milstolpe-avbrott (2025–2026) + två avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt) — allt innehåll och all datering är nu beslutad.
+**Version:** 27 (Årskorten byggda: åtta nya `kind: "year-card"`-slides — två per år 2023–2026, "Vad som hände"/"Hur jag jobbade" — ersatte de två gamla milstolparna; tier-system så innehållsmängd växer med vald hastighet; bibliografin utökad 10→23 källor; `glossary.js` +6 termer)
+**Status:** Arton slides totalt (åtta projekt + åtta årskort + två avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Tre bruttolistor (`Claude_familjen.md`, `Kents_work_with_AI.md`, `AI_branschen_brett.md`) matade in en delmängd i årskorten — inte allt innehåll därifrån syns i presentationen. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt).
 **Typ:** Grund-PRD (helt nytt projekt)
 
 > **Viktig utgångspunkt, oavsett hur lång den här PRD:n blir:** den här
@@ -1078,3 +1078,44 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   eventuellt en SEPARAT, ny skill som fångar Kents faktiska
   samarbetsmönster med generativ AI som operativ vägledning — inte ett
   beslut, väntar på Kents besked.
+- 2026-08-05 (v27): **Årskorten byggda.** Kent gav klartecken ("Kör på!")
+  på strukturen diskuterad i v24–v26: åtta nya `kind: "year-card"`-slides
+  (två per år 2023–2026: `variant: "tech"` "Vad som hände" / `variant:
+  "personal"` "Hur jag jobbade") ersatte de två gamla `kind:
+  "milestone"`-korten (2024, 2025–2026), som togs bort helt.
+  Presentationen är nu arton slides (upp från tolv).
+  - **Tier-systemet implementerat:** varje fact har `tier: 1|2|3`.
+    `script.js` filtrerar mot en `TIER_CEILING`-tabell per hastighet
+    (rapp=1, lagom=2, seriös=3) och rerenderar automatiskt vid
+    hastighetsbyte (`setSpeed` anropar redan `goTo(current)`). Duration
+    ändrad från fast 4 sek till `DURATIONS[speedKey]` — samma mönster
+    som `glossary`/`bibliography` redan använde — eftersom
+    innehållsmängden nu faktiskt varierar med hastigheten.
+  - **Innehåll:** tech-korten byggda ur `Claude_familjen.md` +
+    `AI_branschen_brett.md` (GPT-4, Claude 2/2.1/3/3.5/4/Cowork/4.6/5,
+    Bing/GPT-4-integrationen, Sora, Llama 3, Altman-dramat, o1/o3,
+    Fable 5-avstängningen). Personliga korten byggda ur
+    `Kents_work_with_AI.md` (Perplexity, Claude Projects,
+    stickfigur-testet båda åren, Claude Code/Cursor/GitHub-triangeln,
+    Claude 4.6-citatet). **Örebro-materialet uteslöts helt** ur
+    2025-personal, i linje med Kents beslut i v26 — inte ens på tier 3.
+  - **CSS:** ny `.year-card-label` (eyebrow-text, skiljer tech/personal
+    med accentfärg) och `.milestone-facts li.quote` (kursiv +
+    citattecken via `::before`/`::after`) tillagda. `.milestone-pane`-
+    stilen återanvänd rakt av — samma mörka, centrerade visuella språk
+    som de gamla milstolparna, ingen ny grundstil behövdes.
+  - **Bibliografin utökad kraftigt:** från 10 till 23 källor, eftersom
+    varje ny händelse i tech-korten citeras och Harvard-konventionen
+    (Regel 2) kräver att en inline-citerad källa också har en fullständig
+    post i källförteckningen. Ny alfabetisk grupp: Meta AI, Microsoft,
+    OpenAI (4 poster), Wikipedia (Altman-sagan) — utöver utökade
+    Anthropic- och Lundgren-grupper.
+  - **`glossary.js` utökad** med sex nya termer (GPT-4, GPT-4o, Sora,
+    Llama 3, OpenAI, Perplexity) för att de nya korten ska följa samma
+    "klickbar första gången"-regel som resten av presentationen.
+  - Testat i webbläsaren: samtliga tre hastigheter (tier-filtrering
+    bekräftad — rapp visar 2 fakta på 2023-tech, seriös visar alla 5),
+    18 slides bekräftat (`PROJECTS.length`), glossary-matchning för
+    flerordstermer ("OpenAI Whisper") bekräftad korrekt trots ny kortare
+    "OpenAI"-term i listan, mobilvy, inga konsolfel. README och denna
+    PRD synkade.

@@ -1,6 +1,9 @@
 (function () {
   const DURATIONS = { rapp: 7000, lagom: 20000, serios: 45000 };
-  const MILESTONE_DURATION = 4000; // alltid rapp, oavsett hastighet
+  // Tier-nivå per fact i year-card-slides: 1 = alltid synlig, 2 = lagom+seriös,
+  // 3 = bara seriös. Innehållsmängd växer alltså med hastigheten i stället för
+  // att vara identisk för alla tre — se PRD Ändringslogg v24/v27.
+  const TIER_CEILING = { rapp: 1, lagom: 2, serios: 3 };
 
   // Bakar in klickbara ordlista-länkar (första förekomst, i PROJECTS egen
   // ordning) innan något renderas — se glossary.js.
@@ -48,19 +51,22 @@
   }
 
   function durationFor(project) {
-    return project.kind === "milestone" ? MILESTONE_DURATION : DURATIONS[speedKey];
+    return DURATIONS[speedKey];
   }
 
   function renderSlide(container, project, index) {
     container.innerHTML = "";
 
-    if (project.kind === "milestone") {
+    if (project.kind === "year-card") {
       const pane = document.createElement("div");
-      pane.className = "milestone-pane";
+      pane.className = "milestone-pane year-card-pane" + (project.variant === "personal" ? " year-card-personal" : "");
+      const ceiling = TIER_CEILING[speedKey] || 1;
       const facts = (project.facts || [])
-        .map((f) => `<li>${f.text}${f.source ? ` <a class="fact-source" href="${f.source.url}" target="_blank" rel="noopener">${f.source.label}</a>` : ""}</li>`)
+        .filter((f) => (f.tier || 1) <= ceiling)
+        .map((f) => `<li class="${f.quote ? "quote" : ""}">${f.text}${f.source ? ` <a class="fact-source" href="${f.source.url}" target="_blank" rel="noopener">${f.source.label}</a>` : ""}</li>`)
         .join("");
       pane.innerHTML = `
+        <div class="year-card-label">${project.label || ""}</div>
         <div class="milestone-year">${project.year}</div>
         <ul class="milestone-facts">${facts}</ul>
       `;
