@@ -2,9 +2,11 @@
 
 **Live Page (efter publicering):** https://kentlundgren.github.io/AI-teknik/Presentationer/Nr1/
 
-Självspelande, datadriven presentation av åtta AI/webb-projekt (plus två
-korta "milestone"-avbrott), från 2023 till idag, i kronologisk ordning.
-Byggd enligt [PRD_presentation_ai_projekt.md](PRD_presentation_ai_projekt.md).
+Självspelande, datadriven presentation av åtta AI/webb-projekt, två korta
+"milestone"-avbrott och två avslutande referens-slides (begreppslista +
+källförteckning) — tolv slides totalt, från 2023 till idag, i kronologisk
+ordning. Viktiga AI-modeller/AI-verktyg är klickbara första gången de
+nämns. Byggd enligt [PRD_presentation_ai_projekt.md](PRD_presentation_ai_projekt.md).
 
 ## Använda
 
@@ -42,11 +44,15 @@ Redigera `projects.js` — en post per projekt, ingen ändring av
 - `kind: "screenshot"` — kräver en bild i `images/`
 - `kind: "code"` — renderas som ett kodkort direkt i HTML/CSS, ingen bildfil behövs
 - `kind: "milestone"` — kort avbrott med årtal + fakta, ingen bild eller länk
+- `kind: "glossary"` — avslutande slide, alfabetisk lista över alla klickbara begrepp
+- `kind: "bibliography"` — avslutande slide, annoterad Harvard-källförteckning
 
 ## Filer
 
 - `index.html` / `style.css` / `script.js` — motorn
-- `projects.js` — allt innehåll (fas 1: åtta projekt + två milestones)
+- `projects.js` — allt innehåll (åtta projekt + två milestones + två referens-slides)
+- `glossary.js` — delad ordlista (AI-modeller/AI-verktyg), länkar första förekomsten av varje term
 - `images/` — skärmdumpar av de sex live-projekten
 - `PRD_presentation_ai_projekt.md` — hela beslutshistoriken
 - `SPEAKER_NOTES.md` — Kents egna presentatörsanteckningar per projekt (id-kopplat, inte del av sidan)
+- `Claude_familjen.md` — fullständig, primärkälleverifierad tidslinje över hela Claude-familjen (17 lanseringar, 2023–2026); bruttolista att välja en delmängd ur till kommande årskort, inte allt härifrån visas nödvändigtvis i presentationen

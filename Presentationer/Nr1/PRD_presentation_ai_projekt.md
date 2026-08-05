@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 20 (Milstolpen för 2024 fick månadsprecision + en jämförelse mot Claude 4/5-lanseringarna; klickbara ordlista-termer vid första förekomst; två nya avslutande slides — begreppslista och Harvard-källförteckning)
+**Version:** 21 (Milstolpen för 2024 fick månadsprecision + en jämförelse mot Claude 4/5-lanseringarna; klickbara ordlista-termer vid första förekomst; två nya avslutande slides — begreppslista och Harvard-källförteckning; ny `Claude_familjen.md` — 17 primärkälleverifierade Claude-lanseringar 2023–2026, en bruttolista inför kommande årskort)
 **Status:** Tolv slides totalt (åtta projekt + ett milstolpe-avbrott (2024) + ett milstolpe-avbrott (2025–2026) + två avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt) — allt innehåll och all datering är nu beslutad.
 **Typ:** Grund-PRD (helt nytt projekt)
 
@@ -923,3 +923,26 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   i chatten (rekommendation: enkel `id`+urval-lista i linje med
   `PROJECTS`-mönstret, inte en ny UI). Inte byggt än, avvaktar Kents
   besked.
+- 2026-08-05 (v21): Första konkreta tillämpningen av v20:s "bruttolista"-
+  idé. Kent delade `Claude_familjen.docx` (sex poster: Claude 3, Claude
+  Projects, Claude Code, Claude 4, Claude Cowork, Claude 5 — med fakta och
+  Harvard-referenser för tre av dem). Läst med `pandoc`-motsvarande
+  extraktion (`pandoc` saknades i miljön, löst med Python
+  `zipfile`+regex mot `word/document.xml` direkt). Skrev om till
+  `Claude_familjen.md`: samma `<mån><år>`-precision och annoterade
+  Harvard-format som resten av presentationen, Kents egna beskrivningar
+  (Projects/Code/Cowork) bevarade och lätt justerade, plus **elva nya
+  poster** utöver Kents sex — hela Claude-familjen 2023–2026, samtliga
+  primärkälleverifierade mot anthropic.com/claude.com: Claude+Instant
+  (mar2023), Claude 2 (jul2023), Claude 2.1 (nov2023), Claude 3.5 Sonnet
+  (jun2024), okt2024-uppdateringen (3.5 Sonnet uppgraderad + 3.5 Haiku +
+  computer use), Claude Opus 4.1 (aug2025), Sonnet 4.5 (sep2025), Haiku
+  4.5 (okt2025), Opus 4.5 (nov2025), samt en tidigare okänd nyansering av
+  Claude 5-generationen: Fable 5/Mythos 5 lanserades 9 juni 2026, stängdes
+  av globalt 12 juni efter ett amerikanskt exportkontrollbeslut (en
+  Amazon-forskare hade visat att skyddet kunde kringgås), och
+  återlanserades 1 juli. Filen avslutas med en lanseringstakt-tabell
+  (kvartalsvis förtätning, 2023→2026) och tre öppna frågor inför nästa
+  steg. **Uttryckligen en bruttolista** — Kent har bett om att bara en
+  delmängd ska in i presentationens kommande årskort (2024/2025/2026,
+  ett kort per år, nästa steg — inte byggt än i den här versionen).
