@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 23 (Ny fil `Kents_work_with_AI.md` — Kents personliga AI-arbetsresa 2023–2026, korsreferererad mot `Claude_familjen.md`; rättat faktafel: `statsskuld`-sliden angav fel AI-verktyg, Gemini → Claude; `Claude_familjen.md` utökad med Claude 4.6, nu 18 poster; klickbara ordlista-termer vid första förekomst; två nya avslutande slides)
+**Version:** 24 (Diskussion inför årskort-strukturen: innehåll ska variera med hastighet via tiering, ej separata texter; Stickfigur Spel-materialet tillagt i `Kents_work_with_AI.md` och fyller delvis 2025-luckan; ny fil `Kents_work_with_AI.md` — Kents personliga AI-arbetsresa 2023–2026; rättat faktafel: `statsskuld`-sliden angav fel AI-verktyg, Gemini → Claude; `Claude_familjen.md` nu 18 poster)
 **Status:** Tolv slides totalt (åtta projekt + ett milstolpe-avbrott (2024) + ett milstolpe-avbrott (2025–2026) + två avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt) — allt innehåll och all datering är nu beslutad.
 **Typ:** Grund-PRD (helt nytt projekt)
 
@@ -996,3 +996,32 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   eventuellt projekt än `statsskuld`. README:s filinventering uppdaterad.
   Inte byggt: vilken delmängd som blir faktiska slides — nästa steg,
   avvaktar Kents besked.
+- 2026-08-05 (v24): Diskussionsrunda inför årskorten (2024/2025/2026,
+  två slides per år) — inget kodat i `projects.js` än, tre saker
+  klargjorda/tillagda.
+  (1) **Kent bekräftade: innehållsmängd ska variera med hastighet.**
+  Löst koncept (inte byggt än): en `tier`-nivå per fakta (1 = alltid,
+  2 = lagom+seriös, 3 = bara seriös) i stället för tre separata
+  textversioner — mindre dubbelarbete, ingen risk att varianterna glider
+  isär. De nya personliga reflektionskorten föreslås även bryta mot den
+  gamla milstolpe-regeln (alltid fast 4 sek) och i stället respektera
+  `DURATIONS[speedKey]` som `glossary`/`bibliography`-korten redan gör —
+  löser samtidigt speltids-oron från v23/diskussionen (8 milstolpekort ×
+  4 sek fast blir bara ett problem vid `seriös`, inte vid `rapp`).
+  (2) **Stickfigur Spel-materialet tillagt i `Kents_work_with_AI.md`.**
+  Kent länkade två egna sidor om ett AI-jämförelsetest (samma engelska
+  prompt till flera AI-verktyg för att generera ett litet JS-spel).
+  Klargjorde en kronologisk oklarhet: blogginlägget (17 mars 2024)
+  blandar två separata testomgångar i samma text — mars 2024
+  (Perplexity + OpenAI GPT-4-playground) och en uppföljning ett år
+  senare, mars 2025 (Claude 3.7 Sonnet, nästan klart spel direkt). Utan
+  att skilja ut detta hade Claude 3.7 Sonnet (lanserad feb2025) av
+  misstag kunnat läggas i 2024-avsnittet — en modell som inte fanns än.
+  Båda omgångarna nu korrekt placerade: 2024-avsnittet (jämförelsen) och
+  2025-avsnittet (uppföljningen, som råkar illustrera exakt samma
+  "mindre rättning, mer klart direkt"-mönster som Claude 4.6-citatet,
+  fast ett år tidigare). Fyller delvis 2025-luckan från v23.
+  (3) **Ny grundregel 8 (svara på svenska som standard)** tillagd i
+  global `CLAUDE.md` och `kent-meta-regler-for-code` (se respektive
+  filers egna ändringsloggar, 2026-08-05) — inte specifik för det här
+  projektet, men beslutad under samma session.

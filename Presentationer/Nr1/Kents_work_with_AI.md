@@ -41,6 +41,30 @@ perioden.
 
 ## 2024 — Claude Projects blir en vändpunkt
 
+**Stickfigur-spelet — samma prompt, två AI-verktyg (mars 2024).** Inspirerad
+av en jämförelsevideo av YouTubern Matt Wolfe gav Kent samma engelska prompt
+till två olika AI-verktyg för att se hur de klarade att generera ett litet
+JavaScript-spel:
+
+> "Write code for a javascript game where there is a stick figure on the
+> screen. The stick figure moves left and right with the A and D buttons
+> and jumps with the space bar. Coins should also be placed randomly on the
+> screen where the player can reach them. When a player touches a coin, the
+> coin should disappear and be collected by the player." (Kent, prompten
+> från mars 2024)
+
+Ett program togs fram med **Perplexity**, ett annat med **OpenAI:s
+GPT-4-playground** — samma prompt, olika resultat att jämföra sida vid sida.
+Lundgren, K. (2024) 'Testa AI-modeller genom att göra spel', Controller, lärare och coach utan gränser reflekterar. Publicerad 17 mars 2024.
+https://controllerutangranser.wordpress.com/2024/03/17/testa-ai-modeller-genom-att-gora-spel/
+Spelresultaten: https://kentlundgren.se/AI/AIspel/ (14 mars 2024; sidan
+svarar med en icke-standard HTTP-status vid automatiserad hämtning men
+innehållet lästes och verifierades ändå av Claude via WebFetch).
+*(Ett tidigt exempel på Kents återkommande mönster: jämföra flera
+AI-verktyg mot samma uppgift i stället för att bara lita på ett — se
+2025-avsnittet nedan för uppföljningen ett år senare, med ett tredje
+verktyg och ett mycket annorlunda resultat.)*
+
 Claude 3 (mar2024, se `Claude_familjen.md`) var första gången Kent på
 allvar började använda Claude. Men det som Kent själv, i efterhand,
 pekar ut som den verkliga vändpunkten är **Claude Projects** (jun2024,
@@ -76,6 +100,20 @@ faserna i hans arbetssätt). Fredagsquiz (aug2025, se presentationens
 egen slide) är ett konkret exempel byggt med precis den kombinationen:
 "frågorna skrivna av Claude, kodat i Cursor".
 
+**Samma prompt, ett år senare (mars 2025) — stickfigur-spelet igen.** Kent
+återanvände exakt samma engelska prompt från mars 2024-testet (se
+2024-avsnittet ovan), men nu mot **Claude 3.7 Sonnet** (lanserad feb2025,
+se `Claude_familjen.md`). Resultatet var ett nästan komplett, fungerande
+spel direkt — bara hopphöjden behövde justeras för att mynten skulle gå
+att nå.
+Resultat: https://kentlundgren.se/AI/AIspel2/ (13 mars 2025).
+*(Samma jämförelsemetod som 2024, men nu med bara EN justering kvar i
+stället för att bygga från grunden — samma "mindre rättning, mer
+tillägg"-mönster som Kent senare beskriver mycket tydligare för Claude 4.6
+(2026, se nedan). Stickfigur-spelet fungerar alltså som ett litet,
+återkommande "benchmark" av Kents egen erfarenhet av AI-verktygens
+utveckling, inte bara en engångsobservation.)*
+
 ## 2026 — Claude 4.6: från rättning till tillägg
 
 Med **Claude Cowork** (jan2026) och sedan **Claude 4.6** (feb2026, Opus
@@ -100,8 +138,8 @@ lansering, som är kärnan i den här filen.
 | Period | Dominerande AI-verktyg | Arbetssätt |
 |---|---|---|
 | 2023 | ChatGPT (kodning), OpenAI Whisper, Perplexity (research) | Löst experimenterande, ett verktyg per uppgift |
-| 2024 | Claude 3, Claude Projects | Första gången källor/kunskapsbas aktivt styrs, RAG-liknande |
-| 2025 | Claude Code, Cursor, GitHub | Agentisk kodning blir vardag ("Claude-kompassen"-mönstret) |
+| 2024 | Claude 3, Claude Projects, Perplexity/GPT-4 (jämförelsetest) | Första gången källor/kunskapsbas aktivt styrs, RAG-liknande |
+| 2025 | Claude Code, Cursor, GitHub, Claude 3.7 Sonnet | Agentisk kodning blir vardag; samma stickfigur-test klart med en justering |
 | 2026 | Claude Cowork, Claude 4.6 | Från att rätta AI:ns kod till att bara lägga till mer |
 
 ## Öppna frågor / att besluta i nästa steg
