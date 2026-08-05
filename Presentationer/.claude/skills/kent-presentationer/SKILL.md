@@ -59,8 +59,8 @@ Två poständ, välj rätt:
 ## 2. Flera hastigheter = en URL-parameter, inte flera filer
 
 Om Kent vill kunna dela olika tempo till olika sammanhang (snabbt för
-sociala flöden, seriöst för en rekryterare som faktiskt sitter och
-tittar): lös det med **en enda sida och en query-parameter**
+sociala flöden, seriöst för någon som faktiskt sitter och tittar en
+stund): lös det med **en enda sida och en query-parameter**
 (`?hastighet=rapp/lagom/serios` eller motsvarande), inte tre separata
 HTML-filer. Samma `projects.js` för alla varianter — bara sekunderna per
 post skiljer. Ger Kent exakt vad han vill ha: flera delbara URL:er, en

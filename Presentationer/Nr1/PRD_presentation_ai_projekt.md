@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 28 (`</> teknik`-modalen uppdaterad med en ny Metoden-sektion — bruttolista/verifiering/diskussion-före-kodning/PRD-som-minne — vid sidan av Tekniken-sektionen; Årskorten byggda: åtta nya `kind: "year-card"`-slides — två per år 2023–2026 — ersatte de två gamla milstolparna; tier-system så innehållsmängd växer med vald hastighet; bibliografin utökad 10→23 källor)
+**Version:** 29 ("Jobbsökning"-framing borttagen överallt på Kents begäran — syftet är att testa/leka/lära med generativ AI, inte jobbsökning, se avsnitt 2; `</> teknik`-modalen fick en ny Metoden-sektion; Årskorten byggda: åtta nya `kind: "year-card"`-slides — två per år 2023–2026 — ersatte de två gamla milstolparna; tier-system så innehållsmängd växer med vald hastighet; bibliografin utökad 10→23 källor)
 **Status:** Arton slides totalt (åtta projekt + åtta årskort + två avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Tre bruttolistor (`Claude_familjen.md`, `Kents_work_with_AI.md`, `AI_branschen_brett.md`) matade in en delmängd i årskorten — inte allt innehåll därifrån syns i presentationen. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt).
 **Typ:** Grund-PRD (helt nytt projekt)
 
@@ -32,8 +32,12 @@ retrieval-lösning. Ingen RAG-komponent ingår alltså i det här projektet.
 
 ## 2. Syfte
 
-- Visa upp genomförda AI/webb-projekt för rekryterare, som en del av en
-  jobbsökningsprocess (portfolio-syfte).
+- Visa upp genomförda AI/webb-projekt — inte som ett jobbsökningsverktyg,
+  utan för att Kent tycker det är roligt, intressant och viktigt att
+  testa, leka och lära tillsammans med generativ AI (se hans egen
+  formulering, tillagd 2026-08-05: "innan generativ AI, testar och 'leker'
+  med oss människor..."). Omformulerat efter att Kent uttryckligen bad om
+  att all "jobbsökning"-framing skulle tas bort — se Ändringslogg v29.
 - Paketera flera spridda projekt (olika repos/domäner: kentlundgren.github.io
   och kentlundgren.se) till en sammanhållen, snabb berättelse.
 
@@ -87,8 +91,8 @@ separata sidor eller tre separata innehållsfiler — bara en konfigurerbar
 tid per slide, t.ex. styrd via en URL-parameter
 (`index.html?hastighet=rapp` / `lagom` / `serios`) som slår upp
 sekundvärdet i en liten tabell. Ett innehåll, tre länkar att dela beroende
-på sammanhang (snabb social scroll kontra en rekryterare som faktiskt
-sitter och tittar).
+på sammanhang (snabb social scroll kontra någon som faktiskt sitter och
+tittar en stund).
 
 **Sekundvärden — BESLUTAT ✓ (Kent bad Claude föreslå, 2026-08-04):**
 - **Rapp:** 7 sek/projekt — snabbare än 10, men fortfarande läsbart (en
@@ -1133,3 +1137,26 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   (mot vald uppspelningshastighet i stället för skärmstorlek). Testat i
   webbläsaren, båda sektionerna och samtliga nio kort bekräftade
   synliga och scrollbara, inga konsolfel.
+- 2026-08-05 (v29): **"Jobbsökning"-framing borttagen överallt, på Kents
+  uttryckliga begäran.** Han beskrev det som tråkigt, pretentiöst och
+  onödigt — presentationen görs inte för jobbsökning, utan för att han
+  tycker det är roligt, intressant och viktigt att testa, leka och lära
+  tillsammans med generativ AI ("innan generativ AI, testar och 'leker'
+  med oss människor..."). Sex fyndplatser rättade: avsnitt 2 (Syfte,
+  omskrivet med Kents egen motivering), en formulering om
+  hastighetsvarianternas syfte (avsnitt 4c-området, "rekryterare" → "någon
+  som faktiskt sitter och tittar en stund"), `index.html`s
+  Metoden-kort (tillagt i v28, samma session — hann bli fel innan Kent
+  ens hunnit se det), `kent-presentationer`-skillens exempeltext, och
+  `Presentationer/CLAUDE.md`s inledning (fick samtidigt Kents motivering
+  inskriven, plus en efterlängtad uppdatering av Status-avsnittet som
+  fortfarande nämnde de gamla två milstolparna i stället för de åtta
+  årskorten). **Historiska ändringsloggposter (t.ex. v26:s omnämnande av
+  "jobbsökningssyfte") lämnades oredigerade** — de beskriver vad som var
+  sant vid det tillfället, att skriva om dem i efterhand skulle
+  missrepresentera beslutshistoriken. Utöver PRD:n: sparat som ett
+  varaktigt **user-minne** i Claudes minnessystem (inte i denna PRD, som
+  bara gäller `Nr1`) — Kents motivering för att jobba med generativ AI
+  gäller alla projekt, inte bara den här presentationen. Se chatten för
+  Claudes förklaring av skillnaden mellan minnessystemet och CLAUDE.md-
+  filer, som Kent uttryckligen frågade om.

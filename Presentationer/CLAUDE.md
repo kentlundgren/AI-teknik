@@ -3,10 +3,13 @@
 ## Vad detta är
 
 En samlingsmapp för Kents självspelande HTML/CSS/JS-presentationer, byggda
-i mönstret som etablerades i `Nr1` (portfolio-genomgång av AI/webb-projekt,
-för jobbsökning). Varje undermapp (`Nr1`, framtida `Nr2`, `Nr3` ...) är en
-egen presentation med sin egen PRD, som fångar just den presentationens
-beslutshistorik.
+i mönstret som etablerades i `Nr1` (portfolio-genomgång av AI/webb-projekt).
+Görs inte för jobbsökning — Kent bygger och delar de här för att han tycker
+det är roligt, intressant och viktigt att testa, leka och lära tillsammans
+med generativ AI (se hans egen formulering: "innan generativ AI, testar och
+'leker' med oss människor..."). Varje undermapp (`Nr1`, framtida `Nr2`,
+`Nr3` ...) är en egen presentation med sin egen PRD, som fångar just den
+presentationens beslutshistorik.
 
 Denna fil är repo-lokal (inte global) av samma skäl som skillet nedan:
 synlighet och länkbarhet på GitHub när mappen är pushad, och en pekpunkt
@@ -43,8 +46,10 @@ interaktiva sidor — gäller alltid tillsammans med det lokala skillet.
 
 ## Status
 
-- **`Nr1`** — klar, byggd 2026-08-04. Åtta projekt + två milestone-avbrott
-  (2024, 2025–2026), tre hastighetsvarianter (rapp/lagom/seriös, rapp är
+- **`Nr1`** — klar, byggd 2026-08-04, utökad löpande sedan dess. Åtta
+  projekt + åtta årskort (två per år 2023–2026: "Vad som hände"/"Hur jag
+  jobbade", innehållsmängd växer med vald hastighet) + två avslutande
+  referens-slides, tre hastighetsvarianter (rapp/lagom/seriös, rapp är
   standard), manuell styrning (pilar, svep på mobil, paus/spela-knapp). Se
   `Nr1/PRD_presentation_ai_projekt.md` för fullständig beslutshistorik.
   Ännu inte publicerad till GitHub Pages eller committad — Kent gör det
