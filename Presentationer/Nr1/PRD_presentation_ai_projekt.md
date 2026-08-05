@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 30 (Stickfigur Spel (mar2024) infört som ny projekt-slide, med ny `promptReveal`-funktion — hovra/tryck visar hela originalprompten; ny fil `Kandidatprojekt.md` — löpande idébank för framtida projekt-slides; "Jobbsökning"-framing borttagen överallt på Kents begäran; `</> teknik`-modalen fick en ny Metoden-sektion; Årskorten byggda — åtta `kind: "year-card"`-slides, tier-system)
+**Version:** 31 (PRD-städning på Kents begäran — 1197→~1090 rader; avsnitt 4:s redundanta forskning/utkast kondenserade, fem oavgjorda kandidatidéer flyttade till `Kandidatprojekt.md`, en föråldrad Sora-källnot rättad; Ändringslogg lämnad orörd som avsiktligt historiskt register; Stickfigur Spel infört som ny projekt-slide med `promptReveal`-funktion; "Jobbsökning"-framing borttagen överallt)
 **Status:** Nitton slides totalt (nio projekt + åtta årskort + två avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Tre bruttolistor (`Claude_familjen.md`, `Kents_work_with_AI.md`, `AI_branschen_brett.md`) matade in en delmängd i årskorten, och en fjärde (`Kandidatprojekt.md`) fångar tänkbara framtida projekt-slides löpande. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt).
 **Typ:** Grund-PRD (helt nytt projekt)
 
@@ -21,14 +21,8 @@
 Kent har över tid byggt flera fristående AI- och webb-projekt: Claude-kompassen
 (interaktivt verktyg om Claudes ekosystem), en jämförelse av Sveriges och
 USA:s statsskulder, en sida som samlar information om Bjärred Saltsjöbad, och
-en vindkraftskalkyl (flera versioner finns, se 4a). Han vill nu samla ett
-urval av dessa i en presentation som visar upp vad han byggt.
-
-**Tillägg 2026-08-04:** Kents ursprungliga formulering nämnde att "skapa en
-RAG" som ett steg i processen. Vid uppföljande fråga klargjorde han att detta
-var en felsägning — han avsåg att skapa en **PRD**, inom AI-teknik-repot
-(https://github.com/kentlundgren/AI-teknik), inte en teknisk
-retrieval-lösning. Ingen RAG-komponent ingår alltså i det här projektet.
+en vindkraftskalkyl. Han vill nu samla ett urval av dessa i en presentation
+som visar upp vad han byggt.
 
 ## 2. Syfte
 
@@ -58,7 +52,6 @@ retrieval-lösning. Ingen RAG-komponent ingår alltså i det här projektet.
 - Denna PRD-process, enligt Claude-kompassens `PRD_generell.md`-mall.
 
 **Ingår inte:**
-- Teknisk RAG-lösning (bekräftat bortvalt — se Bakgrund, var en felsägning).
 - En riktig `.pptx`-fil öppningsbar i PowerPoint-programvaran (se avvägning
   i 4g — kan bli ett separat, senare steg om behovet uppstår).
 - Ljud, video-inspelning eller Kent som presentatör på plats — presentationen
@@ -69,9 +62,7 @@ retrieval-lösning. Ingen RAG-komponent ingår alltså i det här projektet.
 ## 4. Frågor och beslut
 
 **a. Vilken vindkraftskalkyl ska visas? — BESLUTAT ✓**
-Kent bekräftade 2026-08-04: senaste versionen ligger på
-[kentlundgren.github.io/Vindkraft/vindkraftskalkyl/vindkraftskalkyl.html](https://kentlundgren.github.io/Vindkraft/vindkraftskalkyl/vindkraftskalkyl.html)
-(inte kentlundgren.se-länken som hittades via sökning tidigare — den var fel/äldre).
+Den på `kentlundgren.github.io/Vindkraft/...` (se `projects.js`), inte den äldre kentlundgren.se-länken.
 
 **b. Innehållsdjup per källprojekt — BESLUTAT ✓**
 En bild (skärmdump) per projekt plus kort text till bilden. Samma format för
@@ -166,54 +157,12 @@ skärminspela webbsidan som video, eller — som ett separat, senare steg —
 bygga en `.pptx`-export av samma datalista. Ingen sådan export ingår i
 denna PRD:s omfattning (se avsnitt 3).
 
-**h. Fullständig lista av projekt att visa — ÖPPEN**
-Kent vill ha fler än de fyra ursprungliga exemplen, prioriterat mot senast
-uppdaterade, plus eventuellt ett medvetet gammalt exempel (2023, "generativ
-AI:s barndom") för kontrast. Kandidater identifierade via Kents publika
-GitHub-repos, kontrollerade för live GitHub Pages-sida (krav: bild behövs
-per projekt):
-
-| Repo | Senast ändrad | Live sida på `kentlundgren.github.io/<repo>/`? |
-|---|---|---|
-| ArbetenSokta | 2026-08-03 | Ja (200) |
-| generativai-react | 2026-07-28 | Nej (404 på standardsökväg) |
-| Grok | 2026-06-13 | Ja (200) |
-| 1a_Claude_code | 2026-06-01 | Ja (200) |
-| Gemini_Claude_CLI | 2026-01-06 | Ja (200) |
-| ekonomivisualisering | 2025-03-25 | Nej (404) |
-| mitt-skogsvarde-projekt | 2025-04-13 | Ja (200) |
-| aktieutveckling | 2024-02-15 | Nej (404) |
-| transkribering | 2023-04-28 | Nej (404) — enda 2023-kandidaten hittills |
-| temperatur | 2023-04-24 | Nej (404) — enda andra 2023-kandidaten |
-
-De fyra med 404 kan ändå ha innehåll på en annan undersökväg (t.ex. inte
-publicerat via Pages, eller `index.html` i en undermapp) — okontrollerat.
-Ingen av 2023-kandidaterna har en bekräftad live-sida än, vilket är ett
-problem givet kravet på bild per projekt (4b). Kent behöver bekräfta
-slutlig lista, ordning och om en 2023-bild ska tas fram på annat sätt
-(t.ex. skärmdump av kod/notebook i stället för en webbsida).
-
-**Tillägg 2026-08-04:** Kent pekade även ut sina två bloggars AI-kategorier
-som källor — de innehåller ofta egna bilder och (viktigt för 4b) redan
-skriven text som kan återanvändas som bildtext i stället för att skrivas om
-från noll:
-- https://controllerutangranser.wordpress.com/category/ai/
-- https://klel.wordpress.com/category/ai/
-
-Genomgång av båda gav flera ytterligare kandidatprojekt utöver GitHub-listan
-ovan, varav några sticker ut som tematiskt bredare än de fyra kärnprojekten:
-
-| Projekt/blogginlägg | Källa | Varför intressant |
-|---|---|---|
-| Frans G. Bengtsson-research (RAG) | klel.wordpress.com, 1/8 & 15/7 | Ett *faktiskt* RAG-projekt — extra relevant efter felsägningen i uppstarten av den här PRD:n |
-| VM 2026-tips (familjens tips vs odds) | controllerutangranser, 10/6 | Socialt/personligt, bryter av mot ekonomi-tunga projekt |
-| Kassarapport-automatisering (3 badanläggningar) | controllerutangranser, 17/6 | Business-automation, stark för en controller-/ekonom-målgrupp |
-| "Ett vindkraftverk, fem sanningar" (multi-perspektiv) | controllerutangranser, 3/7 | Kan vara samma `Vindkraft`-repo som redan är kärnprojekt, eller en variant — måste avgöras mot 4a |
-| Claude-kostnad (usage-tracker för eget abonnemang) | klel.wordpress.com, 4/8 | Meta-exempel: AI som håller koll på sig själv |
-
-Detta breddar kandidatlistan ytterligare och gör frågan om **hur många
-projekt totalt** (och därmed total speltid vid 20 sek/projekt) ännu
-viktigare att låsa med Kent innan produktion startar.
+**h. Fullständig lista av projekt att visa — LÖST, se `Kandidatprojekt.md`**
+Ursprungligen en bred research-genomgång (GitHub-repos, bloggarnas
+AI-kategorier) för att hitta kandidatprojekt. Den funktionen fyller nu
+`Kandidatprojekt.md` i stället — löpande, i stället för en engångslista
+här. Fem kandidater som identifierades men aldrig avgjordes flyttades dit
+2026-08-05 (se den filens Status-kolumn för var de står).
 
 **i. Fasindelning: starta smalt, bygg ut löpande — BESLUTAT ✓**
 Kent föreslog 2026-08-04 att börja med ett mindre antal projekt (de fyra
@@ -223,78 +172,20 @@ i 4g väl — fas 2+ är bara nya poster i `projects.js`, inget nytt
 utvecklingsarbete. Fas 1-omfattning (exakt vilka fyra, och om något extra
 ska med redan från start) är fortfarande en del av öppen fråga 4h.
 
-**j. Öppning: ett eller två 2023-projekt som "startskott" — BESLUTAT ✓**
-Kent ville inleda presentationen med 1–2 projekt från 2023 för att sätta en
-ton: "så här jobbade jag med generativ AI då, utan att skämmas — det var en
-start." Efter genomgång av båda 2023-kandidaterna (4h) och Kents
-bekräftelse 2026-08-04: presentationen öppnar med **`temperatur` →
-`transkribering`**, i den ordningen — ett litet bågnarrativ: "det här
-fungerade" följt av "och det här kämpade jag fortfarande med".
+**j. Öppning: 2023-projekt som "startskott" + Fredagsquiz — BESLUTAT ✓**
+Presentationen öppnar med `temperatur` → `transkribering` (24/4 resp.
+28/4-2023) — Kents eget val, för att sätta tonen: "så här jobbade jag med
+generativ AI då, utan att skämmas". Ett litet bågnarrativ: "det här
+fungerade" följt av "och det här kämpade jag fortfarande med" (den
+olösta ffmpeg-buggen). Captionerna finns i `projects.js`.
 
-- **`temperatur`** (24/4-2023) — hämtar aktuell temperatur för Sveriges fem
-  största städer via SMHI:s öppna API. Kent skriver själv i README:t att
-  koden är "skriven av ChatGPT, hämtat via Poe", körd i PyCharm — ett rent,
-  fungerande exempel på "AI skrev koden, jag körde den".
-- **`transkribering`** (28/4-2023) — ett självdeklarerat "tredje försök"
-  (peppad av podden "Teknik i akademi") att bygga ett program som
-  transkriberar ljud till text via OpenAI Whisper. README erkänner öppet
-  det olösta buggen ("hittar inte ffmpeg på rad 29") — precis den
-  ambitiösa-men-ofärdiga, ärliga tonen Kent efterfrågar.
-
-Föreslagen brödtext, återanvänder Kents egna ord där möjligt (kan justeras
-när skärmdumparna tas fram):
-- *temperatur:* "2023, tidigt: bad ChatGPT skriva pythonkod som hämtar
-  temperaturen i Sveriges fem största städer från SMHI:s öppna API. Jag
-  körde koden i PyCharm — och den fungerade."
-- *transkribering:* "Samma vår, tredje försöket: ett program som skulle
-  transkribera ljud till text med OpenAIs Whisper. Det gick inte hela
-  vägen — hittade aldrig ffmpeg — men det var så jag lärde mig."
-
-Kvar innan produktion: de exakta skärmdumparna (vilket kodutsnitt, hur
-beskuret — särskilt beskärningen som tar bort den exponerade API-nyckeln,
-se säkerhetsflaggan nedan).
-
-**Tillägg 2026-08-04 — sjunde fas 1-projektet: Fredagsquiz — BESLUTAT ✓**
-Kent vill redan nu lägga till
-[kentlundgren.se/program/quiz/0/](https://kentlundgren.se/program/quiz/0/):
-ett nytt quiz varje fredag om Simrishamns kommun, sedan 22 augusti 2025,
-under hela hösten. Frågorna genereras med Claude, kodningen (HTML/CSS/JS)
-gjord i Cursor. Bra passform: visar ett *återkommande* AI-drivet projekt
-över tid, inte bara enstaka experiment.
-
-**Kompletterad samma dag:** Kent jobbade parallellt med samma quiz på
-GitHub Pages, [kentlundgren.github.io/quiz/0/](https://kentlundgren.github.io/quiz/0/)
-— "på den tiden gick jag över mer och mer till GitHub", ett skifte han
-vill ska synas i presentationen. Repots egen README bekräftar precis den
-resan: GitHub-versionen beskrivs uttryckligen som *"Ursprungligen
-publicerad på kentlundgren.se/program/quiz/0/"*, och innehåller dessutom
-två egenskrivna pedagogiska guider om övergången (`GitHub.html` om
-Git/GitHub-begrepp, `GitHub_pages.html` om hur GitHub Pages fungerar) samt
-en undermapp ("00") som specifikt förklarar AI-samarbetet mellan Claude
-och Cursor bakom quizet. Repots commit-historik (jan–feb 2026) visar att
-själva GitHub-migreringen skedde några månader efter att quizserien startat
-på kentlundgren.se hösten 2025 — tidslinjen stämmer med Kents minnesbild.
-
-**Beslut:** använd `kentlundgren.github.io/quiz/0/`-länken som den
-kanoniska länken för sliden (undviker dessutom WAF-blockeringen som
-upptäcktes på kentlundgren.se-domänen, se produktionsanteckning i 4k), och
-väv in GitHub-flytten i bildtexten snarare än att göra den till ett eget,
-åttonde projekt — håller fas 1 vid sju poster om inte Kent vill annat.
-
-Fas 1 är sju projekt totalt:
-1. `temperatur` (2023-öppning)
-2. `transkribering` (2023-öppning)
-3. Claude-kompassen
-4. Statsskuld Sverige/USA
-5. Bjärred Saltsjöbad
-6. Vindkraftskalkyl
-7. Fredagsquiz
-
-Föreslagen bildtext (justeras när skärmdump tas fram): "Varje fredag sedan
-22 augusti 2025: ett nytt quiz om Simrishamns kommun, frågorna skrivna av
-Claude, kodat i Cursor. Under hösten flyttade jag projektet till GitHub
-Pages — och skrev på köpet två egna guider om hur Git och GitHub faktiskt
-fungerar."
+Fredagsquiz tillagt som sjunde fas 1-projekt: kanonisk länk är
+`kentlundgren.github.io/quiz/0/`, inte den ursprungliga
+kentlundgren.se-länken — dels undviker det en WAF-blockering (se 4k), dels
+bekräftade repots README att GitHub-versionen är en medveten migrering
+("gick över mer och mer till GitHub"), ett skifte Kent ville skulle synas.
+GitHub-flytten vävdes in i bildtexten i stället för att bli ett eget,
+separat projekt.
 
 **k. Distributionsformat: LinkedIn, X/Twitter, bloggarna — BESLUTAT ✓**
 Kent förtydligade 2026-08-04: han vill bara att **URL:en/länken** som delas
@@ -370,28 +261,13 @@ lyfte: en föreningsmedlem kan bidra med transparens som en del av sitt
 ideella engagemang — värt att ha i åtanke om fler föreningsprojekt läggs
 till senare.
 
-**n. "Milestone"-avbrott mellan projekt — BESLUTAT ✓ och BYGGT (2026-08-04)**
-Kent bekräftade: bygg dem. Ny `kind: "milestone"` i `projects.js`/`script.js`
-— fast visningstid (4 sekunder, `MILESTONE_DURATION`) som ignorerar
-`hastighet`-inställningen, egen mörk, centrerad visuell stil (skiljer sig
-tydligt från bild+text-layouten), inga URL:er till projekt utan en lista
-`facts` (text + valfri Harvard-källa per faktapunkt).
-
-Två avbrott insatta i de tomma gapen i tidslinjen:
-- **2024** (mellan `transkribering` och `Fredagsquiz`): Claude 3
-  (Anthropic, mars 2024) och EU:s AI-förordning (träder i kraft 1 aug
-  2024).
-- **2025–2026** (mellan `Fredagsquiz` och `Vindkraftskalkyl`): Claude
-  Cowork (Anthropic) och en självreferens till att Claude Code — verktyget
-  bakom denna presentation — blivit vardagsmat.
-
-Källor sökta och i huvudsak verifierade mot **primärkällor** (Anthropic,
-EU-kommissionen), i linje med `olika_Claude_modeller/CLAUDE.md`s
-källhanteringsregel om att undvika sekundära SEO-blogg-källor för
-tekniska/faktapåståenden. Se avsnitt 7 för fullständig källista. En källa
-(OpenAIs Sora-sida) hittades men gav 403 vid automatiserad verifiering
-(sannolikt bot-skydd, inte en död länk) — utelämnad ur milestone-slidesen
-för att hålla påståendena helt verifierade, inte för att den bedöms falsk.
+**n. "Milestone"-avbrott mellan projekt — BESLUTAT ✓, sedan helt ersatt**
+Byggd 2026-08-04 som två `kind: "milestone"`-slides (2024, 2025–2026),
+källor sökta mot primärkällor (Anthropic, EU-kommissionen). **Hela
+systemet ersattes 2026-08-05 av de åtta årskorten** (`kind: "year-card"`,
+se Ändringslogg v27) — ingen milestone-kod finns kvar i `projects.js`.
+Behållen här bara som en pekare till varför `year-card` ser ut som den
+gör (samma mörka visuella stil återanvändes rakt av).
 
 **o. Manuell styrning (pilar, svep, paus) + ny standardhastighet — BESLUTAT ✓ och BYGGT (2026-08-04)**
 Kent ville kunna styra bildspelet själv, utöver den automatiska
@@ -635,10 +511,12 @@ commission.europa.eu. Publicerad 2024-08-01.
 https://commission.europa.eu/news-and-media/news/ai-act-enters-force-2024-08-01_en
 *(Primärkälla, EU:s egen kommission — källa för `milestone-2024`-sliden.)*
 
-**Övervägd men bortvald:** OpenAIs officiella Sora-sida
-(https://openai.com/index/sora/) gav HTTP 403 vid automatiserad
-verifiering (troligen bot-skydd, sidan existerar och syns i sökresultat)
-— utelämnad ur milestone-innehållet snarare än citerad ovverifierad.
+**Rättelse 2026-08-05:** ovanstående sa tidigare att OpenAIs Sora-sida
+uteslöts efter en HTTP 403 vid verifiering. Vid en förnyad kontroll (i
+samband med `AI_branschen_brett.md`, v26) svarade
+https://openai.com/index/sora/ 200 utan problem — sidan är nu citerad
+normalt (se OpenAI 2024a nedan). Troligen ett tillfälligt bot-skydd vid
+det första försöket, inte en verkligt blockerad källa.
 
 **Landmärke i AI-utvecklingen, tillagd 2026-08-05 på Kents förslag:**
 
@@ -1194,3 +1072,38 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   fungera, GIF:en animerar, 19 slides bekräftat). En falsklarm-konsolfel
   under testet spårades till en gammal, cachad flik — inte en riktig bugg.
   README och denna PRD synkade.
+- 2026-08-05 (v31): **PRD-städning**, på Kents begäran — han ifrågasatte om
+  1197 rader var rimligt och pekade på RAG/PRD-felsägningsnoten (Bakgrund)
+  som ett exempel på information utan kvarvarande värde. Distinktion som
+  användes: Ändringslogg (~510 rader) lämnades orörd — den är avsiktligt
+  ett fullständigt, daterat historiskt register och är själva poängen med
+  "PRD som minne" (se tech-modalens Metoden-sektion, v28). Avsnitt 4
+  ("Frågor och beslut") var däremot där den verkliga överflödigheten
+  fanns — flera delfrågor beskrev forskning/utkast som sedan blivit
+  redundant med de faktiska filerna. Fyra ställen kondenserade:
+  (1) RAG/PRD-felsägningsnoten i Bakgrund borttagen helt, plus en orphanad
+  "Ingår inte: RAG"-rad i Omfattning som bara existerade på grund av den.
+  (2) 4a (vindkraftskalkyl-länk) kondenserad till en rad.
+  (3) 4h (kandidatprojekt-research, GitHub-repos + bloggenomgång, ~48
+  rader) ersatt med en pekare till `Kandidatprojekt.md` — **fem faktiska
+  kandidatidéer som aldrig avgjordes flyttades dit** (status "Övervägs")
+  innan sektionen togs bort, så inget verkligt förslag gick förlorat:
+  Frans G. Bengtsson-research (RAG), VM 2026-tips, Kassarapport-
+  automatisering, "Ett vindkraftverk, fem sanningar", Claude-kostnad
+  (som visade sig redan finnas som eget projekt i `Ovrigt/Claude_kostnad`).
+  (4) 4j (2023-öppningen + Fredagsquiz, ~72 rader) kondenserad till ~10 —
+  de fullständiga bildtextutkasten togs bort eftersom de redan finns
+  ordagrant i `projects.js`; bara den bevarande rationalen (varför den
+  ordningen, varför GitHub-länken) behölls.
+  (5) 4n (det gamla milstolpe-systemet) kondenserad kraftigt — hela
+  `kind: "milestone"` ersattes av årskorten i v27, ingen sådan kod finns
+  kvar att dokumentera i detalj.
+  **En verklig sakfelsrättelse hittades under städningen, inte bara
+  bloat:** avsnitt 7:s not om att OpenAIs Sora-sida uteslöts efter en
+  HTTP 403 var föråldrad — sidan verifierades senare (v26,
+  `AI_branschen_brett.md`-arbetet) och är nu faktiskt citerad. Rättad för
+  att inte påstå något som inte längre stämmer.
+  **Nettoresultat:** 1197 → 1074 rader innan den här loggposten (netto
+  ~90 rader efter den). Inget innehåll förlorat — allt som togs bort var
+  antingen dubblerat i en riktig fil (`projects.js`,
+  `Kandidatprojekt.md`) eller genuint utan kvarvarande värde.

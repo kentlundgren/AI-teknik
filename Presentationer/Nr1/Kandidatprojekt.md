@@ -17,6 +17,11 @@ bort mellan sessioner.
 | Namn | Beskrivning | Länk | Bild finns? | Status | Noterat | Beslut |
 |---|---|---|---|---|---|---|
 | Stickfigur Spel | Samma engelska prompt till Perplexity och OpenAI:s GPT-4-playground (mars 2024) — ett tidigt jämförelsetest, se `Kents_work_with_AI.md`. | https://kentlundgren.se/AI/AIspel/AI_test_240314F.html | Ja — `Bilder/KulSpel_Sticky_spel.gif` | **Infört** | 2026-08-05 (nämndes först i samband med `Kents_work_with_AI.md`) | Infört i `projects.js` samma dag som det loggades — inget väntetid denna gång, se PRD Ändringslogg v30. |
+| Frans G. Bengtsson-research (RAG) | Ett faktiskt RAG-projekt, till skillnad från de flesta andra kandidaterna | klel.wordpress.com, 1/8 & 15/7 (2026) | Okänt | Övervägs | 2026-08-04 (flyttad hit 2026-08-05 vid PRD-städning, ursprungligen i PRD delfråga 4h) | — |
+| VM 2026-tips (familjens tips vs odds) | Socialt/personligt, bryter av mot ekonomi-tunga projekt | controllerutangranser.wordpress.com, 10/6 (2026) | Okänt | Övervägs | 2026-08-04 (flyttad hit 2026-08-05) | — |
+| Kassarapport-automatisering (3 badanläggningar) | Business-automation, stark för en controller-/ekonom-målgrupp | controllerutangranser.wordpress.com, 17/6 (2026) | Okänt | Övervägs | 2026-08-04 (flyttad hit 2026-08-05) | — |
+| "Ett vindkraftverk, fem sanningar" (multi-perspektiv) | Kan vara samma `Vindkraft`-repo som redan är ett kärnprojekt, eller en variant — oklart om det är ett eget projekt | controllerutangranser.wordpress.com, 3/7 (2026) | Okänt | Övervägs | 2026-08-04 (flyttad hit 2026-08-05) | Avgör mot befintliga `vindkraftskalkyl`-posten innan den läggs till, för att undvika dubblett. |
+| Claude-kostnad (usage-tracker för eget abonnemang) | Meta-exempel: AI som håller koll på sig själv | klel.wordpress.com, 4/8 (2026) | Okänt | Övervägs | 2026-08-04 (flyttad hit 2026-08-05) | Finns som eget projekt i `Ovrigt/Claude_kostnad` (annat repo). |
 
 ## Hur en rad flyttas till "Infört"
 
