@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 21 (Milstolpen för 2024 fick månadsprecision + en jämförelse mot Claude 4/5-lanseringarna; klickbara ordlista-termer vid första förekomst; två nya avslutande slides — begreppslista och Harvard-källförteckning; ny `Claude_familjen.md` — 17 primärkälleverifierade Claude-lanseringar 2023–2026, en bruttolista inför kommande årskort)
+**Version:** 23 (Ny fil `Kents_work_with_AI.md` — Kents personliga AI-arbetsresa 2023–2026, korsreferererad mot `Claude_familjen.md`; rättat faktafel: `statsskuld`-sliden angav fel AI-verktyg, Gemini → Claude; `Claude_familjen.md` utökad med Claude 4.6, nu 18 poster; klickbara ordlista-termer vid första förekomst; två nya avslutande slides)
 **Status:** Tolv slides totalt (åtta projekt + ett milstolpe-avbrott (2024) + ett milstolpe-avbrott (2025–2026) + två avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt) — allt innehåll och all datering är nu beslutad.
 **Typ:** Grund-PRD (helt nytt projekt)
 
@@ -946,3 +946,53 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   steg. **Uttryckligen en bruttolista** — Kent har bett om att bara en
   delmängd ska in i presentationens kommande årskort (2024/2025/2026,
   ett kort per år, nästa steg — inte byggt än i den här versionen).
+- 2026-08-05 (v22): En verklig faktafel hittad och rättad, plus ett
+  tillägg till `Claude_familjen.md`.
+  (1) **Rättelse: `statsskuld`-sliden påstod fel AI-verktyg.** Kent
+  visade en skärmdump och frågade var uppgiften "byggd tillsammans med
+  Gemini" kom ifrån — han mindes att han med största sannolikhet använt
+  Claude och Cursor. Spårat till en tolkningsmiss från v12 (2026-08-04):
+  källblogginlägget nämner faktiskt två separata projekt — "för ett år
+  sedan ... byggde jag ... med Gemini" syftar på ett ÄLDRE verktyg från
+  juni 2025 (annan URL, annat blogginlägg), medan det aktuella
+  beslutsträds-verktyget som visas här beskrivs några stycken senare med
+  meningen "... alternativ som Claude tog fram parallellt." v12 läste
+  fel projekt. `projects.js` rättad: "byggd tillsammans med Gemini" →
+  "byggd tillsammans med Claude" (den enda källbelagda uppgiften — Cursor
+  nämns inte explicit i blogginlägget, så det lades inte till trots
+  Kents egen gissning, i linje med Regel 3). "Gemini" borttaget ur
+  `glossary.js` (15 termer kvar) eftersom ordet inte längre förekommer
+  någonstans i presentationens innehåll.
+  (2) **Claude 4.6 tillagd i `Claude_familjen.md`** (feb2026, mellan
+  Cowork och Fable 5/Mythos 5) — Kents eget bidrag, med källor han själv
+  tog fram och Claude verifierade (Opus 4.6 5 feb, Sonnet 4.6 17 feb,
+  båda mot anthropic.com). Kent pekar ut just den här generationen som
+  den där han upplevde tydligt färre rättningsbehov i sitt eget arbete —
+  dokumenterat som hans egen erfarenhet, inte en generell branschsiffra.
+  Lanseringstakt-tabellen i filen uppdaterad (18 poster totalt nu, upp
+  från 17).
+  (3) **Öppen, obeslutad idé väckt av Kent:** en ny fil
+  `Kents_work_with_AI.md` som dokumenterar hur han själv arbetat med
+  generativ AI sedan 2023 (Claude Compassen-arbetsmodellen, ökande
+  användning, upplevelsen av Claude 4.6), med en delmängd som ett par
+  personliga slides i presentationen. Inte påbörjad — Claude bad om att
+  få ställa avgränsningsfrågor innan den skrivs, se chatten.
+- 2026-08-05 (v23): `Kents_work_with_AI.md` skapad, efter att Kent svarat
+  på avgränsningsfrågorna från v22 (korsreferens-metod: fritt val, löst
+  med namngivna pekningar till exakta poster i `Claude_familjen.md`,
+  ingen filduplicering; omfattning: hela bågen 2023→2026, inte bara
+  Claude-eran). Fyra kronologiska avsnitt (2023–2026), byggda kring
+  Kents egna citat om Claude Projects (jun2024, RAG-liknande
+  arbetssätt, länkad till hans egen RAG-sida
+  `AI-teknik/RAG/`) och Claude 4.6 (feb2026, upplevelsen av att gå från
+  att rätta Claudes kod till att bara lägga till mer). Ny research-källa
+  tillagd på Kents uppmaning och oberoende verifierad av Claude:
+  **Perplexity**, Kents huvudsakliga research-verktyg 2023, innan Claude
+  blev förstahandsvalet — Wikipedia-referensen Kent gav stämde vid
+  kontroll mot Perplexitys faktiska lanseringsdatum (7 december 2022) och
+  dess källhänvisnings-fokus. Filen avslutas med en sammanfattningstabell
+  (verktygens tyngdpunkt per period) och tre öppna frågor, inklusive en
+  påminnelse om att Gemini-felet (v22) inte är löst för något annat
+  eventuellt projekt än `statsskuld`. README:s filinventering uppdaterad.
+  Inte byggt: vilken delmängd som blir faktiska slides — nästa steg,
+  avvaktar Kents besked.

@@ -103,7 +103,7 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     kind: "screenshot",
     year: "jul2026",
     title: "Statsskuld: Sverige & USA",
-    caption: "En interaktiv jämförelse av Sveriges och USA:s statsskulder, byggd tillsammans med Gemini — med fokus på att visa själva beslutsvägen, inte bara slutsiffran.",
+    caption: "En interaktiv jämförelse av Sveriges och USA:s statsskulder, byggd tillsammans med Claude — med fokus på att visa själva beslutsvägen, inte bara slutsiffran.",
     url: "https://kentlundgren.github.io/Ekonomi/statsskuld/sverige_amerika/index.html",
     image: "images/statsskuld.png",
     source: { label: "Läs mer: Vad ett beslutsträd om statsskuld lär oss om vibe-kodning", url: "https://controllerutangranser.wordpress.com/2026/07/28/vad-ett-beslutstrad-om-statsskuld-lar-oss-om-vibe-kodning/" }

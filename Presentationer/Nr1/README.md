@@ -55,4 +55,5 @@ Redigera `projects.js` — en post per projekt, ingen ändring av
 - `images/` — skärmdumpar av de sex live-projekten
 - `PRD_presentation_ai_projekt.md` — hela beslutshistoriken
 - `SPEAKER_NOTES.md` — Kents egna presentatörsanteckningar per projekt (id-kopplat, inte del av sidan)
-- `Claude_familjen.md` — fullständig, primärkälleverifierad tidslinje över hela Claude-familjen (17 lanseringar, 2023–2026); bruttolista att välja en delmängd ur till kommande årskort, inte allt härifrån visas nödvändigtvis i presentationen
+- `Claude_familjen.md` — fullständig, primärkälleverifierad tidslinje över hela Claude-familjen (18 lanseringar, 2023–2026); bruttolista att välja en delmängd ur till kommande årskort, inte allt härifrån visas nödvändigtvis i presentationen
+- `Kents_work_with_AI.md` — personlig reflektion över hur Kents eget arbetssätt med AI-verktyg utvecklats 2023–2026 (Perplexity → Claude Projects → Claude Code/Cursor/GitHub → Claude 4.6), korsreferererar `Claude_familjen.md`; bruttolista, delmängd blir egna slides i ett senare steg

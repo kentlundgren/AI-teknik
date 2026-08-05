@@ -5,7 +5,7 @@
 `<mån><år>`-precision (se `kent-presentationer`-skillen, Regel 8),
 annoterade Harvard-källor (`kent-meta-regler-for-code`, Regel 2), och
 samma "jämför lanseringstakt"-ton som milstolparna i `projects.js`
-(Regel 13). Kompletterad med elva ytterligare lanseringar utöver de sex
+(Regel 13). Kompletterad med tolv ytterligare lanseringar utöver de sex
 Kent själv hade antecknat — hela kedjan är nu primärkälleverifierad, se
 källhänvisning per post. Detta är en **bruttolista**: tänkt som
 källa att välja en delmängd ur till de kommande årskorten (2024/2025/2026)
@@ -151,6 +151,29 @@ Anthropic (2026) 'Introducing Cowork', Claude by Anthropic. Publicerad 12 januar
 https://claude.com/blog/cowork-research-preview
 *(Kents val — tar den agentiska förmågan från Claude Code och gör den tillgänglig för bredare kontors- och kunskapsarbete.)*
 
+**Claude 4.6 (Opus 4.6 + Sonnet 4.6) — feb2026**
+*(Kents eget bidrag, med Claudes research-tillägg nedan.)* Kent pekar
+uttryckligen ut 4.6-generationen som den som "stack ut" mest under sin
+egen andra halva av 2025/2026 — den första där han upplevde att han i
+stort sett slutade behöva rätta Claudes kod, och i stället lade tiden på
+att lägga till nya funktioner (hans egen växande ambition, inte modellens
+fel, understryker han). Opus 4.6 (5 februari) var den första
+Opus-modellen med ett 1 miljon tokens kontextfönster (beta), med bättre
+planering, längre uthållighet i agentiska uppgifter och högre
+tillförlitlighet i stora kodbaser — samt fler "klart på första försöket"-
+resultat inom kunskapsarbete (analyser, dokument, kalkylblad,
+presentationer). Sonnet 4.6 (17 februari) lyfte mellanskiktet så mycket
+att många användare föredrog den framför tidigare Opus-modeller,
+särskilt för kodning och datoranvändning.
+Anthropic (2026a) 'Introducing Claude Opus 4.6', Anthropic. Publicerad 5 februari 2026.
+https://www.anthropic.com/news/claude-opus-4-6
+Anthropic (2026b) 'Introducing Claude Sonnet 4.6', Anthropic. Publicerad 17 februari 2026.
+https://www.anthropic.com/news/claude-sonnet-4-6
+*(Kents val — den modellgeneration han själv upplevt som ett tydligt
+kvalitetssprång i sitt eget dagliga arbete, inte bara en siffra i en
+lanseringstakt-tabell. Första bekräftade 1M-kontextfönstret för
+Opus-klassen.)*
+
 **Claude Fable 5 + Claude Mythos 5 — jun2026**
 Lanserades tisdag 9 juni 2026 med starka skyddsmekanismer (Mythos 5, med
 färre skydd, förbehölls betrodda partner för defensivt cybersäkerhetsarbete).
@@ -193,7 +216,7 @@ https://www.anthropic.com/news/claude-opus-5
 | mar2023 – nov2023 (Claude 1 → 2.1) | 3 | ~4–5 månader |
 | mar2024 – okt2024 (Claude 3-familjen) | 4 | ~1–3 månader |
 | feb2025 – nov2025 (Claude 4-familjen) | 6 | ~1–2 månader |
-| jan2026 – jul2026 (Cowork + Claude 5) | 4 | ~2–7 veckor |
+| jan2026 – jul2026 (Cowork, 4.6, Claude 5) | 6 | ~1–7 veckor (ojämnt: tätt jan–feb och jun–jul, uppehåll mars–maj) |
 
 Mönstret händer att stödja den poäng presentationens 2024-milstolpe redan
 gör (Claude 3 → 4 → 5 med ungefär ett års mellanrum) — men visar också
@@ -202,7 +225,7 @@ per år (2023) till nästan en lansering i månaden (andra halvan av 2025).
 
 ## Öppna frågor / att besluta i nästa steg
 
-- Vilken delmängd av dessa 17 poster ska synas på de kommande
+- Vilken delmängd av dessa 18 poster ska synas på de kommande
   årskorten (2024/2025/2026) i själva presentationen? Kent avgör.
 - Ska sammanfattningstabellen ovan (lanseringstakt) användas i
   presentationen, eller stanna som bakgrundsanalys i den här filen?

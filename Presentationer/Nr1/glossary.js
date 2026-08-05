@@ -16,7 +16,6 @@ const GLOSSARY = [
   { term: "ChatGPT", url: "https://openai.com/index/chatgpt/" },
   { term: "PyCharm", url: "https://www.jetbrains.com/pycharm/" },
   { term: "Cursor", url: "https://cursor.com" },
-  { term: "Gemini", url: "https://gemini.google.com" },
   { term: "ffmpeg", url: "https://ffmpeg.org" },
   { term: "Poe", url: "https://poe.com" },
   { term: "AI Act", url: "https://commission.europa.eu/news-and-media/news/ai-act-enters-force-2024-08-01_en" }
