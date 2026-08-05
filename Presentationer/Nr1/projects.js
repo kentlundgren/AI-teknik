@@ -336,6 +336,12 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
         note: "Ursprungsinlägget för Ölkalkylen, som fick över 3 000 klick på LinkedIn enligt Kent."
       },
       {
+        cite: "Lundgren, K. (2026e) 'Jag har en kompis och kollega som aldrig är sjuk', LinkedIn.",
+        url: "https://www.linkedin.com/posts/kentlundgren_jag-har-en-kompis-och-kollega-som-aldrig-ugcPost-7490845079058927616-TtCZ/",
+        date: "Publicerad 5 augusti 2026",
+        note: "Inlägg på LinkedIn där presentationen delades för första gången — med KL+GA-framing som beskriver samarbetet mellan Kent Lundgren och Generativ AI. Länken kräver LinkedIn-inloggning."
+      },
+      {
         cite: "Meta AI (2024) 'Introducing Meta Llama 3: The most capable openly available LLM to date', Meta AI Blog.",
         url: "https://ai.meta.com/blog/meta-llama-3/",
         date: "Publicerad 18 april 2024",
