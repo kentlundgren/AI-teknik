@@ -12,20 +12,75 @@ projekt nämns i en konversation — även i förbigående — loggas det här
 direkt, samma stund. Inte bara ihågkommet i chatten, som annars glöms
 bort mellan sessioner.
 
+**Regel 2, tillagd 2026-08-05:** Claude ska proaktivt, utan att bli
+ombedd, leta efter fler kandidater att lägga till här — se
+[`kent-presentationer`-skillen](../.claude/skills/kent-presentationer/SKILL.md)
+för sökkällorna och rutinen.
+
 ## Lista
 
-| Namn | Beskrivning | Länk | Bild finns? | Status | Noterat | Beslut |
-|---|---|---|---|---|---|---|
-| Stickfigur Spel | Samma engelska prompt till Perplexity och OpenAI:s GPT-4-playground (mars 2024) — ett tidigt jämförelsetest, se `Kents_work_with_AI.md`. | https://kentlundgren.se/AI/AIspel/AI_test_240314F.html | Ja — `Bilder/KulSpel_Sticky_spel.gif` | **Infört** | 2026-08-05 (nämndes först i samband med `Kents_work_with_AI.md`) | Infört i `projects.js` samma dag som det loggades — inget väntetid denna gång, se PRD Ändringslogg v30. |
-| Frans G. Bengtsson-research (RAG) | Ett faktiskt RAG-projekt, till skillnad från de flesta andra kandidaterna | klel.wordpress.com, 1/8 & 15/7 (2026) | Okänt | Övervägs | 2026-08-04 (flyttad hit 2026-08-05 vid PRD-städning, ursprungligen i PRD delfråga 4h) | — |
-| VM 2026-tips (familjens tips vs odds) | Socialt/personligt, bryter av mot ekonomi-tunga projekt | controllerutangranser.wordpress.com, 10/6 (2026) | Okänt | Övervägs | 2026-08-04 (flyttad hit 2026-08-05) | — |
-| Kassarapport-automatisering (3 badanläggningar) | Business-automation, stark för en controller-/ekonom-målgrupp | controllerutangranser.wordpress.com, 17/6 (2026) | Okänt | Övervägs | 2026-08-04 (flyttad hit 2026-08-05) | — |
-| "Ett vindkraftverk, fem sanningar" (multi-perspektiv) | Kan vara samma `Vindkraft`-repo som redan är ett kärnprojekt, eller en variant — oklart om det är ett eget projekt | controllerutangranser.wordpress.com, 3/7 (2026) | Okänt | Övervägs | 2026-08-04 (flyttad hit 2026-08-05) | Avgör mot befintliga `vindkraftskalkyl`-posten innan den läggs till, för att undvika dubblett. |
-| Claude-kostnad (usage-tracker för eget abonnemang) | Meta-exempel: AI som håller koll på sig själv | klel.wordpress.com, 4/8 (2026) | Okänt | Övervägs | 2026-08-04 (flyttad hit 2026-08-05) | Finns som eget projekt i `Ovrigt/Claude_kostnad` (annat repo). |
+Ett block per kandidat, i den ordning de identifierades. Blankrad mellan
+varje för läsbarhet.
+
+**Stickfigur Spel**
+Beskrivning: Samma engelska prompt till Perplexity och OpenAI:s GPT-4-playground (mars 2024) — ett tidigt jämförelsetest, se `Kents_work_with_AI.md`.
+Länk: https://kentlundgren.se/AI/AIspel/AI_test_240314F.html
+Bild: Ja — `Bilder/KulSpel_Sticky_spel.gif`
+Status: **Infört**
+Noterat: 2026-08-05 (i samband med `Kents_work_with_AI.md`)
+Beslut: Infört i `projects.js` samma dag som det loggades — se PRD Ändringslogg v30.
+
+**Frans G. Bengtsson-research (RAG)**
+Beskrivning: Ett faktiskt RAG-projekt, till skillnad från de flesta andra kandidaterna. "Sluta gissa, RAG:ga i stället" — en sida om Frans G. Bengtsson byggd med två tekniker för att hämta och verifiera information.
+Länk: https://klel.wordpress.com/2026/08/01/sluta-gissa-ragga-i-stallet/
+Bild: Okänt
+Status: Övervägs
+Noterat: 2026-08-04 (flyttad till denna fil 2026-08-05 vid PRD-städning, ursprungligen i PRD delfråga 4h)
+Beslut: —
+
+**VM 2026-tips (familjens tips vs odds)**
+Beskrivning: "När du har tippat!" — en samlad vy som jämför familjemedlemmarnas VM-tips mot faktiska odds, i stället för utspritt över flera källor. Socialt/personligt, bryter av mot ekonomi-tunga projekt.
+Länk: https://controllerutangranser.wordpress.com/2026/06/10/nar-du-har-tippat/
+Bild: Okänt
+Status: Övervägs
+Noterat: 2026-08-04 (flyttad hit 2026-08-05)
+Beslut: —
+
+**Kassarapport-automatisering (3 badanläggningar)**
+Beskrivning: "Från manuell hantering till automatisering" — automatiserar import av kassarapporter från kassasystemet BRP för tre badanläggningar (Korsavad, Tobisvik, Hammenhög) till bokföringen. Business-automation, stark för en controller-/ekonom-målgrupp.
+Länk: https://controllerutangranser.wordpress.com/2026/06/17/fran-manuell-hantering-till-automatisering/
+Bild: Okänt
+Status: Övervägs
+Noterat: 2026-08-04 (flyttad hit 2026-08-05)
+Beslut: —
+
+**"Ett vindkraftverk, fem sanningar" (multi-perspektiv)**
+Beskrivning: "Ett vindkraftverk, fem sanningar – vems kalkyl räknar vi egentligen?" — bygger om en vindkraftskalkyl för att visa fem olika intressenters perspektiv på samma anläggnings ekonomi samtidigt.
+Länk: https://controllerutangranser.wordpress.com/2026/07/03/ett-vindkraftverk-fem-sanningar-vems-kalkyl-raknar-vi-egentligen/
+Bild: Okänt
+Status: Övervägs
+Noterat: 2026-08-04 (flyttad hit 2026-08-05)
+Beslut: Avgör mot befintliga `vindkraftskalkyl`-posten innan den läggs till, för att undvika dubblett — se även "Tidig vindkraftskalkyl" nedan, en annan vinkel på samma ämnesområde.
+
+**Claude-kostnad (usage-tracker för eget abonnemang)**
+Beskrivning: "Ligger jag i fas med Claude?" — ett verktyg som håller koll på Kents eget Claude Pro-abonnemang mot veckokvoten. Meta-exempel: AI som håller koll på sig själv.
+Länk: https://klel.wordpress.com/2026/08/04/ligger-jag-i-fas-med-claude/
+Bild: Okänt
+Status: Övervägs
+Noterat: 2026-08-04 (flyttad hit 2026-08-05)
+Beslut: Finns som eget projekt i `Ovrigt/Claude_kostnad` (annat repo, inte AI-teknik) — bekräfta vilken skärmdump som skulle representera det innan det läggs till.
+
+**Tidig vindkraftskalkyl (pre-generativ-AI)**
+Beskrivning: Den nuvarande `vindkraftskalkyl`-sliden visar den senaste (2026) versionen. Kent har byggt vindkraftskalkyler sedan minst 2012 — långt innan "riktig generativ AI", som Kent daterar till ChatGPT:s lansering i november 2022. En tidig, pre-AI-version skulle kunna visa kontrasten: hur skiljer sig arbetssättet före och efter generativ AI, för exakt samma sorts kalkyl?
+Länk: (ingen bekräftad ännu — se `SPEAKER_NOTES.md` under `vindkraftskalkyl` för en 2022-länk som redan är känd: https://kentlundgren.se/miljo/energi/vindkraftsekonomi.html)
+Bild: Okänt
+Status: Övervägs
+Noterat: 2026-08-05 (Kent, i samband med formatändringen av den här filen — "vi kan tänka framåt om det kan vara lämpligt")
+Beslut: —
 
 ## Hur en rad flyttas till "Infört"
 
-Ändra Status-kolumnen till **Infört**, komplettera Beslut-kolumnen med
-datum och en referens till PRD:ns ändringslogg. Ta inte bort raden — den
+Ändra Status-fältet till **Infört**, komplettera Beslut-fältet med datum
+och en referens till PRD:ns ändringslogg. Ta inte bort blocket — det
 fungerar som en logg över vad som faktiskt lagts till över tid, inte bara
 en att-göra-lista.

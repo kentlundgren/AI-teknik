@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 31 (PRD-städning på Kents begäran — 1197→~1090 rader; avsnitt 4:s redundanta forskning/utkast kondenserade, fem oavgjorda kandidatidéer flyttade till `Kandidatprojekt.md`, en föråldrad Sora-källnot rättad; Ändringslogg lämnad orörd som avsiktligt historiskt register; Stickfigur Spel infört som ny projekt-slide med `promptReveal`-funktion; "Jobbsökning"-framing borttagen överallt)
+**Version:** 32 (`Kandidatprojekt.md` byggd om till blockformat med fullständiga, verifierade, klickbara länkar; ny kandidat "Tidig vindkraftskalkyl"; ny stående regel i `kent-presentationer`-skillen — Claude ska proaktivt söka kandidater i Kents bloggar/X; PRD-städning 1197→~1090 rader, se v31)
 **Status:** Nitton slides totalt (nio projekt + åtta årskort + två avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Tre bruttolistor (`Claude_familjen.md`, `Kents_work_with_AI.md`, `AI_branschen_brett.md`) matade in en delmängd i årskorten, och en fjärde (`Kandidatprojekt.md`) fångar tänkbara framtida projekt-slides löpande. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt).
 **Typ:** Grund-PRD (helt nytt projekt)
 
@@ -1107,3 +1107,31 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   ~90 rader efter den). Inget innehåll förlorat — allt som togs bort var
   antingen dubblerat i en riktig fil (`projects.js`,
   `Kandidatprojekt.md`) eller genuint utan kvarvarande värde.
+- 2026-08-05 (v32): **`Kandidatprojekt.md` byggd om till blockformat**,
+  på Kents begäran efter att en skärmdump visade hur den täta tabellen
+  radbröt illa på GitHub. Varje kandidat är nu ett eget stycke (Namn/
+  Beskrivning/Länk/Bild/Status/Noterat/Beslut på egna rader) med blankrad
+  mellan — tydligare, och tillåter fullständiga, klickbara URL:er i
+  stället för korta domän+datum-referenser. Fyra av de fem tidigare
+  kandidaterna fick sina exakta permalänkar uppslagna och HTTP-
+  verifierade för första gången (de fanns tidigare bara som domän+ung.
+  datum): "När du har tippat!" (VM-tips), "Från manuell hantering till
+  automatisering" (kassarapporter), "Ett vindkraftverk, fem sanningar",
+  "Sluta gissa, RAG:ga i stället" (Frans G. Bengtsson) och "Ligger jag i
+  fas med Claude?" (Claude-kostnad, redan känd sedan tidigare).
+  **Ny kandidat tillagd:** "Tidig vindkraftskalkyl (pre-generativ-AI)" —
+  Kents idé, en möjlig framtida kontrast-slide mot den redan visade
+  2026-versionen, eftersom han byggt vindkraftskalkyler sedan minst 2012,
+  långt före det han räknar som "riktig generativ AI" (ChatGPT, nov 2022).
+  **Ny stående instruktion, på Kents uttryckliga begäran:** Claude ska
+  proaktivt och på eget initiativ — inte bara reaktivt — leta efter fler
+  kandidater i Kents bloggar och på X/Twitter (`#nyaAI`). Skrivet in som
+  ny **Regel 15** i `kent-presentationer`-skillen (v10 där), inte i
+  minnessystemet eller global CLAUDE.md — det här är presentations-
+  specifikt arbetssätt, inte en universell sanning om Kent, så skillen är
+  rätt triggerpunkt (den laddas automatiskt vid arbete i den här mappen).
+  **Testat direkt:** X:s livesökning (`x.com/search?q=...`) gav HTTP 402
+  vid ett verkligt försök — kräver inloggning, inte åtkomlig. En vanlig
+  websökning hittade tre enskilda, redan indexerade inlägg som en
+  ofullständig omväg — dokumenterat som en känd begränsning i skillen,
+  inte dolt eller påstått fungera fullt ut.

@@ -228,6 +228,53 @@ hämtning betyder ofta bot-skydd snarare än en död länk, men uteslut ändå
 källan ur slidesen om den inte går att bekräfta — hellre en kortare,
 helt verifierad lista än en längre med en osäker post.
 
+**Utveckling (`Nr1`, 2026-08-05):** det fasta, ignorera-hastigheten-
+mönstret ovan visade sig bara passa rena faktaavbrott. När `Nr1` la till
+en *personlig* variant (samma årtal, men "hur jag jobbade" i stället för
+"vad som hände") behövde den variabelt innehåll och variabel visningstid
+i stället — se `PRD_presentation_ai_projekt.md`, Ändringslogg v24/v27,
+för `tier`-systemet och det nya `kind: "year-card"` som ersatte
+`"milestone"` helt i det projektet. Bedöm från fall till fall: ett rent,
+kort faktaavbrott kan fortfarande passa `"milestone"`-mönstret som det
+står ovan; två sammanlänkade kort per period (objektivt + personligt)
+passar bättre year-card-mönstret.
+
+## 15. Kandidatprojekt: en egen fil, och proaktiv sökning på Claudes eget initiativ
+
+Håll en löpande `Kandidatprojekt.md` (en nivå under presentationens
+`projects.js`, inte en bakgrundsfil som `Claude_familjen.md`) med
+tänkbara framtida projekt-slides — namn, beskrivning, fullständig
+klickbar länk, om en bild finns, och en status (Övervägs/Infört/Avfört).
+Ett block per kandidat, blankrad mellan varje — **inte** en tät tabell,
+den blir oläsbar så fort beskrivningarna är mer än ett par ord (Kent
+visade konkret hur en sådan tabell radbryter illa, 2026-08-05).
+
+**Logga direkt, inte i efterhand.** Så fort ett tänkbart projekt nämns i
+en konversation — även i förbigående, även om det bara är en lös tanke —
+lägg till det i `Kandidatprojekt.md` samma stund. Vänta inte på att bli
+ombedd, och lita inte på att det kommer ihågs till nästa session.
+
+**Sök proaktivt, på eget initiativ, utan att bli ombedd** (tillagt på
+Kents uttryckliga begäran 2026-08-05) efter fler talande, poängrika
+kandidater — inte bara när Kent själv nämner ett projekt. Källor:
+- `controllerutangranser.wordpress.com/category/ai/` och
+  `klel.wordpress.com/category/ai/` — samma bloggar som Regel 6, men läs
+  igenom fler inlägg än bara de som redan har en bekräftad koppling till
+  ett befintligt projekt.
+- Twitter/X, sökning på `#nyaAI` från `kentlundgren` (Kents egen tagg för
+  det han kallar "nya AI"). **Känd begränsning:** X:s livesökning kräver
+  inloggning och går inte att hämta direkt (gav HTTP 402 vid test
+  2026-08-05) — en vanlig websökning kan hitta enskilda, redan indexerade
+  inlägg som en ofullständig omväg, men täcker inte allt. Flagga för Kent
+  om täckningen känns osäker, gissa inte att sökningen var uttömmande.
+
+En hittad kandidat ska **alltid** gå till `Kandidatprojekt.md` först,
+med status "Övervägs" — aldrig rakt in i `projects.js` utan att Kent
+uttryckligen sagt ja. Presentera gärna nya fynd för Kent proaktivt när de
+hittas ("jag såg att du skrivit om X, vill du ha den som kandidat?"), i
+stället för att bara tyst lägga till dem och vänta på att han själv ska
+upptäcka raden.
+
 ## 10. Ta inte en skärmdump för sanning — fråga om innebörden
 
 En skärmdump visar *vad* som står på en sida, inte alltid *varför* den
@@ -404,3 +451,15 @@ byggs.
   hastighet. En öppen, obeslutad idé flaggad: en delad "brutto"-källpool
   över flera presentationer med per-presentation urval — se `Nr1`s PRD,
   Ändringslogg v20.
+- 2026-08-05 (v10): Regel 9 kompletterad med en utvecklingsnot — det fasta
+  milstolpe-mönstret passade inte längre när `Nr1` la till en personlig
+  variant med variabelt innehåll; ersattes där av `kind: "year-card"` +
+  `tier`-system (se `Nr1`s PRD, Ändringslogg v24/v27). Ny **Regel 15**:
+  håll en `Kandidatprojekt.md` per presentation (block med blankrad
+  mellan varje, inte en tät tabell — Kent visade konkret hur en tabell
+  radbryter illa), logga tänkbara projekt direkt när de nämns, och **sök
+  proaktivt på eget initiativ** efter fler kandidater i Kents bloggar och
+  på X/Twitter (`#nyaAI`) — inte bara reaktivt när han själv nämner ett
+  projekt. Känd begränsning dokumenterad: X:s livesökning kräver
+  inloggning (HTTP 402 vid test), bara delvis kringgåbar via vanlig
+  websökning.
