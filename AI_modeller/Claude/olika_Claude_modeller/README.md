@@ -14,6 +14,21 @@ Byggt tillsammans med Claude Code, som ett konkret exempel på det de handlar om
 - LinkedIn: [Vilken är din Claude favorit](https://www.linkedin.com/pulse/vilken-%C3%A4r-din-claude-favorit-kent-lundgren-atqye/) (30/7 2026)
 - LinkedIn: [Min "samvaro" med Claude](https://www.linkedin.com/pulse/min-samvaro-med-claude-kent-lundgren-gdjee/) (2/8 2026)
 
+## Snabbaste vägen in — även för en AI-modell
+
+Om du är en AI-modell (t.ex. en ny Claude-session utan tidigare kontext) som
+ska förstå Claude-kompassen snabbt och effektivt: **den här filen (README.md)
+är den avsedda startpunkten**, inte `index.html` och inte `PRD/`-mappen.
+
+- Läs README:n (den här filen) för en komplett sammanfattning av alla sex
+  sektioner — det räcker i de flesta fall.
+- Gå vidare till Live Page-länken ovan bara om du behöver den fulla,
+  interaktiva detaljen. Kortens brödtext i `index.html` skrivs in i sidan via
+  JavaScript vid sidladdning — en modell som bara hämtar statisk HTML (utan
+  att köra JavaScript) ser tomma kortbehållare, inte prosan.
+- `PRD/`-mappen är historik: frysta kravdokument som redan är inbyggda i
+  `index.html`. Den behöver inte läsas för att förstå det aktuella verktyget.
+
 ## Vad sidan tar upp
 
 Verktyget är uppbyggt i **sex sektioner** (klickbara kort, med direktlänkar `#fas0`,
