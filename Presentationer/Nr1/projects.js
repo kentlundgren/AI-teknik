@@ -159,6 +159,16 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     image: "images/fredagsquiz.png"
   },
   {
+    id: "kalmarnation-revision",
+    kind: "screenshot",
+    year: "dec2025",
+    title: "Kalmar Nation — revision",
+    caption: "35 år efter att jag som PQe skötte bokslutet för Kalmar Nation i Lund och satte mitt namn under förvaltningsberättelsen för 1990, är jag i dag lekmannarevisor för samma nation. En samlad ingång till granskningen, på svenska och engelska, med en historisk jämförelse 1990–2025 och en egen revisionsguide.",
+    url: "https://kentlundgren.github.io/foreningar/KalmarNation/revision/index.html",
+    image: "images/kalmarnation-revision.png",
+    source: { label: "Läs mer: Strukturerad granskning av föreningens ekonomi", url: "https://controllerutangranser.wordpress.com/2026/04/20/strukturerad-granskning-av-foreningens-ekonomi/" }
+  },
+  {
     id: "year-2026-tech",
     kind: "year-card",
     variant: "tech",
@@ -312,31 +322,37 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
         note: "Världens första heltäckande AI-lag."
       },
       {
-        cite: "Lundgren, K. (2026a) 'Att göra vindkraftens ekonomi synlig', Controller, lärare och coach utan gränser reflekterar.",
+        cite: "Lundgren, K. (2026a) 'Strukturerad granskning av föreningens ekonomi', Controller, lärare och coach utan gränser reflekterar.",
+        url: "https://controllerutangranser.wordpress.com/2026/04/20/strukturerad-granskning-av-foreningens-ekonomi/",
+        date: "Publicerad 20 april 2026",
+        note: "Kents tio-stegs ramverk för lekmannarevision av ideella föreningar, med Kalmar Nation som eget exempel — bakgrundstext till Kalmar Nation-sliden."
+      },
+      {
+        cite: "Lundgren, K. (2026b) 'Att göra vindkraftens ekonomi synlig', Controller, lärare och coach utan gränser reflekterar.",
         url: "https://controllerutangranser.wordpress.com/2026/07/13/att-gora-vindkraftens-ekonomi-synlig/",
         date: "Publicerad 13 juli 2026",
         note: "Bakgrundstext till Vindkraftskalkyl-sliden."
       },
       {
-        cite: "Lundgren, K. (2026b) 'Vad ett beslutsträd om statsskuld lär oss om vibe-kodning', Controller, lärare och coach utan gränser reflekterar.",
+        cite: "Lundgren, K. (2026c) 'Vad ett beslutsträd om statsskuld lär oss om vibe-kodning', Controller, lärare och coach utan gränser reflekterar.",
         url: "https://controllerutangranser.wordpress.com/2026/07/28/vad-ett-beslutstrad-om-statsskuld-lar-oss-om-vibe-kodning/",
         date: "Publicerad 28 juli 2026",
         note: "Bakgrundstext till Statsskuld-sliden."
       },
       {
-        cite: "Lundgren, K. (2026c) 'En bild av Claudes ekosystem', Tankar i tiden från Lund.",
+        cite: "Lundgren, K. (2026d) 'En bild av Claudes ekosystem', Tankar i tiden från Lund.",
         url: "https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/",
         date: "Publicerad 29 juli 2026",
         note: "Bakgrundstext till Claude-kompassen-sliden."
       },
       {
-        cite: "Lundgren, K. (2026d) 'Hur många öl till break-even?', Controller, lärare och coach utan gränser reflekterar.",
+        cite: "Lundgren, K. (2026e) 'Hur många öl till break-even?', Controller, lärare och coach utan gränser reflekterar.",
         url: "https://controllerutangranser.wordpress.com/2026/07/29/hur-manga-ol-till-break-even/",
         date: "Publicerad 29 juli 2026",
         note: "Ursprungsinlägget för Ölkalkylen, som fick över 3 000 klick på LinkedIn enligt Kent."
       },
       {
-        cite: "Lundgren, K. (2026e) 'Jag har en kompis och kollega som aldrig är sjuk', LinkedIn.",
+        cite: "Lundgren, K. (2026f) 'Jag har en kompis och kollega som aldrig är sjuk', LinkedIn.",
         url: "https://www.linkedin.com/posts/kentlundgren_jag-har-en-kompis-och-kollega-som-aldrig-ugcPost-7490845079058927616-TtCZ/",
         date: "Publicerad 5 augusti 2026",
         note: "Inlägg på LinkedIn där presentationen delades för första gången — med KL+GA-framing som beskriver samarbetet mellan Kent Lundgren och Generativ AI. Länken kräver LinkedIn-inloggning."

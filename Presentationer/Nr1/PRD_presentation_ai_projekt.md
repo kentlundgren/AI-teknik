@@ -3,8 +3,8 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 33 (Delfråga 4k återöppnad — LinkedIn-länken autospelar inte i flödet, fem videometoder listade, öppen fråga; `Kandidatprojekt.md` byggd om till blockformat med verifierade, klickbara länkar; ny stående regel i `kent-presentationer`-skillen om proaktiv kandidatsökning; PRD-städning 1197→~1090 rader, se v31)
-**Status:** Nitton slides totalt (nio projekt + åtta årskort + två avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Tre bruttolistor (`Claude_familjen.md`, `Kents_work_with_AI.md`, `AI_branschen_brett.md`) matade in en delmängd i årskorten, och en fjärde (`Kandidatprojekt.md`) fångar tänkbara framtida projekt-slides löpande. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt).
+**Version:** 34 (Kalmar Nation-revision tillagd som nytt projektkort, se Ändringslogg v34)
+**Status:** Tjugo slides totalt (tio projekt + åtta årskort + två avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Tre bruttolistor (`Claude_familjen.md`, `Kents_work_with_AI.md`, `AI_branschen_brett.md`) matade in en delmängd i årskorten, och en fjärde (`Kandidatprojekt.md`) fångar tänkbara framtida projekt-slides löpande. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt).
 **Typ:** Grund-PRD (helt nytt projekt)
 
 > **Viktig utgångspunkt, oavsett hur lång den här PRD:n blir:** den här
@@ -463,6 +463,7 @@ verktyg):
   klel.wordpress.com/category/ai/ — bild- och textkälla för fler kandidatprojekt (4h)
 - Fredagsquiz — https://kentlundgren.github.io/quiz/0/ (kanonisk länk för presentationen; ursprungligen publicerad på https://kentlundgren.se/program/quiz/0/)
 - Ölkalkylen — https://kentlundgren.github.io/Ovrigt/Fritid/ol_Tyskland/index.html (tillagt 2026-08-04, se Ändringslogg v12)
+- Kalmar Nation-revision — https://kentlundgren.github.io/foreningar/KalmarNation/revision/index.html (tillagt 2026-08-11, se Ändringslogg v34)
 
 **Externa, Harvard-citerbara källor (annoterade, alfabetisk ordning):**
 Motsvarande blogginlägg letades upp för samtliga fas 1/2-projekt på
@@ -497,6 +498,17 @@ controllerutangranser.wordpress.com. Publicerad 2026-07-29.
 https://controllerutangranser.wordpress.com/2026/07/29/hur-manga-ol-till-break-even/
 *(Ursprungsinlägget för Ölkalkylen, den som fick över 3 000 klick på
 LinkedIn enligt Kent — källa för `ol-tyskland`-sliden.)*
+
+Lundgren, K. (2026e) 'Strukturerad granskning av föreningens ekonomi'.
+[Blogginlägg] controllerutangranser.wordpress.com. Publicerad 2026-04-20.
+https://controllerutangranser.wordpress.com/2026/04/20/strukturerad-granskning-av-foreningens-ekonomi/
+*(Kents tio-stegs ramverk för lekmannarevision av ideella föreningar, med
+Kalmar Nation som eget exempel — källa för `kalmarnation-revision`-sliden.
+Notera: bokstavsordningen här (a–d) speglar inte längre den kronologiska
+ordningen efter detta tillägg — den löpande Ändringsloggen skrivs
+avsiktligt inte om retroaktivt, se `kent-meta-regler-for-code` Regel 2. Den
+publicerade sidans egen källförteckning i `projects.js` har korrekt
+bokstavsordning (2026a–f).)*
 
 **Källor för milestone-avbrotten (4n), verifierade primärkällor:**
 
@@ -1185,3 +1197,30 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   `index.html` saknar helt `og:image`/`og:title` idag — billig
   sidoförbättring oavsett). **Inget valt än — öppen fråga,** Claude gav
   en rekommendation (börja med metod 1) men fattade inget beslut åt Kent.
+- 2026-08-11 (v34): **Nytt projektkort tillagt:** `kalmarnation-revision`
+  (dec2025), Kents lekmannarevision av Kalmar Nation i Lund — en samlad
+  ingång på svenska och engelska
+  (https://kentlundgren.github.io/foreningar/KalmarNation/revision/),
+  källannoterad mot blogginlägget "Strukturerad granskning av föreningens
+  ekonomi" (publicerat 2026-04-20, källa Lundgren 2026a i `projects.js`,
+  omnumrerad från tidigare a–e till b–f). Personlig krok i bildtexten:
+  Kent var PQe (ekonomiansvarig) på samma nation 1990 och signerade själv
+  förvaltningsberättelsen för det året
+  (https://kentlundgren.se/jobb/KalmarNation/KalmarNations_bokslut_1990.pdf)
+  — verifierat både mot PDF:en (signatur "Kent Lundgren", Lund 18/19
+  januari 1991) och mot en egen sida Kent byggt,
+  `revision/1990/1990_2025.html`, som redan berättar "35 år senare sitter
+  samme man och granskar ett annat bokslut för samma nation — nu som
+  revisor". Skärmdump tagen via headless Chrome
+  (`images/kalmarnation-revision.png`). Samtliga fem URL:er (svensk sida,
+  engelsk sida, 1990/2025-jämförelsen, PDF:en, blogginlägget) HTTP-
+  verifierade (200) innan tillägg. Datum "dec2025" för badgen är Kents
+  egen uppgift (när uppdraget/sidorna tillkom), inte hämtat ur sidans
+  "Senast uppdaterad: 2026-06-08"-fot. 1990-bakgrunden (PQe-rollen, PDF:en,
+  1990/2025-sidan, engelska versionen) lades i `SPEAKER_NOTES.md` under
+  samma `id` i stället för att tynga själva slidens bildtext ytterligare.
+  Ingen ändring i `kent-presentationer`-skillen eller CLAUDE.md — inget
+  generaliserbart mönster uppstod, se konversationen där Kent själv
+  ifrågasatte om PRD-uppdateringen var nödvändig (den behölls, i linje
+  med `Presentationer/CLAUDE.md`s uttryckliga krav på en PRD per
+  presentation som fångar dess beslutshistorik).
