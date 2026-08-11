@@ -2,9 +2,9 @@
 
 **Live Page (efter publicering):** https://kentlundgren.github.io/AI-teknik/Presentationer/Nr1/
 
-Självspelande, datadriven presentation av nio AI/webb-projekt, åtta
+Självspelande, datadriven presentation av tio AI/webb-projekt, åtta
 årskort (två per år 2023–2026: "Vad som hände" / "Hur jag jobbade") och
-två avslutande referens-slides (begreppslista + källförteckning) — nitton
+två avslutande referens-slides (begreppslista + källförteckning) — tjugo
 slides totalt, i kronologisk ordning. Viktiga AI-modeller/AI-verktyg är
 klickbara första gången de nämns. Årskorten visar olika mycket innehåll
 beroende på vald hastighet (fler fakta vid Seriös än vid Rapp) — se
@@ -68,7 +68,7 @@ innan de eventuellt läggs in här — se den filen för rutinen.
 ## Filer
 
 - `index.html` / `style.css` / `script.js` — motorn
-- `projects.js` — allt innehåll (nio projekt + åtta årskort + två referens-slides)
+- `projects.js` — allt innehåll (tio projekt + åtta årskort + två referens-slides)
 - `glossary.js` — delad ordlista (AI-modeller/AI-verktyg), länkar första förekomsten av varje term
 - `images/` — skärmdumpar av de flesta live-projekten; `Bilder/` — enstaka nyare bilder/GIF:ar (t.ex. Stickfigur Spel)
 - `PRD_presentation_ai_projekt.md` — hela beslutshistoriken
