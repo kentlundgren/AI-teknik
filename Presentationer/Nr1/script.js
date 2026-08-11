@@ -91,6 +91,22 @@
       return;
     }
 
+    if (project.kind === "readinglist") {
+      const pane = document.createElement("div");
+      pane.className = "reference-pane";
+      const items = (project.picks || [])
+        .map((p) => `<li><a class="pick-title" href="${p.url}" target="_blank" rel="noopener">${p.title}</a><span class="pick-meta">${p.blog} · ${p.date}</span><span class="annot">${p.note}</span></li>`)
+        .join("");
+      pane.innerHTML = `
+        ${project.year ? `<div class="ref-year">${project.year}</div>` : ""}
+        <h1>${project.title}</h1>
+        <p class="ref-intro">${project.intro || ""}</p>
+        <ul class="bib-list">${items}</ul>
+      `;
+      container.appendChild(pane);
+      return;
+    }
+
     if (project.kind === "bibliography") {
       const pane = document.createElement("div");
       pane.className = "reference-pane";

@@ -10,6 +10,16 @@
 // seriös) — se PRD Ändringslogg v24/v27. Respekterar vald hastighet för visningstid
 // (till skillnad från de gamla milstolparnas fasta 4 sek), eftersom innehållsmängden
 // nu varierar med hastigheten.
+//
+// kind: "readinglist" — tillagd 2026-08-11 (Ändringslogg v35), omgjord till fyra
+// årsvisa slides samma dag (v36) på Kents begäran om att hela presentationen ska
+// löpa strikt i tidsordning. Ett `year`-fält (badge i reference-pane) + ett kurerat
+// urval (`picks`, tre per år) av Kents egna blogginlägg om AI, skilt från
+// "bibliography" (som bara samlar källor redan citerade inne i presentationen).
+// Varje pick har title/url/blog/date/note. HTTP-verifierad och sakinnehåll
+// kontrollerat mot varje inläggs faktiska text innan tillägg, inte bara rubriken
+// (se PRD för research-gången). Placeras direkt efter sista posten för respektive
+// år, före nästa års year-card.
 
 const PROJECTS = [
   {
@@ -86,6 +96,18 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
 <span class="cmt"># ...hittar fortfarande inte ffmpeg på rad 29 ;)</span>`
   },
   {
+    id: "blogglasning-2023",
+    kind: "readinglist",
+    year: "2023",
+    title: "Från bloggarna, 2023",
+    intro: "Sju AI-inlägg skrev jag under 2023, det första året i den här resan. Tre av dem, som en försmak.",
+    picks: [
+      { title: "Tankar kring verktyg inom AI som chatGPT", url: "https://klel.wordpress.com/2023/03/14/tankar-kring-verktyg-inom-ai-som-chatgpt/", blog: "Tankar i tiden från Lund", date: "14 mars 2023", note: "Ett av de allra första inläggen — testade ChatGPT och Bard med konkreta fackfrågor för att se vad verktygen faktiskt klarade." },
+      { title: "Hur värnar vi rättssäkerheten i ett samhälle där allt fler beslut fattas automatiskt?", url: "https://klel.wordpress.com/2023/05/14/hur-varnar-vi-rattssakerheten-i-ett-samhalle-dar-allt-fler-beslut-fattas-automatiskt/", blog: "Tankar i tiden från Lund", date: "14 maj 2023", note: "En kritisk fråga redan här: hur skyddar man rättssäkerheten när myndighetsbeslut fattas automatiskt — med en skolplacering styrd av en svårgenomskådad algoritm som exempel." },
+      { title: "Cash and Conscience: AI's Green Business Boost", url: "https://controllerutangranser.wordpress.com/2023/10/16/cash-and-conscience-ais-green-business-boost/", blog: "Controller utan gränser", date: "16 oktober 2023", note: "Om AI som verktyg för ekonomer och controllers — prediktiv analys, riskhantering, bedrägeriupptäckt och miljökonsekvensbedömning för mer hållbara affärsbeslut." }
+    ]
+  },
+  {
     id: "year-2024-tech",
     kind: "year-card",
     variant: "tech",
@@ -122,6 +144,18 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     image: "Bilder/KulSpel_Sticky_spel.gif",
     promptReveal: "Write code for a javascript game where there is a stick figure on the screen.\nThe stick figure move left and right with the A and D buttons and jump with the space bar.\nCoins should also place randomly on the screen where the player can reach them. When a player touches a coin,\nthe coin should disappear and be collected by the player.",
     source: { label: "Läs mer: Testa AI-modeller genom att göra spel", url: "https://controllerutangranser.wordpress.com/2024/03/17/testa-ai-modeller-genom-att-gora-spel/" }
+  },
+  {
+    id: "blogglasning-2024",
+    kind: "readinglist",
+    year: "2024",
+    title: "Från bloggarna, 2024",
+    intro: "Sextio AI-inlägg skrev jag under 2024 — verktygsexperimenterandet tog fart på allvar. Tre av dem.",
+    picks: [
+      { title: "Vad kan man använda (generativ) AI till?", url: "https://controllerutangranser.wordpress.com/2024/02/24/vad-kan-man-anvanda-ai-till/", blog: "Controller utan gränser", date: "24 februari 2024", note: "Grundfrågan besvarad: AI kan sammanfatta, skriva utkast, skapa bilder/video, generera kod och automatisera beslut — man ersätts inte av AI, utan av den som kan använda den." },
+      { title: "36 ChatGPT tips", url: "https://controllerutangranser.wordpress.com/2024/02/26/36-chatgpt-tips/", blog: "Controller utan gränser", date: "26 februari 2024", note: "36 konkreta tips för att få mer ut av ChatGPT — uppföljningsfrågor, egna instruktioner, översättning och dokumentanalys." },
+      { title: "Generativ AI svenska kommuner", url: "https://klel.wordpress.com/2024/11/12/generativ-ai-svenska-kommuner/", blog: "Tankar i tiden från Lund", date: "12 november 2024", note: "Om svenska kommuners försiktiga men växande AI-användning, och spänningen mellan nya möjligheter och GDPR/den kommande AI-förordningen." }
+    ]
   },
   {
     id: "year-2025-tech",
@@ -167,6 +201,18 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     url: "https://kentlundgren.github.io/foreningar/KalmarNation/revision/index.html",
     image: "images/kalmarnation-revision.png",
     source: { label: "Läs mer: Strukturerad granskning av föreningens ekonomi", url: "https://controllerutangranser.wordpress.com/2026/04/20/strukturerad-granskning-av-foreningens-ekonomi/" }
+  },
+  {
+    id: "blogglasning-2025",
+    kind: "readinglist",
+    year: "2025",
+    title: "Från bloggarna, 2025",
+    intro: "Sjuttiotre AI-inlägg skrev jag under 2025, det mest produktiva året hittills. Tre av dem.",
+    picks: [
+      { title: "Testa, lek och lär – den enkla vägen till framgång", url: "https://controllerutangranser.wordpress.com/2025/03/21/testa-lek-och-lar-den-enkla-vagen-till-framgang/", blog: "Controller utan gränser", date: "21 mars 2025", note: "Tre principer för att lyckas med AI: våga testa, omfamna lekfullheten, samla lärdomar löpande — kärnan i mitt eget arbetssätt." },
+      { title: "Hur stora språkmodeller skapas: En resa i tre steg", url: "https://klel.wordpress.com/2025/05/12/hur-stora-sprakmodeller-skapas-en-resa-i-tre-steg/", blog: "Tankar i tiden från Lund", date: "12 maj 2025", note: "Hur en språkmodell faktiskt blir till: förträning på enorma textmängder, finjustering mot mänskliga samtal, förstärkningsinlärning mot hjälpsamt beteende." },
+      { title: "Undvik hallucinationer med bra prompter", url: "https://klel.wordpress.com/2025/09/07/undvik-hallucinationer-med-bra-prompter/", blog: "Tankar i tiden från Lund", date: "7 september 2025", note: "Varför AI-modeller hittar på saker, och prompt-tekniker (osäkerhetströsklar, steg-för-steg-resonemang) för att minska det." }
+    ]
   },
   {
     id: "year-2026-tech",
@@ -242,6 +288,18 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     url: "https://kentlundgren.github.io/Ovrigt/Fritid/ol_Tyskland/index.html",
     image: "images/ol-tyskland.png",
     source: { label: "Läs mer: Hur många öl till break-even?", url: "https://controllerutangranser.wordpress.com/2026/07/29/hur-manga-ol-till-break-even/" }
+  },
+  {
+    id: "blogglasning-2026",
+    kind: "readinglist",
+    year: "2026",
+    title: "Från bloggarna, 2026",
+    intro: "Trettiosju AI-inlägg hittills under 2026. Tre av dem.",
+    picks: [
+      { title: "\"AI\" – mer än ett buzzword: om attityder, modeller och ansvar", url: "https://klel.wordpress.com/2026/03/13/ai-mer-an-ett-buzzword-om-attityder-modeller-och-ansvar/", blog: "Tankar i tiden från Lund", date: "13 mars 2026", note: "Ett argument för precision i AI-samtal: vilken modell, hur den prompats och hur utdata verifierats — inte bara ett löst \"AI\" som svepande begrepp." },
+      { title: "Från traditionell controller-roll till agentic ekonomistyrning", url: "https://controllerutangranser.wordpress.com/2026/05/14/fran-traditionell-controller-roll-till-agentic-ekonomistyrning/", blog: "Controller utan gränser", date: "14 maj 2026", note: "Argumentet att controllern behöver gå från Excel-baserat arbete till att bli arkitekt/dirigent för AI-agentsystem i ekonomistyrningen." },
+      { title: "Kan vi lita på AI:n som kör bilen?", url: "https://klel.wordpress.com/2026/06/30/kan-vi-lita-pa-ain-som-kor-bilen/", blog: "Tankar i tiden från Lund", date: "30 juni 2026", note: "Utifrån en Tesla-demonstration: tekniskt imponerande är inte samma sak som klar ansvarsfördelning — om vad som krävs innan självkörande AI kan lita på i säkerhetskritiska situationer." }
+    ]
   },
   {
     id: "begreppslista",

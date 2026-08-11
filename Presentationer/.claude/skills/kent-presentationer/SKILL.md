@@ -21,6 +21,18 @@ mönstret: `Presentationer/Nr1` i AI-teknik-repot (PRD:
 av åtta AI/webb-projekt. Se den PRD:n för fullständig beslutshistorik och
 resonemang — den här skillen destillerar bara mönstren som generaliserar.
 
+**Vad `Nr1` konkret är, för att undvika förväxling (tillagt 2026-08-11):**
+Kents egen, självspelande visning av vad han byggt och gjort med generativ
+AI mellan 2023 och 2026 — projekt, årskort och källor, allt inom det spannet.
+Om Kent säger "min presentation" utan att ange nummer och sammanhanget
+handlar om generativ AI, är `Nr1` nästan alltid vad han menar — inte en
+extern/annan fil att leta upp brett i filsystemet efter (se mappkontroll,
+`kent-meta-regler-for-code` Regel 5). Däremot: anta **inte** att en framtida
+`Nr2`/`Nr3` automatiskt delar samma ämne (generativ AI) eller samma tidsspann
+(2023–2026) — mönstret (motor+data, hastighetsvarianter, osv.) generaliserar,
+innehållet gör det inte. Kolla presentationens egen PRD för vad just den
+handlar om innan du antar något.
+
 **Placering:** medvetet lagd här, i `Presentationer/.claude/skills/`, inte
 kontonivå/globalt — Kent vill kunna se och länka till skillet på GitHub när
 repot är pushat, och en nivå ovanför `Nr1` täcker automatiskt `Nr2`, `Nr3`
@@ -354,11 +366,11 @@ kontrollera mot oberoende sekundärkällor (nyhetsbevakning) innan du litar
 på det, men skriv inte "obekräftat" om två oberoende källor redan stämmer
 överens — notera i stället varifrån precisionen kommer.
 
-## 14. Avslutande referens-slides — begreppslista + Harvard-källförteckning
+## 14. Avslutande referens-slides — begreppslista + Harvard-källförteckning + läslista
 
 Om presentationen har externa källor (blogginlägg, milstolpekällor,
 landmärkes-artiklar) och/eller ett `glossary.js` (Regel 12): avsluta
-sekvensen med två egna `kind`-slides innan loopen går runt igen:
+sekvensen med egna `kind`-slides innan loopen går runt igen:
 
 - `kind: "glossary"` — alfabetisk lista över **samtliga** termer i
   `GLOSSARY`, oavsett om de faktiskt blev inline-länkade (en besökare som
@@ -369,11 +381,22 @@ sekvensen med två egna `kind`-slides innan loopen går runt igen:
   projekt-`source`-länkar) plus egna blogginlägg. En källa citerad inline
   ska alltid ha en fullständig motsvarighet här — annars är citeringen
   ofullständig.
+- `kind: "readinglist"` (tillagt 2026-08-11, `Nr1` Ändringslogg v35) — skild
+  från `bibliography`: inte källor som redan citerats i presentationen, utan
+  ett fristående, kurerat urval av Kents egna blogginlägg om ämnet (t.ex. tio
+  länkar av flera hundra, valda för att ge "en känsla för vad jag skrivit").
+  Struktur: `{title, intro, picks: [{title, url, blog, date, note}]}` — varje
+  `note` ska spegla inläggets faktiska innehåll (hämtat/verifierat, inte
+  gissat fram enbart ur rubriken), även om **urvalet** av vilka poster som
+  tas med kan göras rubrik-först för att hålla nere researchvolymen på en
+  stor blogg-kategori (Kents egen instruktion: "fokusera på själva
+  titlarna" vid gallring bland många kandidater — men verifiera sedan
+  innehållet i de som faktiskt väljs). Placeras sist, efter `bibliography`.
 
-Låt båda respektera vald hastighet (`rapp`/`lagom`/`serios`) i stället för
-milstolparnas fasta korta visningstid — de har mer text än ett
+Låt samtliga respektera vald hastighet (`rapp`/`lagom`/`serios`) i stället
+för milstolparnas fasta korta visningstid — de har mer text än ett
 milstolpe-avbrott och är inte tänkta att vara lika snabba. Ge panelen egen
-`overflow-y: auto` eftersom källistan växer över tid.
+`overflow-y: auto` eftersom listorna växer över tid.
 
 **Möjlig framtida utökning, inte byggd än (flaggad 2026-08-05):** en
 gemensam "brutto"-källpool över flera presentationer (`Nr1`, `Nr2`, ...)
@@ -463,3 +486,13 @@ byggs.
   projekt. Känd begränsning dokumenterad: X:s livesökning kräver
   inloggning (HTTP 402 vid test), bara delvis kringgåbar via vanlig
   websökning.
+- 2026-08-11 (v11): Ny klargörande sektion om vad `Nr1` konkret är (Kents
+  visning av vad han byggt/gjort med generativ AI 2023–2026) — tillagd
+  efter att Claude i en session missförstod "min presentation" som en
+  extern, okänd fil och sökte fel innan Kent rättade till det. Ny
+  `kind: "readinglist"` dokumenterad i Regel 14: ett fristående, kurerat
+  urval av Kents egna blogginlägg (skilt från `bibliography`s redan-
+  citerade källor), byggt genom att först gallra ~180 kandidater
+  rubrik-först (Kents uttryckliga instruktion, för att hålla nere
+  researchvolymen) och sedan verifiera sakinnehållet i endast de tio som
+  faktiskt valdes — se `Nr1`s PRD, Ändringslogg v35.

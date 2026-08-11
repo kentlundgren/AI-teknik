@@ -3,8 +3,8 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 34 (Kalmar Nation-revision tillagd som nytt projektkort, se Ändringslogg v34)
-**Status:** Tjugo slides totalt (tio projekt + åtta årskort + två avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Tre bruttolistor (`Claude_familjen.md`, `Kents_work_with_AI.md`, `AI_branschen_brett.md`) matade in en delmängd i årskorten, och en fjärde (`Kandidatprojekt.md`) fångar tänkbara framtida projekt-slides löpande. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt).
+**Version:** 35 (Ny avslutande läslista-slide, `kind: "readinglist"`, se Ändringslogg v35)
+**Status:** Tjugoen slides totalt (tio projekt + åtta årskort + tre avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Tre bruttolistor (`Claude_familjen.md`, `Kents_work_with_AI.md`, `AI_branschen_brett.md`) matade in en delmängd i årskorten, och en fjärde (`Kandidatprojekt.md`) fångar tänkbara framtida projekt-slides löpande. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt).
 **Typ:** Grund-PRD (helt nytt projekt)
 
 > **Viktig utgångspunkt, oavsett hur lång den här PRD:n blir:** den här
@@ -1224,3 +1224,33 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   ifrågasatte om PRD-uppdateringen var nödvändig (den behölls, i linje
   med `Presentationer/CLAUDE.md`s uttryckliga krav på en PRD per
   presentation som fångar dess beslutshistorik).
+- 2026-08-11 (v35): **Ny avslutande slide, `kind: "readinglist"`**
+  (id `blogglasning`), efter ett missförstånd som klargjordes samma
+  session: Kent bad om en sida i "min presentation från 2024", vilket
+  visade sig betyda `Nr1` självt (hans visning av vad han byggt/gjort med
+  generativ AI 2023–2026), inte en extern fil — se
+  `kent-presentationer`-skillens nya klargörande stycke, tillagt i samma
+  veva. Tio av Kents egna blogginlägg om AI, kurerade som "en känsla för
+  vad jag skrivit rörande vad man kan göra och veta om AI", klickbara till
+  källan. **Research-gång:** två parallella subagenter inventerade
+  fullständigt båda bloggarnas AI-kategorier (`klel.wordpress.com/category/ai/`,
+  74 inlägg över 8 sidor; `controllerutangranser.wordpress.com/category/ai/`,
+  103 inlägg över 11 sidor — 177 inlägg totalt, samtliga paginerade sidor
+  besökta till 404). Urvalet av de tio gjordes rubriks-först på Kents
+  uttryckliga instruktion ("fokusera på själva titlarna"), för att hålla
+  nere researchvolymen på en så stor lista — men varje valt inläggs
+  faktiska innehåll hämtades och kontrollerades (WebFetch) innan
+  bildtexten skrevs, för att inte fabricera en sammanfattning enbart ur
+  rubriken (`kent-meta-regler-for-code` Regel 3). Samtliga tio URL:er
+  HTTP-verifierade (200). Ny `kind` skild från `bibliography` (som bara
+  samlar redan citerade källor) — dokumenterad i `kent-presentationer`
+  Regel 14. Datastruktur: `{title, intro, picks: [{title, url, blog,
+  date, note}]}`, egen renderare i `script.js` som återanvänder
+  `.reference-pane`/`.bib-list`-stilen (ny `.pick-meta`-klass för
+  blogg+datum-taggen). **Verifieringsfälla värd att notera:** den lokala
+  testservern (`python -m http.server`, port 8791) hade en kvardröjande
+  browser-cache av gamla `script.js` som gav ett falskt fel (`project.url`
+  odefinierat) på just det nya slidet — löstes genom att köra om testet på
+  en helt ny port (8793) i en ny flik; koden hade aldrig något fel.
+  Källförteckningens Lundgren-bokstäver (2026a–f i `projects.js`) berördes
+  inte av detta tillägg (ingen av de tio är redan citerad där).

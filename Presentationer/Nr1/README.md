@@ -4,8 +4,9 @@
 
 Självspelande, datadriven presentation av tio AI/webb-projekt, åtta
 årskort (två per år 2023–2026: "Vad som hände" / "Hur jag jobbade") och
-två avslutande referens-slides (begreppslista + källförteckning) — tjugo
-slides totalt, i kronologisk ordning. Viktiga AI-modeller/AI-verktyg är
+tre avslutande referens-slides (begreppslista + källförteckning +
+läslista med tio kurerade blogginlägg) — tjugoen slides totalt, i
+kronologisk ordning. Viktiga AI-modeller/AI-verktyg är
 klickbara första gången de nämns. Årskorten visar olika mycket innehåll
 beroende på vald hastighet (fler fakta vid Seriös än vid Rapp) — se
 `script.js`s tier-system. Byggd enligt
@@ -57,6 +58,7 @@ Redigera `projects.js` — en post per projekt, ingen ändring av
   varje fact har en `tier` (1 = alltid, 2 = lagom+seriös, 3 = bara seriös)
 - `kind: "glossary"` — avslutande slide, alfabetisk lista över alla klickbara begrepp
 - `kind: "bibliography"` — avslutande slide, annoterad Harvard-källförteckning
+- `kind: "readinglist"` — avslutande slide, kurerat urval av Kents egna blogginlägg (skilt från bibliografin, som bara samlar redan citerade källor)
 
 Valfritt fält `promptReveal` på `screenshot`/`code`-poster: visar en fullständig
 text (t.ex. en originalprompt) i en overlay vid hovring eller tryck/klick —
@@ -68,7 +70,7 @@ innan de eventuellt läggs in här — se den filen för rutinen.
 ## Filer
 
 - `index.html` / `style.css` / `script.js` — motorn
-- `projects.js` — allt innehåll (tio projekt + åtta årskort + två referens-slides)
+- `projects.js` — allt innehåll (tio projekt + åtta årskort + tre referens-slides)
 - `glossary.js` — delad ordlista (AI-modeller/AI-verktyg), länkar första förekomsten av varje term
 - `images/` — skärmdumpar av de flesta live-projekten; `Bilder/` — enstaka nyare bilder/GIF:ar (t.ex. Stickfigur Spel)
 - `PRD_presentation_ai_projekt.md` — hela beslutshistoriken
