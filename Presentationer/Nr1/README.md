@@ -3,10 +3,12 @@
 **Live Page (efter publicering):** https://kentlundgren.github.io/AI-teknik/Presentationer/Nr1/
 
 Självspelande, datadriven presentation av tio AI/webb-projekt, åtta
-årskort (två per år 2023–2026: "Vad som hände" / "Hur jag jobbade") och
-tre avslutande referens-slides (begreppslista + källförteckning +
-läslista med tio kurerade blogginlägg) — tjugoen slides totalt, i
-kronologisk ordning. Viktiga AI-modeller/AI-verktyg är
+årskort (två per år 2023–2026: "Vad som hände" / "Hur jag jobbade"), fyra
+årsvisa läslistor (tre kurerade blogginlägg per år, invävda direkt där
+respektive år tar slut i sekvensen) och två avslutande referens-slides
+(begreppslista + källförteckning) — tjugofyra slides totalt, strikt i
+kronologisk ordning (2023 → 2024 → 2025 → 2026, inga undantag). Viktiga
+AI-modeller/AI-verktyg är
 klickbara första gången de nämns. Årskorten visar olika mycket innehåll
 beroende på vald hastighet (fler fakta vid Seriös än vid Rapp) — se
 `script.js`s tier-system. Byggd enligt
@@ -58,7 +60,7 @@ Redigera `projects.js` — en post per projekt, ingen ändring av
   varje fact har en `tier` (1 = alltid, 2 = lagom+seriös, 3 = bara seriös)
 - `kind: "glossary"` — avslutande slide, alfabetisk lista över alla klickbara begrepp
 - `kind: "bibliography"` — avslutande slide, annoterad Harvard-källförteckning
-- `kind: "readinglist"` — avslutande slide, kurerat urval av Kents egna blogginlägg (skilt från bibliografin, som bara samlar redan citerade källor)
+- `kind: "readinglist"` (fält `year`) — årsvis läslista, kurerat urval av Kents egna blogginlägg det året, placerad direkt efter årets sista projekt (skilt från bibliografin, som bara samlar redan citerade källor)
 
 Valfritt fält `promptReveal` på `screenshot`/`code`-poster: visar en fullständig
 text (t.ex. en originalprompt) i en overlay vid hovring eller tryck/klick —
@@ -70,7 +72,7 @@ innan de eventuellt läggs in här — se den filen för rutinen.
 ## Filer
 
 - `index.html` / `style.css` / `script.js` — motorn
-- `projects.js` — allt innehåll (tio projekt + åtta årskort + tre referens-slides)
+- `projects.js` — allt innehåll (tio projekt + åtta årskort + fyra årsvisa läslistor + två avslutande referens-slides)
 - `glossary.js` — delad ordlista (AI-modeller/AI-verktyg), länkar första förekomsten av varje term
 - `images/` — skärmdumpar av de flesta live-projekten; `Bilder/` — enstaka nyare bilder/GIF:ar (t.ex. Stickfigur Spel)
 - `PRD_presentation_ai_projekt.md` — hela beslutshistoriken
@@ -79,3 +81,4 @@ innan de eventuellt läggs in här — se den filen för rutinen.
 - `Kents_work_with_AI.md` — personlig reflektion över hur Kents eget arbetssätt med AI-verktyg utvecklats 2023–2026 (Perplexity → Claude Projects → Claude Code/Cursor/GitHub → Claude 4.6), korsreferererar `Claude_familjen.md`; bruttolista, delmängd blir egna slides i ett senare steg
 - `AI_branschen_brett.md` — bruttolista över hela AI-branschens (inte bara Anthropics) mest häpnadsväckande händelser 2023–2026 (GPT-4, Sora, Llama 3, Altman-dramat, m.fl.), primärkälleverifierad, korsreferererar `Claude_familjen.md` i stället för att duplicera Claude-lanseringarna
 - `Kandidatprojekt.md` — löpande idébank över tänkbara framtida projekt-slides, loggas direkt när ett projekt nämns i konversation
+- `AI_bloggposter_klel.md` / `AI_bloggposter_controllerutangranser.md` — fullständiga, klickbara inventeringar av respektive bloggs AI-kategori (74 + 103 inlägg), underlag för läslistornas urval

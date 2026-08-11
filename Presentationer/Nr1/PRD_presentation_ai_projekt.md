@@ -3,8 +3,8 @@
 **Namn:** PRD_presentation_ai_projekt
 **Plats:** `Presentationer/Nr1/PRD_presentation_ai_projekt.md`
 **Skapad:** 2026-08-04
-**Version:** 35 (Ny avslutande läslista-slide, `kind: "readinglist"`, se Ändringslogg v35)
-**Status:** Tjugoen slides totalt (tio projekt + åtta årskort + tre avslutande referens-slides), i kronologisk ordning med månadsprecision där den finns. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Tre bruttolistor (`Claude_familjen.md`, `Kents_work_with_AI.md`, `AI_branschen_brett.md`) matade in en delmängd i årskorten, och en fjärde (`Kandidatprojekt.md`) fångar tänkbara framtida projekt-slides löpande. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt).
+**Version:** 36 (Läslistan omgjord till fyra årsvisa slides, invävda i tidsordningen, se Ändringslogg v36)
+**Status:** Tjugofyra slides totalt (tio projekt + åtta årskort + fyra årsvisa läslistor + två avslutande referens-slides), strikt i kronologisk ordning — hela presentationen, inklusive de nya läslistorna, går 2023 → 2024 → 2025 → 2026 utan undantag. Automatisk uppspelning (rapp som standard), full manuell styrning, separat fil för presentatörsanteckningar. Tre bruttolistor (`Claude_familjen.md`, `Kents_work_with_AI.md`, `AI_branschen_brett.md`) matade in en delmängd i årskorten, och ytterligare två (`Kandidatprojekt.md`, samt `AI_bloggposter_klel.md`/`AI_bloggposter_controllerutangranser.md`) håller löpande överblick/kandidater. Enda kvarvarande öppna frågan är 4d (var/när visas fysiskt).
 **Typ:** Grund-PRD (helt nytt projekt)
 
 > **Viktig utgångspunkt, oavsett hur lång den här PRD:n blir:** den här
@@ -1254,3 +1254,40 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   en helt ny port (8793) i en ny flik; koden hade aldrig något fel.
   Källförteckningens Lundgren-bokstäver (2026a–f i `projects.js`) berördes
   inte av detta tillägg (ingen av de tio är redan citerad där).
+- 2026-08-11 (v36): **Läslistan omgjord från ett enda avslutande slide till
+  fyra årsvisa**, på Kents uttryckliga begäran: "Hela presentationen tänker
+  jag ska vara i tidsordning" (2023 → 2024 → 2025 → 2026, inga undantag).
+  `id: "blogglasning"` ersatt av `blogglasning-2023/2024/2025/2026`, varje
+  post placerad direkt efter den sista posten för sitt år (t.ex.
+  `blogglasning-2023` mellan `transkribering` och `year-2024-tech`) i
+  stället för samlade sist. Innehållet gjordes om i samma veva, inte bara
+  omplacerat — de ursprungliga tio var starkt skevt fördelade (0 från 2023,
+  7 av 10 från 2025), vilket hade gett ett tomt 2023-slide om de bara
+  delats upp som de var. Nytt urval: tre poster per år (12 totalt),
+  balanserat 6/6 mellan de två bloggarna. Sex nya poster fick sitt
+  sakinnehåll research:at och verifierat (WebFetch) på samma sätt som
+  original-tio: "Tankar kring verktyg inom AI som chatGPT" (2023),
+  "Hur värnar vi rättssäkerheten..." (2023), "Cash and Conscience: AI's
+  Green Business Boost" (2023), "Generativ AI svenska kommuner" (2024),
+  "'AI' – mer än ett buzzword..." (2026), "Kan vi lita på AI:n som kör
+  bilen?" (2026). Samtliga nya URL:er HTTP-verifierade (200). Ny
+  `.ref-year`-badge (mörkblå pill, samma färg som `--navy`) tillagd i
+  `readinglist`-renderaren i `script.js` och egen CSS-regel i
+  `style.css`, så varje läslista tydligt visar sitt årtal — samma
+  visuella funktion som milstolpe-/year-card-badgen fyller för
+  årtalskorten, fast anpassad för `reference-pane`s ljusa bakgrund.
+  **Layoutbugg samtidigt upptäckt och fixad** (Kent bifogade en skärmdump
+  med tre pilar): titel-länken hade av misstag återanvänt `.bib-list a`
+  — en klass gjord för källförteckningens små, dämpade url-länkar — vilket
+  fick rubrik och bloggnamn att se hopklistrade ut trots ett mellanslag i
+  koden. Löst med en egen `.pick-title`-klass (ink-färgad, 0.92rem,
+  fetstil) och genom att göra `.pick-meta` till `display: block` (egen
+  rad) i stället för `inline-block` — tre tydliga rader (titel/bloggkälla+
+  datum/not) i stället för ett enda visuellt stråk. Verifierat med en
+  riktig skärmdump efter fixen, inte bara DOM-textinnehåll. Två nya
+  bruttolistor skapade på Kents förslag: `AI_bloggposter_klel.md` (74
+  inlägg) och `AI_bloggposter_controllerutangranser.md` (103 inlägg) —
+  fullständiga, klickbara inventeringar av respektive blogg, sparade som
+  återanvändbart researchunderlag i stället för att kastas efter
+  urvalet. `kent-presentationer`-skillens Regel 14 uppdaterad i samma
+  veva.

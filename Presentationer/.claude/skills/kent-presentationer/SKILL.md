@@ -381,17 +381,39 @@ sekvensen med egna `kind`-slides innan loopen går runt igen:
   projekt-`source`-länkar) plus egna blogginlägg. En källa citerad inline
   ska alltid ha en fullständig motsvarighet här — annars är citeringen
   ofullständig.
-- `kind: "readinglist"` (tillagt 2026-08-11, `Nr1` Ändringslogg v35) — skild
-  från `bibliography`: inte källor som redan citerats i presentationen, utan
-  ett fristående, kurerat urval av Kents egna blogginlägg om ämnet (t.ex. tio
-  länkar av flera hundra, valda för att ge "en känsla för vad jag skrivit").
-  Struktur: `{title, intro, picks: [{title, url, blog, date, note}]}` — varje
-  `note` ska spegla inläggets faktiska innehåll (hämtat/verifierat, inte
-  gissat fram enbart ur rubriken), även om **urvalet** av vilka poster som
-  tas med kan göras rubrik-först för att hålla nere researchvolymen på en
-  stor blogg-kategori (Kents egen instruktion: "fokusera på själva
-  titlarna" vid gallring bland många kandidater — men verifiera sedan
-  innehållet i de som faktiskt väljs). Placeras sist, efter `bibliography`.
+- `kind: "readinglist"` (tillagt 2026-08-11, `Nr1` Ändringslogg v35/v36) —
+  skild från `bibliography`: inte källor som redan citerats i
+  presentationen, utan ett fristående, kurerat urval av Kents egna
+  blogginlägg om ämnet, valt för att ge "en känsla för vad jag skrivit".
+  Struktur: `{year, title, intro, picks: [{title, url, blog, date, note}]}`
+  — `year` renderas som en liten badge (`.ref-year`) ovanför rubriken,
+  samma princip som årskortens badge fast anpassad för `reference-pane`s
+  ljusa bakgrund. Varje `note` ska spegla inläggets faktiska innehåll
+  (hämtat/verifierat, inte gissat fram enbart ur rubriken), även om
+  **urvalet** av vilka poster som tas med kan göras rubrik-först för att
+  hålla nere researchvolymen på en stor blogg-kategori (Kents egen
+  instruktion: "fokusera på själva titlarna" vid gallring bland många
+  kandidater — men verifiera sedan innehållet i de som faktiskt väljs).
+
+  **Placering — vävd in i tidsordningen, inte samlad sist** (Kent
+  förtydligade detta uttryckligen i `Nr1`, v36, efter att en första version
+  la alltihop som ett enda slide sist): om presentationen som helhet är
+  organiserad kronologiskt per år (year-cards, projekt daterade per år),
+  ska en läslista av den här typen delas upp **en post per år** och
+  placeras direkt efter årets sista faktiska innehåll, före nästa års
+  year-card — inte klumpas ihop i en enda avslutande slide. Kontrollera
+  att varje års delmängd faktiskt har egna kandidater (en naiv uppdelning
+  av ett redan gjort urval kan råka lämna ett år tomt om urvalet gjordes
+  utan hänsyn till årsbalans — omvärdera urvalet, inte bara ompositionera
+  det). `glossary`/`bibliography` förblir sist, efter samtliga årsvisa
+  läslistor — de är inte tidsbundna på samma sätt.
+
+  **Stödfiler:** om researchen för urvalet innebär att hela en bloggs
+  kategori paginerades igenom, spara den fullständiga inventeringen som en
+  egen bruttolista (`AI_bloggposter_<blogg>.md`, klickbara rubriker,
+  kronologisk ordning) i stället för att kasta bort den — samma
+  bruttolista-först-urval-sen-princip som `Kandidatprojekt.md` och
+  `Claude_familjen.md` redan följer.
 
 Låt samtliga respektera vald hastighet (`rapp`/`lagom`/`serios`) i stället
 för milstolparnas fasta korta visningstid — de har mer text än ett
@@ -496,3 +518,21 @@ byggs.
   rubrik-först (Kents uttryckliga instruktion, för att hålla nere
   researchvolymen) och sedan verifiera sakinnehållet i endast de tio som
   faktiskt valdes — se `Nr1`s PRD, Ändringslogg v35.
+- 2026-08-11 (v12): Regel 14 omskriven samma dag efter att Kent
+  förtydligade att en läslista av `readinglist`-typ ska **vävas in i
+  tidsordningen** (en post per år, direkt efter årets sista innehåll) i
+  stället för klumpas ihop sist — den första versionen (v11) hade fel
+  antagande. Ett omtag på urvalet krävdes också, inte bara en
+  ompositionering: det ursprungliga urvalet var skevt (0 poster från 2023,
+  7 av 10 från 2025) och hade lämnat ett tomt 2023-slide om det bara
+  delats upp som det var. Ny stödfil-regel: spara en hel bloggkategoris
+  pagineringsresultat som egen `AI_bloggposter_<blogg>.md`-bruttolista i
+  stället för att kasta bort researchen. **Design-lärdom tillagd:**
+  återanvänd inte en CSS-klass mellan två visuellt olika roller — `Nr1`
+  fick ett äkta layoutfel (rubrik och bloggnamn såg hopklistrade ut) för
+  att en ny länktyp (en framträdande, klickbar rubrik) återanvände en
+  klass gjord för en annan roll (källförteckningens små, dämpade
+  url-länkar). Ett mellanslag i markupen räcker inte om de två elementens
+  CSS gör dem visuellt identiska — ge nya roller egna klasser, och
+  verifiera med en riktig skärmdump (inte bara DOM-textinnehåll, som döljer
+  visuella radbrytningar `display: block` ger).
