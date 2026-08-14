@@ -424,7 +424,19 @@
             padding: .7rem .9rem;
             margin-top: 0;
         }
+        .prompt-text h3 {
+            color: var(--primary-color);
+            margin: 1.1rem 0 .3rem;
+            font-size: 1rem;
+        }
+        .prompt-text h3:first-child { margin-top: 0; }
         .prompt-text p { margin: .3rem 0 .6rem; white-space: pre-line; }
+        .prompt-text code {
+            background: var(--bg-color);
+            padding: .05rem .3rem;
+            border-radius: 3px;
+            font-size: .9em;
+        }
     </style>
 </head>
 <body>
@@ -726,6 +738,24 @@
       </p>
 
       <article class="prompt-text">
+        <h3>Så fungerar det tekniskt</h3>
+        <p><strong>Reaktiv uppdatering (ingen "beräkna"-knapp):</strong> varje indatafält har ett
+        <code>oninput="calculate()"</code>-attribut direkt i HTML:en. Det innebär att den
+        centrala funktionen <code>calculate()</code> körs på nytt varje gång du skriver eller
+        ändrar ett värde — den läser alla indatafält, gör om samtliga beräkningar och skriver in
+        de nya resultaten direkt i sidan. Ingen sidladdning, inget separat knapptryck, inget
+        ramverk (React eller liknande) — bara vanlig JavaScript kopplad till fältens
+        input-händelser.</p>
+        <p><strong>Anpassning till dator, platta och mobil:</strong> sidan har en
+        <code>viewport</code>-metatagg som säkerställer korrekt skalning på mindre skärmar.
+        Layouten med två kolumner (<code>.grid-container</code>, CSS Grid) går automatiskt över
+        till en enda kolumn under 900 pixlers bredd via en <code>@media</code>-regel, så korten
+        staplas i stället för att klämmas ihop på platta och mobil. Resultattabellen ligger i en
+        egen ruta med <code>overflow-x: auto</code>, så en bred tabell går att scrolla i sidled
+        i stället för att förstöra layouten på smala skärmar. Allt löses med vanlig CSS — ingen
+        separat mobilversion och ingen JavaScript-baserad enhetsdetektering.</p>
+
+        <h3>Ursprunglig prompt (ordagrant)</h3>
         <p>Kan du göra en vindkraftskalkyl, kodad i html, css och JavaScript, en kalkyl för vindkraftsverk, som tydligt visar vilka antaganden som görs, vilka indata man kan ange, samt tydligt visar utdata, resultatet. Jag vill latt indatafälten, de data, uppgifter, man själv kan ändra på - de fälten ska vara ljust gula (så att man tydligt ser att dessa värden, indata, kan man ändra på - och därmed få ett ändrat resultat. Som defaultvärden vill jag att du räknar på ett vindkraftsverk på 4 MW. Ange på slutet referenser, källor, i Hardvadstil, Harvadformat, med länkar - jag vill att du kontrollerar att länkarna fungerar och är relevanta, samt anger en "notion" sist, dvs en kort beskrivning som sammanfattar källan, och/eller beskriver varför källan är med.</p>
         <p>Fråga om något är oklart. Jag vill att vi ska vara överens om uppgiften, innan du börjar koda.</p>
       </article>
