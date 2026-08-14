@@ -317,6 +317,114 @@
             color: #4a5568;
             font-style: italic;
         }
+
+        /* ==========================================================================
+           GITHUB-LÄNK & TEKNIK-MODAL (tillagt 2026-08-14)
+           Samma mönster som i kentlundgren/Vindkraft: diskret GitHub-länk nere till
+           vänster, flytande teknik-knapp nere till höger som öppnar en modal med den
+           ursprungliga prompten, för transparens.
+           ========================================================================== */
+
+        .github-lank {
+            position: fixed;
+            left: 1.1rem;
+            bottom: 1.1rem;
+            z-index: 1000;
+            display: inline-flex;
+            align-items: center;
+            gap: .3rem;
+            padding: .4rem .7rem;
+            font-size: .82rem;
+            font-weight: 600;
+            font-family: "Consolas", "Courier New", monospace;
+            color: #40504d;
+            background: rgba(255,255,255,0.85);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            text-decoration: none;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+            opacity: .8;
+        }
+        .github-lank:hover {
+            opacity: 1;
+            color: var(--primary-color);
+            border-color: var(--primary-light);
+        }
+        .github-lank:focus { outline: 3px solid var(--input-focus); outline-offset: 2px; }
+
+        .teknik-knapp {
+            position: fixed;
+            right: 1.1rem;
+            bottom: 1.1rem;
+            z-index: 1000;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: .7rem 1.1rem;
+            font-size: .9rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.28);
+        }
+        .teknik-knapp:hover { background: var(--primary-light); }
+        .teknik-knapp:focus { outline: 3px solid var(--input-focus); outline-offset: 2px; }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 1001;
+            background: rgba(0,0,0,0.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .modal-overlay[hidden] { display: none; }
+
+        .modal-ruta {
+            background: var(--card-bg);
+            border-radius: 10px;
+            max-width: 820px;
+            width: 100%;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+            overflow: hidden;
+        }
+        .modal-huvud {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: .9rem 1.2rem;
+            background: var(--primary-color);
+            color: #fff;
+        }
+        .modal-huvud h2 { margin: 0; font-size: 1.15rem; color: #fff; border: none; }
+        .modal-stang {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 1.8rem;
+            line-height: 1;
+            cursor: pointer;
+            padding: 0 .3rem;
+        }
+        .modal-stang:hover { opacity: .8; }
+
+        .modal-innehall {
+            padding: 1.2rem 1.4rem;
+            overflow-y: auto;
+        }
+        .modal-meta {
+            background: var(--bg-color);
+            border-left: 4px solid var(--primary-light);
+            border-radius: 4px;
+            padding: .7rem .9rem;
+            margin-top: 0;
+        }
+        .prompt-text p { margin: .3rem 0 .6rem; white-space: pre-line; }
     </style>
 </head>
 <body>
@@ -584,6 +692,48 @@
 </div>
 
 <!-- ==========================================================================
+     GITHUB-LÄNK & TEKNIK-MODAL (tillagt 2026-08-14)
+     Diskret länk till repot nere till vänster, och en flytande teknik-knapp
+     nere till höger som öppnar en modal med den ursprungliga prompten till
+     Gemini 3, för transparens. Samma mönster som i kentlundgren/Vindkraft.
+     ========================================================================== -->
+<a id="github-lank" class="github-lank"
+   href="https://github.com/kentlundgren/AI-teknik/tree/main/Vindkraft/260814/Gemini3"
+   target="_blank" rel="noopener"
+   title="Öppna projektets kod på GitHub">
+  &#123; &#125; GitHub
+</a>
+
+<button id="teknik-knapp" class="teknik-knapp" type="button"
+        aria-haspopup="dialog" aria-controls="teknik-modal"
+        title="Visa den ursprungliga prompten (transparens)">
+  &#9881; Teknik &amp; prompt
+</button>
+
+<div id="teknik-modal" class="modal-overlay" role="dialog" aria-modal="true"
+     aria-labelledby="teknik-modal-rubrik" hidden>
+  <div class="modal-ruta">
+    <div class="modal-huvud">
+      <h2 id="teknik-modal-rubrik">Teknik &amp; ursprunglig prompt</h2>
+      <button id="teknik-stang" class="modal-stang" type="button" aria-label="Stäng">&times;</button>
+    </div>
+
+    <div class="modal-innehall">
+      <p class="modal-meta">
+        Detta verktyg skapades med språkmodellen <strong>Gemini 3</strong>.
+        För full transparens visas nedan den <strong>ursprungliga prompten</strong> ordagrant –
+        instruktionen som verktyget bygger på.
+      </p>
+
+      <article class="prompt-text">
+        <p>Kan du göra en vindkraftskalkyl, kodad i html, css och JavaScript, en kalkyl för vindkraftsverk, som tydligt visar vilka antaganden som görs, vilka indata man kan ange, samt tydligt visar utdata, resultatet. Jag vill latt indatafälten, de data, uppgifter, man själv kan ändra på - de fälten ska vara ljust gula (så att man tydligt ser att dessa värden, indata, kan man ändra på - och därmed få ett ändrat resultat. Som defaultvärden vill jag att du räknar på ett vindkraftsverk på 4 MW. Ange på slutet referenser, källor, i Hardvadstil, Harvadformat, med länkar - jag vill att du kontrollerar att länkarna fungerar och är relevanta, samt anger en "notion" sist, dvs en kort beskrivning som sammanfattar källan, och/eller beskriver varför källan är med.</p>
+        <p>Fråga om något är oklart. Jag vill att vi ska vara överens om uppgiften, innan du börjar koda.</p>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
      JAVASCRIPT (Beräkningslogik & Dynamisk Uppdatering)
      ========================================================================== -->
 <script>
@@ -719,6 +869,29 @@
 
     // Kör beräkningen direkt vid inläsning av sidan för standardvärdena (4 MW)
     window.onload = calculate;
+
+    /* ==========================================================================
+       TEKNIK-MODAL: öppna/stäng (tillagt 2026-08-14)
+       Ingen påverkan på beräkningarna. Modalen öppnas när knappen klickas och
+       stängs via stängknappen, klick på den mörka bakgrunden eller Escape.
+       ========================================================================== */
+    function kopplaTeknikModal() {
+        const knapp = document.getElementById('teknik-knapp');
+        const modal = document.getElementById('teknik-modal');
+        const stang = document.getElementById('teknik-stang');
+        if (!knapp || !modal || !stang) return;
+
+        function oppna() { modal.hidden = false; }
+        function stangModal() { modal.hidden = true; }
+
+        knapp.addEventListener('click', oppna);
+        stang.addEventListener('click', stangModal);
+        modal.addEventListener('click', (e) => { if (e.target === modal) stangModal(); });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.hidden) stangModal();
+        });
+    }
+    document.addEventListener('DOMContentLoaded', kopplaTeknikModal);
 </script>
 
 </body>
