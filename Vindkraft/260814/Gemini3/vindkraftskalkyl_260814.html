@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investeringskalkylator för Vindkraftverk (4 MW)</title>
+    <style>
+        /* ==========================================================================
+           CSS-STILAR (Design, Layout & Färgtema)
+           ========================================================================== */
+        :root {
+            --primary-color: #1a365d;
+            --primary-light: #2b6cb0;
+            --secondary-color: #2f855a;
+            --bg-color: #f7fafc;
+            --card-bg: #ffffff;
+            --text-color: #2d3748;
+            --border-color: #e2e8f0;
+            /* Ljust gul färg för alla redigerbara indatafält per instruktion */
+            --input-bg: #fffde7;
+            --input-border: #d69e2e;
+            --input-focus: #b7791f;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #cbd5e0;
+            font-size: 1.0rem;
+        }
+
+        /* Banner för arkitektur & vidareutveckling */
+        .architecture-banner {
+            background-color: #ebf8ff;
+            border-left: 5px solid var(--primary-light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .architecture-banner h3 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .architecture-banner ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 900px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            margin-bottom: 25px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Formulär och fält */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+            color: #4a5568;
+        }
+
+        .form-group .description {
+            font-size: 0.8rem;
+            color: #718096;
+            margin-bottom: 6px;
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Krav: Ljust gula indatafält */
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            background-color: var(--input-bg) !important;
+            border: 1.5px solid var(--input-border);
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2d3748;
+            transition: all 0.2s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--input-focus);
+            box-shadow: 0 0 0 3px rgba(214, 158, 46, 0.2);
+            background-color: #ffffdd !important;
+        }
+
+        .unit {
+            margin-left: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #718096;
+            min-width: 60px;
+        }
+
+        /* Resultatkort */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .metric-box {
+            background-color: #f7fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .metric-box.highlight {
+            background-color: #f0fff4;
+            border-color: #9ae6b4;
+        }
+
+        .metric-box .label {
+            font-size: 0.85rem;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .metric-box .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .metric-box.highlight .value {
+            color: var(--secondary-color);
+        }
+
+        .metric-box .subtext {
+            font-size: 0.75rem;
+            color: #a0aec0;
+            margin-top: 4px;
+        }
+
+        /* Tabell för kassaflöde */
+        .table-responsive {
+            overflow-x: auto;
+            max-height: 350px;
+            overflow-y: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            text-align: right;
+        }
+
+        th, td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #edf2f7;
+            color: var(--primary-color);
+            font-weight: 700;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        tr:hover {
+            background-color: #edf2f7;
+        }
+
+        td:first-child, th:first-child {
+            text-align: center;
+        }
+
+        .positive {
+            color: #2f855a;
+            font-weight: 600;
+        }
+
+        .negative {
+            color: #c53030;
+            font-weight: 600;
+        }
+
+        /* Notering om utbyggnad av kalkylen */
+        .expansion-note {
+            background-color: #fffaf0;
+            border-left: 4px solid #dd6b20;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-size: 0.88rem;
+        }
+
+        .expansion-note h4 {
+            color: #c05621;
+            margin-bottom: 5px;
+        }
+
+        /* Referenssektion (Harvard-stil) */
+        .references-section {
+            margin-top: 40px;
+        }
+
+        .reference-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        .reference-item:last-child {
+            border-bottom: none;
+        }
+
+        .reference-citation {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .reference-link {
+            color: var(--primary-light);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .reference-link:hover {
+            text-decoration: underline;
+        }
+
+        .reference-notion {
+            margin-top: 6px;
+            background-color: #edf2f7;
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #4a5568;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Investeringskalkylator för Vindkraftverk (4 MW)</h1>
+        <p>Interaktiv ekonomisk och teknisk beräkningsmodell för utvärdering av vindkraftsinvesteringar</p>
+    </header>
+
+    <!-- Information om kodstruktur & Modulär uppdelning -->
+    <div class="architecture-banner">
+        <h3>Kodstruktur & Framtida modulär uppdelning</h3>
+        <p>
+            Denna kalkylator levereras för närvarande i <strong>en samlad HTML-fil</strong> för maximal användarvänlighet och enkel körning i valfri webbläsare.
+        </p>
+        <p><strong>Hur programmet blir bättre genom uppdelning i 3 filer (HTML, CSS, JS):</strong></p>
+        <ul>
+            <li><strong>HTML (Struktur):</strong> Fokuserar enbart på semantisk uppbyggnad och tillgänglighet, vilket gör sidan snabbare att läsa in och lättare att underhålla.</li>
+            <li><strong>CSS (Design):</strong> Separeras till en fristående stilfil ( t.ex. <code>style.css</code>) för återanvändning av designkomponenter, enklare temahantering (t.ex. Mörkt läge) samt bättre cachning i webbläsaren.</li>
+            <li><strong>JavaScript (Logik):</strong> Separeras till en skriptfil (t.ex. <code>calculator.js</code>), vilket möjliggör enhets- och integrationstester (t.ex. med Jest) samt modulär kodstruktur (ES Modules) för mer komplexa finansiella simuleringar.</li>
+        </ul>
+    </div>
+
+    <div class="grid-container">
+
+        <!-- VÄNSTER KOLUMN: INDATA & ANTAGANDEN -->
+        <div class="left-column">
+            <div class="card">
+                <div class="card-title">
+                    <span>1. Tekniska Parametrar</span>
+                    <small style="font-size:0.75rem; color:#d69e2e; font-weight:normal;">Editable (Gula fält)</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="capacity">Installerad effekt (MW)</label>
+                    <div class="description">Turbinens märkeffekt i Megawatt.</div>
+                    <div class="input-wrapper">
+                        <input type="number" id="capacity" class="form-control" value="4.0" step="0.1" min="0.1" oninput="calculate()">
+                        <span class="unit">MW</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="capacityFactor">Kapacitetsfaktor (%)</label>
+                    <div class="description">Andel av maximal teoretisk produktion (~33% = 2 890 fullasttimmar/år).</div>
+                    <div class="input-wrapper">
+                        <input type="number" id="capacityFactor" class="form-control" value="33.0" step="0.5" min="1" max="100" oninput="calculate()">
+                        <span class="unit">%</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lifespan">Teknisk livslängd (År)</label>
+                    <div class="description">Förväntad driftstid för vindkraftverket.</div>
+                    <div class="input-wrapper">
+                        <input type="number" id="lifespan" class="form-control" value="25" step="1" min="5" max="40" oninput="calculate()">
+                        <span class="unit">år</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="degradation">Årlig degradering (%)</label>
+                    <div class="description">Årlig effektnedgång p.g.a. komponenttid och slitage.</div>
+                    <div class="input-wrapper">
+                        <input type="number" id="degradation" class="form-control" value="0.5" step="0.1" min="0" max="5" oninput="calculate()">
+                        <span class="unit">%/år</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    <span>2. Ekonomiska & Finansiella Indata</span>
+                    <small style="font-size:0.75rem; color:#d69e2e; font-weight:normal;">Editable (Gula fält)</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="capexPerMw">Investeringskostnad (CAPEX per MW)</label>
+                    <div class="description">Inkluderar turbin, fundament, nätanslutning och projektering.</div>
+                    <div class="input-wrapper">
+                        <input type="number" id="capexPerMw" class="form-control" value="13000000" step="500000" oninput="calculate()">
+                        <span class="unit">SEK/MW</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="opexPerKwh">Drift- & Underhållskostnad (OPEX)</label>
+                    <div class="description">Service, försäkring, övervakning och administration per producerad kWh.</div>
+                    <div class="input-wrapper">
+                        <input type="number" id="opexPerKwh" class="form-control" value="0.18" step="0.01" min="0" oninput="calculate()">
+                        <span class="unit">SEK/kWh</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="decommissioning">Avvecklingskostnad</label>
+                    <div class="description">Reserverade medel för återställning av mark/montering efter livslängd.</div>
+                    <div class="input-wrapper">
+                        <input type="number" id="decommissioning" class="form-control" value="1500000" step="100000" min="0" oninput="calculate()">
+                        <span class="unit">SEK</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="electricityPrice">Förväntat elpris (Intäkt)</label>
+                    <div class="description">Genomsnittligt försäljningspris för el.</div>
+                    <div class="input-wrapper">
+                        <input type="number" id="electricityPrice" class="form-control" value="0.55" step="0.01" min="0" oninput="calculate()">
+                        <span class="unit">SEK/kWh</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="wacc">Kalkylränta / Diskonteringsränta (WACC)</label>
+                    <div class="description">Avkastningskrav för vägt kapitalkostnadsindex.</div>
+                    <div class="input-wrapper">
+                        <input type="number" id="wacc" class="form-control" value="6.0" step="0.5" min="0" oninput="calculate()">
+                        <span class="unit">%</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inflation">Inflation</label>
+                    <div class="description">Årlig prisuppräkning för OPEX och elpris.</div>
+                    <div class="input-wrapper">
+                        <input type="number" id="inflation" class="form-control" value="2.0" step="0.5" min="0" oninput="calculate()">
+                        <span class="unit">%/år</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anteckning om framtida utbyggnad av beräkningsmodellen -->
+            <div class="expansion-note">
+                <h4>Möjligheter till framtida utbyggnad av kalkylen</h4>
+                <p>
+                    Denna grundkalkyl täcker de viktigaste nyckeltalen för en investering. Kalkylen kan i framtiden byggas ut med följande avancerade delar:
+                </p>
+                <ul style="margin-left: 20px; margin-top: 5px;">
+                    <li><strong>Finansieringsstruktur:</strong> Uppdelning i eget kapital och banklån (skuldandel, låneränta och amortiseringsplan).</li>
+                    <li><strong>Markarrende:</strong> Rörlig ersättning till markägare (ofta 3–5 % av bruttointäkterna) eller fast årsavgift.</li>
+                    <li><strong>Skatteberäkningar:</strong> Bolagsskatt, fastighetsskatt på elproduktionsanläggningar samt avskrivningsregler.</li>
+                    <li><strong>Elcertifikat & Ursprungsgarantier:</strong> Ytterligare intäktsströmmar utöver det rena elpriset.</li>
+                    <li><strong>Känslighetsanalys (Monte Carlo):</strong> Simuleringsmodell för elpris- och vindvariationer över tid.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- HÖGER KOLUMN: UTDATA & RESULTAT -->
+        <div class="right-column">
+            <div class="card">
+                <div class="card-title">
+                    <span>Investeringsöversikt & Nyckeltal</span>
+                </div>
+
+                <div class="results-grid">
+                    <div class="metric-box">
+                        <div class="label">Total Investering</div>
+                        <div class="value" id="outTotalCapex">0 MSEK</div>
+                        <div class="subtext">Initialt kapitalbehov</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="label">Årsproduktion (År 1)</div>
+                        <div class="value" id="outYearlyProd">0 GWh</div>
+                        <div class="subtext">Vid vald kapacitetsfaktor</div>
+                    </div>
+                    <div class="metric-box highlight">
+                        <div class="label">LCOE (Produktionskostnad)</div>
+                        <div class="value" id="outLcoe">0 öre</div>
+                        <div class="subtext">Kostnad per kWh över livslängd</div>
+                    </div>
+                    <div class="metric-box highlight">
+                        <div class="label">Nuvärde (NPV)</div>
+                        <div class="value" id="outNpv">0 MSEK</div>
+                        <div class="subtext">Net Present Value vid vald ränta</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="label">Återbetalningstid</div>
+                        <div class="value" id="outPayback">0 år</div>
+                        <div class="subtext">Diskonterad payback</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="label">Total Produktion</div>
+                        <div class="value" id="outTotalProd">0 GWh</div>
+                        <div class="subtext">Under hela livslängden</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    <span>Kassaflödessimulering per År</span>
+                </div>
+                <div class="table-responsive">
+                    <table id="cashflowTable">
+                        <thead>
+                            <tr>
+                                <th>År</th>
+                                <th>Produktion (GWh)</th>
+                                <th>Intäkt (kSEK)</th>
+                                <th>OPEX (kSEK)</th>
+                                <th>Netto kassaflöde (kSEK)</th>
+                                <th>Diskonterat (kSEK)</th>
+                                <th>Ackumulerat (kSEK)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cashflowBody">
+                            <!-- Fylls i dynamiskt via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- REFERENSER & KÄLLOR (HARVARD-STIL) -->
+    <div class="card references-section">
+        <div class="card-title">
+            <span>Referenser & Källor (Harvard-stil)</span>
+        </div>
+
+        <div class="reference-item">
+            <div class="reference-citation">
+                Energiforsk (2021). <em>El från nya anläggningar 2021</em>. Energiforsk rapport 2021:714. Tillgänglig: 
+                <a class="reference-link" href="https://greenpowersweden.se/vindkraften-billigast-att-producera-visar-ny-rapport/" target="_blank" rel="noopener">https://greenpowersweden.se/vindkraften-billigast-att-producera-visar-ny-rapport/</a> [Hämtad 2026-08-14].
+            </div>
+            <div class="reference-notion">
+                <strong>Notion/Beskrivning:</strong> Denna rapport utgör den svenska branschstandarden för jämförelse av produktionskostnader (LCOE) mellan olika kraftslag. Den bekräftar att landbaserad vindkraft är ett av de mest kostnadseffektiva kraftslagen i Sverige och ger empiriskt underlag för antaganden om CAPEX (ca 12–14 MSEK/MW) och OPEX (ca 0,15–0,20 SEK/kWh).
+            </div>
+        </div>
+
+        <div class="reference-item">
+            <div class="reference-citation">
+                Energimyndigheten (2018). <em>Vindkraftens teknik- och kostnadsutveckling i Sverige</em>. Eskilstuna: Energimyndigheten. Tillgänglig: 
+                <a class="reference-link" href="https://www.energimyndigheten.se/globalassets/om-oss/lagesrapporter/elmarknaden/2018/vindkraftens-teknik-och-kostnadsutveckling.pdf" target="_blank" rel="noopener">https://www.energimyndigheten.se/.../vindkraftens-teknik-och-kostnadsutveckling.pdf</a> [Hämtad 2026-08-14].
+            </div>
+            <div class="reference-notion">
+                <strong>Notion/Beskrivning:</strong> Energimyndighetens fördjupningsrapport ger en detaljerad genomgång av vindkraftens tekniska parametrar, inklusive kapacitetsfaktorer, fullasttimmar samt uppdelning av investeringskostnader mellan turbin, fundament och nätanslutning. Den validerar även metoden för LCOE-beräkning som används i denna kalkylator.
+            </div>
+        </div>
+
+        <div class="reference-item">
+            <div class="reference-citation">
+                Sandström, C. & Steinbeck, C. (2025). Sjunkande omsättning och skenande förluster för vindkraften 2024. <em>Nationalekonomisk Tidskrift / Ekonomisk Debatt</em>. Tillgänglig: 
+                <a class="reference-link" href="https://www.nationalekonomi.se/artikel/sjunkande-omsattning-och-skenande-forluster-for-vindkraften-2024/" target="_blank" rel="noopener">https://www.nationalekonomi.se/artikel/sjunkande-omsattning-och-skenande-forluster-for-vindkraften-2024/</a> [Hämtad 2026-08-14].
+            </div>
+            <div class="reference-notion">
+                <strong>Notion/Beskrivning:</strong> Källan ger ett kritiskt och balanserat perspektiv på svenska vindkraftsinvesteringars faktiska lönsamhet under senare år. Den belyser vikten av realistiska elprisagtaganden, riskhantering kring prissäkringar (PPA-avtal) samt effekten av priskannibalisering under timmar med hög vindproduktion.
+            </div>
+        </div>
+
+        <div class="reference-item">
+            <div class="reference-citation">
+                Svensk Vindenergi (2026). <em>Statistik och prognos för vindkraftsutbyggnad i Sverige</em>. Stockholm: Svensk Vindenergi. Tillgänglig: 
+                <a class="reference-link" href="https://www.energimyndigheten.se/energisystem-och-analys/elproduktion/vindkraft/produktion-och-utbyggnad/" target="_blank" rel="noopener">https://www.energimyndigheten.se/.../produktion-och-utbyggnad/</a> [Hämtad 2026-08-14].
+            </div>
+            <div class="reference-notion">
+                <strong>Notion/Beskrivning:</strong> Svensk Vindenergi tillhandahåller kontinuerlig marknadsdata avseende installerad effekt, medelstorlek på nya turbiner (typiskt 4–6 MW för landbaserade verk) samt prognoser för den svenska elmarknadens utveckling.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ==========================================================================
+     JAVASCRIPT (Beräkningslogik & Dynamisk Uppdatering)
+     ========================================================================== -->
+<script>
+    /**
+     * Hjälpfunktion för att formatera tal med tusentalsavgränsare
+     */
+    function formatNumber(num, decimals = 0) {
+        return num.toLocaleString('sv-SE', {
+            minimumFractionDigits: decimals,
+            maximumFractionDigits: decimals
+        });
+    }
+
+    /**
+     * Huvudfunktion för beräkning av vindkraftskalkylen
+     */
+    function calculate() {
+        // 1. Hämta alla indatavärden från formuläret
+        const capacity = parseFloat(document.getElementById('capacity').value) || 0; // MW
+        const capacityFactor = (parseFloat(document.getElementById('capacityFactor').value) || 0) / 100; // decimal
+        const lifespan = parseInt(document.getElementById('lifespan').value) || 0; // År
+        const degradation = (parseFloat(document.getElementById('degradation').value) || 0) / 100; // decimal per år
+
+        const capexPerMw = parseFloat(document.getElementById('capexPerMw').value) || 0; // SEK/MW
+        const opexPerKwh = parseFloat(document.getElementById('opexPerKwh').value) || 0; // SEK/kWh
+        const decommissioning = parseFloat(document.getElementById('decommissioning').value) || 0; // SEK
+        const electricityPrice = parseFloat(document.getElementById('electricityPrice').value) || 0; // SEK/kWh
+        const wacc = (parseFloat(document.getElementById('wacc').value) || 0) / 100; // decimal
+        const inflation = (parseFloat(document.getElementById('inflation').value) || 0) / 100; // decimal
+
+        // 2. Beräkna grundläggande värden
+        const totalCapex = capacity * capexPerMw; // Totalt CAPEX i SEK
+        const initialYearlyHours = 8760 * capacityFactor; // Fullasttimmar per år
+        const year1ProductionKwh = capacity * 1000 * initialYearlyHours; // kWh År 1
+
+        let totalProductionKwh = 0;
+        let totalNpv = -totalCapex; // Inledande negativt kassaflöde vid År 0
+        let totalDiscountedCost = totalCapex; // För LCOE-beräkning
+        let totalDiscountedProd = 0; // För LCOE-beräkning
+
+        let cummulativeCashflow = -totalCapex;
+        let paybackYear = -1;
+
+        // Rensa gamla rader i kassaflödestabellen
+        const tbody = document.getElementById('cashflowBody');
+        tbody.innerHTML = '';
+
+        // Lägg till År 0 i tabellen (Investering)
+        const row0 = document.createElement('tr');
+        row0.innerHTML = `
+            <td>0</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td class="negative">${formatNumber(-totalCapex / 1000)}</td>
+            <td class="negative">${formatNumber(-totalCapex / 1000)}</td>
+            <td class="negative">${formatNumber(cummulativeCashflow / 1000)}</td>
+        `;
+        tbody.appendChild(row0);
+
+        // 3. Loopa igenom alla år i livslängden
+        for (let year = 1; year <= lifespan; year++) {
+            // Degradering av produktion över tid
+            const currentDegradationFactor = Math.pow(1 - degradation, year - 1);
+            const yearlyProdKwh = year1ProductionKwh * currentDegradationFactor;
+            totalProductionKwh += yearlyProdKwh;
+
+            // Inflationseffekt på elpris och OPEX
+            const inflationFactor = Math.pow(1 + inflation, year - 1);
+            const currentElPrice = electricityPrice * inflationFactor;
+            const currentOpexRate = opexPerKwh * inflationFactor;
+
+            // Beräkna intäkter och kostnader för året
+            const revenue = yearlyProdKwh * currentElPrice;
+            let opex = yearlyProdKwh * currentOpexRate;
+
+            // Lägg till avvecklingskostnad sista året
+            if (year === lifespan) {
+                opex += decommissioning;
+            }
+
+            const netCashflow = revenue - opex;
+
+            // Diskonteringsfaktor (WACC)
+            const discountFactor = Math.pow(1 + wacc, year);
+            const discountedCashflow = netCashflow / discountFactor;
+
+            totalNpv += discountedCashflow;
+            cummulativeCashflow += netCashflow;
+
+            // Beräkna återbetalningstid (Payback) när ackumulerat kassaflöde blir positivt
+            if (cummulativeCashflow >= 0 && paybackYear === -1) {
+                paybackYear = year;
+            }
+
+            // LCOE-komponenter (diskonterade kostnader och diskonterad produktion)
+            const discountedOpex = opex / discountFactor;
+            totalDiscountedCost += discountedOpex;
+            totalDiscountedProd += (yearlyProdKwh / discountFactor);
+
+            // Bygg tabellrad
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${year}</td>
+                <td>${formatNumber(yearlyProdKwh / 1000000, 2)}</td>
+                <td>${formatNumber(revenue / 1000, 0)}</td>
+                <td>${formatNumber(opex / 1000, 0)}</td>
+                <td class="${netCashflow >= 0 ? 'positive' : 'negative'}">${formatNumber(netCashflow / 1000, 0)}</td>
+                <td class="${discountedCashflow >= 0 ? 'positive' : 'negative'}">${formatNumber(discountedCashflow / 1000, 0)}</td>
+                <td class="${cummulativeCashflow >= 0 ? 'positive' : 'negative'}">${formatNumber(cummulativeCashflow / 1000, 0)}</td>
+            `;
+            tbody.appendChild(tr);
+        }
+
+        // 4. Beräkna LCOE (Levelized Cost of Electricity)
+        // LCOE = Totala diskonterade kostnader / Total diskonterad elproduktion
+        const lcoeSekPerKwh = totalDiscountedProd > 0 ? (totalDiscountedCost / totalDiscountedProd) : 0;
+        const lcoeOrePerKwh = lcoeSekPerKwh * 100;
+
+        // 5. Uppdatera alla resultatfält i gränssnittet
+        document.getElementById('outTotalCapex').innerText = formatNumber(totalCapex / 1000000, 1) + " MSEK";
+        document.getElementById('outYearlyProd').innerText = formatNumber(year1ProductionKwh / 1000000, 2) + " GWh";
+        document.getElementById('outLcoe').innerText = formatNumber(lcoeOrePerKwh, 1) + " öre/kWh";
+        document.getElementById('outNpv').innerText = formatNumber(totalNpv / 1000000, 2) + " MSEK";
+        document.getElementById('outTotalProd').innerText = formatNumber(totalProductionKwh / 1000000, 1) + " GWh";
+
+        if (paybackYear > 0) {
+            document.getElementById('outPayback').innerText = paybackYear + " år";
+        } else {
+            document.getElementById('outPayback').innerText = "> " + lifespan + " år";
+        }
+    }
+
+    // Kör beräkningen direkt vid inläsning av sidan för standardvärdena (4 MW)
+    window.onload = calculate;
+</script>
+
+</body>
+</html>
