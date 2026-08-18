@@ -1,6 +1,8 @@
 # IT-tekniktest – 42 frågor
 
-En fristående övningswebb som återskapar IT-tekniktestet från Microsoft Forms. Fråga 1–2 (namn och e-post) är valfria och sparas inte. De 40 poängsatta frågorna motsvarar originalets fråga 3–42.
+En fristående övningswebb som återskapar IT-tekniktestet från Microsoft Forms.
+
+**Antal frågor:** den här sidan har **40 kunskapsfrågor**. Originalet hade 42 fält: de två första var namn och e-post, därefter 40 poängsatta frågor (originalets fråga 3–42). Namn och e-post är även här valfria och sparas inte.
 
 ## Live Page
 
