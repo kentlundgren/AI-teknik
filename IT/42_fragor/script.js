@@ -87,3 +87,18 @@ function showResult(){ quiz.classList.add('hidden'); result.classList.remove('hi
   $('#restart').addEventListener('click',()=>{result.classList.add('hidden');intro.classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}); window.scrollTo({top:0,behavior:'smooth'});
 }
 function escapeHtml(value){ return value.replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char])); }
+
+// Här skedde en uppdatering 2026-08-18: öppna/stäng-logik för teknik-modalen.
+// Samma mönster som Presentationer/Nr1 — addEventListener, ingen inline onclick.
+(function setupTechModal(){
+  const techBtn = document.getElementById('techBtn');
+  const techModal = document.getElementById('techModal');
+  const techClose = document.getElementById('techClose');
+  if(!techBtn || !techModal || !techClose) return;
+  const openModal = () => techModal.classList.add('show');
+  const closeModal = () => techModal.classList.remove('show');
+  techBtn.addEventListener('click', openModal);
+  techClose.addEventListener('click', closeModal);
+  techModal.addEventListener('click', (event) => { if(event.target === techModal) closeModal(); });
+  document.addEventListener('keydown', (event) => { if(event.key === 'Escape') closeModal(); });
+})();

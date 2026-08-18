@@ -1,0 +1,26 @@
+---
+description: Diskret GitHub-hörna + teknik-modal på varje ny HTML-undersida i AI-teknik
+alwaysApply: true
+---
+
+# Hörn-länkar: GitHub + teknik-modal
+
+Varje ny HTML-sida (ny undermapp/undersida i det här repot) ska ha **båda**
+hörn-elementen i samma leverans, utan att fråga:
+
+- Nedre **vänster:** `{ } GitHub` — länk till mappens filer på GitHub
+- Nedre **höger:** `</> teknik` — knapp som öppnar en modal om sidans teknik och metod
+
+Kopiera mönstret från `Presentationer/Nr1/` (`index.html`, `style.css`, `script.js`):
+klasserna `.corner`, `.corner-left`, `.corner-right`, `.modal-overlay`, `.modal`,
+`.tech-grid`, `.tech-card`. Öppna/stäng med `addEventListener` (inte inline `onclick`).
+Anpassa bara färgerna till sidans egna CSS-variabler och texten i korten till
+**sanna** fakta om just den sidan.
+
+Modellen ska ha två avsnitt: **Tekniken** och **Metoden**. Påhittade bibliotek,
+påhittade promptantal eller konstruerade citat är inte tillåtna.
+
+Referens live: https://kentlundgren.github.io/AI-teknik/Presentationer/Nr1/
+
+Den här Cursor-regeln finns för att den globala skillen `kent-bygg-sidor` (Regel 6)
+tidigare missades när nya undersidor skapades i det här repot.

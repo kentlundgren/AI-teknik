@@ -90,6 +90,69 @@
       <span>Skapad för lärande · Ingen information sparas eller skickas.</span>
       <a class="original-source" href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=lbHFDvil602sqV5Utvo0WWnydtiAU0NCqkaxrefczc5UMlM1Q1UzS1cyM1BGSk9GUFRaRFFHQTVZVy4u&amp;route=shorturl" target="_blank" rel="noopener noreferrer" style="margin-left:.65rem;color:inherit;opacity:.72;text-decoration:none">Ursprungliga frågor ↗</a>
     </footer>
+
+    <!-- Här skedde en uppdatering 2026-08-18: diskret GitHub-hörna + teknik-modal,
+         samma par som Presentationer/Nr1. -->
+    <a class="corner corner-left" href="https://github.com/kentlundgren/AI-teknik/tree/main/IT/42_fragor" target="_blank" rel="noopener">{ } GitHub</a>
+    <button type="button" class="corner corner-right" id="techBtn" aria-label="Tekniköversikt">&lt;/&gt; teknik</button>
+
+    <div class="modal-overlay" id="techModal">
+      <div class="modal">
+        <button type="button" class="modal-close" id="techClose" aria-label="Stäng">&times;</button>
+        <h2>Hur den här sidan är byggd</h2>
+        <p>Två delar: tekniken i sidan, och metoden som användes för att ta fram den. Inget påhittat, bara det som är sant.</p>
+
+        <h3 class="tech-section-title">Tekniken</h3>
+        <div class="tech-grid">
+          <div class="tech-card">
+            <h3>Vanilla HTML, CSS och JS</h3>
+            <p>Tre filer: <code>index.html</code>, <code>styles.css</code> och <code>script.js</code>. Inga ramverk, inga bibliotek och inget byggsteg.</p>
+          </div>
+          <div class="tech-card">
+            <h3>Frågor och facit i samma fil</h3>
+            <p>De 40 poängsatta frågorna, rätt svar, förklaringar och källnycklar ligger i <code>script.js</code>. Sidan hämtar inget från en server.</p>
+          </div>
+          <div class="tech-card">
+            <h3>Två rättningslägen</h3>
+            <p><strong>Direkt återkoppling</strong> visar rättning och källa efter varje fråga. <strong>Samlat resultat</strong> visar genomgången först när testet är klart.</p>
+          </div>
+          <div class="tech-card">
+            <h3>Ingen data skickas någonstans</h3>
+            <p>Namn och e-post är valfria. De sparas inte, skickas inte och används bara i webbläsaren för att kunna skriva namnet på resultatsidan.</p>
+          </div>
+          <div class="tech-card">
+            <h3>Facit följer bilden</h3>
+            <p>När Word-underlaget och skärmdumpen inte stämmer överens följer testet bilden. Avvikelserna står i <code>GRANSKNING.md</code>.</p>
+          </div>
+          <div class="tech-card">
+            <h3>Harvard-källor i sidan</h3>
+            <p>Varje källa har en verifierad länk och en kort kommentar om varför den är med. Samma källor används i återkopplingen efter varje fråga.</p>
+          </div>
+        </div>
+
+        <h3 class="tech-section-title">Metoden</h3>
+        <div class="tech-grid">
+          <div class="tech-card">
+            <h3>Tre underlag, ett facit</h3>
+            <p>Testet återskapar Microsoft Forms-formuläret med hjälp av en skärmdump och ett Word-facit. Där de tre strider vinner den faktiska frågan på bilden.</p>
+          </div>
+          <div class="tech-card">
+            <h3>Avvikelser skrivs ut öppet</h3>
+            <p><code>GRANSKNING.md</code> listar bland annat DNS/DHCP-förväxlingen och den tvetydiga formuleringen i fråga 18, i stället för att dölja dem i koden.</p>
+          </div>
+          <div class="tech-card">
+            <h3>Inget PRD-steg</h3>
+            <p>Sidan växte fram som en övningswebb i Cursor, inte via en formell PRD. Arbetssättet följer ändå <a href="https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/">Claude-kompassen</a>: fråga vid tvekan, publicera inte utan att Kent committar själv.</p>
+          </div>
+          <div class="tech-card">
+            <h3>Hörnlänkar som standardpar</h3>
+            <p>GitHub-hörnan och teknik-knappen tillkom 18 augusti 2026, när Kent påpekade att de saknades. Han trodde redan att det var en allmän regel för nya undersidor i det här repot.</p>
+          </div>
+        </div>
+        <blockquote>»Jag trodde detta var redan en allmän regel.«</blockquote>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
