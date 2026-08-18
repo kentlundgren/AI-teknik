@@ -2,7 +2,17 @@
 
 En fristående övningswebb som återskapar IT-tekniktestet från Microsoft Forms. Fråga 1–2 (namn och e-post) är valfria och sparas inte. De 40 poängsatta frågorna motsvarar originalets fråga 3–42.
 
-## Starta testet
+## Live Page
+
+**[Öppna IT-tekniktestet (GitHub Pages)](https://kentlundgren.github.io/AI-teknik/IT/42_fragor/)**
+
+Adress: `https://kentlundgren.github.io/AI-teknik/IT/42_fragor/`
+
+## 🗂️ Lokalt repo
+
+`C:\Users\kentl\OneDrive\AI\AI-teknik\IT\42_fragor`
+
+## Starta testet lokalt
 
 Öppna `index.html` i valfri modern webbläsare. Ingen installation, server eller internetanslutning krävs för själva testet.
 
