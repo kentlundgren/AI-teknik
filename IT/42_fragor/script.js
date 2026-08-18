@@ -53,8 +53,12 @@ const questions = [
 ].map(([category,text,options,correct,points,explanation,source])=>({category,text,options,correct,points,explanation,source}));
 
 let mode = 'instant'; let index = 0; let answers = []; let locked = false; let participant = '';
+let selectionLimit = 1;
 const $ = (s) => document.querySelector(s);
 const intro = $('#intro'), quiz = $('#quiz'), result = $('#result'), form = $('#start-form');
+const answerForm = $('#answers');
+// En enda lyssnare för hela testet. Tidigare lades en ny addEventListener till
+// vid varje fråga, så gamla max-gränser (t.ex. 1) fortsatte att avmarkera kryss.
 
 document.querySelectorAll('input[name="mode"]').forEach(input => input.addEventListener('change', () => {
   document.querySelectorAll('.mode-card').forEach(card => card.classList.toggle('selected', card.querySelector('input').checked));
@@ -62,21 +66,32 @@ document.querySelectorAll('input[name="mode"]').forEach(input => input.addEventL
 form.addEventListener('submit', (event) => { event.preventDefault(); mode = document.querySelector('input[name="mode"]:checked').value; participant = $('#participant').value.trim(); index = 0; answers = Array(questions.length).fill(null); intro.classList.add('hidden'); result.classList.add('hidden'); quiz.classList.remove('hidden'); renderQuestion(); window.scrollTo({top:0,behavior:'smooth'}); });
 $('#exit-button').addEventListener('click', () => { if(confirm('Avsluta testet? Dina svar sparas inte.')) { quiz.classList.add('hidden'); intro.classList.remove('hidden'); }});
 $('#answer-button').addEventListener('click', checkAnswer); $('#next-button').addEventListener('click', nextQuestion);
+answerForm.addEventListener('change', () => enforceLimit(selectionLimit));
 
 function renderQuestion(){
   const q = questions[index]; locked = false; $('#progress-label').textContent = `Fråga ${index + 1} av ${questions.length}`; $('#progress-bar').style.width = `${(index / questions.length) * 100}%`;
   $('#category').textContent = q.category; $('#points').textContent = `${q.points} poäng`; $('#question-text').textContent = q.text;
-  const multiple = q.correct.length > 1; const limit = q.correct.length;
-  $('#selection-help').textContent = multiple ? `Välj ${limit} alternativ.` : 'Välj ett alternativ.';
-  const type = multiple ? 'checkbox' : 'radio'; const answerForm = $('#answers'); answerForm.innerHTML = q.options.map((option,i)=>`<label class="answer-option"><input type="${type}" name="answer" value="${i}"><span>${option}</span></label>`).join('');
-  answerForm.addEventListener('change', () => enforceLimit(limit)); $('#feedback').className = 'feedback hidden'; $('#feedback').innerHTML = '';
+  const multiple = q.correct.length > 1; selectionLimit = q.correct.length;
+  $('#selection-help').textContent = multiple ? `Välj ${selectionLimit} alternativ.` : 'Välj ett alternativ.';
+  const type = multiple ? 'checkbox' : 'radio';
+  answerForm.innerHTML = q.options.map((option,i)=>`<label class="answer-option"><input type="${type}" name="answer" value="${i}"><span>${option}</span></label>`).join('');
+  $('#feedback').className = 'feedback hidden'; $('#feedback').innerHTML = '';
   $('#answer-button').classList.remove('hidden'); $('#next-button').classList.add('hidden'); $('#answer-button').textContent = mode === 'instant' ? 'Kontrollera svar' : (index === questions.length - 1 ? 'Visa resultat' : 'Nästa fråga');
 }
-function enforceLimit(limit){ const checked = [...document.querySelectorAll('#answers input:checked')]; if(checked.length > limit){ checked.at(-1).checked = false; } }
-function selected(){ return [...document.querySelectorAll('#answers input:checked')].map(input=>Number(input.value)).sort((a,b)=>a-b); }
+function enforceLimit(limit){
+  const checked = [...answerForm.querySelectorAll('input:checked')];
+  if(checked.length > limit){ checked[checked.length - 1].checked = false; }
+}
+function selected(){ return [...answerForm.querySelectorAll('input:checked')].map(input=>Number(input.value)).sort((a,b)=>a-b); }
 function same(a,b){ return a.length === b.length && a.every((x,i)=>x===b[i]); }
 function checkAnswer(){
-  const chosen = selected(); if(!chosen.length){ $('#selection-help').textContent = 'Välj minst ett alternativ innan du fortsätter.'; return; }
+  const chosen = selected();
+  if(chosen.length !== selectionLimit){
+    $('#selection-help').textContent = selectionLimit > 1
+      ? `Välj ${selectionLimit} alternativ innan du fortsätter.`
+      : 'Välj ett alternativ innan du fortsätter.';
+    return;
+  }
   answers[index] = chosen; if(mode === 'summary'){ nextQuestion(); return; }
   locked = true; const q=questions[index], correct=same(chosen,q.correct); document.querySelectorAll('#answers input').forEach(input=>{input.disabled=true; const label=input.closest('label'),i=Number(input.value); label.classList.add('locked'); if(q.correct.includes(i))label.classList.add('correct'); else if(chosen.includes(i))label.classList.add('wrong');});
   const source=sources[q.source]; const feedback=$('#feedback'); feedback.className=`feedback ${correct?'':'incorrect'}`; feedback.innerHTML=`<h3>${correct?'Rätt svar':'Inte riktigt'}</h3><p>${q.explanation} <a href="${source[2]}" target="_blank" rel="noopener noreferrer">Läs mer: ${source[0]}, ${source[1]} ↗</a></p>`; $('#answer-button').classList.add('hidden'); $('#next-button').classList.remove('hidden'); $('#next-button').innerHTML=index===questions.length-1?'Visa resultat':'Nästa fråga <span aria-hidden="true">→</span>';
