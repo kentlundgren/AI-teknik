@@ -97,8 +97,8 @@ function escapeHtml(value){ return value.replace(/[&<>'"]/g, char => ({'&':'&amp
   const techModal = document.getElementById('techModal');
   const techClose = document.getElementById('techClose');
   if(!techBtn || !techModal || !techClose) return;
-  const openModal = () => techModal.classList.add('show');
-  const closeModal = () => techModal.classList.remove('show');
+  const openModal = () => { techModal.classList.add('show'); techModal.classList.remove('hidden'); };
+  const closeModal = () => { techModal.classList.remove('show'); techModal.classList.add('hidden'); };
   techBtn.addEventListener('click', openModal);
   techClose.addEventListener('click', closeModal);
   techModal.addEventListener('click', (event) => { if(event.target === techModal) closeModal(); });

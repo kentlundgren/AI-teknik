@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Interaktivt IT-tekniktest med 40 kunskapsfrågor. Originalet i Microsoft Forms hade 42 fält: namn, e-post och 40 frågor.">
     <title>IT-tekniktest | 40 kunskapsfrågor</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260818">
   </head>
   <body>
     <main class="shell">
@@ -96,7 +96,9 @@
     <a class="corner corner-left" href="https://github.com/kentlundgren/AI-teknik/tree/main/IT/42_fragor" target="_blank" rel="noopener">{ } GitHub</a>
     <button type="button" class="corner corner-right" id="techBtn" aria-label="Tekniköversikt">&lt;/&gt; teknik</button>
 
-    <div class="modal-overlay" id="techModal">
+    <!-- hidden använder sidans ursprungliga display:none, så modalen inte
+         ramlar ut i sidfoten om en gammal styles.css ligger kvar i cache. -->
+    <div class="modal-overlay hidden" id="techModal">
       <div class="modal">
         <button type="button" class="modal-close" id="techClose" aria-label="Stäng">&times;</button>
         <h2>Hur den här sidan är byggd</h2>
@@ -152,6 +154,6 @@
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260818"></script>
   </body>
 </html>
