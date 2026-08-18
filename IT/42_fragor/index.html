@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Interaktivt IT-tekniktest med 42 frågor.">
+    <title>IT-tekniktest | 42 frågor</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <a class="brand" href="#top" aria-label="Till början">IT<span>42</span></a>
+        <div>
+          <p class="eyebrow">Kunskapstest</p>
+          <h1 id="top">IT-tekniktest</h1>
+          <p class="lede">42 frågor om nätverk, Windows, felsökning och informationssäkerhet.</p>
+        </div>
+        <div class="hero-mark" aria-hidden="true">01<br><span>42</span></div>
+      </header>
+
+      <section id="intro" class="panel intro-panel" aria-labelledby="intro-title">
+        <div>
+          <p class="eyebrow">Välj rättningssätt</p>
+          <h2 id="intro-title">Lär medan du testar – eller få facit sist</h2>
+          <p>Du svarar på en fråga i taget. Välj om återkopplingen visas direkt efter varje svar eller först när hela testet är klart. De 40 kunskapsfrågorna motsvarar fråga 3–42 i originalet.</p>
+        </div>
+        <form id="start-form" class="start-form">
+          <fieldset>
+            <legend>Rättningsläge</legend>
+            <label class="mode-card selected"><input type="radio" name="mode" value="instant" checked><span><strong>Direkt återkoppling</strong><small>Se rätt svar, förklaring och källa efter varje fråga.</small></span></label>
+            <label class="mode-card"><input type="radio" name="mode" value="summary"><span><strong>Samlat resultat</strong><small>Få resultat och genomgång först när du är klar.</small></span></label>
+          </fieldset>
+          <label class="field-label" for="participant">Namn <span>(valfritt)</span></label>
+          <input id="participant" name="participant" autocomplete="name" placeholder="Ditt namn">
+          <label class="field-label" for="email">E-postadress <span>(valfritt – sparas inte)</span></label>
+          <input id="email" name="email" autocomplete="email" inputmode="email" placeholder="namn@exempel.se">
+          <button class="button primary" type="submit">Starta testet <span aria-hidden="true">→</span></button>
+        </form>
+      </section>
+
+      <section id="quiz" class="quiz hidden" aria-live="polite">
+        <div class="quiz-top"><button id="exit-button" class="text-button" type="button">Avsluta test</button><p id="progress-label">Fråga 1 av 40</p></div>
+        <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
+        <article class="panel question-panel">
+          <div class="question-meta"><span id="category" class="category"></span><span id="points"></span></div>
+          <h2 id="question-text"></h2>
+          <p id="selection-help" class="selection-help"></p>
+          <form id="answers" class="answers"></form>
+          <div id="feedback" class="feedback hidden"></div>
+          <div class="question-actions"><button id="answer-button" class="button primary" type="button">Kontrollera svar</button><button id="next-button" class="button primary hidden" type="button">Nästa fråga <span aria-hidden="true">→</span></button></div>
+        </article>
+      </section>
+
+      <section id="result" class="hidden" aria-live="polite"></section>
+
+      <section class="reference-area" aria-label="Kvalitetssäkring och källor">
+        <details class="panel review-panel">
+          <summary><span><b>Granskning av Word-facit</b><small>Viktiga avvikelser och förbättringsförslag</small></span><span aria-hidden="true">⌄</span></summary>
+          <div class="review-content">
+            <p><strong>Viktigt:</strong> Word-dokumentet överensstämmer inte konsekvent med frågorna i bilden. Programmet följer den bifogade bilden och använder det kontrollerade facit som anges nedan.</p>
+            <ul>
+              <li><strong>Fråga 4:</strong> Word-facitet anger DNS-fel hos leverantören, men det alternativet finns inte i frågan. Rätt val är <em>fel default gateway</em>, <em>DNS felkonfigurerad</em> och <em>captive portal kräver inloggning</em>.</li>
+              <li><strong>Fråga 5:</strong> Frågan gäller DNS, medan Word-facitet beskriver DHCP. Korrekt svar är att DNS översätter namn till IP-adresser.</li>
+              <li><strong>Fråga 10:</strong> Det markerade svaret i bilden är RJ11, men korrekt kontakt för vanlig Ethernet över koppar är RJ45 (8P8C).</li>
+              <li><strong>Fråga 18:</strong> Frågan säger högst två val men innehåller tre sakligt rimliga least-privilege-åtgärder. Testet rättar enligt de två mest generella alternativen och flaggar detta som en tvetydighet.</li>
+              <li><strong>Frågorna 21–29 samt 32 och 38:</strong> Word-facitet beskriver andra frågor än de som faktiskt syns i bilden. Det har därför inte använts som facit för dessa frågor.</li>
+              <li><strong>Fråga 9:</strong> TOTP ensamt är en stark autentikator, men inte flerfaktorsautentisering. Formuleringen bör ändras om syftet är att testa just MFA.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="panel sources-panel">
+          <summary><span><b>Källor och vidare läsning</b><small>Harvardformat med kort ”notion” om varför varje källa finns med</small></span><span aria-hidden="true">⌄</span></summary>
+          <ol class="sources-list">
+            <li>IANA (2026) <a href="https://www.iana.org/assignments/service-names-port-numbers" target="_blank" rel="noopener noreferrer">Service Name and Transport Protocol Port Number Registry</a>. Hämtad 18 augusti 2026. (Notion: officiellt register för de portnummer som förekommer i frågorna.)</li>
+            <li>RFC Editor (1996) <a href="https://www.rfc-editor.org/rfc/rfc1918" target="_blank" rel="noopener noreferrer">RFC 1918: Address Allocation for Private Internets</a>. Hämtad 18 augusti 2026. (Notion: definierar de privata IPv4-nät som testas i fråga 28.)</li>
+            <li>RFC Editor (1997) <a href="https://www.rfc-editor.org/rfc/rfc2131" target="_blank" rel="noopener noreferrer">RFC 2131: Dynamic Host Configuration Protocol</a>. Hämtad 18 augusti 2026. (Notion: primärkälla för DHCP och adressutdelning.)</li>
+            <li>RFC Editor (1987) <a href="https://www.rfc-editor.org/rfc/rfc1034" target="_blank" rel="noopener noreferrer">RFC 1034: Domain Names – Concepts and Facilities</a>. Hämtad 18 augusti 2026. (Notion: grundkälla för DNS och namnuppslagning.)</li>
+            <li>Microsoft (2026) <a href="https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/" target="_blank" rel="noopener noreferrer">BitLocker overview</a>. Hämtad 18 augusti 2026. (Notion: fördjupar disk-kryptering, TPM och återställningsnycklar.)</li>
+            <li>Microsoft (2026) <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/remote/understanding-remote-desktop-protocol" target="_blank" rel="noopener noreferrer">Understanding Remote Desktop Protocol (RDP)</a>. Hämtad 18 augusti 2026. (Notion: officiell bakgrund till RDP och dess nätverkskommunikation.)</li>
+            <li>NIST (2026) <a href="https://pages.nist.gov/800-63-4/sp800-63b.html" target="_blank" rel="noopener noreferrer">SP 800-63B: Digital Identity Guidelines</a>. Hämtad 18 augusti 2026. (Notion: förklarar autentiseringsstyrka, lösenord och MFA.)</li>
+            <li>NIST (2026) <a href="https://csrc.nist.gov/glossary/term/least_privilege" target="_blank" rel="noopener noreferrer">Least privilege</a>. Hämtad 18 augusti 2026. (Notion: kort officiell definition av principen om minsta privilegium.)</li>
+          </ol>
+          <p class="source-note">Länkarna öppnades och kontrollerades 18 augusti 2026. Källorna är valda som primärkällor eller officiell produktdokumentation.</p>
+        </details>
+      </section>
+    </main>
+    <footer>Skapad för lärande · Ingen information sparas eller skickas.</footer>
+    <script src="script.js"></script>
+  </body>
+</html>
