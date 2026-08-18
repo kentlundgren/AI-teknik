@@ -127,3 +127,19 @@ body{padding-bottom:56px}
   font-weight:800;
   font-size:.82em;
 }
+
+/* Här skedde en uppdatering 2026-08-18: gul flagga när för få alternativ är valda. */
+.check-flag{
+  margin:16px 0 0;
+  padding:12px 14px;
+  border-radius:10px;
+  background:#fff3b0;
+  border:1px solid var(--gold);
+  color:var(--ink);
+  font-weight:700;
+  font-size:15px;
+}
+.selection-help-warn{
+  color:var(--ink);
+  font-weight:700;
+}

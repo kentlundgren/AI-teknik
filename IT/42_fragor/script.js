@@ -66,32 +66,51 @@ document.querySelectorAll('input[name="mode"]').forEach(input => input.addEventL
 form.addEventListener('submit', (event) => { event.preventDefault(); mode = document.querySelector('input[name="mode"]:checked').value; participant = $('#participant').value.trim(); index = 0; answers = Array(questions.length).fill(null); intro.classList.add('hidden'); result.classList.add('hidden'); quiz.classList.remove('hidden'); renderQuestion(); window.scrollTo({top:0,behavior:'smooth'}); });
 $('#exit-button').addEventListener('click', () => { if(confirm('Avsluta testet? Dina svar sparas inte.')) { quiz.classList.add('hidden'); intro.classList.remove('hidden'); }});
 $('#answer-button').addEventListener('click', checkAnswer); $('#next-button').addEventListener('click', nextQuestion);
-answerForm.addEventListener('change', () => enforceLimit(selectionLimit));
+answerForm.addEventListener('change', () => {
+  enforceLimit();
+  if(selected().length === selectionLimit) hideCheckFlag();
+});
 
 function renderQuestion(){
   const q = questions[index]; locked = false; $('#progress-label').textContent = `Fråga ${index + 1} av ${questions.length}`; $('#progress-bar').style.width = `${(index / questions.length) * 100}%`;
   $('#category').textContent = q.category; $('#points').textContent = `${q.points} poäng`; $('#question-text').textContent = q.text;
   const multiple = q.correct.length > 1; selectionLimit = q.correct.length;
+  answerForm.dataset.limit = String(selectionLimit);
+  $('#selection-help').classList.remove('selection-help-warn');
   $('#selection-help').textContent = multiple ? `Välj ${selectionLimit} alternativ.` : 'Välj ett alternativ.';
   const type = multiple ? 'checkbox' : 'radio';
   answerForm.innerHTML = q.options.map((option,i)=>`<label class="answer-option"><input type="${type}" name="answer" value="${i}"><span>${option}</span></label>`).join('');
   $('#feedback').className = 'feedback hidden'; $('#feedback').innerHTML = '';
+  hideCheckFlag();
   $('#answer-button').classList.remove('hidden'); $('#next-button').classList.add('hidden'); $('#answer-button').textContent = mode === 'instant' ? 'Kontrollera svar' : (index === questions.length - 1 ? 'Visa resultat' : 'Nästa fråga');
 }
-function enforceLimit(limit){
+function enforceLimit(limit = selectionLimit){
   const checked = [...answerForm.querySelectorAll('input:checked')];
   if(checked.length > limit){ checked[checked.length - 1].checked = false; }
 }
 function selected(){ return [...answerForm.querySelectorAll('input:checked')].map(input=>Number(input.value)).sort((a,b)=>a-b); }
 function same(a,b){ return a.length === b.length && a.every((x,i)=>x===b[i]); }
+function hideCheckFlag(){
+  const flag = $('#check-flag');
+  flag.classList.add('hidden');
+  flag.textContent = '';
+  $('#selection-help').classList.remove('selection-help-warn');
+}
 function checkAnswer(){
   const chosen = selected();
   if(chosen.length !== selectionLimit){
-    $('#selection-help').textContent = selectionLimit > 1
-      ? `Välj ${selectionLimit} alternativ innan du fortsätter.`
+    const missing = selectionLimit - chosen.length;
+    const message = selectionLimit > 1
+      ? `Välj ${selectionLimit} alternativ. Du har valt ${chosen.length} av ${selectionLimit} — ${missing} saknas.`
       : 'Välj ett alternativ innan du fortsätter.';
+    $('#selection-help').textContent = message;
+    $('#selection-help').classList.add('selection-help-warn');
+    const flag = $('#check-flag');
+    flag.textContent = message;
+    flag.classList.remove('hidden');
     return;
   }
+  hideCheckFlag();
   answers[index] = chosen; if(mode === 'summary'){ nextQuestion(); return; }
   locked = true; const q=questions[index], correct=same(chosen,q.correct); document.querySelectorAll('#answers input').forEach(input=>{input.disabled=true; const label=input.closest('label'),i=Number(input.value); label.classList.add('locked'); if(q.correct.includes(i))label.classList.add('correct'); else if(chosen.includes(i))label.classList.add('wrong');});
   const source=sources[q.source]; const feedback=$('#feedback'); feedback.className=`feedback ${correct?'':'incorrect'}`; feedback.innerHTML=`<h3>${correct?'Rätt svar':'Inte riktigt'}</h3><p>${q.explanation} <a href="${source[2]}" target="_blank" rel="noopener noreferrer">Läs mer: ${source[0]}, ${source[1]} ↗</a></p>`; $('#answer-button').classList.add('hidden'); $('#next-button').classList.remove('hidden'); $('#next-button').innerHTML=index===questions.length-1?'Visa resultat':'Nästa fråga <span aria-hidden="true">→</span>';
