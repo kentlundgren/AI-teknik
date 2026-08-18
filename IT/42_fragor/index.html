@@ -130,6 +130,11 @@
             <h3>Harvard-källor i sidan</h3>
             <p>Varje källa har en verifierad länk och en kort kommentar om varför den är med. Samma källor används i återkopplingen efter varje fråga.</p>
           </div>
+          <!-- Här skedde en uppdatering 2026-08-18: kort om flervalsbuggen. -->
+          <div class="tech-card">
+            <h3>En lyssnare för flerval</h3>
+            <p>15 av frågorna kräver två eller tre kryss. En bugg lade till en ny <code>change</code>-lyssnare vid varje fråga, så en kvarvarande maxgräns på ett val avmarkerade extra kryss. Nu finns en lyssnare för hela testet, och rättning väntar tills rätt antal rutor är ikryssade.</p>
+          </div>
         </div>
 
         <h3 class="tech-section-title">Metoden</h3>
