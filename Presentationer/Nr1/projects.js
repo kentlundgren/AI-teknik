@@ -154,6 +154,7 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     url: "https://kentlundgren.se/kalkyler/fullkostnadskalkyl_for_forskning.html",
     image: "images/forskarkalkyl.png",
     imageFit: "contain",
+    imagePosition: "center",
     source: { label: "Läs mer: Göra en kalkyl tillsammans med AI", url: "https://controllerutangranser.wordpress.com/2024/10/25/gora-en-kalkyl-tillsammans-med-ai/" }
   },
   {
