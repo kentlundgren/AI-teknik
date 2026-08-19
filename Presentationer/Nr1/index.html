@@ -60,6 +60,10 @@
           <p>En post i <code>projects.js</code> — antingen <code>kind:"screenshot"</code> (bild i <code>images/</code>) eller <code>kind:"code"</code> (kodkort, ingen bildfil behövs).</p>
         </div>
         <div class="tech-card">
+          <h3>En bild som aldrig beskärs</h3>
+          <p>De flesta skärmdumpar använder <code>object-fit: cover</code> (fyller rutan, kan beskära kanter olika mycket beroende på fönsterbredd). Ett enskilt projekt (Fullkostnadskalkylen) har i stället ett eget, valfritt fält <code>imageFit: "contain"</code> i <code>projects.js</code> — hela bilden garanteras alltid synlig, oavsett skärmstorlek, i stället för att förlita sig på att beskärningen råkar bli rätt.</p>
+        </div>
+        <div class="tech-card">
           <h3>Klickbara begrepp, en gång var</h3>
           <p>En delad ordlista (<code>glossary.js</code>) länkar varje AI-modell/AI-verktyg diskret vid dess första förekomst i presentationens egen ordning — aldrig fler gånger, oavsett hur en besökare bläddrar.</p>
         </div>
@@ -90,6 +94,10 @@
         <div class="tech-card">
           <h3>En PRD som minne</h3>
           <p>Varje beslut, även de som senare ändrades, loggat versionerat i <a href="PRD_presentation_ai_projekt.md">en enda PRD</a> — inte bara i en chatthistorik som glöms bort.</p>
+        </div>
+        <div class="tech-card">
+          <h3>En CSS-bugg som såg ut som ingen fix alls</h3>
+          <p>Ett första försök att beskära Fullkostnadskalkyl-bilden tog bort en inställning i tron att webbläsarens standardläge (centrerat) skulle ta över — men stilmallens egen basregel (<code>object-position: top center</code>) låg kvar och gjorde exakt samma sak som innan. Kent rapporterade "jag ser ingen förbättring" två gånger, med hårda omladdningar i både Chrome och Firefox, innan grundorsaken hittades genom att faktiskt läsa ut webbläsarens beräknade CSS-värde i stället för att gissa.</p>
         </div>
       </div>
     </div>
