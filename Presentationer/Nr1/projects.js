@@ -153,6 +153,7 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     caption: "En kalkyl för forskningsprojekt, där kostnaden till stor del är arbetskraft: lön, LKP-pålägg, lokal- och indirekta kostnader över flera år, ställt mot finansiär och samfinansiering. Byggd med Claude 3.5 och jämförd rakt av mot mina gamla Excel-kalkyler i en egen video.",
     url: "https://kentlundgren.se/kalkyler/fullkostnadskalkyl_for_forskning.html",
     image: "images/forskarkalkyl.png",
+    imagePosition: "left top",
     source: { label: "Läs mer: Göra en kalkyl tillsammans med AI", url: "https://controllerutangranser.wordpress.com/2024/10/25/gora-en-kalkyl-tillsammans-med-ai/" }
   },
   {
