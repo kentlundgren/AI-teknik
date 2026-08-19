@@ -146,6 +146,16 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     source: { label: "Läs mer: Testa AI-modeller genom att göra spel", url: "https://controllerutangranser.wordpress.com/2024/03/17/testa-ai-modeller-genom-att-gora-spel/" }
   },
   {
+    id: "forskarkalkyl",
+    kind: "screenshot",
+    year: "okt2024",
+    title: "Fullkostnadskalkyl för forskning",
+    caption: "En kalkyl för forskningsprojekt, där kostnaden till stor del är arbetskraft: lön, LKP-pålägg, lokal- och indirekta kostnader över flera år, ställt mot finansiär och samfinansiering. Byggd med Claude 3.5 och jämförd rakt av mot mina gamla Excel-kalkyler i en egen video.",
+    url: "https://kentlundgren.se/kalkyler/fullkostnadskalkyl_for_forskning.html",
+    image: "images/forskarkalkyl.png",
+    source: { label: "Läs mer: Göra en kalkyl tillsammans med AI", url: "https://controllerutangranser.wordpress.com/2024/10/25/gora-en-kalkyl-tillsammans-med-ai/" }
+  },
+  {
     id: "blogglasning-2024",
     kind: "readinglist",
     year: "2024",
@@ -378,6 +388,12 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
         url: "https://commission.europa.eu/news-and-media/news/ai-act-enters-force-2024-08-01_en",
         date: "Publicerad 1 augusti 2024",
         note: "Världens första heltäckande AI-lag."
+      },
+      {
+        cite: "Lundgren, K. (2024) 'Göra en kalkyl tillsammans med AI', Controller, lärare och coach utan gränser reflekterar.",
+        url: "https://controllerutangranser.wordpress.com/2024/10/25/gora-en-kalkyl-tillsammans-med-ai/",
+        date: "Publicerad 25 oktober 2024",
+        note: "Bakgrundstext till Fullkostnadskalkyl för forskning-sliden — video där kalkylen byggs med Claude 3.5 och jämförs mot Excel."
       },
       {
         cite: "Lundgren, K. (2026a) 'Strukturerad granskning av föreningens ekonomi', Controller, lärare och coach utan gränser reflekterar.",

@@ -1291,3 +1291,24 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   återanvändbart researchunderlag i stället för att kastas efter
   urvalet. `kent-presentationer`-skillens Regel 14 uppdaterad i samma
   veva.
+- 2026-08-19 (v37): Nytt projekt tillagt: **Fullkostnadskalkyl för
+  forskning** (`id: "forskarkalkyl"`), okt2024, mellan `stickfigur-spel`
+  och `blogglasning-2024`. Bakgrund: Kent letade i en separat session efter
+  sina "forskarkalkyler" utan att själv minnas var de låg eller när
+  projektet skapades — lokaliserat via en bred sökning (lokala mappar,
+  GitHub, bloggarna) till live-URL:en
+  `kentlundgren.se/kalkyler/fullkostnadskalkyl_for_forskning.html` och en
+  bloggpost, `Göra en kalkyl tillsammans med AI` (25 okt 2024), som
+  beskriver hur kalkylen byggdes med Claude 3.5 och jämfördes mot Excel.
+  **Datum inte gissat:** filsystemets `Birth`-tidsstämpel för den lokala
+  källfilen (`D:\...\kentlundgren_se\kalkyler\fullkostnadskalkyl_for_forskning.html`,
+  Birth 2024-10-25 11:48) stämmer överens med bloggpostens
+  publiceringsdatum — två oberoende källor som pekar på samma dag, så
+  `okt2024` är en verifierad månad, inte en uppskattning. Skärmdump tagen
+  med headless Chrome (`images/forskarkalkyl.png`), standard `object-position`
+  (ingen override behövdes — sidan är en enkel toppjusterad formulärlayout).
+  Ny källa tillagd i `kallforteckning`: `Lundgren, K. (2024)` (utan
+  bokstavssuffix — enda Lundgren-posten från det året, gruppen 2026a–f
+  opåverkad). Testat lokalt (HTTP-server, `serios`-läge): slide 9/25,
+  bild laddar (200), data/URL/källänk stämmer. `index.html`s versionsdatum
+  uppdaterat till 19 aug 2026 per underhållsregeln i `Presentationer/CLAUDE.md`.
