@@ -145,6 +145,46 @@ låt Kent titta på varje bild och avgöra. Standard (`top center`) fungerar
 för de flesta; sätt en override bara där Kent konkret pekat ut att den
 klipper fel.
 
+**Vill Kent att en hel bild alltid ska synas, inget beskuret** (t.ex. en
+skärmdump med viktig text både högst upp och längst ner, som inte får ha
+någon del bortklippt oavsett fönsterbredd): det är ett annat behov än
+`imagePosition` ovan, och löses inte genom att bara flytta beskärningspunkten.
+
+**Vad Kent kan säga för att trigga detta:** "jag vill se hela bilden, inget
+får klippas bort, även om det blir lite tomrum runt om" — eller peka på en
+specifik post och säga att just den ska visa allt, till skillnad från de
+andra som får beskäras som vanligt.
+
+**Så här löses det (etablerat i `Nr1`, forskarkalkyl-posten, 2026-08-19):**
+1. **Ett eget, valfritt `imageFit`-fält per post** i `projects.js`
+   (samma mönster som `imagePosition`) — `script.js` sätter
+   `img.style.objectFit = project.imageFit` om fältet finns. Sätt
+   `imageFit: "contain"` bara på den posten som behöver det; alla andra
+   poster fortsätter använda standardläget (`cover`, fyller rutan men kan
+   beskära) helt opåverkat.
+2. **Skärmdumpen måste beskäras till sitt faktiska innehåll innan den läggs
+   i `images/`** — inte hela sidan rå. En full sidscreenshot (t.ex.
+   1600×2200 med mängder av vit yta under innehållet) ger `contain` väldigt
+   lite att jobba med: bilden krymps ner tills den får plats, och blir
+   löjligt liten med enorma tomma fält runt om. Hitta innehållets
+   verkliga gränser (går bra i Python/PIL: skanna rad för rad efter
+   icke-vita pixlar) och beskär exakt dit — ju närmare bildens
+   proportioner (bredd/höjd) kommer containerns egna proportioner
+   (`.media-pane`, ungefär kvadratisk till lätt liggande på de flesta
+   skärmar), desto mindre tomrum blir kvar även efter `contain`.
+3. **Sätt `imagePosition: "center"` explicit, lita inte på att ta bort
+   fältet räcker.** Verklig fallgrop, hittad efter två rundor av "jag ser
+   ingen förbättring" trots hårda omladdningar i både Chrome och Firefox:
+   `style.css` har en global basregel, `.media-pane img { object-position:
+   top center }`. Att bara ta bort `project.imagePosition` faller tillbaka
+   på den regeln — inte på webbläsarens neutrala standard (`50% 50%`) som
+   man kan tro. Sätt fältet uttryckligen till `"center"` för att faktiskt
+   centrera det eventuella tomrummet jämnt i stället för att klistra det
+   längst ner. **Lärdom:** vid en position/beskärnings-bugg som "inte
+   verkar bli bättre" — kontrollera webbläsarens faktiska beräknade
+   CSS-värde (`getComputedStyle(el).objectPosition` i konsolen) i stället
+   för att anta att en borttagen rad betyder "ingen regel alls".
+
 ## 4. Säkerhet i återanvänd kod: uteslut, beskär inte
 
 Om ett kodkort (`kind: "code"`) återger riktig kod från ett äldre projekt
@@ -536,3 +576,19 @@ byggs.
   CSS gör dem visuellt identiska — ge nya roller egna klasser, och
   verifiera med en riktig skärmdump (inte bara DOM-textinnehåll, som döljer
   visuella radbrytningar `display: block` ger).
+- 2026-08-19 (v13): Regel 3 utökad med hur man visar en hel bild utan att
+  någon del beskärs (nytt, valfritt `imageFit`-fält per post, samma mönster
+  som `imagePosition`), efter arbetet med forskarkalkyl-posten i `Nr1`. Tog
+  tre försök: (1) bara flytta `imagePosition` klippte fortfarande bort
+  botten på höga skärmdumpar, (2) `imageFit: "contain"` löste
+  klippningen men lämnade `imagePosition` satt till `"top"` vilket gav ett
+  stort, konstigt tomrum längst ner, (3) att sedan bara *ta bort*
+  `imagePosition` löste inte tomrummet heller — en global basregel i
+  `style.css` (`object-position: top center`) låg kvar och gav exakt
+  samma resultat som innan, vilket Kent rapporterade som "ingen
+  förbättring" två gånger trots hårda omladdningar i två olika
+  webbläsare. Löst genom att sätta `imagePosition: "center"` explicit
+  (inte bara ta bort fältet) och genom att beskära källbilden till sitt
+  faktiska innehåll innan den läggs i `images/`, så `contain` har mindre
+  tomrum att fylla. Dokumenterat direkt i skillen på Kents uttryckliga
+  begäran, så nästa gång går snabbare.
