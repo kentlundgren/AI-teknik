@@ -300,6 +300,15 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     source: { label: "Läs mer: Hur många öl till break-even?", url: "https://controllerutangranser.wordpress.com/2026/07/29/hur-manga-ol-till-break-even/" }
   },
   {
+    id: "lnf-kalender",
+    kind: "screenshot",
+    year: "aug2026",
+    title: "LNF-kalendern",
+    caption: "En delad Google-kalender med hela höstprogrammet för Lunds Naturskyddsförening, byggd med Claude Code — och ett tydligt exempel på iterativt AI-samarbete: konkreta skärmdumpar med pilar styrde varje omtag, tills de skarpa länkarna faktiskt låg synliga och klickbara på sidan.",
+    url: "https://kentlundgren.github.io/Codex/Fritid/NF/Kalendern/",
+    image: "images/lnf-kalendern.png"
+  },
+  {
     id: "blogglasning-2026",
     kind: "readinglist",
     year: "2026",

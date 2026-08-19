@@ -54,6 +54,31 @@ Datum (jan2026) satt utifrån den första committen i det relaterade
 repot `Bjerred-el`, inte i `foreningar`-repot där själva sidan ligger:
 https://github.com/kentlundgren/Bjerred-el/commits/main/?after=70033aec35f7017143ec4000d1c877d01a7b5367+34
 
+## lnf-kalender
+
+Kent är medlem/engagerad i Lunds Naturskyddsförening (LNF) och ville göra
+styrelsens program lättillgängligt som en delad digital kalender i stället
+för bara ett PDF-program. Byggdes i två steg med Claude Code:
+
+1. **Kalendern fylldes** — 23 programpunkter (22 aug 2026 – 4 feb 2027)
+   hämtade från föreningens egen programsida och verifierade mot varje
+   aktivitets egen sida, inlagda i en Google-kalender via ett kalender-MCP-
+   verktyg.
+2. **En statussida byggdes** åt styrelsen — medvetet informell, inte en
+   officiell LNF-sida (Kent var tydlig med det, se sidans egen etikett
+   "Internt arbetsmaterial").
+
+**Den bästa AI-samarbets-lärdomen, värd att lyfta muntligt:** Kent gav
+återkoppling via skärmdumpar med pilar och gröna/blå kommentarrutor —
+"kan du inte presentera länken här, direkt?", "det här förstår jag inte,
+kan nog tas bort" — och Claude byggde om exakt det som pekades ut, varv
+efter varv. Ett konkret tekniskt gränssnitt dök också upp: Claudes
+kalenderverktyg kunde skapa/ändra events men hade ingen funktion för att
+läsa ut eller ändra kalenderns delningsinställningar — den riktiga
+iCal-/webcal-länken kunde bara hämtas av Kent själv i Google Kalenders eget
+gränssnitt. Bra illustration av var AI-verktygets faktiska gräns gick, och
+att Claude sa ifrån i stället för att gissa fram en länk som inte fanns.
+
 ## kalmarnation-revision
 
 **1990 → 2026, samma nation, två roller.** Kent var PQe (ekonomiansvarig)
