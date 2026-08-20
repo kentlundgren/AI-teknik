@@ -8,6 +8,7 @@
   // Bakar in klickbara ordlista-länkar (första förekomst, i PROJECTS egen
   // ordning) innan något renderas — se glossary.js.
   linkifyAllProjects(PROJECTS);
+  applyTooltips(PROJECTS);
 
   const params = new URLSearchParams(location.search);
   let speedKey = params.get("hastighet");
@@ -170,9 +171,13 @@
       });
     }
 
-    const sourceLink = project.source
-      ? `<a class="visit source" href="${project.source.url}" target="_blank" rel="noopener">${project.source.label}</a>`
-      : "";
+    // sources (plural, flera källor på en slide) med fallback till äldre
+    // enstaka `source` — se forskarkalkyl-posten i projects.js för ett exempel
+    // med flera.
+    const sourceItems = project.sources || (project.source ? [project.source] : []);
+    const sourceLinks = sourceItems
+      .map((s) => `<a class="visit source" href="${s.url}" target="_blank" rel="noopener">${s.label}</a>`)
+      .join("");
 
     const text = document.createElement("div");
     text.className = "text-pane";
@@ -181,8 +186,18 @@
       <h1>${project.title}</h1>
       <p>${project.caption}</p>
       <a class="visit" href="${project.url}" target="_blank" rel="noopener">${project.url.replace(/^https?:\/\//, "")}</a>
-      ${sourceLink}
+      ${sourceLinks}
     `;
+
+    // term-tooltip-wrap (se applyTooltips i glossary.js): tap växlar synlighet
+    // på touch, där :hover inte finns — samma mönster som prompt-reveal ovan.
+    // Klick på länken inuti tooltipen ska navigera som vanligt, inte togglas.
+    text.querySelectorAll(".term-tooltip-wrap").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        if (e.target.closest("a")) return;
+        el.classList.toggle("show-tooltip");
+      });
+    });
 
     container.appendChild(media);
     container.appendChild(text);

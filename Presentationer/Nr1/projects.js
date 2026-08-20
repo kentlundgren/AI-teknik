@@ -150,12 +150,25 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     kind: "screenshot",
     year: "okt2024",
     title: "Fullkostnadskalkyl för forskning",
-    caption: "En kalkyl för forskningsprojekt, där kostnaden till stor del är arbetskraft: lön, LKP-pålägg, lokal- och indirekta kostnader över flera år, ställt mot finansiär och samfinansiering. Byggd med Claude 3.5 och jämförd rakt av mot mina gamla Excel-kalkyler i en egen video.",
+    caption: "En fullkostnadskalkyl för forskningsprojekt, enligt SUHF-modellen, där kostnaden till stor del är arbetskraft: lön, LKP-pålägg, lokal- och indirekta kostnader över flera år, ställt mot finansiär och samfinansiering. Byggd med Claude 3.5 och jämförd rakt av mot mina gamla Excel-kalkyler i en egen video.",
     url: "https://kentlundgren.se/kalkyler/fullkostnadskalkyl_for_forskning.html",
     image: "images/forskarkalkyl.png",
     imageFit: "contain",
     imagePosition: "center",
-    source: { label: "Läs mer: Göra en kalkyl tillsammans med AI", url: "https://controllerutangranser.wordpress.com/2024/10/25/gora-en-kalkyl-tillsammans-med-ai/" }
+    // Ingen del av GLOSSARY (som är avsedd för AI-modeller/AI-verktyg, se
+    // glossary.js) — SUHF-modellen är specifik för den här sliden, därför en
+    // egen, liten hovringsbar beskrivning i stället för en generell termlista-post.
+    tooltip: {
+      term: "SUHF-modellen",
+      url: "https://suhf.se/arbetsgrupper/suhf-modellen-full-kostnadstackning/",
+      linkLabel: "Läs mer på suhf.se",
+      desc: "SUHF-modellen skapades av Sveriges universitets- och högskoleförbund och rekommenderades i sin första version i slutet av 2007 för att säkerställa full kostnadstäckning inom svensk forskning. Modellen används för att transparent fördela både direkta kostnader och indirekta kostnader (som OH och lokaler) på externa forskningsanslag. Genom att tillämpa denna standardiserade påläggsprincip skyddas lärosätenas basanslag från att behöva subventionera externa forskningsprojekt."
+    },
+    sources: [
+      { label: "Läs mer: Göra en kalkyl tillsammans med AI", url: "https://controllerutangranser.wordpress.com/2024/10/25/gora-en-kalkyl-tillsammans-med-ai/" },
+      { label: "Källa: Lunds universitet – Full kostnadstäckning och samfinansiering", url: "https://www.ekonomiwebben.lu.se/mitt-arbete/overgripande-om-ekonomi-och-redovisning/ekonomimodellen/principer-och-rutiner/full-kostnadstackning-och-samfinansiering" },
+      { label: "Läs mer: Ekonomi vid universitet", url: "https://controllerutangranser.wordpress.com/2019/01/16/ekonomi-vid-universitet/" }
+    ]
   },
   {
     id: "blogglasning-2024",
@@ -401,6 +414,12 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
         note: "Världens första heltäckande AI-lag."
       },
       {
+        cite: "Lundgren, K. (2019) 'Ekonomi vid universitet', Controller, lärare och coach utan gränser reflekterar.",
+        url: "https://controllerutangranser.wordpress.com/2019/01/16/ekonomi-vid-universitet/",
+        date: "Publicerad 16 januari 2019",
+        note: "Kents egen, generella bild av vad en ekonom arbetar med inom Lunds universitet — bakgrundstext till Fullkostnadskalkyl för forskning-sliden, bredare kontext än själva kalkylen."
+      },
+      {
         cite: "Lundgren, K. (2024) 'Göra en kalkyl tillsammans med AI', Controller, lärare och coach utan gränser reflekterar.",
         url: "https://controllerutangranser.wordpress.com/2024/10/25/gora-en-kalkyl-tillsammans-med-ai/",
         date: "Publicerad 25 oktober 2024",
@@ -443,6 +462,12 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
         note: "Inlägg på LinkedIn där presentationen delades för första gången — med KL+GA-framing som beskriver samarbetet mellan Kent Lundgren och Generativ AI. Länken kräver LinkedIn-inloggning."
       },
       {
+        cite: "Lunds universitet (2026) 'Full kostnadstäckning och samfinansiering', Ekonomiwebben.",
+        url: "https://www.ekonomiwebben.lu.se/mitt-arbete/overgripande-om-ekonomi-och-redovisning/ekonomimodellen/principer-och-rutiner/full-kostnadstackning-och-samfinansiering",
+        date: "Hämtad 20 augusti 2026",
+        note: "Lunds universitets egen beskrivning av hur SUHF-modellen tillämpas lokalt — bakgrundstext till Fullkostnadskalkyl för forskning-sliden."
+      },
+      {
         cite: "Meta AI (2024) 'Introducing Meta Llama 3: The most capable openly available LLM to date', Meta AI Blog.",
         url: "https://ai.meta.com/blog/meta-llama-3/",
         date: "Publicerad 18 april 2024",
@@ -477,6 +502,12 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
         url: "https://openai.com/o1/",
         date: "Förhandsvisning 12 september 2024, fullständig lansering 5 december 2024",
         note: "Ursprunget till resonemangsmodeller — den breda normaliseringen fortsatte in i 2025 via o3."
+      },
+      {
+        cite: "SUHF (2026) 'SUHF-modellen / Full kostnadstäckning', Sveriges universitets- och högskoleförbund.",
+        url: "https://suhf.se/arbetsgrupper/suhf-modellen-full-kostnadstackning/",
+        date: "Hämtad 20 augusti 2026 (modellen rekommenderades ursprungligen i sin första version i slutet av 2007)",
+        note: "Den generella beskrivningen av SUHF-modellen som hovringstexten på Fullkostnadskalkyl för forskning-sliden länkar till."
       },
       {
         cite: "Vaswani, A. et al. (2017) 'Attention is all you need', arXiv preprint arXiv:1706.03762.",

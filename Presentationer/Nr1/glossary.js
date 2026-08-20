@@ -76,5 +76,28 @@ function linkifyAllProjects(projects) {
   });
 }
 
+// Valfri, per-projekt hovringsbar begreppsbeskrivning (project.tooltip =
+// {term, url, linkLabel, desc}) — skiljer sig från GLOSSARY ovan genom att
+// visa en kort förklarande text vid hover/tap, inte bara länka vidare.
+// Medvetet INTE en del av GLOSSARY: den listan är avsedd för AI-modeller/
+// AI-verktyg som återkommer över presentationen, medan tooltip-fältet är för
+// enstaka, sliduttrycksspecifika begrepp (t.ex. "SUHF-modellen"). Körs efter
+// linkifyAllProjects, en gång vid sidladdning.
+function applyTooltips(projects) {
+  projects.forEach(function (project) {
+    if (project.kind !== "screenshot" || !project.tooltip) return;
+    const t = project.tooltip;
+    const escapedDesc = t.desc
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    const markup = '<span class="term-tooltip-wrap" tabindex="0">' + t.term +
+      '<span class="term-tooltip" role="tooltip">' +
+      '<span class="term-tooltip-text">' + escapedDesc + '</span>' +
+      '<a class="term-tooltip-link" href="' + t.url + '" target="_blank" rel="noopener">' + t.linkLabel + ' &rarr;</a>' +
+      '</span></span>';
+    project.caption = project.caption.replace(t.term, markup);
+  });
+}
+
 window.GLOSSARY = GLOSSARY;
 window.linkifyAllProjects = linkifyAllProjects;
+window.applyTooltips = applyTooltips;
