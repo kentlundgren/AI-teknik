@@ -378,6 +378,30 @@ body.paused #playPauseBtn { color: var(--accent); border-color: var(--accent); }
   margin-bottom: 0.55rem;
 }
 
+/* Under ~640px kan termen sitta nära vänsterkanten av en smal text-pane —
+   centrerad under termen (ovan) klipps då av skärmkanten. Ankra i stället
+   till skärmens mitt, samma princip som prompt-reveal-panelen redan använder
+   (media-pane, inset: 0) — en fast, alltid synlig panel i stället för en
+   liten pil-popover. Verifierat med resize_window (mobile, 375px) 2026-08-20:
+   utan detta hamnade tooltipen delvis utanför skärmen till vänster. */
+@media (max-width: 640px) {
+  .term-tooltip {
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    top: 50%;
+    bottom: auto;
+    width: auto;
+    transform: translateY(-50%);
+  }
+
+  .term-tooltip-wrap:hover .term-tooltip,
+  .term-tooltip-wrap:focus-within .term-tooltip,
+  .term-tooltip-wrap.show-tooltip .term-tooltip {
+    transform: translateY(-50%);
+  }
+}
+
 .term-tooltip-link {
   color: var(--accent);
   font-weight: 600;

@@ -167,6 +167,8 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     sources: [
       { label: "Läs mer: Göra en kalkyl tillsammans med AI", url: "https://controllerutangranser.wordpress.com/2024/10/25/gora-en-kalkyl-tillsammans-med-ai/" },
       { label: "Källa: Lunds universitet – Full kostnadstäckning och samfinansiering", url: "https://www.ekonomiwebben.lu.se/mitt-arbete/overgripande-om-ekonomi-och-redovisning/ekonomimodellen/principer-och-rutiner/full-kostnadstackning-och-samfinansiering" },
+      { label: "Källa: LU:s kalkylstöd (mallen jag utgått från)", url: "https://www.ekonomiwebben.lu.se/sites/ekonomiwebben.lu.se/files/2026-01/10-ars-kalkylstod-2026.xlsx" },
+      { label: "Källa: EOS (Hypergene) – projektkalkyler vid LU", url: "https://www.ekonomiwebben.lu.se/sites/ekonomiwebben.lu.se/files/eos-projekt.pdf" },
       { label: "Läs mer: Ekonomi vid universitet", url: "https://controllerutangranser.wordpress.com/2019/01/16/ekonomi-vid-universitet/" }
     ]
   },
@@ -462,10 +464,22 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
         note: "Inlägg på LinkedIn där presentationen delades för första gången — med KL+GA-framing som beskriver samarbetet mellan Kent Lundgren och Generativ AI. Länken kräver LinkedIn-inloggning."
       },
       {
-        cite: "Lunds universitet (2026) 'Full kostnadstäckning och samfinansiering', Ekonomiwebben.",
+        cite: "Lunds universitet (2026a) 'Full kostnadstäckning och samfinansiering', Ekonomiwebben.",
         url: "https://www.ekonomiwebben.lu.se/mitt-arbete/overgripande-om-ekonomi-och-redovisning/ekonomimodellen/principer-och-rutiner/full-kostnadstackning-och-samfinansiering",
         date: "Hämtad 20 augusti 2026",
         note: "Lunds universitets egen beskrivning av hur SUHF-modellen tillämpas lokalt — bakgrundstext till Fullkostnadskalkyl för forskning-sliden."
+      },
+      {
+        cite: "Lunds universitet (2026b) '10 års kalkylstöd 2026' [Excel-mall], Ekonomiwebben.",
+        url: "https://www.ekonomiwebben.lu.se/sites/ekonomiwebben.lu.se/files/2026-01/10-ars-kalkylstod-2026.xlsx",
+        date: "Publicerad januari 2026",
+        note: "Lunds universitets egen kalkylmall för fullkostnadskalkyler — förlagan Kent utgick från när han byggde sin egen version med Claude."
+      },
+      {
+        cite: "Lunds universitet (2026c) 'EOS – projektkalkyler', Ekonomiwebben.",
+        url: "https://www.ekonomiwebben.lu.se/sites/ekonomiwebben.lu.se/files/eos-projekt.pdf",
+        date: "Hämtad 20 augusti 2026",
+        note: "Beskriver hur projektkalkyler görs i EOS, Lunds universitets namn för sitt Hypergene-baserade verksamhetssystem."
       },
       {
         cite: "Meta AI (2024) 'Introducing Meta Llama 3: The most capable openly available LLM to date', Meta AI Blog.",
