@@ -51,59 +51,37 @@ spridningssiffra, mindre "seriös").*
 
 ## Version A — LinkedIn "Höjdpunkter"-fält (~1 900 tecken, styckesindelad)
 
-Det började 2023 med att jag bad ChatGPT skriva pythonkod som hämtade
-temperaturen från SMHI:s öppna API. Koden fungerade. Sedan dess har jag
-byggt kalkyler och små webbverktyg tillsammans med generativ AI – mest
-Claude, i kombinationen Claude Code, Cursor och GitHub. Inte för att jag
-måste, utan för att jag tycker det är roligt att testa, leka och lära.
+**OBS för kopiering:** varje stycke nedan är EN rad (ingen radbrytning mitt i
+meningen), och styckena skiljs av en TOM rad. Kopiera texten som den står —
+inte via en renderad markdown-förhandsvisning, som slår ihop styckena. Klistra
+in direkt i LinkedIn-fältet; tomraden mellan styckena följer med.
 
-Arbetssättet har jag samlat i "Claude-kompassen": tre faser från idé till
-färdig kod, där en stor del av jobbet är att styra vilka källor AI:n ska
-utgå från – inte bara att skriva bra prompter.
+Det började 2023 med att jag bad ChatGPT skriva pythonkod som hämtade temperaturen från SMHI:s öppna API. Koden fungerade. Sedan dess har jag byggt kalkyler och små webbverktyg tillsammans med generativ AI – mest Claude, i kombinationen Claude Code, Cursor och GitHub. Inte för att jag måste, utan för att jag tycker det är roligt att testa, leka och lära.
+
+Arbetssättet har jag samlat i "Claude-kompassen": tre faser från idé till färdig kod, där en stor del av jobbet är att styra vilka källor AI:n ska utgå från – inte bara att skriva bra prompter.
 
 Fullkostnadskalkyl för forskning (2024)
-En kalkyl för forskningsprojekt enligt SUHF-modellen – lön, LKP-pålägg,
-lokal- och indirekta kostnader över flera år. Byggd med Claude 3.5 och
-jämförd rakt av mot mina gamla Excel-ark i en egen video. Det var här jag på
-allvar började lita på metoden.
+En kalkyl för forskningsprojekt enligt SUHF-modellen – lön, LKP-pålägg, lokal- och indirekta kostnader över flera år. Byggd med Claude 3.5 och jämförd rakt av mot mina gamla Excel-ark i en egen video. Det var här jag på allvar började lita på metoden.
 
 Fredagsquiz (2025)
-23 quiz om Simrishamns kommun, ett i veckan under ett halvår. Frågorna
-skrivna av Claude, koden i Cursor. På vägen flyttade jag projektet till
-GitHub Pages och skrev två egna guider om hur Git och GitHub faktiskt
-fungerar.
+23 quiz om Simrishamns kommun, ett i veckan under ett halvår. Frågorna skrivna av Claude, koden i Cursor. På vägen flyttade jag projektet till GitHub Pages och skrev två egna guider om hur Git och GitHub faktiskt fungerar.
 
 Vindkraftskalkyl (2026)
-Vindkraftens lönsamhet, gjord synlig och interaktiv. Den senaste i en lång
-rad kalkyler jag byggt sedan 2012 – samma resa från Excel-ark till
-webbapplikation, den här gången på några kvällar.
+Vindkraftens lönsamhet, gjord synlig och interaktiv. Den senaste i en lång rad kalkyler jag byggt sedan 2012 – samma resa från Excel-ark till webbapplikation, den här gången på några kvällar.
 
 Statsskuld: Sverige & USA (2026)
-En interaktiv jämförelse av två länders statsskulder, byggd som ett
-beslutsträd. Poängen var att visa själva beslutsvägen, inte bara slutsiffran
-– vad "vibe-kodning" innebär när man tar ansvar för resultatet.
+En interaktiv jämförelse av två länders statsskulder, byggd som ett beslutsträd. Poängen var att visa själva beslutsvägen, inte bara slutsiffran – vad "vibe-kodning" innebär när man tar ansvar för resultatet.
 
 Claude-kompassen (2026)
-Ett interaktivt verktyg som kartlägger Claudes ekosystem – ytor, styrfiler
-och de tre faserna i mitt eget arbetssätt. En bild av hur det ser ut just
-nu, inte ett facit.
+Ett interaktivt verktyg som kartlägger Claudes ekosystem – ytor, styrfiler och de tre faserna i mitt eget arbetssätt. En bild av hur det ser ut just nu, inte ett facit.
 
-Den gemensamma nämnaren: AI tar det tekniska, jag står för frågan, källorna
-och ansvaret.
+Den gemensamma nämnaren: AI tar det tekniska, jag står för frågan, källorna och ansvaret.
 
 ---
 
 ## Version B — kort (~600 tecken, för en ingress eller "Om"-stycke)
 
-Sedan 2023 bygger jag kalkyler och små webbverktyg tillsammans med generativ
-AI – mest Claude, i kombinationen Claude Code, Cursor och GitHub. Inte för
-att jag måste, utan för att jag tycker det är roligt att testa, leka och
-lära. Bland projekten: en fullkostnadskalkyl för forskning enligt
-SUHF-modellen (2024), 23 fredagsquiz om Simrishamns kommun (2025), en
-interaktiv vindkraftskalkyl och ett beslutsträd om Sveriges och USA:s
-statsskulder (2026). Arbetssättet har jag samlat i "Claude-kompassen": tre
-faser från idé till färdig kod. AI tar det tekniska, jag står för frågan,
-källorna och ansvaret.
+Sedan 2023 bygger jag kalkyler och små webbverktyg tillsammans med generativ AI – mest Claude, i kombinationen Claude Code, Cursor och GitHub. Inte för att jag måste, utan för att jag tycker det är roligt att testa, leka och lära. Bland projekten: en fullkostnadskalkyl för forskning enligt SUHF-modellen (2024), 23 fredagsquiz om Simrishamns kommun (2025), en interaktiv vindkraftskalkyl och ett beslutsträd om Sveriges och USA:s statsskulder (2026). Arbetssättet har jag samlat i "Claude-kompassen": tre faser från idé till färdig kod. AI tar det tekniska, jag står för frågan, källorna och ansvaret.
 
 ---
 
