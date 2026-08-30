@@ -211,6 +211,29 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     ]
   },
   {
+    id: "program-samlingen",
+    kind: "screenshot",
+    year: "apr2025",
+    title: "Programsamlingen",
+    caption: "Våren 2025: ett tjugotal små React-program byggda med generativ AI, samlade bakom en programväljare där man sveper mellan dem i stället för att klicka sig tillbaka. Flera är pedagogiska program med samma fem-fliks-uppbyggnad jag återanvände gång på gång — Uppgift, Tips, Visualisering, Quiz, Lösning — där lösningsfliken låses upp först när quizet är klart. Det var också här jag först kopplade in Firebase som databas.",
+    url: "https://kentlundgren.se/program/",
+    image: "images/programvaljaren.png",
+    // "fem-fliks-uppbyggnad" är sliduttrycksspecifik (ett eget mönster, inte en
+    // återkommande AI-modell/AI-verktyg) — därför en egen hovringsbeskrivning
+    // via tooltip-fältet, inte en GLOSSARY-post. Samma mönster som "SUHF-modellen".
+    tooltip: {
+      term: "fem-fliks-uppbyggnad",
+      url: "https://kentlundgren.se/program/programvaljare.html",
+      linkLabel: "Testa programväljaren",
+      desc: "En mall jag byggde för de pedagogiska programmen: fem flikar i fast följd. Uppgift beskriver den akademiska uppgiften med mål och betygskriterier. Tips ger vägledning om teori och metod. Visualisering är ett interaktivt diagram att utforska. Quiz testar förståelsen av nyckelbegreppen och måste klaras. Först då låses Lösning upp — en stegvis genomgång av hela uppgiften."
+    },
+    sources: [
+      { label: "Svep mellan programmen: programväljaren", url: "https://kentlundgren.se/program/programvaljare.html" },
+      { label: "Läs mer: Generativ AI och modern programmering – en utvecklingsöversikt", url: "https://klel.wordpress.com/2025/04/14/generativ-ai-och-modern-programmering-en-utvecklingsoversikt/" },
+      { label: "Läs mer: Utveckling av interaktiva webbapplikationer med AI-stöd", url: "https://controllerutangranser.wordpress.com/2024/11/26/utveckling-av-interaktiva-webbapplikationer-med-ai-stod/" }
+    ]
+  },
+  {
     id: "fredagsquiz",
     kind: "screenshot",
     year: "aug2025",
@@ -422,10 +445,22 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
         note: "Kents egen, generella bild av vad en ekonom arbetar med inom Lunds universitet — bakgrundstext till Fullkostnadskalkyl för forskning-sliden, bredare kontext än själva kalkylen."
       },
       {
-        cite: "Lundgren, K. (2024) 'Göra en kalkyl tillsammans med AI', Controller, lärare och coach utan gränser reflekterar.",
+        cite: "Lundgren, K. (2024a) 'Göra en kalkyl tillsammans med AI', Controller, lärare och coach utan gränser reflekterar.",
         url: "https://controllerutangranser.wordpress.com/2024/10/25/gora-en-kalkyl-tillsammans-med-ai/",
         date: "Publicerad 25 oktober 2024",
         note: "Bakgrundstext till Fullkostnadskalkyl för forskning-sliden — video där kalkylen byggs med Claude 3.5 och jämförs mot Excel."
+      },
+      {
+        cite: "Lundgren, K. (2024b) 'Utveckling av interaktiva webbapplikationer med AI-stöd', Controller, lärare och coach utan gränser reflekterar.",
+        url: "https://controllerutangranser.wordpress.com/2024/11/26/utveckling-av-interaktiva-webbapplikationer-med-ai-stod/",
+        date: "Publicerad 26 november 2024",
+        note: "Bakgrundstext till Programsamlingen-sliden — beskriver arbetssättet med React 18 och Firebase-integration i samarbete med generativ AI, och designprinciperna (bl.a. gulmarkerade inmatningsfält) som återkommer i programmen."
+      },
+      {
+        cite: "Lundgren, K. (2025) 'Generativ AI och modern programmering: en utvecklingsöversikt', Tankar i tiden från Lund.",
+        url: "https://klel.wordpress.com/2025/04/14/generativ-ai-och-modern-programmering-en-utvecklingsoversikt/",
+        date: "Publicerad 14 april 2025",
+        note: "Bakgrundstext till Programsamlingen-sliden — beskriver just fem-fliks-programmen (biodiversitet och resiliens som exempel: Uppgift, Tips, Visualisering, Quiz, Lösning) och hur de byggdes med Claude 3.7 Sonnet i både vanilla JS och React."
       },
       {
         cite: "Lundgren, K. (2026a) 'Strukturerad granskning av föreningens ekonomi', Controller, lärare och coach utan gränser reflekterar.",
