@@ -78,6 +78,14 @@ Status: Övervägs
 Noterat: 2026-08-05 (Kent, i samband med formatändringen av den här filen — "vi kan tänka framåt om det kan vara lämpligt")
 Beslut: —
 
+**Programsamlingen (kentlundgren.se/program/ + programväljaren)**
+Beskrivning: Kents samlingssida för ~20 små React/Firebase-program byggda med generativ AI våren 2025, och programväljaren som sveper mellan åtta pedagogiska program med hans återkommande fem-fliks-uppbyggnad (Uppgift, Tips, Visualisering, Quiz, Lösning).
+Länk: https://kentlundgren.se/program/ (väljare: https://kentlundgren.se/program/programvaljare.html)
+Bild: Ja — `images/programvaljaren.png` (program öppet i väljaren, de fem flikarna synliga)
+Status: **Infört**
+Noterat: 2026-08-30 (Kent bad uttryckligen om att lägga in den)
+Beslut: Infört i `projects.js` samma dag, `id: "program-samlingen"`, apr2025, mellan `year-2025-personal` och `fredagsquiz` — se PRD Ändringslogg v38.
+
 ## Hur en rad flyttas till "Infört"
 
 Ändra Status-fältet till **Infört**, komplettera Beslut-fältet med datum

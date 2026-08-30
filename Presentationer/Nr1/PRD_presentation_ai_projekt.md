@@ -1312,3 +1312,41 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   opåverkad). Testat lokalt (HTTP-server, `serios`-läge): slide 9/25,
   bild laddar (200), data/URL/källänk stämmer. `index.html`s versionsdatum
   uppdaterat till 19 aug 2026 per underhållsregeln i `Presentationer/CLAUDE.md`.
+- 2026-08-30 (v38): Nytt projekt tillagt: **Programsamlingen**
+  (`id: "program-samlingen"`), apr2025, mellan `year-2025-personal` och
+  `fredagsquiz` — våren 2025 var tidigare helt orepresenterad av ett
+  projekt (bara årskort). Källa: Kents samlingssida
+  `kentlundgren.se/program/` ("Utveckling av interaktiva webbapplikationer
+  med AI-stöd", versionsdatum 2025-04-13), som listar ~20 små React/
+  Firebase-program byggda med generativ AI, samt
+  `kentlundgren.se/program/programvaljare.html` — en Swiper-baserad
+  väljare som sveper mellan åtta av de pedagogiska programmen, alla med
+  Kents återkommande **fem-fliks-uppbyggnad** (Uppgift → Tips →
+  Visualisering → Quiz → Lösning, där Lösning låses upp först när quizet
+  klarats). **Beslut via fyra frågor till Kent** innan bygget: (1) en
+  screenshot-slide, den placeringen — ja; (2) klickbar `url` =
+  `/program/`, med programväljaren som extra källänk — "båda"; (3)
+  skärmdump = ett program öppet i väljaren med de fem flikarna synliga;
+  (4) koppla båda de hittade bloggtexterna som källa. Skärmdump
+  (`images/programvaljaren.png`, 1600×1000) tagen med Playwright (redan
+  installerat i `video-export/`) i stället för headless Chrome, eftersom
+  väljarsidan har en ihållande laddningsspinner som bara Chrome-varianten
+  inte kunde dölja — Playwright injicerar `.loading-indicator{display:none}`
+  före exponering. Standard `object-position` (ingen override). Ny
+  hovringstooltip på "fem-fliks-uppbyggnad" (samma `tooltip`-fält-mönster
+  som "SUHF-modellen" på forskarkalkyl-sliden), som listar de fem flikarna
+  och länkar till programväljaren. Tre `sources`: programväljaren + två
+  egna bloggposter, båda HTTP-verifierade (200) och sakinnehåll
+  kontrollerat med WebFetch: `Lundgren, K. (2024b)` "Utveckling av
+  interaktiva webbapplikationer med AI-stöd" (26 nov 2024, controller­utan­gränser
+  — beskriver React 18 + Firebase-arbetssättet) och `Lundgren, K. (2025)`
+  "Generativ AI och modern programmering: en utvecklingsöversikt" (14 apr
+  2025, klel — beskriver just fem-fliks-programmen, byggda med Claude 3.7
+  Sonnet). Den befintliga `Lundgren, K. (2024)` i `kallforteckning`
+  omdöpt till `(2024a)` eftersom Lundgren nu har två 2024-poster (Harvard-
+  suffix); alfabetisk ordning kontrollerad (2019, 2024a, 2024b, 2025,
+  2026a–f). Testat lokalt (HTTP-server) i `serios`- och mobilläge:
+  slide 13/27, bild laddar, tooltip visas, alla fyra länkar rätt, inga
+  konsolfel. `index.html`s versionsdatum + meta-description uppdaterade
+  till 30 aug 2026 per underhållsregeln. Kandidatprojekt.md: ny rad,
+  status Infört.

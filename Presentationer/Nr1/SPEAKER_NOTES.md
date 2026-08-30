@@ -26,6 +26,30 @@ byggt vindkraftskalkyler sedan **minst 2012**, i flera generationer
 
 ## transkribering
 
+## program-samlingen
+
+Samlingssidan (`kentlundgren.se/program/`) har versionsdatum 2025-04-13 och
+listar ett tjugotal program — allt från en helgschema-enkät och ett rent
+Firebase-testprogram till pedagogiska universitetsprogram (biodiversitet
+och resiliens, kvantfysik, matematik/kurvor, klimatscenarier m.fl.),
+ekonomiprogram, Kolada-API-hämtning och två versioner av en
+sol-upp/nedgång-app. Slidens skärmdump visar ett av de pedagogiska
+programmen öppet i **programväljaren** — Swiper-karusellen som lades till
+som "ny funktion" och låter en svepa mellan åtta av dem utan att navigera
+tillbaka.
+
+**Fem-fliks-uppbyggnaden** är Kents eget återkommande mönster: Uppgift
+(uppgiftstext, mål, betygskriterier) → Tips (teori/metod) → Visualisering
+(interaktivt diagram) → Quiz (måste klaras) → Lösning (låst tills quizet
+är klart). Värt att nämna muntligt: det är samma "testa, lek och lär"-fas
+som ledde vidare till Fredagsquiz senare samma år — quizen i programmen
+kom först.
+
+Två bloggposter ligger bakom sliden: den tidigare (nov 2024,
+controllerutangränser) beskriver React 18- och Firebase-arbetssättet;
+den senare (14 apr 2025, klel) beskriver just fem-fliks-programmen och
+att de byggdes med Claude 3.7 Sonnet i både vanilla JS och React.
+
 ## fredagsquiz
 
 Serien pågick 22 augusti 2025 – 6 februari 2026: 23 quiz totalt (#1–#23,
