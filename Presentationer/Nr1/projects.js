@@ -150,7 +150,7 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     kind: "screenshot",
     year: "okt2024",
     title: "Fullkostnadskalkyl för forskning",
-    caption: "En fullkostnadskalkyl för forskningsprojekt, enligt SUHF-modellen, där kostnaden till stor del är arbetskraft: lön, LKP-pålägg, lokal- och indirekta kostnader över flera år, ställt mot finansiär och samfinansiering. Byggd med Claude 3.5 och jämförd rakt av mot mina gamla Excel-kalkyler i en egen video.",
+    caption: "En fullkostnadskalkyl för forskningsprojekt, enligt SUHF-modellen, där kostnaden till stor del är arbetskraft: lön, LKP-pålägg, lokal- och indirekta kostnader över flera år, ställt mot finansiär och samfinansiering. Byggd med Claude 3.5 och jämförd rakt av mot mina gamla Excel-kalkyler i en egen video. En uppföljning två år senare, \"Kan vi anställa henne i tre år?\" (2026), bygger vidare på samma tänk med en rullande fyraårsprognos av forskargruppernas bidragsportföljer — jag ser de två som en helhet.",
     url: "https://kentlundgren.se/kalkyler/fullkostnadskalkyl_for_forskning.html",
     image: "images/forskarkalkyl.png",
     imageFit: "contain",
@@ -166,6 +166,7 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
     },
     sources: [
       { label: "Läs mer: Göra en kalkyl tillsammans med AI", url: "https://controllerutangranser.wordpress.com/2024/10/25/gora-en-kalkyl-tillsammans-med-ai/" },
+      { label: "Uppföljning: Kan vi anställa henne i tre år? (rullande fyraårsprognos)", url: "https://kentlundgren.github.io/Ekonomi/ekonomikommunikation/260903/index.html" },
       { label: "Källa: Lunds universitet – Full kostnadstäckning och samfinansiering", url: "https://www.ekonomiwebben.lu.se/mitt-arbete/overgripande-om-ekonomi-och-redovisning/ekonomimodellen/principer-och-rutiner/full-kostnadstackning-och-samfinansiering" },
       { label: "Källa: LU:s kalkylstöd (mallen jag utgått från)", url: "https://www.ekonomiwebben.lu.se/sites/ekonomiwebben.lu.se/files/2026-01/10-ars-kalkylstod-2026.xlsx" },
       { label: "Källa: EOS (Hypergene) – projektkalkyler vid LU", url: "https://www.ekonomiwebben.lu.se/sites/ekonomiwebben.lu.se/files/eos-projekt.pdf" },
@@ -497,6 +498,12 @@ subprocess.run([<span class="str">"ffmpeg"</span>, <span class="str">"-i"</span>
         url: "https://www.linkedin.com/posts/kentlundgren_jag-har-en-kompis-och-kollega-som-aldrig-ugcPost-7490845079058927616-TtCZ/",
         date: "Publicerad 5 augusti 2026",
         note: "Inlägg på LinkedIn där presentationen delades för första gången — med KL+GA-framing som beskriver samarbetet mellan Kent Lundgren och Generativ AI. Länken kräver LinkedIn-inloggning."
+      },
+      {
+        cite: "Lundgren, K. (2026g) 'Kan vi anställa henne i tre år? – fyra grupper, fyra år fram' [interaktiv sida], kentlundgren.github.io.",
+        url: "https://kentlundgren.github.io/Ekonomi/ekonomikommunikation/260903/index.html",
+        date: "Upprättad 3 september 2026",
+        note: "Uppföljning till Fullkostnadskalkyl för forskning-sliden — samma tänk vidareutvecklat till en rullande fyraårsprognos som följer fyra forskargruppers bidragsportföljer fyra år fram, och visar hur underskott växer när bidrag tar slut och lönerna räknas upp snabbare än anslagen."
       },
       {
         cite: "Lunds universitet (2026a) 'Full kostnadstäckning och samfinansiering', Ekonomiwebben.",

@@ -1350,3 +1350,21 @@ hastigheter, loop, samt responsiv layout på mobilbredd — allt fungerar.
   konsolfel. `index.html`s versionsdatum + meta-description uppdaterade
   till 30 aug 2026 per underhållsregeln. Kandidatprojekt.md: ny rad,
   status Infört.
+- 2026-09-04 (v39): Uppföljningssida kopplad till **Fullkostnadskalkyl för
+  forskning**-sliden på Kents begäran — han vill att kalkylen och den nya
+  sidan ska ses som en helhet. Sidan: `kentlundgren.github.io/Ekonomi/
+  ekonomikommunikation/260903/index.html` ("Kan vi anställa henne i tre år?
+  – fyra grupper, fyra år fram", upprättad 2026-09-03, ett påhittat
+  räkneexempel), en rullande fyraårsprognos som följer fyra forskargruppers
+  bidragsportföljer och visar hur underskott växer när bidrag tar slut och
+  lönerna räknas upp snabbare än anslagen. Tre ändringar, inga nya
+  slides/id:n: (1) en mening tillagd i `forskarkalkyl`-postens `caption`
+  som ramar den som en uppföljning "två år senare"; (2) ny `sources`-rad
+  på samma post, label "Uppföljning: Kan vi anställa henne i tre år?
+  (rullande fyraårsprognos)"; (3) full Harvard-post i `kallforteckning`,
+  `Lundgren, K. (2026g)` `[interaktiv sida]` — alfabetisk ordning
+  kontrollerad, faller sist i Lundgren-gruppen (2019, 2024a, 2024b, 2025,
+  2026a–g). URL HTTP-verifierad (200) och sakinnehåll läst med WebFetch
+  före formulering. `index.html`s versionsdatum uppdaterat till 4 sep 2026
+  per underhållsregeln (versionsnumret Nr1 oförändrat — löpande
+  innehållsuppdatering, ingen ny generation).
