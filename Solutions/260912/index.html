@@ -31,7 +31,7 @@
           <button type="button" id="playBtn">Pausa</button>
           <button type="button" id="resetBtn">Börja om</button>
         </div>
-        <p class="hud-note">Virveln blir tunnare och snurrar fortare. Energin i bilden hålls ändlig. När farten går mot oändligheten blinkar skissen och börjar om — i ekvationerna stannar tiden där.</p>
+        <p class="hud-note" id="hudNote" data-audience="15">Virveln blir som en allt tunnare slända som snurrar fortare. Energin stannar på «ändlig». När bilden blinkar har receptet sagt «oändligt fort» — då börjar filmen om, för riktigt vatten kommer aldrig dit.</p>
       </div>
     </section>
 
@@ -53,28 +53,28 @@
       <article id="panel-vuxen" class="panel" hidden role="tabpanel" aria-labelledby="tab-vuxen">
         <h2>För en vuxen som inte lever i PDE-världen</h2>
         <p>Du har rätt i kärnan. Ett blow-up betyder inte att kranvatten får oändlig fart. Det betyder att Navier–Stokes-ekvationerna, som kontinuummodell, tillåter mer än fysiken tål. Kartan är inte terrängen.</p>
-        <p>Det som <em>inte</em> följer automatiskt är att vi bara uppdaterar modellen. Vilken modell som ska ersätta den vid singulariteten är ett annat problem: molekylär beskrivning, andra regulariseringar, andra ekvationer. Millennieproblemet frågade inte efter nästa fysikbok. Det frågade om <em>den här</em> ekvationen alltid ger släta lösningar, eller om den kan gå sönder på ändlig tid.</p>
+        <p>Det som <em>inte</em> följer automatiskt är att vi bara uppdaterar modellen. Vilken modell som ska ersätta den vid singulariteten är ett annat problem. Millennieproblemet frågade om <em>den här</em> ekvationen alltid ger släta lösningar, eller om den kan gå sönder på ändlig tid.</p>
         <p>Därför är resultatet (om det håller) märkvärdigt av tre skäl som inte är att modeller är ungefärliga:</p>
         <ol>
           <li>Frågan var öppen så länge att Clay Institute satte en miljon dollar på den.</li>
           <li>Svaret är precist: det finns starttillstånd där hastigheten blir obegränsad medan energin förblir ändlig.</li>
           <li>Ingen människa hade visat just det för 3D Navier–Stokes. Påståendet kom via ett AI-system och en Lean-koll — fortfarande under granskning.</li>
         </ol>
-        <p>Ingenjörer slänger inte ut ekvationerna i morgon. De fungerar i det område där lösningen förblir slät. Det nya är att vi, om beviset står, vet att området inte är alltid.</p>
+        <p>Ingenjörer slänger inte ut ekvationerna i morgon. De fungerar där lösningen förblir slät. Det nya är att vi, om beviset står, vet att området inte är alltid.</p>
       </article>
 
       <article id="panel-skarp" class="panel" hidden role="tabpanel" aria-labelledby="tab-skarp">
         <h2>För den som kan ämnet</h2>
-        <p>Kontinuumantagandet är inte nyheten. Leray (1934) gav redan svaga lösningar. Millennieformuleringen gäller släthet för 3D inkompressibla Navier–Stokes på R^3 eller torusen, med släta data. OpenAI påstår sig ha visat utsaga C (och D): ändligtidssingularitet från släta data, med slät yttre kraft och ändlig energi.</p>
-        <p>Att säga att modellen är fel är för grovt. NS är den rätta viskösa kontinuumgränsen i det regime där den förblir slät. Ett blow-up säger att den gränsen inte är globalt reguljär. Det ger inte automatiskt en ersättande PDE, en viskositetsskala eller en fysikalisk cutoff. Euler (noll viskositet) är ett annat problem; Buckmaster och Alpöge tog steg där strax innan.</p>
+        <p>Kontinuumantagandet är inte nyheten. Leray (1934) gav redan svaga lösningar. Millennieformuleringen gäller släthet för 3D inkompressibla Navier–Stokes. OpenAI påstår sig ha visat utsaga C (och D): ändligtidssingularitet från släta data, med slät yttre kraft och ändlig energi.</p>
+        <p>Att säga att modellen är fel är för grovt. NS är den rätta viskösa kontinuumgränsen där den förblir slät. Ett blow-up säger att den gränsen inte är globalt reguljär.</p>
         <p>Det som är matematiskt skarpt, om det håller:</p>
         <ul>
-          <li>Singulariteten är en sträckt, accelererande virvel — inte ett slumpmässigt numeriskt artefakt.</li>
+          <li>Singulariteten är en sträckt, accelererande virvel.</li>
           <li>Termerna balanserar så att energin inte exploderar med farten.</li>
           <li>Viskositet är med. Det är alltså inte bara att Euler är vild.</li>
           <li>Bevis plus Lean är ett annat slags artefakt än en simulering som ser ut att blåsa.</li>
         </ul>
-        <p>Status 12 september 2026: internt Lean-checkat, inte Clay-godkänt, prioriteringsdiskussion med närliggande Euler-arbete. Visualiseringen här är en didaktisk analogi till den beskrivna virveln, inte en numerisk NS-lösning.</p>
+        <p>Status 12 september 2026: internt Lean-checkat, inte Clay-godkänt. Visualiseringen här är en didaktisk analogi, inte en numerisk NS-lösning.</p>
         <p>Källor: <a href="https://openai.com/index/navier-stokes-solution/">OpenAI (2026)</a>, <a href="https://www.nature.com/articles/d41586-026-02842-5">Castelvecchi / Nature (2026)</a>, <a href="./three_biggest.md">three_biggest.md</a>.</p>
       </article>
     </section>
@@ -87,45 +87,24 @@
     <div class="modal">
       <button type="button" class="modal-close" id="techClose" aria-label="Stäng">&times;</button>
       <h2>Hur den här sidan är byggd</h2>
-      <p>Två delar: tekniken i sidan, och metoden den togs fram med. Inget påhittat.</p>
-
+      <p>Två delar: tekniken i sidan, och metoden den togs fram med.</p>
       <h3 class="tech-section-title">Tekniken</h3>
       <div class="tech-grid">
         <div class="tech-card">
           <h3>Vanilla HTML, CSS, JS</h3>
-          <p>Inga ramverk. Canvas 2D ritar partiklar på en sträckt helix. Tid, radie och fart är avlästa ur samma parameter <code>t</code>.</p>
+          <p>Inga ramverk. Canvas 2D ritar partiklar på en sträckt helix.</p>
         </div>
         <div class="tech-card">
           <h3>Tre texter, en animation</h3>
-          <p>Flikarna byter bara förklaringslager. Virveln är densamma — poängen är att fenomenet inte ändras med publiken, bara språket.</p>
+          <p>Flikarna byter både bildtexten under virveln och förklaringslagret. Virveln är densamma.</p>
         </div>
         <div class="tech-card">
           <h3>Inte en NS-lösare</h3>
-          <p>Ingen diskretisering av Navier–Stokes. Skissen följer den kvalitativa beskrivningen: virvel som tunnas, sträcks och snurrar, energi märkt som ändlig.</p>
+          <p>Ingen diskretisering av Navier–Stokes. Skissen följer den kvalitativa beskrivningen.</p>
         </div>
         <div class="tech-card">
           <h3>Ingen data lämnar webbläsaren</h3>
-          <p>Ingen server, ingen mätning. Sidan kan köras från GitHub Pages eller som lokala filer.</p>
-        </div>
-      </div>
-
-      <h3 class="tech-section-title">Metoden</h3>
-      <div class="tech-grid">
-        <div class="tech-card">
-          <h3>Remote-first 12 september</h3>
-          <p>Filerna skrevs till GitHub av Grok på uttrycklig begäran, i mappen <code>Solutions/260912/</code>. Antagandet att 280912 var ett slåfel för den mappen står i chatten.</p>
-        </div>
-        <div class="tech-card">
-          <h3>Svaret före animationen</h3>
-          <p>Utgångspunkten var invändningen att det väl bara är modellen som är fel. Sidan tar den på allvar och skiljer karta från terräng på tre nivåer.</p>
-        </div>
-        <div class="tech-card">
-          <h3>Hörn enligt repositoriets regel</h3>
-          <p>Vänster GitHub-länk och höger teknik-modal, samma mönster som <code>Presentationer/Nr1/</code>.</p>
-        </div>
-        <div class="tech-card">
-          <h3>Status synlig</h3>
-          <p>Påståendet är inte Clay-verifierat. Det står i sidhuvudet så att visualiseringen inte låtsas vara ett avgjort teorem.</p>
+          <p>Ingen server, ingen mätning.</p>
         </div>
       </div>
     </div>
