@@ -21,8 +21,16 @@ Samma regel finns som globalt Grok-skill `fraga-forst` och som Regel 2 i `RAG/WO
 - Undantag: uttrycklig begäran («pusha till GitHub», «lägg filen i repot»).
 - Nya HTML-sidor ska ha hörn-länkarna `{ } GitHub` och `</> teknik` enligt `.cursor/rules/horn-lankar-github-teknik.mdc`.
 
+## Live-sida i README
+
+När en mapp har en GitHub Pages-sida (`index.html`) ska motsvarande `README.md` **alltid** innehålla en synlig länk till live-sidan, på formen:
+
+`https://kentlundgren.github.io/AI-teknik/<sökväg>/`
+
+Länken ska sitta högt i README:n, inte bara längst ner. Samma krav gäller överliggande README om den listar mappen. Se Regel 6 i `RAG/WORKFLOW.md` och Grok-skill:et `readme-live-lank`.
+
 ## Ton
 
 Pedagogisk, precist om status och osäkerhet, inga påhittade bibliotek eller citat.
 
-*Införd 2026-09-12 efter att remote-first-övningen i `Solutions/260912/` visade att agenten behöver ett repo-övergripande minne, inte bara RAG-regler.*
+*Införd 2026-09-12. Live-sidelänk i README tillagd samma kväll.*
