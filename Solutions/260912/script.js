@@ -6,6 +6,13 @@
   const mTime = document.getElementById("mTime");
   const mRad = document.getElementById("mRad");
   const mSpd = document.getElementById("mSpd");
+  const hudNote = document.getElementById("hudNote");
+
+  const captions = {
+    "15": "Virveln blir som en allt tunnare slända som snurrar fortare. Energin stannar på «ändlig». När bilden blinkar har receptet sagt «oändligt fort» — då börjar filmen om, för riktigt vatten kommer aldrig dit.",
+    "vuxen": "Kartan visar en virvel som tunnas och accelererar medan den beräknade energin hålls ändlig. Blinkningen är pedagogik: i ekvationerna slutar den släta tiden där. I kranen tar molekylerna över långt innan.",
+    "skarp": "Didaktisk analogi till vortex stretching: radie minskar, fart ~ 1/radie, kinetisk energi märkt ändlig. Flash = återstart nära t*. Inte en NS-tidsstegare. Påståendet gäller C^\u221e-släthet som bryts på ändlig tid."
+  };
 
   const N = 280;
   const particles = [];
@@ -100,10 +107,17 @@
     flash = 0;
   });
 
+  function setAudience(key) {
+    if (hudNote && captions[key]) {
+      hudNote.textContent = captions[key];
+      hudNote.setAttribute("data-audience", key);
+    }
+  }
+
   const tabs = [
-    { btn: document.getElementById("tab-15"), panel: document.getElementById("panel-15") },
-    { btn: document.getElementById("tab-vuxen"), panel: document.getElementById("panel-vuxen") },
-    { btn: document.getElementById("tab-skarp"), panel: document.getElementById("panel-skarp") }
+    { key: "15", btn: document.getElementById("tab-15"), panel: document.getElementById("panel-15") },
+    { key: "vuxen", btn: document.getElementById("tab-vuxen"), panel: document.getElementById("panel-vuxen") },
+    { key: "skarp", btn: document.getElementById("tab-skarp"), panel: document.getElementById("panel-skarp") }
   ];
 
   tabs.forEach(function (item) {
@@ -113,6 +127,7 @@
         other.btn.setAttribute("aria-selected", on ? "true" : "false");
         other.panel.hidden = !on;
       });
+      setAudience(item.key);
     });
   });
 
