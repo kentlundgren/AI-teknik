@@ -5,130 +5,59 @@ bete sig i detta projekt när det gäller versionshantering. Den är medvetet sk
 från `agents.md` (som är det portabla RAG-styrdokumentet) för att hålla det
 dokumentet rent och återanvändbart.
 
-Repo-övergripande agentminne, inklusive fråga-först-regeln, står också i [`AGENTS.md`](../AGENTS.md).
+Repo-övergripande agentminne står i [`AGENTS.md`](../AGENTS.md).
 
 ---
 
 ## Regel 1: Git commit och push sköts av användaren
 
-**Standardläge:** Kent (användaren) committar och pushar **själv** till GitHub.
-Syftet är att Kent ska förstå och kunna hantera Git-flödet på egen hand.
-
-Därför gäller:
+**Standardläge:** användaren committar och pushar **själv** till GitHub.
 
 - Agenten ska **inte** på eget initiativ köra `git commit`.
-- Agenten ska **inte** på eget initiativ köra `git push` (eller "Publish/Sync Branch").
-- Agenten får däremot hjälpa till att **förbereda** (t.ex. skapa/ändra filer,
-  förklara vad som ändrats, föreslå commit-meddelanden) – men själva commit och
-  push utför Kent.
+- Agenten ska **inte** på eget initiativ köra `git push`.
+- Agenten får förbereda filer och föreslå commit-meddelanden.
 
 ## Undantag: Uttrycklig begäran
 
-Om Kent **uttryckligen** ber agenten att committa och/eller pusha, ska agenten
-göra det. Exempel på tydliga instruktioner:
-
-- "Committa detta åt mig."
-- "Pusha till GitHub."
-- "Kör hela flödet: add, commit och push."
-
-När agenten utför detta på begäran ska den:
-
-1. Visa vad som ska committas (kort sammanfattning).
-2. Använda ett tydligt commit-meddelande.
-3. Redovisa resultatet efteråt (t.ex. `git status` / `git log`).
+Om användaren **uttryckligen** ber agenten att committa och/eller pusha, ska agenten göra det.
 
 ## Regel 2: Fråga alltid vid minsta tvekan – innan du kodar
 
-Agenten ska **alltid** fråga Kent om mer information vid den **minsta tvekan**
-**innan** den börjar koda, skapar filer, ändrar styrdokument eller skriver till GitHub.
-Detta gäller nu och framöver. Samma regel ligger i [`AGENTS.md`](../AGENTS.md)
-och i Grok-skill:et `fraga-forst`.
-
-Det innebär:
-
-- Om det finns flera rimliga tolkningar av en uppgift → fråga först.
-- Om det saknas information (t.ex. var filer ska ligga, namn, struktur, URL:er, publik) → fråga först.
-- Om det är oklart om local-first eller remote-first → fråga först.
-- Gissa inte kring viktiga val – stäm av med Kent.
-- Först när det är tydligt vad som ska göras påbörjas kodningen.
-- Om agenten ändå går vidare: skriv antagandet explicit («jag tolkar X som Y»).
+Fråga vid den **minsta tvekan** innan du kodar, skapar filer eller skriver till GitHub.
+Samma regel: [`AGENTS.md`](../AGENTS.md), Grok-skill `fraga-forst`.
 
 ## Regel 3: Källor och referenser i Harvardformat (med kontrollerade länkar)
 
-När agenten anger källor eller referenser gäller följande generellt i detta projekt:
-
-- **Harvardstil (Harvardformat).** Använd Harvard-referenssystemet:
-  - **In-text-hänvisning:** (Författare, år), t.ex. (Bengtsson, 1941) eller
-    (Nationalencyklopedin, 2024).
-  - **Referenslista:** fullständig referens i slutet, t.ex.
-    *Efternamn, Förnamnsinitial. (år). Titel. Utgivare/Webbplats. URL (hämtad ÅÅÅÅ-MM-DD).*
-- **Länkar till källorna.** Varje referens ska ha en **länk (URL)** till källan när en
-  sådan finns.
-- **Kontrollera varje länk.** Agenten ska kontrollera att varje länk
-  1. **fungerar** (svarar, inte död/404), och
-  2. är **relevant** (leder faktiskt till den information som påstås).
-  Länkar som inte kan verifieras markeras tydligt som ej verifierade eller utelämnas.
-
-*Not:* Länkkontrollen är särskilt aktuell när verkliga källor läggs in (t.ex. steg 2 i
-Frans G. Bengtsson-exemplet, där web-retrieval utförs). I steg med enbart platshållare
-finns inga länkar att kontrollera ännu.
-
-- **Annoterad källförteckning (tillagt 1/8 2026).** Varje referens ska, utöver vanligt
-  Harvard-format, avslutas med en kort, egen mening inom parentes som sammanfattar vad
-  källan handlar om och/eller varför den är med. Gäller nya källor framåt — se
-  `AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_rag.md` (avsnitt 4e) för exempel och
-  bakgrund. Befintliga källor i Frans G. Bengtsson-exemplet skrivs inte om retroaktivt
-  utan uttrycklig begäran.
+Harvardstil, länk till källan, kontrollera att länken fungerar och är relevant.
+Annoterad källförteckning: kort parentes efter varje referens.
 
 ## Regel 4: GitHub-länk på alla live-sidor (nere till vänster)
 
-Varje ny **live-sida** (HTML-sida som publiceras via GitHub Pages) i detta projekt ska
-ha en **länk till GitHub** placerad **längst ner till vänster** på sidan.
-
-- Länken visas som en liten, fast (fixed) "badge" i nedre vänstra hörnet, t.ex. med
-  texten `{ } GitHub`.
-- Länken pekar på sidans **källkod på GitHub** (den mapp/fil sidan bygger på), eller
-  på repots startsida om inget mer specifikt passar.
-- Länken ska öppnas i ny flik (`target="_blank" rel="noopener"`).
-- Denna badge läggs in **automatiskt när nya HTML-sidor skapas** i projektet.
-- Nere till höger ska `</> teknik` öppna en modal om sidans teknik och metod, enligt
-  `.cursor/rules/horn-lankar-github-teknik.mdc`.
-
-*Inspiration:* samma mönster används på t.ex.
-https://kentlundgren.github.io/foreningar/BjerredsSaltsjobad/medlemmar/
+Varje live-sida ska ha `{ } GitHub` nere till vänster (källkodsmappen, ny flik) och
+`</> teknik` nere till höger enligt `.cursor/rules/horn-lankar-github-teknik.mdc`.
 
 ## Regel 5: Skapa en README-fil när det är lämpligt
 
-När agenten skapar en **ny mapp/del** i projektet ska den skapa en **`README.md`**
-i den mappen när det är lämpligt – dvs. när mappen innehåller något som behöver
-förklaras (syfte, innehåll, hur man använder det). Syftet är att varje del ska vara
-begriplig direkt på GitHub, utan att man behöver läsa koden.
+Ny mapp/del som behöver förklaras får en `README.md`: syfte, filer, hur man använder materialet.
 
-Riktlinjer:
+## Regel 6: Live-sidelänk i README är obligatorisk
 
-- **När:** vid ny mapp/delprojekt, eller när en befintlig mapp fått så mycket
-  innehåll att en översikt behövs. Små hjälpmappar (t.ex. bara bilder) behöver
-  oftast ingen README.
-- **Innehåll (typiskt):** kort syfte, vad som finns i mappen (filerna och deras
-  roll), ev. länk till live-sida (GitHub Pages) och relaterade delar, samt hur man
-  använder/läser materialet.
-- **Ton:** pedagogisk och kortfattad, i linje med projektets övriga READMEs.
-- **Korsreferenser:** länka gärna uppåt till projektets rot-README och till
-  besläktade delar, så att helheten hänger ihop.
-- Denna README skapas **automatiskt när nya delar/mappar tillkommer**, på samma
-  sätt som GitHub-badgen i Regel 4.
+När en mapp har (eller får) en GitHub Pages-sida ska `README.md` i den mappen
+**alltid** innehålla en synlig länk till live-sidan:
+
+`https://kentlundgren.github.io/AI-teknik/<sökväg-till-mappen>/`
+
+- Länken ska sitta högt i README:n, inte bara i en filtabell längst ner.
+- Överliggande README som listar mappen ska också länka till samma live-sida.
+- Skapas `index.html` i en befintlig mapp: uppdatera README i samma commit-svep.
+- Finns ingen live-sida än, ska README inte låtsas det. Finns den, får länken inte saknas.
+
+Samma krav står i [`AGENTS.md`](../AGENTS.md) och i Grok-skill:et `readme-live-lank`.
 
 ## Påminnelse: PowerShell-miljö
 
-Kent använder oftast **PowerShell** på Windows. Tänk på:
-
-- `&&` fungerar **inte** som satsavdelare i PowerShell – dela upp i separata kommandon.
-- Heredoc (`$(cat <<'EOF' ... )`) fungerar **inte** i PowerShell – använd i stället
-  `git commit -F <fil>` med ett commit-meddelande i en temporär fil om meddelandet
-  är flerradigt.
+Dela kommandon. Använd inte `&&` som satsavdelare i PowerShell.
 
 ---
 
-*Uppdatering 2026-09-12: Regel 2 förstärkt («minsta tvekan») och knuten till AGENTS.md.*
-*Ursprung: Denna fil skapades efter att push till GitHub först skedde av misstag.
-Regeln säkerställer att Kent själv styr när något hamnar på GitHub.*
+*Uppdatering 2026-09-12: Regel 6 tillagd (live-sidelänk i README).*
