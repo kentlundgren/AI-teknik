@@ -1,9 +1,11 @@
 # Arbetsregler för AI-agenten (Git & GitHub)
 
-Denna fil innehåller **arbetsregler** för hur AI-agenten (Cursor, Claude m.fl.) ska
+Denna fil innehåller **arbetsregler** för hur AI-agenten (Cursor, Claude, Grok m.fl.) ska
 bete sig i detta projekt när det gäller versionshantering. Den är medvetet skild
 från `agents.md` (som är det portabla RAG-styrdokumentet) för att hålla det
 dokumentet rent och återanvändbart.
+
+Repo-övergripande agentminne, inklusive fråga-först-regeln, står också i [`AGENTS.md`](../AGENTS.md).
 
 ---
 
@@ -35,17 +37,21 @@ När agenten utför detta på begäran ska den:
 2. Använda ett tydligt commit-meddelande.
 3. Redovisa resultatet efteråt (t.ex. `git status` / `git log`).
 
-## Regel 2: Fråga alltid vid minsta oklarhet – innan du kodar
+## Regel 2: Fråga alltid vid minsta tvekan – innan du kodar
 
-Agenten ska **alltid** fråga Kent om något är oklart **innan** den börjar koda eller
-gör större ändringar. Detta gäller nu och framöver.
+Agenten ska **alltid** fråga Kent om mer information vid den **minsta tvekan**
+**innan** den börjar koda, skapar filer, ändrar styrdokument eller skriver till GitHub.
+Detta gäller nu och framöver. Samma regel ligger i [`AGENTS.md`](../AGENTS.md)
+och i Grok-skill:et `fraga-forst`.
 
 Det innebär:
 
 - Om det finns flera rimliga tolkningar av en uppgift → fråga först.
-- Om det saknas information (t.ex. var filer ska ligga, namn, struktur, URL:er) → fråga först.
+- Om det saknas information (t.ex. var filer ska ligga, namn, struktur, URL:er, publik) → fråga först.
+- Om det är oklart om local-first eller remote-first → fråga först.
 - Gissa inte kring viktiga val – stäm av med Kent.
 - Först när det är tydligt vad som ska göras påbörjas kodningen.
+- Om agenten ändå går vidare: skriv antagandet explicit («jag tolkar X som Y»).
 
 ## Regel 3: Källor och referenser i Harvardformat (med kontrollerade länkar)
 
@@ -85,6 +91,8 @@ ha en **länk till GitHub** placerad **längst ner till vänster** på sidan.
   på repots startsida om inget mer specifikt passar.
 - Länken ska öppnas i ny flik (`target="_blank" rel="noopener"`).
 - Denna badge läggs in **automatiskt när nya HTML-sidor skapas** i projektet.
+- Nere till höger ska `</> teknik` öppna en modal om sidans teknik och metod, enligt
+  `.cursor/rules/horn-lankar-github-teknik.mdc`.
 
 *Inspiration:* samma mönster används på t.ex.
 https://kentlundgren.github.io/foreningar/BjerredsSaltsjobad/medlemmar/
@@ -121,5 +129,6 @@ Kent använder oftast **PowerShell** på Windows. Tänk på:
 
 ---
 
-*Uppdatering: Denna fil skapades efter att push till GitHub först skedde av misstag.
+*Uppdatering 2026-09-12: Regel 2 förstärkt («minsta tvekan») och knuten till AGENTS.md.*
+*Ursprung: Denna fil skapades efter att push till GitHub först skedde av misstag.
 Regeln säkerställer att Kent själv styr när något hamnar på GitHub.*
