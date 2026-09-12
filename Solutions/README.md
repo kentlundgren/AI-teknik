@@ -7,6 +7,9 @@ Varje undermapp är datumstämplad (`ÅÅMMDD`) så att nya tillskott kan lägga
 ## Live-sidor
 
 - 260912 — Navier–Stokes-visualisering: https://kentlundgren.github.io/AI-teknik/Solutions/260912/
+  - 15 år: https://kentlundgren.github.io/AI-teknik/Solutions/260912/#15ar
+  - Vuxen: https://kentlundgren.github.io/AI-teknik/Solutions/260912/#vuxen
+  - Skarp läsare: https://kentlundgren.github.io/AI-teknik/Solutions/260912/#skarplasare
 
 ## Innehåll
 
