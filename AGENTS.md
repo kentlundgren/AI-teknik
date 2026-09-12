@@ -29,8 +29,13 @@ När en mapp har en GitHub Pages-sida (`index.html`) ska motsvarande `README.md`
 
 Länken ska sitta högt i README:n, inte bara längst ner. Samma krav gäller överliggande README om den listar mappen. Se Regel 6 i `RAG/WORKFLOW.md` och Grok-skill:et `readme-live-lank`.
 
+## Källor
+
+Harvardstil enligt Grok-skill:et `kent-referens` och Regel 3 i `RAG/WORKFLOW.md`.
+Synlig hel URL är standard. **Den utskrivna URL:en ska vara klickbar** — i HTML `<a href="URL">URL</a>`, i Markdown `[URL](URL)`. En adress som bara står som text är fel. Kontrollera att länken fungerar innan den publiceras. Relevansnot i kursiv parentes efter varje post.
+
 ## Ton
 
 Pedagogisk, precist om status och osäkerhet, inga påhittade bibliotek eller citat.
 
-*Införd 2026-09-12. Live-sidelänk i README tillagd samma kväll.*
+*Uppdaterad 2026-09-12: klickbara URL:er i källförteckning.*
