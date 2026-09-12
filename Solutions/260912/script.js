@@ -14,6 +14,21 @@
     "skarp": "Didaktisk analogi till vortex stretching: radie minskar, fart ~ 1/radie, kinetisk energi märkt ändlig. Flash = återstart nära t*. Inte en NS-tidsstegare. Påståendet gäller C^\u221e-släthet som bryts på ändlig tid."
   };
 
+  const hashToKey = {
+    "15ar": "15",
+    "15år": "15",
+    "15": "15",
+    "vuxen": "vuxen",
+    "skarplasare": "skarp",
+    "skarp": "skarp"
+  };
+
+  const keyToHash = {
+    "15": "15ar",
+    "vuxen": "vuxen",
+    "skarp": "skarplasare"
+  };
+
   const N = 280;
   const particles = [];
   for (let i = 0; i < N; i++) {
@@ -115,21 +130,43 @@
   }
 
   const tabs = [
-    { key: "15", btn: document.getElementById("tab-15"), panel: document.getElementById("panel-15") },
-    { key: "vuxen", btn: document.getElementById("tab-vuxen"), panel: document.getElementById("panel-vuxen") },
-    { key: "skarp", btn: document.getElementById("tab-skarp"), panel: document.getElementById("panel-skarp") }
+    { key: "15", btn: document.getElementById("tab-15"), panel: document.getElementById("15ar") },
+    { key: "vuxen", btn: document.getElementById("tab-vuxen"), panel: document.getElementById("vuxen") },
+    { key: "skarp", btn: document.getElementById("tab-skarp"), panel: document.getElementById("skarplasare") }
   ];
+
+  function showTab(key, writeHash) {
+    const item = tabs.filter(function (x) { return x.key === key; })[0] || tabs[0];
+    tabs.forEach(function (other) {
+      const on = other === item;
+      other.btn.setAttribute("aria-selected", on ? "true" : "false");
+      other.panel.hidden = !on;
+    });
+    setAudience(item.key);
+    if (writeHash) {
+      const next = "#" + keyToHash[item.key];
+      if (location.hash !== next) {
+        history.replaceState(null, "", next);
+      }
+    }
+  }
+
+  function keyFromHash() {
+    const raw = (location.hash || "").replace(/^#/, "").toLowerCase();
+    return hashToKey[raw] || "15";
+  }
 
   tabs.forEach(function (item) {
     item.btn.addEventListener("click", function () {
-      tabs.forEach(function (other) {
-        const on = other === item;
-        other.btn.setAttribute("aria-selected", on ? "true" : "false");
-        other.panel.hidden = !on;
-      });
-      setAudience(item.key);
+      showTab(item.key, true);
     });
   });
+
+  window.addEventListener("hashchange", function () {
+    showTab(keyFromHash(), false);
+  });
+
+  showTab(keyFromHash(), false);
 
   const modal = document.getElementById("techModal");
   const openBtn = document.getElementById("techBtn");
