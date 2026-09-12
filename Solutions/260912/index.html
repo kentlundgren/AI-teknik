@@ -35,14 +35,14 @@
       </div>
     </section>
 
-    <section class="explain">
+    <section class="explain" id="forklaring">
       <div class="tabs" role="tablist" aria-label="Förklaringsnivå">
-        <button type="button" role="tab" id="tab-15" aria-controls="panel-15" aria-selected="true">15 år</button>
-        <button type="button" role="tab" id="tab-vuxen" aria-controls="panel-vuxen" aria-selected="false">Vuxen</button>
-        <button type="button" role="tab" id="tab-skarp" aria-controls="panel-skarp" aria-selected="false">Skarp läsare</button>
+        <button type="button" role="tab" id="tab-15" aria-controls="15ar" aria-selected="true">15 år</button>
+        <button type="button" role="tab" id="tab-vuxen" aria-controls="vuxen" aria-selected="false">Vuxen</button>
+        <button type="button" role="tab" id="tab-skarp" aria-controls="skarplasare" aria-selected="false">Skarp läsare</button>
       </div>
 
-      <article id="panel-15" class="panel" role="tabpanel" aria-labelledby="tab-15">
+      <article id="15ar" class="panel" role="tabpanel" aria-labelledby="tab-15">
         <h2>För en femtonåring</h2>
         <p>Tänk att någon skrivit ett <strong>recept</strong> för hur vatten och luft ska röra sig. Receptet är jättebra. Flygplan, väderappar och blodflöde räknas med det.</p>
         <p>Frågan som stod öppen i ungefär hundra år var: kan receptet, om man startar helt vanligt, plötsligt säga att vattnet snurrar <em>oändligt fort</em> — på en klocka som fortfarande tickar vanligt?</p>
@@ -50,7 +50,7 @@
         <p>Det märkvärdiga är inte att kartor kan vara fel. Det visste alla. Det märkvärdiga är att bevisa exakt att den här kartan <em>kan</em> gå sönder — och hur virveln ser ut när den gör det.</p>
       </article>
 
-      <article id="panel-vuxen" class="panel" hidden role="tabpanel" aria-labelledby="tab-vuxen">
+      <article id="vuxen" class="panel" hidden role="tabpanel" aria-labelledby="tab-vuxen">
         <h2>För en vuxen som inte lever i PDE-världen</h2>
         <p>Du har rätt i kärnan. Ett blow-up betyder inte att kranvatten får oändlig fart. Det betyder att Navier–Stokes-ekvationerna, som kontinuummodell, tillåter mer än fysiken tål. Kartan är inte terrängen.</p>
         <p>Det som <em>inte</em> följer automatiskt är att vi bara uppdaterar modellen. Vilken modell som ska ersätta den vid singulariteten är ett annat problem. Millennieproblemet frågade om <em>den här</em> ekvationen alltid ger släta lösningar, eller om den kan gå sönder på ändlig tid.</p>
@@ -63,7 +63,7 @@
         <p>Ingenjörer slänger inte ut ekvationerna i morgon. De fungerar där lösningen förblir slät. Det nya är att vi, om beviset står, vet att området inte är alltid.</p>
       </article>
 
-      <article id="panel-skarp" class="panel" hidden role="tabpanel" aria-labelledby="tab-skarp">
+      <article id="skarplasare" class="panel" hidden role="tabpanel" aria-labelledby="tab-skarp">
         <h2>För den som kan ämnet</h2>
         <p>Kontinuumantagandet är inte nyheten. Leray (1934) gav redan svaga lösningar. Millennieformuleringen gäller släthet för 3D inkompressibla Navier–Stokes. OpenAI påstår sig ha visat utsaga C (och D): ändligtidssingularitet från släta data, med slät yttre kraft och ändlig energi.</p>
         <p>Att säga att modellen är fel är för grovt. NS är den rätta viskösa kontinuumgränsen där den förblir slät. Ett blow-up säger att den gränsen inte är globalt reguljär.</p>
@@ -96,7 +96,7 @@
         </div>
         <div class="tech-card">
           <h3>Tre texter, en animation</h3>
-          <p>Flikarna byter både bildtexten under virveln och förklaringslagret. Virveln är densamma.</p>
+          <p>Flikarna byter bildtext och förklaring. Direktlänkar: <a href="#15ar">#15ar</a>, <a href="#vuxen">#vuxen</a>, <a href="#skarplasare">#skarplasare</a>.</p>
         </div>
         <div class="tech-card">
           <h3>Inte en NS-lösare</h3>
