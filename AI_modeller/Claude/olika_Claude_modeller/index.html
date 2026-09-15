@@ -343,6 +343,9 @@
    ett `annotation`-fält (kort mening om vad källan handlar om/varför den
    är med) — se kent-meta-regler-for-code, Regel 2. Befintliga poster
    utan annotation ändras inte retroaktivt.
+   Här skedde en uppdatering 15 september 2026: fyra källor tillagda
+   (Lundgren 2026l, Next.js 2026, Vercel 2026a–b) för Vercel-tilläggen
+   i Fas 1, Fas 2 och Fas 3b.
 --------------------------------------------------------------- */
 const sourcesData = [
   { ref: 'agents.md (2026)', title: 'AGENTS.md — open format for guiding coding agents.', type: '[Webbsida]', pub: '', url: 'https://agents.md/', urlLabel: 'agents.md' },
@@ -365,7 +368,11 @@ const sourcesData = [
   { ref: 'Lundgren, K. (2026i)', title: 'Sluta gissa – ragga i stället.', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 1/8 2026', url: 'https://klel.wordpress.com/2026/08/01/sluta-gissa-ragga-i-stallet/', urlLabel: 'klel.wordpress.com/2026/08/01', annotation: 'Blogginlägget bakom RAG-kortet i Fas 1 — hela resonemanget om Classic/Advanced RAG, Frans G. Bengtsson-exemplet och spridnings-episoden.' },
   { ref: 'Lundgren, K. (2026j)', title: 'Behöver jag en spec.md?', type: '[Blogginlägg]', pub: 'klel.wordpress.com, 2/8 2026', url: 'https://klel.wordpress.com/2026/08/02/behover-jag-en-spec-md/', urlLabel: 'klel.wordpress.com/2026/08/02', annotation: 'Blogginlägget bakom SPEC.md-kortet i Fas 0 — hela resonemanget om PRD_spec.md, det negativa exemplet och multiagent-idén jag valde bort.' },
   { ref: 'Lundgren, K. (2026k)', title: 'Min "samvaro" med Claude.', type: '[LinkedIn-artikel]', pub: 'LinkedIn, 2/8 2026', url: 'https://www.linkedin.com/pulse/min-samvaro-med-claude-kent-lundgren-gdjee/', urlLabel: 'linkedin.com/pulse/min-samvaro-med-claude', annotation: 'Min egen tre-stegs-resa mot bättre samspel med AI — fråga alltid, samtal innan kodning, formell PRD — samma resonemang som ligger bakom SPEC.md-kortet i Fas 0.' },
+  { ref: 'Lundgren, K. (2026l)', title: 'Vercel-teknik-ver2.md.', type: '[Teknikbeskrivning]', pub: 'GitHub, september 2026, hämtad 15/9 2026', url: 'https://github.com/kentlundgren/Vindkraft/blob/main/vindkraftskalkyl_Vercel_ver2/Vercel-teknik-ver2.md', urlLabel: 'https://github.com/kentlundgren/Vindkraft/blob/main/vindkraftskalkyl_Vercel_ver2/Vercel-teknik-ver2.md', annotation: 'Min egen redogörelse för första Vercel-kalkylen: HTML + två Functions, preset Other.' },
+  { ref: 'Next.js (2026)', title: 'llms.txt.', type: '[Webbsida]', pub: 'Next.js Docs, hämtad 15/9 2026', url: 'https://nextjs.org/docs/llms.txt', urlLabel: 'https://nextjs.org/docs/llms.txt', annotation: 'Versionsstämplad agentindex för Next.js-dokumentationen, App Router — karta till levande docs, inte en tutorial.' },
   { ref: 'Osmani, A. (2026)', title: 'How to write a good spec for AI agents.', type: '[Blogginlägg]', pub: 'addyosmani.com, 13/1 2026', url: 'https://addyosmani.com/blog/good-spec/', urlLabel: 'addyosmani.com/blog/good-spec', annotation: 'Den mest direkt relevanta källan — namnger uttryckligen SPEC.md som en beständig fil mellan AI-sessioner.' },
+  { ref: 'Vercel (2026a)', title: 'Documentation.', type: '[Webbsida]', pub: 'Vercel, hämtad 15/9 2026', url: 'https://vercel.com/docs', urlLabel: 'https://vercel.com/docs', annotation: 'Officiell docs-ingång för plattformen. Inte startsidan vercel.com.' },
+  { ref: 'Vercel (2026b)', title: 'Vercel Functions.', type: '[Webbsida]', pub: 'Vercel, hämtad 15/9 2026', url: 'https://vercel.com/docs/functions', urlLabel: 'https://vercel.com/docs/functions', annotation: 'Servernivån GitHub Pages saknar: kod som körs på begäran utan att nycklar ligger i klienten.' },
   { ref: '', title: 'Repot för det här projektet, med hela historiken bakom den här sidan.', type: '', pub: '', url: 'https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/olika_Claude_modeller', urlLabel: 'github.com/kentlundgren/AI-teknik' }
 ];
 
@@ -509,7 +516,8 @@ Kent anger källor i Harvardsystemet... Gissa aldrig på en URL.`,
       }
     ],
     tradeoff:'Fördelen med tre nivåer är att man kan välja hur brett en regel ska gälla. Nackdelen är att det blir svårt att hålla reda på var allt ligger — särskilt om man, som Kent, vill ha kontrollen själv: skapa, utveckla och förbättra sina egna skills, snarare än att lämna bort ägarskapet helt. Det är också svårt att i förväg veta om något hör hemma i en AGENTS.md-regel eller i en skill, och lika svårt att veta vilken av de tre nivåerna en ny skill bör läggas på — det kräver aktivt underhåll, inte ett engångsval. <strong>Konkret exempel, upptäckt under det här projektet:</strong> skillen <code>kent-skrivstil</code> finns just nu på två ställen samtidigt — global nivå på den här datorn, och kontoanknuten — utan att vara synkade med varandra. När den ena uppdaterades (för att lägga till en ny regel) fick den andra ingen ändring alls. Det är precis den krocken, förvirringen och oordningen som är priset för flexibiliteten. <strong>Nytt problem, 30 juli 2026:</strong> det finns ytterligare en dimension av detta för den som — som Kent — använder <em>både</em> Claude Code och Claude Cowork. De lagrar sina skills i <em>helt separata</em> mappar och det finns inget inbyggt sätt att synka dem. En skill uppdaterad i Cowork når aldrig Claude Codes mapp automatiskt, och vice versa. Det är en designbrist i ekosystemet som drabbar den som rör sig mellan verktygen.',
-    note:''
+    /* Här skedde en uppdatering 15 september 2026: Vercel-teknik som utforskning, styrt av ett globalt Cursor-skill. */
+    note:'15 september 2026: jag undersöker det jag kallar Vercel-teknik. Ett globalt Cursor-skill, <code>nextjs-vercel-app-prompting</code>, styr det arbetet när det dyker upp — plattformen (Functions, hemligheter, Git-deploy) och, som ett senare valfritt skal, Next.js (App Router). Två spår, inte ett. Skill:et ska slå upp levande docs, inte startsidan vercel.com (<a href="https://vercel.com/docs" target="_blank" rel="noopener">Vercel, 2026a</a>; <a href="https://nextjs.org/docs/llms.txt" target="_blank" rel="noopener">Next.js, 2026</a>).'
   },
   {
     id:'rag', name:'RAG', sub:'Ingen fil — en policy',
@@ -564,7 +572,8 @@ const surfaces = [
     cap:'Höger sidopanel ("Plan, Build, /skills, @ for context") + Claude Code CLI i den inbyggda terminalen — samtidigt.',
     tools:['Claude Code (sidopanel, trolig extension)','Claude Code (terminal)','Cursors egna redigeringsverktyg'],
     models:['Sonnet 4.6 (sidopanel)','Opus 4.8 tillgänglig / Opus 5 nu standard (terminalens "What\'s new")'],
-    note:'Samma harness i två gränssnitt i ett och samma fönster — inte bara olika appar.'
+    /* Här skedde en uppdatering 15 september 2026: Cursor är kodytan, Vercel-dashboarden är drift. */
+    note:'Samma harness i två gränssnitt i ett och samma fönster — inte bara olika appar. Cursor är kodytan; Vercel-dashboarden är drift — jag undersöker den, men skriver koden här.'
   }
 ];
 
@@ -590,6 +599,8 @@ const afterClaude = [
     id:'gh', name:'GitHub', sub:'Överföring till webben',
     img:'Bilder/projektet_i_GitHub_260729.jpg',
     cap:'Repot på GitHub, samma dag — filerna som Cursor förde över dit, synliga för vem som helst.',
+    /* Här skedde en uppdatering 15 september 2026: GitHub Pages som vanliga spåret, Vercel som komplement. */
+    fact:'GitHub Pages räcker för statiska sidor — den här kompassen levereras så. Vercel är ett komplement när något måste köras på servern utan att läcka nycklar (<a href="https://vercel.com/docs" target="_blank" rel="noopener">Vercel, 2026a</a>; <a href="https://vercel.com/docs/functions" target="_blank" rel="noopener">Vercel, 2026b</a>). Första kalkylen, september 2026, är HTML och två Functions, preset Other — inte Next.js. Live: <a href="https://vindkraft-ver2.vercel.app/" target="_blank" rel="noopener">https://vindkraft-ver2.vercel.app/</a>. Teknik: <a href="https://github.com/kentlundgren/Vindkraft/blob/main/vindkraftskalkyl_Vercel_ver2/Vercel-teknik-ver2.md" target="_blank" rel="noopener">https://github.com/kentlundgren/Vindkraft/blob/main/vindkraftskalkyl_Vercel_ver2/Vercel-teknik-ver2.md</a>.',
     note:'Här blir det som fördes över en URL vem som helst kan öppna, via GitHub Pages — hela projektet, eller bara den delmängd jag valde i steget innan.'
   }
 ];
@@ -605,7 +616,7 @@ const skillTooltip = `
   &nbsp;&nbsp;kent-meta-regler-for-code, kent-respons, kent-skrivstil,<br>
   &nbsp;&nbsp;skills-meta-guide<br><br>
   <b>Nivå 2b — Global, endast Cursor</b><br>
-  .cursor\\skills\\: bjerred-firebase-sync, firebase-backend<br>
+  .cursor\\skills\\: bjerred-firebase-sync, firebase-backend, nextjs-vercel-app-prompting<br>
   .cursor\\skills-cursor\\: automate, canvas, sdk m.fl.<br><br>
   <b>Nivå 3 — Kontoanknuten</b><br>
   Når dem: Cowork ✓ &nbsp;claude.ai ✓ &nbsp;Claude Code ✗ &nbsp;Cursor ✗<br>
