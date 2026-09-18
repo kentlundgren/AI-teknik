@@ -6,6 +6,22 @@ Ett destillat av blogginlägget [Vem har hållit fast vid AI-varningen efter Cha
 
 Bakgrund, beslut och källkontroll finns i [PRD_rosterna_efter_chatgpt.md](PRD/PRD_rosterna_efter_chatgpt.md).
 
+## 🔗 Live-sidor
+
+Två publicerade versioner, med olika teknisk kapacitet (se avsnittet Teknik nedan för bakgrunden till spår A/Vercel):
+
+**Enkel, statisk — GitHub Pages**
+<https://kentlundgren.github.io/AI-teknik/AI_sakerhet/Nummer1/>
+Ren HTML/CSS/JS. Signaturräknaren visar fallback-läget (`/api`-routes finns inte på GitHub Pages), OG-delningsbilden fungerar inte. Byggs automatiskt av GitHub vid varje push till `main`.
+
+**Avancerad, med Vercel Functions**
+<https://ai-teknik-4-roster.vercel.app/>
+Samma sida plus de två Vercel Functions. Signaturräknaren hämtar live-data (`/api/signatureCount`, bekräftat fungerande). OG-delningsbilden (`/api/og`) ger just nu 404 — under felsökning, se PRD:ns ändringslogg.
+
+**Vercel-dashboard (projektstyrning, inte publik)**
+<https://vercel.com/effektiv1/ai-teknik-4-roster>
+Deploy-loggar, Functions-status, domäner. Team: `effektiv1`.
+
 ## Teknik
 
 Statisk HTML/CSS/JS, ingen build, inget ramverk. Vercel-spår A (se skillen `nextjs-vercel-app-prompting`): Framework-inställning *Other*, samma mönster som `vindkraftskalkyl_Vercel_ver2`. Två Vercel Functions i `api/`:
@@ -27,4 +43,4 @@ Den här mappen lokalt:
 
 På GitHub: <https://github.com/kentlundgren/AI-teknik/tree/main/AI_sakerhet/Nummer1>
 
-Live-sida: inte publicerad än (väntar på deploy till Vercel).
+Live-sidor: se avsnittet [Live-sidor](#live-sidor) högre upp.
