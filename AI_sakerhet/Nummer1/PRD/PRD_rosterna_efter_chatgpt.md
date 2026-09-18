@@ -81,48 +81,47 @@ Två delmål:
 
 ## 4. Frågor och beslut
 
-**a) Publiceringsordning: blogginlägg eller interaktiv sida först? — BESLUTSFÖRSLAG, VÄNTAR PÅ KENT**
-Rekommendation: blogginlägget skrivs först. Skälet är samma mönster som
-`PRD_generell.md` (avsnitt 6, Produktionsordning) själv destillerat ur
-tidigare projekt: käll-/innehållsarbetet är klart → blogginlägget bär det
-fulla resonemanget och tvingar fram en skarp tes → den interaktiva sidan
-blir sedan ett komprimerat, visuellt destillat av en redan mogen analys.
-Att bygga den interaktiva sidan först riskerar en omstrukturering när
-argumentationen ändras under skrivandet.
+**a) Publiceringsordning: blogginlägg eller interaktiv sida först? — BESLUTAT ✓**
+Blogginlägget skrivs först. Skälet är samma mönster som `PRD_generell.md`
+(avsnitt 6, Produktionsordning) själv destillerat ur tidigare projekt:
+käll-/innehållsarbetet är klart → blogginlägget bär det fulla resonemanget
+och tvingar fram en skarp tes → den interaktiva sidan blir sedan ett
+komprimerat, visuellt destillat av en redan mogen analys.
 
-**b) Vilken blogg tar emot texten? — ÖPPEN**
-klel.wordpress.com eller kentlundgren.se? Ingen av dem är angiven i
-underlaget Kent klistrade in.
+**b) Vilken blogg tar emot texten? — BESLUTAT ✓**
+klel.wordpress.com. (kentlundgren.se är Kents hemsida, inte en blogg —
+noterat här så det inte blandas ihop i senare PRD:er för `AI_sakerhet`.)
 
-**c) Vad ska den interaktiva sidan konkret vara? — ÖPPEN**
-Ett fristående verktyg à la Claude-kompassen (klickbara kort per person,
-lager/faser, tidslinje)? En enklare jämförelsetabell? Eller något tredje?
-Formatet påverkar hur mycket av `kent-bygg-sidor`-skillens mönster
-(GitHub-hörna, teknik-modal från start) som är relevant redan i `Nummer1`.
+**c) Vad ska den interaktiva sidan konkret vara? — DELVIS LÖST ✓**
+Den interaktiva sidan ska "i någon mening utgå från bloggen" — dvs. byggas
+som ett destillat/en visualisering av blogginläggets redan skrivna
+resonemang, inte som ett parallellt, självständigt researcharbete. Det
+exakta formatet (fristående verktyg à la Claude-kompassen med klickbara
+kort/lager/tidslinje, en enklare jämförelsetabell, eller något tredje)
+bestäms konkret när blogginlägget är klart och det syns vad som faktiskt
+finns att visualisera.
 
-**d) Behövs ett SPEC.md-steg härifrån? — BESLUTSFÖRSLAG: NEJ, ÄNNU**
-Svaret landar preliminärt i nej för blogginlägget (ren textleverans, inget
-agent-orienterat att specificera). För den interaktiva sidan beror svaret på
-utfallet av fråga (c) — om den blir ett nytt, mer komplext verktyg (snarare
-än en enkel tabell) kan en kort SPEC.md för just den tekniska delen vara
-motiverad när vi kommer dit. Föreslår att vi tar upp frågan igen efter (c)
-är beslutad, inte låser den nu.
+**d) Behövs ett SPEC.md-steg härifrån? — BESLUTAT ✓ (nej för bloggen, öppen fråga senare för sidan)**
+Nej för blogginlägget (ren textleverans, inget agent-orienterat att
+specificera). För den interaktiva sidan avgörs frågan på nytt när formatet
+i (c) är konkret bestämt — om det blir ett nytt, mer komplext verktyg kan
+en kort SPEC.md för den tekniska delen bli motiverad då.
 
-**e) Hur hanteras de två overifierade detaljerna (ISBN, exakt datum)? — ÖPPEN**
-Utelämna dem tyst ur källförteckningen, markera dem explicit som
-overifierade i texten, eller ska jag försöka verifiera dem mot en
-tredje källa (förlagets sida, Wayback Machine för statement-sidans
-ursprungliga lansering)?
+**e) Hur hanteras de två overifierade detaljerna (ISBN, exakt datum)? — BESLUTAT ✓**
+Lämnas som de är i källförteckningen (avsnitt 7), med de befintliga
+parentetiska noteringarna om att ISBN respektive exakt publiceringsdatum
+inte kunde bekräftas direkt på sidorna. Ingen ytterligare efterforskning.
 
 ## 5. Leveranser
 
 - [x] Källförteckning länkkontrollerad (nio av nio källor, Regel 2)
-- [ ] Beslut om publiceringsordning (fråga 4a)
-- [ ] Beslut om målblogg (fråga 4b)
-- [ ] Beslut om den interaktiva sidans format (fråga 4c)
-- [ ] Blogginlägg skrivet (Kents röst, `kent-skrivstil`)
-- [ ] Interaktiv sida byggd (`kent-bygg-sidor`, efter blogginlägget)
-- [ ] ISBN/datum-frågan löst (fråga 4e)
+- [x] Beslut om publiceringsordning (fråga 4a): blogg först
+- [x] Beslut om målblogg (fråga 4b): klel.wordpress.com
+- [x] Beslut om den interaktiva sidans relation till bloggen (fråga 4c): ska utgå från den
+- [x] ISBN/datum-frågan löst (fråga 4e): lämnas som är, redan noterat i källförteckningen
+- [x] Blogginlägg skrivet och publicerat (Kents röst, `kent-skrivstil`): ["Generativ AI – farlig farligt, eller härligt härligt"](https://klel.wordpress.com/2026/09/18/generativ-ai-farlig-farligt-eller-harligt-harligt/), klel.wordpress.com, 2026-09-18
+- [ ] Interaktiv sidas konkreta format beslutat, efter blogginlägget (fortsättning av fråga 4c)
+- [ ] Interaktiv sida byggd (`kent-bygg-sidor`)
 
 ## 6. Produktionsordning
 
@@ -200,10 +199,12 @@ Länkkontrollerad 2026-09-18: titel, författare och datum bekräftade.)*
 
 ## 8. Status
 
-Källorna är samlade och länkkontrollerade. Fem delfrågor väntar på Kents
-beslut (avsnitt 4) innan produktionen (avsnitt 6) kan starta på riktigt —
-framför allt ordningen blogg/interaktiv sida, målblogg, och den interaktiva
-sidans konkreta format.
+Blogginlägget är skrivet och publicerat på klel.wordpress.com
+(2026-09-18) — innehåll, källhänvisningar och källförteckning kontrollerade
+direkt på den publicerade sidan (inte bara i utkastet) och stämmer exakt
+mot det som togs fram i den här PRD:n. Nästa steg: bestämma den interaktiva
+sidans konkreta format (fortsättning av fråga 4c) och bygga den som ett
+destillat av bloggtexten.
 
 ## Ändringslogg
 
@@ -212,3 +213,19 @@ sidans konkreta format.
   samtliga nio källor länkkontrollerade (Regel 2). Fem öppna delfrågor
   identifierade i avsnitt 4, inklusive den obligatoriska SPEC.md-checkpointen
   (Regel 6).
+- 2026-09-18 (v2): Kent beslutade samtliga fem delfrågor i avsnitt 4:
+  blogginlägg före interaktiv sida, klel.wordpress.com som målblogg, den
+  interaktiva sidan ska utgå från/destillera bloggen (exakt format bestäms
+  efter bloggtexten), Claudes SPEC.md-rekommendation (nej för bloggen)
+  godtagen, och ISBN/datum-detaljerna lämnas som redan noterat i
+  källförteckningen. Leveranschecklistan (avsnitt 5) och Status (avsnitt 8)
+  uppdaterade i linje med besluten.
+- 2026-09-18 (v3): Blogginlägget skrivet och publicerat på
+  klel.wordpress.com. Kent länkade den publicerade sidan; innehållet
+  verifierades mot den faktiska publicerade texten (inte bara utkastet) via
+  webbläsaren, eftersom ett första WebFetch-försök av misstag gav en
+  nedkortad, omskriven sammanfattning istället för sidans verkliga
+  innehåll — ett verktygsbeteende värt att komma ihåg: WebFetch kör
+  innehåll genom en egen sammanfattande modell och kan inte antas ge
+  ordagrann text, även när prompten uttryckligen ber om det. Leveranser
+  (avsnitt 5) och Status (avsnitt 8) uppdaterade.
