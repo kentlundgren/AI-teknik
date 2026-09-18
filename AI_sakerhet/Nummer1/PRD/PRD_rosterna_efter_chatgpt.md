@@ -115,15 +115,15 @@ och beslutat 2026-09-18:
    (hämtad 18 september 2026) att detta *inte* kräver Next.js — fungerar
    som fristående Function ovanpå statisk HTML, alltså inom spår A.
 
-**d) Behövs ett SPEC.md-steg härifrån? — DELVIS LÖST ✓ (nej för bloggen, öppen fråga kvar för de två Functions)**
-Nej för blogginlägget (ren textleverans, inget agent-orienterat att
-specificera). Grundsidan (statiska kort/jämförelse) behöver sannolikt
-ingen SPEC.md heller — det är samma mönster som Claude-kompassen. De två
-Vercel Functions har dock konkreta tekniska gränsfall (vad händer om
-signatur-hämtningen misslyckas eller rate-limitas, cachningstid, bildmått
-och typsnitt för OG-bilden, felhantering) som kan motivera en kort,
-agent-orienterad SPEC.md just för dem — avgörs när de faktiska byggstegen
-för Functions påbörjas, inte nu.
+**d) Behövs ett SPEC.md-steg härifrån? — BESLUTAT ✓ (nej, för alla tre delar)**
+Nej. Den återstående osäkerheten som skulle motiverat en SPEC.md — om
+signaturräkningen ens gick att hämta server-side — undersöktes direkt
+(nätverksinspektion av `superintelligence-statement.org` visade ett internt
+JSON-API, `/api/signatureCount?letterName=asi-statement`) i stället för att
+skrivas ner som ett öppet tekniskt gränsfall. Det som återstod (cachning,
+fallback-beteende, bildmått för OG-bilden) var litet och konkret nog att
+implementeras direkt, inte specificeras separat. Byggt 2026-09-18, se
+avsnitt 5 och 8.
 
 **e) Hur hanteras de två overifierade detaljerna (ISBN, exakt datum)? — BESLUTAT ✓**
 Lämnas som de är i källförteckningen (avsnitt 7), med de befintliga
@@ -139,8 +139,11 @@ inte kunde bekräftas direkt på sidorna. Ingen ytterligare efterforskning.
 - [x] ISBN/datum-frågan löst (fråga 4e): lämnas som är, redan noterat i källförteckningen
 - [x] Blogginlägg skrivet och publicerat (Kents röst, `kent-skrivstil`): ["Generativ AI – farlig farligt, eller härligt härligt"](https://klel.wordpress.com/2026/09/18/generativ-ai-farlig-farligt-eller-harligt-harligt/), klel.wordpress.com, 2026-09-18
 - [x] Interaktiv sidans konkreta format och Vercel-spår beslutat (fråga 4c): statisk HTML/JS, spår A, plus två Functions (signaturräknare, OG-bild)
-- [ ] Interaktiv sida byggd (`kent-bygg-sidor` för grundsidan, `nextjs-vercel-app-prompting` spår A för Functions)
-- [ ] Ställningstagande till SPEC.md för de två Functions (fortsättning av fråga 4d)
+- [x] Ställningstagande till SPEC.md för de två Functions (fråga 4d): nej
+- [x] Interaktiv sida byggd och testad lokalt (`kent-bygg-sidor`): `index.html`, `style.css`, `script.js`, `data.js`, GitHub-hörna + teknik-modal, djuplänkbara rubriker
+- [x] Vercel Functions byggda: `api/signatureCount.js` (proxar FLI:s interna API, cache + fallback), `api/og.jsx` (dynamisk delningsbild, `@vercel/og`)
+- [x] `package.json`, `vercel.json` (Framework: null, cache-headers) och `README.md` (lokal sökväg, Regel 9)
+- [ ] Deploy till Vercel (väntar på Kents uttryckliga godkännande — Regel 11/kent-bygg-sidor punkt 3)
 
 ## 6. Produktionsordning
 
@@ -221,12 +224,11 @@ Länkkontrollerad 2026-09-18: titel, författare och datum bekräftade.)*
 Blogginlägget är skrivet och publicerat på klel.wordpress.com
 (2026-09-18) — innehåll, källhänvisningar och källförteckning kontrollerade
 direkt på den publicerade sidan (inte bara i utkastet) och stämmer exakt
-mot det som togs fram i den här PRD:n. Den interaktiva sidans format och
-Vercel-spår är beslutat: statisk HTML/JS (spår A i
-`nextjs-vercel-app-prompting`), plus två Vercel Functions (levande
-signaturräknare från Statement on Superintelligence, dynamisk
-Open Graph-delningsbild). Nästa steg: bygga sidan, och ta ställning till om
-Functions-delen behöver en kort SPEC.md (fråga 4d).
+mot det som togs fram i den här PRD:n. Den interaktiva sidan är byggd och
+testad lokalt (statisk HTML/JS, spår A, plus två Vercel Functions) — kort,
+teknik-modal, djuplänkar, signaturräknarens fallback och mobilvy alla
+verifierade i webbläsaren. Kvar: deploy till Vercel, vilket väntar på Kents
+uttryckliga godkännande innan det görs.
 
 ## Ändringslogg
 
@@ -266,3 +268,20 @@ Functions-delen behöver en kort SPEC.md (fråga 4d).
   för blogg och grundsida, öppen fråga om SPEC.md kvar specifikt för de två
   Functions tekniska gränsfall. Leveranser (avsnitt 5) och Status
   (avsnitt 8) uppdaterade.
+- 2026-09-18 (v5): Kodningen genomförd. Fråga 4d stängd som "nej" för alla
+  tre delar (blogg, grundsida, Functions) sedan den enda verkliga
+  osäkerheten — om signaturräkningen gick att hämta server-side —
+  undersöktes direkt via nätverksinspektion och visade sig lösbar (internt
+  API, `/api/signatureCount?letterName=asi-statement`). Sidan byggd enligt
+  `kent-bygg-sidor` (GitHub-hörna + teknik-modal-paret, djuplänkbara
+  rubriker, samma visuella språk som `Presentationer/Nr1`) och
+  `nextjs-vercel-app-prompting` spår A (Framework: null i `vercel.json`,
+  samma mönster som `vindkraftskalkyl_Vercel_ver2`). Testad lokalt via en
+  Python-baserad statisk server (`.claude/launch.json` i `AI_sakerhet/`) —
+  kort, expandering, teknik-modal, mobilvy och signaturräknarens graciösa
+  fallback (väntat 404 utan Vercel-runtime) alla verifierade i
+  webbläsaren. Filer: `index.html`, `style.css`, `script.js`, `data.js`,
+  `api/signatureCount.js`, `api/og.jsx`, `package.json`, `vercel.json`,
+  `README.md`. Ingen git commit/push gjord (Regel 11) och ingen deploy till
+  Vercel (väntar på Kents uttryckliga begäran, `kent-bygg-sidor` punkt 3).
+  Leveranser (avsnitt 5) och Status (avsnitt 8) uppdaterade.
