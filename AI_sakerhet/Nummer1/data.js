@@ -128,5 +128,6 @@ const meta = {
   blogTitle: "Vem har hållit fast vid AI-varningen efter ChatGPT – och vem har glidit?",
   prdUrl: "https://github.com/kentlundgren/AI-teknik/blob/main/AI_sakerhet/Nummer1/PRD/PRD_rosterna_efter_chatgpt.md",
   githubUrl: "https://github.com/kentlundgren/AI-teknik/tree/main/AI_sakerhet/Nummer1",
-  statementUrl: "https://superintelligence-statement.org/"
+  statementUrl: "https://superintelligence-statement.org/",
+  linkedinUrl: "https://www.linkedin.com/posts/kentlundgren_r%C3%B6sterna-efter-chatgpt-vem-har-h%C3%A5llit-fast-activity-7506712196756881409-BhVM"
 };

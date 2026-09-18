@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("blogLink2").href = meta.blogUrl;
   document.getElementById("prdLink").href = meta.prdUrl;
   document.getElementById("prdLink2").href = meta.prdUrl;
+  document.getElementById("linkedinLink").href = meta.linkedinUrl;
 
   // --- röst-korten ---
   const grid = document.getElementById("voiceGrid");
