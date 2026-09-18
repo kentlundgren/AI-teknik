@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Rösterna efter ChatGPT — AI-säkerhet</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Fyra AI-risk-röster — Tegmark, Häggström, Bostrom, Sandberg — och hur deras hållning skiftat sedan ChatGPT. Ett destillat av ett blogginlägg på klel.wordpress.com.">
+<meta property="og:title" content="Rösterna efter ChatGPT — vem har hållit fast, vem har glidit?">
+<meta property="og:description" content="Fyra AI-risk-röster efter ChatGPT: Tegmark, Häggström, Bostrom, Sandberg.">
+<meta property="og:image" content="/api/og">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <header id="top">
+    <p class="eyebrow">AI-säkerhet · del 1</p>
+    <h1>Rösterna efter ChatGPT</h1>
+    <p class="lede">Fyra kända AI-risk-röster — Max Tegmark, Olle Häggström, Nick Bostrom och Anders Sandberg — och hur deras hållning faktiskt utvecklats sedan ChatGPT gjorde debatten konkret, sent 2022. Ett destillat av <a href="data-blog-link" id="blogLink" target="_blank" rel="noopener">blogginlägget på klel.wordpress.com</a>.</p>
+  </header>
+
+  <main>
+
+    <section id="voices" aria-label="De fyra rösterna">
+      <div class="voice-grid" id="voiceGrid"></div>
+    </section>
+
+    <section id="live" aria-labelledby="live-h">
+      <h2 id="live-h">Läget just nu<a href="#live" class="anchor" aria-hidden="true">#</a></h2>
+      <p class="section-intro">Statement on Superintelligence samlar underskrifter i realtid. Siffran nedan hämtas direkt från källan varje gång sidan laddas.</p>
+      <div class="live-counter" id="liveCounter">
+        <div class="live-number" id="liveNumber">—</div>
+        <div class="live-label">underskrifter i FLI:s egen räkning (exkl. Ekō-petitionens tillägg), <a href="https://superintelligence-statement.org/" target="_blank" rel="noopener">superintelligence-statement.org</a></div>
+        <div class="live-status" id="liveStatus">hämtar…</div>
+      </div>
+    </section>
+
+    <section id="om" aria-labelledby="om-h">
+      <h2 id="om-h">Om den här sidan<a href="#om" class="anchor" aria-hidden="true">#</a></h2>
+      <p class="section-intro">Det här är en visuell sammanfattning, inte en ersättning för resonemanget. Hela argumentationen — inklusive vad jag som ekonom, inte AI-forskare, gör med det här — finns i <a id="blogLink2" href="data-blog-link" target="_blank" rel="noopener">blogginlägget</a>. Källförteckning med länkar och annoteringar finns både där och i <a id="prdLink" href="data-prd-link" target="_blank" rel="noopener">PRD:n för det här projektet</a>.</p>
+    </section>
+
+  </main>
+
+  <a class="corner corner-left" href="https://github.com/kentlundgren/AI-teknik/tree/main/AI_sakerhet/Nummer1" target="_blank" rel="noopener">{ } GitHub</a>
+  <button type="button" class="corner corner-right" id="techBtn" aria-label="Tekniköversikt">&lt;/&gt; teknik</button>
+
+  <div class="modal-overlay" id="techModal">
+    <div class="modal">
+      <button type="button" class="modal-close" id="techClose" aria-label="Stäng">&times;</button>
+      <h2>Hur den här sidan är byggd</h2>
+      <p>Två delar: tekniken i sidan, och metoden som faktiskt användes för att ta fram den. Inget påhittat, bara det som är sant.</p>
+
+      <h3 class="tech-section-title">Tekniken</h3>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>Vanilla JS, inga ramverk</h3>
+          <p>Ren HTML/CSS/JavaScript, ingen build. Data ligger separat i <code>data.js</code> — samma nio primärkällor och en podd som i blogginlägget och PRD:n, inte duplicerat innehåll.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Vercel, spår A — inte Next.js</h3>
+          <p>Sidan är statisk HTML hostad på Vercel med Framework-inställningen <em>Other</em>, samma mönster som den första vindkraftskalkylen. Två egna Vercel Functions läggs till, inte en hel App Router-app — bedömt som mer maskineri än en jämförelsetext motiverar.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Levande signaturräknare</h3>
+          <p><code>/api/signatureCount</code> proxar FLI:s egna, interna API (<code>/api/signatureCount?letterName=asi-statement</code>) — odokumenterat, upptäckt via nätverksinspektion, inte en officiell, garanterat stabil integration. Functionen cachar senast kända värde och faller tillbaka på det om källan slutar svara.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Dynamisk delningsbild</h3>
+          <p><code>/api/og</code> genererar en Open Graph-bild med <code>@vercel/og</code> när länken delas på X eller LinkedIn — bekräftat i Vercels egen dokumentation att detta fungerar fristående, utan Next.js.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Djuplänkbart</h3>
+          <p>Varje rubrik har ett stabilt <code>#</code>-ankare (t.ex. <code>#live</code>) som inte ändras efter publicering, även om rubriktexten gör det.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Ingen data skickas om dig</h3>
+          <p>Sidan läser bara — signaturräkningen är en hämtning, inget om besökaren skickas någonstans.</p>
+        </div>
+      </div>
+
+      <h3 class="tech-section-title">Metoden</h3>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>Destillat av ett redan skrivet blogginlägg</h3>
+          <p>Ordningen beslutades medvetet: blogginlägget skrevs och publicerades först, för att resonemanget skulle mogna i löptext innan det stelnade till kort i ett gränssnitt.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Källor länkkontrollerade innan de skrevs in</h3>
+          <p>Samtliga nio primärkällor och podd-avsnittet kontrollerades (titel, författare, datum) innan de togs med — samma krav som gäller allt Kent publicerar.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Vercel-spåret var ett uttryckligt vägval</h3>
+          <p>Full Next.js-app (App Router) övervägdes och valdes bort för just den här sidan — dokumenterat som en avvägning, inte ett standardval, i <a id="prdLink2" href="data-prd-link" target="_blank" rel="noopener">PRD:n</a>.</p>
+        </div>
+        <div class="tech-card">
+          <h3>En PRD som minne</h3>
+          <p>Varje beslut om ordning, blogg, format och Vercel-spår är versionerat i en enda PRD, inte bara i en chatthistorik som glöms bort.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

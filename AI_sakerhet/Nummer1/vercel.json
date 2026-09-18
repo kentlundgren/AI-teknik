@@ -1,0 +1,23 @@
+{
+  "framework": null,
+  "headers": [
+    {
+      "source": "/api/signatureCount",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, s-maxage=300, stale-while-revalidate=3600"
+        }
+      ]
+    },
+    {
+      "source": "/api/og",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, s-maxage=86400, stale-while-revalidate=604800"
+        }
+      ]
+    }
+  ]
+}

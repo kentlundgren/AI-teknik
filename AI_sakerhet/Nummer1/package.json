@@ -1,0 +1,9 @@
+{
+  "name": "ai-sakerhet-rosterna-efter-chatgpt",
+  "private": true,
+  "type": "module",
+  "description": "Interaktiv jämförelsesida, statisk HTML/JS + två Vercel Functions (signaturräknare, OG-bild). Destillat av blogginlägget på klel.wordpress.com, 2026-09-18. Ingen React, ingen build.",
+  "dependencies": {
+    "@vercel/og": "^1.0.2"
+  }
+}
