@@ -92,20 +92,38 @@ komprimerat, visuellt destillat av en redan mogen analys.
 klel.wordpress.com. (kentlundgren.se är Kents hemsida, inte en blogg —
 noterat här så det inte blandas ihop i senare PRD:er för `AI_sakerhet`.)
 
-**c) Vad ska den interaktiva sidan konkret vara? — DELVIS LÖST ✓**
-Den interaktiva sidan ska "i någon mening utgå från bloggen" — dvs. byggas
-som ett destillat/en visualisering av blogginläggets redan skrivna
-resonemang, inte som ett parallellt, självständigt researcharbete. Det
-exakta formatet (fristående verktyg à la Claude-kompassen med klickbara
-kort/lager/tidslinje, en enklare jämförelsetabell, eller något tredje)
-bestäms konkret när blogginlägget är klart och det syns vad som faktiskt
-finns att visualisera.
+**c) Vad ska den interaktiva sidan konkret vara? — BESLUTAT ✓**
+Statisk HTML/JS à la Claude-kompassen (klickbara kort per person, samma
+jämförelse som bloggen destillerad visuellt), hostad med Vercel-teknik
+"spår A" (se `nextjs-vercel-app-prompting`-skillen: Vercel som
+host/Functions, inte Next.js App Router). Inget generellt beslut om Next.js
+för `AI_sakerhet` — omprövas separat om projektet växer till flera sidor
+med egna URL:er.
 
-**d) Behövs ett SPEC.md-steg härifrån? — BESLUTAT ✓ (nej för bloggen, öppen fråga senare för sidan)**
+Utöver grundsidan beslutades två väl motiverade Vercel Functions, diskuterat
+och beslutat 2026-09-18:
+
+1. **Levande signaturräknare** — en Function som proxar/cachar det aktuella
+   signaturantalet från `superintelligence-statement.org`, så sidan visar
+   hur opinionen växer istället för en fryst ögonblicksbild från
+   publiceringsdagen. Löser ett konkret CORS-/rate limit-problem en
+   statisk sida inte klarar själv.
+2. **Dynamisk Open Graph-bild** (delningsbild för X/LinkedIn m.fl.) — en
+   fristående Function med `@vercel/og`/`ImageResponse`, som genererar en
+   bild med faktiskt innehåll (namnen, en rubrikrad) istället för en
+   generisk bild, när länken delas. Bekräftat i Vercels egen dokumentation
+   (hämtad 18 september 2026) att detta *inte* kräver Next.js — fungerar
+   som fristående Function ovanpå statisk HTML, alltså inom spår A.
+
+**d) Behövs ett SPEC.md-steg härifrån? — DELVIS LÖST ✓ (nej för bloggen, öppen fråga kvar för de två Functions)**
 Nej för blogginlägget (ren textleverans, inget agent-orienterat att
-specificera). För den interaktiva sidan avgörs frågan på nytt när formatet
-i (c) är konkret bestämt — om det blir ett nytt, mer komplext verktyg kan
-en kort SPEC.md för den tekniska delen bli motiverad då.
+specificera). Grundsidan (statiska kort/jämförelse) behöver sannolikt
+ingen SPEC.md heller — det är samma mönster som Claude-kompassen. De två
+Vercel Functions har dock konkreta tekniska gränsfall (vad händer om
+signatur-hämtningen misslyckas eller rate-limitas, cachningstid, bildmått
+och typsnitt för OG-bilden, felhantering) som kan motivera en kort,
+agent-orienterad SPEC.md just för dem — avgörs när de faktiska byggstegen
+för Functions påbörjas, inte nu.
 
 **e) Hur hanteras de två overifierade detaljerna (ISBN, exakt datum)? — BESLUTAT ✓**
 Lämnas som de är i källförteckningen (avsnitt 7), med de befintliga
@@ -120,8 +138,9 @@ inte kunde bekräftas direkt på sidorna. Ingen ytterligare efterforskning.
 - [x] Beslut om den interaktiva sidans relation till bloggen (fråga 4c): ska utgå från den
 - [x] ISBN/datum-frågan löst (fråga 4e): lämnas som är, redan noterat i källförteckningen
 - [x] Blogginlägg skrivet och publicerat (Kents röst, `kent-skrivstil`): ["Generativ AI – farlig farligt, eller härligt härligt"](https://klel.wordpress.com/2026/09/18/generativ-ai-farlig-farligt-eller-harligt-harligt/), klel.wordpress.com, 2026-09-18
-- [ ] Interaktiv sidas konkreta format beslutat, efter blogginlägget (fortsättning av fråga 4c)
-- [ ] Interaktiv sida byggd (`kent-bygg-sidor`)
+- [x] Interaktiv sidans konkreta format och Vercel-spår beslutat (fråga 4c): statisk HTML/JS, spår A, plus två Functions (signaturräknare, OG-bild)
+- [ ] Interaktiv sida byggd (`kent-bygg-sidor` för grundsidan, `nextjs-vercel-app-prompting` spår A för Functions)
+- [ ] Ställningstagande till SPEC.md för de två Functions (fortsättning av fråga 4d)
 
 ## 6. Produktionsordning
 
@@ -202,9 +221,12 @@ Länkkontrollerad 2026-09-18: titel, författare och datum bekräftade.)*
 Blogginlägget är skrivet och publicerat på klel.wordpress.com
 (2026-09-18) — innehåll, källhänvisningar och källförteckning kontrollerade
 direkt på den publicerade sidan (inte bara i utkastet) och stämmer exakt
-mot det som togs fram i den här PRD:n. Nästa steg: bestämma den interaktiva
-sidans konkreta format (fortsättning av fråga 4c) och bygga den som ett
-destillat av bloggtexten.
+mot det som togs fram i den här PRD:n. Den interaktiva sidans format och
+Vercel-spår är beslutat: statisk HTML/JS (spår A i
+`nextjs-vercel-app-prompting`), plus två Vercel Functions (levande
+signaturräknare från Statement on Superintelligence, dynamisk
+Open Graph-delningsbild). Nästa steg: bygga sidan, och ta ställning till om
+Functions-delen behöver en kort SPEC.md (fråga 4d).
 
 ## Ändringslogg
 
@@ -229,3 +251,18 @@ destillat av bloggtexten.
   innehåll genom en egen sammanfattande modell och kan inte antas ge
   ordagrann text, även när prompten uttryckligen ber om det. Leveranser
   (avsnitt 5) och Status (avsnitt 8) uppdaterade.
+- 2026-09-18 (v4): Fråga 4c slutgiltigt beslutad efter en diskussion om
+  Vercel-teknik: statisk HTML/JS (spår A i skillen
+  `nextjs-vercel-app-prompting`), inte Next.js App Router (spår B) — det
+  senare bedömdes vara mer maskineri än en jämförelse-/analystext
+  motiverar, och kan omprövas separat om `AI_sakerhet` växer till flera
+  sidor. Två Vercel Functions beslutade som tillägg: en levande
+  signaturräknare (proxar/cachar antal underskrifter från
+  superintelligence-statement.org) och en dynamisk Open Graph-delningsbild
+  (`@vercel/og`/`ImageResponse`) för X/LinkedIn-förhandsvisningar —
+  bekräftat mot Vercels egen dokumentation (hämtad 18 september 2026) att
+  OG-bildgenerering fungerar fristående på Vercel utan Next.js, så båda
+  Functions ryms inom spår A. Fråga 4d uppdaterad till "delvis löst": nej
+  för blogg och grundsida, öppen fråga om SPEC.md kvar specifikt för de två
+  Functions tekniska gränsfall. Leveranser (avsnitt 5) och Status
+  (avsnitt 8) uppdaterade.
