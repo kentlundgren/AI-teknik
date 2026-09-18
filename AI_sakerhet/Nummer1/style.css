@@ -83,6 +83,56 @@ h2:hover .anchor { opacity: 1; color: var(--muted); }
 
 section { margin-bottom: 3rem; }
 
+/* ---------- hover-förklaring (samma mönster som Solutions/260912) ---------- */
+
+.term {
+  position: relative;
+  display: inline;
+  border-bottom: 1px dotted var(--navy);
+  cursor: help;
+}
+
+.term:focus { outline: 2px solid var(--navy); outline-offset: 2px; }
+
+.term-card {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.45rem);
+  width: min(26rem, 86vw);
+  padding: 0.85rem 0.95rem 0.95rem;
+  background: var(--navy);
+  color: #E5E7F0;
+  border-radius: 12px;
+  box-shadow: 0 16px 40px -18px rgba(22, 25, 43, 0.6);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  z-index: 12;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.12s ease, visibility 0.12s ease;
+}
+
+.term:hover .term-card,
+.term:focus-within .term-card {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.term-card strong {
+  display: block;
+  font-family: var(--font-head);
+  color: #fff;
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+
+.term-card p { margin: 0 0 0.55rem; color: #D7DCF0; font-size: 0.86rem; }
+.term-card p:last-of-type { margin-bottom: 0; }
+.term-card a { color: #A9C2FF; }
+.term-more { font-size: 0.8rem; }
+
 /* ---------- voice cards ---------- */
 
 .voice-grid {
