@@ -233,10 +233,13 @@ testad lokalt och nu deployad av Kent till både GitHub Pages och Vercel
 `AI_sakerhet/Nummer1`). `/api/signatureCount` fungerar bekräftat live.
 `/api/og` gav först 404 (filen `api/og.jsx` byggdes aldrig av Vercel — syns
 varken som Function eller statisk fil i deployens Resources-flik). Skriven
-om som `api/og.js` utan JSX (rena elementobjekt) och med explicit
-`runtime: 'edge'`, efter att lokal testning visade att @vercel/ogs
-Node-variant kraschar på ett internt WASM/`fs`-laddningsproblem i strikt
-ESM. Väntar på ny deploy och verifiering.
+om som `api/og.js` utan JSX (rena elementobjekt). Ett mellansteg med
+`runtime: 'edge'` gav ett konkret, läsbart byggfel i Vercels Deploy Logs
+("Edge Function 'api/og' is referencing unsupported modules: @vercel:
+module") — bunthanteraren plockade paketets Node-kod istället för dess
+Edge-kod, ett känt problem för @vercel/og utanför Next.js. Backat till
+vanlig Node.js runtime (Vercels egen rekommendation numera). Väntar på ny
+deploy och verifiering.
 
 ## Ändringslogg
 
@@ -321,3 +324,16 @@ ESM. Väntar på ny deploy och verifiering.
   bibliotekets ursprungliga, mest beprövade körmiljö. `node_modules/`
   tillagt i root-`.gitignore` (första Node-baserade delprojektet i
   AI-teknik-repot). Väntar på ny deploy och verifiering av `/api/og`.
+- 2026-09-18 (v7): Edge-runtime-försöket gav ett konkret byggfel i Vercels
+  Deploy Logs (inte bara tyst 404 som tidigare): "The Edge Function 'api/og'
+  is referencing unsupported modules: - @vercel: module" — bekräftar att
+  @vercel/ogs paketupplösning i en fristående Edge Function (utanför
+  Next.js) plockar fel intern build (Node-varianten, som importerar Nodes
+  `module`-modul) trots `runtime: 'edge'`. Backat till Node.js runtime
+  (tar bort `export const config`), i linje med att Vercels egen
+  dokumentation numera rekommenderar Node.js framför Edge. Den ursprungliga
+  lokala Node-kraschen bedöms ha varit ett testartefakt (obuntad `node
+  fil.mjs`-körning), inte representativ för Vercels faktiska,
+  esbuild-buntade Node.js-runtime. `package-lock.json` friades från
+  misstanke — byggfelet handlade om Edge/modulupplösning, inte om
+  lockfilen. Väntar på ny deploy och verifiering.

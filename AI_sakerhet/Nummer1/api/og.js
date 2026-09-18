@@ -18,15 +18,17 @@
  * signatureCount.js, undviker att förlita sig på att byggaren
  * JSX-transformerar en fristående "Other"-funktion.
  *
- * Edge runtime, inte Node: lokal testning (node) visade att
- * @vercel/ogs Node-byggda variant kraschar på ett internt
- * WASM-laddningsproblem i strikt ESM ("Dynamic require of fs is not
- * supported") när harfbuzzjs-typsnittsmotorn laddas. Edge-varianten är
- * dessutom det ursprungliga, mest beprövade sättet biblioteket är
- * byggt för att köras på.
+ * Node.js runtime (standard, inget config-block): ett mellansteg med
+ * `export const config = { runtime: 'edge' }` testades men Vercels bygge
+ * kraschade med "The Edge Function 'api/og' is referencing unsupported
+ * modules: @vercel: module" — bunthanteraren plockade @vercel/ogs
+ * Node-anpassade kod istället för dess Edge-anpassade kod, ett känt
+ * problem för @vercel/og utanför Next.js. Vercels egen dokumentation
+ * rekommenderar numera Node.js framför Edge ("improved performance and
+ * reliability") — den lokala Node-kraschen jag såg tidigare berodde på
+ * min egen obuntade testkörning (`node fil.mjs` direkt), inte på hur
+ * Vercels faktiska byggprocess (esbuild-buntning) kör koden.
  */
-
-export const config = { runtime: 'edge' };
 
 import { ImageResponse } from '@vercel/og';
 
