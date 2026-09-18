@@ -238,8 +238,20 @@ om som `api/og.js` utan JSX (rena elementobjekt). Ett mellansteg med
 ("Edge Function 'api/og' is referencing unsupported modules: @vercel:
 module") — bunthanteraren plockade paketets Node-kod istället för dess
 Edge-kod, ett känt problem för @vercel/og utanför Next.js. Backat till
-vanlig Node.js runtime (Vercels egen rekommendation numera). Väntar på ny
-deploy och verifiering.
+vanlig Node.js runtime (Vercels egen rekommendation numera). Det gav i sin
+tur en körtidskrasch: `500 FUNCTION_INVOCATION_FAILED`, med stacktrace
+`node_modules/@vercel/og/dist/index.node.js:13 throw new Error('Dynamic
+require of "fs" is not supported')` — samma fel jag först sett i lokal
+testning, men nu bekräftat vara ett verkligt problem i Vercels
+produktionsmiljö, inte ett testartefakt. Grundorsaken visade sig vara ett
+dokumenterat paketfel i `@vercel/og@1.0.2` självt (GitHub-issue
+vercel/satori#801): en uppgradering av satori/harfbuzzjs introducerade en
+regression där paketet letar efter en `hb.wasm`-fil som inte följer med
+npm-paketet. `1.0.1` fungerar. `package.json` pinnad till exakt `1.0.1`
+(ingen `^`, så den inte glider tillbaka till en trasig patch), verifierat
+lokalt — `/api/og` genererar nu en korrekt PNG-bild (38 476 byte, med
+fungerande svenska tecken som "Häggström"). Väntar på Kents deploy och
+slutgiltig verifiering på den skarpa Vercel-adressen.
 
 ## Ändringslogg
 
@@ -337,3 +349,14 @@ deploy och verifiering.
   esbuild-buntade Node.js-runtime. `package-lock.json` friades från
   misstanke — byggfelet handlade om Edge/modulupplösning, inte om
   lockfilen. Väntar på ny deploy och verifiering.
+- 2026-09-18 (v8): Node.js-runtime-deployen byggde korrekt men kraschade
+  vid körning (`500 FUNCTION_INVOCATION_FAILED`) — samma
+  "Dynamic require of fs"-fel som i den allra första lokala testen, nu
+  bekräftat i produktion via Vercels Runtime Logs, inte ett testartefakt
+  som tidigare antaget. Rotorsaken hittad: dokumenterat paketfel i
+  `@vercel/og@1.0.2` (vercel/satori#801, en satori/harfbuzzjs-regression
+  som letar efter en `hb.wasm`-fil paketet inte levererar) — `1.0.1`
+  bekräftat fungerande av andra användare. `package.json` pinnad till
+  exakt `1.0.1`, `package-lock.json` regenererad, och fixen verifierad
+  lokalt: `/api/og` returnerar nu en korrekt PNG (38 476 byte) utan krasch.
+  Väntar på Kents deploy och slutgiltig live-verifiering.
