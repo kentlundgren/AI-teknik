@@ -141,12 +141,12 @@ inte kunde bekräftas direkt på sidorna. Ingen ytterligare efterforskning.
 - [x] Interaktiv sidans konkreta format och Vercel-spår beslutat (fråga 4c): statisk HTML/JS, spår A, plus två Functions (signaturräknare, OG-bild)
 - [x] Ställningstagande till SPEC.md för de två Functions (fråga 4d): nej
 - [x] Interaktiv sida byggd och testad lokalt (`kent-bygg-sidor`): `index.html`, `style.css`, `script.js`, `data.js`, GitHub-hörna + teknik-modal, djuplänkbara rubriker
-- [x] Vercel Functions byggda: `api/signatureCount.js` (proxar FLI:s interna API, cache + fallback), `api/og.js` (dynamisk delningsbild, `@vercel/og`, Edge Runtime)
+- [x] Vercel Functions byggda: `api/signatureCount.js` (proxar FLI:s interna API, cache + fallback), `api/og.js` (dynamisk delningsbild, `@vercel/og` 1.0.1, Node.js runtime)
 - [x] `package.json`, `vercel.json` (Framework: null, cache-headers) och `README.md` (lokal sökväg, Regel 9, live-länkar)
 - [x] Deploy till Vercel — Kent utförde själv (dashboard-import, Root Directory `AI_sakerhet/Nummer1`), projekt `ai-teknik-4-roster` i team `effektiv1`
 - [x] GitHub Pages live och verifierad: <https://kentlundgren.github.io/AI-teknik/AI_sakerhet/Nummer1/>
 - [x] Vercel live och `/api/signatureCount` verifierad fungerande
-- [ ] `/api/og` felsökt och verifierad fungerande på Vercel (se avsnitt 8 och ändringslogg)
+- [x] `/api/og` felsökt och verifierad fungerande på Vercel — genererar korrekt 1200×630 PNG live
 
 ## 6. Produktionsordning
 
@@ -250,8 +250,10 @@ regression där paketet letar efter en `hb.wasm`-fil som inte följer med
 npm-paketet. `1.0.1` fungerar. `package.json` pinnad till exakt `1.0.1`
 (ingen `^`, så den inte glider tillbaka till en trasig patch), verifierat
 lokalt — `/api/og` genererar nu en korrekt PNG-bild (38 476 byte, med
-fungerande svenska tecken som "Häggström"). Väntar på Kents deploy och
-slutgiltig verifiering på den skarpa Vercel-adressen.
+fungerande svenska tecken som "Häggström"). Kent deployade fixen och den
+är bekräftat live: `/api/og` på `ai-teknik-4-roster.vercel.app` levererar
+en korrekt 1200×630 PNG. Alla tre delar av leveransen (blogg, GitHub
+Pages, Vercel med båda Functions) är nu klara och verifierade.
 
 ## Ändringslogg
 
@@ -360,3 +362,12 @@ slutgiltig verifiering på den skarpa Vercel-adressen.
   exakt `1.0.1`, `package-lock.json` regenererad, och fixen verifierad
   lokalt: `/api/og` returnerar nu en korrekt PNG (38 476 byte) utan krasch.
   Väntar på Kents deploy och slutgiltig live-verifiering.
+- 2026-09-18 (v9): Kent deployade `@vercel/og@1.0.1`-fixen. `/api/og`
+  bekräftat fungerande på `https://ai-teknik-4-roster.vercel.app/api/og` —
+  en riktig 1200×630 PNG, verifierad direkt i webbläsaren. Sidoanmärkning:
+  under felsökningen skapade upprepad lokal `npm install`/`rm -rf
+  node_modules` en stor batch-borttagning som OneDrive (mappen ligger i
+  OneDrive-synk) flaggade med en bekräftelsedialog — löst genom att välja
+  "Behåll objekten" och därefter ta bort `node_modules` lokalt permanent
+  (behövs varken för Git, som redan undantar den, eller för Vercel, som
+  gör sin egen installation). Samtliga leveranser i avsnitt 5 nu avbockade.

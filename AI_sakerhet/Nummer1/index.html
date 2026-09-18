@@ -7,8 +7,12 @@
 <meta name="description" content="Fyra AI-risk-röster — Tegmark, Häggström, Bostrom, Sandberg — och hur deras hållning skiftat sedan ChatGPT. Ett destillat av ett blogginlägg på klel.wordpress.com.">
 <meta property="og:title" content="Rösterna efter ChatGPT — vem har hållit fast, vem har glidit?">
 <meta property="og:description" content="Fyra AI-risk-röster efter ChatGPT: Tegmark, Häggström, Bostrom, Sandberg.">
-<meta property="og:image" content="/api/og">
+<meta property="og:url" content="https://ai-teknik-4-roster.vercel.app/">
+<meta property="og:image" content="https://ai-teknik-4-roster.vercel.app/api/og">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ai-teknik-4-roster.vercel.app/api/og">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -69,7 +73,7 @@
         </div>
         <div class="tech-card">
           <h3>Dynamisk delningsbild</h3>
-          <p><code>/api/og</code> genererar en Open Graph-bild med <code>@vercel/og</code> när länken delas på X eller LinkedIn — bekräftat i Vercels egen dokumentation att detta fungerar fristående, utan Next.js.</p>
+          <p><code>/api/og</code> genererar en Open Graph-bild med <code>@vercel/og</code> när länken delas på X eller LinkedIn — bekräftat i Vercels egen dokumentation att detta fungerar fristående, utan Next.js. Pinnad till version 1.0.1: 1.0.2 kraschar vid körning på grund av ett dokumenterat paketfel (en trasig WASM-typsnittsladdning).</p>
         </div>
         <div class="tech-card">
           <h3>Djuplänkbart</h3>

@@ -16,7 +16,7 @@ Ren HTML/CSS/JS. Signaturräknaren visar fallback-läget (`/api`-routes finns in
 
 **Avancerad, med Vercel Functions**
 <https://ai-teknik-4-roster.vercel.app/>
-Samma sida plus de två Vercel Functions. Signaturräknaren hämtar live-data (`/api/signatureCount`, bekräftat fungerande). OG-delningsbilden (`/api/og`) felsöks — se PRD:ns ändringslogg för status.
+Samma sida plus de två Vercel Functions. Signaturräknaren hämtar live-data (`/api/signatureCount`, bekräftat fungerande). OG-delningsbilden (`/api/og`) genererar en riktig 1200×630 PNG, bekräftat fungerande live.
 
 **Vercel-dashboard (projektstyrning, inte publik)**
 <https://vercel.com/effektiv1/ai-teknik-4-roster>
@@ -27,9 +27,9 @@ Deploy-loggar, Functions-status, domäner. Team: `effektiv1`.
 Statisk HTML/CSS/JS, ingen build, inget ramverk. Vercel-spår A (se skillen `nextjs-vercel-app-prompting`): Framework-inställning *Other*, samma mönster som `vindkraftskalkyl_Vercel_ver2`. Två Vercel Functions i `api/`:
 
 - `api/signatureCount.js` — proxar/cachar antal underskrifter från Statement on Superintelligence.
-- `api/og.js` — genererar en dynamisk delningsbild (`@vercel/og`, Edge Runtime) för X/LinkedIn.
+- `api/og.js` — genererar en dynamisk delningsbild (`@vercel/og` 1.0.1, Node.js runtime) för X/LinkedIn. Pinnad till exakt 1.0.1 — 1.0.2 är trasig (se [vercel/satori#801](https://github.com/vercel/satori/issues/801)).
 
-Innan deploy: `npm install` (för `@vercel/og`).
+`node_modules` hålls medvetet borta från disken (bara `npm install` tillfälligt vid lokal testning, sen borttagen) — mappen ligger i OneDrive, och en full `node_modules` orsakar onödig synk-friktion. Vercel gör sin egen installation vid varje deploy.
 
 ## 🗂️ Lokalt repo
 
