@@ -141,9 +141,12 @@ inte kunde bekräftas direkt på sidorna. Ingen ytterligare efterforskning.
 - [x] Interaktiv sidans konkreta format och Vercel-spår beslutat (fråga 4c): statisk HTML/JS, spår A, plus två Functions (signaturräknare, OG-bild)
 - [x] Ställningstagande till SPEC.md för de två Functions (fråga 4d): nej
 - [x] Interaktiv sida byggd och testad lokalt (`kent-bygg-sidor`): `index.html`, `style.css`, `script.js`, `data.js`, GitHub-hörna + teknik-modal, djuplänkbara rubriker
-- [x] Vercel Functions byggda: `api/signatureCount.js` (proxar FLI:s interna API, cache + fallback), `api/og.jsx` (dynamisk delningsbild, `@vercel/og`)
-- [x] `package.json`, `vercel.json` (Framework: null, cache-headers) och `README.md` (lokal sökväg, Regel 9)
-- [ ] Deploy till Vercel (väntar på Kents uttryckliga godkännande — Regel 11/kent-bygg-sidor punkt 3)
+- [x] Vercel Functions byggda: `api/signatureCount.js` (proxar FLI:s interna API, cache + fallback), `api/og.js` (dynamisk delningsbild, `@vercel/og`, Edge Runtime)
+- [x] `package.json`, `vercel.json` (Framework: null, cache-headers) och `README.md` (lokal sökväg, Regel 9, live-länkar)
+- [x] Deploy till Vercel — Kent utförde själv (dashboard-import, Root Directory `AI_sakerhet/Nummer1`), projekt `ai-teknik-4-roster` i team `effektiv1`
+- [x] GitHub Pages live och verifierad: <https://kentlundgren.github.io/AI-teknik/AI_sakerhet/Nummer1/>
+- [x] Vercel live och `/api/signatureCount` verifierad fungerande
+- [ ] `/api/og` felsökt och verifierad fungerande på Vercel (se avsnitt 8 och ändringslogg)
 
 ## 6. Produktionsordning
 
@@ -224,11 +227,16 @@ Länkkontrollerad 2026-09-18: titel, författare och datum bekräftade.)*
 Blogginlägget är skrivet och publicerat på klel.wordpress.com
 (2026-09-18) — innehåll, källhänvisningar och källförteckning kontrollerade
 direkt på den publicerade sidan (inte bara i utkastet) och stämmer exakt
-mot det som togs fram i den här PRD:n. Den interaktiva sidan är byggd och
-testad lokalt (statisk HTML/JS, spår A, plus två Vercel Functions) — kort,
-teknik-modal, djuplänkar, signaturräknarens fallback och mobilvy alla
-verifierade i webbläsaren. Kvar: deploy till Vercel, vilket väntar på Kents
-uttryckliga godkännande innan det görs.
+mot det som togs fram i den här PRD:n. Den interaktiva sidan är byggd,
+testad lokalt och nu deployad av Kent till både GitHub Pages och Vercel
+(projekt `ai-teknik-4-roster`, team `effektiv1`, Root Directory
+`AI_sakerhet/Nummer1`). `/api/signatureCount` fungerar bekräftat live.
+`/api/og` gav först 404 (filen `api/og.jsx` byggdes aldrig av Vercel — syns
+varken som Function eller statisk fil i deployens Resources-flik). Skriven
+om som `api/og.js` utan JSX (rena elementobjekt) och med explicit
+`runtime: 'edge'`, efter att lokal testning visade att @vercel/ogs
+Node-variant kraschar på ett internt WASM/`fs`-laddningsproblem i strikt
+ESM. Väntar på ny deploy och verifiering.
 
 ## Ändringslogg
 
@@ -285,3 +293,31 @@ uttryckliga godkännande innan det görs.
   `README.md`. Ingen git commit/push gjord (Regel 11) och ingen deploy till
   Vercel (väntar på Kents uttryckliga begäran, `kent-bygg-sidor` punkt 3).
   Leveranser (avsnitt 5) och Status (avsnitt 8) uppdaterade.
+- 2026-09-18 (v6): Kent committade, pushade och deployade själv — Vercel-
+  projekt `ai-teknik-4-roster` skapat i team `effektiv1` via dashboarden
+  (Root Directory `AI_sakerhet/Nummer1`, Framework `Other`). Båda live-
+  sidorna verifierade: GitHub Pages
+  (<https://kentlundgren.github.io/AI-teknik/AI_sakerhet/Nummer1/>)
+  identisk med lokal test; Vercel
+  (<https://ai-teknik-4-roster.vercel.app/>) med `/api/signatureCount`
+  bekräftat fungerande live (returnerade `{"count":69373,...}`). README
+  utökad med ett eget Live-sidor-avsnitt (båda URL:erna plus
+  Vercel-dashboarden, <https://vercel.com/effektiv1/ai-teknik-4-roster>).
+  En hover-förklaring för "Statement on Superintelligence" tillagd i
+  `index.html`/`style.css`, återanvänder `.term`/`.term-card`-mönstret från
+  `Solutions/260912` (Navier–Stokes-hoverkortet) — samma mekanik bekräftad
+  fungerande i en riktig webbläsare (`getComputedStyle`), trots att
+  förhandsgranskningsverktygets skärmdumpar visar term-kort som alltid
+  synliga (bekräftat vara samma egenhet på den redan publicerade
+  referenssidan, inte ett fel i den nya koden). `/api/og` gav 404 på
+  Vercel: `Resources`-fliken i deployen visade att `api/og.jsx` aldrig
+  byggdes (varken som Function eller statisk fil). Skriven om till
+  `api/og.js`: JSX-syntaxen ersatt med rena elementobjekt (en liten `el()`-
+  hjälpfunktion) för att inte förlita sig på att en fristående
+  "Other"-funktion JSX-transformeras, och `export const config = {
+  runtime: 'edge' }` tillagd sedan lokal Node-testning visade att
+  @vercel/ogs Node-byggda variant kraschar på ett WASM/`fs`-laddnings-
+  problem i strikt ESM (harfbuzzjs-typsnittsmotorn) — edge är dessutom
+  bibliotekets ursprungliga, mest beprövade körmiljö. `node_modules/`
+  tillagt i root-`.gitignore` (första Node-baserade delprojektet i
+  AI-teknik-repot). Väntar på ny deploy och verifiering av `/api/og`.

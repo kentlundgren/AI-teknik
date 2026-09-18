@@ -16,7 +16,7 @@ Ren HTML/CSS/JS. Signaturräknaren visar fallback-läget (`/api`-routes finns in
 
 **Avancerad, med Vercel Functions**
 <https://ai-teknik-4-roster.vercel.app/>
-Samma sida plus de två Vercel Functions. Signaturräknaren hämtar live-data (`/api/signatureCount`, bekräftat fungerande). OG-delningsbilden (`/api/og`) ger just nu 404 — under felsökning, se PRD:ns ändringslogg.
+Samma sida plus de två Vercel Functions. Signaturräknaren hämtar live-data (`/api/signatureCount`, bekräftat fungerande). OG-delningsbilden (`/api/og`) felsöks — se PRD:ns ändringslogg för status.
 
 **Vercel-dashboard (projektstyrning, inte publik)**
 <https://vercel.com/effektiv1/ai-teknik-4-roster>
@@ -27,7 +27,7 @@ Deploy-loggar, Functions-status, domäner. Team: `effektiv1`.
 Statisk HTML/CSS/JS, ingen build, inget ramverk. Vercel-spår A (se skillen `nextjs-vercel-app-prompting`): Framework-inställning *Other*, samma mönster som `vindkraftskalkyl_Vercel_ver2`. Två Vercel Functions i `api/`:
 
 - `api/signatureCount.js` — proxar/cachar antal underskrifter från Statement on Superintelligence.
-- `api/og.jsx` — genererar en dynamisk delningsbild (`@vercel/og`) för X/LinkedIn.
+- `api/og.js` — genererar en dynamisk delningsbild (`@vercel/og`, Edge Runtime) för X/LinkedIn.
 
 Innan deploy: `npm install` (för `@vercel/og`).
 

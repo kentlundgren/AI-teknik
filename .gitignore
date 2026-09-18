@@ -15,3 +15,6 @@ desktop.ini
 # Miljövariabler och hemligheter (committas aldrig)
 .env
 .env.*
+
+# Node.js (t.ex. AI_sakerhet/Nummer1 — Vercel Functions)
+node_modules/
