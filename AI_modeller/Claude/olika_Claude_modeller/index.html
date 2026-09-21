@@ -211,7 +211,6 @@
     <h2><a class="anchor-heading" href="#fas1" title="Länk till detta avsnitt">Filerna som styr samarbetet — innan man börjar</a></h2>
     <div class="cards" id="steer-cards"></div>
     <div class="detail" id="steer-detail"></div>
-    <div class="note" style="margin-top:1rem;">PRD (Product Requirements Document) och SPEC.md beskrivs i <a href="#fas0">Fas 0</a> ovan — kravdokumenten som föregår dessa styrfiler.</div>
   </section>
 
   <section id="fas2">
@@ -656,7 +655,7 @@ function renderSteer(){
   });
 }
 
-function showSteer(id){
+function showSteer(id, opts){
   document.querySelectorAll('#steer-cards .card-btn').forEach(b=>b.classList.toggle('active', b.dataset.id===id));
   const s = steerFiles.find(x=>x.id===id);
   const d = document.getElementById('steer-detail');
@@ -670,7 +669,20 @@ function showSteer(id){
   d.innerHTML = html;
   d.classList.add('show');
   if(s.subLevels) showSkillSub(s.subLevels, s.subLevels[0].id);
+  /* Direktlänk: URL#claude, URL#agents, URL#skill, URL#rag, URL#minne — uppdaterar hash utan att lägga till ett nytt historikläge */
+  if(history.replaceState) history.replaceState(null, '', '#'+id);
+  if(opts && opts.scroll) document.getElementById('fas1').scrollIntoView({behavior:'smooth', block:'start'});
 }
+
+/* Direktlänk vid sidladdning: URL#minne öppnar Minne-kortet direkt i stället för standardkortet CLAUDE.md */
+function initialSteerId(){
+  const h = location.hash.replace('#','').toLowerCase();
+  return steerFiles.some(s=>s.id===h) ? h : 'claude';
+}
+window.addEventListener('hashchange', ()=>{
+  const h = location.hash.replace('#','').toLowerCase();
+  if(steerFiles.some(s=>s.id===h)) showSteer(h, {scroll:true});
+});
 
 function showSkillSub(list, id){
   const wrap = document.getElementById('skill-level-cards');
@@ -757,7 +769,7 @@ renderSteer();
 renderSurfaces();
 renderPipeline();
 showPrd('prd');
-showSteer('claude');
+showSteer(initialSteerId(), {scroll: location.hash.length > 1});
 showSurface('web');
 showPipeline('gh');
 </script>
