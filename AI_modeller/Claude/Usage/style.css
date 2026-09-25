@@ -270,6 +270,82 @@ tr.aterstallning td { background: var(--serie-1-svag); }
 
 .sidfot { margin-top: 24px; font-size: 0.8rem; color: var(--text-dampad); }
 
+/* ---------- Hörnlänkar: { } GitHub och </> teknik ----------
+   Mönster från Presentationer/Nr1 i AI-teknik, anpassat till sidans färger.
+   position: fixed = ligger kvar i hörnen när man scrollar. */
+.corner {
+  position: fixed;
+  bottom: 14px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  color: var(--text-dampad);
+  background: var(--kort-bakgrund);
+  border: 1px solid var(--kant);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.55;                 /* diskret tills man pekar på den */
+  z-index: 10;
+}
+.corner:hover, .corner:focus-visible { opacity: 1; color: var(--serie-1); }
+.corner-left { left: 14px; }
+.corner-right { right: 14px; }
+/* Lite extra luft längst ned så hörnen inte täcker sidfoten */
+.sida { padding-bottom: 72px; }
+
+/* Modalen (teknikrutan) */
+.modal-overlay {
+  display: none;                 /* dold som standard */
+  position: fixed;
+  inset: 0;                      /* täcker hela fönstret */
+  background: rgba(22, 25, 43, 0.55);
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  padding: 1rem;
+}
+.modal-overlay.show { display: flex; }   /* app.js lägger på "show" */
+.modal {
+  position: relative;
+  background: var(--kort-bakgrund);
+  color: var(--text-sekundar);
+  border-radius: 16px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 2rem;
+}
+.modal h2 { margin: 0 0 0.5rem; font-size: 1.4rem; }
+.modal > p { color: var(--text-dampad); font-size: 0.92rem; margin: 0 0 1.4rem; }
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--text-dampad);
+  cursor: pointer;
+}
+.tech-section-title {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dampad);
+  margin: 1.4rem 0 0.7rem;
+}
+.tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.tech-card h3 { font-size: 0.95rem; margin: 0 0 0.3rem; }
+.tech-card p { font-size: 0.85rem; line-height: 1.5; margin: 0; }
+
+@media (max-width: 860px) {
+  .tech-grid { grid-template-columns: 1fr; }
+  .modal { padding: 1.4rem; }
+}
+
 /* ---------- Smala skärmar ---------- */
 @media (max-width: 520px) {
   .hjalte .hjaltetal { font-size: 2.6rem; }

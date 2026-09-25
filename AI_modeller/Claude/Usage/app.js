@@ -562,7 +562,23 @@
     });
   }
 
+  // Teknikrutan (</> teknik): öppna med knappen, stäng med ×, klick utanför
+  // rutan eller Escape. addEventListener i stället för inline onclick.
+  function kopplaTeknikruta() {
+    const knapp = document.getElementById("techBtn");
+    const ruta = document.getElementById("techModal");
+    const stang = document.getElementById("techClose");
+    if (!knapp || !ruta || !stang) return;
+    const oppna = function () { ruta.classList.add("show"); };
+    const stangRuta = function () { ruta.classList.remove("show"); };
+    knapp.addEventListener("click", oppna);
+    stang.addEventListener("click", stangRuta);
+    ruta.addEventListener("click", function (e) { if (e.target === ruta) stangRuta(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") stangRuta(); });
+  }
+
   // Kör allt
+  kopplaTeknikruta();
   kopplaTema();
   visaSidhuvud();
   visaNu();

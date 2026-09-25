@@ -244,5 +244,62 @@
       <p>Data: <code>data.js</code> · Beräkningar: <code>app.js</code> · Alla tider i svensk tid.</p>
     </footer>
   </div>
+
+  <!-- =========================================================
+       HÖRNLÄNKAR (repots regel: varje HTML-sida i AI-teknik har dem)
+       Vänster: länk till mappens filer på GitHub.
+       Höger: knapp som öppnar en ruta om sidans teknik och metod.
+       ========================================================= -->
+  <a class="corner corner-left" href="https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/Usage" target="_blank" rel="noopener">{ } GitHub</a>
+  <button type="button" class="corner corner-right" id="techBtn" aria-label="Tekniköversikt">&lt;/&gt; teknik</button>
+
+  <!-- Modalrutan: dold tills klassen "show" läggs på (se app.js) -->
+  <div class="modal-overlay" id="techModal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="techRubrik">
+      <button type="button" class="modal-close" id="techClose" aria-label="Stäng">&times;</button>
+      <h2 id="techRubrik">Hur den här sidan är byggd</h2>
+      <p>Två delar: tekniken i sidan, och metoden som användes för att ta fram den.</p>
+
+      <h3 class="tech-section-title">Tekniken</h3>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>HTML, CSS och JavaScript</h3>
+          <p>Inga ramverk och inget byggsteg. Fyra filer: <code>index.html</code>, <code>style.css</code>, <code>app.js</code> och <code>data.js</code>.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Data i en .js-fil</h3>
+          <p><code>data.js</code> sätter <code>window.USAGE_DATA</code>. En .json-fil går inte att läsa när sidan öppnas direkt från hårddisken, en script-fil gör det.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Allt räknas i app.js</h3>
+          <p>Datafilen innehåller bara avlästa värden. Kvar, dagsbudget, buffert, prognos och produktandel av veckan räknas fram vid varje sidladdning med samma formler.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Chart.js för diagrammet</h3>
+          <p>Veckodiagrammet ritas med Chart.js 4.5.1 från cdnjs. Utan internet visas allt utom diagrammet.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Veckan börjar torsdag 08:00</h3>
+          <p>Veckostarten räknas med lokala datumfält, så att sommar- och vintertid hanteras rätt.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Ljust och mörkt tema</h3>
+          <p>Färgerna är CSS-variabler. Följer datorns inställning, eller Tema-knappen.</p>
+        </div>
+      </div>
+
+      <h3 class="tech-section-title">Metoden</h3>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>Skärmdump som källa</h3>
+          <p>Kent tar en skärmdump av Usage-sidan i Claude. Claude läser av värdena, Kent bekräftar, och en rad läggs till i <code>data.js</code>. Bilden sparas i <code>Skarmdumpar/</code>.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Byggd i dialog med Claude</h3>
+          <p>Frågor och förslag stämdes av med Kent innan kodningen började. Lärdomar från en tidigare version (veckan från torsdag, buffertens trösklar) togs med.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

@@ -1,5 +1,9 @@
 # Claude Usage – min förbrukning
 
+**Live-sida (GitHub Pages):** [https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/Usage/](https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/Usage/)
+
+**Filerna på GitHub:** [https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/Usage](https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/Usage)
+
 Ett litet program (HTML, CSS och JavaScript) som visar hur mycket av Claudes användningsgränser som är förbrukat, hur mycket som är kvar och hur det har utvecklats över tid.
 
 ## Filer
@@ -22,14 +26,11 @@ Ett litet program (HTML, CSS och JavaScript) som visar hur mycket av Claudes anv
 
 Har du använt **Reset for free**, sätt `anvand: true` under `erbjudanden.reset` i `data.js`.
 
-## Så läggs det upp på GitHub Pages
+## Publicering
 
-1. Skapa ett nytt repo, till exempel `claude-usage`.
-2. Ladda upp `index.html`, `style.css`, `app.js`, `data.js` och mappen `Skarmdumpar`.
-3. Gå till *Settings > Pages*, välj grenen `main` och mappen `/ (root)`.
-4. Sidan hamnar på `https://<ditt-användarnamn>.github.io/claude-usage/`.
+Mappen ligger i repot [AI-teknik](https://github.com/kentlundgren/AI-teknik) och publiceras med GitHub Pages på live-sidan ovan. Kent committar och pushar själv, enligt repots [AGENTS.md](https://github.com/kentlundgren/AI-teknik/blob/main/AGENTS.md).
 
-Tänk på att ett publikt repo gör även skärmdumparna publika. Vill du inte det, låt bli att ladda upp mappen `Skarmdumpar`. Då fungerar allt utom länkarna "Visa" i historiken.
+Skärmdumparna i `Skarmdumpar/` är publika eftersom repot är publikt.
 
 ## Beräkningar (samma formler överallt)
 
