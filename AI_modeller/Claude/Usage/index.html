@@ -109,6 +109,14 @@
         </div>
       </div>
 
+      <!-- Kontroll av kreditinställningarna: tre punkter med ✔/✖.
+           Fylls i av app.js (funktionen visaInstallningskontroll). -->
+      <div class="kort" id="installningRuta">
+        <h2>Är kreditinställningarna rätt?</h2>
+        <p class="forklaring">Rekommenderat: reglaget för krediter <strong>på</strong>, månadstaket <strong>minst lika stort som saldot</strong> och automatisk påfyllning <strong>av</strong>. Då kan hela reserven användas när veckogränsen tar slut, men inga nya pengar dras från kortet.</p>
+        <ul class="kontrollista" id="installningLista"></ul>
+      </div>
+
       <!-- Råd om "Reset for free" -->
       <div class="kort rad-ruta" id="resetRuta">
         <p class="etikett">Ska jag använda Reset for free?</p>
@@ -228,7 +236,13 @@
         <p>Gäller molnsessioner (Claude Code som körs på Anthropics servrar), inte Projects eller Routines. Den dras före planens vanliga gränser och går ut 5 november kl. 08:59 (GMT+1).</p>
 
         <h3>Krediter och månadstak</h3>
-        <p>Köpta krediter (€) används först när veckogränsen är slut. Månadstaket (60 €) bestämmer hur mycket som högst får dras per kalendermånad.</p>
+        <p>Tre inställningar som lätt blandas ihop:</p>
+        <ul>
+          <li><strong>Usage credits</strong> – pengar du redan betalat, ett förbetalt saldo. Används först när veckogränsen är slut, och bara om reglaget är på.</li>
+          <li><strong>Monthly spend limit</strong> – hur mycket av saldot som högst får <em>förbrukas</em> per kalendermånad. Det drar inga nya pengar. Står det 0 € är saldot spärrat.</li>
+          <li><strong>Auto-reload</strong> – köper automatiskt nya krediter när saldot blir lågt. Det är bara den som drar nya pengar från kortet.</li>
+        </ul>
+        <p><strong>Rekommenderat:</strong> reglaget på, månadstaket minst lika stort som saldot, auto-reload av. Då kan hela reserven användas, men det kostar aldrig mer än det redan betalda. Rutan "Är kreditinställningarna rätt?" under Läget nu kontrollerar detta vid varje avläsning.</p>
 
         <h3>Hur data kommer in</h3>
         <p>Ge Claude en skärmdump av <em>Inställningar &gt; Usage</em>. Claude läser av värdena, du bekräftar, och en ny rad läggs in i <code>data.js</code>. Skärmdumpen sparas i <code>Skarmdumpar/ÅÅMMDD/</code> så att varje siffra kan spåras.</p>
@@ -236,6 +250,7 @@
         <h3>Källor</h3>
         <p class="kalla">Anthropic (2026) <em>Use Claude Code in the cloud</em>. Claude Code Docs. Tillgänglig på: <a href="https://code.claude.com/docs/en/claude-code-on-the-web" target="_blank" rel="noopener">https://code.claude.com/docs/en/claude-code-on-the-web</a> (Hämtad: 25 september 2026).</p>
         <p class="kalla">Anthropic (u.å.a) <em>Claude Cowork and chat are one Claude</em>. Claude Help Center. Tillgänglig på: <a href="https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude" target="_blank" rel="noopener">https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude</a> (Hämtad: 25 september 2026).</p>
+        <p class="kalla">Anthropic (u.å.c) <em>Manage usage credits for paid Claude plans</em>. Claude Help Center. Tillgänglig på: <a href="https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans" target="_blank" rel="noopener">https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans</a> (Hämtad: 25 september 2026).</p>
         <p class="kalla">Anthropic (u.å.b) <em>Usage limit best practices</em>. Claude Help Center. Tillgänglig på: <a href="https://support.claude.com/en/articles/9797557-usage-limit-best-practices" target="_blank" rel="noopener">https://support.claude.com/en/articles/9797557-usage-limit-best-practices</a> (Hämtad: 25 september 2026).</p>
       </div>
     </section>

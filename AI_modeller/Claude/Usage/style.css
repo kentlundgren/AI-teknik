@@ -222,6 +222,25 @@ code { font-size: 0.9em; background: var(--linje); padding: 1px 5px; border-radi
 .status.varning { border-bottom: 2px solid var(--status-varning); }
 .status.fara    { color: var(--status-fara); }
 
+/* ---------- Kontrollista för kreditinställningar ---------- */
+.kontrollista { list-style: none; padding: 0; margin: 12px 0 0; }
+.kontrollista li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-top: 1px solid var(--linje);
+  font-size: 0.9rem;
+}
+.kontrollista li:first-child { border-top: none; }
+.kontrollista strong { color: var(--text-primar); }
+.kontrollista .ikon { font-weight: 700; width: 1.2em; flex-shrink: 0; text-align: center; }
+.kontrollista li.ok .ikon    { color: var(--status-ok-text); }
+.kontrollista li.fel .ikon   { color: var(--status-fara); }
+.kontrollista li.okand .ikon { color: var(--text-dampad); }
+/* Rutan får röd vänsterkant när minst en punkt är fel */
+#installningRuta.har-fel { border-left: 4px solid var(--status-fara); }
+
 /* ---------- Rådruta för Reset ---------- */
 .rad-ruta { border-left: 4px solid var(--serie-1); }
 .radtext { margin: 6px 0 0; color: var(--text-primar); }

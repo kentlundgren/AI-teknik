@@ -272,11 +272,89 @@
       }
     }
 
+    // --- Kontroll av kreditinställningarna ---
+    visaInstallningskontroll();
+
     // --- Råd om Reset for free ---
     satt("resetRad", resetRad(), true);
 
     // --- Produkter ---
     visaProdukter();
+  }
+
+  /* Kontroll av kreditinställningarna.
+     Tre regler, var och en blir en rad med ✔ (rätt) eller ✖ (bör ändras):
+       1. Reglaget "Turn on usage credits" ska vara PÅ – annars används inte
+          krediterna alls när veckogränsen tar slut.
+       2. Månadstaket ska vara MINST LIKA STORT SOM SALDOT – taket styr hur mycket
+          av de REDAN KÖPTA krediterna som får förbrukas per månad. 0 € = spärrat.
+       3. Automatisk påfyllning ska vara AV – det är bara den som drar NYA pengar.
+     Med 2 och 3 tillsammans blir saldot det verkliga taket: reserven går att
+     använda, men det kan aldrig kosta mer än det redan betalda. */
+  function visaInstallningskontroll() {
+    const lista = document.getElementById("installningLista");
+    const pa = senasteKanda("krediterPa");
+    const saldo = senasteKanda("krediterSaldoEur");
+    const tak = senasteKanda("manadGransEur");
+    const auto = senasteKanda("autoPafyllning");
+
+    // Varje rad: ok (true/false/null = okänt), rubrik och förklaring
+    const rader = [];
+
+    rader.push(pa === null
+      ? { ok: null, rubrik: "Reglaget för krediter", text: "Okänt – syntes inte på skärmdumparna." }
+      : pa.varde
+        ? { ok: true, rubrik: "Reglaget för krediter är på", text: "Krediterna tar vid när veckogränsen är slut." }
+        : { ok: false, rubrik: "Reglaget för krediter är av", text: "Slå på \"Turn on usage credits\", annars används inte reserven alls." });
+
+    if (tak === null || saldo === null) {
+      rader.push({ ok: null, rubrik: "Månadstak", text: "Okänt – syntes inte på skärmdumparna." });
+    } else if (tak.varde === 0) {
+      rader.push({ ok: false, rubrik: "Månadstaket är 0 €",
+        text: "Då är hela saldot på " + eur(saldo.varde) + " spärrat. Sätt taket till minst " +
+              eur(Math.ceil(saldo.varde)) + " under Manage. Det kostar inget extra." });
+    } else if (tak.varde < saldo.varde && saldo.varde - tak.varde < 1) {
+      // Skillnad under 1 € (t.ex. tak 40 € mot saldo 40,20 €): räkna som rätt.
+      // Resten blir ändå användbar nästa månad, när taket börjar om.
+      rader.push({ ok: true, rubrik: "Månadstaket (" + eur(tak.varde) + ") täcker i praktiken saldot (" + eur(saldo.varde) + ")",
+        text: "Hela reserven utom " + eur(saldo.varde - tak.varde) + " kan användas denna månad. Resten går att använda nästa månad." });
+    } else if (tak.varde < saldo.varde) {
+      rader.push({ ok: false, rubrik: "Månadstaket (" + eur(tak.varde) + ") är lägre än saldot",
+        text: "Bara " + eur(tak.varde) + " av " + eur(saldo.varde) + " kan användas per månad. Höj till minst " +
+              eur(Math.ceil(saldo.varde)) + " om du vill kunna använda hela reserven." });
+    } else {
+      rader.push({ ok: true, rubrik: "Månadstaket (" + eur(tak.varde) + ") täcker saldot (" + eur(saldo.varde) + ")",
+        text: "Hela reserven kan användas om veckogränsen tar slut." });
+    }
+
+    rader.push(auto === null
+      ? { ok: null, rubrik: "Automatisk påfyllning", text: "Okänt – syntes inte på skärmdumparna." }
+      : auto.varde
+        ? { ok: false, rubrik: "Automatisk påfyllning är på",
+            text: "Nya pengar dras från kortet när saldot blir lågt, upp till månadstaket. Stäng av (Auto-reload) om du inte vill det." }
+        : { ok: true, rubrik: "Automatisk påfyllning är av",
+            text: "Inga nya pengar dras. Saldot är ditt verkliga tak." });
+
+    // Rita listan. Ikon + text, aldrig bara färg.
+    lista.innerHTML = "";
+    rader.forEach(function (r) {
+      const li = document.createElement("li");
+      li.className = r.ok === true ? "ok" : r.ok === false ? "fel" : "okand";
+      const ikon = r.ok === true ? "✔" : r.ok === false ? "✖" : "?";
+      li.innerHTML = '<span class="ikon" aria-hidden="true">' + ikon + "</span><div><strong>" +
+        r.rubrik + "</strong><br>" + r.text + "</div>";
+      lista.appendChild(li);
+    });
+
+    // Fel: markera rutan och visa också en notis högst upp på sidan
+    const antalFel = rader.filter(function (r) { return r.ok === false; }).length;
+    document.getElementById("installningRuta").classList.toggle("har-fel", antalFel > 0);
+    if (antalFel > 0) {
+      const notis = document.getElementById("notis");
+      notis.hidden = false;
+      notis.innerHTML = (notis.innerHTML ? notis.innerHTML + "<br>" : "") +
+        "<strong>Kreditinställningarna bör ändras</strong> – se rutan \"Är kreditinställningarna rätt?\" under Läget nu.";
+    }
   }
 
   // Beslutslogik för "Reset for free". Returnerar en HTML-mening.

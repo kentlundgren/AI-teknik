@@ -94,6 +94,7 @@ window.USAGE_DATA = {
       produkter: { claudeCode: 89, chats: 0, cowork: 10, other: 1 },
 
       molnbonusKvarUsd: null,        // bonusen var ännu inte uthämtad
+      krediterPa: true,              // reglaget "Turn on usage credits" – på/av
       krediterSaldoEur: 40.20,       // "Usage credits"
       manadSpenderatEur: 0.00,       // "Monthly spend limit": €0.00 of €60
       manadGransEur: 60,
@@ -111,6 +112,7 @@ window.USAGE_DATA = {
       produkter: null,               // syntes inte på skärmdumpen
 
       molnbonusKvarUsd: 100,         // "$100 of $100 left"
+      krediterPa: true,
       krediterSaldoEur: 40.20,
       manadSpenderatEur: null,       // syntes inte på skärmdumpen
       manadGransEur: null,
@@ -128,11 +130,30 @@ window.USAGE_DATA = {
       produkter: { claudeCode: 47, chats: 0, cowork: 52, other: 1 },
 
       molnbonusKvarUsd: 100,         // "$100 of $100 left"
+      krediterPa: true,
       krediterSaldoEur: 40.20,
       manadSpenderatEur: 0.00,       // "€0.00 of €0 this month"
       manadGransEur: 0,              // OBS: taket visas som 0 € (var 60 € kl. 09:36)
       autoPafyllning: false,
       kommentar: "Cowork steg från 10 % till 52 % av förbrukat: den här sessionen räknas som Cowork, inte Claude Code. Molnbonusen fortfarande orörd. Månadstaket visas nu som 0 € (var 60 €)."
+    },
+    {
+      tid: "2026-09-25T11:13:00+02:00",
+      bild: "Skarmdumpar/260925/Usage_Claude_260925_1113.png",
+
+      sessionProcent: 24,
+      sessionAterstallsTid: "2026-09-25T14:30:00+02:00",
+      veckaProcent: 8,
+
+      produkter: { claudeCode: 45, chats: 0, cowork: 54, other: 1 },
+
+      molnbonusKvarUsd: 100,
+      krediterPa: true,
+      krediterSaldoEur: 40.20,
+      manadSpenderatEur: 0.00,       // "€0.00 of €40 this month"
+      manadGransEur: 40,             // höjt från 0 € till 40 € = lika med saldot
+      autoPafyllning: false,
+      kommentar: "Månadstaket höjt 0 → 40 €. Nu kan hela saldot användas om veckogränsen tar slut, utan att nya pengar dras."
     }
   ]
 };
