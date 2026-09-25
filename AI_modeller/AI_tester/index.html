@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI-tester: vad mäter de egentligen?</title>
+  <meta name="description" content="Interaktiv genomgång av AI-testerna bakom Opus 5.5 och GPT-6 Astra: vad Terminal-Bench, OSWorld, Humanity's Last Exam, CoBench, DrivingBench och ZeroBench mäter, och vad som händer när modellen förstår att den testas.">
+  <script>
+    /* Sätt tema före första målning, så sidan inte blinkar. Allt i try/catch. */
+    try { var t = localStorage.getItem("aitester-tema"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="#Top">AI-tester</a>
+      <nav class="nav" aria-label="Avsnitt">
+        <a href="#Oversikt">Tabellen</a>
+        <a href="#Utforskaren">Utforska</a>
+        <a href="#Jamforelse">Jämför</a>
+        <a href="#KanAILuraTestet">Kan AI lura testet?</a>
+        <a href="#Kallor">Källor</a>
+      </nav>
+      <div class="tools">
+        <div class="seg" role="group" aria-label="Förklaringsnivå">
+          <button type="button" id="lvlVuxen" aria-pressed="true">Vuxen</button>
+          <button type="button" id="lvlTonaring" aria-pressed="false">15 år</button>
+        </div>
+        <div class="seg" role="group" aria-label="Tema">
+          <button type="button" id="themeBtn" aria-pressed="false" aria-label="Växla mellan ljust och mörkt tema">Mörkt</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="Top">
+    <div class="wrap hero">
+      <p class="kicker">Opus 5.5, GPT-6 Astra och de prov som mäter dem</p>
+      <h1>Vad mäter AI-testerna egentligen, och vad händer när modellen vet att den testas?</h1>
+      <p>Tolv tester, fem modeller och ett problem: ju bättre modellerna blir på att känna igen ett prov, desto mindre säger provet. Klicka runt. Byt förklaringsnivå uppe till höger, från vuxen till 15 år.</p>
+      <p class="stamp">Siffrorna hämtades <span id="hamtat"></span> och är kontrollerade mot originalkällorna.</p>
+    </div>
+
+    <section id="Oversikt">
+      <div class="wrap">
+        <h2 class="h-anchor" data-anchor="Oversikt">Tabellen, ombyggd</h2>
+        <p class="lead">Så här ser jämförelsen ut i Anthropics lanseringstabell för Opus 5.5. Klicka på ett testnamn för att öppna det i utforskaren. Den markerade cellen visar bästa siffra per rad.</p>
+        <div class="tablewrap"><table class="heat" id="heat"></table></div>
+        <p class="legend">Ett streck betyder att Anthropics tabell saknar siffra. Siffrorna kommer från tillverkaren själv (Anthropic), och Astras och Sols siffror är hämtade från OpenAI. Anthropic skriver själva att marginalerna blivit ett mindre pålitligt mått på verkliga skillnader.</p>
+      </div>
+    </section>
+
+    <section id="Utforskaren">
+      <div class="wrap">
+        <h2 class="h-anchor" data-anchor="Utforskaren">Testutforskaren</h2>
+        <p class="lead">Nio tester ur tabellen och tre specialtester. Välj ett i listan.</p>
+        <div class="explorer">
+          <div class="picker" id="picker" role="tablist" aria-label="Välj test"></div>
+          <article class="panel" id="panel" aria-live="polite"></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="Jamforelse">
+      <div class="wrap">
+        <h2 class="h-anchor" data-anchor="Jamforelse">Jämförelsen</h2>
+        <p class="lead">Välj upp till tre tester och lägg dem bredvid varandra: vad de mäter, hur det går till och hur långt toppmodellen har kommit.</p>
+        <div class="picks" id="picks" role="group" aria-label="Välj tester att jämföra"></div>
+        <div class="cmp" id="cmp"></div>
+        <p class="legend">Svårighetsmätaren visar toppmodellens poäng på skalan 0 till 100 procent, inte hur svårt provet är för en människa. Skalan är sidans egen förenkling: under 40 är långt kvar, 40 till 75 halvvägs, över 75 nära taket. Elo-baserade tester har inget tak.</p>
+      </div>
+    </section>
+
+    <section id="KanAILuraTestet">
+      <div class="wrap">
+        <h2 class="h-anchor" data-anchor="KanAILuraTestet">Kan AI lura testet?</h2>
+        <p class="lead">Fyra begrepp som avgör hur mycket ett testresultat är värt. Klicka på ett kort. Varje fakta har sin källa.</p>
+        <div class="lura-grid" id="luraGrid"></div>
+        <div id="luraDetail"></div>
+
+        <h3 class="h-anchor" id="Bedom" data-anchor="Bedom">Bedöm själv: ärligt, genväg eller grått?</h3>
+        <p class="lead">Fyra konstruerade exempel som bygger på vad systemkorten beskriver. Välj, så får du se vad källan säger.</p>
+        <div class="quiz" id="quiz"></div>
+        <p class="score" id="quizScore" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="Kallor">
+      <div class="wrap">
+        <h2 class="h-anchor" data-anchor="Kallor">Källor</h2>
+        <p class="lead">Alfabetiskt. Alla länkar kontrollerades <span id="hamtat2"></span>.</p>
+        <ul class="reflist" id="reflist"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <p>Astras siffror i tabellen kommer via Anthropics jämförelse. OpenAI:s eget systemkort innehåller inga prestandasiffror av det slaget. Internt test som CoBench går inte att granska utifrån. Sidan är en bild av läget den dag den byggdes, inte ett facit.</p>
+    </div>
+  </footer>
+
+  <a class="corner corner-left" href="https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/AI_tester" target="_blank" rel="noopener">{ } GitHub</a>
+  <button type="button" class="corner corner-right" id="techBtn" aria-label="Tekniköversikt">&lt;/&gt; teknik</button>
+
+  <div class="modal-overlay" id="techModal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="techTitle">
+      <button type="button" class="modal-close" id="techClose" aria-label="Stäng">&times;</button>
+      <h2 id="techTitle">Hur den här sidan är byggd</h2>
+      <p>Två delar: tekniken i sidan och metoden som användes för att ta fram den. Inget påhittat, bara det som är sant.</p>
+
+      <h3 class="tech-section-title">Tekniken</h3>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>Vanilla JS, inga bibliotek</h3>
+          <p>Ren HTML, CSS och JavaScript. Ingen byggprocess, inga externa typsnitt och inga tredjepartsskript. Fyra filer: <code>index.html</code>, <code>style.css</code>, <code>app.js</code> och <code>data.js</code>.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Allt innehåll i en datafil</h3>
+          <p>Testerna, siffrorna, förklaringarna och källorna ligger i <code>data.js</code>. Sidan renderas därifrån. Ändra en siffra på ett ställe och tabell, mätare och jämförelse följer med.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Mätaren räknas, den tycks inte</h3>
+          <p>Svårighetsmätaren är toppmodellens poäng på en skala från 0 till 100. Ingen redaktionell gradering. Elo-testet (GDPval-AA) har inget tak och visas därför som spridning, inte som procent.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Tidslyx-räknaren är enkel multiplikation</h3>
+          <p>Uppgiftslängd gånger antal försök, delat på antal parallella körningar, jämfört med veckorna till nästa modell. Ett tankeexempel, inte ett mått ur källorna.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Ingen data lämnar din webbläsare</h3>
+          <p>Sidan pratar inte med någon server. Val av tema och förklaringsnivå sparas bara lokalt i webbläsaren (localStorage), och sidan fungerar även om det är blockerat.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Djuplänkar</h3>
+          <p>Varje avsnitt och varje test har ett stabilt <code>#</code>-ankare, till exempel <code>#test-osworld</code>. Håll muspekaren över en rubrik och klicka på tecknet för att kopiera länken.</p>
+        </div>
+      </div>
+
+      <h3 class="tech-section-title">Metoden</h3>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>Primärkällor före sammanfattningar</h3>
+          <p>Siffrorna kontrollerades 2026-09-25 mot Anthropics lanseringssida, systemkortet (PDF, textutdrag genomsökt), OpenAI:s systemkort, DrivingBench och ZeroBenchs ledartavla. Alla länkar i källförteckningen öppnades.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Två fel hittades i sammanfattningarna</h3>
+          <p>En första sammanfattning hade lagt smygsiffran 26 procent på fel test (den hör till SHADE-Arena, inte LinuxArena) och en siffra på 0,63 procent som visade sig komma från en tabell om barnsäkerhet. Båda rättades mot systemkortets egen text.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Astras siffror kommer via Anthropic</h3>
+          <p>OpenAI:s systemkort innehåller inga poäng för Terminal-Bench eller AutomationBench. Astras siffror i tabellen är därför hämtade från Anthropics jämförelse, som anger OpenAI som källa. Det är skrivet på sidan i stället för att döljas.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Frågor före kodning</h3>
+          <p>Uppdraget gällde först en enda fil. Efter en fråga om just det blev det fyra, som i repots övriga verktyg. Åtta öppna val besvarades med uppskattade svar som godkändes i ett svep.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Två förklaringsnivåer</h3>
+          <p>Varje test och varje begrepp har en förklaring för en vuxen och en för en 15-åring. Ett klick på knappen uppe till höger byter nivå på hela sidan.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Byggd med Claude Code</h3>
+          <p>Sidan togs fram med Claude Code (modellen Sonnet 5) i mappen <code>AI_modeller/AI_tester</code>. Committen och publiceringen gör Kent själv via Cursor.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
