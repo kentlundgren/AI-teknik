@@ -30,6 +30,14 @@ Projektet är under uppbyggnad och kommer att växa över tid med fler tekniker,
   **Bloggtext:**
   - [En bild av Claudes ekosystem](https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/)
 
+- **[AI-tester – vad mäter de egentligen?](./AI_modeller/AI_tester/)**
+  Genomgång av de tester som används för att mäta Claude Opus 5.5 och GPT-6 Astra, och av vad som händer när modellen förstår att den testas. Interaktiv sida, blogginlägg och podd-prompt.
+  Se [`AI_modeller/AI_tester/README.md`](./AI_modeller/AI_tester/README.md).
+  **Live-sida (GitHub Pages):**
+  - AI-tester: [https://kentlundgren.github.io/AI-teknik/AI_modeller/AI_tester/](https://kentlundgren.github.io/AI-teknik/AI_modeller/AI_tester/)
+  **Bloggtext:**
+  - [Vad mäter AI-testerna egentligen?](https://klel.wordpress.com/2026/09/25/vad-mater-ai-testerna-egentligen/)
+
 - **[Solutions](./Solutions/)**
   Datumstämplade lösningar och fallbeskrivningar.
   Se [`Solutions/README.md`](./Solutions/README.md).

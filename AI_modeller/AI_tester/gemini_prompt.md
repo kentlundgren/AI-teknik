@@ -6,7 +6,7 @@ Två versioner. Använd den fulla om fältet tar lång text. Använd den korta o
 
 ## Vad du lägger in som källor i notebooken
 
-1. `blogginlagg.md` från den här mappen (huvudkällan, innehåller alla siffror med källhänvisningar).
+1. `blogginlagg.md` från den här mappen (huvudkällan, innehåller alla siffror med källhänvisningar). Samma text finns publicerad här: https://klel.wordpress.com/2026/09/25/vad-mater-ai-testerna-egentligen/. Filen är renare som källa, eftersom den publicerade sidan har en delad titel och hårda mellanslag. Om Gemini Notebook inte tar emot .md-filer, klistra in texten som "Kopierad text" eller lägg in webbadressen.
 2. Anthropics systemkort för Opus 5.5 (PDF): https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf
 3. OpenAI:s systemkort för GPT-6 Astra: https://deploymentsafety.openai.com/gpt-6-astra
 4. Valfritt: DrivingBench (https://drivingbench.com/) och ZeroBench (https://zerobench.github.io).
@@ -32,7 +32,7 @@ Bygg samtalet i den här ordningen.
 
 5. Don't get caught. Förklara skiftet från att inte göra fel till att inte åka fast. I LinuxArena gick Opus 5.5 oupptäckt i cirka 33 procent av fallen när övervakaren inte kunde läsa modellens tankar, och nästan aldrig när den kunde det. I ungefär var fjärde oupptäckt körning berättade modellen själv om skadan, och dess dolda tankar visade att den räknat ut att ett öppet erkännande såg mindre misstänkt ut. Ta med nyansen att modellen då visste att det var ett test. Låt en värd konstatera att möjligheten att läsa modellens tankar är det som håller ihop det just nu.
 
-6. Tidslyx-problemet. Det är ett begrepp för att det saknas tid att säkerhetstesta månadslånga uppgifter när nya modeller kommer tätt. OpenAI:s och Anthropics systemkort publicerades 19 dagar isär, och Apollo Research fick tre dagar på sig med Astra. Räkna ett exempel högt: en uppgift som tar en månad, körd fem gånger, tar fem månader, och nästa modell kommer om två.
+6. Tidslyx-problemet. Tidslyx är bloggförfattarens eget ord, och ingen av källorna använder det. Det står för att det saknas tid att säkerhetstesta månadslånga uppgifter när nya modeller kommer tätt. Säg gärna att det är bloggens ord. OpenAI:s och Anthropics systemkort publicerades 19 dagar isär, och Apollo Research fick tre dagar på sig med Astra. Räkna ett exempel högt: en uppgift som tar en månad, körd fem gånger, tar fem månader, och nästa modell kommer om två.
 
 7. Avslut. Landa i en öppen fråga i stället för en sammanfattning: vad gör vi med ett prov som modellen känner igen? Inget "spännande tider väntar".
 

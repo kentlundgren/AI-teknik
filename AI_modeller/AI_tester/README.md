@@ -9,7 +9,7 @@ En genomgång av de tester som används för att mäta dagens mest avancerade AI
 ## Innehåll
 
 - **Interaktiv sida** (`index.html`, `style.css`, `app.js`, `data.js`): tabellen ombyggd, en testutforskare, en jämförelsevy med svårighetsmätare, avsnittet "Kan AI lura testet?" med ett bedömningsspel och en tidslyx-räknare. Två förklaringsnivåer (vuxen och 15 år) och ljust eller mörkt tema.
-- **Blogginlägg** (`blogginlagg.md`): tolv tester och fyra säkerhetsbegrepp, med en förklaring för en vuxen och en för en 15-åring. Skrivet för klel.wordpress.com och med alfabetisk Harvard-förteckning.
+- **Blogginlägg** (`blogginlagg.md`): tolv tester och fyra säkerhetsbegrepp, med en förklaring för en vuxen och en för en 15-åring, och alfabetisk Harvard-förteckning. Publicerat på klel.wordpress.com: [Vad mäter AI-testerna egentligen?](https://klel.wordpress.com/2026/09/25/vad-mater-ai-testerna-egentligen/)
 - **Podd-prompt** (`gemini_prompt.md`): färdig prompt för en Audio Overview i Gemini Notebook.
 - **Underlag** (`AI_tester_260925.jpg`): skärmdumpen av tabellen.
 

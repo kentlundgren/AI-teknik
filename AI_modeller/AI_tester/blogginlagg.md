@@ -14,6 +14,8 @@ Taggar: AI-benchmarks, Claude Opus 5.5, GPT-6 Astra, AI-säkerhet, Terminal-Benc
 
 Interaktiv version: https://kentlundgren.github.io/AI-teknik/AI_modeller/AI_tester/
 
+Publicerat: https://klel.wordpress.com/2026/09/25/vad-mater-ai-testerna-egentligen/
+
 **Så klistrar du in:** öppna den här filen i Markdown-förhandsvisningen i Cursor, markera den renderade texten från rubriken nedan till och med källförteckningen, och klistra in i WordPress visuella redigerare. Rubriker, fetstil och länkar följer med. Styckena är obrutna rader. Källförteckningen är skriven som stycken, utan punktlista, enligt din WordPress-regel.
 
 **Ställen där din egen åsikt eller upplevelse bör in (ändra fritt):** stycket "Vad jag tar med mig", raden "Min läsning" under varje av de tre säkerhetsbegreppen, och jämförelsen med hur ekonomer läser fotnoter.
