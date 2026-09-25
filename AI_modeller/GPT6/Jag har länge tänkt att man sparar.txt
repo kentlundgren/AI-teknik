@@ -1,0 +1,33 @@
+Jag har länge tänkt att man sparar pengar i verktyg som Cursor och Claude Code genom att välja "näst senaste" modellen. Att den är tillräckligt bra.  Men jag inser jag att min logik behövde en viktig justering:
+
+Vad jag hade fel om: Att välja en äldre generation (t.ex. GPT-5.6 istället för GPT-6) för att spara pengar. 
+Det är en förlustaffär – de nya generationerna kapar ofta tokenpriserna med 50 % samtidigt som de blir stabilare
+
+Vad jag hade rätt om: Att de mest kraftfulla toppmodellerna (som t.ex. GPT-6 Astra) är mkt dyra jämfört med lättare modeller inom GPT-6 familjen.
+
+Det verkliga knepet för att spara pengar är alltså inte att köra gamla modeller, utan att välja rätt nivå i den senaste generationen 
+(t.ex. att köra GPT-6 Sol/Luna istället för GPT-6-Astra när uppgiften inte kräver maxkapacitet).
+
+Vilken modell-strategi har ni?
+
+
+********
+
+Jag har länge tänkt att man sparar pengar i verktyg som Cursor och Claude Code genom att välja "näst senaste" modellen. Att den är tillräckligt bra.  
+Men jag inser jag att min logik behövde en viktig justering:
+
+Vad jag hade fel om: Att välja en äldre generation (t.ex. GPT-5.6 istället för GPT-6) för att spara pengar. 
+Det är en förlustaffär – de nya generationerna kapar ofta tokenpriserna med 50 % samtidigt som de blir stabilare
+
+Vad jag hade rätt om: Att de mest kraftfulla toppmodellerna (som t.ex. GPT-6 Astra) är mkt dyra jämfört med lättare modeller inom GPT-6 familjen.
+
+Det verkliga knepet för att spara pengar är alltså inte att köra gamla modeller, utan att välja rätt nivå i den senaste generationen 
+(t.ex. att köra GPT-6 Sol/Luna istället för GPT-6-Astra när uppgiften inte kräver maxkapacitet).
+
+Men det är svårt att välja rätt och ha koll på alla modeller. Jag använder Cursor en hel del för kodning, som numera har Grok som förstahandsval, default-AI-modell. 
+
+Nu är det Grok 4.6 High Fast är standardmodell i Cursor (man även välja Grok 4.7 High Fast, eller Composer 2.5). Sedan kan aktivt välja någon (helt?) annan modell; som Claude Opus 5.5 Medium, Claude Sonnet 4.6 Medium, eller GPT 5.6 Sol. Innan var det Claude Sonnet 4.6 Medium som var standard, som  jag var mycket nöjd med. Jag måste erkänna att jag sista tiden passivt har "valt" den modell som Cursor har som standard, dvs Grok 4.6 High Fast. 
+
+Men är detta ett bra val för mig? Jag har nästa blivit mer och mer förvirrad av vilken AI-modell som är "optimal" på senare tid. Är kanske den "gamla fina" Claude 4.6 Sonnet fortfarande bäst, tillräckligt bra, billigast, och därmed smartast att använda för mig? 
+
+Vilken modell-strategi har ni?
