@@ -389,6 +389,11 @@ footer.foot { padding: 2rem 0 5rem; border-top: 1px solid var(--hair); color: va
   .calc output { text-align: left; }
 }
 
+@media (max-width: 640px) {
+  .topbar { position: static; }
+  html { scroll-padding-top: 1rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .fill, .gmark { transition: none; }

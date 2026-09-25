@@ -435,7 +435,7 @@
       if (given) {
         var ratt = given === b.svar;
         var r = el("div", { class: "reveal " + (ratt ? "right" : "wrong") },
-          el("b", { text: (ratt ? "Rätt: " : "Du valde " + SVAR[given].toLowerCase() + ". Källan säger: ") + SVAR[b.svar] }),
+          el("b", { text: ratt ? "Rätt." : "Inte riktigt, du valde " + SVAR[given].toLowerCase() + "." }),
           b.forklaring + " ", refLista(b.k));
         kort.appendChild(r);
       }
