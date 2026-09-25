@@ -263,8 +263,13 @@
     if (k) {
       satt("krediter", eur(k.varde));
       const m = senasteKanda("manadSpenderatEur"), g = senasteKanda("manadGransEur");
-      satt("krediterText", "Används först när veckogränsen är slut." +
-        (m && g ? " Denna månad: " + eur(m.varde) + " av " + eur(g.varde) + "." : ""));
+      if (g && g.varde === 0) {
+        // Med månadstak 0 € går krediterna inte att använda
+        satt("krediterText", "OBS: månadstaket är 0 €, så krediterna kan inte användas just nu. Höj taket under Manage om du vill ha reserven.");
+      } else {
+        satt("krediterText", "Används först när veckogränsen är slut." +
+          (m && g ? " Denna månad: " + eur(m.varde) + " av " + eur(g.varde) + "." : ""));
+      }
     }
 
     // --- Råd om Reset for free ---
@@ -448,7 +453,14 @@
   function visaManad() {
     const m = senasteKanda("manadSpenderatEur");
     const g = senasteKanda("manadGransEur");
-    if (m && g) {
+    if (m && g && g.varde === 0) {
+      // Månadstaket är 0 €: inga krediter kan dras alls. Undvik division med noll.
+      satt("manadSpenderat", eur(m.varde) + " av " + eur(0));
+      satt("manadSpenderatText", "Månadstaket är 0 € (avläst " + tidText(g.avlasning.datum) +
+        "). Då kan inga krediter användas, inte ens när veckogränsen är slut.");
+      satt("manadTakt", "–");
+      satt("manadTaktText", "Ingen takt att mäta med ett tak på 0 €.");
+    } else if (m && g) {
       const d = m.avlasning.datum;
       const andelTid = (d - manadStart(d)) / (manadSlut(d) - manadStart(d)) * 100;
       const andelSpent = m.varde / g.varde * 100;

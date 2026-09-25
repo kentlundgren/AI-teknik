@@ -116,6 +116,23 @@ window.USAGE_DATA = {
       manadGransEur: null,
       autoPafyllning: null,
       kommentar: "Molnbonus uthämtad kl. 10:29. Bonussaldot orört trots att veckan steg 4 → 6 %."
+    },
+    {
+      tid: "2026-09-25T11:01:00+02:00",
+      bild: "Skarmdumpar/260925/Usage_Claude_260925_1101.png",
+
+      sessionProcent: 22,
+      sessionAterstallsTid: "2026-09-25T14:30:00+02:00",   // "Resets at 2:30 PM"
+      veckaProcent: 8,
+
+      produkter: { claudeCode: 47, chats: 0, cowork: 52, other: 1 },
+
+      molnbonusKvarUsd: 100,         // "$100 of $100 left"
+      krediterSaldoEur: 40.20,
+      manadSpenderatEur: 0.00,       // "€0.00 of €0 this month"
+      manadGransEur: 0,              // OBS: taket visas som 0 € (var 60 € kl. 09:36)
+      autoPafyllning: false,
+      kommentar: "Cowork steg från 10 % till 52 % av förbrukat: den här sessionen räknas som Cowork, inte Claude Code. Molnbonusen fortfarande orörd. Månadstaket visas nu som 0 € (var 60 €)."
     }
   ]
 };
