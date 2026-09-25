@@ -56,14 +56,20 @@ och `</> teknik` nere till höger enligt `.cursor/rules/horn-lankar-github-tekni
 Ny mapp/del som behöver förklaras får en `README.md`: syfte, filer, hur man använder materialet,
 korsreferenser uppåt.
 
-## Regel 6: Live-sidelänk i README är obligatorisk
+## Regel 6: README-huvud – live-sida och lokal mapp är obligatoriska
 
 När en mapp har (eller får) en GitHub Pages-sida ska `README.md` i den mappen
-**alltid** innehålla en synlig länk till live-sidan:
+**alltid** innehålla en klickbar länk till live-sidan:
 
 `https://kentlundgren.github.io/AI-teknik/<sökväg-till-mappen>/`
 
-- Länken ska sitta högt i README:n, inte bara i en filtabell längst ner.
+Varje mapp-README ska dessutom ange var mappen ligger lokalt, som kod:
+
+`C:\Users\kentl\OneDrive\AI\AI-teknik\<sökväg-till-mappen>`
+
+- Båda raderna ska stå direkt under rubriken, inte bara i en filtabell längst ner.
+- Länka inte till mappens egen GitHub-sida i README:n – läsaren är redan där.
+  GitHub-länken hör hemma i HTML-sidans hörnlänk `{ } GitHub`.
 - Överliggande README som listar mappen ska också länka till samma live-sida.
 - Skapas `index.html` i en befintlig mapp: uppdatera README i samma svep.
 - Finns ingen live-sida än, ska README inte låtsas det. Finns den, får länken inte saknas.
@@ -77,3 +83,4 @@ Kent använder oftast **PowerShell** på Windows. `&&` fungerar inte som satsavd
 ---
 
 *Uppdatering 2026-09-12: Regel 6 tillagd (live-sidelänk i README). Ursprung: filen skapades efter en oavsiktlig push.*
+*Uppdatering 2026-09-25: Regel 6 utökad med lokal mapp i README-huvudet och förbud mot länk till mappens egen GitHub-sida.*

@@ -2,7 +2,7 @@
 
 **Live-sida (GitHub Pages):** [https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/Usage/](https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/Usage/)
 
-**Filerna på GitHub:** [https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/Usage](https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/Usage)
+**Lokal mapp:** `C:\Users\kentl\OneDrive\AI\AI-teknik\AI_modeller\Claude\Usage`
 
 Ett litet program (HTML, CSS och JavaScript) som visar hur mycket av Claudes användningsgränser som är förbrukat, hur mycket som är kvar och hur det har utvecklats över tid.
 
