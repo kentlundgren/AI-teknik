@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!--
+  ==========================================================================
+  index.html – Claude Usage: min förbrukning
+  ==========================================================================
+  Den här filen innehåller bara SIDANS STRUKTUR (vilka rutor och flikar som
+  finns). Utseendet ligger i style.css, all beräkning i app.js och all data
+  i data.js. Så länge de fyra filerna ligger i samma mapp fungerar sidan
+  både när den öppnas direkt från hårddisken och på GitHub Pages.
+
+  Tomma element med ett id (t.ex. id="heroKvar") fylls i av app.js.
+  ==========================================================================
+-->
+<html lang="sv">
+<head>
+  <!-- Teckenkodning så att å, ä och ö visas rätt -->
+  <meta charset="UTF-8">
+  <!-- Gör att sidan skalas rätt i mobilen -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claude Usage</title>
+  <meta name="description" content="Följ upp hur mycket av Claudes användningsgränser som är förbrukat och hur mycket som finns kvar.">
+
+  <!-- Utseendet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Chart.js – diagrambibliotek som hämtas från cdnjs (Cloudflare).
+       Utan internet visas allt utom diagrammen. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.1/chart.umd.min.js" defer></script>
+
+  <!-- Datan först, sedan programmet. "defer" = körs när sidan är inläst,
+       i den ordning de står här. -->
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <div class="sida">
+
+    <!-- ===================== SIDHUVUD ===================== -->
+    <header class="sidhuvud">
+      <div>
+        <h1>Claude Usage</h1>
+        <!-- Fylls i med tid för senaste avläsning -->
+        <p class="undertext" id="senasteAvlasning">Läser in …</p>
+      </div>
+      <!-- Knapp för ljust/mörkt tema. Standard följer datorns inställning. -->
+      <button class="temaknapp" id="temaKnapp" type="button" aria-label="Byt mellan ljust och mörkt tema">◐ Tema</button>
+    </header>
+
+    <!-- Varningsruta som bara visas om något behöver uppmärksammas,
+         t.ex. att veckan har återställts sedan senaste avläsningen. -->
+    <div class="notis" id="notis" hidden></div>
+
+    <!-- ===================== FLIKAR ===================== -->
+    <!-- role="tablist" gör att skärmläsare förstår att det är flikar -->
+    <nav class="flikar" role="tablist" aria-label="Vyer">
+      <button role="tab" class="flik" data-vy="nu" aria-selected="true">Läget nu</button>
+      <button role="tab" class="flik" data-vy="vecka" aria-selected="false">Veckan</button>
+      <button role="tab" class="flik" data-vy="manad" aria-selected="false">Månad &amp; krediter</button>
+      <button role="tab" class="flik" data-vy="historik" aria-selected="false">Historik</button>
+      <button role="tab" class="flik" data-vy="forklaring" aria-selected="false">Så läser du siffrorna</button>
+    </nav>
+
+    <!-- =========================================================
+         VY 1: LÄGET NU – svarar på de tre huvudfrågorna
+         ========================================================= -->
+    <section class="vy" id="vy-nu" role="tabpanel">
+
+      <!-- Hjältesiffran: hur mycket av veckan som är kvar -->
+      <div class="hjalte kort">
+        <p class="etikett">Kvar av veckans gräns</p>
+        <p class="hjaltetal" id="heroKvar">–</p>
+        <!-- Stapel som visar förbrukat (fylld del) av 100 % -->
+        <div class="matare" aria-hidden="true"><div class="matare-fyll" id="heroStapel"></div><div class="matare-takt" id="heroTaktmarkor"></div></div>
+        <p class="forklaring" id="heroText">–</p>
+      </div>
+
+      <!-- Rutnät med nyckeltal -->
+      <div class="rutnat">
+        <div class="kort">
+          <p class="etikett">Dagsbudget till torsdag</p>
+          <p class="tal" id="dagsbudget">–</p>
+          <p class="forklaring" id="dagsbudgetText">–</p>
+        </div>
+        <div class="kort">
+          <p class="etikett">Takt</p>
+          <p class="tal" id="takt">–</p>
+          <p class="forklaring" id="taktText">–</p>
+        </div>
+        <div class="kort">
+          <p class="etikett">Prognos vid återställning</p>
+          <p class="tal" id="prognos">–</p>
+          <p class="forklaring" id="prognosText">–</p>
+        </div>
+        <div class="kort">
+          <p class="etikett">Aktuell session (ca 5 h)</p>
+          <p class="tal" id="session">–</p>
+          <p class="forklaring" id="sessionText">–</p>
+        </div>
+        <div class="kort">
+          <p class="etikett">Molnbonus</p>
+          <p class="tal" id="molnbonus">–</p>
+          <p class="forklaring" id="molnbonusText">–</p>
+        </div>
+        <div class="kort">
+          <p class="etikett">Köpta krediter (reserv)</p>
+          <p class="tal" id="krediter">–</p>
+          <p class="forklaring" id="krediterText">–</p>
+        </div>
+      </div>
+
+      <!-- Råd om "Reset for free" -->
+      <div class="kort rad-ruta" id="resetRuta">
+        <p class="etikett">Ska jag använda Reset for free?</p>
+        <p class="radtext" id="resetRad">–</p>
+      </div>
+
+      <!-- Fördelning per produkt, omräknad till andel av veckogränsen -->
+      <div class="kort">
+        <h2>Vad har förbrukat veckan?</h2>
+        <p class="forklaring" id="produktIntro">–</p>
+        <div id="produktLista" class="produktlista"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         VY 2: VECKAN – diagram över veckans förbrukning
+         ========================================================= -->
+    <section class="vy" id="vy-vecka" role="tabpanel" hidden>
+      <div class="kort">
+        <h2 id="veckaRubrik">Den här veckan</h2>
+        <p class="forklaring">Den blå linjen är din förbrukning vid varje avläsning. Den streckade linjen visar jämn takt: om du följer den tar gränsen slut precis när veckan återställs. Ligger den blå linjen <strong>under</strong> den streckade har du marginal.</p>
+        <div class="diagram"><canvas id="veckaDiagram" aria-label="Linjediagram: veckans förbrukning jämfört med jämn takt" role="img"></canvas></div>
+        <p class="diagram-saknas" id="veckaDiagramSaknas" hidden>Diagrammet kunde inte visas (Chart.js laddades inte – saknas internet?). Siffrorna finns i tabellen nedan.</p>
+      </div>
+
+      <div class="kort">
+        <h2>Avläsningar den här veckan</h2>
+        <div class="tabellrulla"><table id="veckaTabell"></table></div>
+      </div>
+
+      <div class="kort">
+        <h2>Tidigare veckor</h2>
+        <p class="forklaring">Högsta uppmätta procent per vecka (vecka = torsdag 08:00 till torsdag 08:00). Fylls på allteftersom du registrerar.</p>
+        <div class="tabellrulla"><table id="veckorTabell"></table></div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         VY 3: MÅNAD & KREDITER
+         ========================================================= -->
+    <section class="vy" id="vy-manad" role="tabpanel" hidden>
+      <div class="rutnat">
+        <div class="kort">
+          <p class="etikett">Spenderat denna månad</p>
+          <p class="tal" id="manadSpenderat">–</p>
+          <p class="forklaring" id="manadSpenderatText">–</p>
+        </div>
+        <div class="kort">
+          <p class="etikett">Månadens takt</p>
+          <p class="tal" id="manadTakt">–</p>
+          <p class="forklaring" id="manadTaktText">–</p>
+        </div>
+        <div class="kort">
+          <p class="etikett">Kreditsaldo</p>
+          <p class="tal" id="manadSaldo">–</p>
+          <p class="forklaring" id="manadSaldoText">–</p>
+        </div>
+        <div class="kort">
+          <p class="etikett">Molnbonus – förbrukning per dag för att hinna använda allt</p>
+          <p class="tal" id="bonusPerDag">–</p>
+          <p class="forklaring" id="bonusPerDagText">–</p>
+        </div>
+      </div>
+      <div class="kort">
+        <h2>I vilken ordning dras pengarna?</h2>
+        <ol class="ordning">
+          <li><strong>Molnbonusen</strong> (endast molnsessioner, inte Projects/Routines) används först.</li>
+          <li><strong>Planens gränser</strong> – session (ca 5 h) och vecka.</li>
+          <li><strong>Krediter</strong> – först när veckogränsen är nådd, och bara om reglaget är på. Kampanjkrediter före köpta.</li>
+          <li><strong>Månadstaket</strong> stoppar kreditdragningen. Automatisk påfyllning är avstängd, så inga överraskningar.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         VY 4: HISTORIK – alla avläsningar
+         ========================================================= -->
+    <section class="vy" id="vy-historik" role="tabpanel" hidden>
+      <div class="kort">
+        <h2>Alla avläsningar</h2>
+        <p class="forklaring">"–" betyder att värdet inte syntes på skärmdumpen. Förändringen (Δ) jämförs med föregående avläsning i samma vecka.</p>
+        <div class="tabellrulla"><table id="historikTabell"></table></div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         VY 5: FÖRKLARING – hur man läser Usage-sidan
+         ========================================================= -->
+    <section class="vy" id="vy-forklaring" role="tabpanel" hidden>
+      <div class="kort text">
+        <h2>Så läser du Usage-sidan</h2>
+
+        <h3>Det finns inga tokens att räkna</h3>
+        <p>Anthropic visar förbrukningen i procent av en gräns, inte i antal tokens. Hur snabbt procenten stiger beror på modell, konversationens längd, bifogade filer och hur mycket verktyg som används.</p>
+
+        <h3>Två gränser gäller samtidigt</h3>
+        <ul>
+          <li><strong>Current session</strong> – ett fönster på ungefär fem timmar som startar med ditt första meddelande. Den återställs av sig själv.</li>
+          <li><strong>This week</strong> – veckogränsen. Den viktigaste siffran. Veckan går från torsdag kl. 08:00 till nästa torsdag kl. 08:00, inte måndag–söndag.</li>
+        </ul>
+
+        <h3>"Usage by product" är en fördelning, inte en gräns</h3>
+        <p>Siffrorna under <em>This week's usage by product</em> summerar alltid till 100 %. De visar hur det du redan förbrukat fördelar sig. Exempel: vecka 4 % och Claude Code 89 % betyder att Claude Code stått för 0,89 × 4 ≈ 3,6 % av veckogränsen – inte att 89 % av något är slut. Alla produkter delar på samma veckogräns.</p>
+
+        <h3>Takt och buffert</h3>
+        <p><strong>Buffert = andel av veckan som gått − andel av gränsen som förbrukats.</strong> Har 40 % av veckan gått och du förbrukat 30 % är bufferten +10 procentenheter: du ligger före. Negativ buffert betyder att du förbrukar snabbare än jämn takt.</p>
+        <ul>
+          <li>✔ Grönt: buffert 0 eller mer – i fas eller före.</li>
+          <li>▲ Gult: buffert mellan 0 och −10 – något efter takt.</li>
+          <li>✖ Rött: buffert under −10 – långt efter takt.</li>
+        </ul>
+
+        <h3>Reset for free</h3>
+        <p>En gratis nollställning av gränsen, som kampanj för Opus 5.5 (giltig till 22 oktober). Den är värd mest när veckostapeln närmar sig 100 % och det är flera dagar kvar till torsdag. Står du på 95 % på onsdagskvällen återställs veckan ändå på torsdagsmorgonen.</p>
+
+        <h3>Molnbonus 100 $</h3>
+        <p>Gäller molnsessioner (Claude Code som körs på Anthropics servrar), inte Projects eller Routines. Den dras före planens vanliga gränser och går ut 5 november kl. 08:59 (GMT+1).</p>
+
+        <h3>Krediter och månadstak</h3>
+        <p>Köpta krediter (€) används först när veckogränsen är slut. Månadstaket (60 €) bestämmer hur mycket som högst får dras per kalendermånad.</p>
+
+        <h3>Hur data kommer in</h3>
+        <p>Ge Claude en skärmdump av <em>Inställningar &gt; Usage</em>. Claude läser av värdena, du bekräftar, och en ny rad läggs in i <code>data.js</code>. Skärmdumpen sparas i <code>Skarmdumpar/ÅÅMMDD/</code> så att varje siffra kan spåras.</p>
+
+        <h3>Källor</h3>
+        <p class="kalla">Anthropic (2026) <em>Use Claude Code in the cloud</em>. Claude Code Docs. Tillgänglig på: <a href="https://code.claude.com/docs/en/claude-code-on-the-web" target="_blank" rel="noopener">https://code.claude.com/docs/en/claude-code-on-the-web</a> (Hämtad: 25 september 2026).</p>
+        <p class="kalla">Anthropic (u.å.a) <em>Claude Cowork and chat are one Claude</em>. Claude Help Center. Tillgänglig på: <a href="https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude" target="_blank" rel="noopener">https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude</a> (Hämtad: 25 september 2026).</p>
+        <p class="kalla">Anthropic (u.å.b) <em>Usage limit best practices</em>. Claude Help Center. Tillgänglig på: <a href="https://support.claude.com/en/articles/9797557-usage-limit-best-practices" target="_blank" rel="noopener">https://support.claude.com/en/articles/9797557-usage-limit-best-practices</a> (Hämtad: 25 september 2026).</p>
+      </div>
+    </section>
+
+    <footer class="sidfot">
+      <p>Data: <code>data.js</code> · Beräkningar: <code>app.js</code> · Alla tider i svensk tid.</p>
+    </footer>
+  </div>
+</body>
+</html>
