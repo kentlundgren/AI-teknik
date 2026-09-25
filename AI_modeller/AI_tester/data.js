@@ -27,6 +27,11 @@ window.AI_DATA = {
       ref: "Anthropic (2026b) System Card: Claude Opus 5.5, 22 september 2026.",
       url: "https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf"
     },
+    lundgren: {
+      kort: "Lundgren, 2026",
+      ref: "Lundgren, K. (2026) Vad mäter AI-testerna egentligen, och vad händer när modellen vet att den testas? Blogginlägg, Tankar i tiden från Lund (klel.wordpress.com), 25 september 2026.",
+      url: "https://klel.wordpress.com/2026/09/25/vad-mater-ai-testerna-egentligen/"
+    },
     oai: {
       kort: "OpenAI, 2026",
       ref: "OpenAI (2026) GPT-6 Astra System Card, publicerat 3 september 2026.",
@@ -415,7 +420,8 @@ window.AI_DATA = {
         { t: "OpenAI:s systemkort för GPT-6 Astra publicerades 3 september 2026 och Anthropics för Opus 5.5 22 september. Det är 19 dagar mellan dem.", k: "oai" },
         { t: "Apollo Research fick tre dagar på sig att testa en nästan färdig Astra, varav två med synlig tankekedja.", k: "oai" },
         { t: "Anthropics CoBench-körning för Opus 5.5 låg 13 dagar efter de andra modellernas, och miljön hann ändras. En ändring uppskattades vara värd 0 till 1 poäng, två andra mättes aldrig.", k: "syscard" },
-        { t: "Anthropics övervakning av intern användning fann ingen långsiktig strategisk vilseledning. Men det är övervakning i efterhand, inte ett förhandstest av månadslånga uppgifter.", k: "syscard" }
+        { t: "Anthropics övervakning av intern användning fann ingen långsiktig strategisk vilseledning. Men det är övervakning i efterhand, inte ett förhandstest av månadslånga uppgifter.", k: "syscard" },
+        { t: "Ordet tidslyx och räkneexemplet med en månads uppgift, fem försök och en ny modell om två månader är bloggförfattarens egna. De är inte hämtade ur något av systemkorten. Resonemanget står utförligare i bloggen.", k: "lundgren" }
       ],
       tolkning: "Det är inget tekniskt problem. Det är ett tidsproblem, och tid går inte att köpa. Räknaren nedan är ett tankeexempel, inte ett mått ur källorna.",
       vetInte: "Hur snabbt månadslånga tester i praktiken kan automatiseras. Underlaget säger inget om det."
@@ -457,13 +463,14 @@ window.AI_DATA = {
 
 /* Källordning (alfabetiskt efter författare/organisation, äldst först vid samma författare)
    och relevansnoter enligt Kents källstandard. */
-window.AI_DATA.refOrdning = ["anth", "syscard", "hub", "sad", "oai", "gdp", "hle", "db", "dbr", "zb", "zbsite", "ab", "chart", "os"];
+window.AI_DATA.refOrdning = ["anth", "syscard", "hub", "sad", "lundgren", "oai", "gdp", "hle", "db", "dbr", "zb", "zbsite", "ab", "chart", "os"];
 
 window.AI_DATA.refNoter = {
   anth: "Primärkälla för tabellen: Anthropics, Fable 5.1:s och Opus 5:s siffror, fotnoterna och Anthropics egen reservation om att marginaler är ett mindre pålitligt mått.",
   syscard: "Primärkälla för testbeskrivningarna och säkerhetsresultaten (testmedvetenhet, reward hacking, SHADE-Arena, LinuxArena, CoBench 2.1). Innehåller också Astras siffror, som Anthropic hämtat från OpenAI.",
   hub: "Grundkälla för begreppet deceptive alignment.",
   sad: "Grundkälla för begreppet situationsmedvetenhet och för hur det kan mätas.",
+  lundgren: "Samma genomgång som på den här sidan, som löpande text med förklaringar för vuxna och 15-åringar och en Harvard-förteckning. Här som fördjupning och eget tidigare arbete, inte som ny faktakälla.",
   oai: "Belägger OpenAI:s egen bild av testmedvetenhet (Apollo Research), metagaming och sandbagging samt systemkortets publiceringsdatum.",
   gdp: "Originalartikeln bakom GDPval, som GDPval-AA bygger på.",
   hle: "Originalartikeln för Humanity's Last Exam. Konstruktionen beskrivs i texten enligt Anthropics systemkort.",
