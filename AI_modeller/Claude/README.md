@@ -19,6 +19,13 @@ här ändrar sig fort, och delarna byggs och skrivs om i takt med det.
   **Bloggtext:**
   [En bild av Claudes ekosystem](https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/)
 
+- **[Usage/](./Usage/)** — program som följer upp hur mycket av Claudes
+  användningsgränser som är förbrukat och kvar, per vecka och månad,
+  utifrån skärmdumpar av Usage-sidan i Claude.
+  Se [`Usage/README.md`](./Usage/README.md) för en utförlig beskrivning.
+  **Live-sida (GitHub Pages):**
+  [https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/Usage/](https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/Usage/)
+
 *Fler Claude-relaterade projekt tillkommer efter hand.*
 
 ## Relaterat
