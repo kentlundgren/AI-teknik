@@ -4,8 +4,8 @@
 **Visningsnamn:** **Provbänken** (beslutat 2026-09-29). Mappen och adressen förblir `Nr2`; "Provbänken" är namnet man säger och skriver i text.
 **Plats:** `AI-teknik/Presentationer/Nr2/PRD_presentation_ai_arbetsgivare.md`
 **Skapad:** 2026-09-29
-**Version:** 4 (beslut b, g och guidens fyra frågor klara; SPEC.md v1 skriven; h öppen)
-**Status:** **Utkast med beslutad inriktning.** Inget är byggt. Form, urval och hantering av Simrishamn-verktygen är beslutade. Syftesändringen i `Presentationer/CLAUDE.md` (f) är gjord. SPEC.md v1 är skriven. Kvar före bygget: kvalitetssäkringstexten (h) och två punkter i SPEC (kortet "arbetssätt", reservläge utan JavaScript).
+**Version:** 5 (h delvis beslutad; punkt om "interna uppgifter" hållen tillbaka)
+**Status:** **Utkast med beslutad inriktning.** Inget är byggt. Form, urval och hantering av Simrishamn-verktygen är beslutade. Syftesändringen i `Presentationer/CLAUDE.md` (f) är gjord. SPEC.md v1 är skriven. Kvar före bygget: den sista delen av h (interna uppgifter) och två punkter i SPEC (kortet "arbetssätt", reservläge utan JavaScript).
 **Typ:** Grund-PRD för en ny presentation (`Nr2`). Bygger på mönstren i `Nr1` men har ett annat syfte och en annan form.
 
 ## 1. Bakgrund
@@ -68,14 +68,14 @@
 
 **g. Behövs ett SPEC.md-steg härifrån? — BESLUTAT ✓ (2026-09-29): ja, kort. SPEC.md v1 är skriven.** Här finns tydliga acceptanskriterier som gör en SPEC värd att skriva: dataformat per exempel, vad som aldrig får med (sekretesslistan), mobilbredder, tillgänglighet och kontrast, laddtid.
 
-**h. Kvalitetssäkringstexten — ÖPPEN, kräver Kents bekräftelse.** Avsnittet om hur AI-resultat kvalitetssäkras och vad som aldrig läggs i AI-verktyg (avsnitt 3) får bara innehålla det Kent faktiskt gör. Utkast att bekräfta eller ändra: (1) "Jag kontrollerar AI:ns resultat mot källdata", (2) "AI föreslår, jag verifierar", (3) "Jag lägger inte persondata eller uppdragsgivares interna uppgifter i AI-verktyg". Punkt 3 är inte bekräftad av Kent. Skrivs inte in på sidan förrän den är det.
+**h. Kvalitetssäkringstexten — DELVIS BESLUTAT (2026-09-29).** Bekräftat av Kent: (1) "Jag kontrollerar AI:ns resultat mot källdata", (2) "AI föreslår, jag verifierar", och att han inte lägger persondata i AI-verktyg. Fyra konkreta verifieringssätt får nämnas: Bokslutstestet (agenternas fynd jämförs mot dokumentet), andra åsikt i annan modell, egna kontrollsummor i Excel, och att källor/länkar öppnas (som i Statsskuld-sidan). **Hållet tillbaka:** delen "eller uppdragsgivares interna uppgifter" skrivs inte in. Kent svarade ja, men flera av hans Simrishamn-verktyg (KOF-hyreskostnad, avstämning, felsökning) innehåller interna uppgifter och byggdes med AI-stöd, och de ligger publikt. En läsare kan därför motsäga påståendet. Kvar att avgöra: utelämna den delen, eller formulera den smalare (t.ex. "jag följer organisationens regler för vilka AI-verktyg som får användas") om det är sant.
 
 ## 5. Leveranser
 
 - [x] Beslut a, c och e klara (2026-09-29); visningsnamn Provbänken beslutat
 - [x] Beslut f klart och genomfört
 - [x] Beslut g, b och guidens fyra frågor klara (2026-09-29)
-- [ ] Beslut h klart (kvalitetssäkringstexten)
+- [ ] Beslut h helt klart (persondata-delen och verifieringssätten klara; "interna uppgifter" hållen tillbaka)
 - [x] SPEC.md v1 skriven (två öppna punkter i den: kortet "arbetssätt", reservläge utan JavaScript)
 - [ ] SPEC.md granskad och godkänd av Kent
 - [ ] Datafil med exempel (kategori, rubrik, en mening, verktyg, arbetssätt, resultat, länk, sekretessnivå)
@@ -114,6 +114,7 @@ Utkast v4. Målgrupp (arbetsgivare), namn (Provbänken), form (frågeguide + kor
 
 ## Ändringslogg
 
+- **v5 (2026-09-29):** Beslut h delvis: punkt 1, 2 och persondata bekräftade, fyra verifieringssätt valda; "uppdragsgivares interna uppgifter" hållen tillbaka pga motsägelse mot publika Simrishamn-verktyg.
 - **v4 (2026-09-29):** Beslut b (bara svenska), g (SPEC ja, kort) och guidens fyra frågor. `SPEC.md` v1 skriven. Leveranser, produktionsordning och status uppdaterade.
 - **v3 (2026-09-29):** Genomläsning med fräscha ögon. Rättat: stale status (avsnitt 8) och statusrad, 4d (Bokslut 2025 är gjort lokalt, inte "genomförs av Kent"), 4f (gjort), produktionsordning, "tillval" i Ingår inte som stred mot 4a, antal kategorier (sex–sju), stavfel. Nytt: 4h (kvalitetssäkringstexten kräver bekräftelse), och i 4a att tillgänglighet/arvode inte hör hemma på publik sida. `Presentationer/CLAUDE.md` rättad (Nr1 är publicerad, Nr2 tillagd).
 - **v2 (2026-09-29):** Visningsnamn Provbänken. Beslut a (frågeguide + kort), c (urval, inklusive Balanskrav med villkor) och e (utelämna tre Simrishamn-verktyg, nämn fyra utan länk). Status och leveranslista uppdaterade.

@@ -2,7 +2,7 @@
 
 **Hör till:** `PRD_presentation_ai_arbetsgivare.md` (v4)
 **Skapad:** 2026-09-29
-**Version:** 1 (utkast – öppna punkter markerade ÖPPEN)
+**Version:** 2 (avsnitt 6 uppdaterat efter beslut h)
 **Syfte:** Låst byggspecifikation. PRD:n säger *vad och varför*, den här filen säger *exakt hur det ska vara* och när det är klart.
 
 ---
@@ -26,7 +26,7 @@ En sida, `index.html`, en `style.css`, en `script.js` (motor) och en `data.js` (
 
 | # | Fråga (rubrik) | Svar |
 |---|---|---|
-| 1 | Hur använder du AI i controllerarbetet? | Tre nivåer: löpande arbete (MS Copilot för kortare frågor och standardanalyser), djupare byggen (Claude, Cursor, GitHub), andra åsikt och faktakoll (Perplexity, ChatGPT, Gemini). Kvalitetssäkring: se 6 (ÖPPEN, kräver Kents bekräftelse). |
+| 1 | Hur använder du AI i controllerarbetet? | Tre nivåer: löpande arbete (MS Copilot för kortare frågor och standardanalyser), djupare byggen (Claude, Cursor, GitHub), andra åsikt och faktakoll (Perplexity, ChatGPT, Gemini). Kvalitetssäkring: se 6. |
 | 2 | Vilka verktyg och system behärskar du? | Ekonomisystem: Raindance, Unit4/UBW. BI/visualisering: Power BI, Hypergene, QlikView/QlikSense, Stratsys. Budget/prognos: Planacy, Excel (avancerad). AI: Claude, ChatGPT, Perplexity, Gemini, MS Copilot (utan versionsnummer). Egen utveckling: HTML, CSS, JavaScript, Cursor, GitHub. SAP nämns inte. |
 | 3 | Vilka exempel kan jag titta på? | Korten (se 4). |
 | 4 | Vilka uppdrag och branscher passar? | Öppen för privat, offentlig, statlig och kommunal verksamhet, nyfiken på de flesta branscher. Uppdrag där den tekniska bakgrunden (civilingenjör, LTH) kommer till nytta, t.ex. industri, energi, infrastruktur. Geografi, tillgänglighet och arvode står **inte** på sidan. |
@@ -77,9 +77,16 @@ Exempel som ingår (alla `sekretess: "ok"` om inget annat anges):
 - Rå URL i löptext. Länkar har beskrivande text.
 - Påståenden om vad Kent gör eller har gjort som inte är bekräftade av honom.
 
-## 6. Kvalitetssäkringstexten (ÖPPEN, PRD 4h)
+## 6. Kvalitetssäkringstexten (DELVIS BESLUTAD, PRD 4h)
 
-Får bara innehålla det Kent bekräftat. Utkast: (1) "Jag kontrollerar AI:ns resultat mot källdata." (2) "AI föreslår, jag verifierar." (3) "Jag lägger inte persondata eller uppdragsgivares interna uppgifter i AI-verktyg." Punkt 3 är obekräftad och skrivs inte in före Kents ja.
+Får bara innehålla det Kent bekräftat (2026-09-29):
+
+- "Jag kontrollerar AI:ns resultat mot källdata."
+- "AI föreslår, jag verifierar."
+- "Jag lägger inte persondata i AI-verktyg."
+- Fyra sätt att verifiera får nämnas, var och en som en kort rad: Bokslutstestet (agenternas fynd jämfördes mot dokumentet och bedömdes), andra åsikt i en annan modell, egna kontrollsummor i Excel, och att källor och länkar öppnas och läses.
+
+**Skrivs inte in:** "eller uppdragsgivares interna uppgifter". Skälet: publika Simrishamn-verktyg med interna uppgifter byggdes med AI-stöd, så påståendet kan motsägas. Avgörs av Kent (utelämna eller smalare formulering).
 
 ## 7. Tekniska krav
 
@@ -108,4 +115,5 @@ Får bara innehålla det Kent bekräftat. Utkast: (1) "Jag kontrollerar AI:ns re
 
 ## 9. Ändringslogg
 
+- **v2 (2026-09-29):** Avsnitt 6 skrivet efter Kents svar på h.
 - **v1 (2026-09-29):** Första utkast efter Kents beslut: SPEC ja, bara svenska, fyra frågor.
