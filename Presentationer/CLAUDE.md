@@ -2,14 +2,25 @@
 
 ## Vad detta är
 
-En samlingsmapp för Kents självspelande HTML/CSS/JS-presentationer, byggda
-i mönstret som etablerades i `Nr1` (portfolio-genomgång av AI/webb-projekt).
-Görs inte för jobbsökning — Kent bygger och delar de här för att han tycker
-det är roligt, intressant och viktigt att testa, leka och lära tillsammans
-med generativ AI (se hans egen formulering: "innan generativ AI, testar och
-'leker' med oss människor..."). Varje undermapp (`Nr1`, framtida `Nr2`,
+En samlingsmapp för Kents HTML/CSS/JS-presentationer, byggda i mönstret som
+etablerades i `Nr1` (portfolio-genomgång av AI/webb-projekt).
+`Nr1` görs inte för jobbsökning — Kent bygger och delar den för att han
+tycker det är roligt, intressant och viktigt att testa, leka och lära
+tillsammans med generativ AI (se hans egen formulering: "innan generativ AI,
+testar och 'leker' med oss människor..."). Varje undermapp (`Nr1`, `Nr2`,
 `Nr3` ...) är en egen presentation med sin egen PRD, som fångar just den
 presentationens beslutshistorik.
+
+**Undantag sedan 2026-09-29: `Nr2` ("Provbänken") är byggd för arbetsgivare.**
+Den vänder sig till rekryterare, ekonomichefer och konsultkunder som vill se
+vad Kent kan göra med AI i ekonomi- och controllerarbete, och länkas från
+hans ansökningar (första gången AI-Controller, Invicis konsultnätverk, sista
+ansökningsdag 2026-10-13). Därför gäller extra regler för Nr2: inga interna
+uppgifter från uppdragsgivare (serveradresser, saldon, hyresobjekt,
+budgetunderlag), inga personuppgifter, påhittade siffror ska sägas vara
+påhittade, och CV:t får inte länka Nr2 förrän sidan svarar. Se
+`Nr2/PRD_presentation_ai_arbetsgivare.md`. `Nr1` är fortfarande den
+personliga visningen.
 
 Denna fil är repo-lokal (inte global) av samma skäl som skillet nedan:
 synlighet och länkbarhet på GitHub när mappen är pushad, och en pekpunkt
@@ -69,11 +80,14 @@ rubriken "Underhållsregler".
 
 ## Status
 
-- **`Nr1`** — klar, byggd 2026-08-04, utökad löpande sedan dess. Åtta
-  projekt + åtta årskort (två per år 2023–2026: "Vad som hände"/"Hur jag
-  jobbade", innehållsmängd växer med vald hastighet) + två avslutande
+- **`Nr1`** — klar, byggd 2026-08-04, utökad löpande sedan dess. Årskort
+  (två per år 2023–2026: "Vad som hände"/"Hur jag jobbade", innehållsmängd
+  växer med vald hastighet), projekt, läslistor och två avslutande
   referens-slides, tre hastighetsvarianter (rapp/lagom/seriös, rapp är
   standard), manuell styrning (pilar, svep på mobil, paus/spela-knapp). Se
+  `Nr1/README.md` för aktuell omfattning och
   `Nr1/PRD_presentation_ai_projekt.md` för fullständig beslutshistorik.
-  Ännu inte publicerad till GitHub Pages eller committad — Kent gör det
-  själv när han är redo.
+  Publicerad (svarar 200 på GitHub Pages, kontrollerat 2026-09-29).
+- **`Nr2` — "Provbänken"** — PRD-utkast v3 (2026-09-29), inget byggt.
+  Publik för arbetsgivare; frågeguide med kortöversikt. Se
+  `Nr2/PRD_presentation_ai_arbetsgivare.md`. Ej publicerad (404).
