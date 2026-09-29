@@ -18,9 +18,9 @@ const PROVBANKEN = {
       punkter_rubrik: "Så verifierar jag",
       punkter: [
         "Bokslutstestet: agenternas fynd jämfördes mot dokumentet och jag bedömde vilka som var riktiga.",
-        "Andra åsikt i en annan modell.",
-        "Egna kontrollsummor i Excel.",
-        "Källor och länkar öppnas och läses, som i sidan om statsskuld."
+        "Kontrollerar text och siffror med en annan modell.",
+        "Räknar om summor i Excel utan AI.",
+        "Öppnar och läser källor och länkar, som i sidan om statsskuld."
       ],
       kort_kategorier: ["Granskning", "Arbetssätt"]
     },
