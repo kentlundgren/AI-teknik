@@ -8,7 +8,7 @@ const PROVBANKEN = {
   fragor: [
     {
       id: "ai-i-arbetet",
-      fraga: "Hur använder du AI i controllerarbetet?",
+      fraga: "Hur använder jag AI i controllerarbetet?",
       svar: [
         { rubrik: "Löpande arbete", text: "MS Copilot för kortare frågor och standardanalyser." },
         { rubrik: "Djupare arbete", text: "Claude, Cursor och GitHub, där jag bygger och förfinar analysverktyg." },
@@ -26,7 +26,7 @@ const PROVBANKEN = {
     },
     {
       id: "verktyg",
-      fraga: "Vilka verktyg och system behärskar du?",
+      fraga: "Vilka verktyg och system behärskar jag?",
       svar: [
         { rubrik: "Ekonomisystem", text: "Raindance, Unit4/UBW." },
         { rubrik: "BI och visualisering", text: "Power BI, Hypergene, QlikView/QlikSense, Stratsys." },
@@ -38,7 +38,7 @@ const PROVBANKEN = {
     },
     {
       id: "exempel",
-      fraga: "Vilka exempel kan jag titta på?",
+      fraga: "Vilka exempel kan jag visa?",
       svar: [
         { rubrik: "", text: "Exemplen nedan går att öppna. Vissa arbeten från uppdrag i kommun nämns utan länk, eftersom de bygger på uppdragsgivarens material." }
       ],
@@ -46,7 +46,7 @@ const PROVBANKEN = {
     },
     {
       id: "uppdrag",
-      fraga: "Vilka uppdrag och branscher passar?",
+      fraga: "Vilka uppdrag och branscher passar mig?",
       svar: [
         { rubrik: "Sektorer", text: "Jag är öppen för privat, offentlig, statlig och kommunal verksamhet, och nyfiken på de flesta branscher." },
         { rubrik: "Teknisk bakgrund", text: "Uppdrag där min tekniska bakgrund som civilingenjör (LTH) kommer till nytta, till exempel industri, energi och infrastruktur." }

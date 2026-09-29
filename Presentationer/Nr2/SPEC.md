@@ -2,7 +2,7 @@
 
 **Hör till:** `PRD_presentation_ai_arbetsgivare.md` (v4)
 **Skapad:** 2026-09-29
-**Version:** 3.2 (kategorin "Forskningskalkyl", gruppering i kortvyn, Cursor under AI; godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
+**Version:** 3.3 (frågor i Kents röst; kategorin "Forskningskalkyl", gruppering i kortvyn, Cursor under AI; godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
 **Status:** **Godkänd som byggunderlag.** Ändringar görs som ny version.
 **Syfte:** Låst byggspecifikation. PRD:n säger *vad och varför*, den här filen säger *exakt hur det ska vara* och när det är klart.
 
@@ -27,10 +27,10 @@ En sida, `index.html`, en `style.css`, en `script.js` (motor) och en `data.js` (
 
 | # | Fråga (rubrik) | Svar |
 |---|---|---|
-| 1 | Hur använder du AI i controllerarbetet? | Tre nivåer: löpande arbete (MS Copilot för kortare frågor och standardanalyser), djupare byggen (Claude, Cursor, GitHub), andra åsikt och faktakoll (Perplexity, ChatGPT, Gemini). Kvalitetssäkring: se 6. |
-| 2 | Vilka verktyg och system behärskar du? | Ekonomisystem: Raindance, Unit4/UBW. BI/visualisering: Power BI, Hypergene, QlikView/QlikSense, Stratsys. Budget/prognos: Planacy, Excel (avancerad). AI: Claude, ChatGPT, Perplexity, Gemini, MS Copilot (utan versionsnummer). Egen utveckling: HTML, CSS, JavaScript, Cursor, GitHub. SAP nämns inte. |
-| 3 | Vilka exempel kan jag titta på? | Korten (se 4). |
-| 4 | Vilka uppdrag och branscher passar? | Öppen för privat, offentlig, statlig och kommunal verksamhet, nyfiken på de flesta branscher. Uppdrag där den tekniska bakgrunden (civilingenjör, LTH) kommer till nytta, t.ex. industri, energi, infrastruktur. Geografi, tillgänglighet och arvode står **inte** på sidan. |
+| 1 | Hur använder jag AI i controllerarbetet? | Tre nivåer: löpande arbete (MS Copilot för kortare frågor och standardanalyser), djupare byggen (Claude, Cursor, GitHub), andra åsikt och faktakoll (Perplexity, ChatGPT, Gemini). Kvalitetssäkring: se 6. |
+| 2 | Vilka verktyg och system behärskar jag? | Ekonomisystem: Raindance, Unit4/UBW. BI/visualisering: Power BI, Hypergene, QlikView/QlikSense, Stratsys. Budget/prognos: Planacy, Excel (avancerad). AI: Claude, ChatGPT, Perplexity, Gemini, MS Copilot (utan versionsnummer). Egen utveckling: HTML, CSS, JavaScript, Cursor, GitHub. SAP nämns inte. |
+| 3 | Vilka exempel kan jag visa? | Korten (se 4). |
+| 4 | Vilka uppdrag och branscher passar mig? | Öppen för privat, offentlig, statlig och kommunal verksamhet, nyfiken på de flesta branscher. Uppdrag där den tekniska bakgrunden (civilingenjör, LTH) kommer till nytta, t.ex. industri, energi, infrastruktur. Geografi, tillgänglighet och arvode står **inte** på sidan. |
 
 Fråga 3 är förvald när sidan öppnas, så en besökare direkt ser exempel.
 
@@ -117,6 +117,7 @@ Får bara innehålla det Kent bekräftat (2026-09-29):
 
 ## 9. Ändringslogg
 
+- **v3.3 (2026-09-30):** Frågorna skrivs i Kents röst ("jag"/"mig") enligt Kents synpunkt på publicerad sida.
 - **v3.2 (2026-09-30):** Efter Kents synpunkter på publicerad sida: Cursor flyttat till AI-raden, GitHub kvar under egen utveckling; kortet Ekonomikommunikation heter nu kategori "Forskningskalkyl"; kort grupperas under en rubrik per kategori och kort utan länk i egen grupp.
 - **v3.1 (2026-09-29):** Vid bygget: fältet siffror fick värdet "anonymiserade"; arbetssatt får vara tomt när sekretess är "ej_publik". Balanskrav byggs som "ej_publik" (utan länk) tills sidans källrader är rättade.
 - **v3 (2026-09-29):** Kent godkände. Arbetssätt-kortet länkar PRD-mallen. Reservläge: enkel noscript-lista.

@@ -68,6 +68,11 @@ rubriken "Underhållsregler".
 
 ## Arbetsregler (samma som övriga AI-teknik-repot)
 
+- **Kents egen röst (tillagd 2026-09-30):** all text i presentationerna
+  (rubriker, frågor, knappar, brödtext) skrivs i första person ("jag",
+  "mig"), inte som frågor eller påståenden riktade till "du". Håll samma
+  röst genom hela sidan. Sanningskravet gäller ändå: bara sådant Kent
+  bekräftat.
 - **Git commit/push: Kent gör det själv, via Cursor.** Claude Code föreslår
   aldrig commit/push proaktivt och kör det aldrig utan att bli tillfrågad.
   Read-only git-kommandon för diagnostik är alltid okej.
