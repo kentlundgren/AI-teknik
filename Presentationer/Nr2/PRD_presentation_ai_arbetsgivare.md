@@ -4,8 +4,8 @@
 **Visningsnamn:** **Provbänken** (beslutat 2026-09-29). Mappen och adressen förblir `Nr2`; "Provbänken" är namnet man säger och skriver i text.
 **Plats:** `AI-teknik/Presentationer/Nr2/PRD_presentation_ai_arbetsgivare.md`
 **Skapad:** 2026-09-29
-**Version:** 3 (genomläsning med fräscha ögon; f beslutad, ny delfråga h, stale avsnitt rättade)
-**Status:** **Utkast med beslutad inriktning.** Inget är byggt. Form, urval och hantering av Simrishamn-verktygen är beslutade. Syftesändringen i `Presentationer/CLAUDE.md` (f) är gjord. Kvar: SPEC-frågan (g), kvalitetssäkringstexten (h), språk (b) och vilka frågor guiden ska ha (a).
+**Version:** 4 (beslut b, g och guidens fyra frågor klara; SPEC.md v1 skriven; h öppen)
+**Status:** **Utkast med beslutad inriktning.** Inget är byggt. Form, urval och hantering av Simrishamn-verktygen är beslutade. Syftesändringen i `Presentationer/CLAUDE.md` (f) är gjord. SPEC.md v1 är skriven. Kvar före bygget: kvalitetssäkringstexten (h) och två punkter i SPEC (kortet "arbetssätt", reservläge utan JavaScript).
 **Typ:** Grund-PRD för en ny presentation (`Nr2`). Bygger på mönstren i `Nr1` men har ett annat syfte och en annan form.
 
 ## 1. Bakgrund
@@ -46,9 +46,9 @@
 - **B. Bildspel efter ämne.** Samma motor som Nr1 men sorterad efter arbetssätt i stället för år. Minst annorlunda, kräver tid av besökaren.
 - **C. Frågeguide.** Besökaren väljer en fråga ur annonsen ("Hur använder du AI dagligen?", "Vilka verktyg?", "Vilka exempel?") och får svar med belägg.
 - **Valt: C som ingång, A som innehåll.** Kort och svar bygger på samma data. En läsare med två minuter får snabbt svar, och en med tio minuter kan fördjupa sig.
-- **Att bekräfta (ÖPPEN):** annonsens "beskriv gärna"-lista har fem punkter, men två av dem är logistik (tillgänglighet/geografi/arvode) och hör inte hemma på en publik sida. Förslag: guiden har **fyra frågor** — hur AI används, vilka verktyg och system, vilka exempel, vilka uppdrag och branscher.
+- **Fyra frågor — BESLUTAT ✓ (2026-09-29):** annonsens lista har fem punkter, men tillgänglighet/geografi/arvode hör inte hemma på en publik sida. Guiden har därför fyra frågor: hur AI används, vilka verktyg och system, vilka exempel, vilka uppdrag och branscher. Se SPEC.md avsnitt 3.
 
-**b. Läsare och språk — DELVIS BESLUTAT.** Läsaren är arbetsgivare och konsultkunder, ofta chefer, rekryterare och ekonomichefer utan teknisk bakgrund. Svenska först. Engelska är öppet (Invici ber om svenska och engelska).
+**b. Läsare och språk — BESLUTAT ✓ (2026-09-29).** Läsaren är arbetsgivare och konsultkunder, ofta chefer, rekryterare och ekonomichefer utan teknisk bakgrund. **Enbart svenska**, ingen språkväxlare.
 
 **c. Urval av exempel — BESLUTAT ✓ (2026-09-29).** Med:
 - **Granskning med specialiserade agenter:** Bokslut 2025 (påhittade siffror, se d).
@@ -66,7 +66,7 @@
 
 **f. Syftesändring i `Presentationer/CLAUDE.md` — BESLUTAT ✓ OCH GJORT (2026-09-29).** Filen anger nu att Nr2 är byggd för arbetsgivare med extra regler (inga interna uppgifter, inga personuppgifter, påhittade siffror ska sägas vara det, CV länkar inte före publicering), och att Nr1 är den personliga visningen. Statusraden är också rättad (Nr1 är publicerad).
 
-**g. Behövs ett SPEC.md-steg härifrån? — ÖPPEN.** Rekommendation: **ja, kort.** Här finns tydliga acceptanskriterier som gör en SPEC värd att skriva: dataformat per exempel, vad som aldrig får med (sekretesslistan), mobilbredder, tillgänglighet och kontrast, laddtid.
+**g. Behövs ett SPEC.md-steg härifrån? — BESLUTAT ✓ (2026-09-29): ja, kort. SPEC.md v1 är skriven.** Här finns tydliga acceptanskriterier som gör en SPEC värd att skriva: dataformat per exempel, vad som aldrig får med (sekretesslistan), mobilbredder, tillgänglighet och kontrast, laddtid.
 
 **h. Kvalitetssäkringstexten — ÖPPEN, kräver Kents bekräftelse.** Avsnittet om hur AI-resultat kvalitetssäkras och vad som aldrig läggs i AI-verktyg (avsnitt 3) får bara innehålla det Kent faktiskt gör. Utkast att bekräfta eller ändra: (1) "Jag kontrollerar AI:ns resultat mot källdata", (2) "AI föreslår, jag verifierar", (3) "Jag lägger inte persondata eller uppdragsgivares interna uppgifter i AI-verktyg". Punkt 3 är inte bekräftad av Kent. Skrivs inte in på sidan förrän den är det.
 
@@ -74,8 +74,10 @@
 
 - [x] Beslut a, c och e klara (2026-09-29); visningsnamn Provbänken beslutat
 - [x] Beslut f klart och genomfört
-- [ ] Beslut g, h, b (engelska?) och a-frågorna (fyra frågor) klara
-- [ ] SPEC.md (om g = ja)
+- [x] Beslut g, b och guidens fyra frågor klara (2026-09-29)
+- [ ] Beslut h klart (kvalitetssäkringstexten)
+- [x] SPEC.md v1 skriven (två öppna punkter i den: kortet "arbetssätt", reservläge utan JavaScript)
+- [ ] SPEC.md granskad och godkänd av Kent
 - [ ] Datafil med exempel (kategori, rubrik, en mening, verktyg, arbetssätt, resultat, länk, sekretessnivå)
 - [ ] `index.html`, stil och motor
 - [x] Bokslut 2025 gjort om lokalt med påhittade siffror (2026-09-29)
@@ -90,9 +92,9 @@
 
 ## 6. Produktionsordning
 
-1. Beslut a, c, e är klara. Kvar före bygget: g, h, b och frågeguidens fyra frågor.
+1. Beslut a, b, c, e, f, g är klara. Kvar före bygget: h och att Kent godkänner SPEC.md.
 2. Bokslut 2025 committat och publicerat av Kent, eftersom det är exempel 1.
-3. SPEC.md (om ja).
+3. SPEC.md godkänd.
 4. Datafilen, sedan motorn och stilen, med kortdata som enda källa.
 5. Länk- och sekretesskontroll.
 6. Publicering (Kent), sedan CV-uppdatering. **CV:t skickas inte med Nr2-länk förrän sidan svarar.** Sista ansökningsdag hos Invici är 2026-10-13.
@@ -108,10 +110,11 @@ Interna projektreferenser (inte Harvard-citerbara):
 
 ## 8. Status
 
-Utkast v3. Målgrupp (arbetsgivare), namn (Provbänken), form (frågeguide + kort), urval och hantering av Simrishamn-verktygen är beslutade, och `Presentationer/CLAUDE.md` är uppdaterad. Bokslut 2025 är ändrat lokalt och väntar på Kents commit. Öppet före bygget: SPEC (g), texten om kvalitetssäkring (h), språk (b) och guidens fyra frågor (a). Ingen kod är skriven.
+Utkast v4. Målgrupp (arbetsgivare), namn (Provbänken), form (frågeguide + kort), urval och hantering av Simrishamn-verktygen är beslutade, och `Presentationer/CLAUDE.md` är uppdaterad. Bokslut 2025 är ändrat lokalt och väntar på Kents commit. Öppet före bygget: texten om kvalitetssäkring (h) och Kents godkännande av SPEC.md. Ingen kod är skriven.
 
 ## Ändringslogg
 
+- **v4 (2026-09-29):** Beslut b (bara svenska), g (SPEC ja, kort) och guidens fyra frågor. `SPEC.md` v1 skriven. Leveranser, produktionsordning och status uppdaterade.
 - **v3 (2026-09-29):** Genomläsning med fräscha ögon. Rättat: stale status (avsnitt 8) och statusrad, 4d (Bokslut 2025 är gjort lokalt, inte "genomförs av Kent"), 4f (gjort), produktionsordning, "tillval" i Ingår inte som stred mot 4a, antal kategorier (sex–sju), stavfel. Nytt: 4h (kvalitetssäkringstexten kräver bekräftelse), och i 4a att tillgänglighet/arvode inte hör hemma på publik sida. `Presentationer/CLAUDE.md` rättad (Nr1 är publicerad, Nr2 tillagd).
 - **v2 (2026-09-29):** Visningsnamn Provbänken. Beslut a (frågeguide + kort), c (urval, inklusive Balanskrav med villkor) och e (utelämna tre Simrishamn-verktyg, nämn fyra utan länk). Status och leveranslista uppdaterade.
 - **v1 (2026-09-29):** Första utkast efter Kents beslut om målgrupp, Bokslut 2025-genomgången och länkgranskningen.
