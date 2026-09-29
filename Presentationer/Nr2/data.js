@@ -128,7 +128,7 @@ const PROVBANKEN = {
       en_mening: "Inpasseringar, medlemmar, elförbrukning och en före-och-efter-analys av en ombyggnad.",
       arbetssatt: "",
       verktyg: ["Claude", "HTML/CSS/JavaScript", "Firebase"],
-      resultat: "Månadsvis statistik med diagram och tabeller som föreningen använder.",
+      resultat: "Månadsvis statistik med diagram och tabeller.",
       lank: "https://kentlundgren.github.io/foreningar/BjerredsSaltsjobad/",
       lank_text: "Bjerreds Saltsjöbad, statistik",
       siffror: "verkliga_foreningens_egna",
