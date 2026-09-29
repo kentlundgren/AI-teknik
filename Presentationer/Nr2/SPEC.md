@@ -2,7 +2,8 @@
 
 **Hör till:** `PRD_presentation_ai_arbetsgivare.md` (v4)
 **Skapad:** 2026-09-29
-**Version:** 2 (avsnitt 6 uppdaterat efter beslut h)
+**Version:** 3.1 (godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
+**Status:** **Godkänd som byggunderlag.** Ändringar görs som ny version.
 **Syfte:** Låst byggspecifikation. PRD:n säger *vad och varför*, den här filen säger *exakt hur det ska vara* och när det är klart.
 
 ---
@@ -43,12 +44,13 @@ kategori      en av: "Granskning", "Ekonomikommunikation", "Analys och faktakoll
               "Revision och redovisning", "Förening", "Modellering", "Arbetssätt"
 rubrik        max 60 tecken
 en_mening     max 160 tecken, vad det är
-arbetssatt    max 280 tecken, hur AI och Kent delade på arbetet ("AI föreslog, jag verifierade ...")
+arbetssatt    max 280 tecken, hur AI och Kent delade på arbetet ("AI föreslog, jag verifierade ...");
+              får vara tomt för kort med sekretess "ej_publik"
 verktyg       lista med texter
 resultat      max 200 tecken, vad det visade
 lank          absolut https-adress eller null
 lank_text     max 60 tecken, beskrivande, inte en rå URL
-siffror       "paahittade" | "oppna_kallor" | "inga" | "verkliga_foreningens_egna"
+siffror       "paahittade" | "oppna_kallor" | "inga" | "verkliga_foreningens_egna" | "anonymiserade"
 sekretess     "ok" | "ej_publik"   (ej_publik = visas utan länk)
 ```
 
@@ -63,7 +65,7 @@ Exempel som ingår (alla `sekretess: "ok"` om inget annat anges):
 | revision-kalmar-nation | `https://kentlundgren.github.io/Ekonomi/redovisning/revision/` |
 | bjerred | `https://kentlundgren.github.io/foreningar/BjerredsSaltsjobad/` |
 | balanskrav | `https://lundgren9.github.io/ekonomi/Balanskrav/index.html` (villkor: källraderna "Internt kommunalt underlag" är borttagna eller omskrivna innan länken används; ÖPPEN) |
-| arbetssatt | ingen länk eller länk till PRD-mall/skill (ÖPPEN, ej bekräftat av Kent) |
+| arbetssatt | `https://github.com/kentlundgren/AI-teknik/blob/main/AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_generell.md` (beslutat: med kort och länk till PRD-mallen) |
 
 **Nämns utan länk (`sekretess: "ej_publik"`)**, en mening vardera: KOF-hyreskostnad, avstämning av balanskonton, investeringsbudget, badkalkyl.
 **Ska inte nämnas alls:** felsökning ekonomisystem, budgetprocess, Borrby.
@@ -77,7 +79,7 @@ Exempel som ingår (alla `sekretess: "ok"` om inget annat anges):
 - Rå URL i löptext. Länkar har beskrivande text.
 - Påståenden om vad Kent gör eller har gjort som inte är bekräftade av honom.
 
-## 6. Kvalitetssäkringstexten (DELVIS BESLUTAD, PRD 4h)
+## 6. Kvalitetssäkringstexten (BESLUTAD, PRD 4h)
 
 Får bara innehålla det Kent bekräftat (2026-09-29):
 
@@ -86,13 +88,13 @@ Får bara innehålla det Kent bekräftat (2026-09-29):
 - "Jag lägger inte persondata i AI-verktyg."
 - Fyra sätt att verifiera får nämnas, var och en som en kort rad: Bokslutstestet (agenternas fynd jämfördes mot dokumentet och bedömdes), andra åsikt i en annan modell, egna kontrollsummor i Excel, och att källor och länkar öppnas och läses.
 
-**Skrivs inte in:** "eller uppdragsgivares interna uppgifter". Skälet: publika Simrishamn-verktyg med interna uppgifter byggdes med AI-stöd, så påståendet kan motsägas. Avgörs av Kent (utelämna eller smalare formulering).
+**Skrivs inte in (beslutat):** "eller uppdragsgivares interna uppgifter". Skälet: publika Simrishamn-verktyg med interna uppgifter byggdes med AI-stöd, så påståendet kan motsägas.
 
 ## 7. Tekniska krav
 
 - Fungerar från 360 px bredd utan sidledes scroll; läsbart upp till 1200 px.
 - Kontrast minst WCAG AA; alla knappar nåbara med tangentbord; synlig fokusmarkering.
-- Fungerar med JavaScript avstängt i den meningen att innehållet är läsbart (kort som ren HTML är reservläge; ÖPPEN om detta kostar mer än det smakar).
+- Reservläge utan JavaScript (beslutat): ett `<noscript>`-block med exemplen som en enkel länklista (beskrivande länktexter). Ingen full dubblering av korten.
 - All text från `data.js` sätts in som text, inte som HTML (`textContent`), så inget innehåll kan köra kod.
 - Externa länkar: `target="_blank" rel="noopener noreferrer"`.
 - Utskrift: alla kort utfällda, knappar dolda, en logisk läsordning.
@@ -115,5 +117,7 @@ Får bara innehålla det Kent bekräftat (2026-09-29):
 
 ## 9. Ändringslogg
 
+- **v3.1 (2026-09-29):** Vid bygget: fältet siffror fick värdet "anonymiserade"; arbetssatt får vara tomt när sekretess är "ej_publik". Balanskrav byggs som "ej_publik" (utan länk) tills sidans källrader är rättade.
+- **v3 (2026-09-29):** Kent godkände. Arbetssätt-kortet länkar PRD-mallen. Reservläge: enkel noscript-lista.
 - **v2 (2026-09-29):** Avsnitt 6 skrivet efter Kents svar på h.
 - **v1 (2026-09-29):** Första utkast efter Kents beslut: SPEC ja, bara svenska, fyra frågor.

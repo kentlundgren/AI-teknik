@@ -1,0 +1,63 @@
+:root {
+  --bg: #f7f5f0;
+  --text: #1f2933;
+  --muted: #52606d;
+  --accent: #0b5a4a;
+  --accent-bg: #e3f0ec;
+  --card: #ffffff;
+  --line: #d9d4c7;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+header, main, footer { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+header { padding-top: 28px; }
+#brand { font-size: 1.9rem; font-weight: 700; color: var(--accent); line-height: 1.2; }
+#brand span { display: block; font-size: 0.85rem; font-weight: 400; color: var(--muted); margin-top: 4px; }
+.intro { color: var(--muted); margin: 12px 0 20px; }
+
+#fragor { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+#fragor button {
+  font: inherit; font-size: 0.95rem; text-align: left;
+  padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--card); color: var(--text); cursor: pointer;
+}
+#fragor button[aria-selected="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+#fragor button:hover { border-color: var(--accent); }
+:focus-visible { outline: 3px solid #b45309; outline-offset: 2px; }
+
+#svar { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 8px 20px 16px; margin-bottom: 20px; }
+#svar h2 { font-size: 1.25rem; margin: 14px 0 8px; }
+#svar h3 { font-size: 1rem; margin: 18px 0 6px; color: var(--accent); }
+#svar p { margin: 8px 0; }
+
+.kort { background: var(--card); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 10px; padding: 0 16px; }
+.kort summary { cursor: pointer; padding: 12px 0; list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.kort summary::-webkit-details-marker { display: none; }
+.kort summary::before { content: "＋"; float: right; color: var(--accent); }
+.kort[open] summary::before { content: "－"; }
+.kort .kategori { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+.kort .rubrik { font-weight: 650; }
+.kort p { margin: 6px 0; }
+.kort .markning { font-size: 0.85rem; color: var(--muted); background: var(--accent-bg); display: inline-block; padding: 2px 8px; border-radius: 6px; }
+.kort .lank { display: inline-block; margin: 8px 0 14px; color: var(--accent); font-weight: 600; }
+.kort.utan-lank { background: #fbfaf7; }
+
+footer { padding: 24px 16px 40px; color: var(--muted); font-size: 0.9rem; }
+footer a, noscript a { color: var(--accent); }
+
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  #fragor button { width: 100%; }
+}
+@media print {
+  body { background: #fff; }
+  #fragor { display: none; }
+  .kort > * { display: block; }
+  details.kort:not([open]) > *:not(summary) { display: block; }
+  .kort summary::before { content: ""; }
+}
