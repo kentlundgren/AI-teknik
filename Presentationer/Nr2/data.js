@@ -31,8 +31,8 @@ const PROVBANKEN = {
         { rubrik: "Ekonomisystem", text: "Raindance, Unit4/UBW." },
         { rubrik: "BI och visualisering", text: "Power BI, Hypergene, QlikView/QlikSense, Stratsys." },
         { rubrik: "Budget och prognos", text: "Planacy, Excel (avancerad)." },
-        { rubrik: "AI", text: "Claude, ChatGPT, Perplexity, Gemini, MS Copilot." },
-        { rubrik: "Egen utveckling", text: "HTML, CSS, JavaScript, Cursor, GitHub." }
+        { rubrik: "AI", text: "Claude, ChatGPT, Perplexity, Gemini, MS Copilot, Cursor." },
+        { rubrik: "Egen utveckling", text: "HTML, CSS, JavaScript, GitHub (versionshantering och publicering)." }
       ],
       kort_kategorier: []
     },
@@ -71,7 +71,7 @@ const PROVBANKEN = {
     },
     {
       id: "ekonomikommunikation",
-      kategori: "Ekonomikommunikation",
+      kategori: "Forskningskalkyl",
       rubrik: "Kan vi anställa henne i tre år?",
       en_mening: "Interaktiv sida som visar hur fyra grupper klarar ekonomin fyra år framåt.",
       arbetssatt: "Byggd med PRD, låst specifikation och en process-logg över besluten under bygget.",

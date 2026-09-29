@@ -2,7 +2,7 @@
 
 **Hör till:** `PRD_presentation_ai_arbetsgivare.md` (v4)
 **Skapad:** 2026-09-29
-**Version:** 3.1 (godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
+**Version:** 3.2 (kategorin "Forskningskalkyl", gruppering i kortvyn, Cursor under AI; godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
 **Status:** **Godkänd som byggunderlag.** Ändringar görs som ny version.
 **Syfte:** Låst byggspecifikation. PRD:n säger *vad och varför*, den här filen säger *exakt hur det ska vara* och när det är klart.
 
@@ -40,7 +40,7 @@ Varje kort i `data.js` har exakt dessa fält:
 
 ```
 id            unik text, gemener och bindestreck
-kategori      en av: "Granskning", "Ekonomikommunikation", "Analys och faktakoll",
+kategori      en av: "Granskning", "Ekonomikommunikation", "Forskningskalkyl", "Analys och faktakoll",
               "Revision och redovisning", "Förening", "Modellering", "Arbetssätt"
 rubrik        max 60 tecken
 en_mening     max 160 tecken, vad det är
@@ -117,6 +117,7 @@ Får bara innehålla det Kent bekräftat (2026-09-29):
 
 ## 9. Ändringslogg
 
+- **v3.2 (2026-09-30):** Efter Kents synpunkter på publicerad sida: Cursor flyttat till AI-raden, GitHub kvar under egen utveckling; kortet Ekonomikommunikation heter nu kategori "Forskningskalkyl"; kort grupperas under en rubrik per kategori och kort utan länk i egen grupp.
 - **v3.1 (2026-09-29):** Vid bygget: fältet siffror fick värdet "anonymiserade"; arbetssatt får vara tomt när sekretess är "ej_publik". Balanskrav byggs som "ej_publik" (utan länk) tills sidans källrader är rättade.
 - **v3 (2026-09-29):** Kent godkände. Arbetssätt-kortet länkar PRD-mallen. Reservläge: enkel noscript-lista.
 - **v2 (2026-09-29):** Avsnitt 6 skrivet efter Kents svar på h.

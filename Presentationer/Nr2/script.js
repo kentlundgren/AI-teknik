@@ -62,17 +62,26 @@
       });
     }
     if (!lista.length) return;
-    // Länkade kort först, ej publika sist
-    lista = lista.slice().sort(function (a, b) {
-      return (a.sekretess === 'ok' ? 0 : 1) - (b.sekretess === 'ok' ? 0 : 1);
+    // Kort med länk grupperas per kategori; kort utan länk samlas i en egen grupp.
+    const ok = lista.filter(function (k) { return k.sekretess === 'ok'; });
+    const utan = lista.filter(function (k) { return k.sekretess !== 'ok'; });
+    const grupper = [];
+    ok.forEach(function (k) {
+      let g = grupper.find(function (x) { return x.namn === k.kategori; });
+      if (!g) { g = { namn: k.kategori, kort: [] }; grupper.push(g); }
+      g.kort.push(k);
     });
-    lista.forEach(function (k) { kortEl.appendChild(byggKort(k)); });
+    if (utan.length) grupper.push({ namn: 'Från uppdrag, utan länk', kort: utan, utan: true });
+    grupper.forEach(function (g) {
+      kortEl.appendChild(el('h3', 'grupp', g.namn));
+      g.kort.forEach(function (k) { kortEl.appendChild(byggKort(k, !!g.utan)); });
+    });
   }
 
-  function byggKort(k) {
+  function byggKort(k, visaKategori) {
     const det = el('details', 'kort' + (k.sekretess === 'ej_publik' ? ' utan-lank' : ''));
     const sum = el('summary');
-    sum.appendChild(el('span', 'kategori', k.kategori));
+    if (visaKategori) sum.appendChild(el('span', 'kategori', k.kategori));
     sum.appendChild(el('span', 'rubrik', k.rubrik));
     det.appendChild(sum);
     det.appendChild(el('p', null, k.en_mening));
