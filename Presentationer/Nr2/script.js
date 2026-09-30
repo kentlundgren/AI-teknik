@@ -37,25 +37,48 @@
     if (!utanHash) history.replaceState(null, '', '#' + id);
   }
 
+  function byggText(s) {
+    const p = el('p');
+    if (s.rubrik) p.appendChild(el('strong', null, s.rubrik + ': '));
+    p.appendChild(document.createTextNode(s.text));
+    return p;
+  }
+
+  function byggPunkter(punkter) {
+    const ul = el('ul');
+    punkter.forEach(function (t) { ul.appendChild(el('li', null, t)); });
+    return ul;
+  }
+
   function visaSvar(f) {
     svarEl.replaceChildren();
     svarEl.appendChild(el('h2', null, f.fraga));
-    f.svar.forEach(function (s) {
-      const p = el('p');
-      if (s.rubrik) p.appendChild(el('strong', null, s.rubrik + ': '));
-      p.appendChild(document.createTextNode(s.text));
-      svarEl.appendChild(p);
-    });
+    if (f.avsnitt) {
+      // Fråga med avsnitt: kort visas inne i det avsnitt de hör till.
+      f.avsnitt.forEach(function (a) {
+        svarEl.appendChild(el('h3', null, a.rubrik));
+        (a.svar || []).forEach(function (s) { svarEl.appendChild(byggText(s)); });
+        if (a.punkter) {
+          if (a.punkter_text) svarEl.appendChild(el('p', null, a.punkter_text));
+          svarEl.appendChild(byggPunkter(a.punkter));
+        }
+        (a.kort_ids || []).forEach(function (id) {
+          const k = D.kort.find(function (x) { return x.id === id; });
+          if (k && k.sekretess === 'ok') svarEl.appendChild(byggKort(k, false));
+        });
+      });
+      return;
+    }
+    f.svar.forEach(function (s) { svarEl.appendChild(byggText(s)); });
     if (f.punkter) {
       svarEl.appendChild(el('h3', null, f.punkter_rubrik));
-      const ul = el('ul');
-      f.punkter.forEach(function (t) { ul.appendChild(el('li', null, t)); });
-      svarEl.appendChild(ul);
+      svarEl.appendChild(byggPunkter(f.punkter));
     }
   }
 
   function visaKort(f) {
     kortEl.replaceChildren();
+    if (f.avsnitt) return;
     let lista = D.kort;
     if (f.kort_kategorier !== null) {
       lista = D.kort.filter(function (k) {

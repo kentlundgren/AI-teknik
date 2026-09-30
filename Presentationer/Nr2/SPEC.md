@@ -2,7 +2,7 @@
 
 **Hör till:** `PRD_presentation_ai_arbetsgivare.md` (v4)
 **Skapad:** 2026-09-29
-**Version:** 3.3 (frågor i Kents röst; kategorin "Forskningskalkyl", gruppering i kortvyn, Cursor under AI; godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
+**Version:** 3.5 (se ändringsloggen; tidigare 3.3: frågor i Kents röst; kategorin "Forskningskalkyl", gruppering i kortvyn, Cursor under AI; godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
 **Status:** **Godkänd som byggunderlag.** Ändringar görs som ny version.
 **Syfte:** Låst byggspecifikation. PRD:n säger *vad och varför*, den här filen säger *exakt hur det ska vara* och när det är klart.
 
@@ -118,6 +118,7 @@ Får bara innehålla det Kent bekräftat (2026-09-29):
 
 ## 9. Ändringslogg
 
+- **v3.5 (2026-09-30):** Fråga 1 delas i tre avsnitt med egna rubriker (verktyg, planering, kvalitetssäkring), och korten visas inne i det avsnitt de illustrerar i stället för under svarsrutan. "Kvalitetssäkring" och "Så verifierar jag" slås ihop. Kortet Claude-kompassen (kategori Arbetssätt) tillagt. GitHub-hörn och teknik-modal tillagda.
 - **v3.4 (2026-09-30):** Kortet Samrådsguiden (kategori Förening) tillagt, eftersom ansökan till Invici länkar den.
 - **v3.3 (2026-09-30):** Frågorna skrivs i Kents röst ("jag"/"mig") enligt Kents synpunkt på publicerad sida.
 - **v3.2 (2026-09-30):** Efter Kents synpunkter på publicerad sida: Cursor flyttat till AI-raden, GitHub kvar under egen utveckling; kortet Ekonomikommunikation heter nu kategori "Forskningskalkyl"; kort grupperas under en rubrik per kategori och kort utan länk i egen grupp.

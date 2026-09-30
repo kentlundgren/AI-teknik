@@ -3,26 +3,41 @@
 // Regel: bara sådant Kent bekräftat. Ändra här, inte i script.js.
 
 const PROVBANKEN = {
-  version: "29 sep 2026",
+  version: "30 sep 2026",
 
   fragor: [
     {
       id: "ai-i-arbetet",
       fraga: "Hur använder jag AI i controllerarbetet?",
-      svar: [
-        { rubrik: "Löpande arbete", text: "MS Copilot för kortare frågor och standardanalyser." },
-        { rubrik: "Djupare arbete", text: "Claude, Cursor och GitHub, där jag bygger och förfinar analysverktyg." },
-        { rubrik: "Andra åsikt och faktakoll", text: "Perplexity, ChatGPT och Gemini." },
-        { rubrik: "Kvalitetssäkring", text: "Jag kontrollerar AI:ns resultat mot källdata. AI föreslår, jag verifierar. Jag lägger inte persondata i AI-verktyg." }
-      ],
-      punkter_rubrik: "Så verifierar jag",
-      punkter: [
-        "Bokslutstestet: agenternas fynd jämfördes mot dokumentet och jag bedömde vilka som var riktiga.",
-        "Kontrollerar text och siffror med en annan modell.",
-        "Räknar om summor i Excel utan AI.",
-        "Öppnar och läser källor och länkar, som i sidan om statsskuld."
-      ],
-      kort_kategorier: ["Granskning", "Arbetssätt"]
+      // Fråga med avsnitt: varje avsnitt får rubrik, text, punkter och egna kort (kort_ids).
+      avsnitt: [
+        {
+          rubrik: "Vilka verktyg jag använder till vad",
+          svar: [
+            { rubrik: "Löpande arbete", text: "MS Copilot för kortare frågor och standardanalyser." },
+            { rubrik: "Djupare arbete", text: "Claude, Cursor och GitHub, där jag bygger och förfinar analysverktyg." },
+            { rubrik: "Andra åsikt och faktakoll", text: "Perplexity, ChatGPT och Gemini." }
+          ]
+        },
+        {
+          rubrik: "Så planerar jag ett bygge",
+          kort_ids: ["arbetssatt", "claude-kompassen"]
+        },
+        {
+          rubrik: "Så kvalitetssäkrar jag",
+          svar: [
+            { rubrik: "", text: "Jag kontrollerar AI:ns resultat mot källdata. AI föreslår, jag verifierar. Jag lägger inte persondata i AI-verktyg." }
+          ],
+          punkter_text: "Så verifierar jag:",
+          punkter: [
+            "Bokslutstestet: agenternas fynd jämfördes mot dokumentet och jag bedömde vilka som var riktiga.",
+            "Kontrollerar text och siffror med en annan modell.",
+            "Räknar om summor i Excel utan AI.",
+            "Öppnar och läser källor och länkar, som i sidan om statsskuld."
+          ],
+          kort_ids: ["bokslut-2025"]
+        }
+      ]
     },
     {
       id: "verktyg",
@@ -157,6 +172,19 @@ const PROVBANKEN = {
       resultat: "Beslut går att spåra i efterhand, och en granskare ser varför något blev som det blev.",
       lank: "https://github.com/kentlundgren/AI-teknik/blob/main/AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_generell.md",
       lank_text: "PRD-mall, generell",
+      siffror: "inga",
+      sekretess: "ok"
+    },
+    {
+      id: "claude-kompassen",
+      kategori: "Arbetssätt",
+      rubrik: "Claude-kompassen",
+      en_mening: "Interaktiv översikt över hur Claude fungerar: ytor, ingångar och de filer som styr det, som CLAUDE.md och SKILL.md.",
+      arbetssatt: "",
+      verktyg: ["Claude", "HTML/CSS/JavaScript"],
+      resultat: "",
+      lank: "https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/#claude",
+      lank_text: "Claude-kompassen",
       siffror: "inga",
       sekretess: "ok"
     },
