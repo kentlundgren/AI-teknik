@@ -123,7 +123,7 @@ const PROVBANKEN = {
             { text: "Mina blogginlägg om AI: Controller, lärare och coach utan gränser reflekterar", url: "https://controllerutangranser.wordpress.com/category/ai/" },
             { text: "Kortare inlägg finns också på X, märkta #nyaAI", url: "https://x.com/search?q=%23nyaAI%20(from%3Akentlundgren)&src=typed_query" }
           ],
-          kort_ids: ["ol-tyskland", "statsskuld", "ai-testerna", "vindkraftskalkyler", "rosterna", "harness-minne", "claude-kostnad", "gren-sanning", "arbetssatt"],
+          kort_ids: ["ol-tyskland", "statsskuld", "ai-testerna", "vindkraftskalkyler", "rosterna", "harness-minne", "claude-kostnad", "gren-sanning", "arbetssatt", "claude-kompassen"],
           sortera: "start"
         }
       ]
@@ -290,14 +290,21 @@ const PROVBANKEN = {
     },
     {
       id: "claude-kompassen",
+      start: "2026-07-29",
+      ar: "2026",
       kategori: "Arbetssätt",
       rubrik: "Claude-kompassen",
-      en_mening: "Interaktiv översikt över hur Claude fungerar: ytor, ingångar och de filer som styr det, som CLAUDE.md och SKILL.md.",
+      en_mening: "Min bild av hur jag jobbar med Claude, Cursor och GitHub: från PRD, via styrfiler och val av yta, till publicering på GitHub Pages.",
       arbetssatt: "",
       verktyg: ["Claude", "HTML/CSS/JavaScript"],
       resultat: "",
-      lank: "https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/#claude",
-      lank_text: "Claude-kompassen",
+      lank: null,
+      lank_text: "",
+      medier: [
+        { medium: "Program", text: "Claude-kompassen", url: "https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/#claude" },
+        { medium: "Bloggtext", text: "En bild av Claudes ekosystem", url: "https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/" }
+      ],
+      bild: { src: "bilder/Claude_kompassen.jpg", alt: "Claude-kompassen som lager: Fas 0 (PRD, ibland SPEC.md) i botten, Fas 1 levande styrfiler (CLAUDE.md, AGENTS.md, SKILL.md), Fas 2 val av yta (CLI, Cursor) och Fas 3 Cursor, Git och GitHub Pages överst.", w: 900, h: 604 },
       siffror: "inga",
       sekretess: "ok"
     },
