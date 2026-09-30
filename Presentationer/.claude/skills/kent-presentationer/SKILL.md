@@ -527,6 +527,17 @@ hur det blir. Radera mappen när han valt, så att den inte råkar committas (Po
 upp till tio minuter, medan ny HTML redan visas. Hård omladdning (Ctrl+Shift+R) löser
 det. Kontrollera först att den publicerade filen är rätt (`curl`), innan koden misstänks.
 
+**Delningsbild per fråga (2026-10-01):** LinkedIn och X läser `og:image` ur HTML:en, kör inget
+JavaScript och ser inte `#`-delen. En sida med hash-routing (`#verktyg`) kan därför inte ha olika
+delningsbilder per fråga. Lösning på statisk hosting: **en liten egen sida per fråga**
+(`<fråga>/index.html`) med egna `og:`/`twitter:`-taggar och ett direkt vidareskick till
+`../#<fråga>` (meta refresh + `location.replace` + synlig länk). Bilderna (1200×630, JPEG under
+300 kB) görs av HTML-mallar i `delning/kalla/` med headless Chrome (samma absoluta Windows-sökväg
+som i regel 3; `--force-device-scale-factor=1 --virtual-time-budget=3000`) och konverteras med
+System.Drawing. Använd bara Kents egna bilder. Se Nr2:s README. (Vercel med Next.js löser samma
+sak med egna sidor och `generateMetadata`; Kents `vindkraft-ver3` gör det.) Fråga Kent om bildval
+innan (Regel 9 i `kent-bygg-sidor`).
+
 **Test:** `python -m http.server <port>` i mappen, och stoppa den efteråt (`pkill` finns
 inte i Git Bash; stoppa via PowerShell på processens kommandorad).
 
