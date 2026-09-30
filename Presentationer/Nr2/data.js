@@ -123,7 +123,8 @@ const PROVBANKEN = {
             { text: "Mina blogginlägg om AI: Controller, lärare och coach utan gränser reflekterar", url: "https://controllerutangranser.wordpress.com/category/ai/" },
             { text: "Kortare inlägg finns också på X, märkta #nyaAI", url: "https://x.com/search?q=%23nyaAI%20(from%3Akentlundgren)&src=typed_query" }
           ],
-          kort_ids: ["ol-tyskland", "statsskuld", "ai-testerna", "vindkraftskalkyler", "rosterna", "harness-minne", "claude-kostnad", "gren-sanning"]
+          kort_ids: ["ol-tyskland", "statsskuld", "ai-testerna", "vindkraftskalkyler", "rosterna", "harness-minne", "claude-kostnad", "gren-sanning"],
+          sortera: "start"
         }
       ]
     }
@@ -158,6 +159,7 @@ const PROVBANKEN = {
     },
     {
       id: "statsskuld",
+      start: "2025-06-11",
       kategori: "Analys och faktakoll",
       rubrik: "Statsskuld i Sverige och USA",
       en_mening: "Två sätt att räkna: länderna definierar statsskuld olika.",
@@ -246,6 +248,7 @@ const PROVBANKEN = {
     },
     {
       id: "vindkraftskalkyler",
+      start: "2014-01-24",
       kategori: "Vindkraftskalkyl",
       rubrik: "Samma vindkraftskalkyl, flera gånger",
       en_mening: "Jag har byggt en vindkraftskalkyl mer än en gång, vid olika tidpunkter och med olika verktyg, för att lära mig hur de skiljer sig.",
@@ -291,6 +294,7 @@ const PROVBANKEN = {
     },
     {
       id: "ol-tyskland",
+      start: "2026-07-29",
       kategori: "Ämne i flera medier",
       ar: "2026",
       visas_i_exempel: false,
@@ -312,6 +316,7 @@ const PROVBANKEN = {
     },
     {
       id: "ai-testerna",
+      start: "2026-09-25",
       kategori: "Ämne i flera medier",
       ar: "2026",
       visas_i_exempel: false,
@@ -333,6 +338,7 @@ const PROVBANKEN = {
     },
     {
       id: "rosterna",
+      start: "2026-09-18",
       kategori: "Ämne i flera medier",
       ar: "2026",
       visas_i_exempel: false,
@@ -353,6 +359,7 @@ const PROVBANKEN = {
     },
     {
       id: "harness-minne",
+      start: "2026-08-26",
       kategori: "Ämne i flera medier",
       ar: "2026",
       visas_i_exempel: false,
@@ -378,6 +385,7 @@ const PROVBANKEN = {
     },
     {
       id: "claude-kostnad",
+      start: "2026-08-04",
       kategori: "Ämne i flera medier",
       ar: "2026",
       visas_i_exempel: false,
@@ -398,6 +406,7 @@ const PROVBANKEN = {
     },
     {
       id: "gren-sanning",
+      start: "2026-08-03",
       kategori: "Ämne i flera medier",
       ar: "2026",
       visas_i_exempel: false,

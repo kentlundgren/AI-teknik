@@ -2,7 +2,7 @@
 
 **Hör till:** `PRD_presentation_ai_arbetsgivare.md` (v4)
 **Skapad:** 2026-09-29
-**Version:** 3.22 (se ändringsloggen; tidigare 3.3: frågor i Kents röst; kategorin "Forskningskalkyl", gruppering i kortvyn, Cursor under AI; godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
+**Version:** 3.23 (se ändringsloggen; tidigare 3.3: frågor i Kents röst; kategorin "Forskningskalkyl", gruppering i kortvyn, Cursor under AI; godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
 **Status:** **Godkänd som byggunderlag.** Ändringar görs som ny version.
 **Syfte:** Låst byggspecifikation. PRD:n säger *vad och varför*, den här filen säger *exakt hur det ska vara* och när det är klart.
 
@@ -50,6 +50,7 @@ verktyg       lista med texter
 resultat      max 200 tecken, vad det visade
 lank          absolut https-adress eller null
 lank_text     max 60 tecken, beskrivande, inte en rå URL
+start         valfritt: ISO-datum (ÅÅÅÅ-MM-DD) för kortets äldsta inlägg; styr sorteringen i fråga 5 (nyast överst)
 ar            valfritt: år (text) för kort utan `medier` med `ar`, visas efter rubriken
 bild          valfritt: { src (relativ sökväg i bilder/), alt, w, h } eller en lista av dem (växlar var fjärde sekund); `bildtext` ger en bildtext under stora bilden, bild från kortets inlägg, max 200 kB
 medier        valfritt: lista med { ar?, medium ("Program"|"Bloggtext"|"LinkedIn"|"YouTube"|"Podd"|"Kalkylark"|"Sida"), text (max 60), url, not?, info? } för ett ämne i flera medier; ersätter lank
@@ -122,6 +123,7 @@ Får bara innehålla det Kent bekräftat (2026-09-29):
 
 ## 9. Ändringslogg
 
+- **v3.23 (2026-10-01):** Korten i fråga 5 sorteras automatiskt med **nyast överst och äldst längst ner**, efter nytt fält `start` (ISO-datum för kortets äldsta inlägg) när avsnittet har `sortera: "start"`. Ett ämne som pågått länge hamnar längst ner: vindkraften (start 2014-01-24) sist och statsskulden (2025-06-11) näst sist, så att läsaren ser att kalkylerna pågått länge. Övriga (alla 2026) sorteras på datum: AI-testerna 2026-09-25, Rösterna 2026-09-18, Harness och minne 2026-08-26, Claude-kostnad 2026-08-04, En gren för sanningen 2026-08-03, Ölkalkylen 2026-07-29. Ett nytt kort hamnar rätt om det får ett `start`-datum.
 - **v3.22 (2026-09-30):** Korten "Harness och agenter, vad är det?" (LinkedIn-artikel 2026-08-27) och "Minnesanvändning i Claudes ekosystem" (bloggtext 2026-08-26) slås ihop till ett ämneskort, "Harness, agenter och minne", eftersom båda bygger på samma YouTube-video (Kents uppgift 2026-09-30). Videon är **Sequoia Capitals** ("When to Build Your Own Agent Harness", Harrison Chase, 13 aug 2026; kontrollerad via oEmbed och Kents egen bloggtext citerar den), inte Kents, och står som medium "Källa" med noteringen "video, Sequoia Capital". Nytt: `bild` får vara en **lista**, och bilderna växlar då var fjärde sekund med mjuk övertoning (både miniatyr och stor bild; av vid `prefers-reduced-motion`). Nytt valfritt fält `bildtext` (bildtext under stora bilden): "Skissen är min egen. Schemat är en bild ur Sequoia Capitals video." (skissen som Kents egen, schemat som ur videon, enligt Kents bloggtext; Kent bör bekräfta).
 - **v3.21 (2026-09-30):** Årtal i parentes efter rubriken på varje ämneskort i det stängda kortet, t.ex. "Statsskuld i Sverige och USA (2025, 2026)". Årtalen hämtas från de år som finns i `medier` (`ar`), annars från kortets eget fält `ar`. Årtal kontrollerade: LinkedIn-inläggens datum räknade ur inläggens id (öl 2026-07-29, statsskuld 2026-07-28, rösterna 2026-09-18, AI-testerna 2026-09-25, harness 2026-08-27) och bloggarnas publiceringsdatum. Ordningen på korten är oförändrad (kurerad).
 - **v3.20 (2026-09-30):** Vindkraftskortet får under 2024 bloggtexten "Vindkraftskalkyl med hjälp av AI" (22 okt 2024) och YouTube-videon "Vindkraftskalkyl med hjälp av AI - Anthropics Claude" (Kents kanal, kontrollerad via oEmbed). Hovringstexter efter Kents uppgifter 2026-09-30: i oktober 2024 var Anthropics Claude 3.5 Sonnet den aktuella modellen, och Kent lyckades få fram kalkylen med den gratis modellen; i videon går han igenom många AI-modeller, i princip alla som gällde i oktober 2024. Bloggtextens egen beskrivning nämner Claude 3.5 Sonnet och texten länkar till `vindkraftskalkyl.html`. Kortet nämner Claude 3.5 Sonnet bland verktygen. Att videon går igenom många modeller är Kents uppgift; innehållet i videon är inte genomgånget.

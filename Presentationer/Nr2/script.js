@@ -93,7 +93,17 @@
           if (a.punkter_text) svarEl.appendChild(el('h4', null, a.punkter_text));
           svarEl.appendChild(byggPunkter(a.punkter));
         }
-        (a.kort_ids || []).forEach(function (id) {
+        // `sortera: "start"`: nyast överst, äldst längst ner, efter kortets `start` (datum för dess äldsta inlägg).
+        // Ett ämne som pågått länge (vindkraft sedan 2014) hamnar då längst ner.
+        const ider = (a.kort_ids || []).slice();
+        if (a.sortera === 'start') {
+          const startAv = function (id) {
+            const k = D.kort.find(function (x) { return x.id === id; });
+            return (k && k.start) || '';
+          };
+          ider.sort(function (x, y) { return startAv(y).localeCompare(startAv(x)); });
+        }
+        ider.forEach(function (id) {
           const k = D.kort.find(function (x) { return x.id === id; });
           if (k && k.sekretess === 'ok') svarEl.appendChild(byggKort(k, false));
         });
