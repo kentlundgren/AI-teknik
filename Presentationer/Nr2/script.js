@@ -80,7 +80,7 @@
         svarEl.appendChild(el('h3', null, a.rubrik));
         (a.svar || []).forEach(function (s) { svarEl.appendChild(byggText(s)); });
         if (a.punkter) {
-          if (a.punkter_text) svarEl.appendChild(el('p', null, a.punkter_text));
+          if (a.punkter_text) svarEl.appendChild(el('h4', null, a.punkter_text));
           svarEl.appendChild(byggPunkter(a.punkter));
         }
         (a.kort_ids || []).forEach(function (id) {
@@ -157,6 +157,13 @@
       a.target = '_blank';
       a.rel = 'noopener noreferrer';
       det.appendChild(a);
+      (k.fler_lankar || []).forEach(function (l) {
+        const b = el('a', 'lank', l.text);
+        b.href = l.url;
+        b.target = '_blank';
+        b.rel = 'noopener noreferrer';
+        det.appendChild(b);
+      });
     } else {
       det.appendChild(el('p', 'markning', 'Byggt på en uppdragsgivares material. Visas utan länk.'));
     }

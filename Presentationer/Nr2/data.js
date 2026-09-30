@@ -8,6 +8,7 @@ const PROVBANKEN = {
   // Verktyg som länkas till respektive officiella sida när namnet står i ett svar.
   verktygslankar: {
     "MS Copilot": "https://copilot.microsoft.com/",
+    "Claude Code": "https://claude.com/product/claude-code",
     "Claude": "https://claude.ai/",
     "Cursor": "https://cursor.com/",
     "GitHub": "https://github.com/",
@@ -32,6 +33,14 @@ const PROVBANKEN = {
             { rubrik: "Andra åsikt och faktakoll", text: "Perplexity, ChatGPT, Gemini och Grok." },
             { rubrik: "Lära och studera", text: "Gemini Notebook, ett bra verktyg för att lära nytt. Av material, länkar och YouTube-videor går det att skapa podd-liknande ljudsammanfattningar, quiz och mer." }
           ]
+        },
+        {
+          rubrik: "Så lär jag känna modellerna",
+          svar: [
+            { rubrik: "", text: "Jag jobbar proaktivt med att lära känna olika AI-modellers och olika harness styrkor och svagheter. Ett harness är verktyget som kör modellen, till exempel Claude Code eller Cursor." },
+            { rubrik: "", text: "Jag har kört samma uppdrag och skapat samma produkt flera gånger, vid olika tidpunkter, med olika AI-modeller och olika harness. Envist göra samma sak vid olika tillfällen är ett sätt att lära sig AI." }
+          ],
+          kort_ids: ["vindkraftskalkyler"]
         },
         {
           rubrik: "Så planerar jag ett bygge",
@@ -186,6 +195,23 @@ const PROVBANKEN = {
       resultat: "Beslut går att spåra i efterhand, och en granskare ser varför något blev som det blev.",
       lank: "https://github.com/kentlundgren/AI-teknik/blob/main/AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_generell.md",
       lank_text: "PRD-mall, generell",
+      siffror: "inga",
+      sekretess: "ok"
+    },
+    {
+      id: "vindkraftskalkyler",
+      kategori: "Arbetssätt",
+      rubrik: "Samma vindkraftskalkyl, flera gånger",
+      en_mening: "Jag har byggt en vindkraftskalkyl mer än en gång, vid olika tidpunkter och med olika verktyg, för att lära mig hur de skiljer sig.",
+      arbetssatt: "Fem perspektiv byggdes i Cursor i juli 2026, en investeringskalkylator med Gemini 3 i augusti 2026 och en ombyggd Next.js-version i september 2026.",
+      verktyg: ["Cursor", "Gemini 3", "HTML/CSS/JavaScript", "Next.js"],
+      resultat: "Tre versioner av samma kalkyl som går att öppna och jämföra.",
+      lank: "https://kentlundgren.github.io/Vindkraft/vindkraftskalkyl/vindkraftskalkyl.html",
+      lank_text: "Vindkraftskalkyl, fem perspektiv (Cursor)",
+      fler_lankar: [
+        { text: "Investeringskalkylator, 4 MW (Gemini 3)", url: "https://kentlundgren.github.io/AI-teknik/Vindkraft/260814/Gemini3/vindkraftskalkyl_260814.html" },
+        { text: "Vindkraftskalkyl som Next.js-app", url: "https://vindkraft-ver3.vercel.app" }
+      ],
       siffror: "inga",
       sekretess: "ok"
     },

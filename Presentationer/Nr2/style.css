@@ -34,6 +34,7 @@ header { padding-top: 28px; }
 #svar h2 { font-size: 1.25rem; margin: 14px 0 8px; }
 #svar h3 { font-size: 1rem; margin: 18px 0 6px; color: var(--accent); }
 #svar p { margin: 8px 0; }
+#svar h4 { font-size: 1rem; margin: 16px 0 4px; }
 #svar a.verktyg { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 
 h3.grupp { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); margin: 22px 0 8px; }
@@ -46,7 +47,8 @@ h3.grupp { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.04em
 .kort .rubrik { font-weight: 650; }
 .kort p { margin: 6px 0; }
 .kort .markning { font-size: 0.85rem; color: var(--muted); background: var(--accent-bg); display: inline-block; padding: 2px 8px; border-radius: 6px; }
-.kort .lank { display: inline-block; margin: 8px 0 14px; color: var(--accent); font-weight: 600; }
+.kort .lank { display: table; margin: 6px 0; color: var(--accent); font-weight: 600; }
+.kort .lank:last-child { margin-bottom: 14px; }
 .kort.utan-lank { background: #fbfaf7; }
 
 footer { padding: 24px 16px 40px; color: var(--muted); font-size: 0.9rem; }
