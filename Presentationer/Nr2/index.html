@@ -55,6 +55,61 @@
   <p><a href="mailto:lundgren.kent@gmail.com">lundgren.kent@gmail.com</a> · <a href="https://www.linkedin.com/in/kentlundgren/">Kent Lundgren på LinkedIn</a></p>
 </footer>
 
+<a class="corner corner-left" href="https://github.com/kentlundgren/AI-teknik/tree/main/Presentationer/Nr2" target="_blank" rel="noopener">{ } GitHub</a>
+<button type="button" class="corner corner-right" id="techBtn" aria-label="Tekniköversikt">&lt;/&gt; teknik</button>
+
+<div class="modal-overlay" id="techModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="techTitle">
+    <button type="button" class="modal-close" id="techClose" aria-label="Stäng">&times;</button>
+    <h2 id="techTitle">Hur den här sidan är byggd</h2>
+    <p>Två delar: tekniken i sidan, och metoden jag använde för att ta fram den.</p>
+
+    <h3 class="tech-section-title">Tekniken</h3>
+    <div class="tech-grid">
+      <div class="tech-card">
+        <h3>Vanlig HTML, CSS och JavaScript</h3>
+        <p>Inga ramverk, inga bibliotek och inget byggsteg. Sidan består av <code>index.html</code>, <code>style.css</code>, <code>script.js</code> och <code>data.js</code>.</p>
+      </div>
+      <div class="tech-card">
+        <h3>Innehåll skilt från motor</h3>
+        <p>Alla frågor och kort ligger i <code>data.js</code>. <code>script.js</code> bygger sidan av dem, så nya exempel läggs till som en post i datafilen.</p>
+      </div>
+      <div class="tech-card">
+        <h3>Text sätts aldrig som HTML</h3>
+        <p>Innehållet skrivs in med <code>textContent</code>, så en text i datafilen kan inte köra kod.</p>
+      </div>
+      <div class="tech-card">
+        <h3>Ingen data skickas någonstans</h3>
+        <p>Sidan pratar inte med någon server och sparar ingenting om besökaren. Externa länkar öppnas i ny flik med <code>noopener noreferrer</code>.</p>
+      </div>
+      <div class="tech-card">
+        <h3>Frågorna går att länka</h3>
+        <p>Varje fråga har ett eget ankare, till exempel <code>#ai-i-arbetet</code>, och kan nås med tangentbordets vänster- och högerpil.</p>
+      </div>
+      <div class="tech-card">
+        <h3>Fungerar utan JavaScript och på papper</h3>
+        <p>Utan JavaScript visas exemplen som en länklista. Vid utskrift döljs frågeknapparna och korten är utfällda.</p>
+      </div>
+    </div>
+
+    <h3 class="tech-section-title">Metoden</h3>
+    <div class="tech-grid">
+      <div class="tech-card">
+        <h3>PRD först</h3>
+        <p>Vad sidan är till för och vem den vänder sig till står i en PRD, <a href="PRD_presentation_ai_arbetsgivare.md">PRD_presentation_ai_arbetsgivare.md</a>.</p>
+      </div>
+      <div class="tech-card">
+        <h3>Sedan en låst specifikation</h3>
+        <p><a href="SPEC.md">SPEC.md</a> säger exakt hur sidan ska vara, med teckengränser, en sekretesslista och en acceptanslista. Ändringar görs som ny version i ändringsloggen.</p>
+      </div>
+      <div class="tech-card">
+        <h3>Bara sådant jag bekräftat</h3>
+        <p>Påståenden om hur jag arbetar skrivs in först när jag bekräftat dem. Siffror som är påhittade sägs vara det, och arbeten från uppdrag visas utan länk.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="data.js"></script>
 <script src="script.js"></script>
 </body>

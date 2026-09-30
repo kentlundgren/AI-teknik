@@ -139,6 +139,18 @@
     fragorEl.appendChild(b);
   });
 
+  const techBtn = document.getElementById('techBtn');
+  const techModal = document.getElementById('techModal');
+  const techClose = document.getElementById('techClose');
+  const openModal = function () { techModal.classList.add('show'); techClose.focus(); };
+  const closeModal = function () { techModal.classList.remove('show'); techBtn.focus(); };
+  techBtn.addEventListener('click', openModal);
+  techClose.addEventListener('click', closeModal);
+  techModal.addEventListener('click', function (e) { if (e.target === techModal) closeModal(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && techModal.classList.contains('show')) closeModal();
+  });
+
   const start = location.hash.slice(1);
   const finns = D.fragor.some(function (f) { return f.id === start; });
   valj(finns ? start : 'exempel', !finns);
