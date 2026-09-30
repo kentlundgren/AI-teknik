@@ -29,7 +29,8 @@ const PROVBANKEN = {
           svar: [
             { rubrik: "Löpande arbete", text: "MS Copilot för kortare frågor och standardanalyser." },
             { rubrik: "Djupare arbete", text: "Claude, Cursor och GitHub, där jag bygger och förfinar analysverktyg." },
-            { rubrik: "Andra åsikt och faktakoll", text: "Perplexity, ChatGPT, Gemini, Grok och Gemini Notebook." }
+            { rubrik: "Andra åsikt och faktakoll", text: "Perplexity, ChatGPT, Gemini och Grok." },
+            { rubrik: "Lära och studera", text: "Gemini Notebook, ett bra verktyg för att lära nytt. Av material, länkar och YouTube-videor går det att skapa podd-liknande ljudsammanfattningar, quiz och mer." }
           ]
         },
         {
