@@ -127,10 +127,25 @@ Reglerna ligger i `kent-meta-regler-for-code` (Regel 6 och 7).
 
 ## 6. Öppet: Kents iakttagelser om modellers styrkor och svagheter
 
-**Inte dokumenterat än.** Kent har sagt att han känner dem. När han berättar vilka
+**Nästan inte dokumenterat än.** Kent har sagt att han känner dem. När han berättar vilka
 iakttagelser han gjort (till exempel "modell X var bäst på Y", "harness Z hanterade W
 sämre"), skriv in dem här, med datum, exakt som han formulerar det och med reservation om
 han själv har en ("kan bero på min vana"). Fyll aldrig i från egen kunskap om modeller.
+
+**Hittills nedskrivet (Kents egna uppgifter):**
+- **Oktober 2024, Anthropics Claude 3.5 Sonnet** (den modell som då gällde): Kent lyckades få
+  fram vindkraftskalkylen med den **gratis** modellen. Han har också gått igenom många
+  olika AI-modeller, i princip alla som gällde i oktober 2024, i en YouTube-video
+  ([Vindkraftskalkyl med hjälp av AI - Anthropics Claude](https://youtu.be/JSoxry9Xpr0)) och en
+  [bloggtext](https://controllerutangranser.wordpress.com/2024/10/22/vindkraftskalkyl-med-hjalp-av-ai/)
+  (22 okt 2024). Uppgiften 2026-09-30; innehållet i videon är inte genomgånget.
+- **2024, React med och utan JSX** (vindkraftskalkylerna 19 och 25): att bygga med React gjordes
+  för att få svaret direkt utan en beräkna-knapp. Nu kan Kent med AI bygga med vanlig HTML, CSS
+  och JavaScript, utan React, och ändå få svaret direkt när man ändrar en cell. Han tyckte det var
+  "magiskt" och tycker fortfarande att det är lite märkvärdigt.
+- **Före GitHub (2024):** när han bad generativ AI förbättra en kalkyl kunde den göra den sämre
+  eller skapa en bugg som hängde hela programmet, och då gick det inte att ångra. Han fick börja
+  om med en ny fil per version (därför "Vindkraftskalkyl 25" = version 25).
 
 ## 7. Ett ämne, flera perspektiv: samma fenomen i flera medier
 
