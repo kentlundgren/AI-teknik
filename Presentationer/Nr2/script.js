@@ -23,7 +23,7 @@
     return e;
   }
 
-  function valj(id) {
+  function valj(id, utanHash) {
     D.fragor.forEach(function (f) {
       const knapp = document.getElementById('f-' + f.id);
       const vald = f.id === id;
@@ -33,7 +33,8 @@
     const f = D.fragor.find(function (x) { return x.id === id; });
     visaSvar(f);
     visaKort(f);
-    history.replaceState(null, '', '#' + id);
+    // Vid första laddning utan ankare lämnas adressen ren; hash skrivs först när en fråga väljs.
+    if (!utanHash) history.replaceState(null, '', '#' + id);
   }
 
   function visaSvar(f) {
@@ -140,5 +141,5 @@
 
   const start = location.hash.slice(1);
   const finns = D.fragor.some(function (f) { return f.id === start; });
-  valj(finns ? start : 'exempel');
+  valj(finns ? start : 'exempel', !finns);
 })();
