@@ -107,6 +107,23 @@ const PROVBANKEN = {
         { rubrik: "Teknisk bakgrund", text: "Uppdrag där min tekniska bakgrund som civilingenjör (LTH) kommer till nytta, till exempel industri, energi och infrastruktur." }
       ],
       kort_kategorier: []
+    },
+    {
+      id: "skrivit",
+      fraga: "Vad har jag skrivit om generativ AI?",
+      avsnitt: [
+        {
+          rubrik: "",
+          svar: [
+            { rubrik: "", text: "Jag har skrivit en hel del inlägg om AI på LinkedIn. Här är några av dem." }
+          ],
+          lankar: [
+            { text: "Alla mina inlägg på LinkedIn", url: "https://www.linkedin.com/in/kentlundgren/" },
+            { text: "Kortare inlägg finns också på X, märkta #nyaAI", url: "https://x.com/search?q=%23nyaAI%20(from%3Akentlundgren)&src=typed_query" }
+          ],
+          kort_ids: ["li-rosterna", "li-harness", "li-ai-tester"]
+        }
+      ]
     }
   ],
 
@@ -242,6 +259,48 @@ const PROVBANKEN = {
       resultat: "",
       lank: "https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/#claude",
       lank_text: "Claude-kompassen",
+      siffror: "inga",
+      sekretess: "ok"
+    },
+    {
+      id: "li-rosterna",
+      kategori: "Inlägg på LinkedIn",
+      visas_i_exempel: false,
+      rubrik: "Rösterna efter ChatGPT",
+      en_mening: "Vem har hållit fast, och vem har glidit? Ett inlägg om hur fyra röster i AI-debatten förändrats.",
+      arbetssatt: "",
+      verktyg: [],
+      resultat: "",
+      lank: "https://www.linkedin.com/posts/kentlundgren_r%C3%B6sterna-efter-chatgpt-vem-har-h%C3%A5llit-fast-activity-7506712196756881409-BhVM",
+      lank_text: "Rösterna efter ChatGPT, på LinkedIn",
+      siffror: "inga",
+      sekretess: "ok"
+    },
+    {
+      id: "li-harness",
+      kategori: "Inlägg på LinkedIn",
+      visas_i_exempel: false,
+      rubrik: "Harness och agenter, vad är det?",
+      en_mening: "En artikel om vad ett harness för en AI-agent är, efter att jag frågat Anthropic själva.",
+      arbetssatt: "",
+      verktyg: [],
+      resultat: "",
+      lank: "https://www.linkedin.com/pulse/harness-och-agenter-vad-%C3%A4r-det-kent-lundgren-aq8qe",
+      lank_text: "Harness och agenter, på LinkedIn",
+      siffror: "inga",
+      sekretess: "ok"
+    },
+    {
+      id: "li-ai-tester",
+      kategori: "Inlägg på LinkedIn",
+      visas_i_exempel: false,
+      rubrik: "Vad mäter AI-testerna egentligen?",
+      en_mening: "Vad händer när modellen vet att den testas? Ett inlägg med en egen genomgång.",
+      arbetssatt: "",
+      verktyg: [],
+      resultat: "",
+      lank: "https://www.linkedin.com/feed/update/urn:li:activity:7509242756939223041/",
+      lank_text: "AI-testerna, på LinkedIn",
       siffror: "inga",
       sekretess: "ok"
     },

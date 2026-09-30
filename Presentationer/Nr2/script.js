@@ -77,8 +77,17 @@
     if (f.avsnitt) {
       // Fråga med avsnitt: kort visas inne i det avsnitt de hör till.
       f.avsnitt.forEach(function (a) {
-        svarEl.appendChild(el('h3', null, a.rubrik));
+        if (a.rubrik) svarEl.appendChild(el('h3', null, a.rubrik));
         (a.svar || []).forEach(function (s) { svarEl.appendChild(byggText(s)); });
+        (a.lankar || []).forEach(function (x) {
+          const p = el('p');
+          const l = el('a', 'verktyg', x.text);
+          l.href = x.url;
+          l.target = '_blank';
+          l.rel = 'noopener noreferrer';
+          p.appendChild(l);
+          svarEl.appendChild(p);
+        });
         if (a.punkter) {
           if (a.punkter_text) svarEl.appendChild(el('h4', null, a.punkter_text));
           svarEl.appendChild(byggPunkter(a.punkter));
@@ -108,6 +117,7 @@
     }
     if (!lista.length) return;
     // Kort med länk grupperas per kategori; kort utan länk samlas i en egen grupp.
+    lista = lista.filter(function (k) { return k.visas_i_exempel !== false; });
     const ok = lista.filter(function (k) { return k.sekretess === 'ok'; });
     const utan = lista.filter(function (k) { return k.sekretess !== 'ok'; });
     const grupper = [];
