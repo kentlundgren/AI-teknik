@@ -176,12 +176,25 @@
     oppnadeForUtskrift = [];
   });
 
+  // Bild från kortets inlägg: miniatyr i det stängda kortet, stor bild när kortet är utfällt.
+  function byggBild(b, cls) {
+    const img = el('img', 'bild-' + cls);
+    img.src = b.src;
+    img.alt = cls === 'miniatyr' ? '' : b.alt;
+    img.width = b.w;
+    img.height = b.h;
+    img.loading = 'lazy';
+    return img;
+  }
+
   function byggKort(k, visaKategori) {
-    const det = el('details', 'kort' + (k.sekretess === 'ej_publik' ? ' utan-lank' : ''));
+    const det = el('details', 'kort' + (k.sekretess === 'ej_publik' ? ' utan-lank' : '') + (k.bild ? ' med-bild' : ''));
     const sum = el('summary');
+    if (k.bild) sum.appendChild(byggBild(k.bild, 'miniatyr'));
     if (visaKategori) sum.appendChild(el('span', 'kategori', k.kategori));
     sum.appendChild(el('span', 'rubrik', k.rubrik));
     det.appendChild(sum);
+    if (k.bild) det.appendChild(byggBild(k.bild, 'stor'));
     det.appendChild(el('p', null, k.en_mening));
     if (k.arbetssatt) {
       const p = el('p');

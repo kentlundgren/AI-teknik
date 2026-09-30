@@ -123,7 +123,7 @@ const PROVBANKEN = {
             { text: "Mina blogginlägg om AI: Controller, lärare och coach utan gränser reflekterar", url: "https://controllerutangranser.wordpress.com/category/ai/" },
             { text: "Kortare inlägg finns också på X, märkta #nyaAI", url: "https://x.com/search?q=%23nyaAI%20(from%3Akentlundgren)&src=typed_query" }
           ],
-          kort_ids: ["li-rosterna", "li-harness", "li-ai-tester"]
+          kort_ids: ["li-ai-tester", "bl-vindkraft", "bl-minne", "bl-fas", "bl-gren", "li-rosterna", "li-harness"]
         }
       ]
     }
@@ -303,6 +303,70 @@ const PROVBANKEN = {
       resultat: "",
       lank: "https://www.linkedin.com/feed/update/urn:li:activity:7509242756939223041/",
       lank_text: "AI-testerna, på LinkedIn",
+      fler_lankar: [
+        { text: "Blogginlägget, Tankar i tiden från Lund", url: "https://klel.wordpress.com/2026/09/25/vad-mater-ai-testerna-egentligen/" }
+      ],
+      bild: { src: "bilder/ai-tester.jpg", alt: "Tabell med resultat för fem AI-modeller i nio olika tester.", w: 888, h: 702 },
+      siffror: "inga",
+      sekretess: "ok"
+    },
+    {
+      id: "bl-vindkraft",
+      kategori: "Blogginlägg",
+      visas_i_exempel: false,
+      rubrik: "Ett vindkraftverk, fem sanningar",
+      en_mening: "Jag byggde om min vindkraftskalkyl och räknar ur fem perspektiv: vems kalkyl räknar vi egentligen?",
+      arbetssatt: "",
+      verktyg: [],
+      resultat: "",
+      lank: "https://controllerutangranser.wordpress.com/2026/07/03/ett-vindkraftverk-fem-sanningar-vems-kalkyl-raknar-vi-egentligen/",
+      lank_text: "Blogginlägget, Controller utan gränser",
+      bild: { src: "bilder/vindkraft-fem.jpg", alt: "Illustration av ett vindkraftverk i ett landskap, omgivet av fem symboler för olika parter.", w: 900, h: 600 },
+      siffror: "inga",
+      sekretess: "ok"
+    },
+    {
+      id: "bl-minne",
+      kategori: "Blogginlägg",
+      visas_i_exempel: false,
+      rubrik: "Minnesanvändning i Claudes ekosystem",
+      en_mening: "Skillnaden mellan projektinstruktioner, en skill, en projektfil och det personliga minnet.",
+      arbetssatt: "",
+      verktyg: [],
+      resultat: "",
+      lank: "https://klel.wordpress.com/2026/08/26/minnesanvandning-i-claudes-ekosystem/",
+      lank_text: "Blogginlägget, Tankar i tiden från Lund",
+      bild: { src: "bilder/minne-claude.jpg", alt: "Schema där en agent innehåller ett harness, som i sin tur består av en modell och ett kontext.", w: 900, h: 508 },
+      siffror: "inga",
+      sekretess: "ok"
+    },
+    {
+      id: "bl-fas",
+      kategori: "Blogginlägg",
+      visas_i_exempel: false,
+      rubrik: "Ligger jag i fas med Claude?",
+      en_mening: "Om jag ligger i fas med mitt Claude-abonnemang, eller är övertrasserad, utifrån sidan Usage i claude.ai.",
+      arbetssatt: "",
+      verktyg: [],
+      resultat: "",
+      lank: "https://klel.wordpress.com/2026/08/04/ligger-jag-i-fas-med-claude/",
+      lank_text: "Blogginlägget, Tankar i tiden från Lund",
+      bild: { src: "bilder/i-fas-claude.jpg", alt: "Illustration av en björn vid en mätare som visar att 31 procent av abonnemanget är förbrukat efter 10 procent av tiden.", w: 900, h: 604 },
+      siffror: "inga",
+      sekretess: "ok"
+    },
+    {
+      id: "bl-gren",
+      kategori: "Blogginlägg",
+      visas_i_exempel: false,
+      rubrik: "En gren för sanningen, en för allmänheten",
+      en_mening: "Det gick inte att pusha, och det var tur: om ett litet verktyg och en gren för sanningen, en för allmänheten.",
+      arbetssatt: "",
+      verktyg: [],
+      resultat: "",
+      lank: "https://klel.wordpress.com/2026/08/03/en-gren-for-sanningen-en-for-allmanheten/",
+      lank_text: "Blogginlägget, Tankar i tiden från Lund",
+      bild: { src: "bilder/gren-sanning.jpg", alt: "Illustration av ett träd fyllt med böcker och mappar, som står för sanningen, bredvid en planta med en rapport för allmänheten.", w: 900, h: 600 },
       siffror: "inga",
       sekretess: "ok"
     },

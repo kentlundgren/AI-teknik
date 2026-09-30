@@ -65,6 +65,13 @@ h4.undergrupp { font-size: 0.95rem; color: var(--text); margin: 14px 0 8px; }
 .kort .lank { display: table; margin: 6px 0; color: var(--accent); font-weight: 600; }
 .kort .lank:last-child { margin-bottom: 14px; }
 .kort.utan-lank { background: #fbfaf7; }
+.kort.med-bild summary { flex-direction: row; align-items: center; gap: 12px; }
+.kort.med-bild summary::before { float: none; order: 3; margin-left: auto; }
+.kort.med-bild .rubrik { flex: 1; }
+.bild-miniatyr { width: 88px; height: 60px; object-fit: cover; border-radius: 6px; flex: none; }
+.kort[open] .bild-miniatyr { display: none; }
+.bild-stor { display: none; max-width: 100%; height: auto; border-radius: 8px; margin: 4px 0 8px; }
+.kort[open] .bild-stor { display: block; }
 
 footer { padding: 24px 16px 40px; color: var(--muted); font-size: 0.9rem; }
 footer a, noscript a { color: var(--accent); }
