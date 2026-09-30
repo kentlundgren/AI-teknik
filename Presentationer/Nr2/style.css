@@ -38,6 +38,20 @@ header { padding-top: 28px; }
 #svar a.verktyg { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 
 h3.grupp { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); margin: 22px 0 8px; }
+.grupp-d { margin: 12px 0; }
+.grupp-d > summary {
+  cursor: pointer; list-style: none; position: relative;
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  padding: 12px 44px 12px 16px; display: flex; flex-direction: column; gap: 2px;
+}
+.grupp-d > summary::-webkit-details-marker { display: none; }
+.grupp-d > summary::after { content: "＋"; position: absolute; right: 16px; top: 14px; color: var(--accent); }
+.grupp-d[open] > summary::after { content: "－"; }
+.grupp-d > summary:hover { border-color: var(--accent); }
+.grupp-titel { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); }
+.grupp-text { color: var(--text); font-size: 0.95rem; }
+.grupp-antal { color: var(--muted); font-size: 0.82rem; }
+.grupp-inre { padding-top: 8px; }
 h4.undergrupp { font-size: 0.95rem; color: var(--text); margin: 14px 0 8px; }
 .kort { background: var(--card); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 10px; padding: 0 16px; }
 .kort summary { cursor: pointer; padding: 12px 0; list-style: none; display: flex; flex-direction: column; gap: 2px; }

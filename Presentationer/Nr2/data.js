@@ -25,6 +25,17 @@ const PROVBANKEN = {
     "Vindkraftskalkyl": "Kalkyl"
   },
 
+  // En beskrivande rad under varje grupprubrik i kortvyn (fråga 3).
+  grupptexter: {
+    "Granskning": "Där AI-agenter går igenom ett dokument och jag bedömer vilka fynd som stämmer.",
+    "Kalkyl": "Interaktiva kalkyler, bland annat för forskningsfinansiering och vindkraft.",
+    "Analys och faktakoll": "Analyser där definitioner och siffror kontrolleras mot öppna källor.",
+    "Revision och redovisning": "Genomgångar av kontoplan och revision, för kommuner och ideella föreningar.",
+    "Förening": "Hjälpmedel, rapporter och analyser, framtagna inom föreningslivet.",
+    "Arbetssätt": "Hur jag planerar och bygger, och en karta över hur Claude fungerar.",
+    "Från uppdrag, utan länk": "Arbeten från uppdrag i kommun. De bygger på uppdragsgivarens material och visas därför utan länk."
+  },
+
   fragor: [
     {
       id: "ai-i-arbetet",

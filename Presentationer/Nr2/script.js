@@ -127,18 +127,44 @@
       if (!t) { t = { namn: top, subs: [] }; toppar.push(t); }
       t.subs.push(g);
     });
+    // Varje grupp är ett hopfällt kort: titel, en beskrivande rad och antal. Exemplen syns när gruppen fälls ut.
+    const texter = D.grupptexter || {};
     toppar.forEach(function (t) {
-      kortEl.appendChild(el('h3', 'grupp', t.namn));
+      const antal = t.subs
+        ? t.subs.reduce(function (n, g) { return n + g.kort.length; }, 0)
+        : t.kort.length;
+      const grupp = el('details', 'grupp-d');
+      const sum = el('summary');
+      sum.appendChild(el('span', 'grupp-titel', t.namn));
+      if (texter[t.namn]) sum.appendChild(el('span', 'grupp-text', texter[t.namn]));
+      sum.appendChild(el('span', 'grupp-antal', antal + ' exempel'));
+      grupp.appendChild(sum);
+      const inre = el('div', 'grupp-inre');
       if (t.subs) {
         t.subs.forEach(function (g) {
-          kortEl.appendChild(el('h4', 'undergrupp', g.namn));
-          g.kort.forEach(function (k) { kortEl.appendChild(byggKort(k, false)); });
+          inre.appendChild(el('h4', 'undergrupp', g.namn));
+          g.kort.forEach(function (k) { inre.appendChild(byggKort(k, false)); });
         });
       } else {
-        t.kort.forEach(function (k) { kortEl.appendChild(byggKort(k, !!t.utan)); });
+        t.kort.forEach(function (k) { inre.appendChild(byggKort(k, !!t.utan)); });
       }
+      grupp.appendChild(inre);
+      kortEl.appendChild(grupp);
     });
   }
+
+  // Vid utskrift fälls alla grupper och kort ut, och återställs efteråt.
+  let oppnadeForUtskrift = [];
+  window.addEventListener('beforeprint', function () {
+    oppnadeForUtskrift = [];
+    document.querySelectorAll('details').forEach(function (d) {
+      if (!d.open) { d.open = true; oppnadeForUtskrift.push(d); }
+    });
+  });
+  window.addEventListener('afterprint', function () {
+    oppnadeForUtskrift.forEach(function (d) { d.open = false; });
+    oppnadeForUtskrift = [];
+  });
 
   function byggKort(k, visaKategori) {
     const det = el('details', 'kort' + (k.sekretess === 'ej_publik' ? ' utan-lank' : ''));
