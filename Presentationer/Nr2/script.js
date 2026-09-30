@@ -117,9 +117,26 @@
       g.kort.push(k);
     });
     if (utan.length) grupper.push({ namn: 'Från uppdrag, utan länk', kort: utan, utan: true });
+    // Kategorier med en överrubrik (D.overgrupper) samlas under den, med kategorin som underrubrik.
+    const oever = D.overgrupper || {};
+    const toppar = [];
     grupper.forEach(function (g) {
-      kortEl.appendChild(el('h3', 'grupp', g.namn));
-      g.kort.forEach(function (k) { kortEl.appendChild(byggKort(k, !!g.utan)); });
+      const top = oever[g.namn];
+      if (!top) { toppar.push({ namn: g.namn, kort: g.kort, utan: g.utan }); return; }
+      let t = toppar.find(function (x) { return x.subs && x.namn === top; });
+      if (!t) { t = { namn: top, subs: [] }; toppar.push(t); }
+      t.subs.push(g);
+    });
+    toppar.forEach(function (t) {
+      kortEl.appendChild(el('h3', 'grupp', t.namn));
+      if (t.subs) {
+        t.subs.forEach(function (g) {
+          kortEl.appendChild(el('h4', 'undergrupp', g.namn));
+          g.kort.forEach(function (k) { kortEl.appendChild(byggKort(k, false)); });
+        });
+      } else {
+        t.kort.forEach(function (k) { kortEl.appendChild(byggKort(k, !!t.utan)); });
+      }
     });
   }
 

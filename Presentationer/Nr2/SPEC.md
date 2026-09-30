@@ -2,7 +2,7 @@
 
 **Hör till:** `PRD_presentation_ai_arbetsgivare.md` (v4)
 **Skapad:** 2026-09-29
-**Version:** 3.9 (se ändringsloggen; tidigare 3.3: frågor i Kents röst; kategorin "Forskningskalkyl", gruppering i kortvyn, Cursor under AI; godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
+**Version:** 3.10 (se ändringsloggen; tidigare 3.3: frågor i Kents röst; kategorin "Forskningskalkyl", gruppering i kortvyn, Cursor under AI; godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
 **Status:** **Godkänd som byggunderlag.** Ändringar görs som ny version.
 **Syfte:** Låst byggspecifikation. PRD:n säger *vad och varför*, den här filen säger *exakt hur det ska vara* och när det är klart.
 
@@ -41,7 +41,7 @@ Varje kort i `data.js` har exakt dessa fält:
 ```
 id            unik text, gemener och bindestreck
 kategori      en av: "Granskning", "Ekonomikommunikation", "Forskningskalkyl", "Analys och faktakoll",
-              "Revision och redovisning", "Förening", "Modellering", "Arbetssätt"
+              "Revision och redovisning", "Förening", "Modellering", "Arbetssätt", "Vindkraftskalkyl"
 rubrik        max 60 tecken
 en_mening     max 160 tecken, vad det är
 arbetssatt    max 280 tecken, hur AI och Kent delade på arbetet ("AI föreslog, jag verifierade ...");
@@ -119,6 +119,7 @@ Får bara innehålla det Kent bekräftat (2026-09-29):
 
 ## 9. Ändringslogg
 
+- **v3.10 (2026-09-30):** I kortvyn (fråga 3) grupperas kategorierna "Forskningskalkyl" och "Vindkraftskalkyl" under överrubriken "Kalkyl", med kategorin som underrubrik. Vindkraftskortet byter kategori från "Arbetssätt" till nya kategorin "Vindkraftskalkyl". Överrubrikerna styrs av `overgrupper` i `data.js`.
 - **v3.9 (2026-09-30):** Fråga 1 får ett nytt avsnitt "Så lär jag känna modellerna" (proaktivt lära känna modellers och harness styrkor och svagheter; envist göra samma sak vid olika tillfällen) med kortet "Samma vindkraftskalkyl, flera gånger" (kategori Arbetssätt, tre länkar via nytt valfritt fält `fler_lankar`). Underrubriken "Så verifierar jag:" är nu en h4-rubrik. Versionerna hämtade ur Kents repon: fem perspektiv (Cursor, första commit 2026-07-03), Gemini 3 (2026-08-14), Next.js-appen (live 2026-09-16); alla tre svarar 200.
 - **v3.8 (2026-09-30):** Gemini Notebook flyttat från "Andra åsikt och faktakoll" till egen rad "Lära och studera" i fråga 1, med en mening om vad verktyget kan (källor: material, länkar, YouTube-videor; utdata: podd-liknande ljudsammanfattningar, quiz), kontrollerat mot Wikipedia och flera guider 2026-09-30.
 - **v3.7 (2026-09-30):** Grok och Gemini Notebook (tidigare NotebookLM, omdöpt av Google i juli 2026) tillagda som AI-verktyg i fråga 1 och 2, med länkar.

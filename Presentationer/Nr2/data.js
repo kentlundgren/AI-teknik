@@ -19,6 +19,12 @@ const PROVBANKEN = {
     "Grok": "https://grok.com/"
   },
 
+  // Kategorier som visas som underrubrik under en gemensam överrubrik i kortvyn.
+  overgrupper: {
+    "Forskningskalkyl": "Kalkyl",
+    "Vindkraftskalkyl": "Kalkyl"
+  },
+
   fragor: [
     {
       id: "ai-i-arbetet",
@@ -200,7 +206,7 @@ const PROVBANKEN = {
     },
     {
       id: "vindkraftskalkyler",
-      kategori: "Arbetssätt",
+      kategori: "Vindkraftskalkyl",
       rubrik: "Samma vindkraftskalkyl, flera gånger",
       en_mening: "Jag har byggt en vindkraftskalkyl mer än en gång, vid olika tidpunkter och med olika verktyg, för att lära mig hur de skiljer sig.",
       arbetssatt: "Fem perspektiv byggdes i Cursor i juli 2026, en investeringskalkylator med Gemini 3 i augusti 2026 och en ombyggd Next.js-version i september 2026.",
