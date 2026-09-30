@@ -468,8 +468,70 @@ presentation håller sin egen kompletta lista. Se PRD:n för `Nr1`,
 `PROJECTS`-mönstret — inte beslutad, kräver Kents godkännande innan den
 byggs.
 
+## 16. Frågeguide-mönstret (`Nr2`, Provbänken) — en annan sorts presentation
+
+Inte allt här ovan gäller `Nr2`. Den är ingen självspelande sekvens utan en **frågeguide**:
+några frågeknappar, ett svar och exempelkort att öppna. Publik: arbetsgivare (se
+`Presentationer/CLAUDE.md` och `Nr2/PRD_*.md`). Lånar arkitekturen (regel 1, motor + data
+skilda) men inget av autoplay, hastigheter eller milstolpar. Den **låsta specifikationen**
+är `Nr2/SPEC.md`; ändringar görs som ny version i dess ändringslogg.
+
+**Data (`data.js`, objektet `PROVBANKEN`):**
+- `fragor[]`: en fråga har antingen `svar[]` plus `kort_kategorier` (`null` = alla kort,
+  `[]` = inga), eller `avsnitt[]`. Ett avsnitt har valfri `rubrik` (h3), `svar[]`, `lankar[]`,
+  `punkter_text`/`punkter[]` och `kort_ids[]`, så att kort visas **inne i det avsnitt de
+  illustrerar** i stället för i en lös grupp under svarsrutan.
+- `kort[]`: fält enligt SPEC avsnitt 4, plus valfria `fler_lankar`, `bild` och
+  `visas_i_exempel: false` (döljer kortet i exempellistan när det redan visas i en
+  frågas svar, så att det inte står två gånger).
+- `grupptexter` (en beskrivande rad per grupp), `overgrupper` (kategorier som samlas
+  under en gemensam överrubrik, som Forskningskalkyl och Vindkraftskalkyl under Kalkyl) och
+  `verktygslankar`.
+- All text sätts med `textContent`/`createElement`, aldrig som HTML.
+
+**Överblick i exempelvyn:** grupperna är hopfällda kort (`details`) med versal titel, en
+beskrivande rad och "n exempel". Bara rubrikerna syns först, och man klickar sig in. Fäll
+ut allt vid utskrift (`beforeprint`).
+
+**Bilder på kort (`bild: {src, alt, w, h}`):** miniatyr i det stängda kortet, stor bild när
+det är utfällt. Hämta bilder från Kents bloggar **bara efter hans uttryckliga ja**, och
+säg filnamn, källa och storlek innan. Spara som JPEG, högst 900 px bred, under 200 kB
+(SPEC), i `bilder/`. Behåll Kents egna filnamn exakt, eftersom GitHub Pages skiljer på
+stora och små bokstäver. Skriv `alt` utifrån vad bilden faktiskt visar, och titta på
+bilden först. Fråga om en bild är Kents egen eller har en källa som ska anges.
+
+**Verktygsnamn som länkar:** namn i svarstexter (Claude, Cursor, Gemini ...) blir länkar
+via `verktygslankar`. Längst namn först i mönstret, annars delmatchas "Gemini Notebook"
+som "Gemini" (samma princip som regel 12). Kontrollera produktnamn mot källan: NotebookLM
+hade blivit Gemini Notebook.
+
+**Visningssiffror på en publik sida:** skriv dem inte. LinkedIn- och X-visningar är Kents
+privata statistik och blir gamla.
+
+**Förslag som tillfällig kopia:** visa alternativ som en kopia av sidan i en tillfällig
+mapp (`_forslag_<ämne>/`) med en gul ruta "TILLFÄLLIG FÖRHANDSVISNING", så att Kent ser
+hur det blir. Radera mappen när han valt, så att den inte råkar committas (PowerShell
+`Remove-Item` kan vara blockerat, `rm -r` i bash fungerar).
+
+**Efter en push ser sidan ibland trasig ut en stund.** GitHub Pages skickar
+`Cache-Control: max-age=600`, så en gammal `style.css` kan ligga kvar i webbläsaren
+upp till tio minuter, medan ny HTML redan visas. Hård omladdning (Ctrl+Shift+R) löser
+det. Kontrollera först att den publicerade filen är rätt (`curl`), innan koden misstänks.
+
+**Test:** `python -m http.server <port>` i mappen, och stoppa den efteråt (`pkill` finns
+inte i Git Bash; stoppa via PowerShell på processens kommandorad).
+
+**Text om Kents eget arbetssätt** (vilka verktyg han använder till vad, hur han
+kvalitetssäkrar, att han lär känna modeller genom upprepning) hör hemma i skillen
+`kent-ai-arbetssatt`. Läs den innan sådan text skrivs, och skriv bara det Kent bekräftat.
+
 ## Uppdateringslogg
 
+- 2026-09-30 (v14): Ny **Regel 16**, frågeguide-mönstret från `Nr2` (Provbänken):
+  avsnitt med egna kort, hopfällda grupper med beskrivande rad, överrubriker, bilder på
+  kort (hämtas bara med Kents ja, under 200 kB), verktygsnamn som länkar, inga
+  visningssiffror på publik sida, förslag som tillfällig kopia, cache-fallgropen efter en
+  push och en pekare till nya skillen `kent-ai-arbetssatt`.
 - 2026-08-04 (v1): Skapad efter det första fullständiga projektet i det
   här mönstret (`Presentationer/Nr1`, åtta projekt). Kent frågade
   uttryckligen om ett sådant här skill skulle vara lämpligt att skapa nu,

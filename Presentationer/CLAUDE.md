@@ -36,8 +36,16 @@ säkerhet i återanvänd kod, källhantering, milestone-avbrott). Når Claude
 Code och Cursor agent när man arbetar i den här mappen eller någon
 undermapp.
 
-**Nivå 2 — Global:** ett tunt pekar-skill finns kvar i
-`C:\Users\kentl\.claude\skills\kent-presentationer\` för sessioner som
+**Projektnivå, andra skillet:** `.claude/skills/kent-ai-arbetssatt/`
+(tillagt 2026-09-30) — hur Kent arbetar med generativ AI, som han själv
+bekräftat: lära känna modeller och harness genom upprepning,
+kvalitetssäkring, planera skriftligt först, vilka verktyg till vad. Läs det
+innan text skrivs i Kents namn om hans arbetssätt (Provbänken, LinkedIn,
+ansökningar). Bara det Kent bekräftat ska stå där.
+
+**Nivå 2 — Global:** tunna pekar-skills finns kvar i
+`C:\Users\kentl\.claude\skills\kent-presentationer\` och
+`C:\Users\kentl\.claude\skills\kent-ai-arbetssatt\` för sessioner som
 öppnas utanför AI-teknik-repot. Innehållet hålls bara här, inte där.
 
 Se även `kent-bygg-sidor` (global, nivå 2) för Kents allmänna regler för
