@@ -275,6 +275,7 @@ const PROVBANKEN = {
       resultat: "",
       lank: "https://www.linkedin.com/posts/kentlundgren_r%C3%B6sterna-efter-chatgpt-vem-har-h%C3%A5llit-fast-activity-7506712196756881409-BhVM",
       lank_text: "Rösterna efter ChatGPT, på LinkedIn",
+      bild: { src: "bilder/Max_Tegmark_med_flera.jpg", alt: "Fyra rutor med Max Tegmark, Olle Häggström, Nick Bostrom och Anders Sandberg, var och en med en kort beskrivning av hur rösten förändrats.", w: 900, h: 426 },
       siffror: "inga",
       sekretess: "ok"
     },
@@ -289,6 +290,7 @@ const PROVBANKEN = {
       resultat: "",
       lank: "https://www.linkedin.com/pulse/harness-och-agenter-vad-%C3%A4r-det-kent-lundgren-aq8qe",
       lank_text: "Harness och agenter, på LinkedIn",
+      bild: { src: "bilder/Harness_och_agenter.jpg", alt: "Handritad skiss där en AI-agent omsluter ett harness, en LLM och ett kontext.", w: 607, h: 345 },
       siffror: "inga",
       sekretess: "ok"
     },

@@ -2,7 +2,7 @@
 
 **Hör till:** `PRD_presentation_ai_arbetsgivare.md` (v4)
 **Skapad:** 2026-09-29
-**Version:** 3.14 (se ändringsloggen; tidigare 3.3: frågor i Kents röst; kategorin "Forskningskalkyl", gruppering i kortvyn, Cursor under AI; godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
+**Version:** 3.15 (se ändringsloggen; tidigare 3.3: frågor i Kents röst; kategorin "Forskningskalkyl", gruppering i kortvyn, Cursor under AI; godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
 **Status:** **Godkänd som byggunderlag.** Ändringar görs som ny version.
 **Syfte:** Låst byggspecifikation. PRD:n säger *vad och varför*, den här filen säger *exakt hur det ska vara* och när det är klart.
 
@@ -120,6 +120,7 @@ Får bara innehålla det Kent bekräftat (2026-09-29):
 
 ## 9. Ändringslogg
 
+- **v3.15 (2026-09-30):** Kent la själv in två bilder (`Max_Tegmark_med_flera.jpg`, 138 kB, och `Harness_och_agenter.jpg`, 24 kB) som nu sitter på korten "Rösterna efter ChatGPT" och "Harness och agenter". Filnamnen behålls exakt, eftersom GitHub Pages skiljer på stora och små bokstäver.
 - **v3.14 (2026-09-30):** Bilder på korten via nytt valfritt fält `bild: { src, alt, w, h }` (miniatyr i stängt kort, stor bild när kortet är utfällt). Fem bilder hämtade från Kents bloggar med hans ja 2026-09-30 och sparade i `bilder/` (JPEG, max 900 px bred, alla under 200 kB; vindkraftsbilden omgjord från 1,8 MB PNG). Fyra nya blogg-kort (kategori "Blogginlägg", `visas_i_exempel: false`) och bild plus bloggänk på AI-testerna. Kortlistan i fråga 5 har bildkorten först.
 - **v3.13 (2026-09-30):** Fråga 5 får länkar till Kents två bloggars AI-kategorier (klel.wordpress.com och controllerutangranser.wordpress.com). Bilder på korten väntar på Kents godkännande av hur de ska hämtas.
 - **v3.12 (2026-09-30):** Ny femte fråga "Vad har jag skrivit om generativ AI?" med en mening, länk till LinkedIn-profilen, en rad som nämner att kortare inlägg finns på X (#nyaAI) och tre LinkedIn-kort (kategori "Inlägg på LinkedIn", nytt valfritt fält `visas_i_exempel: false` så att de inte visas dubbelt under fråga 3). Kortens beskrivningar är utkast och länken till AI-testerna är byggd av inläggets id och ej öppnad; båda ska kontrolleras av Kent före publicering. X-inlägg som egna kort skjuts upp. Inläggens visningssiffror (LinkedIn/X) står inte på sidan.
