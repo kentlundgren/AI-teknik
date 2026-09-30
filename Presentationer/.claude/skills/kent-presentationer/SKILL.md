@@ -505,8 +505,17 @@ via `verktygslankar`. Längst namn först i mönstret, annars delmatchas "Gemini
 som "Gemini" (samma princip som regel 12). Kontrollera produktnamn mot källan: NotebookLM
 hade blivit Gemini Notebook.
 
-**Visningssiffror på en publik sida:** skriv dem inte. LinkedIn- och X-visningar är Kents
-privata statistik och blir gamla.
+**Ämneskort (`medier`), 2026-09-30:** Provbänkens fråga 5 visar **ett kort per ämne**, med alla
+medier samlade i fältet `medier: [{ar?, medium, text, url, not?}]`: `medium` är Program,
+Bloggtext, LinkedIn, YouTube eller Podd; `ar` grupperar samma ämne över flera år (statsskulden
+2025 och 2026); `not` är en kort notering. Ämneskort har `lank: null` och kategorin "Ämne i flera
+medier" (döljs i exempellistan med `visas_i_exempel: false`). Bakgrund och stående arbetsregel
+(sök upp och fråga efter syskon-medierna när Kent nämner ett): `kent-ai-arbetssatt`, avsnitt 7.
+
+**Visningssiffror på en publik sida:** bara om Kent själv gett siffran, och då **avrundad och
+daterad** (`not: "drygt 4 000 visningar, per 30 sep 2026"`). Det är hans beslut 2026-09-30.
+Hämta aldrig siffror på eget initiativ för att publicera dem. Ta bort spårningsparametrar
+(`?si=`, `utm_`, `rcm`) ur alla publicerade länkar.
 
 **Förslag som tillfällig kopia:** visa alternativ som en kopia av sidan i en tillfällig
 mapp (`_forslag_<ämne>/`) med en gul ruta "TILLFÄLLIG FÖRHANDSVISNING", så att Kent ser
@@ -527,6 +536,10 @@ kvalitetssäkrar, att han lär känna modeller genom upprepning) hör hemma i sk
 
 ## Uppdateringslogg
 
+- 2026-09-30 (v15), samma dag: Regel 16 utökad med **ämneskort** (`medier`-fältet, ett kort per ämne
+  med program, bloggtext, LinkedIn, YouTube och podd samlade) och ändrad regel om visningssiffror
+  (avrundade, daterade och av Kent givna får visas). Utlöst av att Kent beskrev sitt mönster att
+  spegla samma ämne i flera medier; se `kent-ai-arbetssatt`, avsnitt 7.
 - 2026-09-30 (v14): Ny **Regel 16**, frågeguide-mönstret från `Nr2` (Provbänken):
   avsnitt med egna kort, hopfällda grupper med beskrivande rad, överrubriker, bilder på
   kort (hämtas bara med Kents ja, under 200 kB), verktygsnamn som länkar, inga

@@ -84,6 +84,12 @@ rubriken "Underhållsregler".
 - **Git commit/push: Kent gör det själv, via Cursor.** Claude Code föreslår
   aldrig commit/push proaktivt och kör det aldrig utan att bli tillfrågad.
   Read-only git-kommandon för diagnostik är alltid okej.
+- **Samma ämne i flera medier (tillagd 2026-09-30):** Kent speglar ofta ett
+  ämne som program/app, bloggtext och LinkedIn-inlägg, ibland även YouTube och
+  podd, för att lära sig mer om generativ AI. När Kent nämner **ett** av dem:
+  sök upp och fråga efter de andra medierna om samma ämne, och notera
+  kopplingarna (Provbänken fråga 5, fältet `medier`). Påstå aldrig att ett
+  medium finns när det inte gör det. Se skillen `kent-ai-arbetssatt`, avsnitt 7.
 - **README-konvention:** varje presentationsmapp (`NrX`) ska ha en
   `README.md` med kort beskrivning och länk till Live Page-URL:en, så fort
   den publicerats.
