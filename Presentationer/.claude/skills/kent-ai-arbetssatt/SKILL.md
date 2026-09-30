@@ -4,11 +4,14 @@ description: >
   Hur Kent Lundgren arbetar med generativ AI, som han själv har beskrivit och bekräftat:
   lära känna modeller och harness genom att göra samma sak flera gånger vid olika
   tillfällen, verifiera och kvalitetssäkra själv, planera skriftligt först (PRD, SPEC,
-  process-logg), och vilka verktyg han använder till vad. Använd när Claude skriver
+  process-logg), vilka verktyg han använder till vad, och hans mönster att spegla samma
+  ämne i flera medier (program, bloggtext, LinkedIn, ibland video och podd). Använd när Claude skriver
   text i Kents namn eller röst om hur han arbetar med AI (LinkedIn, blogg, ansökan,
   intervjusvar, Provbänken/Nr2 eller annan presentation), när en sida ska beskriva hans
   arbetssätt, eller när Kent själv berättar något nytt om hur han jobbar med AI och det
-  bör sparas. Innehåller bara det Kent bekräftat; allt annat ska frågas, inte fyllas i.
+  bör sparas. Använd också så snart Kent nämner ett inlägg, program, bloggtext, video eller
+  podd om ett ämne: sök då upp och fråga efter de andra medierna om samma ämne (avsnitt 7).
+  Innehåller bara det Kent bekräftat; allt annat ska frågas, inte fyllas i.
 metadata:
   type: process
 ---
@@ -59,6 +62,11 @@ Kents egna ord, bekräftade 2026-09-30:
 
 Vilken AI-modell som stod bakom Cursor- och Next.js-versionerna är **inte** dokumenterat
 här. Fråga, gissa inte.
+
+**Ett andra exempel: statsskulden, samma ämne ett år senare.** 2025 byggde Kent en
+interaktiv presentation av Sveriges och USA:s statsskuld med Gemini (Canvas), och skrev,
+filmade och pratade om den. 2026 gjorde han om den med verifierade källor och skrev en
+bloggtext om vad det lärde honom om vibe-kodning. Se avsnitt 7 för alla medier.
 
 Mer om Kents motivation (testa, leka, lära, inte jobbsökning): minnesposten
 `user_kent_ai_motivation`.
@@ -112,7 +120,10 @@ Reglerna ligger i `kent-meta-regler-for-code` (Regel 6 och 7).
 - X: sökning `#nyaAI` från `kentlundgren` (Kents egen tagg)
 - Bloggarna: [Tankar i tiden från Lund](https://klel.wordpress.com/category/ai/) och
   [Controller, lärare och coach utan gränser](https://controllerutangranser.wordpress.com/category/ai/)
-- Inläggens **visningssiffror är Kents privata statistik.** Skriv dem inte på en publik sida.
+- Inläggens **visningssiffror är Kents egen statistik** och blir gamla. Kent har beslutat
+  (2026-09-30) att en siffra får visas på en publik sida om den är **avrundad och daterad**
+  ("drygt 4 000 visningar, per 30 sep 2026"), och bara den han själv gett. Hämta aldrig
+  siffror på eget initiativ för att publicera dem.
 
 ## 6. Öppet: Kents iakttagelser om modellers styrkor och svagheter
 
@@ -121,8 +132,64 @@ iakttagelser han gjort (till exempel "modell X var bäst på Y", "harness Z hant
 sämre"), skriv in dem här, med datum, exakt som han formulerar det och med reservation om
 han själv har en ("kan bero på min vana"). Fyll aldrig i från egen kunskap om modeller.
 
+## 7. Ett ämne, flera perspektiv: samma fenomen i flera medier
+
+**Mönstret (Kents egen beskrivning, 2026-09-30).** Kent gör en AI-produkt som läggs på
+GitHub, och skriver sedan om den **både på LinkedIn och i en bloggtext**. Ibland finns
+också en **YouTube-video** och/eller en **podd**. Ett ämne X återfinns alltså ofta i
+flera medier, som var och en speglar X ur ett eget perspektiv. **Syftet är att lära sig mer
+om, och skriva om, generativ AI.** Att spegla samma fenomen ur flera håll är ett sätt att
+förstå det, på samma sätt som upprepningen i avsnitt 1.
+
+**Medier:** Program/app (GitHub Pages, Vercel eller `kentlundgren.se`), Bloggtext
+(`controllerutangranser.wordpress.com` eller `klel.wordpress.com`), LinkedIn, YouTube
+(kanalen `@KentLundgrenLarsErik`), Podd (Spotify). Alla medier finns inte för alla ämnen.
+
+**Exempel som Kent själv gett:**
+
+| Ämne | Program | Bloggtext | LinkedIn | YouTube | Podd |
+|---|---|---|---|---|---|
+| Lönar sig resan efter öl? (2026) | [Ölkalkylen](https://kentlundgren.github.io/Ovrigt/Fritid/ol_Tyskland/index.html) | [Hur många öl till break-even?](https://controllerutangranser.wordpress.com/2026/07/29/hur-manga-ol-till-break-even/) | ja (drygt 4 000 visningar, per 30 sep 2026) | – | – |
+| Statsskuld Sverige och USA, **2026** | [Program](https://kentlundgren.github.io/Ekonomi/statsskuld/sverige_amerika/) | [Vad ett beslutsträd om statsskuld lär oss om vibe-kodning](https://controllerutangranser.wordpress.com/2026/07/28/vad-ett-beslutstrad-om-statsskuld-lar-oss-om-vibe-kodning/) | ja | – | – |
+| Statsskuld Sverige och USA, **2025** | [Program (Gemini)](https://kentlundgren.se/program/ekonomi/statsskuld/statsskuld_gemini2.html) | [Sverige och USA:s statsskuld](https://controllerutangranser.wordpress.com/2025/06/11/sverige-och-usas-statsskuld/) | **saknas** | [Statsskuld Sverige och USA 1970-2025](https://youtu.be/YNELsJQJO7w) | [#24 Sveriges och USA:s statsskuld](https://open.spotify.com/episode/4aXJYB0JuHLOyYTcXYVy6K) |
+
+Fler ämnen finns samlade på Provbänken, fråga 5 (`Nr2`, `data.js`, korten med kategorin
+"Ämne i flera medier"): AI-testerna, Vindkraftskalkylen, Rösterna efter ChatGPT, Claude-kostnad
+med flera. Vissa har bara ett medium hittills (Harness och agenter finns bara som LinkedIn-artikel,
+Minnesanvändning och En gren för sanningen bara som bloggtext). **Det betyder inte att andra medier
+saknas, bara att de inte hittats än.**
+
+### Stående arbetsregel (Kents uttryckliga begäran 2026-09-30)
+
+När Kent nämner **ett** medium om ett ämne Y (ett LinkedIn-inlägg, ett program, en bloggtext,
+en video, en podd), gör alltid detta, utan att bli påmind:
+
+1. **Sök rätt på syskonen.** Finns det även ett program/app, en bloggtext, ett
+   LinkedIn-inlägg, en video eller en podd om Y? Använd `kent-hitta-projekt`, Steg 4
+   (bloggtexten länkar ofta till programmet; `lnkd.in`-genvägar går att följa med `curl -L`).
+2. **Fråga Kent** om något saknas eller är osäkert: "Finns det även en bloggtext om Y?"
+   Gissa inte, och påstå inte att ett medium finns när det inte gör det.
+3. **Föreslå och notera kopplingar** mellan medierna: länka dem till varandra när du
+   hjälper Kent skriva (se `kent-skrivstil`, "Kopplingar mellan medier"), och samla ämnet som
+   ett **ämneskort** på Provbänken fråga 5 med fältet `medier` (se `kent-presentationer`,
+   Regel 16).
+4. **Notera årsomgångar.** Samma ämne kan finnas i flera år (statsskulden 2025 och 2026).
+   Samla dem under samma ämne, med året angivet, och koppla till avsnitt 1 (upprepning).
+
+Länkar till publicering ska vara **utan spårningsparametrar** (`?si=`, `utm_`, `rcm`).
+
+**Var regeln bor** (så att den finns i fler sammanhang än den här skillen):
+`kent-meta-regler-for-code` Regel 15, `kent-hitta-projekt` Steg 4, `kent-skrivstil`
+("Kopplingar mellan medier"), `Presentationer/CLAUDE.md` och minnesposten
+`feedback_amne_flera_medier`.
+
 ## Uppdateringslogg
 
+- 2026-09-30 (v2), samma dag: Nytt **avsnitt 7, Ett ämne, flera perspektiv**: Kents mönster att
+  spegla samma ämne i program, bloggtext, LinkedIn, ibland video och podd, för att lära sig mer om
+  generativ AI (exempel: Ölkalkylen, statsskulden 2025 och 2026), med en stående arbetsregel om att
+  söka upp och fråga efter de andra medierna när ett nämns. Regeln om visningssiffror ändrad:
+  avrundade och daterade siffror Kent själv gett får visas. Utlöst av arbetet med Provbänken fråga 5.
 - 2026-09-30 (v1): Skapad efter arbetet med Provbänken (`Nr2`), där Kent bad om att få med
   att han proaktivt lär känna modellers och harness styrkor och svagheter genom att göra
   samma sak flera gånger (vindkraftskalkylen), och frågade om det fanns ett skill för

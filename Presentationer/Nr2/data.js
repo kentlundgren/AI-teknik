@@ -110,12 +110,12 @@ const PROVBANKEN = {
     },
     {
       id: "skrivit",
-      fraga: "Vad har jag skrivit om generativ AI?",
+      fraga: "Vad har jag skapat och berättat om generativ AI?",
       avsnitt: [
         {
           rubrik: "",
           svar: [
-            { rubrik: "", text: "Jag har skrivit en hel del inlägg om AI, på LinkedIn och på mina bloggar. Här är några av dem." }
+            { rubrik: "", text: "Jag speglar samma ämne ur flera håll: som program, som bloggtext, som inlägg på LinkedIn och ibland som video eller podd. Här är några ämnen, med allt som hör till dem samlat." }
           ],
           lankar: [
             { text: "Alla mina inlägg på LinkedIn", url: "https://www.linkedin.com/in/kentlundgren/" },
@@ -123,7 +123,7 @@ const PROVBANKEN = {
             { text: "Mina blogginlägg om AI: Controller, lärare och coach utan gränser reflekterar", url: "https://controllerutangranser.wordpress.com/category/ai/" },
             { text: "Kortare inlägg finns också på X, märkta #nyaAI", url: "https://x.com/search?q=%23nyaAI%20(from%3Akentlundgren)&src=typed_query" }
           ],
-          kort_ids: ["li-ai-tester", "bl-vindkraft", "bl-minne", "bl-fas", "bl-gren", "li-rosterna", "li-harness"]
+          kort_ids: ["ol-tyskland", "statsskuld", "ai-testerna", "vindkraftskalkyler", "rosterna", "harness", "claude-kostnad", "claude-minne", "gren-sanning"]
         }
       ]
     }
@@ -164,8 +164,18 @@ const PROVBANKEN = {
       arbetssatt: "En tidigare jämförelse med Gemini gjordes om med verifierade källor och en öppen redovisning av hur sidan togs fram.",
       verktyg: ["Gemini", "Claude", "HTML/CSS/JavaScript"],
       resultat: "Den viktigaste upptäckten: siffrorna är inte direkt jämförbara, eftersom definitionerna skiljer sig.",
-      lank: "https://kentlundgren.github.io/Ekonomi/statsskuld/sverige_amerika/index.html",
-      lank_text: "Statsskuld: Sverige och USA",
+      lank: null,
+      lank_text: "",
+      medier: [
+        { ar: "2025", medium: "Program", text: "Interaktiv presentation, byggd med Gemini", url: "https://kentlundgren.se/program/ekonomi/statsskuld/statsskuld_gemini2.html" },
+        { ar: "2025", medium: "Bloggtext", text: "Sverige och USA:s statsskuld", url: "https://controllerutangranser.wordpress.com/2025/06/11/sverige-och-usas-statsskuld/" },
+        { ar: "2025", medium: "YouTube", text: "Statsskuld Sverige och USA 1970-2025", url: "https://youtu.be/YNELsJQJO7w" },
+        { ar: "2025", medium: "Podd", text: "#24 Sveriges och USA:s statsskuld", url: "https://open.spotify.com/episode/4aXJYB0JuHLOyYTcXYVy6K" },
+        { ar: "2026", medium: "Program", text: "Statsskuld: Sverige och USA", url: "https://kentlundgren.github.io/Ekonomi/statsskuld/sverige_amerika/" },
+        { ar: "2026", medium: "Bloggtext", text: "Vad ett beslutsträd om statsskuld lär oss om vibe-kodning", url: "https://controllerutangranser.wordpress.com/2026/07/28/vad-ett-beslutstrad-om-statsskuld-lar-oss-om-vibe-kodning/" },
+        { ar: "2026", medium: "LinkedIn", text: "Inlägget på LinkedIn", url: "https://www.linkedin.com/posts/kentlundgren_en-kv%C3%A4ll-i-juni-f%C3%B6rra-%C3%A5ret-%C3%B6ppnade-jag-gemini-ugcPost-7487662047422316545-e2C6/" }
+      ],
+      bild: { src: "bilder/statsskuld-sverige-usa.jpg", alt: "Diagram över statsskuld som andel av BNP för Sverige och USA, 1970 till 2024.", w: 900, h: 581 },
       siffror: "oppna_kallor",
       sekretess: "ok"
     },
@@ -242,12 +252,16 @@ const PROVBANKEN = {
       arbetssatt: "Fem perspektiv byggdes i Cursor i juli 2026, en investeringskalkylator med Gemini 3 i augusti 2026 och en ombyggd Next.js-version i september 2026.",
       verktyg: ["Cursor", "Gemini 3", "HTML/CSS/JavaScript", "Next.js"],
       resultat: "Tre versioner av samma kalkyl som går att öppna och jämföra.",
-      lank: "https://kentlundgren.github.io/Vindkraft/vindkraftskalkyl/vindkraftskalkyl.html",
-      lank_text: "Vindkraftskalkyl, fem perspektiv (Cursor)",
-      fler_lankar: [
-        { text: "Investeringskalkylator, 4 MW (Gemini 3)", url: "https://kentlundgren.github.io/AI-teknik/Vindkraft/260814/Gemini3/vindkraftskalkyl_260814.html" },
-        { text: "Vindkraftskalkyl som Next.js-app", url: "https://vindkraft-ver3.vercel.app" }
+      lank: null,
+      lank_text: "",
+      medier: [
+        { medium: "Program", text: "Fem perspektiv (Cursor)", url: "https://kentlundgren.github.io/Vindkraft/vindkraftskalkyl/vindkraftskalkyl.html" },
+        { medium: "Program", text: "Investeringskalkylator, 4 MW (Gemini 3)", url: "https://kentlundgren.github.io/AI-teknik/Vindkraft/260814/Gemini3/vindkraftskalkyl_260814.html" },
+        { medium: "Program", text: "Next.js-app", url: "https://vindkraft-ver3.vercel.app" },
+        { medium: "Bloggtext", text: "Ett vindkraftverk, fem sanningar", url: "https://controllerutangranser.wordpress.com/2026/07/03/ett-vindkraftverk-fem-sanningar-vems-kalkyl-raknar-vi-egentligen/" },
+        { medium: "Bloggtext", text: "Att göra vindkraftens ekonomi synlig", url: "https://controllerutangranser.wordpress.com/2026/07/13/att-gora-vindkraftens-ekonomi-synlig/" }
       ],
+      bild: { src: "bilder/vindkraft-fem.jpg", alt: "Illustration av ett vindkraftverk i ett landskap, omgivet av fem symboler för olika parter.", w: 900, h: 600 },
       siffror: "inga",
       sekretess: "ok"
     },
@@ -265,109 +279,133 @@ const PROVBANKEN = {
       sekretess: "ok"
     },
     {
-      id: "li-rosterna",
-      kategori: "Inlägg på LinkedIn",
+      id: "ol-tyskland",
+      kategori: "Ämne i flera medier",
       visas_i_exempel: false,
-      rubrik: "Rösterna efter ChatGPT",
-      en_mening: "Vem har hållit fast, och vem har glidit? Ett inlägg om hur fyra röster i AI-debatten förändrats.",
+      rubrik: "Lönar sig resan efter öl?",
+      en_mening: "Det började med en resa till Tyskland för att handla billig öl. Jag gjorde en kalkyl för hur många öl som krävs för att resan ska löna sig.",
       arbetssatt: "",
       verktyg: [],
       resultat: "",
-      lank: "https://www.linkedin.com/posts/kentlundgren_r%C3%B6sterna-efter-chatgpt-vem-har-h%C3%A5llit-fast-activity-7506712196756881409-BhVM",
-      lank_text: "Rösterna efter ChatGPT, på LinkedIn",
-      bild: { src: "bilder/Max_Tegmark_med_flera.jpg", alt: "Fyra rutor med Max Tegmark, Olle Häggström, Nick Bostrom och Anders Sandberg, var och en med en kort beskrivning av hur rösten förändrats.", w: 900, h: 426 },
+      lank: null,
+      lank_text: "",
+      medier: [
+        { medium: "Program", text: "Ölkalkylen", url: "https://kentlundgren.github.io/Ovrigt/Fritid/ol_Tyskland/index.html" },
+        { medium: "Bloggtext", text: "Hur många öl till break-even?", url: "https://controllerutangranser.wordpress.com/2026/07/29/hur-manga-ol-till-break-even/" },
+        { medium: "LinkedIn", text: "Inlägget på LinkedIn", url: "https://www.linkedin.com/posts/kentlundgren_jag-l%C3%A4rde-mig-n%C3%A5got-ov%C3%A4ntat-n%C3%A4r-jag-byggde-ugcPost-7488022289553285121-9g5y/", not: "drygt 4 000 visningar, per 30 sep 2026" }
+      ],
+      bild: { src: "bilder/ol-break-even.jpg", alt: "Rader av ölburkar på ett bord.", w: 900, h: 506 },
       siffror: "inga",
       sekretess: "ok"
     },
     {
-      id: "li-harness",
-      kategori: "Inlägg på LinkedIn",
-      visas_i_exempel: false,
-      rubrik: "Harness och agenter, vad är det?",
-      en_mening: "En artikel om vad ett harness för en AI-agent är, efter att jag frågat Anthropic själva.",
-      arbetssatt: "",
-      verktyg: [],
-      resultat: "",
-      lank: "https://www.linkedin.com/pulse/harness-och-agenter-vad-%C3%A4r-det-kent-lundgren-aq8qe",
-      lank_text: "Harness och agenter, på LinkedIn",
-      bild: { src: "bilder/Harness_och_agenter.jpg", alt: "Handritad skiss där en AI-agent omsluter ett harness, en LLM och ett kontext.", w: 607, h: 345 },
-      siffror: "inga",
-      sekretess: "ok"
-    },
-    {
-      id: "li-ai-tester",
-      kategori: "Inlägg på LinkedIn",
+      id: "ai-testerna",
+      kategori: "Ämne i flera medier",
       visas_i_exempel: false,
       rubrik: "Vad mäter AI-testerna egentligen?",
-      en_mening: "Vad händer när modellen vet att den testas? Ett inlägg med en egen genomgång.",
+      en_mening: "Vad händer när modellen vet att den testas? Utgår från en tabell över AI-tester.",
       arbetssatt: "",
       verktyg: [],
       resultat: "",
-      lank: "https://www.linkedin.com/feed/update/urn:li:activity:7509242756939223041/",
-      lank_text: "AI-testerna, på LinkedIn",
-      fler_lankar: [
-        { text: "Blogginlägget, Tankar i tiden från Lund", url: "https://klel.wordpress.com/2026/09/25/vad-mater-ai-testerna-egentligen/" }
+      lank: null,
+      lank_text: "",
+      medier: [
+        { medium: "Program", text: "AI-testerna, en genomgång", url: "https://kentlundgren.github.io/AI-teknik/AI_modeller/AI_tester/" },
+        { medium: "Bloggtext", text: "Vad mäter AI-testerna egentligen", url: "https://klel.wordpress.com/2026/09/25/vad-mater-ai-testerna-egentligen/" },
+        { medium: "LinkedIn", text: "Inlägget på LinkedIn", url: "https://www.linkedin.com/feed/update/urn:li:activity:7509242756939223041/" }
       ],
       bild: { src: "bilder/ai-tester.jpg", alt: "Tabell med resultat för fem AI-modeller i nio olika tester.", w: 888, h: 702 },
       siffror: "inga",
       sekretess: "ok"
     },
     {
-      id: "bl-vindkraft",
-      kategori: "Blogginlägg",
+      id: "rosterna",
+      kategori: "Ämne i flera medier",
       visas_i_exempel: false,
-      rubrik: "Ett vindkraftverk, fem sanningar",
-      en_mening: "Jag byggde om min vindkraftskalkyl och räknar ur fem perspektiv: vems kalkyl räknar vi egentligen?",
+      rubrik: "Rösterna efter ChatGPT",
+      en_mening: "Vem har hållit fast, och vem har glidit? Ett inlägg om hur fyra röster i AI-debatten förändrats.",
       arbetssatt: "",
       verktyg: [],
       resultat: "",
-      lank: "https://controllerutangranser.wordpress.com/2026/07/03/ett-vindkraftverk-fem-sanningar-vems-kalkyl-raknar-vi-egentligen/",
-      lank_text: "Blogginlägget, Controller utan gränser",
-      bild: { src: "bilder/vindkraft-fem.jpg", alt: "Illustration av ett vindkraftverk i ett landskap, omgivet av fem symboler för olika parter.", w: 900, h: 600 },
+      lank: null,
+      lank_text: "",
+      medier: [
+        { medium: "Program", text: "Sidan med de fyra rösterna", url: "https://ai-teknik-4-roster.vercel.app/" },
+        { medium: "LinkedIn", text: "Inlägget på LinkedIn", url: "https://www.linkedin.com/posts/kentlundgren_r%C3%B6sterna-efter-chatgpt-vem-har-h%C3%A5llit-fast-activity-7506712196756881409-BhVM" }
+      ],
+      bild: { src: "bilder/Max_Tegmark_med_flera.jpg", alt: "Fyra rutor med Max Tegmark, Olle Häggström, Nick Bostrom och Anders Sandberg, var och en med en kort beskrivning av hur rösten förändrats.", w: 900, h: 426 },
       siffror: "inga",
       sekretess: "ok"
     },
     {
-      id: "bl-minne",
-      kategori: "Blogginlägg",
+      id: "harness",
+      kategori: "Ämne i flera medier",
       visas_i_exempel: false,
-      rubrik: "Minnesanvändning i Claudes ekosystem",
-      en_mening: "Skillnaden mellan projektinstruktioner, en skill, en projektfil och det personliga minnet.",
+      rubrik: "Harness och agenter, vad är det?",
+      en_mening: "En artikel om vad ett harness för en AI-agent är, efter att jag frågat Anthropic själva.",
       arbetssatt: "",
       verktyg: [],
       resultat: "",
-      lank: "https://klel.wordpress.com/2026/08/26/minnesanvandning-i-claudes-ekosystem/",
-      lank_text: "Blogginlägget, Tankar i tiden från Lund",
-      bild: { src: "bilder/minne-claude.jpg", alt: "Schema där en agent innehåller ett harness, som i sin tur består av en modell och ett kontext.", w: 900, h: 508 },
+      lank: null,
+      lank_text: "",
+      medier: [
+        { medium: "LinkedIn", text: "Artikeln på LinkedIn", url: "https://www.linkedin.com/pulse/harness-och-agenter-vad-%C3%A4r-det-kent-lundgren-aq8qe" }
+      ],
+      bild: { src: "bilder/Harness_och_agenter.jpg", alt: "Handritad skiss där en AI-agent omsluter ett harness, en LLM och ett kontext.", w: 607, h: 345 },
       siffror: "inga",
       sekretess: "ok"
     },
     {
-      id: "bl-fas",
-      kategori: "Blogginlägg",
+      id: "claude-kostnad",
+      kategori: "Ämne i flera medier",
       visas_i_exempel: false,
       rubrik: "Ligger jag i fas med Claude?",
       en_mening: "Om jag ligger i fas med mitt Claude-abonnemang, eller är övertrasserad, utifrån sidan Usage i claude.ai.",
       arbetssatt: "",
       verktyg: [],
       resultat: "",
-      lank: "https://klel.wordpress.com/2026/08/04/ligger-jag-i-fas-med-claude/",
-      lank_text: "Blogginlägget, Tankar i tiden från Lund",
+      lank: null,
+      lank_text: "",
+      medier: [
+        { medium: "Program", text: "Claude-kostnad, verktyget", url: "https://kentlundgren.github.io/Ovrigt/Claude_kostnad/index.html" },
+        { medium: "Bloggtext", text: "Ligger jag i fas med Claude?", url: "https://klel.wordpress.com/2026/08/04/ligger-jag-i-fas-med-claude/" }
+      ],
       bild: { src: "bilder/i-fas-claude.jpg", alt: "Illustration av en björn vid en mätare som visar att 31 procent av abonnemanget är förbrukat efter 10 procent av tiden.", w: 900, h: 604 },
       siffror: "inga",
       sekretess: "ok"
     },
     {
-      id: "bl-gren",
-      kategori: "Blogginlägg",
+      id: "claude-minne",
+      kategori: "Ämne i flera medier",
+      visas_i_exempel: false,
+      rubrik: "Minnesanvändning i Claudes ekosystem",
+      en_mening: "Skillnaden mellan projektinstruktioner, en skill, en projektfil och det personliga minnet.",
+      arbetssatt: "",
+      verktyg: [],
+      resultat: "",
+      lank: null,
+      lank_text: "",
+      medier: [
+        { medium: "Bloggtext", text: "Minnesanvändning i Claudes ekosystem", url: "https://klel.wordpress.com/2026/08/26/minnesanvandning-i-claudes-ekosystem/" }
+      ],
+      bild: { src: "bilder/minne-claude.jpg", alt: "Schema där en agent innehåller ett harness, som i sin tur består av en modell och ett kontext.", w: 900, h: 508 },
+      siffror: "inga",
+      sekretess: "ok"
+    },
+    {
+      id: "gren-sanning",
+      kategori: "Ämne i flera medier",
       visas_i_exempel: false,
       rubrik: "En gren för sanningen, en för allmänheten",
       en_mening: "Det gick inte att pusha, och det var tur: om ett litet verktyg och en gren för sanningen, en för allmänheten.",
       arbetssatt: "",
       verktyg: [],
       resultat: "",
-      lank: "https://klel.wordpress.com/2026/08/03/en-gren-for-sanningen-en-for-allmanheten/",
-      lank_text: "Blogginlägget, Tankar i tiden från Lund",
+      lank: null,
+      lank_text: "",
+      medier: [
+        { medium: "Bloggtext", text: "En gren för sanningen, en för allmänheten", url: "https://klel.wordpress.com/2026/08/03/en-gren-for-sanningen-en-for-allmanheten/" }
+      ],
       bild: { src: "bilder/gren-sanning.jpg", alt: "Illustration av ett träd fyllt med böcker och mappar, som står för sanningen, bredvid en planta med en rapport för allmänheten.", w: 900, h: 600 },
       siffror: "inga",
       sekretess: "ok"

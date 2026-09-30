@@ -65,6 +65,12 @@ h4.undergrupp { font-size: 0.95rem; color: var(--text); margin: 14px 0 8px; }
 .kort .lank { display: table; margin: 6px 0; color: var(--accent); font-weight: 600; }
 .kort .lank:last-child { margin-bottom: 14px; }
 .kort.utan-lank { background: #fbfaf7; }
+.kort .medie-ar { font-weight: 700; margin: 14px 0 2px; }
+.kort .medie { display: flex; flex-wrap: wrap; gap: 2px 10px; align-items: baseline; margin: 6px 0; }
+.kort .medium { flex: none; width: 88px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+.kort .medie a.lank { display: inline; margin: 0; }
+.kort .medie-not { font-size: 0.85rem; color: var(--muted); }
+.kort .medie:last-child { margin-bottom: 14px; }
 .kort.med-bild summary { flex-direction: row; align-items: center; gap: 12px; }
 .kort.med-bild summary::before { float: none; order: 3; margin-left: auto; }
 .kort.med-bild .rubrik { flex: 1; }

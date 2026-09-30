@@ -176,6 +176,30 @@
     oppnadeForUtskrift = [];
   });
 
+  // Ett ämne i flera medier: en rad per medium (Program, Bloggtext, LinkedIn, YouTube, Podd),
+  // grupperad under ett år när flera år finns (t.ex. samma ämne 2025 och 2026).
+  function byggMedier(foralder, medier) {
+    const ar = [];
+    medier.forEach(function (m) {
+      const a = m.ar || '';
+      if (ar.indexOf(a) === -1) ar.push(a);
+    });
+    ar.forEach(function (a) {
+      if (a) foralder.appendChild(el('p', 'medie-ar', a));
+      medier.filter(function (m) { return (m.ar || '') === a; }).forEach(function (m) {
+        const p = el('p', 'medie');
+        p.appendChild(el('span', 'medium', m.medium));
+        const l = el('a', 'lank', m.text);
+        l.href = m.url;
+        l.target = '_blank';
+        l.rel = 'noopener noreferrer';
+        p.appendChild(l);
+        if (m.not) p.appendChild(el('span', 'medie-not', m.not));
+        foralder.appendChild(p);
+      });
+    });
+  }
+
   // Bild från kortets inlägg: miniatyr i det stängda kortet, stor bild när kortet är utfällt.
   function byggBild(b, cls) {
     const img = el('img', 'bild-' + cls);
@@ -217,7 +241,9 @@
     if (SIFFROR_TEXT[k.siffror] && k.sekretess === 'ok') {
       det.appendChild(el('p', 'markning', SIFFROR_TEXT[k.siffror]));
     }
-    if (k.sekretess === 'ok' && k.lank) {
+    if (k.sekretess === 'ok' && k.medier) {
+      byggMedier(det, k.medier);
+    } else if (k.sekretess === 'ok' && k.lank) {
       const a = el('a', 'lank', k.lank_text);
       a.href = k.lank;
       a.target = '_blank';

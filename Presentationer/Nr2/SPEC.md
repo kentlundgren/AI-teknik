@@ -2,7 +2,7 @@
 
 **Hör till:** `PRD_presentation_ai_arbetsgivare.md` (v4)
 **Skapad:** 2026-09-29
-**Version:** 3.15 (se ändringsloggen; tidigare 3.3: frågor i Kents röst; kategorin "Forskningskalkyl", gruppering i kortvyn, Cursor under AI; godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
+**Version:** 3.16 (se ändringsloggen; tidigare 3.3: frågor i Kents röst; kategorin "Forskningskalkyl", gruppering i kortvyn, Cursor under AI; godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
 **Status:** **Godkänd som byggunderlag.** Ändringar görs som ny version.
 **Syfte:** Låst byggspecifikation. PRD:n säger *vad och varför*, den här filen säger *exakt hur det ska vara* och när det är klart.
 
@@ -41,7 +41,7 @@ Varje kort i `data.js` har exakt dessa fält:
 ```
 id            unik text, gemener och bindestreck
 kategori      en av: "Granskning", "Ekonomikommunikation", "Forskningskalkyl", "Analys och faktakoll",
-              "Revision och redovisning", "Förening", "Modellering", "Arbetssätt", "Vindkraftskalkyl", "Inlägg på LinkedIn", "Blogginlägg"
+              "Revision och redovisning", "Förening", "Modellering", "Arbetssätt", "Vindkraftskalkyl", "Ämne i flera medier"
 rubrik        max 60 tecken
 en_mening     max 160 tecken, vad det är
 arbetssatt    max 280 tecken, hur AI och Kent delade på arbetet ("AI föreslog, jag verifierade ...");
@@ -51,6 +51,7 @@ resultat      max 200 tecken, vad det visade
 lank          absolut https-adress eller null
 lank_text     max 60 tecken, beskrivande, inte en rå URL
 bild          valfritt: { src (relativ sökväg i bilder/), alt, w, h }, bild från kortets inlägg, max 200 kB
+medier        valfritt: lista med { ar?, medium ("Program"|"Bloggtext"|"LinkedIn"|"YouTube"|"Podd"), text (max 60), url, not? } för ett ämne i flera medier; ersätter lank
 fler_lankar   valfritt: lista med { text, url } för kort med fler än en länk (samma regler som lank_text)
 siffror       "paahittade" | "oppna_kallor" | "inga" | "verkliga_foreningens_egna" | "anonymiserade"
 sekretess     "ok" | "ej_publik"   (ej_publik = visas utan länk)
@@ -120,6 +121,7 @@ Får bara innehålla det Kent bekräftat (2026-09-29):
 
 ## 9. Ändringslogg
 
+- **v3.16 (2026-09-30):** Fråga 5 byter rubrik till "Vad har jag skapat och berättat om generativ AI?" (id `skrivit` oförändrat, så länken `#skrivit` fortsätter fungera) och visar **ämneskort**: ett kort per ämne med alla medier samlade (Program, Bloggtext, LinkedIn, YouTube, Podd) via nytt valfritt fält `medier: [{ ar?, medium, text, url, not? }]`. Nio ämnen: Ölkalkylen, Statsskuld (2025 och 2026), AI-testerna, Vindkraftskalkylen, Rösterna efter ChatGPT, Harness och agenter, Claude-kostnad, Minnesanvändning, En gren för sanningen. De tidigare korten per inlägg (LinkedIn och blogg för sig) slås ihop. Kategori "Ämne i flera medier" (nya kort döljs i exempellistan). Två nya bilder (`ol-break-even.jpg`, `statsskuld-sverige-usa.jpg`). Visningssiffra får visas avrundad och daterad (Kents beslut 2026-09-30, ändrar tidigare regel): öl-inlägget "drygt 4 000 visningar, per 30 sep 2026". Spårningsparametrar (`?si=`, `utm_`, `rcm`) är borttagna ur alla länkar. `kentlundgren.se`-länken (statsskuld 2025) går inte att kontrollera maskinellt (HTTP 455), men Kents egen blogg länkar dit.
 - **v3.15 (2026-09-30):** Kent la själv in två bilder (`Max_Tegmark_med_flera.jpg`, 138 kB, och `Harness_och_agenter.jpg`, 24 kB) som nu sitter på korten "Rösterna efter ChatGPT" och "Harness och agenter". Filnamnen behålls exakt, eftersom GitHub Pages skiljer på stora och små bokstäver.
 - **v3.14 (2026-09-30):** Bilder på korten via nytt valfritt fält `bild: { src, alt, w, h }` (miniatyr i stängt kort, stor bild när kortet är utfällt). Fem bilder hämtade från Kents bloggar med hans ja 2026-09-30 och sparade i `bilder/` (JPEG, max 900 px bred, alla under 200 kB; vindkraftsbilden omgjord från 1,8 MB PNG). Fyra nya blogg-kort (kategori "Blogginlägg", `visas_i_exempel: false`) och bild plus bloggänk på AI-testerna. Kortlistan i fråga 5 har bildkorten först.
 - **v3.13 (2026-09-30):** Fråga 5 får länkar till Kents två bloggars AI-kategorier (klel.wordpress.com och controllerutangranser.wordpress.com). Bilder på korten väntar på Kents godkännande av hur de ska hämtas.
