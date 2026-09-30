@@ -114,6 +114,15 @@ spåra, och en granskare ser varför något blev som det blev.
 [PRD-mall, generell](https://github.com/kentlundgren/AI-teknik/blob/main/AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_generell.md).
 Reglerna ligger i `kent-meta-regler-for-code` (Regel 6 och 7).
 
+**Utvecklingen över tid (Kents egna ord, 2026-10-01):** på sista tiden arbetar han mer och mer med
+PRD. Hans LinkedIn-inlägg "Min "samvaro" med Claude" (2 aug 2026) börjar: "Jag skäms lite när jag
+tänker på hur jag jobbade med AI förut. Ingen plan, bara kod. Det har ändrats, i tre tydliga steg."
+Bilden "Min utveckling med generativ AI – tre steg" visar stegen: (1) **fråga hellre en gång för
+mycket**, (2) **ett riktigt samtal innan kod**, (3) **en formell PRD (Fas 0) plus ibland en SPEC**.
+Samma ämne finns som bloggtexter ("PRD först, sedan CLAUDE.md", 31 jul 2026, och "Behöver jag en
+spec.md?", 2 aug 2026) och som PRD-mallen. Samlat på Provbänken, fråga 1 (kortet "PRD, specifikation
+och process-logg").
+
 ## 5. Var han skriver om det
 
 - LinkedIn: <https://www.linkedin.com/in/kentlundgren/>

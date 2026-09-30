@@ -123,7 +123,7 @@ const PROVBANKEN = {
             { text: "Mina blogginlägg om AI: Controller, lärare och coach utan gränser reflekterar", url: "https://controllerutangranser.wordpress.com/category/ai/" },
             { text: "Kortare inlägg finns också på X, märkta #nyaAI", url: "https://x.com/search?q=%23nyaAI%20(from%3Akentlundgren)&src=typed_query" }
           ],
-          kort_ids: ["ol-tyskland", "statsskuld", "ai-testerna", "vindkraftskalkyler", "rosterna", "harness-minne", "claude-kostnad", "gren-sanning"],
+          kort_ids: ["ol-tyskland", "statsskuld", "ai-testerna", "vindkraftskalkyler", "rosterna", "harness-minne", "claude-kostnad", "gren-sanning", "arbetssatt"],
           sortera: "start"
         }
       ]
@@ -235,14 +235,23 @@ const PROVBANKEN = {
     },
     {
       id: "arbetssatt",
+      start: "2026-07-31",
+      ar: "2026",
       kategori: "Arbetssätt",
       rubrik: "PRD, specifikation och process-logg",
       en_mening: "Jag planerar ett bygge skriftligt innan det byggs: vad och varför, sedan exakt hur.",
       arbetssatt: "Först en PRD, därefter en kort specifikation med acceptanskriterier, och en process-logg under bygget.",
       verktyg: ["Claude", "Cursor", "GitHub"],
       resultat: "Beslut går att spåra i efterhand, och en granskare ser varför något blev som det blev.",
-      lank: "https://github.com/kentlundgren/AI-teknik/blob/main/AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_generell.md",
-      lank_text: "PRD-mall, generell",
+      lank: null,
+      lank_text: "",
+      medier: [
+        { medium: "LinkedIn", text: "Min \"samvaro\" med Claude", url: "https://www.linkedin.com/posts/kentlundgren_jag-sk%C3%A4ms-lite-n%C3%A4r-jag-t%C3%A4nker-p%C3%A5-hur-jag-ugcPost-7489653635350437888-3JPK/" },
+        { medium: "Bloggtext", text: "PRD först, sedan CLAUDE.md", url: "https://klel.wordpress.com/2026/07/31/prd-forst-sedan-claude-md/" },
+        { medium: "Bloggtext", text: "Behöver jag en spec.md?", url: "https://klel.wordpress.com/2026/08/02/behover-jag-en-spec-md/" },
+        { medium: "Mall", text: "PRD-mall, generell", url: "https://github.com/kentlundgren/AI-teknik/blob/main/AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_generell.md" }
+      ],
+      bild: { src: "bilder/Min_utveckling_med_generativAI.jpg", alt: "Tre steg i min utveckling med generativ AI: fråga hellre en gång för mycket, ett riktigt samtal innan kod, och en formell PRD (Fas 0) plus ibland en SPEC.", w: 547, h: 311 },
       siffror: "inga",
       sekretess: "ok"
     },
