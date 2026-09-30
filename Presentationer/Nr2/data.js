@@ -123,7 +123,7 @@ const PROVBANKEN = {
             { text: "Mina blogginlägg om AI: Controller, lärare och coach utan gränser reflekterar", url: "https://controllerutangranser.wordpress.com/category/ai/" },
             { text: "Kortare inlägg finns också på X, märkta #nyaAI", url: "https://x.com/search?q=%23nyaAI%20(from%3Akentlundgren)&src=typed_query" }
           ],
-          kort_ids: ["ol-tyskland", "statsskuld", "ai-testerna", "vindkraftskalkyler", "rosterna", "harness", "claude-kostnad", "claude-minne", "gren-sanning"]
+          kort_ids: ["ol-tyskland", "statsskuld", "ai-testerna", "vindkraftskalkyler", "rosterna", "harness-minne", "claude-kostnad", "gren-sanning"]
         }
       ]
     }
@@ -352,21 +352,27 @@ const PROVBANKEN = {
       sekretess: "ok"
     },
     {
-      id: "harness",
+      id: "harness-minne",
       kategori: "Ämne i flera medier",
       ar: "2026",
       visas_i_exempel: false,
-      rubrik: "Harness och agenter, vad är det?",
-      en_mening: "En artikel om vad ett harness för en AI-agent är, efter att jag frågat Anthropic själva.",
+      rubrik: "Harness, agenter och minne",
+      en_mening: "Två texter som bygger på samma YouTube-video: vad ett harness är, och skillnaden mellan projektinstruktioner, en skill, en projektfil och minnet.",
       arbetssatt: "",
       verktyg: [],
       resultat: "",
       lank: null,
       lank_text: "",
       medier: [
-        { medium: "LinkedIn", text: "Artikeln på LinkedIn", url: "https://www.linkedin.com/pulse/harness-och-agenter-vad-%C3%A4r-det-kent-lundgren-aq8qe" }
+        { medium: "LinkedIn", text: "Harness och agenter, vad är det?", url: "https://www.linkedin.com/pulse/harness-och-agenter-vad-%C3%A4r-det-kent-lundgren-aq8qe" },
+        { medium: "Bloggtext", text: "Minnesanvändning i Claudes ekosystem", url: "https://klel.wordpress.com/2026/08/26/minnesanvandning-i-claudes-ekosystem/" },
+        { medium: "Källa", text: "When to Build Your Own Agent Harness, Harrison Chase", url: "https://www.youtube.com/watch?v=HI2q3ci3Iuc", not: "video, Sequoia Capital" }
       ],
-      bild: { src: "bilder/Harness_och_agenter.jpg", alt: "Handritad skiss där en AI-agent omsluter ett harness, en LLM och ett kontext.", w: 607, h: 345 },
+      bild: [
+        { src: "bilder/Harness_och_agenter.jpg", alt: "Handritad skiss där en AI-agent omsluter ett harness, en LLM och ett kontext.", w: 607, h: 345 },
+        { src: "bilder/minne-claude.jpg", alt: "Schema där en agent innehåller ett harness, som i sin tur består av en modell och ett kontext, med finetuning och minne som följder.", w: 900, h: 508 }
+      ],
+      bildtext: "Skissen är min egen. Schemat är en bild ur Sequoia Capitals video.",
       siffror: "inga",
       sekretess: "ok"
     },
@@ -387,25 +393,6 @@ const PROVBANKEN = {
         { medium: "Bloggtext", text: "Ligger jag i fas med Claude?", url: "https://klel.wordpress.com/2026/08/04/ligger-jag-i-fas-med-claude/" }
       ],
       bild: { src: "bilder/i-fas-claude.jpg", alt: "Illustration av en björn vid en mätare som visar att 31 procent av abonnemanget är förbrukat efter 10 procent av tiden.", w: 900, h: 604 },
-      siffror: "inga",
-      sekretess: "ok"
-    },
-    {
-      id: "claude-minne",
-      kategori: "Ämne i flera medier",
-      ar: "2026",
-      visas_i_exempel: false,
-      rubrik: "Minnesanvändning i Claudes ekosystem",
-      en_mening: "Skillnaden mellan projektinstruktioner, en skill, en projektfil och det personliga minnet.",
-      arbetssatt: "",
-      verktyg: [],
-      resultat: "",
-      lank: null,
-      lank_text: "",
-      medier: [
-        { medium: "Bloggtext", text: "Minnesanvändning i Claudes ekosystem", url: "https://klel.wordpress.com/2026/08/26/minnesanvandning-i-claudes-ekosystem/" }
-      ],
-      bild: { src: "bilder/minne-claude.jpg", alt: "Schema där en agent innehåller ett harness, som i sin tur består av en modell och ett kontext.", w: 900, h: 508 },
       siffror: "inga",
       sekretess: "ok"
     },

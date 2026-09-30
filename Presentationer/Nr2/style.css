@@ -94,6 +94,15 @@ h4.undergrupp { font-size: 0.95rem; color: var(--text); margin: 14px 0 8px; }
 .kort[open] .bild-miniatyr { display: none; }
 .bild-stor { display: none; max-width: 100%; height: auto; border-radius: 8px; margin: 4px 0 8px; }
 .kort[open] .bild-stor { display: block; }
+/* Flera bilder på ett kort växlar mjukt (script.js byter klassen `syns` var fjärde sekund). */
+.bild-vaxel { display: grid; }
+.bild-vaxel img { grid-area: 1 / 1; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s ease; }
+.bild-vaxel img.syns { opacity: 1; }
+.bild-vaxel.bild-stor { overflow: hidden; }
+.kort[open] .bild-vaxel.bild-stor { display: grid; }
+.bild-vaxel.bild-miniatyr { overflow: hidden; }
+.bild-text { font-size: 0.85rem; color: var(--muted); margin: 0 0 8px; }
+@media (prefers-reduced-motion: reduce) { .bild-vaxel img { transition: none; } }
 
 footer { padding: 24px 16px 40px; color: var(--muted); font-size: 0.9rem; }
 footer a, noscript a { color: var(--accent); }

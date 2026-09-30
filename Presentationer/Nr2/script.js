@@ -31,6 +31,7 @@
       knapp.tabIndex = vald ? 0 : -1;
     });
     const f = D.fragor.find(function (x) { return x.id === id; });
+    vaxlare.length = 0; // gamla bildgrupper försvinner när sidan ritas om
     visaSvar(f);
     visaKort(f);
     // Vid första laddning utan ankare lämnas adressen ren; hash skrivs först när en fråga väljs.
@@ -237,14 +238,49 @@
   }
 
   // Bild från kortets inlägg: miniatyr i det stängda kortet, stor bild när kortet är utfällt.
-  function byggBild(b, cls) {
-    const img = el('img', 'bild-' + cls);
+  function enBild(b, cls) {
+    const img = el('img', cls);
     img.src = b.src;
-    img.alt = cls === 'miniatyr' ? '' : b.alt;
+    img.alt = b.alt;
     img.width = b.w;
     img.height = b.h;
     img.loading = 'lazy';
     return img;
+  }
+
+  // Flera bilder på ett kort växlar var fjärde sekund (Kents begäran). Av vid `prefers-reduced-motion`.
+  const vaxlare = [];
+  let vaxlarTimer = null;
+  const MINDRE_RORELSE = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function startaVaxling() {
+    if (vaxlarTimer || MINDRE_RORELSE) return;
+    vaxlarTimer = setInterval(function () {
+      vaxlare.forEach(function (g) {
+        g.i = (g.i + 1) % g.bilder.length;
+        g.bilder.forEach(function (im, j) { im.classList.toggle('syns', j === g.i); });
+      });
+    }, 4000);
+  }
+
+  function byggBild(bilder, cls) {
+    const lista = Array.isArray(bilder) ? bilder : [bilder];
+    if (lista.length === 1) {
+      const img = enBild(lista[0], 'bild-' + cls);
+      if (cls === 'miniatyr') img.alt = '';
+      return img;
+    }
+    const grupp = el('div', 'bild-vaxel bild-' + cls);
+    grupp.style.aspectRatio = lista[0].w + ' / ' + lista[0].h;
+    const imgs = lista.map(function (b, j) {
+      const img = enBild(b, j === 0 ? 'syns' : '');
+      if (cls === 'miniatyr') img.alt = '';
+      grupp.appendChild(img);
+      return img;
+    });
+    vaxlare.push({ bilder: imgs, i: 0 });
+    startaVaxling();
+    return grupp;
   }
 
   function byggKort(k, visaKategori) {
@@ -258,6 +294,7 @@
     sum.appendChild(rubrik);
     det.appendChild(sum);
     if (k.bild) det.appendChild(byggBild(k.bild, 'stor'));
+    if (k.bild && k.bildtext) det.appendChild(el('p', 'bild-text', k.bildtext));
     det.appendChild(el('p', null, k.en_mening));
     if (k.arbetssatt) {
       const p = el('p');

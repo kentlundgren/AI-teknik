@@ -536,7 +536,7 @@ kvalitetssäkrar, att han lär känna modeller genom upprepning) hör hemma i sk
 
 ## Uppdateringslogg
 
-- 2026-09-30 (v15), samma dag: Regel 16 utökad med **ämneskort** (`medier`-fältet, ett kort per ämne
+- 2026-09-30 (v15), samma dag: Regel 16 utökad med **ämneskort** (`bild` kan vara en lista som växlar var fjärde sekund; `bildtext` ger källa under bilden) (`medier`-fältet, ett kort per ämne
   med program, bloggtext, LinkedIn, YouTube och podd samlade) och ändrad regel om visningssiffror
   (avrundade, daterade och av Kent givna får visas). Utlöst av att Kent beskrev sitt mönster att
   spegla samma ämne i flera medier; se `kent-ai-arbetssatt`, avsnitt 7.
