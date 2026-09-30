@@ -9,6 +9,14 @@
 
   document.getElementById('versionsdatum').textContent = D.version;
 
+  // Sidans rotadress (mappen där script.js ligger). Används för bilder och länken "Provbänken", eftersom
+  // adressraden kan stå på …/Nr2/verktyg/ och relativa sökvägar då skulle peka fel.
+  const ROOT = document.currentScript && document.currentScript.src
+    ? document.currentScript.src.replace(/[^\/]*$/, '')
+    : location.href.replace(/[#?].*$/, '').replace(/[^\/]*$/, '');
+  const brandLank = document.querySelector('#brand a');
+  if (brandLank) brandLank.href = ROOT;
+
   const SIFFROR_TEXT = {
     paahittade: 'Siffrorna är påhittade',
     oppna_kallor: 'Öppna källor',
@@ -35,7 +43,12 @@
     visaSvar(f);
     visaKort(f);
     // Vid första laddning utan ankare lämnas adressen ren; hash skrivs först när en fråga väljs.
-    if (!utanHash) history.replaceState(null, '', '#' + id);
+    // Adressraden visar frågans delbara adress (…/Nr2/verktyg/), som har egen delningsbild på LinkedIn och X.
+    // Laddas den adressen om skickar dess lilla sida vidare hit igen. Utan stöd (t.ex. file://) används #.
+    if (!utanHash) {
+      try { history.replaceState(null, '', ROOT + id + '/'); }
+      catch (e) { history.replaceState(null, '', '#' + id); }
+    }
   }
 
   // Namn på verktyg i en text blir länkar. Byggs med textContent och createElement, aldrig som HTML.
@@ -250,7 +263,7 @@
   // Bild från kortets inlägg: miniatyr i det stängda kortet, stor bild när kortet är utfällt.
   function enBild(b, cls) {
     const img = el('img', cls);
-    img.src = b.src;
+    img.src = /^https?:/.test(b.src) ? b.src : ROOT + b.src;
     img.alt = b.alt;
     img.width = b.w;
     img.height = b.h;
