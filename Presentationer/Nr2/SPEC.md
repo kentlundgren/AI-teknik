@@ -2,7 +2,7 @@
 
 **Hör till:** `PRD_presentation_ai_arbetsgivare.md` (v4)
 **Skapad:** 2026-09-29
-**Version:** 3.20 (se ändringsloggen; tidigare 3.3: frågor i Kents röst; kategorin "Forskningskalkyl", gruppering i kortvyn, Cursor under AI; godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
+**Version:** 3.21 (se ändringsloggen; tidigare 3.3: frågor i Kents röst; kategorin "Forskningskalkyl", gruppering i kortvyn, Cursor under AI; godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
 **Status:** **Godkänd som byggunderlag.** Ändringar görs som ny version.
 **Syfte:** Låst byggspecifikation. PRD:n säger *vad och varför*, den här filen säger *exakt hur det ska vara* och när det är klart.
 
@@ -50,6 +50,7 @@ verktyg       lista med texter
 resultat      max 200 tecken, vad det visade
 lank          absolut https-adress eller null
 lank_text     max 60 tecken, beskrivande, inte en rå URL
+ar            valfritt: år (text) för kort utan `medier` med `ar`, visas efter rubriken
 bild          valfritt: { src (relativ sökväg i bilder/), alt, w, h }, bild från kortets inlägg, max 200 kB
 medier        valfritt: lista med { ar?, medium ("Program"|"Bloggtext"|"LinkedIn"|"YouTube"|"Podd"|"Kalkylark"|"Sida"), text (max 60), url, not?, info? } för ett ämne i flera medier; ersätter lank
 fler_lankar   valfritt: lista med { text, url } för kort med fler än en länk (samma regler som lank_text)
@@ -121,6 +122,7 @@ Får bara innehålla det Kent bekräftat (2026-09-29):
 
 ## 9. Ändringslogg
 
+- **v3.21 (2026-09-30):** Årtal i parentes efter rubriken på varje ämneskort i det stängda kortet, t.ex. "Statsskuld i Sverige och USA (2025, 2026)". Årtalen hämtas från de år som finns i `medier` (`ar`), annars från kortets eget fält `ar`. Årtal kontrollerade: LinkedIn-inläggens datum räknade ur inläggens id (öl 2026-07-29, statsskuld 2026-07-28, rösterna 2026-09-18, AI-testerna 2026-09-25, harness 2026-08-27) och bloggarnas publiceringsdatum. Ordningen på korten är oförändrad (kurerad).
 - **v3.20 (2026-09-30):** Vindkraftskortet får under 2024 bloggtexten "Vindkraftskalkyl med hjälp av AI" (22 okt 2024) och YouTube-videon "Vindkraftskalkyl med hjälp av AI - Anthropics Claude" (Kents kanal, kontrollerad via oEmbed). Hovringstexter efter Kents uppgifter 2026-09-30: i oktober 2024 var Anthropics Claude 3.5 Sonnet den aktuella modellen, och Kent lyckades få fram kalkylen med den gratis modellen; i videon går han igenom många AI-modeller, i princip alla som gällde i oktober 2024. Bloggtextens egen beskrivning nämner Claude 3.5 Sonnet och texten länkar till `vindkraftskalkyl.html`. Kortet nämner Claude 3.5 Sonnet bland verktygen. Att videon går igenom många modeller är Kents uppgift; innehållet i videon är inte genomgånget.
 - **v3.19 (2026-09-30):** Vindkraftskortet får "Vindkraftskalkyl 19, React 18 utan JSX" (`kentlundgren.se/kalkyler/vindkraftskalkyl.html`, serverns datum 18 nov 2024, alltså 2024) med Kents historia som hovringstext: React och JSX för att få svaret direkt utan en beräkna-knapp, och att han nu kan få samma direkta svar med vanlig HTML, CSS och JavaScript utan React, vilket han tyckte var "magiskt". Samma historia, kortare, på version 25. Bloggtexten "Vindkraftskalkyl med generativ AI och React" (18 nov 2024) låg redan på kortet under 2024.
 - **v3.18 (2026-09-30):** Vindkraftskortet får äldre versioner i årsblock: **2024** (Vindkraftskalkyl 25, React 18 och JSX, med bloggtexten från 18 nov 2024 och samlingssidan Vindkraftsekonomi), **2022** (Google Kalkylark och bloggtexten "Lönsamhet för 4 MW vindkraftverk", 14 sep 2022) och **2014** (bloggtexten "Lönsamhet för stora (3 MW) vindkraftverk", 24 jan 2014). Nytt valfritt fält `info` på en medieraden: hovringstext (`title`) plus en ⓘ-knapp som visar texten på touch och tangentbord; version 25 förklaras med Kents egna ord. Tona-ut-rörelsen är nu stegvis: ju äldre år, desto mer uttonat (55 % ner till 30 %). Årtal kontrollerade mot serverns `Last-Modified` (Vindkraftskalkyl 25: 18 nov 2024; Vindkraftsekonomi: 22 okt 2024) och bloggarnas publiceringsdatum. Notera: bloggtexten från 2014 gäller **3 MW**, och Google Kalkylarket för **4 MW** hör till inlägget från 2022 (inte 2014). Nya medieetiketter: "Kalkylark" och "Sida".

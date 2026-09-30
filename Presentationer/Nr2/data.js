@@ -292,6 +292,7 @@ const PROVBANKEN = {
     {
       id: "ol-tyskland",
       kategori: "Ämne i flera medier",
+      ar: "2026",
       visas_i_exempel: false,
       rubrik: "Lönar sig resan efter öl?",
       en_mening: "Det började med en resa till Tyskland för att handla billig öl. Jag gjorde en kalkyl för hur många öl som krävs för att resan ska löna sig.",
@@ -312,6 +313,7 @@ const PROVBANKEN = {
     {
       id: "ai-testerna",
       kategori: "Ämne i flera medier",
+      ar: "2026",
       visas_i_exempel: false,
       rubrik: "Vad mäter AI-testerna egentligen?",
       en_mening: "Vad händer när modellen vet att den testas? Utgår från en tabell över AI-tester.",
@@ -332,6 +334,7 @@ const PROVBANKEN = {
     {
       id: "rosterna",
       kategori: "Ämne i flera medier",
+      ar: "2026",
       visas_i_exempel: false,
       rubrik: "Rösterna efter ChatGPT",
       en_mening: "Vem har hållit fast, och vem har glidit? Ett inlägg om hur fyra röster i AI-debatten förändrats.",
@@ -351,6 +354,7 @@ const PROVBANKEN = {
     {
       id: "harness",
       kategori: "Ämne i flera medier",
+      ar: "2026",
       visas_i_exempel: false,
       rubrik: "Harness och agenter, vad är det?",
       en_mening: "En artikel om vad ett harness för en AI-agent är, efter att jag frågat Anthropic själva.",
@@ -369,6 +373,7 @@ const PROVBANKEN = {
     {
       id: "claude-kostnad",
       kategori: "Ämne i flera medier",
+      ar: "2026",
       visas_i_exempel: false,
       rubrik: "Ligger jag i fas med Claude?",
       en_mening: "Om jag ligger i fas med mitt Claude-abonnemang, eller är övertrasserad, utifrån sidan Usage i claude.ai.",
@@ -388,6 +393,7 @@ const PROVBANKEN = {
     {
       id: "claude-minne",
       kategori: "Ämne i flera medier",
+      ar: "2026",
       visas_i_exempel: false,
       rubrik: "Minnesanvändning i Claudes ekosystem",
       en_mening: "Skillnaden mellan projektinstruktioner, en skill, en projektfil och det personliga minnet.",
@@ -406,6 +412,7 @@ const PROVBANKEN = {
     {
       id: "gren-sanning",
       kategori: "Ämne i flera medier",
+      ar: "2026",
       visas_i_exempel: false,
       rubrik: "En gren för sanningen, en för allmänheten",
       en_mening: "Det gick inte att pusha, och det var tur: om ett litet verktyg och en gren för sanningen, en för allmänheten.",

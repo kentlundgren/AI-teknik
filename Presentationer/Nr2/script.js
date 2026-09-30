@@ -226,6 +226,16 @@
     });
   }
 
+  // Årtal som visas efter kortets rubrik: de år som finns i `medier`, annars kortets eget `ar`.
+  function arLista(k) {
+    const s = [];
+    (k.medier || []).forEach(function (m) {
+      if (m.ar && s.indexOf(m.ar) === -1) s.push(m.ar);
+    });
+    if (!s.length && k.ar) s.push(k.ar);
+    return s.sort();
+  }
+
   // Bild från kortets inlägg: miniatyr i det stängda kortet, stor bild när kortet är utfällt.
   function byggBild(b, cls) {
     const img = el('img', 'bild-' + cls);
@@ -242,7 +252,10 @@
     const sum = el('summary');
     if (k.bild) sum.appendChild(byggBild(k.bild, 'miniatyr'));
     if (visaKategori) sum.appendChild(el('span', 'kategori', k.kategori));
-    sum.appendChild(el('span', 'rubrik', k.rubrik));
+    const rubrik = el('span', 'rubrik', k.rubrik);
+    const ar = arLista(k);
+    if (ar.length) rubrik.appendChild(el('span', 'rubrik-ar', ' (' + ar.join(', ') + ')'));
+    sum.appendChild(rubrik);
     det.appendChild(sum);
     if (k.bild) det.appendChild(byggBild(k.bild, 'stor'));
     det.appendChild(el('p', null, k.en_mening));

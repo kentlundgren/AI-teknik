@@ -60,6 +60,7 @@ h4.undergrupp { font-size: 0.95rem; color: var(--text); margin: 14px 0 8px; }
 .kort[open] summary::before { content: "－"; }
 .kort .kategori { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
 .kort .rubrik { font-weight: 650; }
+.kort .rubrik-ar { font-weight: 400; color: var(--muted); white-space: nowrap; }
 .kort p { margin: 6px 0; }
 .kort .markning { font-size: 0.85rem; color: var(--muted); background: var(--accent-bg); display: inline-block; padding: 2px 8px; border-radius: 6px; }
 .kort .lank { display: table; margin: 6px 0; color: var(--accent); font-weight: 600; }
