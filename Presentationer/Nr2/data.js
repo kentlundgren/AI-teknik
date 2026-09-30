@@ -115,10 +115,12 @@ const PROVBANKEN = {
         {
           rubrik: "",
           svar: [
-            { rubrik: "", text: "Jag har skrivit en hel del inlägg om AI på LinkedIn. Här är några av dem." }
+            { rubrik: "", text: "Jag har skrivit en hel del inlägg om AI, på LinkedIn och på mina bloggar. Här är några av dem." }
           ],
           lankar: [
             { text: "Alla mina inlägg på LinkedIn", url: "https://www.linkedin.com/in/kentlundgren/" },
+            { text: "Mina blogginlägg om AI: Tankar i tiden från Lund", url: "https://klel.wordpress.com/category/ai/" },
+            { text: "Mina blogginlägg om AI: Controller, lärare och coach utan gränser reflekterar", url: "https://controllerutangranser.wordpress.com/category/ai/" },
             { text: "Kortare inlägg finns också på X, märkta #nyaAI", url: "https://x.com/search?q=%23nyaAI%20(from%3Akentlundgren)&src=typed_query" }
           ],
           kort_ids: ["li-rosterna", "li-harness", "li-ai-tester"]

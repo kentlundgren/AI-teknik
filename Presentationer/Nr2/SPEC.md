@@ -2,7 +2,7 @@
 
 **Hör till:** `PRD_presentation_ai_arbetsgivare.md` (v4)
 **Skapad:** 2026-09-29
-**Version:** 3.12 (se ändringsloggen; tidigare 3.3: frågor i Kents röst; kategorin "Forskningskalkyl", gruppering i kortvyn, Cursor under AI; godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
+**Version:** 3.13 (se ändringsloggen; tidigare 3.3: frågor i Kents röst; kategorin "Forskningskalkyl", gruppering i kortvyn, Cursor under AI; godkänd av Kent 2026-09-29 som v3; två små tillägg vid bygget: siffror "anonymiserade", arbetssatt får vara tomt för ej_publik)
 **Status:** **Godkänd som byggunderlag.** Ändringar görs som ny version.
 **Syfte:** Låst byggspecifikation. PRD:n säger *vad och varför*, den här filen säger *exakt hur det ska vara* och när det är klart.
 
@@ -119,6 +119,7 @@ Får bara innehålla det Kent bekräftat (2026-09-29):
 
 ## 9. Ändringslogg
 
+- **v3.13 (2026-09-30):** Fråga 5 får länkar till Kents två bloggars AI-kategorier (klel.wordpress.com och controllerutangranser.wordpress.com). Bilder på korten väntar på Kents godkännande av hur de ska hämtas.
 - **v3.12 (2026-09-30):** Ny femte fråga "Vad har jag skrivit om generativ AI?" med en mening, länk till LinkedIn-profilen, en rad som nämner att kortare inlägg finns på X (#nyaAI) och tre LinkedIn-kort (kategori "Inlägg på LinkedIn", nytt valfritt fält `visas_i_exempel: false` så att de inte visas dubbelt under fråga 3). Kortens beskrivningar är utkast och länken till AI-testerna är byggd av inläggets id och ej öppnad; båda ska kontrolleras av Kent före publicering. X-inlägg som egna kort skjuts upp. Inläggens visningssiffror (LinkedIn/X) står inte på sidan.
 - **v3.11 (2026-09-30):** Kortvyn (fråga 3) visar först bara grupperna, som hopfällda kort med titel, en beskrivande rad (`grupptexter` i `data.js`) och antal exempel. Exemplen syns när gruppen fälls ut. Vid utskrift fälls allt ut. De beskrivande raderna är utkast att godkännas av Kent, utom raden för Förening som bygger på hans egen formulering.
 - **v3.10 (2026-09-30):** I kortvyn (fråga 3) grupperas kategorierna "Forskningskalkyl" och "Vindkraftskalkyl" under överrubriken "Kalkyl", med kategorin som underrubrik. Vindkraftskortet byter kategori från "Arbetssätt" till nya kategorin "Vindkraftskalkyl". Överrubrikerna styrs av `overgrupper` i `data.js`.
