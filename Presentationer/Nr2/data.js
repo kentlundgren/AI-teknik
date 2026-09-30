@@ -302,7 +302,8 @@ const PROVBANKEN = {
       lank_text: "",
       medier: [
         { medium: "Program", text: "Claude-kompassen", url: "https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/#claude" },
-        { medium: "Bloggtext", text: "En bild av Claudes ekosystem", url: "https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/" }
+        { medium: "Bloggtext", text: "En bild av Claudes ekosystem", url: "https://klel.wordpress.com/2026/07/29/en-bild-av-claudes-ekosystem/" },
+        { medium: "LinkedIn", text: "Vilken är din Claude favorit?", url: "https://www.linkedin.com/pulse/vilken-%C3%A4r-din-claude-favorit-kent-lundgren-atqye/" }
       ],
       bild: { src: "bilder/Claude_kompassen.jpg", alt: "Claude-kompassen som lager: Fas 0 (PRD, ibland SPEC.md) i botten, Fas 1 levande styrfiler (CLAUDE.md, AGENTS.md, SKILL.md), Fas 2 val av yta (CLI, Cursor) och Fas 3 Cursor, Git och GitHub Pages överst.", w: 900, h: 604 },
       siffror: "inga",

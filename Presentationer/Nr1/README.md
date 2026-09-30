@@ -2,6 +2,12 @@
 
 **Live Page (efter publicering):** https://kentlundgren.github.io/AI-teknik/Presentationer/Nr1/
 
+**Se även Nr2:** [Provbänken](../Nr2/) ([Live Page](https://kentlundgren.github.io/AI-teknik/Presentationer/Nr2/)),
+en frågeguide om vad Kent kan göra med AI i ekonomi- och controllerarbete, med
+exempel att öppna och kontrollera. Nr2 är byggd för arbetsgivare och
+konsultkunder. Nr1, den här, är den personliga, kronologiska visningen av hur
+Kents arbete med generativ AI utvecklats 2023–2026.
+
 Självspelande, datadriven presentation av tretton AI/webb-projekt, åtta
 årskort (två per år 2023–2026: "Vad som hände" / "Hur jag jobbade"), fyra
 årsvisa läslistor (tre kurerade blogginlägg per år, invävda direkt där
