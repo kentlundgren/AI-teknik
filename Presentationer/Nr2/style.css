@@ -34,6 +34,7 @@ header { padding-top: 28px; }
 #svar h2 { font-size: 1.25rem; margin: 14px 0 8px; }
 #svar h3 { font-size: 1rem; margin: 18px 0 6px; color: var(--accent); }
 #svar p { margin: 8px 0; }
+#svar a.verktyg { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 
 h3.grupp { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); margin: 22px 0 8px; }
 .kort { background: var(--card); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 10px; padding: 0 16px; }

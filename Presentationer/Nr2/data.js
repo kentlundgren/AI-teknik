@@ -5,6 +5,19 @@
 const PROVBANKEN = {
   version: "30 sep 2026",
 
+  // Verktyg som länkas till respektive officiella sida när namnet står i ett svar.
+  verktygslankar: {
+    "MS Copilot": "https://copilot.microsoft.com/",
+    "Claude": "https://claude.ai/",
+    "Cursor": "https://cursor.com/",
+    "GitHub": "https://github.com/",
+    "Perplexity": "https://www.perplexity.ai/",
+    "ChatGPT": "https://chatgpt.com/",
+    "Gemini Notebook": "https://notebook.google.com/",
+    "Gemini": "https://gemini.google.com/",
+    "Grok": "https://grok.com/"
+  },
+
   fragor: [
     {
       id: "ai-i-arbetet",
@@ -16,7 +29,7 @@ const PROVBANKEN = {
           svar: [
             { rubrik: "Löpande arbete", text: "MS Copilot för kortare frågor och standardanalyser." },
             { rubrik: "Djupare arbete", text: "Claude, Cursor och GitHub, där jag bygger och förfinar analysverktyg." },
-            { rubrik: "Andra åsikt och faktakoll", text: "Perplexity, ChatGPT och Gemini." }
+            { rubrik: "Andra åsikt och faktakoll", text: "Perplexity, ChatGPT, Gemini, Grok och Gemini Notebook." }
           ]
         },
         {
@@ -46,7 +59,7 @@ const PROVBANKEN = {
         { rubrik: "Ekonomisystem", text: "Raindance, Unit4/UBW." },
         { rubrik: "BI och visualisering", text: "Power BI, Hypergene, QlikView/QlikSense, Stratsys." },
         { rubrik: "Budget och prognos", text: "Planacy, Excel (avancerad)." },
-        { rubrik: "AI", text: "Claude, ChatGPT, Perplexity, Gemini, MS Copilot, Cursor." },
+        { rubrik: "AI", text: "Claude, ChatGPT, Perplexity, Gemini, Grok, Gemini Notebook, MS Copilot, Cursor." },
         { rubrik: "Egen utveckling", text: "HTML, CSS, JavaScript, GitHub (versionshantering och publicering)." }
       ],
       kort_kategorier: []

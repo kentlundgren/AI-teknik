@@ -37,10 +37,31 @@
     if (!utanHash) history.replaceState(null, '', '#' + id);
   }
 
+  // Namn på verktyg i en text blir länkar. Byggs med textContent och createElement, aldrig som HTML.
+  const NAMN = Object.keys(D.verktygslankar || {});
+  const NAMN_RE = NAMN.length ? new RegExp('(' + NAMN.map(function (n) {
+    return n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }).join('|') + ')') : null;
+
+  function lankaText(foralder, text) {
+    if (!NAMN_RE) { foralder.appendChild(document.createTextNode(text)); return; }
+    text.split(NAMN_RE).forEach(function (del) {
+      if (D.verktygslankar.hasOwnProperty(del)) {
+        const a = el('a', 'verktyg', del);
+        a.href = D.verktygslankar[del];
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        foralder.appendChild(a);
+      } else if (del) {
+        foralder.appendChild(document.createTextNode(del));
+      }
+    });
+  }
+
   function byggText(s) {
     const p = el('p');
     if (s.rubrik) p.appendChild(el('strong', null, s.rubrik + ': '));
-    p.appendChild(document.createTextNode(s.text));
+    lankaText(p, s.text);
     return p;
   }
 
