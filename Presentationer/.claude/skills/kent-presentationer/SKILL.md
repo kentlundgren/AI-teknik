@@ -540,6 +540,10 @@ kvalitetssäkrar, att han lär känna modeller genom upprepning) hör hemma i sk
   med program, bloggtext, LinkedIn, YouTube och podd samlade) och ändrad regel om visningssiffror
   (avrundade, daterade och av Kent givna får visas). Utlöst av att Kent beskrev sitt mönster att
   spegla samma ämne i flera medier; se `kent-ai-arbetssatt`, avsnitt 7.
+  Samma dag: ämneskort med flera `ar` får en tona-ut/tona-fram-rörelse vid utfällning (senaste året
+  överst, äldre år tonas ut, det senaste fram; av vid `prefers-reduced-motion` och utskrift).
+  Lärdom: **kontrollera årtalet mot källan** (adressen `/2026/07/03/` i WordPress) innan ett
+  inlägg placeras under ett år, även när Kent anger året; han kan ha en annan bloggtext i minnet.
 - 2026-09-30 (v14): Ny **Regel 16**, frågeguide-mönstret från `Nr2` (Provbänken):
   avsnitt med egna kort, hopfällda grupper med beskrivande rad, överrubriker, bilder på
   kort (hämtas bara med Kents ja, under 200 kB), verktygsnamn som länkar, inga

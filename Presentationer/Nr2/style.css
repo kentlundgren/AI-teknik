@@ -70,7 +70,22 @@ h4.undergrupp { font-size: 0.95rem; color: var(--text); margin: 14px 0 8px; }
 .kort .medium { flex: none; width: 88px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
 .kort .medie a.lank { display: inline; margin: 0; }
 .kort .medie-not { font-size: 0.85rem; color: var(--muted); }
-.kort .medie:last-child { margin-bottom: 14px; }
+.kort .medie-grupp:last-child { margin-bottom: 14px; }
+
+/* Ämne över flera år: när kortet fälls ut tonas äldre år ut medan det senaste tonas fram. */
+.kort.med-rorelse .medie-grupp.aldre { opacity: var(--mal, 0.45); transition: opacity 0.2s ease; }
+.kort.med-rorelse .medie-grupp.aldre:hover,
+.kort.med-rorelse .medie-grupp.aldre:focus-within { opacity: 1; }
+.kort.med-rorelse[open] .medie-grupp.nyast { animation: tona-fram 2s ease 0.3s backwards; }
+.kort.med-rorelse[open] .medie-grupp.aldre { animation: tona-ut 2s ease 0.3s backwards; }
+@keyframes tona-fram { from { opacity: 0.25; } }
+@keyframes tona-ut { from { opacity: 1; } }
+.kort .info-knapp { flex: none; border: 0; background: none; color: var(--accent); font-size: 1rem; line-height: 1; padding: 0 4px; cursor: pointer; }
+.kort .medie-info { margin: 2px 0 8px 98px; padding: 8px 10px; background: var(--accent-bg); border-radius: 6px; font-size: 0.9rem; }
+.kort .medie a.lank[title] { text-decoration-style: dotted; }
+@media (prefers-reduced-motion: reduce) {
+  .kort.med-rorelse[open] .medie-grupp { animation: none; }
+}
 .kort.med-bild summary { flex-direction: row; align-items: center; gap: 12px; }
 .kort.med-bild summary::before { float: none; order: 3; margin-left: auto; }
 .kort.med-bild .rubrik { flex: 1; }
@@ -118,6 +133,7 @@ footer a, noscript a { color: var(--accent); }
 .tech-card code { background: var(--accent-bg); border-radius: 4px; padding: 0.05rem 0.3rem; font-size: 0.82em; }
 
 @media (max-width: 480px) {
+  .kort .medie-info { margin-left: 0; }
   body { font-size: 16px; }
   #fragor button { width: 100%; }
 }
@@ -128,6 +144,7 @@ footer a, noscript a { color: var(--accent); }
 @media print {
   body { background: #fff; }
   #fragor, .corner, .modal-overlay { display: none; }
+  .kort.med-rorelse .medie-grupp { opacity: 1 !important; animation: none !important; }
   .kort > * { display: block; }
   details.kort:not([open]) > *:not(summary) { display: block; }
   .kort summary::before { content: ""; }

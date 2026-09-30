@@ -184,8 +184,16 @@
       const a = m.ar || '';
       if (ar.indexOf(a) === -1) ar.push(a);
     });
-    ar.forEach(function (a) {
-      if (a) foralder.appendChild(el('p', 'medie-ar', a));
+    // Senaste året överst. Finns flera år tonas äldre år ut och det senaste fram när kortet fälls ut
+    // (en rörelse från då till nu, se style.css).
+    ar.sort(function (x, y) { return y.localeCompare(x); });
+    const flera = ar.length > 1 && ar[0] !== '';
+    if (flera) foralder.classList.add('med-rorelse');
+    ar.forEach(function (a, i) {
+      const grupp = el('div', 'medie-grupp' + (flera ? (i === 0 ? ' nyast' : ' aldre') : ''));
+      // Ju äldre år, desto mer uttonat (sista stegets lägsta värde är 0,3).
+      if (flera && i > 0) grupp.style.setProperty('--mal', String(Math.max(0.3, Math.round((0.55 - 0.08 * (i - 1)) * 100) / 100)));
+      if (a) grupp.appendChild(el('p', 'medie-ar', a));
       medier.filter(function (m) { return (m.ar || '') === a; }).forEach(function (m) {
         const p = el('p', 'medie');
         p.appendChild(el('span', 'medium', m.medium));
@@ -195,8 +203,26 @@
         l.rel = 'noopener noreferrer';
         p.appendChild(l);
         if (m.not) p.appendChild(el('span', 'medie-not', m.not));
-        foralder.appendChild(p);
+        let infoEl = null;
+        if (m.info) {
+          // Hovringstext via title, och en knapp (ⓘ) som visar samma text på touch och tangentbord.
+          l.title = m.info;
+          infoEl = el('p', 'medie-info', m.info);
+          infoEl.hidden = true;
+          const knapp = el('button', 'info-knapp', 'ⓘ');
+          knapp.type = 'button';
+          knapp.setAttribute('aria-label', 'Mer om ' + m.text);
+          knapp.setAttribute('aria-expanded', 'false');
+          knapp.addEventListener('click', function () {
+            infoEl.hidden = !infoEl.hidden;
+            knapp.setAttribute('aria-expanded', infoEl.hidden ? 'false' : 'true');
+          });
+          p.appendChild(knapp);
+        }
+        grupp.appendChild(p);
+        if (infoEl) grupp.appendChild(infoEl);
       });
+      foralder.appendChild(grupp);
     });
   }
 
