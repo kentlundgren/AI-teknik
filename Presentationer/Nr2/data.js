@@ -135,6 +135,19 @@ const PROVBANKEN = {
       sekretess: "ok"
     },
     {
+      id: "samradsguiden",
+      kategori: "Förening",
+      rubrik: "Samrådsguiden",
+      en_mening: "Verktyg för hur privatpersoner och organisationer disponerar synpunkter i ett samråd enligt plan- och bygglagen och miljöbalken.",
+      arbetssatt: "Byggd med planering, specifikation och en genomgång av lagtexter och anvisningar. Den har börjat användas inom Naturskyddsföreningen.",
+      verktyg: ["Generativ AI", "HTML/CSS/JavaScript"],
+      resultat: "Sex delar som alltid är desamma, och en jämförelse av hur olika yttranden ordnar sina synpunkter.",
+      lank: "https://kentlundgren.github.io/Codex/Fritid/NF/Samradsguiden/",
+      lank_text: "Samrådsguiden",
+      siffror: "inga",
+      sekretess: "ok"
+    },
+    {
       id: "arbetssatt",
       kategori: "Arbetssätt",
       rubrik: "PRD, specifikation och process-logg",

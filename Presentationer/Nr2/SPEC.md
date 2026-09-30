@@ -64,6 +64,7 @@ Exempel som ingår (alla `sekretess: "ok"` om inget annat anges):
 | bas-2026 | `https://kentlundgren.github.io/Ekonomi/redovisning/BAS/index.html` |
 | revision-kalmar-nation | `https://kentlundgren.github.io/Ekonomi/redovisning/revision/` |
 | bjerred | `https://kentlundgren.github.io/foreningar/BjerredsSaltsjobad/` |
+| samradsguiden | `https://kentlundgren.github.io/Codex/Fritid/NF/Samradsguiden/` (startsidan, inte `lund-ncc.html`; tillagt 2026-09-30) |
 | balanskrav | `https://lundgren9.github.io/ekonomi/Balanskrav/index.html` (villkor: källraderna "Internt kommunalt underlag" är borttagna eller omskrivna innan länken används; ÖPPEN) |
 | arbetssatt | `https://github.com/kentlundgren/AI-teknik/blob/main/AI_modeller/Claude/olika_Claude_modeller/PRD/PRD_generell.md` (beslutat: med kort och länk till PRD-mallen) |
 
@@ -117,6 +118,7 @@ Får bara innehålla det Kent bekräftat (2026-09-29):
 
 ## 9. Ändringslogg
 
+- **v3.4 (2026-09-30):** Kortet Samrådsguiden (kategori Förening) tillagt, eftersom ansökan till Invici länkar den.
 - **v3.3 (2026-09-30):** Frågorna skrivs i Kents röst ("jag"/"mig") enligt Kents synpunkt på publicerad sida.
 - **v3.2 (2026-09-30):** Efter Kents synpunkter på publicerad sida: Cursor flyttat till AI-raden, GitHub kvar under egen utveckling; kortet Ekonomikommunikation heter nu kategori "Forskningskalkyl"; kort grupperas under en rubrik per kategori och kort utan länk i egen grupp.
 - **v3.1 (2026-09-29):** Vid bygget: fältet siffror fick värdet "anonymiserade"; arbetssatt får vara tomt när sekretess är "ej_publik". Balanskrav byggs som "ej_publik" (utan länk) tills sidans källrader är rättade.
