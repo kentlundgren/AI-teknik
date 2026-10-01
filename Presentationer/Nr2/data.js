@@ -124,7 +124,7 @@ const PROVBANKEN = {
             { text: "Mina blogginlägg om AI: Controller, lärare och coach utan gränser reflekterar", url: "https://controllerutangranser.wordpress.com/category/ai/" },
             { text: "Kortare inlägg finns också på X, märkta #nyaAI", url: "https://x.com/search?q=%23nyaAI%20(from%3Akentlundgren)&src=typed_query" }
           ],
-          kort_ids: ["ol-tyskland", "statsskuld", "ai-testerna", "vindkraftskalkyler", "rosterna", "harness-minne", "claude-kostnad", "gren-sanning", "arbetssatt", "claude-kompassen"],
+          kort_ids: ["ol-tyskland", "statsskuld", "ai-testerna", "vindkraftskalkyler", "rosterna", "harness-minne", "claude-kostnad", "gren-sanning", "arbetssatt", "claude-kompassen", "fredagsquiz"],
           sortera: "start"
         }
       ]
@@ -454,10 +454,12 @@ const PROVBANKEN = {
       arbetssatt: "Frågorna togs fram med Claude (frågor och svar) och Cursor (kodning i HTML, CSS och JavaScript). Vecka efter vecka märkte jag att quizen gick snabbare att ta fram och blev bättre — ett konkret sätt att följa hur AI-modellerna och min förmåga att arbeta med dem utvecklades parallellt. Under samma period lärde jag mig att hantera GitHub, så quizen finns nu på GitHub Pages också.",
       verktyg: ["Claude", "Cursor", "HTML/CSS/JavaScript", "GitHub"],
       resultat: "23 quiz, aug 2025 – jan 2026. Engagerade kollegor via Teams, och gav mig en vana av att bygga med generativ AI varje vecka.",
-      lank: "https://kentlundgren.se/program/quiz/0/",
-      lank_text: "Fredagsquiz, Simrishamns kommun",
-      fler_lankar: [
-        { text: "Fredagsquiz på GitHub Pages", url: "https://kentlundgren.github.io/quiz/0/" }
+      lank: null,
+      lank_text: "",
+      medier: [
+        { ar: "2025", medium: "Program", text: "Fredagsquiz (kentlundgren.se)", url: "https://kentlundgren.se/program/quiz/0/" },
+        { ar: "2026", medium: "Program", text: "Fredagsquiz på GitHub Pages",   url: "https://kentlundgren.github.io/quiz/0/" }
+        // TODO: lägg till bloggtext och/eller LinkedIn-inlägg när Kent hittat länkarna
       ],
       bild: { src: "bilder/fredagsquiz.jpg", alt: "Urval av fredagsquiz-kort med nummer, datum och ämne — från kommunala badanläggningar och budgetproposition till årsredovisning.", w: 900, h: 707 },
       siffror: "inga",
