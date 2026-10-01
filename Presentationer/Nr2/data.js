@@ -58,7 +58,7 @@ const PROVBANKEN = {
             { rubrik: "", text: "Jag jobbar proaktivt med att lära känna olika AI-modellers och olika harness styrkor och svagheter. Ett harness är verktyget som kör modellen, till exempel Claude Code eller Cursor." },
             { rubrik: "", text: "Jag har kört samma uppdrag och skapat samma produkt flera gånger, vid olika tidpunkter, med olika AI-modeller och olika harness. Envist göra samma sak vid olika tillfällen är ett sätt att lära sig AI." }
           ],
-          kort_ids: ["vindkraftskalkyler"]
+          kort_ids: ["vindkraftskalkyler", "fredagsquiz"]
         },
         {
           rubrik: "Så planerar jag ett bygge",
