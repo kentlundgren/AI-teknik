@@ -451,7 +451,7 @@ const PROVBANKEN = {
       kategori: "Kul och lärande",
       rubrik: "Fredagsquiz — 23 veckor",
       en_mening: "Varje fredag under 23 veckor skapade jag ett quiz med frågor, svar och fördjupningslänkar om Simrishamns kommuns verksamhet — och delade det med kollegor via en kul-kanal i Teams.",
-      arbetssatt: "Frågorna togs fram med Claude (frågor och svar) och Cursor (kodning i HTML, CSS och JavaScript). Varje quiz hade bloggreferenser för den som ville läsa mer. Kärnan var att lära på ett kul och nyfiket sätt — och vecka efter vecka märkte jag att quizen gick snabbare att ta fram och blev bättre. Under samma period lärde jag mig att hantera GitHub, så quizen publicerades också på GitHub Pages.",
+      arbetssatt: "Frågorna togs fram med Claude (frågor och svar) och Cursor (kodning i HTML, CSS och JavaScript). Varje quiz hade bloggreferenser för den som ville läsa mer. Nedan exempel på inlägg som jag gjorde på min blogg. Kärnan var att lära på ett kul och nyfiket sätt — och vecka efter vecka märkte jag att quizen gick snabbare att ta fram och blev bättre. Under samma period lärde jag mig att hantera GitHub, så quizen publicerades också på GitHub Pages.",
       verktyg: ["Claude", "Cursor", "HTML/CSS/JavaScript", "GitHub"],
       resultat: "23 quiz, aug 2025 – jan 2026. Engagerade kollegor via Teams, och gav mig en vana av att bygga och lära med generativ AI varje vecka.",
       lank: null,
