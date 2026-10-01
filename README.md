@@ -44,6 +44,16 @@ Projektet är under uppbyggnad och kommer att växa över tid med fler tekniker,
   **Live-sida (GitHub Pages):**
   - 260912 Navier–Stokes-visualisering: https://kentlundgren.github.io/AI-teknik/Solutions/260912/
 
+- **[Presentationer](./Presentationer/)**
+  Självspelande och datadrivna presentationer. Motor och innehåll är alltid separerade (en fil för struktur, en för data) — ett nytt projekt är en redigering i datafilen, inget annat.
+  Se [`Presentationer/CLAUDE.md`](./Presentationer/CLAUDE.md) för mönster och regler.
+
+  - **[Nr1 – AI-projekt, en resa](./Presentationer/Nr1/)** — personlig, kronologisk visning av hur Kents arbete med generativ AI utvecklats 2023–2026. Tretton projekt, åtta årskort, fyra läslistor och två referens-slides. Tre delbara hastigheter (rapp/lagom/seriös).
+    **Live-sida (GitHub Pages):** [https://kentlundgren.github.io/AI-teknik/Presentationer/Nr1/](https://kentlundgren.github.io/AI-teknik/Presentationer/Nr1/)
+
+  - **[Nr2 – Provbänken](./Presentationer/Nr2/)** — frågeguide för arbetsgivare och konsultkunder: vad Kent kan göra med AI i ekonomi- och controllerarbete. Fem frågor med svar och öppningsbara exempelkort. Varje fråga har en egen delningslänk med bild för LinkedIn och X.
+    **Live-sida (GitHub Pages):** [https://kentlundgren.github.io/AI-teknik/Presentationer/Nr2/](https://kentlundgren.github.io/AI-teknik/Presentationer/Nr2/)
+
 *Fler AI-tekniker tillkommer efter hand.*
 
 Agentminne för hela repot: [`AGENTS.md`](./AGENTS.md).
