@@ -224,11 +224,11 @@ const PROVBANKEN = {
     {
       id: "samradsguiden",
       kategori: "Förening",
-      rubrik: "Samrådsguiden",
+      rubrik: "Samrådsguiden - en guide för att lämna synpunkter under samråd",
       en_mening: "Verktyg för hur privatpersoner och organisationer disponerar synpunkter i ett samråd enligt plan- och bygglagen och miljöbalken.",
       arbetssatt: "Byggd med planering, specifikation och en genomgång av lagtexter och anvisningar. Den har börjat användas inom Naturskyddsföreningen.",
       verktyg: ["Generativ AI", "HTML/CSS/JavaScript"],
-      resultat: "Sex delar som alltid är desamma, och en jämförelse av hur olika yttranden ordnar sina synpunkter.",
+      resultat: "Sex delar som alltid är desamma, och en jämförelse av hur olika aktörer ordnar sina synpunkter.",
       lank: "https://kentlundgren.github.io/Codex/Fritid/NF/Samradsguiden/",
       lank_text: "Samrådsguiden",
       siffror: "inga",
