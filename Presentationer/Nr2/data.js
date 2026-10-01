@@ -73,7 +73,7 @@ const PROVBANKEN = {
             "Bokslutstestet: agenternas fynd jämfördes mot dokumentet och jag bedömde vilka som var riktiga.",
             "Kontrollerar text och siffror med en annan modell.",
             "Räknar om summor i Excel utan AI.",
-            "Öppnar och läser källor och länkar, som i sidan om statsskuld."
+            "Öppnar länkar och läser källor."
           ],
           kort_ids: ["bokslut-2025"]
         }
