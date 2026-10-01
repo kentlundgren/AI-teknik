@@ -155,6 +155,7 @@ const PROVBANKEN = {
       resultat: "Ett sätt att svara på en chefs fråga om pengarna räcker flera år framåt.",
       lank: "https://kentlundgren.github.io/Ekonomi/ekonomikommunikation/260903/index.html",
       lank_text: "Ekonomikommunikation, fyra grupper fyra år fram",
+      bild: { src: "bilder/Fyra_forskargrupper.jpg", alt: "Interaktiv sida med fyra färgkodade grupper (Grupp AA till DD) som var och en visar hur ekonomin klaras fyra år framåt, med resultat i diagram och siffror.", w: 822, h: 515 },
       siffror: "paahittade",
       sekretess: "ok"
     },
