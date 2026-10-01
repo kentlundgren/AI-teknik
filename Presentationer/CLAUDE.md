@@ -76,11 +76,13 @@ rubriken "Underhållsregler".
 
 ## Arbetsregler (samma som övriga AI-teknik-repot)
 
-- **Kents egen röst (tillagd 2026-09-30):** all text i presentationerna
-  (rubriker, frågor, knappar, brödtext) skrivs i första person ("jag",
-  "mig"), inte som frågor eller påståenden riktade till "du". Håll samma
-  röst genom hela sidan. Sanningskravet gäller ändå: bara sådant Kent
-  bekräftat.
+- **Kents egen röst (tillagd 2026-09-30):** all text i presentationernas
+  brödtext (svar, kortbeskrivningar, knappar) skrivs i första person ("jag",
+  "mig"). **Undantag (2026-10-01, Kents begäran):** varumärkesrubriker och
+  sidhuvuden som ska identifiera Kent för externa besökare (rekryterare,
+  konsultkunder) får använda "Kent Lundgren" — se Nr2:s huvudrubrik
+  "Hur Kent Lundgren arbetar med generativ AI". Håll annars samma röst
+  genom hela sidan. Sanningskravet gäller ändå: bara sådant Kent bekräftat.
 - **Git commit/push: Kent gör det själv, via Cursor.** Claude Code föreslår
   aldrig commit/push proaktivt och kör det aldrig utan att bli tillfrågad.
   Read-only git-kommandon för diagnostik är alltid okej.
@@ -107,6 +109,13 @@ rubriken "Underhållsregler".
   `Nr1/README.md` för aktuell omfattning och
   `Nr1/PRD_presentation_ai_projekt.md` för fullständig beslutshistorik.
   Publicerad (svarar 200 på GitHub Pages, kontrollerat 2026-09-29).
-- **`Nr2` — "Provbänken"** — PRD-utkast v3 (2026-09-29), inget byggt.
-  Publik för arbetsgivare; frågeguide med kortöversikt. Se
-  `Nr2/PRD_presentation_ai_arbetsgivare.md`. Ej publicerad (404).
+- **`Nr2` — "Provbänken" / "Hur Kent Lundgren arbetar med generativ AI"** —
+  byggd och publicerad. Publik för arbetsgivare och konsultkunder; frågeguide
+  med fem frågor och öppningsbara exempelkort. Rubrik på sidan (2026-10-01):
+  "Hur Kent Lundgren arbetar med generativ AI" (huvudrubrik) med undertiteln
+  "Denna presentation kallas 'Provbänken' – version Nr2 per den 1 okt 2026".
+  Innehåller bild på bokslutskort, pulsande "Siffrorna är påhittade"-märkning,
+  kategorin "Kul och lärande" (fredagsquiz 23 veckor), länkade termer i
+  `arbetssatt`-text (första förekomst per kort, Regel 12), och ett nytt kort
+  för Ekonomikommunikation. Se `Nr2/PRD_presentation_ai_arbetsgivare.md` och
+  `Nr2/SPEC.md`. Publicerad (svarar 200 på GitHub Pages, kontrollerat 2026-10-01).

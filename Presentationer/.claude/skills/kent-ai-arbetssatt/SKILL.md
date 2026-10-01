@@ -63,6 +63,18 @@ Kents egna ord, bekräftade 2026-09-30:
 Vilken AI-modell som stod bakom Cursor- och Next.js-versionerna är **inte** dokumenterat
 här. Fråga, gissa inte.
 
+**Ett andra exempel: fredagsquizen, 23 veckor.** Bekräftat av Kent 2026-10-01.
+Varje fredag under 23 veckor (aug 2025 – jan 2026) skapade Kent ett quiz om
+Simrishamns kommuns verksamhet — med frågor, svar och bloggreferenser — och
+delade det med kollegor via Teams. Frågorna togs fram med Claude och Cursor.
+Vecka efter vecka märkte han att quizen gick snabbare att ta fram och blev bättre.
+Under samma period lärde han sig GitHub, och quizen publicerades också på GitHub Pages.
+Kärnan: lära på ett kul och nyfiket sätt, och följa sin egen och modellernas förbättring
+parallellt. Alla kopplade blogginlägg samlade under taggen
+[#fredagsquiz](https://controllerutangranser.wordpress.com/tag/fredagsquiz/).
+Samlat på Provbänken fråga 1 ("Så lär jag känna modellerna"), fråga 3 ("Kul och lärande")
+och fråga 5 (kort id `fredagsquiz`).
+
 **Ett andra exempel: statsskulden, samma ämne ett år senare.** 2025 byggde Kent en
 interaktiv presentation av Sveriges och USA:s statsskuld med Gemini (Canvas), och skrev,
 filmade och pratade om den. 2026 gjorde han om den med verifierade källor och skrev en
@@ -209,6 +221,9 @@ Länkar till publicering ska vara **utan spårningsparametrar** (`?si=`, `utm_`,
 
 ## Uppdateringslogg
 
+- 2026-10-01 (v3): Avsnitt 1 utökat med **fredagsquiz** som ett bekräftat andra
+  exempel på lärande genom upprepning (23 veckor, aug 2025 – jan 2026, Claude +
+  Cursor, taggen #fredagsquiz på bloggen). Samlat på Provbänken fråga 1, 3 och 5.
 - 2026-09-30 (v2), samma dag: Nytt **avsnitt 7, Ett ämne, flera perspektiv**: Kents mönster att
   spegla samma ämne i program, bloggtext, LinkedIn, ibland video och podd, för att lära sig mer om
   generativ AI (exempel: Ölkalkylen, statsskulden 2025 och 2026), med en stående arbetsregel om att
