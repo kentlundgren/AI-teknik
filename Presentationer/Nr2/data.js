@@ -369,6 +369,7 @@ const PROVBANKEN = {
       lank_text: "",
       medier: [
         { medium: "Program", text: "Sidan med de fyra rösterna", url: "https://ai-teknik-4-roster.vercel.app/" },
+        { medium: "Bloggtext", text: "Generativ AI: farligt, farligt eller harligt, harligt?", url: "https://klel.wordpress.com/2026/09/18/generativ-ai-farlig-farligt-eller-harligt-harligt/" },
         { medium: "LinkedIn", text: "Inlägget på LinkedIn", url: "https://www.linkedin.com/posts/kentlundgren_r%C3%B6sterna-efter-chatgpt-vem-har-h%C3%A5llit-fast-activity-7506712196756881409-BhVM" }
       ],
       bild: { src: "bilder/Max_Tegmark_med_flera.jpg", alt: "Fyra rutor med Max Tegmark, Olle Häggström, Nick Bostrom och Anders Sandberg, var och en med en kort beskrivning av hur rösten förändrats.", w: 900, h: 426 },
