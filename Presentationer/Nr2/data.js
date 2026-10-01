@@ -12,6 +12,7 @@ const PROVBANKEN = {
     "Claude": "https://claude.ai/",
     "Cursor": "https://cursor.com/",
     "GitHub": "https://github.com/",
+    "#fredagsquiz": "https://controllerutangranser.wordpress.com/tag/fredagsquiz/",
     "Perplexity": "https://www.perplexity.ai/",
     "ChatGPT": "https://chatgpt.com/",
     "Gemini Notebook": "https://notebook.google.com/",

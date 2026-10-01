@@ -57,10 +57,16 @@
     return n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }).join('|') + ')') : null;
 
+  // Uppdatering 2026-10-01: per-kort Set för deduplicering av länkade termer.
+  // En term länkas bara första gången den förekommer i ett korts löpande text —
+  // samma regel som i Nr1:s glossary (kent-presentationer, Regel 12).
+  let lankatIKort = new Set();
+
   function lankaText(foralder, text) {
     if (!NAMN_RE) { foralder.appendChild(document.createTextNode(text)); return; }
     text.split(NAMN_RE).forEach(function (del) {
-      if (D.verktygslankar.hasOwnProperty(del)) {
+      if (D.verktygslankar.hasOwnProperty(del) && !lankatIKort.has(del)) {
+        lankatIKort.add(del);
         const a = el('a', 'verktyg', del);
         a.href = D.verktygslankar[del];
         a.target = '_blank';
@@ -307,6 +313,7 @@
   }
 
   function byggKort(k, visaKategori) {
+    lankatIKort = new Set(); // nollställ per kort — varje term länkas bara första gången
     const det = el('details', 'kort' + (k.sekretess === 'ej_publik' ? ' utan-lank' : '') + (k.bild ? ' med-bild' : ''));
     const sum = el('summary');
     if (k.bild) sum.appendChild(byggBild(k.bild, 'miniatyr'));
@@ -322,7 +329,9 @@
     if (k.arbetssatt) {
       const p = el('p');
       p.appendChild(el('strong', null, 'Arbetssätt: '));
-      p.appendChild(document.createTextNode(k.arbetssatt));
+      // Uppdatering 2026-10-01: lankaText() i stället för createTextNode
+      // så att verktygsnamn och märkord (t.ex. #fredagsquiz) blir klickbara.
+      lankaText(p, k.arbetssatt);
       det.appendChild(p);
     }
     if (k.verktyg && k.verktyg.length) {
