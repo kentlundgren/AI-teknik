@@ -3,7 +3,7 @@
 // Regel: bara sådant Kent bekräftat. Ändra här, inte i script.js.
 
 const PROVBANKEN = {
-  version: "30 sep 2026",
+  version: "1 okt 2026",
 
   // Verktyg som länkas till respektive officiella sida när namnet står i ett svar.
   verktygslankar: {
@@ -33,6 +33,7 @@ const PROVBANKEN = {
     "Revision och redovisning": "Genomgångar av kontoplan och revision, för kommuner och ideella föreningar.",
     "Förening": "Hjälpmedel, rapporter och analyser, framtagna inom föreningslivet.",
     "Arbetssätt": "Hur jag planerar och bygger, och en karta över hur Claude fungerar.",
+    "Kul och lärande": "Experiment och projekt som drivs av nyfikenhet — ett sätt att lära känna AI-modeller och sin yrkesroll på samma gång.",
     "Från uppdrag, utan länk": "Arbeten från uppdrag i kommun. De bygger på uppdragsgivarens material och visas därför utan länk."
   },
 
