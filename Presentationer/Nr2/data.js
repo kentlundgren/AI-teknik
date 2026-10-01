@@ -450,16 +450,22 @@ const PROVBANKEN = {
       start: "2025-08-22",
       kategori: "Kul och lärande",
       rubrik: "Fredagsquiz — 23 veckor",
-      en_mening: "Varje fredag under 23 veckor skapade jag ett quiz om Simrishamns kommuns verksamhet och delade det med kollegor via en kul-kanal i Teams.",
-      arbetssatt: "Frågorna togs fram med Claude (frågor och svar) och Cursor (kodning i HTML, CSS och JavaScript). Vecka efter vecka märkte jag att quizen gick snabbare att ta fram och blev bättre — ett konkret sätt att följa hur AI-modellerna och min förmåga att arbeta med dem utvecklades parallellt. Under samma period lärde jag mig att hantera GitHub, så quizen finns nu på GitHub Pages också.",
+      en_mening: "Varje fredag under 23 veckor skapade jag ett quiz med frågor, svar och fördjupningslänkar om Simrishamns kommuns verksamhet — och delade det med kollegor via en kul-kanal i Teams.",
+      arbetssatt: "Frågorna togs fram med Claude (frågor och svar) och Cursor (kodning i HTML, CSS och JavaScript). Varje quiz hade bloggreferenser för den som ville läsa mer. Kärnan var att lära på ett kul och nyfiket sätt — och vecka efter vecka märkte jag att quizen gick snabbare att ta fram och blev bättre. Under samma period lärde jag mig att hantera GitHub, så quizen publicerades också på GitHub Pages.",
       verktyg: ["Claude", "Cursor", "HTML/CSS/JavaScript", "GitHub"],
-      resultat: "23 quiz, aug 2025 – jan 2026. Engagerade kollegor via Teams, och gav mig en vana av att bygga med generativ AI varje vecka.",
+      resultat: "23 quiz, aug 2025 – jan 2026. Engagerade kollegor via Teams, och gav mig en vana av att bygga och lära med generativ AI varje vecka.",
       lank: null,
       lank_text: "",
       medier: [
-        { ar: "2025", medium: "Program", text: "Fredagsquiz (kentlundgren.se)", url: "https://kentlundgren.se/program/quiz/0/" },
-        { ar: "2026", medium: "Program", text: "Fredagsquiz på GitHub Pages",   url: "https://kentlundgren.github.io/quiz/0/" }
-        // TODO: lägg till bloggtext och/eller LinkedIn-inlägg när Kent hittat länkarna
+        { ar: "2025", medium: "Program",   text: "Fredagsquiz (kentlundgren.se)",                                     url: "https://kentlundgren.se/program/quiz/0/" },
+        { ar: "2026", medium: "Program",   text: "Fredagsquiz på GitHub Pages",                                       url: "https://kentlundgren.github.io/quiz/0/" },
+        { ar: "2025", medium: "Bloggtext", text: "Från idé till färdig bassängkalkyl",                                url: "https://controllerutangranser.wordpress.com/2025/10/23/fran-ide-till-fardig-bassangkalkyl/" },
+        { ar: "2025", medium: "Bloggtext", text: "Varför kostar utomhusbad 40% mer i kemikalier?",                   url: "https://klel.wordpress.com/2025/10/24/varfor-kostar-utomhusbad-40-mer-i-kemikalier-analys-av-drift-och-vattenkvalitet-i-svenska-badanlaggningar/" },
+        { ar: "2025", medium: "Bloggtext", text: "Från teori till praktisk kalkyl för kommunala badanläggningar",    url: "https://controllerutangranser.wordpress.com/2025/10/24/nar-tva-perspektiv-mots-fran-teori-till-praktisk-kalkyl-for-kommunala-badanlaggningar/" },
+        { ar: "2025", medium: "Bloggtext", text: "Drift eller investering?",                                          url: "https://controllerutangranser.wordpress.com/2025/10/30/drift-eller-investering/" },
+        { ar: "2025", medium: "Bloggtext", text: "Budgetpropositionen 2026: Effekter på Kultur/Fritid och Socialtjänst i mindre kommuner", url: "https://controllerutangranser.wordpress.com/2025/11/07/budgetpropositionen-2026-effekter-pa-kultur-fritid-och-socialtjanst-i-mindre-kommuner-grok/" },
+        { ar: "2025", medium: "Bloggtext", text: "Det nya regellandskapet för bygglov och byggregler",               url: "https://controllerutangranser.wordpress.com/2025/12/12/det-nya-regellandskapet-for-bygglov-och-byggregler-en-dubbel-omstallning-for-kommunal-samhallsbyggnad/" }
+        // Varje quiz innehöll fler bloggreferenser — dessa är ett urval av de bekräftade
       ],
       bild: { src: "bilder/fredagsquiz.jpg", alt: "Urval av fredagsquiz-kort med nummer, datum och ämne — från kommunala badanläggningar och budgetproposition till årsredovisning.", w: 900, h: 707 },
       siffror: "inga",
