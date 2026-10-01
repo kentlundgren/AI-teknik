@@ -65,6 +65,19 @@ h4.undergrupp { font-size: 0.95rem; color: var(--text); margin: 14px 0 8px; }
 .kort .rubrik-ar { font-weight: 400; color: var(--muted); white-space: nowrap; }
 .kort p { margin: 6px 0; }
 .kort .markning { font-size: 0.85rem; color: var(--muted); background: var(--accent-bg); display: inline-block; padding: 2px 8px; border-radius: 6px; }
+
+/* Uppdatering 2026-10-01: pulserande variant för "Siffrorna är påhittade"
+   — synlig rörelse utan att skrika, respekterar prefers-reduced-motion. */
+@keyframes markning-puls {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+.kort .markning.pulsande {
+  animation: markning-puls 1.6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kort .markning.pulsande { animation: none; }
+}
 .kort .lank { display: table; margin: 6px 0; color: var(--accent); font-weight: 600; }
 .kort .lank:last-child { margin-bottom: 14px; }
 .kort.utan-lank { background: #fbfaf7; }

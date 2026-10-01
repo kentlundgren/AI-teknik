@@ -338,7 +338,10 @@
       det.appendChild(p);
     }
     if (SIFFROR_TEXT[k.siffror] && k.sekretess === 'ok') {
-      det.appendChild(el('p', 'markning', SIFFROR_TEXT[k.siffror]));
+      // Uppdatering 2026-10-01: "Siffrorna är påhittade" får extra klass 'pulsande'
+      // för att besökaren snabbare ska se att siffrorna inte är verkliga.
+      const markningKlass = k.siffror === 'paahittade' ? 'markning pulsande' : 'markning';
+      det.appendChild(el('p', markningKlass, SIFFROR_TEXT[k.siffror]));
     }
     if (k.sekretess === 'ok' && k.medier) {
       byggMedier(det, k.medier);
