@@ -141,6 +141,7 @@ const PROVBANKEN = {
       resultat: "Första körningen: 2 allvarliga räknefel. Andra körningen: inga allvarliga fel och 71 språkliga förbättringar.",
       lank: "https://kentlundgren.github.io/AI/Bokslut_2025/index.html",
       lank_text: "Bokslut 2025, granskning med AI-agenter",
+      bild: { src: "bilder/Siffergranskare_Sprakgranskare.jpg", alt: "Projeköversikt med två specialiserade AI-agenter: siffergranskaren kontrollräknar tabeller och verifierar summor, och språkgranskaren kontrollerar stavning, grammatik och klarspråk.", w: 913, h: 454 },
       siffror: "paahittade",
       sekretess: "ok"
     },
