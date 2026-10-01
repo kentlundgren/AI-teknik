@@ -446,6 +446,24 @@ const PROVBANKEN = {
       sekretess: "ok"
     },
     {
+      id: "fredagsquiz",
+      start: "2025-08-22",
+      kategori: "Kul och lärande",
+      rubrik: "Fredagsquiz — 23 veckor",
+      en_mening: "Varje fredag under 23 veckor skapade jag ett quiz om Simrishamns kommuns verksamhet och delade det med kollegor via en kul-kanal i Teams.",
+      arbetssatt: "Frågorna togs fram med Claude (frågor och svar) och Cursor (kodning i HTML, CSS och JavaScript). Vecka efter vecka märkte jag att quizen gick snabbare att ta fram och blev bättre — ett konkret sätt att följa hur AI-modellerna och min förmåga att arbeta med dem utvecklades parallellt. Under samma period lärde jag mig att hantera GitHub, så quizen finns nu på GitHub Pages också.",
+      verktyg: ["Claude", "Cursor", "HTML/CSS/JavaScript", "GitHub"],
+      resultat: "23 quiz, aug 2025 – jan 2026. Engagerade kollegor via Teams, och gav mig en vana av att bygga med generativ AI varje vecka.",
+      lank: "https://kentlundgren.se/program/quiz/0/",
+      lank_text: "Fredagsquiz, Simrishamns kommun",
+      fler_lankar: [
+        { text: "Fredagsquiz på GitHub Pages", url: "https://kentlundgren.github.io/quiz/0/" }
+      ],
+      bild: { src: "bilder/fredagsquiz.jpg", alt: "Urval av fredagsquiz-kort med nummer, datum och ämne — från kommunala badanläggningar och budgetproposition till årsredovisning.", w: 900, h: 707 },
+      siffror: "inga",
+      sekretess: "ok"
+    },
+    {
       id: "balanskrav",
       kategori: "Modellering",
       rubrik: "Finansiellt utrymme 2027–2031",
