@@ -103,6 +103,8 @@ var den lagras — inte bara på nivån. Matris nedan:
 | Cowork AppData-mapp | ✗ | ✗ | ✓ |
 | Kontoanknuten (claude.ai) | ✗ | ✗ | ✓ |
 
+**Placeringsregel (2026-10-02):** repo-skills ligger direkt under repots rot, i `.claude/skills/`, inte i en undermapp. Cursor läser också `.agents/skills/`, `.cursor/skills/` och `.codex/skills/`. Grok Build läser `.grok/skills/` på projektnivå. Claude Code läser inte `.agents/skills/` än. Tabellen ovan har inte någon kolumn för Grok. Fullständigt resonemang med källor: Regel 4 i `kent-meta-regler-for-code`.
+
 **Nivå 1 — Projektnivå** — `.claude/skills/` i den här mappen:
 - Når dem: **Claude Code** och **Cursor agent**. Inte Cowork.
 - `claude-kompassen-konventioner` — konventioner för index.html i detta projekt

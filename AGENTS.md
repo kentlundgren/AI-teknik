@@ -34,6 +34,12 @@ Länka **inte** till mappens egen GitHub-sida i README:n – läsaren står reda
 
 Överliggande README som listar mappen ska också ha live-länken. Finns ingen live-sida än, ska README inte låtsas det. Se Regel 6 i `RAG/WORKFLOW.md` och Grok-skill:et `readme-live-lank`.
 
+## Skills
+
+Skills ligger direkt under repots rot, i `.claude/skills/<namn>/`. Det läses av Claude Code och Cursor. Ska Grok Build också använda en skill behövs en tunn pekare i `.grok/skills/<namn>/` som pekar på den fullständiga filen. Det finns ännu inga sådana pekare här, och om Grok hittar `.claude/skills/` själv är inte verifierat: kör `grok inspect` i repot för att se. Skills som gäller alla repon har en tunn pekare globalt i `~/.claude/skills/`. Fullständigt resonemang, källor och vad som är osäkert: Regel 4 i skillen `kent-meta-regler-for-code`.
+
+Här skedde en uppdatering 2026-10-02: avsnittet lades till.
+
 ## Källor
 
 Harvardstil enligt Grok-skill:et `kent-referens` och Regel 3 i `RAG/WORKFLOW.md`.
