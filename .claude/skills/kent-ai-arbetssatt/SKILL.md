@@ -22,7 +22,7 @@ Den här skillen samlar **vad Kent själv har sagt och bekräftat** om hur han a
 med generativ AI. Den finns för att text i hans namn ska stämma med verkligheten, och
 för att han inte ska behöva förklara sitt arbetssätt på nytt i varje session.
 
-**Placering:** fullständig version här (`Presentationer/.claude/skills/`), så att den
+**Placering:** fullständig version här (`AI-teknik/.claude/skills/`, direkt under repots rot), så att den
 syns på GitHub. Ett tunt pekar-skill finns globalt i
 `~/.claude/skills/kent-ai-arbetssatt/`. Lägg inget innehåll där.
 
@@ -221,6 +221,9 @@ Länkar till publicering ska vara **utan spårningsparametrar** (`?si=`, `utm_`,
 
 ## Uppdateringslogg
 
+- 2026-10-02 (v4): Flyttad från `Presentationer/.claude/skills/` till `.claude/skills/` direkt under
+  `AI-teknik`, eftersom skillen gäller Kents arbetssätt i alla projekt och inte bara
+  presentationer. Ingen innehållsändring. Den globala pekaren är uppdaterad med den nya sökvägen.
 - 2026-10-01 (v3): Avsnitt 1 utökat med **fredagsquiz** som ett bekräftat andra
   exempel på lärande genom upprepning (23 veckor, aug 2025 – jan 2026, Claude +
   Cursor, taggen #fredagsquiz på bloggen). Samlat på Provbänken fråga 1, 3 och 5.

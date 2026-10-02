@@ -103,7 +103,7 @@
 
 Interna projektreferenser (inte Harvard-citerbara):
 - `Presentationer/Nr1/PRD_presentation_ai_projekt.md`: mönster och beslutshistorik för motor och data.
-- `Presentationer/.claude/skills/kent-presentationer/SKILL.md`: hastighetsvarianter, säkerhet i återanvänd kod, källhantering.
+- `.claude/skills/kent-presentationer/SKILL.md` (repots rot): hastighetsvarianter, säkerhet i återanvänd kod, källhantering.
 - CV-utkast `CV__Kent_Lundgren_AI-Controller_Invicis_konsultnätverk_260929` (D:-arkivet): Kents sex kategorier.
 - `Presentationer/CLAUDE.md`: uppdaterad 2026-09-29 med Nr2:s extra regler.
 - Annons: [Invici, AI-Controller](https://www.invici.se/lediga-ekonomijobb/7666/), sparad i `ArbetenSokta/Annonser/`.

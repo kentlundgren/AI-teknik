@@ -14,7 +14,7 @@ bort mellan sessioner.
 
 **Regel 2, tillagd 2026-08-05:** Claude ska proaktivt, utan att bli
 ombedd, leta efter fler kandidater att lägga till här — se
-[`kent-presentationer`-skillen](../.claude/skills/kent-presentationer/SKILL.md)
+[`kent-presentationer`-skillen](../../.claude/skills/kent-presentationer/SKILL.md)
 för sökkällorna och rutinen.
 
 ## Lista

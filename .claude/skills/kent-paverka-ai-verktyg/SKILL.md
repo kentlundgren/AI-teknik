@@ -49,7 +49,7 @@ Mönstret var detsamma båda gångerna: Kent beskrev ett eget problem i det dagl
 
 ## Placering och synk
 
-Den fullständiga versionen ligger här (`AI-teknik/Presentationer/.claude/skills/kent-paverka-ai-verktyg/`), bredvid `kent-ai-arbetssatt`, så att den syns och går att länka på GitHub. En tunn pekare med samma namn ligger globalt i `C:\Users\kentl\.claude\skills\kent-paverka-ai-verktyg\`, så att skillen hittas i alla repon. Lägg inget innehåll i pekaren. Loggen, `LOGG.md`, hålls bara här. Det finns ingen kopia i Cowork (AppData) eller på kontonivå (claude.ai). Se Regel 4 i `kent-meta-regler-for-code`.
+Den fullständiga versionen ligger här (`AI-teknik/.claude/skills/kent-paverka-ai-verktyg/`), direkt under roten av `AI-teknik`, så att den gäller hela repot (inte bara mappen `Presentationer`) och syns och går att länka på GitHub. En tunn pekare med samma namn ligger globalt i `C:\Users\kentl\.claude\skills\kent-paverka-ai-verktyg\`, så att skillen hittas i alla repon. Lägg inget innehåll i pekaren. Loggen, `LOGG.md`, hålls bara här. Det finns ingen kopia i Cowork (AppData) eller på kontonivå (claude.ai). Se Regel 4 i `kent-meta-regler-for-code`.
 
 ## Uppdateringslogg
 
@@ -57,3 +57,4 @@ Den fullständiga versionen ligger här (`AI-teknik/Presentationer/.claude/skill
 - 2026-10-02 (v3): Kents kommentar på #20697 loggad (text och länk). Nytt avsnitt "Så har Kent arbetat hittills" med mönstret, och en påminnelse om vad röster och kommentarer kan och inte kan ge.
 - 2026-10-02 (v2): Andra posten i loggen, `#20697` (skills mellan Claude Code och Cowork). Lärdomar justerade: påstå inte att en röst väger tyngre än en kommentar, och läs de senaste kommentarerna innan ett ärende rekommenderas.
 - 2026-10-02 (v4): Flyttad hit som fullständig version. Den globala skillen är nu en tunn pekare (samma mönster som `kent-ai-arbetssatt`). Kopian i Grok-repot (`aktuellt/kopia_kent-paverka-ai-verktyg/`) togs bort.
+- 2026-10-02 (v5): Flyttad från `Presentationer/.claude/skills/` till `.claude/skills/` direkt under `AI-teknik`, eftersom förmågan gäller hela repot och alla projekt. Pekaren globalt är uppdaterad med den nya sökvägen.

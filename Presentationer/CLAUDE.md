@@ -29,14 +29,14 @@ AI-teknik-repots historik.
 
 ## Skill-inventering
 
-**Nivå 1 — Projektnivå (denna mapp):** `.claude/skills/kent-presentationer/`
+**Nivå 1 — Projektnivå (repots rot, flyttad dit 2026-10-02):** `AI-teknik/.claude/skills/kent-presentationer/`
 — mönster och beslut specifika för den här sortens presentationer (motor+
 data-separation, hastighetsvarianter via URL-parameter, skärmdumpsflöde,
 säkerhet i återanvänd kod, källhantering, milestone-avbrott). Når Claude
-Code och Cursor agent när man arbetar i den här mappen eller någon
-undermapp.
+Code och Cursor agent när man arbetar var som helst i AI-teknik-repot,
+inklusive den här mappen.
 
-**Projektnivå, andra skillet:** `.claude/skills/kent-ai-arbetssatt/`
+**Projektnivå, andra skillet:** `AI-teknik/.claude/skills/kent-ai-arbetssatt/`
 (tillagt 2026-09-30) — hur Kent arbetar med generativ AI, som han själv
 bekräftat: lära känna modeller och harness genom upprepning,
 kvalitetssäkring, planera skriftligt först, vilka verktyg till vad. Läs det

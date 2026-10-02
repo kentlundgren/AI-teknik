@@ -33,10 +33,11 @@ extern/annan fil att leta upp brett i filsystemet efter (se mappkontroll,
 innehållet gör det inte. Kolla presentationens egen PRD för vad just den
 handlar om innan du antar något.
 
-**Placering:** medvetet lagd här, i `Presentationer/.claude/skills/`, inte
-kontonivå/globalt — Kent vill kunna se och länka till skillet på GitHub när
-repot är pushat, och en nivå ovanför `Nr1` täcker automatiskt `Nr2`, `Nr3`
-osv utan att behöva flyttas igen. Ett tunt pekar-skill finns kvar globalt
+**Placering:** medvetet lagd här, i `AI-teknik/.claude/skills/` (direkt under repots rot, flyttad dit
+2026-10-02 från `Presentationer/.claude/skills/`), inte kontonivå/globalt — Kent vill
+kunna se och länka till skillet på GitHub när repot är pushat. Roten täcker hela repot,
+inklusive `Presentationer/Nr1`, `Nr2` osv, och skillen laddas även när en session startas
+i en undermapp. Ett tunt pekar-skill finns kvar globalt
 (`~/.claude/skills/kent-presentationer/`) för sessioner som inte är öppnade
 i AI-teknik-repot — håll det pekar-skillet i synk med namnet/syftet här,
 men lägg inget innehåll där.
@@ -682,3 +683,7 @@ kvalitetssäkrar, att han lär känna modeller genom upprepning) hör hemma i sk
   faktiska innehåll innan den läggs i `images/`, så `contain` har mindre
   tomrum att fylla. Dokumenterat direkt i skillen på Kents uttryckliga
   begäran, så nästa gång går snabbare.
+- 2026-10-02 (v14): Flyttad från `Presentationer/.claude/skills/` till `.claude/skills/` direkt
+  under `AI-teknik`, på Kents uttryckliga begäran, som en generell regel att repots skills ligger
+  i repots rot. Roten täcker även `Presentationer/Nr1`, `Nr2` osv. Ingen innehållsändring utöver
+  placeringstexten. Den globala pekaren är uppdaterad med den nya sökvägen.
