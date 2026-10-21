@@ -61,4 +61,4 @@ Avsluta med tre rader: (1) vilken modell och vilket läge du är, (2) om du kör
 ## 6. Resultat
 
 - **Prompt A (tentan):** besvarad av Grok 4.7 (standardläge). Alla slutsvar stämmer med lösningsskissen. Se [RESULTAT_A_tenta_grok.md](RESULTAT_A_tenta_grok.md) och [grok_svar_A_oforandrat.md](grok_svar_A_oforandrat.md).
-- **Prompt B (värmeledning):** *Svar saknas ännu.*
+- **Prompt B (värmeledning):** besvarad av Grok Build ("agentläge för kod"). Alla tre delfrågor stämmer med det låsta facit. Se [RESULTAT_B_vaermeledning_grok.md](RESULTAT_B_vaermeledning_grok.md), [grok_svar_B_oforandrat.md](grok_svar_B_oforandrat.md) och [skärmdumpen](grok_svar_B_skarmdump.png). Grok Build kördes enligt Kent i en tom mapp utan tillgång till facit. Öppet: modellens namn.
