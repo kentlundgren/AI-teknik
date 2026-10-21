@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_generation_2005
 **Plats:** `AI-teknik/Presentationer/10/PRD_presentation_generation_2005.md`
 **Skapad:** 2026-10-21
-**Version:** 1 (utkast för diskussion)
+**Version:** 2 (utkast för diskussion; första källgenomgång gjord)
 **Status:** **Utkast. Inget är byggt, ingen SPEC.md är skriven.** Alla beslut i avsnitt 4 är öppna tills Kent bekräftat dem.
 **Typ:** Grund-PRD för en ny presentation. Mappen heter `10` (Kents val 2026-10-21). Övriga presentationer heter `Nr1`–`Nr3`; om mappnamnet ska följa det mönstret är en öppen fråga (4i).
 **Avsändare:** Kent Lundgren.
@@ -24,6 +24,10 @@ Tidslinjen för personan, härledd av födelseåret (verifieras mot skolans regl
 | ht 2021 – vt 2024 | Gymnasium; ChatGPT släpps under åk 2 (nov 2022) |
 | 2024–2026 | Arbete (cirka två år) |
 | ht 2026 | Start på teknisk högskola |
+
+**Det som väckte frågan (Kent, 2026-10-21):** en nybliven student vid LTH berättade att nyantagna hösten 2026 kunde köpa ett Gemini-abonnemang för cirka en tredjedel av priset (cirka 66 kr i stället för 200 kr per månad). Det fick Kent att undra om detta är första året "nya AI" är fullt accepterad som en normal del av studierna. Uppgiften om 66 kr är **inte bekräftad** i någon källa; se [FYND_kallor_2026-10-21.md](FYND_kallor_2026-10-21.md).
+
+**Första källgenomgången (2026-10-21):** intuitionen är riktig i sak men daterad för sent. Lunds universitet gav studenter tillgång till Gemini och Copilot Chat via studentkonto redan före hösten 2026, och lärosätena har under 2025 gått från tolerans till att själva tillhandahålla verktyg och ändra examinationen. Samtidigt är regler kursvisa, KTH kallar användningen frivillig och LU skriver att AI aldrig ska ersätta eget lärande. Därför bör tesen formuleras mindre kategoriskt (se 4c).
 
 ## 2. Syfte
 
@@ -49,7 +53,7 @@ Tidslinjen för personan, härledd av födelseåret (verifieras mot skolans regl
 
 ## 4. Frågor och beslut
 
-**a. Persona eller verklig person — FÖRSLAG: persona.** Kent har nämnt att tanken väcktes av sonen Erik (född 2005-07-25), men texten ska gälla vem som helst född 2005. Förslag: Erik nämns inte vid namn och födelsedatum anges inte. Åldern räcker ("född 2005"). Om Kent vill nämna Erik krävs hans uttryckliga samtycke (han är vuxen). **Öppen: Kent bekräftar.**
+**a. Persona eller verklig person — FÖRSLAG: persona.** Tanken väcktes av en närstående som börjar på högskola 2026, men texten ska gälla vem som helst född 2005. **BESLUTAT ✓ (2026-10-21, Kent): personen nämns inte vid namn och födelsedatum anges inte.** Födelseåret ("född 2005") räcker.
 
 **b. Läsare — UTKAST (Kents beskrivning 2026-10-21).** Någon som vill se och reflektera över om 2005-kullen kan vara första generationen med full nytta av generativ AI, och om 2026 är året då undervisningen inte kan bortse från den. Troliga läsare: studenter, föräldrar, lärare, studievägledare, högskolepersonal. Enbart svenska. **Öppen: vilka av dessa är huvudläsare?**
 
@@ -59,6 +63,7 @@ Tidslinjen för personan, härledd av födelseåret (verifieras mot skolans regl
 - Nytta är inte detsamma som lärande: AI kan hjälpa till att klara uppgifter utan att man lär sig (se forskningsläget, 4g).
 - Tillgång och kostnad: full nytta kräver tillgång till bra verktyg.
 **Öppen: vill Kent att motargumenten får ett eget avsnitt (förslag) eller vävs in?**
+**Ny information 2026-10-21:** källgenomgången visar att "2026 är första året" inte kan styrkas. Verktyg via lärosätet fanns redan 2025 vid LU, och Google erbjöd svenska studenter gratis AI Pro hösten 2025. Förslag på hållbarare formulering: *"2025–2026 är brytpunkten då lärosäten går från att tolerera till att själva tillhandahålla och reglera generativ AI."* **Öppen: vill Kent behålla 2026 som tes eller ändra till brytpunkten 2025–2026?**
 
 **d. Form — ÖPPEN, spånas.** Alternativ:
 - **A. Tidslinje i fyra skeden** (som Nr1:s årskort): vad AI kunde då, hur personan kunde använda det, vad undervisningen sa.
@@ -78,6 +83,7 @@ Förslag att börja diskutera från: **D**, men börja enklast (A + avsnittet "H
 - Primärkällor om verktygens kapacitet: leverantörernas egna tekniska rapporter och oberoende utvärderingar.
 - Rapporter om hur studenter faktiskt använder verktygen (enkäter).
 Krav: Harvardstil, alfabetisk ordning, hämtdatum för webbkällor, kursiv relevansförklaring. Vad som inte hittas eller inte går att läsa i original redovisas som sådant.
+**Status 2026-10-21:** första genomgången är gjord och redovisad i [FYND_kallor_2026-10-21.md](FYND_kallor_2026-10-21.md) med åtta lästa källor (LU, Google, KTH, Ingenjören, regeringen, Computer Sweden). Bastani m.fl. (PNAS 2025) och UNESCO (2023) är kända men ännu inte lästa i original. Chalmers, Uppsala och Linköping är otillräckligt undersökta.
 
 **h. Röst och ton.** Kent är avsändare. Ramtexten skrivs i Kents röst (granskad mot `kent-skrivstil` och `humanizer_ton`). Berättandet om personan skrivs i tredje person och märks som exempel. Ingen AI-märkning. Inget skrivs som att Kent själv gjort något han inte gjort.
 
@@ -103,3 +109,4 @@ Krav: Harvardstil, alfabetisk ordning, hämtdatum för webbkällor, kursiv relev
 ## Ändringslogg
 
 - **v1 (2026-10-21):** Första utkast efter Kents beskrivning av tesen, läsaren och personan.
+- **v2 (2026-10-21):** Personen nämns inte vid namn (beslutat). Bakgrunden (Gemini-erbjudandet) och första källgenomgången inlagda; fynd i `FYND_kallor_2026-10-21.md`. Tesen i 4c fick ett förslag på mer hållbar formulering.
