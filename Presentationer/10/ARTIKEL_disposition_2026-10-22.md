@@ -71,6 +71,7 @@ Varje ingress är skriven så att den bara påstår sådant som är sant för Ke
 **Princip:** testerna är illustrationer, inte studier. De har ett i förväg känt facit, de redovisar vad som kan ha påverkat resultatet (modellen kan ha sett tentan), och texten skriver bara det som är sant.
 
 **Test 1 – en tenta i matematik eller fysik.**
+- **STATUS 2026-10-22 (senare): GENOMFÖRT.** Eftersom LTH:s arkiv inte gick att nå används Linköpings universitets öppna tenta TATA41 Envariabelanalys 1 från 2026-08-19, med officiell lösningsskiss. Alla svar stämde. Resultat, metod och förbehåll: [test1_TATA41_2026-08-19/RESULTAT_test1.md](test1_TATA41_2026-08-19/RESULTAT_test1.md). Det är en tenta, en körning, en modell, och agenten hade Python som verktyg; texten ska säga det. Nedan står den ursprungliga planen.
 - **Hinder (2026-10-22):** LTH:s offentliga tentaarkiv är inte nåbart för mig. Länkarna till Matematikcentrums gamla tentor och lösningsförslag (till exempel Analys 2, FMAA50) ger 404 hos maths.lu.se, och den äldre servern ctr.maths.lu.se svarar inte. Sidan verkar ha byggts om. Jag har därför ingen tenta med facit att köra mot än.
 - **Alternativ:**
   1. Du skickar mig en eller två tidigare LTH-tentor med lösningsförslag (till exempel ur kursens Canvas via din närstående). Vi redovisar bara resultat och länkar, inte tentorna själva.

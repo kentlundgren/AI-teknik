@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_generation_2005
 **Plats:** `AI-teknik/Presentationer/10/PRD_presentation_generation_2005.md`
 **Skapad:** 2026-10-21
-**Version:** 7 (utkast för diskussion; fyra källgenomgångar gjorda; artikel som första leverans)
+**Version:** 8 (utkast för diskussion; fyra källgenomgångar gjorda; artikel som första leverans; Test 1 genomfört)
 **Status:** **Utkast. Inget är byggt, ingen SPEC.md är skriven.** Alla beslut i avsnitt 4 är öppna tills Kent bekräftat dem.
 **Typ:** Grund-PRD för en ny presentation. Mappen heter `10` (Kents val 2026-10-21). Övriga presentationer heter `Nr1`–`Nr3`; om mappnamnet ska följa det mönstret är en öppen fråga (4i).
 **Avsändare:** Kent Lundgren.
@@ -104,7 +104,7 @@ Krav: Harvardstil, alfabetisk ordning, hämtdatum för webbkällor, kursiv relev
 
 **k. Matematik, naturvetenskap och AI-agenter — UTKAST (Kent 2026-10-21).** Kents tes: 2026 är första året då en teknolog kan lita på AI-modellen i matematik och naturvetenskap, och då studenter hanterar harness-appar och flera agenter någorlunda väl. Fyndsammanställning: [FYND_matematik_och_agenter_2026-10-21.md](FYND_matematik_och_agenter_2026-10-21.md). Kort: modellerna passerade expertnivå på GPQA Diamond (93 procent mot 81 procent för experter) och gick från 2 till 31–38 procent på FrontierMath Tier 4 mellan november 2024 och mars 2026, och fick IMO-guld 2025. Alltså är språnget 2024–2026, inte bara 2026. Men förmågan är ojämn, bevis är svårare än svar, och benchmark kan innehålla fel. Ingen studie av verkliga tentor på LTH/KTH/Chalmers hittades, och ingen mätning av studenters agent-kompetens. **Begrepp:** agent = modell + harness; "verktyg" är det agenten anropar (se FYND avsnitt 2). **Öppet:** (i) skriva tesen som "seriös sparringpartner 2024–2026" i stället för "lita på 2026"? (ii) göra ett eget replikerbart test på offentliga tentor (FYND avsnitt 7)?
 
-**l. Första leverans är en artikel, inte presentationen — BESLUTAT ✓ (Kent 2026-10-22, "agera på gissningarna").** Kent vill först skriva en argumenterande text (GitHub, blogg och LinkedIn) som lanserar tesen, med rubriken **"2026 är året det blev normalt och moget"**. Texten bygger på hans två inlägg ([Vad mäter AI-testerna egentligen?](https://klel.wordpress.com/2026/09/25/vad-mater-ai-testerna-egentligen/), 2026-09-25, och [Generativ AI – farlig farligt, eller härligt härligt](https://klel.wordpress.com/2026/09/18/generativ-ai-farlig-farligt-eller-harligt-harligt/), 2026-09-18) och avslutas med ett eller två tester med känt facit. Presentationen i denna mapp kommer senare och återanvänder fakta och källor. Disposition, ingressförslag, testplan och beslutslista: [ARTIKEL_disposition_2026-10-22.md](ARTIKEL_disposition_2026-10-22.md). Tesens ordalydelse: "moget" ersätter "första året" och "kan lita på". **Hinder:** LTH:s offentliga tentaarkiv gick inte att nå 2026-10-22, så Test 1 väntar på en tenta med facit.
+**l. Första leverans är en artikel, inte presentationen — BESLUTAT ✓ (Kent 2026-10-22, "agera på gissningarna").** Kent vill först skriva en argumenterande text (GitHub, blogg och LinkedIn) som lanserar tesen, med rubriken **"2026 är året det blev normalt och moget"**. Texten bygger på hans två inlägg ([Vad mäter AI-testerna egentligen?](https://klel.wordpress.com/2026/09/25/vad-mater-ai-testerna-egentligen/), 2026-09-25, och [Generativ AI – farlig farligt, eller härligt härligt](https://klel.wordpress.com/2026/09/18/generativ-ai-farlig-farligt-eller-harligt-harligt/), 2026-09-18) och avslutas med ett eller två tester med känt facit. Presentationen i denna mapp kommer senare och återanvänder fakta och källor. Disposition, ingressförslag, testplan och beslutslista: [ARTIKEL_disposition_2026-10-22.md](ARTIKEL_disposition_2026-10-22.md). Tesens ordalydelse: "moget" ersätter "första året" och "kan lita på". **Test 1 genomfört 2026-10-22:** LTH:s offentliga tentaarkiv gick inte att nå, så Linköpings universitets öppna tenta TATA41 Envariabelanalys 1 (2026-08-19, med officiell lösningsskiss) användes i stället. Alla svar stämde med lösningsskissen; en tenta, en körning, en modell, med Python som verktyg. Se [test1_TATA41_2026-08-19/RESULTAT_test1.md](test1_TATA41_2026-08-19/RESULTAT_test1.md). Test 2 (agentuppgift) är inte gjort.
 
 ## 5. Leveranser
 
@@ -124,6 +124,7 @@ Krav: Harvardstil, alfabetisk ordning, hämtdatum för webbkällor, kursiv relev
 ## Ändringslogg
 
 - **v1 (2026-10-21):** Första utkast efter Kents beskrivning av tesen, läsaren och personan.
+- **v8 (2026-10-22):** Test 1 genomfört på en öppen LiU-tenta (TATA41, 2026-08-19); resultat i `test1_TATA41_2026-08-19/`.
 - **v7 (2026-10-22):** Ny punkt 4l: artikel som första leverans, rubrik "2026 är året det blev normalt och moget"; disposition i `ARTIKEL_disposition_2026-10-22.md`.
 - **v6 (2026-10-21):** Ny punkt 4k om matematik, naturvetenskap och AI-agenter; fynd i `FYND_matematik_och_agenter_2026-10-21.md`.
 - **v5 (2026-10-21):** Formförslaget i 4d utvecklat till en sida med fem delar, med "vem betalar?" som huvudgrepp; fyra öppna val i formen.
