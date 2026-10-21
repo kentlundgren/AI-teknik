@@ -80,6 +80,7 @@ Varje ingress är skriven så att den bara påstår sådant som är sant för Ke
 - **Genomförande:** agenten (Claude Code med Python) löser uppgifterna utan att se facit. Därefter rättas svaren mot lösningsförslaget och mot en egen kontroll med Python (två oberoende källor). Redovisa antal rätt, typ av fel och om agenten själv upptäckte felen.
 
 **Test 2 – en agentuppgift.**
+- **STATUS 2026-10-22 (senare): GENOMFÖRT.** Värmeledning i en stav, tre delfrågor, facit låst i förväg med hashvärde. Alla svar stämde (avvikelse 0,0004 °C, 0,0005 °C och 0,4 s mot gränserna 0,05 °C och 1 s). Resultat, metod och förbehåll: [test2_vaermeledning/RESULTAT_test2.md](test2_vaermeledning/RESULTAT_test2.md). Uppgiften formulerades av samma modell som löste den, så texten ska säga att den är en illustration. Nedan står den ursprungliga planen.
 - Ett beräkningsproblem där agenten skriver och kör kod, och där resultatet jämförs med en analytisk lösning (till exempel en dämpad svängning eller värmeledning i en stav).
 - Det prövar harnessen (hela agenten), inte bara modellen.
 

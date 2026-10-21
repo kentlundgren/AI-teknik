@@ -1,0 +1,13 @@
+{
+ "a_T_mitt_600s": 42.842636709643074,
+ "b_T_isolerad_aende_600s": 20.540506125368275,
+ "c_tid_till_90C_s": 2424.4028514117063,
+ "metod": "Fourierserie, 400 termer, mpmath 40 siffror",
+ "indata": {
+  "L": 1.0,
+  "alpha": 9.7e-05,
+  "T0": 20,
+  "Tkant": 100,
+  "t": 600
+ }
+}
