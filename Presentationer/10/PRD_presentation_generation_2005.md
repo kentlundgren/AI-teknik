@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_generation_2005
 **Plats:** `AI-teknik/Presentationer/10/PRD_presentation_generation_2005.md`
 **Skapad:** 2026-10-21
-**Version:** 2 (utkast för diskussion; första källgenomgång gjord)
+**Version:** 3 (utkast för diskussion; två källgenomgångar gjorda)
 **Status:** **Utkast. Inget är byggt, ingen SPEC.md är skriven.** Alla beslut i avsnitt 4 är öppna tills Kent bekräftat dem.
 **Typ:** Grund-PRD för en ny presentation. Mappen heter `10` (Kents val 2026-10-21). Övriga presentationer heter `Nr1`–`Nr3`; om mappnamnet ska följa det mönstret är en öppen fråga (4i).
 **Avsändare:** Kent Lundgren.
@@ -64,6 +64,7 @@ Tidslinjen för personan, härledd av födelseåret (verifieras mot skolans regl
 - Tillgång och kostnad: full nytta kräver tillgång till bra verktyg.
 **Öppen: vill Kent att motargumenten får ett eget avsnitt (förslag) eller vävs in?**
 **Ny information 2026-10-21:** källgenomgången visar att "2026 är första året" inte kan styrkas. Verktyg via lärosätet fanns redan 2025 vid LU, och Google erbjöd svenska studenter gratis AI Pro hösten 2025. Förslag på hållbarare formulering: *"2025–2026 är brytpunkten då lärosäten går från att tolerera till att själva tillhandahålla och reglera generativ AI."* **Öppen: vill Kent behålla 2026 som tes eller ändra till brytpunkten 2025–2026?**
+**Kents hypotes 2026-10-21 ("envis"):** 2026 är första året då en majoritet av studenterna har abonnemang på någon AI-modell, och då det "måste" finnas. **Andra källgenomgången (FYND avsnitt 9):** *användningen* stöder hypotesen starkt (Internetstiftelsen: över 6 av 10 svenskar 2026 mot 4 av 10 2025, 9 av 10 bland födda på 2000-talet; HEPI: 95 procent av brittiska studenter), men **ingen källa visar att en majoritet av studenterna betalar**, och gratisversioner samt lärosätesverktyg gör att "måste ha abonnemang" inte är belagt. Förslag: ställ i stället frågan *"vem betalar för studentens AI?"*.
 
 **d. Form — ÖPPEN, spånas.** Alternativ:
 - **A. Tidslinje i fyra skeden** (som Nr1:s årskort): vad AI kunde då, hur personan kunde använda det, vad undervisningen sa.
@@ -109,4 +110,5 @@ Krav: Harvardstil, alfabetisk ordning, hämtdatum för webbkällor, kursiv relev
 ## Ändringslogg
 
 - **v1 (2026-10-21):** Första utkast efter Kents beskrivning av tesen, läsaren och personan.
+- **v3 (2026-10-21):** Kents hypotes om betalande majoritet prövad i andra källgenomgången (FYND avsnitt 9); förslag att ändra frågan till "vem betalar".
 - **v2 (2026-10-21):** Personen nämns inte vid namn (beslutat). Bakgrunden (Gemini-erbjudandet) och första källgenomgången inlagda; fynd i `FYND_kallor_2026-10-21.md`. Tesen i 4c fick ett förslag på mer hållbar formulering.
