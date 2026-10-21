@@ -3,7 +3,7 @@
 **Hör till:** [PRD_presentation_generation_2005.md](PRD_presentation_generation_2005.md) (v14) och [ARTIKEL_utkast_1_2026-10-22.md](ARTIKEL_utkast_1_2026-10-22.md)
 **Skapad:** 2026-10-22
 **Version:** 1 (utkast för Kents godkännande)
-**Status:** **Ej godkänd.** Bygget börjar först när Kent godkänt. Ändringar görs som ny version.
+**Status:** **Godkänd av Kent 2026-10-22.** Första versionen byggd lokalt samma dag. Ändringar görs som ny version.
 **Syfte:** Låst byggspecifikation. PRD:n säger *vad och varför*, den här filen säger *exakt hur* och när det är klart.
 **Avsändare:** Kent Lundgren.
 
@@ -95,20 +95,22 @@
 
 ## 9. Acceptanslista (klart när allt detta stämmer)
 
-- [ ] Sidan öppnas utan fel i konsolen, på mobil (360 px) och dator.
-- [ ] Brödtexten går att läsa med JavaScript avstängt.
-- [ ] Tabell 1 och Tabell 2 byggs av `data.js`; varje rad har alla fält och håller teckengränserna (kontrolleras med script).
-- [ ] Varje källa i listan: första omnämnandet i löptext är en länk, adressen är klickbar och svarar (200), och länken stöder påståendet.
-- [ ] Alla sex mediafiler visas eller spelas; videorna startar inte av sig själva; Video 2 laddas först vid uppspelning.
-- [ ] Alla hänvisningar till tabeller, bilder och videor är länkar.
-- [ ] Förklaringar går att öppna med mus, tangentbord och tryck.
-- [ ] GitHub-hörnan och teknik-modalen finns, och modalen innehåller bara sanna uppgifter.
-- [ ] Inget ur avsnitt 8 finns på sidan (sökning efter namn, födelsedatum, hela tentan).
+- [x] Sidan öppnas utan fel i konsolen, på mobil (360 px) och dator. *(Testat 2026-10-22 på 375 px och 1024 px: inga konsolfel, ingen sidledes scroll.)*
+- [ ] Brödtexten går att läsa med JavaScript avstängt. *(Texten ligger som statisk HTML, men det är inte prövat med JavaScript avstängt.)*
+- [x] Tabell 1 och Tabell 2 byggs av `data.js`; varje rad har alla fält och håller teckengränserna (kontrolleras med script). *(Tabell 1: alla fem rader inom gränserna, kontrollerat med script.)*
+- [x] Varje källa i listan: första omnämnandet i löptext är en länk, adressen är klickbar och svarar (200), och länken stöder påståendet. *(Alla 19 källor har sin adress som länk i löptexten, och alla 32 externa adresser svarar 200.)*
+- [x] Alla sex mediafiler visas eller spelas; videorna startar inte av sig själva; Video 2 laddas först vid uppspelning. *(Bilderna och videornas stillbilder visas, `preload="none"`, ingen `autoplay`. Själva uppspelningen är inte testad.)*
+- [x] Alla hänvisningar till tabeller, bilder och videor är länkar.
+- [ ] Förklaringar går att öppna med mus, tangentbord och tryck. *(Klick med mus testat. Tangentbord och tryck är implementerade men inte testade.)*
+- [x] GitHub-hörnan och teknik-modalen finns, och modalen innehåller bara sanna uppgifter. *(Öppnas, stängs med kryss och Escape, fokus återställs.)*
+- [x] Inget ur avsnitt 8 finns på sidan (sökning efter namn, födelsedatum, hela tentan). *(Sökt efter namn och födelsedatum. Tentan och lösningsskissen är bara länkade.)*
 - [ ] Texten är i Kents röst och stämmer med den publicerade artikeln, utom där den medvetet skiljer sig.
-- [ ] `version 10 per den [DATUM]` visas i sidhuvudet.
+- [x] `version 10 per den [DATUM]` visas i sidhuvudet.
 - [ ] Utskrift ger läsbart resultat.
 - [ ] README med Live-länk finns. Påminnelse om delningsbild är gjord.
 - [ ] Kent har godkänt innan något publiceras. Kent committar och pushar själv.
+
+*Obockade punkter är inte klara: Kents genomläsning av rösten, utskrift, JavaScript avstängt, tangentbord och tryck, README-påminnelsen om delningsbild samt Kents godkännande före publicering.*
 
 ## 10. Öppna punkter (att besluta innan eller under bygget)
 
