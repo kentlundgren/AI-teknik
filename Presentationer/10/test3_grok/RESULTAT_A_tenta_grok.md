@@ -8,7 +8,7 @@
 
 | | Claude (Test 1) | Grok (Test 3A) |
 |---|---|---|
-| Modell och läge | Claude Sonnet 5.5, i Claude Code | Grok 4.7, standardläge (enligt Groks egen uppgift) |
+| Modell och läge | Claude Sonnet 5.5, i Claude Code | Grok 4.7, standardläge (enligt Groks egen uppgift). Kents skärmbild visar läget **Auto** i Groks app ([Grok_svarar_pa_forsta_fragan.jpg](../Grok/Bilder/Grok_svarar_pa_forsta_fragan.jpg)) |
 | Kodkörning | Ja, Python och sympy | "Nej" för slutsvaren, men "en snabb numerisk kontroll av några uttryck" (Groks egen uppgift, något motsägelsefull) |
 | Webbsökning | Inga sökningar efter tentan eller facit | "Nej" enligt Grok. Om det gick att stänga av webbsökning är inte noterat |
 | Prompt | Uppgifterna lästes som bilder ur PDF:en | Uppgifterna inklistrade som text (se [PROMPTER_och_protokoll.md](PROMPTER_och_protokoll.md)) |

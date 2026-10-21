@@ -58,6 +58,10 @@ Avsluta med tre rader: (1) vilken modell och vilket läge du är, (2) om du kör
 - Jämförelsen mot facit, i en tabell, med samma gränser som i Test 1 och 2 (Test 2: ±0,05 °C och ±1 s).
 - En tydlig rad om skillnader i förutsättningar (kod, verktyg, sökning, läge).
 
+## 5b. Media från körningarna
+
+Kent Lundgren har lagt skärmbilder och skärminspelningar i mappen [Grok/Bilder](../Grok/Bilder/): prompterna i Groks app (läget "Auto" för Prompt A, läget "Build (Beta)" för Prompt B), de fullständiga svaren och två skärminspelningar där Grok arbetar (16 sekunder för tentan, cirka 3 minuter för värmeledningen). Videofilerna har ett ljudspår utan hörbart ljud, och de visar bara chattfönstret.
+
 ## 6. Resultat
 
 - **Prompt A (tentan):** besvarad av Grok 4.7 (standardläge). Alla slutsvar stämmer med lösningsskissen. Se [RESULTAT_A_tenta_grok.md](RESULTAT_A_tenta_grok.md) och [grok_svar_A_oforandrat.md](grok_svar_A_oforandrat.md).

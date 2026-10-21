@@ -14,6 +14,8 @@ Hashvärdet (SHA-256) för facit-filen är fortfarande `2c79674c92ebc395a3bec203
 |---|---|---|
 | Verktyg | Claude Code (agentverktyg) med Python | Grok Build, "agentläge för kod" (Groks egen uppgift) |
 | Modellens namn | Claude Sonnet 5.5 | **Inte angivet** (Grok svarade bara "Grok Build, agentläge för kod") |
+| Läge i appen | Claude Code | Läget **Build (Beta)** i Groks app, enligt Kents skärmbild ([Grok_Build_svarar_pa_andra_fragan.jpg](../Grok/Bilder/Grok_Build_svarar_pa_andra_fragan.jpg)) |
+| Arbetstid | Inte mätt | 6 minuter 44 sekunder enligt Groks egen arbetslogg i Kents skärminspelning ([Grok_loser_andra_uppgiften.mp4](../Grok/Bilder/Grok_loser_andra_uppgiften.mp4)) |
 | Kodkörning | Ja, ren Python | Ja. Första Python-körningen avbröts, och Grok räknade om i C |
 | Webbsökning | Ingen | "Jag sökte inte på internet" (Groks egen uppgift) |
 | Mapp | Egen, utan tillgång till facit under lösningen | En tom mapp utan tillgång till facit (bekräftat av Kent Lundgren 2026-10-22; svaret anger det inte själv) |
@@ -38,6 +40,7 @@ För jämförelse gav Claude (Test 2): 42,843 °C, 20,541 °C och 2424 s, med av
 - Förfinade rutnätet mycket längre än Claude (upp till N = 1600 mot Claudes 640) och använde Richardson-extrapolation, vilket gav svar som stämmer med facit på ungefär sex siffror.
 - När den första Python-körningen avbröts, skrev den om beräkningen i C. Det är ett exempel på att en agent hanterar ett avbrott själv.
 - Redovisade själv vilket verktyg den var, att den körde kod och att den inte sökte på internet.
+- **Arbetsloggen i skärminspelningen visar mer än slutsvaret.** Den innehåller bland annat stegen "Verifying the Fourier series coefficients", "Verifying analytical solution for part b", "Computing analytical series for verification" och kommandot "Series reference values for internal check". Grok räknade alltså, enligt sin egen logg, också fram den analytiska Fourierserien som en **intern kontroll**. Prompten sa "använd inte den analytiska lösningen (Fourierserien) som *svar*", så det går inte emot ordalydelsen, och slutsvaret är de numeriska värdena. Det är ändå en skillnad mot mitt Test 2, där jag inte räknade fram den analytiska lösningen före jämförelsen med det låsta facit.
 
 ## 5. Vad testet visar och inte visar
 
@@ -45,6 +48,7 @@ För jämförelse gav Claude (Test 2): 42,843 °C, 20,541 °C och 2424 s, med av
 
 **Det visar inte:**
 - **Mappen är bekräftad av Kent, inte av Grok.** Kent Lundgren uppger att Grok Build kördes i en tom mapp utan tillgång till facit. Det går inte att kontrollera i efterhand, men Groks redovisade konvergensstudie pekar inte på att den läst något facit.
+- **Att Groks överensstämmelse med facit på sex siffror är en ren numerisk bedömning.** Groks arbetslogg visar att den kontrollerade sina värden mot den analytiska serien. Svaret är därför inte ett test av om numeriken *ensam* hittar rätt, utan av en agent som både räknade numeriskt och kontrollerade mot en referens. Det är fullt rimligt arbetssätt, men det ska stå i texten.
 - **Vilken modell som svarade.** Svaret uppger bara verktyget, inte modellens namn och version.
 - **Att uppgiften skiljer agenterna åt.** Båda klarar den, och båda använder samma standardmetod. Uppgiften är en lärobok i numerisk analys.
 - **Att Prompt A och Prompt B kördes på samma sätt.** Prompt A kördes i Groks vanliga chatt, Prompt B i Grok Build. Förutsättningarna är alltså olika mellan de två testen.
