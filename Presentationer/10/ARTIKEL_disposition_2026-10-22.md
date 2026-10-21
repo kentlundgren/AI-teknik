@@ -84,6 +84,8 @@ Varje ingress är skriven så att den bara påstår sådant som är sant för Ke
 - Ett beräkningsproblem där agenten skriver och kör kod, och där resultatet jämförs med en analytisk lösning (till exempel en dämpad svängning eller värmeledning i en stav).
 - Det prövar harnessen (hela agenten), inte bara modellen.
 
+**Test 3 – samma uppgifter till Grok (tillagt 2026-10-22).** Kent lägger samma två uppgifter som prompter i en annan AI-modell, så att artikeln kan visa hur en prompt ser ut och hur en annan modell svarar. Prompter och protokoll: [test3_grok/PROMPTER_och_protokoll.md](test3_grok/PROMPTER_och_protokoll.md). Prompt A (tentan) besvarad av Grok 4.7: alla slutsvar stämmer, skillnaden ligger i motiveringarna ([test3_grok/RESULTAT_A_tenta_grok.md](test3_grok/RESULTAT_A_tenta_grok.md)). Prompt B (värmeledning) väntar på svar. Observation för artikeln: tentan skiljer inte modellerna åt, men visar att slutsvaret inte längre är det svåra.
+
 **Rättvisa och sanning i texten:** skriv "jag lät Claude Code lösa uppgifterna och rättade mot facit" bara om det är vad som sker. Redovisa modell, version och datum.
 
 ## 6. Kanaler och leverans

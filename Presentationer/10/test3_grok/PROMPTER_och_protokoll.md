@@ -60,4 +60,5 @@ Avsluta med tre rader: (1) vilken modell och vilket läge du är, (2) om du kör
 
 ## 6. Resultat
 
-*(Fylls i när Groks svar finns.)*
+- **Prompt A (tentan):** besvarad av Grok 4.7 (standardläge). Alla slutsvar stämmer med lösningsskissen. Se [RESULTAT_A_tenta_grok.md](RESULTAT_A_tenta_grok.md) och [grok_svar_A_oforandrat.md](grok_svar_A_oforandrat.md).
+- **Prompt B (värmeledning):** *Svar saknas ännu.*

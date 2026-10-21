@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_generation_2005
 **Plats:** `AI-teknik/Presentationer/10/PRD_presentation_generation_2005.md`
 **Skapad:** 2026-10-21
-**Version:** 9 (utkast för diskussion; fyra källgenomgångar gjorda; artikel som första leverans; Test 1 och Test 2 genomförda)
+**Version:** 10 (utkast för diskussion; fyra källgenomgångar gjorda; artikel som första leverans; Test 1–2 genomförda, Test 3 (Grok) halvvägs)
 **Status:** **Utkast. Inget är byggt, ingen SPEC.md är skriven.** Alla beslut i avsnitt 4 är öppna tills Kent bekräftat dem.
 **Typ:** Grund-PRD för en ny presentation. Mappen heter `10` (Kents val 2026-10-21). Övriga presentationer heter `Nr1`–`Nr3`; om mappnamnet ska följa det mönstret är en öppen fråga (4i).
 **Avsändare:** Kent Lundgren.
@@ -124,6 +124,7 @@ Krav: Harvardstil, alfabetisk ordning, hämtdatum för webbkällor, kursiv relev
 ## Ändringslogg
 
 - **v1 (2026-10-21):** Första utkast efter Kents beskrivning av tesen, läsaren och personan.
+- **v10 (2026-10-22):** Test 3: samma uppgifter till Grok. Prompt A (tentan) besvarad av Grok 4.7; alla slutsvar stämmer, skillnaden ligger i hur väl bevisen motiveras. Prompt B väntar. Se `test3_grok/`.
 - **v9 (2026-10-22):** Test 2 (agentuppgift, värmeledning) genomfört med facit låst i förväg; resultat i `test2_vaermeledning/`.
 - **v8 (2026-10-22):** Test 1 genomfört på en öppen LiU-tenta (TATA41, 2026-08-19); resultat i `test1_TATA41_2026-08-19/`.
 - **v7 (2026-10-22):** Ny punkt 4l: artikel som första leverans, rubrik "2026 är året det blev normalt och moget"; disposition i `ARTIKEL_disposition_2026-10-22.md`.
