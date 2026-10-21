@@ -70,6 +70,8 @@ Vad källorna stöder: *Från 2025 tillhandahåller lärosäten själva generati
 - Eriksson, V. (2025) *Google vill locka svenska studenter med gratis AI*. Computer Sweden, 13 oktober. https://computersweden.se/article/4071598/google-vill-locka-svenska-studenter-med-gratis-ai.html *Visar att Google redan hösten 2025 erbjöd svenska studenter ett år gratis AI Pro, så erbjudanden av det slaget är inte nya 2026.*
 - Google (2026a) *Google AI Pro och Ultra* (svenska prissidan). https://gemini.google/se/subscriptions/?hl=sv *Primärkälla för svenska priser: AI Plus 55 kr, AI Pro 255 kr.*
 - Google (2026b) *Gemini för studenter*. https://gemini.google/fi/students/?hl=sv *Villkor för studentprenumerationen (ett år gratis AI Plus, 31 december 2026, 4,99 €/mån därefter).*
+- Google (2026c) *Start the semester with one year of Gemini, on us*, 19 augusti. https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/ *Primärkälla för studentpaketen 2026: gratis AI Plus utanför USA och paket med AI Pro och YouTube Premium för upp till 70 procent rabatt.*
+- Google (2026d) *Gemini för studenter* (svenska studentsidan). https://gemini.google/se/students/?hl=sv *Bekräftar gratis AI Plus för studenter i Sverige och priset 55 kr/månad efter provåret.*
 - HEPI (2026) *Student Generative AI Survey 2026* (Report 199), Higher Education Policy Institute, mars. https://www.hepi.ac.uk/wp-content/uploads/2026/03/HEPI-Report-199-Gen-AI-Survey-2026.pdf *Brittisk studentenkät: 95 procent använder AI, 38 procent har lärosätesstillhandahållna verktyg. Ingen siffra för egenbetalda abonnemang.*
 - Ingenjören (2026) *107 Chalmers- och KTH-studenter stängdes av för fusk*, 19 maj. https://ingenjoren.se/2026/05/19/107-chalmers-och-kth-studenter-stangdes-av-for-fusk/ *Ingenjörsutbildningars läge, med hänvisning till UKÄ.*
 - Internetstiftelsen (2026) *Svenskarna och internet 2026: AI*. https://svenskarnaochinternet.se/rapporter/svenskarna-och-internet-2026/ai-artificiell-intelligens/ *Svenska användningssiffror, inklusive hoppet från 4 till över 6 av 10 mellan 2025 och 2026 och 9 av 10 bland födda på 2000-talet.*
@@ -78,6 +80,9 @@ Vad källorna stöder: *Från 2025 tillhandahåller lärosäten själva generati
 - LU (2026a) *AI-verktyg*. Lunds universitet, Studera i en digital värld. https://www.campusonline.lu.se/digitala-verktyg/ai-verktyg *Primärkälla för att LU-studenter har Copilot Chat och Gemini med studentkonto.*
 - LU (2026b) *Så använder du generativ AI ansvarsfullt*, senast uppdaterad 2026-08-24. https://www.campusonline.lu.se/studieteknik/sa-anvander-du-generativ-ai-ansvarsfullt *LU:s studentriktlinjer.*
 - LU (2026c) *Slutrapport: Uppdrag att ta fram förslag till sammanhållet arbete i användning av artificiell intelligens med särskilt fokus på utbildningsfrågor (STYR 2024-3201)*. https://www.ai.lu.se/sites/ai.lu.se/files/2026-01/Slutrapport%20Uppdrag%20att%20ta%20fram%20f%C3%B6rslag%20till%20sammanh%C3%A5llet%20arbete%20i%20anv%C3%A4ndning%20av%20artificiell%20intelligens%20med%20s%C3%A4rskilt%20fokus%20p%C3%A5%20utbildningsfr%C3%A5gor%20(STYR%202024-3201)_0.pdf *Visar läget i december 2025 för studenters verktyg vid LU.*
+- LU (2026e) *Programvara*, Lunds universitet. https://www.lu.se/student/it-tjanster-och-studentsupport/programvara *Alla LU-studenter får ett Google Workspace-konto.*
+- LU (2026f) *Studentmejl*, Lunds universitet. https://www.lu.se/student/it-tjanster-och-studentsupport/studentmejl *Studentmejlen är Gmail, vilket visar att Google redan är LU:s studentplattform.*
+- Markander, M. (2026) *Google lanserar AI-erbjudanden för studenter och lärare*. Computer Sweden, 20 augusti. https://computersweden.se/article/4211925/google-lanserar-ai-erbjudanden-for-studenter-och-larare.html *Svensk nyhet om samma lansering: gratis AI Plus och rabatter på AI Pro och YouTube Premium.*
 - Menlo Ventures (2026) *The State of Consumer AI 2026*, 15 september. https://menlovc.com/wp-content/uploads/2026/09/menlo_ventures_consumer_ai_report-2026.pdf *Enda källa med andel som betalar för AI (55 procent av amerikanska AI-användare). Gäller inte studenter; kommersiell avsändare.*
 - Regeringen (2025) *Universitet och högskolor vidtar åtgärder mot AI-fusk*, 15 oktober. https://regeringen.se/pressmeddelanden/2025/10/universitet-och-hogskolor-vidtar-atgarder-mot-ai-fusk/ *Sammanfattar UKÄ:s kartläggning och att examinationsformer ändras.*
 - SCB (2025) *Generativa AI-verktyg tar plats i svensk vardag* (Befolkningens it-användning 2025), 17 oktober. https://www.scb.se/hitta-statistik/statistik-efter-amne/forskning-och-det-digitala-samhallet/det-digitala-samhallet/befolkningens-it-anvandning/pong/statistiknyhet/befolkningens-it-anvandning-2025/ *Officiell statistik: 67 procent av 16–24-åringarna hade använt generativ AI de senaste tre månaderna.*
@@ -115,7 +120,45 @@ Vad källorna stöder: *Från 2025 tillhandahåller lärosäten själva generati
 - Menlo och Internetstiftelsen är den bästa bakgrundsdatan, men Menlo är en riskkapitalbolagsrapport (kommersiellt intresse), och Internetstiftelsens undersökning mäter användning, inte betalning.
 - **Förslag för att kunna belägga hypotesen:** (1) fråga Teknologkåren vid LTH (TLTH) eller Sveriges förenade studentkårer om de har mätt betalda abonnemang, (2) lägga en kort egen enkät bland nyantagna, (3) fråga Internetstiftelsen om rådata för betalning bland 00-talister.
 
-## 10. Nästa steg
+## 10. Tredje omgången: vem betalar, och varför Google? (2026-10-21)
+
+**Kents tes:** 2026 är första året då samhälle, lärosäte och student delar på kostnaden, och då verktygen blivit så bra att lärosätena ser poängen i stället för att se AI som fusk. Gissning om 66 kr (en tredjedel): samhället betalar en tredjedel, universitetet en tredjedel (eller Google).
+
+**Resultat i korthet: det mest sannolika är att Google själv står för resten, som en kampanj för att vinna studenter. Jag hittade inget som visar att staten eller LU betalar 2/3.**
+
+### 10.1 Det troliga ursprunget till "en tredjedel"
+- Den 19 augusti 2026 (fem dagar före LTH:s terminsstart för årskurs 1, 24 augusti) lanserade Google studentpaket. Utanför USA erbjuds ett års gratis **Google AI Plus**. För studenter som vill ha mer erbjuds ett **paket med Google AI Pro och YouTube Premium för "upp till 70 procent rabatt"**, giltigt "i vissa marknader", med SheerID-verifiering, förnyelse i upp till fyra år, och *inte* på skolutfärdade konton (Google 2026c). "Upp till 70 procent rabatt" motsvarar att betala ungefär 30 procent, alltså runt en tredjedel.
+- Google anger själv att erbjudandet är en konsumentprodukt som köps privat. Det är alltså **inte** en LU-licens och inte skattefinansierat (Google 2026c).
+- Computer Sweden rapporterade den 20 augusti 2026: studenter erbjuds gratis Google AI Plus och "rabatter på Google AI Pro och Youtube Premium" (Markander 2026).
+- Den svenska studentsidan bekräftar att **gratis AI Plus gäller i Sverige** (efter provåret 55 kr/månad), men nämner inte paketet med YouTube Premium (Google 2026d).
+- Sekundära källor anger USA-priset för paketet till $8,99/mån jämfört med $35,98 för de två separat (cirka 75 procent rabatt). Det har jag inte kunnat kontrollera i originalet, och det finns inget svenskt pris.
+- **Min hypotes, ej bekräftad:** din sons erbjudande är med största sannolikhet Googles studentpaket, och "en tredjedel" är rabatten. Det som återstår att kontrollera är om paketet erbjuds i Sverige och till vilket pris. Fråga honom vad abonnemanget heter och vad kvittot visar. Siffran 66 kr stämmer inte med ett paket som inkluderar YouTube Premium, så det kan vara ett annat erbjudande.
+
+### 10.2 Vem betalar de övriga två tredjedelarna?
+- **Google (och YouTube):** rabatten i paketet är ett marknadsföringspris, med förnyelse till ordinarie pris när studietiden är slut. Det är ett vanligt sätt att binda kunder (min tolkning, inte en källa).
+- **LU:** betalar inte studentens privata abonnemang. LU erbjuder i stället studenterna Gemini och Copilot Chat via studentkontot (LU 2026a). Googles egen utbildningssida anger att Gemini for Education ingår utan extra kostnad i Workspace for Education (sökträff; Googles edu-sida är inte läst i original).
+- **Samhället:** inget hittades som visar ett statligt eller kommunalt bidrag till studenters AI-abonnemang. LU:s rapport nämner endast att universitetet själv upphandlat licenser till personal (270 betalda Copilot-licenser i november 2025) (LU 2026c).
+- **Slutsats:** att tre parter delar på kostnaden är *inte* belagt. Det som är belagt är att **kostnaden delas olika i olika spår**: lärosätet (via Workspace/Copilot), leverantören (via kampanjpris och gratisår) och studenten själv (efter provtiden). Det är en intressantare och mer korrekt historia än "samhället betalar en tredjedel".
+
+### 10.3 Varför just Google?
+Detta är en tolkning med stöd i följande belagda fakta:
+- **LU:s studenter har redan ett Google-konto.** Studentmejlen är Gmail och alla studenter får Google Workspace med Drive och Groups (LU 2026e, 2026f). Gemini for Education ingår enligt Google i Workspace for Education och styrs av en administratörsinställning (sökträff). Att släppa in Gemini är därför en liten teknisk åtgärd, inte ett nytt avtal. Vilket datum LU slog på det hittade jag inte.
+- **Det är ingen Google-exklusivitet.** LU erbjuder också Copilot Chat; KTH har bara Copilot och "ser över" Gemini; ChatGPT diskuteras på LU (LU 2026a, c; KTH u.å.a).
+- **Leverantörerna konkurrerar om studenterna.** OpenAI ska enligt sökresultat ha erbjudit amerikanska studenter fyra månader gratis ChatGPT Plus (leverantörsuppgift, ej kontrollerad). Google erbjöd svenska studenter ett år gratis AI Pro hösten 2025 (Eriksson 2025) och ett år AI Plus 2026. Det stöder att 2025–2026 är en period då leverantörerna aktivt betalar för studenternas första vana.
+- **Viktig reservation:** att *Google* kom in på LU/LTH är inte utrett som beslut. Jag hittade ingen LU- eller LTH-källa som förklarar valet, och ingen tidpunkt för när Gemini slogs på.
+
+### 10.4 Tesen "2026 är första året lärosätena ser poängen"
+Stöd: LU skriver att studenter kan använda GAI som stöd och uppmuntrar öppenhet i stället för förbud (LU 2026b); lärosäten ändrar examination (Regeringen 2025); HEPI visar 9, 23 och 38 procent institutionstillhandahållna verktyg 2024–2026 (HEPI 2026). Motstånd: LU betonar att AI aldrig ska ersätta eget lärande; reglerna är kursvisa; KTH kallar användningen frivillig; AI-relaterade avstängningar ökar (Ingenjören 2026). Alltså är det **inte** hela bilden att man "kommit förbi" fusk-problemet. Lärosätena gör båda sakerna samtidigt: de tillhandahåller verktygen och skärper examinationen.
+- Ditt argument om att äldre modeller hallucinerade och inte kunde räkna är rimligt, men jag har ännu inte belagt det med primärkälla. Det kräver modellernas tekniska rapporter eller oberoende utvärderingar (se Nästa steg).
+
+### 10.5 Det som återstår för att belägga "första året"
+1. Vad heter din sons erbjudande, och vad visar kvittot? Det avgör om det är Googles studentpaket.
+2. Fråga LU:s IT-support (supportcenter@lu.se) eller Enheten för undervisningsstöd (EFU) när Gemini slogs på för studenter och vem som beslutade.
+3. Fråga TLTH och LTH om de har haft något eget avtal eller någon egen kampanj.
+4. Hitta primärkälla för modellernas förmåga 2022–2026 (matematik, hallucination).
+5. Läs Googles edu-sida om Gemini for Education i Workspace i original.
+
+## 11. Nästa steg
 
 1. Be Erik visa källan till 66 kr (eller kontrollera TLTH:s och LTH:s studentwebb) för att klara ut erbjudandet.
 2. Läsa Bastani m.fl., UNESCO och UKÄ:s egen 2025-rapport i original.

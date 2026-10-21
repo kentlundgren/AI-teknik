@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_generation_2005
 **Plats:** `AI-teknik/Presentationer/10/PRD_presentation_generation_2005.md`
 **Skapad:** 2026-10-21
-**Version:** 3 (utkast för diskussion; två källgenomgångar gjorda)
+**Version:** 5 (utkast för diskussion; tre källgenomgångar gjorda; formförslag inlagt)
 **Status:** **Utkast. Inget är byggt, ingen SPEC.md är skriven.** Alla beslut i avsnitt 4 är öppna tills Kent bekräftat dem.
 **Typ:** Grund-PRD för en ny presentation. Mappen heter `10` (Kents val 2026-10-21). Övriga presentationer heter `Nr1`–`Nr3`; om mappnamnet ska följa det mönstret är en öppen fråga (4i).
 **Avsändare:** Kent Lundgren.
@@ -65,6 +65,7 @@ Tidslinjen för personan, härledd av födelseåret (verifieras mot skolans regl
 **Öppen: vill Kent att motargumenten får ett eget avsnitt (förslag) eller vävs in?**
 **Ny information 2026-10-21:** källgenomgången visar att "2026 är första året" inte kan styrkas. Verktyg via lärosätet fanns redan 2025 vid LU, och Google erbjöd svenska studenter gratis AI Pro hösten 2025. Förslag på hållbarare formulering: *"2025–2026 är brytpunkten då lärosäten går från att tolerera till att själva tillhandahålla och reglera generativ AI."* **Öppen: vill Kent behålla 2026 som tes eller ändra till brytpunkten 2025–2026?**
 **Kents hypotes 2026-10-21 ("envis"):** 2026 är första året då en majoritet av studenterna har abonnemang på någon AI-modell, och då det "måste" finnas. **Andra källgenomgången (FYND avsnitt 9):** *användningen* stöder hypotesen starkt (Internetstiftelsen: över 6 av 10 svenskar 2026 mot 4 av 10 2025, 9 av 10 bland födda på 2000-talet; HEPI: 95 procent av brittiska studenter), men **ingen källa visar att en majoritet av studenterna betalar**, och gratisversioner samt lärosätesverktyg gör att "måste ha abonnemang" inte är belagt. Förslag: ställ i stället frågan *"vem betalar för studentens AI?"*.
+**Tredje omgången (FYND avsnitt 10):** Kents drivkraft är att 2026 är första året då samhälle, lärosäte och student delar på kostnaden och då lärosätena ser poängen i stället för fusk. Det som är belagt: (1) Google lanserade den 19 augusti 2026 studentpaket, bland annat ett paket med AI Pro och YouTube Premium för "upp till 70 procent rabatt", vilket troligen är ursprunget till "en tredjedel"; (2) LU-studenter har redan ett Google-konto och kan använda Gemini och Copilot Chat via det; (3) lärosätena skärper samtidigt examinationen. **Inte belagt:** att staten eller LU betalar 2/3, att "fusk-problemet är över", och när/varför Gemini kom in på LU. Hypotesen att Google står för rabatten (kampanj) är bättre belagd än att samhället gör det.
 
 **d. Form — ÖPPEN, spånas.** Alternativ:
 - **A. Tidslinje i fyra skeden** (som Nr1:s årskort): vad AI kunde då, hur personan kunde använda det, vad undervisningen sa.
@@ -72,6 +73,15 @@ Tidslinjen för personan, härledd av födelseåret (verifieras mot skolans regl
 - **C. Tesen som fråga med röstning/reflektion:** besökaren tar ställning (instämmer/tvekar/invänder) och får se argument för och emot.
 - **D. Kombination:** A som ryggrad, B som fördjupning i ett skede, C som avslutning.
 Förslag att börja diskutera från: **D**, men börja enklast (A + avsnittet "Håller tesen?").
+
+**Utvecklat formförslag (v5, 2026-10-21, att diskutera):** efter tre källgenomgångar föreslås en sida med fem delar, i denna ordning. Principen är att varje påstående har en länkad källa och att tesen prövas, inte utropas.
+1. **Ingång: tesen som fråga.** "Är hösten 2026 första gången nästan alla studenter har en stark AI vid sin sida?" Tre svarsknappar (ja / delvis / nej) som leder vidare till bevisen. Ingen röstning sparas.
+2. **Tidslinje 2021–2026 i fyra skeden** (som Nr1:s årskort), där varje kort har tre rader: *vad verktygen kunde* (belagt), *vad skolan sa* (belagt), *vad en person född 2005 realistiskt kunde göra* (märks som exempel). Skeden: gymnasiet 2021–2024, arbetsåren 2024–2026, hösten 2025 (brytpunkt: gratisår och lärosätesverktyg), hösten 2026 (högskolestart).
+3. **"Vem betalar?" som huvudgrepp.** En enkel bild med fyra spår: studenten själv, familjen, lärosätet (Workspace/Copilot via studentkontot) och leverantören (kampanjpris och gratisår). Under varje spår: vad som är belagt, vad som är hypotes. Detta är presentationens egen idé och bygger på Kents fråga om vem som delar på kostnaden.
+4. **"Håller tesen?"**: tre belagda argument för (användningen exploderade 2025–2026, lärosäten tillhandahåller verktyg, examinationen anpassas) mot tre belagda argument emot (ingen visad betalande majoritet, kursvisa regler och "aldrig ersätta eget lärande", AI-fusk ökar), samt "vad vi inte vet".
+5. **Källor och metod:** alfabetisk källförteckning, hämtdatum, och en ruta "Så här har siffrorna kontrollerats" som säger att uppgifterna är hämtade ur angivna källor och inte kvalitetssäkrade.
+**Tekniskt:** statisk sida (HTML/CSS/JS), data skild från motor, ingen automatisk uppspelning, läsbar på mobil, utskriftsvänlig. Varje tabell och diagram får nummer, namn och eget ankare enligt Kents byggregler.
+**Öppna val i formen:** (i) Ska "vem betalar" vara själva huvudgreppet (förslag) eller ett avsnitt bland andra? (ii) Ska tesen-ingången (del 1) vara med, eller räcker tidslinjen? (iii) Ska personan få en kort berättande vinjett per skede, tydligt märkt som exempel? (iv) Vilket tonläge: reflekterande och öppen (förslag) eller argumenterande för Kents tes?
 
 **e. Vad ska visas per skede (gymnasiet / arbete / högskolestart).** Fyra delar per skede: (1) vilka generativa verktyg fanns, (2) vad en person födda 2005 realistiskt kunde göra med dem, (3) vad skolan/högskolan sa eller gjorde (policy, riktlinjer), (4) vad som var begränsningen. **Öppen: vilka verktyg och modeller ska nämnas vid namn?** Varje modellpåstående ("kunde skriva kod", "klarade tentor") måste ha belägg.
 
@@ -110,5 +120,7 @@ Krav: Harvardstil, alfabetisk ordning, hämtdatum för webbkällor, kursiv relev
 ## Ändringslogg
 
 - **v1 (2026-10-21):** Första utkast efter Kents beskrivning av tesen, läsaren och personan.
+- **v5 (2026-10-21):** Formförslaget i 4d utvecklat till en sida med fem delar, med "vem betalar?" som huvudgrepp; fyra öppna val i formen.
+- **v4 (2026-10-21):** Tredje källgenomgången (FYND avsnitt 10): Googles studentpaket 2026 som trolig förklaring till "en tredjedel", LU:s Google-konton som trolig förklaring till varför Google, och vad som inte är belagt om delad finansiering.
 - **v3 (2026-10-21):** Kents hypotes om betalande majoritet prövad i andra källgenomgången (FYND avsnitt 9); förslag att ändra frågan till "vem betalar".
 - **v2 (2026-10-21):** Personen nämns inte vid namn (beslutat). Bakgrunden (Gemini-erbjudandet) och första källgenomgången inlagda; fynd i `FYND_kallor_2026-10-21.md`. Tesen i 4c fick ett förslag på mer hållbar formulering.
