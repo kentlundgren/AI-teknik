@@ -124,6 +124,7 @@ Krav: Harvardstil, alfabetisk ordning, hämtdatum för webbkällor, kursiv relev
 ## Ändringslogg
 
 - **v1 (2026-10-21):** Första utkast efter Kents beskrivning av tesen, läsaren och personan.
+- **v17 (2026-10-22):** Kents genomläsning av sidan gav två rättelser. Video 1 visar bara de sista 15 sekunderna av Groks lösning av tentan, och Video 2 är ett utdrag på 3 minuter av ett förlopp på cirka 10 minuter där Kent efter cirka 8 minuter frågade "vad händer?". Rubriker, beskrivningar, Tabell 2 och "Vad testerna inte visar" är rättade. Bloggartikeln behöver samma förtydliganden.
 - **v16 (2026-10-22):** SPEC.md godkänd av Kent. Första versionen av sidan byggd lokalt (`index.html`, `style.css`, `script.js`, `data.js`, `media/`, `README.md`) och förhandsvisad på dator (1024 px) och mobil (375 px). Inte publicerad. Se SPEC.md avsnitt 9 för vad som är kontrollerat.
 - **v15 (2026-10-22):** SPEC.md v1 skriven ([SPEC.md](SPEC.md)): en lång scrollsida, mapp `10`, videor med `preload="none"`, fem fasta delar och en acceptanslista. Väntar på Kents godkännande innan bygget.
 - **v14 (2026-10-22):** Kents mapp `Grok/Bilder` genomgången (4 skärmbilder, 2 skärminspelningar, totalt cirka 14 MB). Nya fynd: Prompt A kördes i läget "Auto" och Prompt B i läget "Build (Beta)"; Groks arbetslogg för B visar att den räknade fram Fourierserien som intern kontroll. Resultatfilerna i `test3_grok/` uppdaterade. Bloggartikeln behöver en mening om det (se chatten).

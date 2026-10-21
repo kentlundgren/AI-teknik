@@ -53,7 +53,7 @@
 | Bild 2 | Groks svar på tentan | `Grok_svarar_pa_forsta_fragan_svaret.jpg` (lång bild, 771×3386) | 533 kB |
 | Bild 3 | Prompt B i Groks app (läget Build, Beta) | `Grok_Build_svarar_pa_andra_fragan.jpg` | 102 kB |
 | Bild 4 | Groks svar på värmeledningen | `Grok_svarar_pa_andra_fragan_svaret.jpg` | 230 kB |
-| Video 1 | Grok löser tentan (16 s) | `Grok_loser_forsta_uppgiften.mp4` | 1,3 MB |
+| Video 1 | Slutet på hur Grok löser tentan (de sista 15 s) | `Grok_loser_forsta_uppgiften.mp4` | 1,3 MB |
 | Video 2 | Grok löser värmeledningen (3 min, arbetstid 6 min 44 s i appen) | `Grok_loser_andra_uppgiften.mp4` | 12 MB |
 
 - Varje bild och video har **nummer och namn ovanför** ("Bild 3. …"), eget `#`-ankare och en kort textbeskrivning (`alt` eller synlig bildtext). Hänvisningar i löptext är klickbara länkar.

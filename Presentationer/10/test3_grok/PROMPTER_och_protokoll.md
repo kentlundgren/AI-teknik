@@ -60,9 +60,9 @@ Avsluta med tre rader: (1) vilken modell och vilket läge du är, (2) om du kör
 
 ## 5b. Media från körningarna
 
-Kent Lundgren har lagt skärmbilder och skärminspelningar i mappen [Grok/Bilder](../Grok/Bilder/): prompterna i Groks app (läget "Auto" för Prompt A, läget "Build (Beta)" för Prompt B), de fullständiga svaren och två skärminspelningar där Grok arbetar (16 sekunder för tentan, cirka 3 minuter för värmeledningen). Videofilerna har ett ljudspår utan hörbart ljud, och de visar bara chattfönstret.
+Kent Lundgren har lagt skärmbilder och skärminspelningar i mappen [Grok/Bilder](../Grok/Bilder/): prompterna i Groks app (läget "Auto" för Prompt A, läget "Build (Beta)" för Prompt B), de fullständiga svaren och två skärminspelningar där Grok arbetar (för tentan bara de sista 15 sekunderna av lösningen enligt Kent, för värmeledningen cirka 3 minuter). Videofilerna har ett ljudspår utan hörbart ljud, och de visar bara chattfönstret.
 
 ## 6. Resultat
 
 - **Prompt A (tentan):** besvarad av Grok 4.7 (standardläge). Alla slutsvar stämmer med lösningsskissen. Se [RESULTAT_A_tenta_grok.md](RESULTAT_A_tenta_grok.md) och [grok_svar_A_oforandrat.md](grok_svar_A_oforandrat.md).
-- **Prompt B (värmeledning):** besvarad av Grok Build ("agentläge för kod"). Alla tre delfrågor stämmer med det låsta facit. Se [RESULTAT_B_vaermeledning_grok.md](RESULTAT_B_vaermeledning_grok.md), [grok_svar_B_oforandrat.md](grok_svar_B_oforandrat.md) och [skärmdumpen](grok_svar_B_skarmdump.png). Grok Build kördes enligt Kent i en tom mapp utan tillgång till facit. Öppet: modellens namn.
+- **Prompt B (värmeledning):** besvarad av Grok Build ("agentläge för kod"). Alla tre delfrågor stämmer med det låsta facit. Se [RESULTAT_B_vaermeledning_grok.md](RESULTAT_B_vaermeledning_grok.md), [grok_svar_B_oforandrat.md](grok_svar_B_oforandrat.md) och [skärmdumpen](grok_svar_B_skarmdump.png). Grok Build kördes enligt Kent i en tom mapp utan tillgång till facit. Körningen tog cirka 10 minuter, och Kent ställde efter cirka 8 minuter en andra fråga ("vad händer?"), så den var inte en enda obruten prompt. Öppet: modellens namn.
