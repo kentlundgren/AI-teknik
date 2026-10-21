@@ -3,7 +3,7 @@
 **Hör till:** [PRD_presentation_generation_2005.md](PRD_presentation_generation_2005.md)
 **Skapad:** 2026-10-22
 **Avsändare:** Kent Lundgren
-**Status:** Beslutsunderlag. Ingen löptext är skriven. Kent väljer ingress, disposition och tester först (enligt skillen kent-skrivstil för längre texter).
+**Status:** Beslutsunderlag. **Utkast 1 av löptexten finns (2026-10-22):** [ARTIKEL_utkast_1_2026-10-22.md](ARTIKEL_utkast_1_2026-10-22.md), disposition A och ingress 1. Kent väljer ingress, disposition och tester först (enligt skillen kent-skrivstil för längre texter).
 
 ## 1. Tesen
 

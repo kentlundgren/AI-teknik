@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_generation_2005
 **Plats:** `AI-teknik/Presentationer/10/PRD_presentation_generation_2005.md`
 **Skapad:** 2026-10-21
-**Version:** 11 (utkast för diskussion; fyra källgenomgångar gjorda; artikel som första leverans; Test 1–3 genomförda)
+**Version:** 12 (utkast för diskussion; fyra källgenomgångar gjorda; artikel som första leverans; Test 1–3 genomförda; artikelutkast 1 skrivet)
 **Status:** **Utkast. Inget är byggt, ingen SPEC.md är skriven.** Alla beslut i avsnitt 4 är öppna tills Kent bekräftat dem.
 **Typ:** Grund-PRD för en ny presentation. Mappen heter `10` (Kents val 2026-10-21). Övriga presentationer heter `Nr1`–`Nr3`; om mappnamnet ska följa det mönstret är en öppen fråga (4i).
 **Avsändare:** Kent Lundgren.
@@ -124,6 +124,7 @@ Krav: Harvardstil, alfabetisk ordning, hämtdatum för webbkällor, kursiv relev
 ## Ändringslogg
 
 - **v1 (2026-10-21):** Första utkast efter Kents beskrivning av tesen, läsaren och personan.
+- **v12 (2026-10-22):** Artikelutkast 1 skrivet (disposition A, ingress 1): [ARTIKEL_utkast_1_2026-10-22.md](ARTIKEL_utkast_1_2026-10-22.md). Alla 19 länkar kontrollerade (200). Väntar på Kents genomläsning.
 - **v11 (2026-10-22):** Test 3B: Prompt B (värmeledning) besvarad av Grok Build; alla tre delfrågor stämmer med det låsta facit. Grok Build kördes enligt Kent i en tom mapp utan facit. Öppet: modellens namn. Se `test3_grok/RESULTAT_B_vaermeledning_grok.md`.
 - **v10 (2026-10-22):** Test 3: samma uppgifter till Grok. Prompt A (tentan) besvarad av Grok 4.7; alla slutsvar stämmer, skillnaden ligger i hur väl bevisen motiveras. Prompt B väntar. Se `test3_grok/`.
 - **v9 (2026-10-22):** Test 2 (agentuppgift, värmeledning) genomfört med facit låst i förväg; resultat i `test2_vaermeledning/`.
