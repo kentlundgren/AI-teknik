@@ -82,6 +82,7 @@ window.DATA = {
     { id: "ref-internetstiftelsen", fore: "Internetstiftelsen (2026) ", titel: "Svenskarna och internet 2026: AI", efter: ".", url: "https://svenskarnaochinternet.se/rapporter/svenskarna-och-internet-2026/ai-artificiell-intelligens/", hamtad: "2026-10-21", relevans: "Svenska användningssiffror, inklusive hoppet från 4 till över 6 av 10 mellan 2025 och 2026." },
     { id: "ref-kth-a", fore: "KTH (u.å.a) ", titel: "AI-tjänster", efter: ".", url: "https://intra.kth.se/it/programvara-o-system/programvara/installera/download/ai-services/ai-tjanster-1.1292301", hamtad: "2026-10-21", relevans: "Vilka AI-tjänster KTH:s studenter har tillgång till. Sidan saknar datum." },
     { id: "ref-kth-b", fore: "KTH (u.å.b) ", titel: "FAQ Generativ AI", efter: ", granskad 9 juli 2026.", url: "https://intra.kth.se/utbildning/e-larande/faqs/faq-generativ-ai-1.1417039", hamtad: "2026-10-21", relevans: "KTH:s hållning: frivillig användning och kursvisa regler." },
+    { id: "ref-lewkowycz", fore: "Lewkowycz, A. m.fl. (2022) ", titel: "Solving Quantitative Reasoning Problems with Language Models", efter: ". arXiv:2206.14858, 29 juni.", url: "https://arxiv.org/abs/2206.14858", hamtad: "2026-10-22", relevans: "Primärkälla för att modellen Minerva löste 50,3 procent av MATH-uppgifterna i juni 2022, och för att den siffran gäller majoritetsval bland många försök." },
     { id: "ref-liu", fore: "Linköpings universitet (2026) ", titel: "TATA41 Envariabelanalys 1: gamla tentor", efter: ".", url: "https://courses.mai.liu.se/GU/TATA41/tentor.html", hamtad: "2026-10-22", relevans: "Tentan och lösningsskissen som användes i Test 1 och Test 3. Tentan och lösningarna ägs av Linköpings universitet och är bara länkade." },
     { id: "ref-lundgren-a", fore: "Lundgren, K. (2026a) ", titel: "Generativ AI – farlig farligt, eller härligt härligt", efter: ", 18 september.", url: "https://klel.wordpress.com/2026/09/18/generativ-ai-farlig-farligt-eller-harligt-harligt/", hamtad: "2026-10-22", relevans: "Mitt tidigare inlägg om riskerna, som ger “moget” dess betydelse." },
     { id: "ref-lundgren-b", fore: "Lundgren, K. (2026b) ", titel: "Vad mäter AI-testerna egentligen?", efter: ", 25 september.", url: "https://klel.wordpress.com/2026/09/25/vad-mater-ai-testerna-egentligen/", hamtad: "2026-10-22", relevans: "Mitt tidigare inlägg om vad AI-testerna mäter och vilka förbehåll de har." },
@@ -128,5 +129,45 @@ window.DATA = {
     { id: "bild4", typ: "bild", nr: 4, namn: "Groks svar på värmeledningen", fil: "Grok/Bilder/Grok_svarar_pa_andra_fragan_svaret.jpg", beskrivning: "Skärmbild av Groks svar: 42,843 °C, 20,541 °C och 2424 s, med en tabell över konvergensstudien (rutnät, temperatur och Richardson-värde) och tre avslutande rader.", bredd: 731, hojd: 837, textlank: "https://github.com/kentlundgren/AI-teknik/blob/main/Presentationer/10/test3_grok/grok_svar_B_oforandrat.md" },
     { id: "video1", typ: "video", nr: 1, namn: "Slutet på hur Grok löser tentan (de sista 15 sekunderna)", fil: "Grok/Bilder/Grok_loser_forsta_uppgiften.mp4", poster: "media/poster_video1.jpg", beskrivning: "Skärminspelning av de sista 15 sekunderna av hur Grok löser tentan i appen: svaret skrivs ut och rullar förbi, bland annat uppgift 4, 5, 6 och 7. Början av lösningen visas inte. Inget ljud.", bredd: 808, hojd: 644, storlek: "1,3 MB" },
     { id: "video2", typ: "video", nr: 2, namn: "Utdrag ur hur Grok löser värmeledningen (3 minuter av cirka 10)", fil: "Grok/Bilder/Grok_loser_andra_uppgiften.mp4", poster: "media/poster_video2.jpg", beskrivning: "Skärminspelning av Groks arbetslogg i läget Build. Hela förloppet tog cirka 10 minuter. Det här är ett utdrag på 3 minuter som jag spelade in, så det är inte i realtid. Loggen visar bland annat att Grok implementerar Crank–Nicolson, kör konvergensstudier och kontrollerar mot den analytiska Fourierserien. Efter cirka 8 minuter ställde jag frågan ”vad händer?”, och Grok svarade att den långa Python-körningen avbrutits innan resultatet hann sparas och att den körde om med en snabbare lösare. Inget ljud.", bredd: 734, hojd: 668, storlek: "12 MB" }
-  ]
+  ],
+
+  /* Diagram 1: bästa rapporterade resultat per år. Varje punkt har en källa. v = procent (IMO: poäng av 42 omräknat). */
+  diagram: {
+    id: "Diagram1",
+    nr: 1,
+    namn: "Bästa rapporterade resultat per år på sex prov i matematik och naturvetenskap, 2022–2026",
+    ar: ["2022", "2023", "2024", "2025", "2026 (t.o.m. mars)"],
+    referens: { namn: "Experter på GPQA Diamond: 81,2 %", v: 81.2, kalla: "ref-aiindex26" },
+    serier: [
+      { id: "math", namn: "MATH (tävlingsuppgifter, gymnasienivå)", form: "kors", farg: "#a3243b", punkter: [
+        { x: 0, v: 50.3, modell: "Minerva 540B (Google, juni 2022)", kalla: ["ref-lewkowycz"], not: "Siffran gäller när modellen svarade med majoritetsval bland 64 försök per uppgift. Med ett enda försök per uppgift var den 33,6 procent." },
+        { x: 3, v: 97.9, modell: "OpenAI o3-mini (high), januari 2025", kalla: ["ref-aiindex25"], not: "Över människobaslinjen på 90 procent. Vid lanseringen 2021 löste modellerna 6,9 procent. Provet är nu så gott som mättat." }
+      ] },
+      { id: "gpqa", namn: "GPQA Diamond (doktorandnivå, fysik och kemi)", form: "cirkel", farg: "#1f4e8c", punkter: [
+        { x: 1, v: 38.8, modell: "GPT-4", kalla: ["ref-aiindex25"], not: "Resultat 2023 enligt AI Index 2025." },
+        { x: 2, v: 87.7, modell: "OpenAI o3 (december 2024)", kalla: ["ref-aiindex25", "ref-aiindex26"], not: "Första modellen över experternas 81,2 %." },
+        { x: 3, v: 93.0, modell: "Toppmodeller 2025", kalla: ["ref-aiindex26"], not: "AI Index 2026 skriver att “mean accuracy” nådde 93 procent 2025. Vilken modell som avses anges inte." }
+      ] },
+      { id: "hle", namn: "Humanity’s Last Exam (expertfrågor)", form: "kvadrat", farg: "#b4500a", punkter: [
+        { x: 2, v: 8.8, modell: "Bästa system", kalla: ["ref-aiindex25", "ref-aiindex26"], not: "AI Index 2025: 8,8 procent. AI Index 2026 skriver “under 10 procent”." },
+        { x: 3, v: 38.3, modell: "Bästa system 2025", kalla: ["ref-aiindex26"], not: "Ökning med 30 procentenheter på ett år." }
+      ] },
+      { id: "fm", namn: "FrontierMath Tier 4 (forskningsnivå)", form: "triangel", farg: "#1d7a4a", punkter: [
+        { x: 3, v: 31.3, lab: "under", modell: "GPT-5.2 Pro (webbapp)", kalla: ["ref-aiindex26"], not: "Nära 0 procent 2024. Epoch publicerade en körning på 31 procent den 23 januari 2026." },
+        { x: 4, v: 38, modell: "GPT-5.4 Pro", kalla: ["ref-epoch"], not: "Epoch AI, 5 mars 2026. OpenAI har finansierat provet och har tillgång till de flesta uppgifterna." }
+      ] },
+      { id: "imo", namn: "Matematikolympiaden IMO (poäng av 42)", form: "romb", farg: "#7a3e9d", punkter: [
+        { x: 2, v: 66.7, modell: "AlphaProof och AlphaGeometry 2", kalla: ["ref-aiindex26"], not: "28 poäng, silver. Experter översatte uppgifterna till ett formellt språk, och beräkningen tog dagar." },
+        { x: 3, v: 83.3, modell: "Gemini Deep Think", kalla: ["ref-aiindex26"], not: "35 poäng, guld. Löste uppgifterna på vanligt språk inom tidsgränsen på 4,5 timmar." }
+      ] },
+      { id: "matharena", namn: "MathArena (nya tävlingsuppgifter)", form: "plus", farg: "#006d77", punkter: [
+        { x: 3, v: 97, modell: "Ledande modeller (december 2025)", kalla: ["ref-aiindex26"], not: "Ungefär 83 procent i november 2025 och 97 procent i december 2025. Gäller svar som kan rättas automatiskt. På bevisuppgifter presterar modellerna sämre." }
+      ] }
+    ],
+    anm: [
+      "Varje punkt är det bästa resultat som rapporterats för någon modell under året. Modellerna byter från år till år, så diagrammet visar hur toppen flyttats, inte hur en enskild modell utvecklats.",
+      "Streckad linje betyder att resultat saknas för åren emellan. Proven är olika svåra och mäter olika saker. Ett prov som nått nära 100 procent kan inte visa mer, och då byggs svårare prov. GPQA, Humanity’s Last Exam och FrontierMath fanns inte 2022 (de tillkom 2023, 2025 och november 2024), och det är därför MATH är den enda serien som börjar där.",
+      "För 2026 finns bara resultat till och med mars. Flera siffror är rapporterade av utvecklarna själva eller av provens skapare, och AI Index 2026 varnar för att vissa benchmark innehåller ogiltiga frågor (mellan 2 och 42 procent)."
+    ]
+  }
 };

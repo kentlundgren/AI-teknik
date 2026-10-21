@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_generation_2005
 **Plats:** `AI-teknik/Presentationer/10/PRD_presentation_generation_2005.md`
 **Skapad:** 2026-10-21
-**Version:** 16 (SPEC.md godkänd, sidan byggd lokalt; SPEC.md v1 skriven; fyra källgenomgångar gjorda; artikel som första leverans; Test 1–3 genomförda; artikeln publicerad på bloggen 2026-10-22)
+**Version:** 18 (Diagram 1 tillagt; SPEC.md godkänd, sidan byggd lokalt; SPEC.md v1 skriven; fyra källgenomgångar gjorda; artikel som första leverans; Test 1–3 genomförda; artikeln publicerad på bloggen 2026-10-22)
 **Status:** **Utkast. Inget är byggt, ingen SPEC.md är skriven.** Alla beslut i avsnitt 4 är öppna tills Kent bekräftat dem.
 **Typ:** Grund-PRD för en ny presentation. Mappen heter `10` (Kents val 2026-10-21). Övriga presentationer heter `Nr1`–`Nr3`; om mappnamnet ska följa det mönstret är en öppen fråga (4i).
 **Avsändare:** Kent Lundgren.
@@ -124,6 +124,7 @@ Krav: Harvardstil, alfabetisk ordning, hämtdatum för webbkällor, kursiv relev
 ## Ändringslogg
 
 - **v1 (2026-10-21):** Första utkast efter Kents beskrivning av tesen, läsaren och personan.
+- **v18 (2026-10-22):** Kent bad om ett diagram under avsnittet om modellerna, 2022–2026. Diagram 1 (sex prov, SVG ritat av `data.js`) och Tabell 3 tillagda på sidan; SPEC v1.1. Ny källa: Lewkowycz m.fl. (2022) för 2022-punkten (MATH, Minerva, 50,3 procent med majoritetsval). Diagrammet visar bästa resultat per år, inte en enskild modell, och saknar data för 2022 på de prov som inte fanns då.
 - **v17 (2026-10-22):** Kents genomläsning av sidan gav två rättelser. Video 1 visar bara de sista 15 sekunderna av Groks lösning av tentan, och Video 2 är ett utdrag på 3 minuter av ett förlopp på cirka 10 minuter där Kent efter cirka 8 minuter frågade "vad händer?". Rubriker, beskrivningar, Tabell 2 och "Vad testerna inte visar" är rättade. Bloggartikeln behöver samma förtydliganden.
 - **v16 (2026-10-22):** SPEC.md godkänd av Kent. Första versionen av sidan byggd lokalt (`index.html`, `style.css`, `script.js`, `data.js`, `media/`, `README.md`) och förhandsvisad på dator (1024 px) och mobil (375 px). Inte publicerad. Se SPEC.md avsnitt 9 för vad som är kontrollerat.
 - **v15 (2026-10-22):** SPEC.md v1 skriven ([SPEC.md](SPEC.md)): en lång scrollsida, mapp `10`, videor med `preload="none"`, fem fasta delar och en acceptanslista. Väntar på Kents godkännande innan bygget.

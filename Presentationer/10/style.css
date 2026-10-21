@@ -130,6 +130,32 @@ figure img, figure video { display: block; max-width: 100%; height: auto; border
 .fig-desc a { white-space: nowrap; }
 .fig-note { font-size: 0.8rem; color: var(--muted); margin: 0.3rem 0 0; }
 
+/* ---------- Diagram 1 ---------- */
+.diagram-fig { margin: 1.4rem 0 1.8rem; padding: 1rem; background: #fff; border: 1px solid var(--hair); border-radius: 12px; }
+.dg-legend { list-style: none; display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; margin: 0 0 0.6rem; padding: 0; font-size: 0.82rem; line-height: 1.3; }
+.dg-legend li { display: flex; align-items: center; gap: 0.35rem; }
+.dg-wrap { width: 100%; }
+.dg-svg { display: block; max-width: 100%; height: auto; overflow: visible; }
+.dg-grid { stroke: #e6e3da; stroke-width: 1; }
+.dg-vgrid { stroke: #efece4; stroke-width: 1; }
+.dg-axis { font: 12px var(--font); fill: var(--muted); }
+.dg-axis-x { font-weight: 600; fill: var(--ink); }
+.dg-axis-sm { font-size: 10.5px; }
+.dg-ref { stroke: #565d70; stroke-width: 1.5; stroke-dasharray: 5 4; }
+.dg-reflabel { font: 600 11.5px var(--font); fill: #565d70; }
+.dg-val { font: 700 12px var(--font); paint-order: stroke; stroke: #fff; stroke-width: 3.5px; stroke-linejoin: round; }
+.dg-reflabel { paint-order: stroke; stroke: #fff; stroke-width: 3px; stroke-linejoin: round; }
+.dg-leader { stroke-width: 1; opacity: 0.6; }
+.dg-pt { outline: none; cursor: pointer; }
+.dg-pt:focus-visible { outline: 3px solid #2a6fd6; outline-offset: 3px; }
+.dg-tabell { margin: 0.9rem 0 0.4rem; }
+.dg-tabell summary { cursor: pointer; color: var(--accent); font-size: 0.92rem; }
+.dg-tabell table { font-size: 0.82rem; }
+.dg-anm { margin: 0.2rem 0 0; padding-left: 1.1rem; font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+.dg-anm li { margin-bottom: 0.3rem; }
+@media (max-width: 640px) { .diagram-fig { padding: 0.7rem; } .dg-legend { font-size: 0.78rem; } }
+@media print { .dg-tabell[open] { display: block; } .dg-tabell:not([open]) .tabell-wrap { display: block; } }
+
 /* ---------- källor ---------- */
 #kallor-slot p { font-size: 0.9rem; margin-bottom: 0.9rem; word-break: break-word; }
 #kallor-slot .url { word-break: break-all; }
