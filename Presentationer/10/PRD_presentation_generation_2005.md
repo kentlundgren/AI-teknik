@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_generation_2005
 **Plats:** `AI-teknik/Presentationer/10/PRD_presentation_generation_2005.md`
 **Skapad:** 2026-10-21
-**Version:** 14 (fyra källgenomgångar gjorda; artikel som första leverans; Test 1–3 genomförda; artikeln publicerad på bloggen 2026-10-22)
+**Version:** 15 (SPEC.md v1 skriven; fyra källgenomgångar gjorda; artikel som första leverans; Test 1–3 genomförda; artikeln publicerad på bloggen 2026-10-22)
 **Status:** **Utkast. Inget är byggt, ingen SPEC.md är skriven.** Alla beslut i avsnitt 4 är öppna tills Kent bekräftat dem.
 **Typ:** Grund-PRD för en ny presentation. Mappen heter `10` (Kents val 2026-10-21). Övriga presentationer heter `Nr1`–`Nr3`; om mappnamnet ska följa det mönstret är en öppen fråga (4i).
 **Avsändare:** Kent Lundgren.
@@ -124,6 +124,7 @@ Krav: Harvardstil, alfabetisk ordning, hämtdatum för webbkällor, kursiv relev
 ## Ändringslogg
 
 - **v1 (2026-10-21):** Första utkast efter Kents beskrivning av tesen, läsaren och personan.
+- **v15 (2026-10-22):** SPEC.md v1 skriven ([SPEC.md](SPEC.md)): en lång scrollsida, mapp `10`, videor med `preload="none"`, fem fasta delar och en acceptanslista. Väntar på Kents godkännande innan bygget.
 - **v14 (2026-10-22):** Kents mapp `Grok/Bilder` genomgången (4 skärmbilder, 2 skärminspelningar, totalt cirka 14 MB). Nya fynd: Prompt A kördes i läget "Auto" och Prompt B i läget "Build (Beta)"; Groks arbetslogg för B visar att den räknade fram Fourierserien som intern kontroll. Resultatfilerna i `test3_grok/` uppdaterade. Bloggartikeln behöver en mening om det (se chatten).
 - **v13 (2026-10-22):** Artikeln publicerad på Kents blogg: [2026 är året det blev normalt och moget](https://klel.wordpress.com/2026/10/22/2026-ar-aret-det-blev-normalt-och-moget/), i princip oförändrad mot utkast 1. Upptäckt: fem relativa länkar (`test3_grok/`, `FYND_kallor_2026-10-21.md`, `FYND_matematik_och_agenter_2026-10-21.md`, `test1_TATA41_2026-08-19/RESULTAT_test1.md`, `test2_vaermeledning/RESULTAT_test2.md`) fungerar inte på bloggen och ska bytas mot GitHub-adresser under `https://github.com/kentlundgren/AI-teknik/blob/main/Presentationer/10/`.
 - **v12 (2026-10-22):** Artikelutkast 1 skrivet (disposition A, ingress 1): [ARTIKEL_utkast_1_2026-10-22.md](ARTIKEL_utkast_1_2026-10-22.md). Alla 19 länkar kontrollerade (200). Kent har bekräftat Cursor-stycket (att Cursor är verktyget han själv jobbar i och att han ser skillnaden mellan att fråga och att ge en agent en uppgift). Väntar på Kents genomläsning av resten, särskilt tesens mjukare formulering och slutets "jag lutar åt förklaring och motivering".
