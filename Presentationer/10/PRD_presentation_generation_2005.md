@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_generation_2005
 **Plats:** `AI-teknik/Presentationer/10/PRD_presentation_generation_2005.md`
 **Skapad:** 2026-10-21
-**Version:** 5 (utkast för diskussion; tre källgenomgångar gjorda; formförslag inlagt)
+**Version:** 6 (utkast för diskussion; fyra källgenomgångar gjorda; formförslag inlagt)
 **Status:** **Utkast. Inget är byggt, ingen SPEC.md är skriven.** Alla beslut i avsnitt 4 är öppna tills Kent bekräftat dem.
 **Typ:** Grund-PRD för en ny presentation. Mappen heter `10` (Kents val 2026-10-21). Övriga presentationer heter `Nr1`–`Nr3`; om mappnamnet ska följa det mönstret är en öppen fråga (4i).
 **Avsändare:** Kent Lundgren.
@@ -102,6 +102,8 @@ Krav: Harvardstil, alfabetisk ordning, hämtdatum för webbkällor, kursiv relev
 
 **j. Behövs ett SPEC.md-steg härifrån?** **Förslag: ja, kort, när form (d) och källurval (g) är beslutade.** Då finns acceptanskriterier värda att skriva: datastruktur per skede, källkrav, vad som aldrig får med (personuppgifter), mobilbredder, tillgänglighet.
 
+**k. Matematik, naturvetenskap och AI-agenter — UTKAST (Kent 2026-10-21).** Kents tes: 2026 är första året då en teknolog kan lita på AI-modellen i matematik och naturvetenskap, och då studenter hanterar harness-appar och flera agenter någorlunda väl. Fyndsammanställning: [FYND_matematik_och_agenter_2026-10-21.md](FYND_matematik_och_agenter_2026-10-21.md). Kort: modellerna passerade expertnivå på GPQA Diamond (93 procent mot 81 procent för experter) och gick från 2 till 31–38 procent på FrontierMath Tier 4 mellan november 2024 och mars 2026, och fick IMO-guld 2025. Alltså är språnget 2024–2026, inte bara 2026. Men förmågan är ojämn, bevis är svårare än svar, och benchmark kan innehålla fel. Ingen studie av verkliga tentor på LTH/KTH/Chalmers hittades, och ingen mätning av studenters agent-kompetens. **Begrepp:** agent = modell + harness; "verktyg" är det agenten anropar (se FYND avsnitt 2). **Öppet:** (i) skriva tesen som "seriös sparringpartner 2024–2026" i stället för "lita på 2026"? (ii) göra ett eget replikerbart test på offentliga tentor (FYND avsnitt 7)?
+
 ## 5. Leveranser
 
 - [ ] Beslut a (persona), b (huvudläsare) och d (form) klara
@@ -120,6 +122,7 @@ Krav: Harvardstil, alfabetisk ordning, hämtdatum för webbkällor, kursiv relev
 ## Ändringslogg
 
 - **v1 (2026-10-21):** Första utkast efter Kents beskrivning av tesen, läsaren och personan.
+- **v6 (2026-10-21):** Ny punkt 4k om matematik, naturvetenskap och AI-agenter; fynd i `FYND_matematik_och_agenter_2026-10-21.md`.
 - **v5 (2026-10-21):** Formförslaget i 4d utvecklat till en sida med fem delar, med "vem betalar?" som huvudgrepp; fyra öppna val i formen.
 - **v4 (2026-10-21):** Tredje källgenomgången (FYND avsnitt 10): Googles studentpaket 2026 som trolig förklaring till "en tredjedel", LU:s Google-konton som trolig förklaring till varför Google, och vad som inte är belagt om delad finansiering.
 - **v3 (2026-10-21):** Kents hypotes om betalande majoritet prövad i andra källgenomgången (FYND avsnitt 9); förslag att ändra frågan till "vem betalar".
