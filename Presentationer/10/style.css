@@ -136,8 +136,15 @@ figure img, figure video { display: block; max-width: 100%; height: auto; border
 .dg-legend li { display: flex; align-items: center; gap: 0.35rem; }
 .dg-wrap { width: 100%; }
 .dg-svg { display: block; max-width: 100%; height: auto; overflow: visible; }
-.dg-grid { stroke: #e6e3da; stroke-width: 1; }
-.dg-vgrid { stroke: #efece4; stroke-width: 1; }
+.dg-grid { stroke: #e0ddd3; stroke-width: 1; }
+.dg-kv { stroke: #d6d2c6; stroke-width: 1; stroke-dasharray: 2 3; }
+.dg-jan { stroke: #8f8a7a; stroke-width: 1.5; }
+.dg-cutline { stroke: #8f8a7a; stroke-width: 1.5; stroke-dasharray: 4 3; }
+.dg-cut { font: 600 11px var(--font); fill: #565d70; }
+.dg-axis-bold { font-weight: 700; fill: var(--ink); }
+.dg-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.dg-hint { display: none; font-size: 0.8rem; color: var(--muted); margin: 0 0 0.3rem; }
+.dg-svg { min-width: 640px; }
 .dg-axis { font: 12px var(--font); fill: var(--muted); }
 .dg-axis-x { font-weight: 600; fill: var(--ink); }
 .dg-axis-sm { font-size: 10.5px; }
@@ -153,7 +160,7 @@ figure img, figure video { display: block; max-width: 100%; height: auto; border
 .dg-tabell table { font-size: 0.82rem; }
 .dg-anm { margin: 0.2rem 0 0; padding-left: 1.1rem; font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
 .dg-anm li { margin-bottom: 0.3rem; }
-@media (max-width: 640px) { .diagram-fig { padding: 0.7rem; } .dg-legend { font-size: 0.78rem; } }
+@media (max-width: 700px) { .diagram-fig { padding: 0.7rem; } .dg-legend { font-size: 0.78rem; } .dg-hint { display: block; } }
 @media print { .dg-tabell[open] { display: block; } .dg-tabell:not([open]) .tabell-wrap { display: block; } }
 
 /* ---------- källor ---------- */

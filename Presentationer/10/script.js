@@ -207,8 +207,10 @@
     });
   }
 
-  /* ---------- Diagram 1 (SVG ritas av data.js) ---------- */
+  /* ---------- Diagram 1 (SVG ritas av data.js, tidsaxel med riktiga datum) ---------- */
   var SVGNS = "http://www.w3.org/2000/svg";
+  var MAN = ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec"];
+  var DAG_MS = 86400000;
   function svg(tag, attrs, kids) {
     var e = document.createElementNS(SVGNS, tag);
     if (attrs) { Object.keys(attrs).forEach(function (k) { if (attrs[k] != null) { e.setAttribute(k, attrs[k]); } }); }
@@ -216,9 +218,22 @@
     return e;
   }
   function procent(v) { return v.toLocaleString("sv-SE", { maximumFractionDigits: 1 }) + " %"; }
+  /* "2023", "2025-01" eller "2022-06-29" blir start, slut och mitt (millisekunder). */
+  function tidsrymd(iso) {
+    var p = iso.split("-").map(Number), a, b;
+    if (p.length === 1) { a = Date.UTC(p[0], 0, 1); b = Date.UTC(p[0] + 1, 0, 1); }
+    else if (p.length === 2) { a = Date.UTC(p[0], p[1] - 1, 1); b = Date.UTC(p[0], p[1], 1); }
+    else { a = Date.UTC(p[0], p[1] - 1, p[2]); b = a; }
+    return { start: a, slut: b, mitt: (a + b) / 2 };
+  }
+  function datumText(p) {
+    var q = p.d.split("-").map(Number);
+    if (p.g === "dag") { return q[2] + " " + MAN[q[1] - 1] + " " + q[0]; }
+    if (p.g === "manad") { return MAN[q[1] - 1] + " " + q[0]; }
+    return q[0] + " (hela året)";
+  }
   /* En markör (form) runt (x, y). Returnerar ett SVG-element. */
   function markor(form, x, y, farg, r) {
-    var st = { fill: farg, stroke: "#fff", "stroke-width": 1.5 };
     if (form === "cirkel") { return svg("circle", { cx: x, cy: y, r: r, fill: farg, stroke: "#fff", "stroke-width": 1.5 }); }
     if (form === "kvadrat") { return svg("rect", { x: x - r, y: y - r, width: 2 * r, height: 2 * r, fill: farg, stroke: "#fff", "stroke-width": 1.5 }); }
     if (form === "triangel") { return svg("polygon", { points: [x, y - r - 1, x + r + 1, y + r, x - r - 1, y + r].join(","), fill: farg, stroke: "#fff", "stroke-width": 1.5 }); }
@@ -244,128 +259,148 @@
     });
     fig.appendChild(legend);
 
+    fig.appendChild(el("p", { "class": "dg-hint", text: "Dra diagrammet i sidled för att se hela tidsaxeln." }));
+    var scroll = el("div", { "class": "dg-scroll", tabindex: "0", role: "region", "aria-label": "Diagram 1, går att rulla i sidled" });
     var wrap = el("div", { "class": "dg-wrap" });
-    fig.appendChild(wrap);
+    scroll.appendChild(wrap);
+    fig.appendChild(scroll);
 
-    /* alla punkter i ordning för tabell och tillgänglig beskrivning */
-    var rader = [];
-    G.serier.forEach(function (s) { s.punkter.forEach(function (p) { rader.push({ s: s, p: p }); }); });
+    /* alla punkter, med tidsrymd */
+    var punkter = [];
+    G.serier.forEach(function (s) { s.punkter.forEach(function (p) { punkter.push({ s: s, p: p, t: tidsrymd(p.d) }); }); });
     var sammanfattning = G.serier.map(function (s) {
-      return s.namn + ": " + s.punkter.map(function (p) { return G.ar[p.x] + " " + procent(p.v); }).join(", ");
+      return s.namn + ": " + s.punkter.map(function (p) { return datumText(p) + " " + procent(p.v); }).join(", ");
     }).join(". ");
 
     function rita() {
       wrap.textContent = "";
-      var W = Math.max(300, Math.floor(wrap.clientWidth || fig.clientWidth || 640));
-      var H = Math.round(Math.max(320, Math.min(W * 0.62, 460)));
-      var ml = 40, mr = 70, mt = 14, mb = 44;
+      var W = Math.max(640, Math.floor(scroll.clientWidth || 640));
+      var H = Math.round(Math.max(400, Math.min(W * 0.55, 480)));
+      var ml = 46, mr = 26, mt = 16, mb = 62;
       var pw = W - ml - mr, ph = H - mt - mb;
-      var antal = G.ar.length;
-      var steg = pw / (antal - 1);
-      function X(i) { return ml + i * steg; }
+      var t0 = tidsrymd(G.start).start, t1 = tidsrymd(G.slut).slut;
+      var cut = tidsrymd(G.hamtat).start;
+      function X(ms) { return ml + (ms - t0) / (t1 - t0) * pw; }
       function Y(v) { return mt + ph * (1 - v / 100); }
+      var arStart = new Date(t0).getUTCFullYear(), arSlut = new Date(t1 - 1).getUTCFullYear();
 
       var s = svg("svg", { width: W, height: H, viewBox: "0 0 " + W + " " + H, role: "img", "aria-labelledby": "dg-titel dg-besk", "class": "dg-svg" });
       s.appendChild(svg("title", { id: "dg-titel" }, ["Diagram " + G.nr + ". " + G.namn]));
       s.appendChild(svg("desc", { id: "dg-besk" }, [sammanfattning + ". Värdena finns också i Tabell 3 under diagrammet."]));
 
-      /* rutnät och axlar */
+      /* årsband: varje kalenderår är ett band som börjar den 1 januari */
+      for (var yr = arStart; yr <= arSlut; yr++) {
+        var a = Date.UTC(yr, 0, 1), b = Date.UTC(yr + 1, 0, 1);
+        s.appendChild(svg("rect", { x: X(a), y: mt, width: X(b) - X(a), height: ph, fill: (yr % 2 === 0) ? "#f3f1e9" : "#ffffff" }));
+      }
+      /* tiden efter hämtdatumet */
+      s.appendChild(svg("rect", { x: X(cut), y: mt, width: X(t1) - X(cut), height: ph, fill: "#dcd9cf", opacity: 0.75 }));
+      var cutX = (X(cut) + X(t1)) / 2, cutY = mt + ph * 0.62;
+      s.appendChild(svg("text", { x: cutX, y: cutY, "text-anchor": "middle", "class": "dg-cut", transform: "rotate(-90 " + cutX + " " + cutY + ")" }, ["Ingen data efter 22 okt 2026"]));
+
+      /* vågräta linjer */
       [0, 20, 40, 60, 80, 100].forEach(function (v) {
         s.appendChild(svg("line", { x1: ml, x2: W - mr, y1: Y(v), y2: Y(v), "class": "dg-grid" }));
-        s.appendChild(svg("text", { x: ml - 6, y: Y(v) + 4, "text-anchor": "end", "class": "dg-axis" }, [v + " %"]));
+        s.appendChild(svg("text", { x: ml - 7, y: Y(v) + 4, "text-anchor": "end", "class": "dg-axis" }, [v + " %"]));
       });
-      G.ar.forEach(function (namn, i) {
-        s.appendChild(svg("line", { x1: X(i), x2: X(i), y1: mt, y2: mt + ph, "class": "dg-vgrid" }));
-        var delar = namn.split(" (");
-        s.appendChild(svg("text", { x: X(i), y: H - mb + 18, "text-anchor": "middle", "class": "dg-axis dg-axis-x" }, [delar[0]]));
-        if (delar[1]) { s.appendChild(svg("text", { x: X(i), y: H - mb + 32, "text-anchor": "middle", "class": "dg-axis dg-axis-sm" }, [delar[1].replace(")", "")])); }
-      });
+
+      /* lodräta linjer: 1 januari tydligt, kvartal svagt */
+      for (var y2 = arStart; y2 <= arSlut; y2++) {
+        var jan = Date.UTC(y2, 0, 1);
+        s.appendChild(svg("line", { x1: X(jan), x2: X(jan), y1: mt, y2: mt + ph + 8, "class": "dg-jan" }));
+        s.appendChild(svg("text", { x: X(jan) + (y2 === arStart ? 0 : 0), y: mt + ph + 21, "text-anchor": y2 === arStart ? "start" : "middle", "class": "dg-axis dg-axis-sm dg-axis-bold" }, ["1 jan"]));
+        [[3, "apr"], [6, "jul"], [9, "okt"]].forEach(function (k) {
+          var m = Date.UTC(y2, k[0], 1);
+          s.appendChild(svg("line", { x1: X(m), x2: X(m), y1: mt, y2: mt + ph + 4, "class": "dg-kv" }));
+          s.appendChild(svg("text", { x: X(m), y: mt + ph + 18, "text-anchor": "middle", "class": "dg-axis dg-axis-sm" }, [k[1]]));
+        });
+        var bandStart = Math.max(jan, t0), bandSlut = Math.min(Date.UTC(y2 + 1, 0, 1), t1);
+        s.appendChild(svg("text", { x: (X(bandStart) + X(bandSlut)) / 2, y: mt + ph + 44, "text-anchor": "middle", "class": "dg-axis dg-axis-x" }, [String(y2)]));
+      }
+      s.appendChild(svg("line", { x1: X(cut), x2: X(cut), y1: mt, y2: mt + ph, "class": "dg-cutline" }));
 
       /* experternas nivå */
-      var yr = Y(G.referens.v);
-      s.appendChild(svg("line", { x1: ml, x2: W - mr, y1: yr, y2: yr, "class": "dg-ref" }));
-      s.appendChild(svg("text", { x: ml + 4, y: yr - 5, "class": "dg-reflabel" }, [G.referens.namn]));
+      var yr0 = Y(G.referens.v);
+      s.appendChild(svg("line", { x1: ml, x2: W - mr, y1: yr0, y2: yr0, "class": "dg-ref" }));
+      s.appendChild(svg("text", { x: ml + 6, y: yr0 - 6, "class": "dg-reflabel" }, [G.referens.namn]));
 
-      /* sidledes förskjutning så att markörer i samma år inte täcker varandra */
-      var perAr = {};
-      G.serier.forEach(function (se) { se.punkter.forEach(function (p) { (perAr[p.x] = perAr[p.x] || []).push(se.id); }); });
-      function dx(se, p) {
-        var lista = perAr[p.x], n = lista.length, idx = lista.indexOf(se.id);
-        return (idx - (n - 1) / 2) * 7;
-      }
+      /* punkternas lägen */
+      punkter.forEach(function (o) { o.x = X(o.t.mitt); o.y = Y(o.p.v); o.x0 = X(o.t.start); o.x1 = X(o.t.slut); });
 
-      /* linjer först, sedan markörer */
+      /* linjer (streckade om mer än två år mellan punkterna) */
       G.serier.forEach(function (se) {
-        if (se.punkter.length > 1) {
-          var pts = se.punkter.map(function (p) { return (X(p.x) + dx(se, p)) + "," + Y(p.v); }).join(" ");
-          /* streckad linje när år saknas mellan två punkter: då vet vi inte vad som hände däremellan */
-          var lucka = false;
-          for (var q = 1; q < se.punkter.length; q++) { if (se.punkter[q].x - se.punkter[q - 1].x > 1) { lucka = true; } }
-          s.appendChild(svg("polyline", { points: pts, fill: "none", stroke: se.farg, "stroke-width": 2.5, "stroke-linejoin": "round", "stroke-dasharray": lucka ? "7 5" : null, opacity: 0.9 }));
+        var lista = punkter.filter(function (o) { return o.s === se; }).sort(function (u, v) { return u.t.mitt - v.t.mitt; });
+        if (lista.length < 2) { return; }
+        for (var i = 1; i < lista.length; i++) {
+          var gap = lista[i].t.mitt - lista[i - 1].t.mitt > 2 * 365.25 * DAG_MS;
+          s.appendChild(svg("line", { x1: lista[i - 1].x, y1: lista[i - 1].y, x2: lista[i].x, y2: lista[i].y, stroke: se.farg, "stroke-width": 2.5, "stroke-dasharray": gap ? "7 5" : null, opacity: 0.9 }));
         }
       });
 
-      /* värdeetiketter, med vertikal avståndshållning per år */
-      var perKol = {};
-      G.serier.forEach(function (se) {
-        se.punkter.forEach(function (p) {
-          if (p.lab === "under") {
-            /* etikett under markören när linjen går åt höger och etiketten annars skulle ligga på den */
-            s.appendChild(svg("text", { x: X(p.x) + dx(se, p) + 4, y: Y(p.v) + 20, "text-anchor": "middle", "class": "dg-val", fill: se.farg }, [procent(p.v)]));
-            return;
-          }
-          (perKol[p.x] = perKol[p.x] || []).push({ se: se, p: p, y: Y(p.v), ly: Y(p.v) });
-        });
-      });
-      Object.keys(perKol).forEach(function (k) {
-        var l = perKol[k].sort(function (a, b) { return a.y - b.y; });
-        for (var i = 1; i < l.length; i++) { if (l[i].ly - l[i - 1].ly < 13) { l[i].ly = l[i - 1].ly + 13; } }
-        var overskott = l.length ? l[l.length - 1].ly - (mt + ph) : 0;
-        if (overskott > 0) { l.forEach(function (o) { o.ly -= overskott; }); }
-        l.forEach(function (o) {
-          var px = X(+k) + dx(o.se, o.p);
-          if (Math.abs(o.ly - o.y) > 3) {
-            s.appendChild(svg("line", { x1: px + 6, y1: o.y, x2: X(+k) + 18, y2: o.ly - 4, "class": "dg-leader", stroke: o.se.farg }));
-          }
-          s.appendChild(svg("text", { x: X(+k) + 20, y: o.ly, "class": "dg-val", fill: o.se.farg }, [procent(o.p.v)]));
-        });
+      /* strängar som visar hur säkert datumet är (månad eller år) */
+      punkter.forEach(function (o) {
+        if (o.p.g === "dag") { return; }
+        s.appendChild(svg("line", { x1: o.x0, x2: o.x1, y1: o.y, y2: o.y, stroke: o.s.farg, "stroke-width": 2, opacity: 0.55 }));
+        s.appendChild(svg("line", { x1: o.x0, x2: o.x0, y1: o.y - 5, y2: o.y + 5, stroke: o.s.farg, "stroke-width": 2, opacity: 0.55 }));
+        s.appendChild(svg("line", { x1: o.x1, x2: o.x1, y1: o.y - 5, y2: o.y + 5, stroke: o.s.farg, "stroke-width": 2, opacity: 0.55 }));
       });
 
-      G.serier.forEach(function (se) {
-        se.punkter.forEach(function (p) {
-          var px = X(p.x) + dx(se, p), py = Y(p.v);
-          var txt = se.namn + ", " + G.ar[p.x] + ": " + procent(p.v) + ". " + p.modell + ".";
-          var g = svg("g", { tabindex: "0", role: "img", "aria-label": txt, "class": "dg-pt" }, [
-            svg("title", null, [txt + " " + p.not]),
-            markor(se.form, px, py, se.farg, 5.5)
-          ]);
-          s.appendChild(g);
+      /* värdeetiketter: välj den plats runt punkten där etiketten täcker minst */
+      var placerade = [];
+      var markbox = punkter.map(function (o) { return { o: o, x1: o.x - 9, x2: o.x + 9, y1: o.y - 9, y2: o.y + 9 }; });
+      function kollision(a, b) { return !(a.x2 <= b.x1 || a.x1 >= b.x2 || a.y2 <= b.y1 || a.y1 >= b.y2); }
+      punkter.slice().sort(function (u, v) { return u.t.mitt - v.t.mitt; }).forEach(function (o) {
+        var txt = procent(o.p.v), w = txt.length * 6.9 + 6;
+        var kand = [
+          { x: o.x1 + 8, y: o.y + 4, a: "start", b: { x1: o.x1 + 8, x2: o.x1 + 8 + w, y1: o.y - 9, y2: o.y + 6 } },
+          { x: o.x, y: o.y - 12, a: "middle", b: { x1: o.x - w / 2, x2: o.x + w / 2, y1: o.y - 24, y2: o.y - 9 } },
+          { x: o.x, y: o.y + 22, a: "middle", b: { x1: o.x - w / 2, x2: o.x + w / 2, y1: o.y + 9, y2: o.y + 25 } },
+          { x: o.x0 - 8, y: o.y + 4, a: "end", b: { x1: o.x0 - 8 - w, x2: o.x0 - 8, y1: o.y - 9, y2: o.y + 6 } }
+        ];
+        var bast = null, bastPoang = 1e9;
+        kand.forEach(function (c) {
+          var poang = 0;
+          placerade.forEach(function (p) { if (kollision(c.b, p)) { poang += 3; } });
+          markbox.forEach(function (m) { if (m.o !== o && kollision(c.b, m)) { poang += 2; } });
+          if (c.b.x1 < ml - 2 || c.b.x2 > W - 2 || c.b.y1 < mt - 2 || c.b.y2 > mt + ph + 2) { poang += 6; }
+          if (poang < bastPoang) { bastPoang = poang; bast = c; }
         });
+        placerade.push(bast.b);
+        s.appendChild(svg("text", { x: bast.x, y: bast.y, "text-anchor": bast.a, "class": "dg-val", fill: o.s.farg }, [txt]));
+      });
+
+      /* markörer */
+      punkter.forEach(function (o) {
+        var txt = o.s.namn + ", " + datumText(o.p) + ": " + procent(o.p.v) + ". " + o.p.modell + ".";
+        s.appendChild(svg("g", { tabindex: "0", role: "img", "aria-label": txt, "class": "dg-pt" }, [
+          svg("title", null, [txt + " " + o.p.not]),
+          markor(o.s.form, o.x, o.y, o.s.farg, 5.5)
+        ]));
       });
       wrap.appendChild(s);
     }
 
     /* tabell med värdena (Tabell 3) */
     var tbody = el("tbody");
-    rader.forEach(function (r) {
+    punkter.forEach(function (o) {
       var kallTd = el("td", { "data-label": "Källa" });
-      r.p.kalla.forEach(function (k, i) {
+      o.p.kalla.forEach(function (k, i) {
         var post = kallaPost(k);
         if (i) { kallTd.appendChild(document.createTextNode("; ")); }
         kallTd.appendChild(post ? el("a", { href: "#" + k, text: kortNamn(post) }) : document.createTextNode(k));
       });
       tbody.appendChild(el("tr", null, [
-        el("td", { "data-label": "Prov", text: r.s.namn }),
-        el("td", { "data-label": "År", text: G.ar[r.p.x] }),
-        el("td", { "data-label": "Värde", text: procent(r.p.v) }),
-        el("td", { "data-label": "Modell eller system", text: r.p.modell }),
+        el("td", { "data-label": "Prov", text: o.s.namn }),
+        el("td", { "data-label": "Datum", text: datumText(o.p) }),
+        el("td", { "data-label": "Värde", text: procent(o.p.v) }),
+        el("td", { "data-label": "Modell eller system", text: o.p.modell }),
         kallTd,
-        el("td", { "data-label": "Anmärkning", text: r.p.not })
+        el("td", { "data-label": "Anmärkning", text: o.p.not })
       ]));
     });
     var tabell = el("table", null, [
       el("caption", { id: "Tabell3", text: "Tabell 3. Värdena i Diagram " + G.nr }),
-      el("thead", null, [el("tr", null, ["Prov", "År", "Värde", "Modell eller system", "Källa", "Anmärkning"].map(function (h) { return el("th", { scope: "col", text: h }); }))]),
+      el("thead", null, [el("tr", null, ["Prov", "Datum", "Värde", "Modell eller system", "Källa", "Anmärkning"].map(function (h) { return el("th", { scope: "col", text: h }); }))]),
       tbody
     ]);
     fig.appendChild(el("details", { "class": "dg-tabell" }, [
