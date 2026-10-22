@@ -408,6 +408,28 @@
       el("div", { "class": "tabell-wrap" }, [tabell])
     ]));
 
+    /* Tabell 4: vad proven är och vad en siffra betyder */
+    var tb4 = el("tbody");
+    (G.prov || []).forEach(function (r) {
+      var post = kallaPost(r.kalla);
+      tb4.appendChild(el("tr", null, [
+        el("td", { "data-label": "Prov", text: r.namn }),
+        el("td", { "data-label": "Vad det är", text: r.vad }),
+        el("td", { "data-label": "Vad en siffra betyder", text: r.betyder }),
+        el("td", { "data-label": "Exempel", text: r.exempel }),
+        el("td", { "data-label": "Källa" }, [post ? el("a", { href: "#" + r.kalla, text: kortNamn(post) }) : null])
+      ]));
+    });
+    var tabell4 = el("table", null, [
+      el("caption", { id: "Tabell4", text: "Tabell 4. Vad proven i Diagram " + G.nr + " är, och vad en siffra betyder" }),
+      el("thead", null, [el("tr", null, ["Prov", "Vad det är", "Vad en siffra betyder", "Exempel", "Källa"].map(function (h) { return el("th", { scope: "col", text: h }); }))]),
+      tb4
+    ]);
+    fig.appendChild(el("details", { "class": "dg-tabell", id: "prov-detaljer" }, [
+      el("summary", { text: "Vad är det för uppgifter? Visa vad varje prov är, och ett exempel (Tabell 4)" }),
+      el("div", { "class": "tabell-wrap" }, [tabell4])
+    ]));
+
     var ul = el("ul", { "class": "dg-anm" });
     G.anm.forEach(function (a) { ul.appendChild(el("li", { text: a })); });
     fig.appendChild(el("p", { "class": "fig-desc" }, ["Så läser du diagrammet:"]));
@@ -486,6 +508,15 @@
     });
   }
 
+  /* Hoppar man till en tabell som ligger i en hopfälld ruta fäller vi ut rutan. */
+  function oppnaMalruta() {
+    var id = decodeURIComponent((location.hash || "").slice(1));
+    if (!id) { return; }
+    var m = document.getElementById(id);
+    var d = m && m.closest ? m.closest("details") : null;
+    if (d) { d.open = true; m.scrollIntoView(); }
+  }
+
   /* ---------- Start ---------- */
   var v = document.getElementById("versionText");
   if (v && D.version) { v.textContent = "— version 10 per den " + D.version; }
@@ -498,4 +529,6 @@
   ankare();
   begrepp();
   modal();
+  window.addEventListener("hashchange", oppnaMalruta);
+  oppnaMalruta();
 })();
