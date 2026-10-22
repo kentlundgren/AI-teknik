@@ -3,7 +3,7 @@
 **Namn:** PRD_presentation_generation_2005
 **Plats:** `AI-teknik/Presentationer/10/PRD_presentation_generation_2005.md`
 **Skapad:** 2026-10-21
-**Version:** 21 (Tabell 4 och LinkedIn-bild tillagda; modellavsnittet omskrivet; Diagram 1 med tidsaxel; SPEC.md godkänd, sidan byggd lokalt; SPEC.md v1 skriven; fyra källgenomgångar gjorda; artikel som första leverans; Test 1–3 genomförda; artikeln publicerad på bloggen 2026-10-22)
+**Version:** 22 (LinkedIn-artikeln publicerad och länkad; Tabell 4 och LinkedIn-bild tillagda; modellavsnittet omskrivet; Diagram 1 med tidsaxel; SPEC.md godkänd, sidan byggd lokalt; SPEC.md v1 skriven; fyra källgenomgångar gjorda; artikel som första leverans; Test 1–3 genomförda; artikeln publicerad på bloggen 2026-10-22)
 **Status:** **Utkast. Inget är byggt, ingen SPEC.md är skriven.** Alla beslut i avsnitt 4 är öppna tills Kent bekräftat dem.
 **Typ:** Grund-PRD för en ny presentation. Mappen heter `10` (Kents val 2026-10-21). Övriga presentationer heter `Nr1`–`Nr3`; om mappnamnet ska följa det mönstret är en öppen fråga (4i).
 **Avsändare:** Kent Lundgren.
@@ -124,6 +124,7 @@ Krav: Harvardstil, alfabetisk ordning, hämtdatum för webbkällor, kursiv relev
 ## Ändringslogg
 
 - **v1 (2026-10-21):** Första utkast efter Kents beskrivning av tesen, läsaren och personan.
+- **v22 (2026-10-22):** LinkedIn-artikeln publicerad (22 oktober 2026, 00:45 UTC enligt sidans metadata): https://www.linkedin.com/pulse/2026-%C3%A4r-%C3%A5ret-det-blev-normalt-och-moget-kent-lundgren-qw8je/. Tillagd som källa Lundgren (2026d) i sidans källista, och länkad i sidhuvud, sidfot och README.
 - **v21 (2026-10-22):** Kent frågade vad proven i Diagram 1 egentligen mäter och bad om ett exempel på en löst uppgift (Minerva 50,3 procent 2022). Tabell 4 ("Vad proven i Diagram 1 är, och vad en siffra betyder") tillagd under diagrammet, med verifierat exempel ur Minerva-artikeln (MATH, 5 000 testuppgifter, majoritetsval bland 64 försök, 33,6 procent med ett försök). Diagram 1 exporterat som bild (`media/diagram1_linkedin.png`) för LinkedIn, och bildavsnitt tillagt i LinkedIn-filen.
 - **v20 (2026-10-22):** Avsnittet om modellerna fick ny rubrik och nytt fokus på Kents begäran: "2026 är modellerna tillräckligt bra för civilingenjörer" (alternativ C; "anpassade" valdes bort eftersom ingen källa visar att modellerna är byggda för civilingenjörer). Texten använder bilden av en trappa från gymnasiets tävlingsuppgifter till forskning, ett lustfyllt stycke om att modellerna läser analoga klockor rätt i 50,6 procent av fallen, och Terminal-Bench 4.0 (66,4 procent) som motvikt. Tabell 1 rad 4 uppdaterad. Ankaret #modellerna är oförändrat. Tre nya förklaringar (MATH, ClockBench, Terminal-Bench). Bloggartikeln har inte fått ändringen.
 - **v19 (2026-10-22):** Kent såg inte vad som hänt 2026 i Diagram 1 och hade svårt att se var varje år börjar. Diagrammet ombyggt till en tidsaxel med riktiga datum, årsband som börjar 1 januari, och punkter på källornas datum. Nya 2026-punkter ur primärkällor: FrontierMath Tier 4 98 procent för GPT-6 Astra (Epoch AI, 12 sept; Epoch anser provet mättat), Humanity's Last Exam 64,4 procent utan verktyg för Opus 5.5 (Anthropic, 22 sept), samt IMO 2026 42 av 42 enligt SCMP (ej kontrollerat hos arrangörerna). Fem nya källor.

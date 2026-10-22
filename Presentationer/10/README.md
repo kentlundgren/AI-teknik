@@ -3,6 +3,7 @@
 - **Live:** [https://kentlundgren.github.io/AI-teknik/Presentationer/10/](https://kentlundgren.github.io/AI-teknik/Presentationer/10/)
 - **Lokal sökväg:** `C:\Users\kentl\OneDrive\AI\AI-teknik\Presentationer\10`
 - **Artikeln på bloggen:** [2026 är året det blev normalt och moget](https://klel.wordpress.com/2026/10/22/2026-ar-aret-det-blev-normalt-och-moget/)
+- **Artikeln på LinkedIn:** [2026 är året det blev normalt och moget](https://www.linkedin.com/pulse/2026-%C3%A4r-%C3%A5ret-det-blev-normalt-och-moget-kent-lundgren-qw8je/)
 - **Avsändare:** Kent Lundgren
 
 En argumenterande text om hur generativ AI landat i civilingenjörsutbildningen, med tre tester (Claude Code och Grok löser samma tenta och samma värmeledningsuppgift mot ett facit som låsts i förväg). Sidan är en lång sida att scrolla, byggd på artikeln och dess källor. Uppgifterna är hämtade ur källorna längst ned på sidan och är inte kvalitetssäkrade. Kontrollera mot källan innan något återges.
