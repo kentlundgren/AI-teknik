@@ -130,3 +130,9 @@ rubriken "Underhållsregler".
   `10/PRD_presentation_generation_2005.md`, `10/SPEC.md` och `10/README.md`.
 - **`Nr3`** — tom mapp lokalt (ingen fil, inget på GitHub, 2026-10-22).
   Innehåll och syfte är inte bestämda.
+- **Öppen fråga (2026-10-22): egen mapp `Undersokningar/`?** Vi har funderat på
+  en toppmapp för undersökningar som `10`, men väntar. Påminn Kent när en
+  *andra* undersökning påbörjas, och ta då beslutet tillsammans med PRD
+  punkt 4i (`10` eller `Nr10`). Länkarna till `/Presentationer/10/` (21
+  ställen i repot, sannolikt även bloggen och LinkedIn) måste hanteras vid en
+  flytt.
