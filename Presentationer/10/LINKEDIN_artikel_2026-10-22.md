@@ -7,6 +7,18 @@
 
 ---
 
+## Bilder till artikeln
+
+**Omslagsbild (överst, före ingressen):** din skärmdump `AI_tester_260925.jpg`, orange kolumn i tabellen. Den matchar ingressen ordagrant ("Jag har en skärmdump på datorn som heter ..."). Tabellen är Anthropics (2026). Ange källan i bildtexten: "Anthropics lanseringstabell för Claude Opus 5.5, 22 september 2026". Filen ligger på din dator och på bloggen, inte i den här mappen, så jag har inte kunnat kontrollera storleken. LinkedIns omslagsbild brukar vara 16:9; kontrollera i redigeraren.
+
+**Bild i texten:** [media/diagram1_linkedin.png](media/diagram1_linkedin.png) (Diagram 1, 2200 × 1256 px, 365 kB). Placera den efter första stycket under rubriken "2026 är modellerna tillräckligt bra för civilingenjörer", alltså före stycket som börjar "Men tillräckligt bra är inte detsamma ...".
+
+Bildtext att klistra in: *Diagram 1. Resultat över tid på sex prov i matematik och naturvetenskap, 2022–2026. Varje punkt är den modell eller det system som källan anger vid den tidpunkten. Värden, modeller och källor finns i Tabell 3 på sidan.*
+
+Alternativ text (för skärmläsare): *Diagram med sex färgade serier som stiger från 2022 till 2026, bland annat FrontierMath Tier 4 från 13 till 98 procent mellan oktober 2025 och september 2026.*
+
+---
+
 2026 är året det blev normalt och moget
 
 Hur generativ AI landat i civilingenjörsutbildningen, och vad jag tror att det betyder

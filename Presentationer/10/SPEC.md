@@ -2,7 +2,7 @@
 
 **Hör till:** [PRD_presentation_generation_2005.md](PRD_presentation_generation_2005.md) (v14) och [ARTIKEL_utkast_1_2026-10-22.md](ARTIKEL_utkast_1_2026-10-22.md)
 **Skapad:** 2026-10-22
-**Version:** 1.2 (Diagram 1 och Tabell 3 tillagda 2026-10-22 på Kents begäran; diagrammet ombyggt samma dag till tidsaxel med riktiga datum; grundversionen godkänd samma dag)
+**Version:** 1.3 (Tabell 4 tillagd under Diagram 1, 2026-10-22; Diagram 1 och Tabell 3 tillagda 2026-10-22 på Kents begäran; diagrammet ombyggt samma dag till tidsaxel med riktiga datum; grundversionen godkänd samma dag)
 **Status:** **Godkänd av Kent 2026-10-22.** Första versionen byggd lokalt samma dag. Ändringar görs som ny version.
 **Syfte:** Låst byggspecifikation. PRD:n säger *vad och varför*, den här filen säger *exakt hur* och när det är klart.
 **Avsändare:** Kent Lundgren.
@@ -30,7 +30,7 @@
 2. **Tesen** ("Vad menar jag med normalt och moget?").
 3. **Fem belägg** med **Tabell 1** (belagt, delvis belagt, inte belagt). Varje rad kan fällas ut och visar källan och vad den säger.
 4. **Vem betalar?** Fyra spår: studenten, familjen, lärosätet, leverantören. Under varje: vad som är belagt, vad som är hypotes.
-4b. **Diagram 1 och Tabell 3** (under "Är modellerna verkligen tillräckligt bra?"): ett diagram över resultat på sex prov i matematik och naturvetenskap, 2022–2026, ritat som SVG av `data.js` (fält `diagram`). **Tidsaxel med riktiga datum:** varje kalenderår är ett band som börjar den 1 januari (märkt "1 jan", med kvartalsstreck apr, jul och okt). Punkten ligger på källans datum; där bara månaden eller året är känt visas en sträng över månaden eller året. Tiden efter hämtdatumet (22 okt 2026) är grå. Varje punkt har en källa, och Tabell 3 visar datum, värde, modell, källa och anmärkning. Streckad linje betyder mer än två år mellan punkter. Diagrammet kan rullas i sidled under 640 px. Tabell 3 fick nummer 3 för att hålla Tabell 1 och 2 stabila.
+4b. **Diagram 1 och Tabell 3** (under "Är modellerna verkligen tillräckligt bra?"): ett diagram över resultat på sex prov i matematik och naturvetenskap, 2022–2026, ritat som SVG av `data.js` (fält `diagram`). **Tidsaxel med riktiga datum:** varje kalenderår är ett band som börjar den 1 januari (märkt "1 jan", med kvartalsstreck apr, jul och okt). Punkten ligger på källans datum; där bara månaden eller året är känt visas en sträng över månaden eller året. Tiden efter hämtdatumet (22 okt 2026) är grå. Varje punkt har en källa, och Tabell 3 visar datum, värde, modell, källa och anmärkning. Streckad linje betyder mer än två år mellan punkter. Diagrammet kan rullas i sidled under 640 px. Tabell 3 fick nummer 3 för att hålla Tabell 1 och 2 stabila. **Tabell 4** ("Vad proven i Diagram 1 är, och vad en siffra betyder") ligger i en hopfälld ruta under Tabell 3 och förklarar varje prov, vad en siffra betyder och ger ett verifierat exempel där det finns; hopp till Tabell 3 eller 4 fäller ut rutan.
 5. **Testerna:** Test 1 (tenta), Test 2 (värmeledning, facit låst), Test 3 (samma uppgifter till Grok). **Tabell 2** med resultaten. Media enligt avsnitt 5.
 6. **Vad testerna inte visar.**
 7. **Vad tror jag nu?** Slutar med den öppna frågan, inte en sammanfattning.
