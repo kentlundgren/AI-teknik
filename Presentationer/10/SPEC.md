@@ -26,7 +26,7 @@
 
 ## 3. Struktur (en sida, `index.html`)
 
-1. **Sidhuvud:** rubriken, en rad om vad sidan är, `version 10 per den [DATUM]` (format `22 okt 2026`, uppdateras vid varje ändring enligt regeln i `Presentationer/CLAUDE.md`), länk till bloggartikeln.
+1. **Sidhuvud:** rubriken, en rad om vad sidan är, `uppdaterad den [DATUM]` (inget versionsnummer; 10 är mappens nummer, inte en version; format `22 okt 2026`, uppdateras vid varje ändring enligt regeln i `Presentationer/CLAUDE.md`), länk till bloggartikeln.
 2. **Tesen** ("Vad menar jag med normalt och moget?").
 3. **Fem belägg** med **Tabell 1** (belagt, delvis belagt, inte belagt). Varje rad kan fällas ut och visar källan och vad den säger.
 4. **Vem betalar?** Fyra spår: studenten, familjen, lärosätet, leverantören. Under varje: vad som är belagt, vad som är hypotes.
@@ -106,7 +106,7 @@
 - [x] GitHub-hörnan och teknik-modalen finns, och modalen innehåller bara sanna uppgifter. *(Öppnas, stängs med kryss och Escape, fokus återställs.)*
 - [x] Inget ur avsnitt 8 finns på sidan (sökning efter namn, födelsedatum, hela tentan). *(Sökt efter namn och födelsedatum. Tentan och lösningsskissen är bara länkade.)*
 - [ ] Texten är i Kents röst och stämmer med den publicerade artikeln, utom där den medvetet skiljer sig.
-- [x] `version 10 per den [DATUM]` visas i sidhuvudet.
+- [x] `uppdaterad den [DATUM]` visas i sidhuvudet.
 - [ ] Utskrift ger läsbart resultat.
 - [ ] README med Live-länk finns. Påminnelse om delningsbild är gjord.
 - [ ] Kent har godkänt innan något publiceras. Kent committar och pushar själv.

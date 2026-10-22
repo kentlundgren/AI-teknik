@@ -3,9 +3,9 @@
 **Namn:** PRD_presentation_generation_2005
 **Plats:** `AI-teknik/Presentationer/10/PRD_presentation_generation_2005.md`
 **Skapad:** 2026-10-21
-**Version:** 22 (LinkedIn-artikeln publicerad och länkad; Tabell 4 och LinkedIn-bild tillagda; modellavsnittet omskrivet; Diagram 1 med tidsaxel; SPEC.md godkänd, sidan byggd lokalt; SPEC.md v1 skriven; fyra källgenomgångar gjorda; artikel som första leverans; Test 1–3 genomförda; artikeln publicerad på bloggen 2026-10-22)
-**Status:** **Utkast. Inget är byggt, ingen SPEC.md är skriven.** Alla beslut i avsnitt 4 är öppna tills Kent bekräftat dem.
-**Typ:** Grund-PRD för en ny presentation. Mappen heter `10` (Kents val 2026-10-21). Övriga presentationer heter `Nr1`–`Nr3`; om mappnamnet ska följa det mönstret är en öppen fråga (4i).
+**Version:** 23 (sidhuvudet ändrat till "uppdaterad den", status och typ rättade; LinkedIn-artikeln publicerad och länkad; Tabell 4 och LinkedIn-bild tillagda; modellavsnittet omskrivet; Diagram 1 med tidsaxel; SPEC.md godkänd, sidan byggd lokalt; SPEC.md v1 skriven; fyra källgenomgångar gjorda; artikel som första leverans; Test 1–3 genomförda; artikeln publicerad på bloggen 2026-10-22)
+**Status (2026-10-22):** sidan är byggd och publicerad, SPEC.md godkänd, artikeln publicerad på bloggen och LinkedIn. Avsnitt 4 nedan är beslutshistorik från PRD-stadiet.
+**Typ:** Undersökning med argumenterande text och tre tester, inte en presentation av Kents arbetssätt som `Nr1` och `Nr2`. Den ligger under `Presentationer/` men har ingen versionsserie: `10` är mappens nummer, inte en version. Mappnamnet `10` är Kents val 2026-10-21; om det ska bli `Nr10` är en öppen fråga (4i).
 **Avsändare:** Kent Lundgren.
 
 ## 1. Bakgrund

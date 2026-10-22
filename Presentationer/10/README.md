@@ -8,7 +8,9 @@
 
 En argumenterande text om hur generativ AI landat i civilingenjörsutbildningen, med tre tester (Claude Code och Grok löser samma tenta och samma värmeledningsuppgift mot ett facit som låsts i förväg). Sidan är en lång sida att scrolla, byggd på artikeln och dess källor. Uppgifterna är hämtade ur källorna längst ned på sidan och är inte kvalitetssäkrade. Kontrollera mot källan innan något återges.
 
-**Status:** första versionen byggd lokalt 2026-10-22. Inte publicerad. Kent committar och pushar själv.
+**Vad det är:** en undersökning med en argumenterande text, inte en presentation av hur Kent arbetar med generativ AI (det är `Nr1` och `Nr2`). Den ligger under `Presentationer/`, men `10` är mappens nummer och inte en version. Sidhuvudet visar därför bara "uppdaterad den [datum]".
+
+**Status (2026-10-22):** byggd och publicerad på GitHub Pages. Artikeln är publicerad på bloggen och LinkedIn.
 
 ## Innehåll i mappen
 

@@ -519,7 +519,7 @@
 
   /* ---------- Start ---------- */
   var v = document.getElementById("versionText");
-  if (v && D.version) { v.textContent = "— version 10 per den " + D.version; }
+  if (v && D.version) { v.textContent = "— uppdaterad den " + D.version; }
   byggTabell1();
   byggSpar();
   byggMedia();
