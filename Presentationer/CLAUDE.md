@@ -119,3 +119,14 @@ rubriken "Underhållsregler".
   `arbetssatt`-text (första förekomst per kort, Regel 12), och ett nytt kort
   för Ekonomikommunikation. Se `Nr2/PRD_presentation_ai_arbetsgivare.md` och
   `Nr2/SPEC.md`. Publicerad (svarar 200 på GitHub Pages, kontrollerat 2026-10-01).
+- **`10` — "2026 är året det blev normalt och moget"** — en *undersökning*,
+  inte en presentation av Kents arbetssätt som `Nr1` och `Nr2`. Argumenterande
+  text om generativ AI i civilingenjörsutbildningen, med tre tester (Claude
+  Code och Grok löser samma tenta och värmeledningsuppgift mot ett facit
+  låst i förväg). Ligger under `Presentationer/` men har ingen versionsserie:
+  `10` är mappens nummer, inte en version, och sidhuvudet säger därför
+  "uppdaterad den [datum]" (ändras vid varje innehållsändring, format
+  `22 okt 2026`). Publicerad 2026-10-22 (svarar 200 på GitHub Pages). Se
+  `10/PRD_presentation_generation_2005.md`, `10/SPEC.md` och `10/README.md`.
+- **`Nr3`** — tom mapp lokalt (ingen fil, inget på GitHub, 2026-10-22).
+  Innehåll och syfte är inte bestämda.
