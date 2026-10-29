@@ -10,9 +10,7 @@ Mått per projekt: aktiva dagar (dagar med minst en commit som rör projektet), 
 projektet och filändringar. Sorteras på dagar, sedan commits, sedan filändringar.
 Förra månaden räknas om med samma projektkarta, så att jämförelsen alltid är konsekvent.
 
-Projektkartan: projekt_karta.json (publik, i samma mapp) plus, om den finns, en privat karta:
-  ~/.claude/manadsrapport_privat.json   {"repon": [...], "regler": [...], "dolda": [...]}
-Dolda projekt räknas men skrivs bara ut i terminalen, aldrig i rapportfilen.
+Projektkartan: projekt_karta.json i samma mapp. Bara repon som ligger på GitHub ingår.
 """
 import json
 import re
@@ -26,21 +24,13 @@ from pathlib import Path
 HAR = Path(__file__).resolve().parent
 AI_TEKNIK = HAR.parents[2]                 # .../AI-teknik
 ROT = HAR.parents[3]                       # .../AI  (mappen som innehåller alla repon)
-PRIVAT = Path.home() / ".claude" / "manadsrapport_privat.json"
 MANADER = ["januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti",
            "september", "oktober", "november", "december"]
 GITHUB = "https://github.com/kentlundgren/AI-teknik/tree/main/.claude/skills/kent-manadsrapport"
 
 
 def las_karta():
-    karta = json.loads((HAR / "projekt_karta.json").read_text(encoding="utf-8"))
-    dolda = set()
-    if PRIVAT.exists():
-        p = json.loads(PRIVAT.read_text(encoding="utf-8"))
-        karta["repon"] = karta["repon"] + p.get("repon", [])
-        karta["regler"] = p.get("regler", []) + karta["regler"]   # privata regler först
-        dolda = set(p.get("dolda", []))
-    return karta, dolda
+    return json.loads((HAR / "projekt_karta.json").read_text(encoding="utf-8"))
 
 
 def projekt(karta, repo, sokvag):
@@ -132,13 +122,13 @@ def titel_och_beskrivning(fil):
     return (mt.group(1).strip() if mt else ""), (md.group(1).strip() if md else "")
 
 
-def produkter(karta, dolda, start, nasta):
+def produkter(karta, start, nasta):
     """Nya färdiga produkter: en index.html som först sparades under månaden, följt över namnbyten,
     och som svarar på sin live-adress. Pågående projekt räknas i rangordningen, inte här."""
     info = karta.get("produkt_info", {})
     exkl = karta.get("produkter_exkludera", [])
     pinfo = karta.get("projekt_info", {})
-    fynd, dolt, ej_live = [], [], []
+    fynd, ej_live = [], []
     for repo in karta["repon"]:
         if not (ROT / repo / ".git").exists():
             continue
@@ -161,9 +151,6 @@ def produkter(karta, dolda, start, nasta):
             d = {x for x in hist}
             forsta = min(date.fromisoformat(x) for x in d) if d else publ
             p = projekt(karta, repo, fil)
-            if p in dolda:
-                dolt.append(p)
-                continue
             lank = f"https://kentlundgren.github.io/{sida}/{mapp}/" if mapp else f"https://kentlundgren.github.io/{sida}/"
             if not svarar(lank):
                 ej_live.append(lank)
@@ -176,7 +163,7 @@ def produkter(karta, dolda, start, nasta):
                 "stjarna": o.get("stjarna", False), "lnf": pinfo.get(p, {}).get("lnf", False),
                 "dagar": len(d), "commits": len(hist), "till_publ": max((publ - forsta).days, 0)})
     fynd.sort(key=lambda x: (x["publ"], x["namn"]))
-    return fynd, dolt, ej_live
+    return fynd, ej_live
 
 
 def produkttabell(fynd, namn, lnf):
@@ -200,7 +187,7 @@ En ny färdig produkt är en sida som sparades för första gången under månad
 """
 
 
-def rapport(karta, dolda, ar, m, start, nasta):
+def rapport(karta, ar, m, start, nasta):
     idag = date.today()
     sista = min(idag, nasta - timedelta(days=1))
     pagar = start <= idag < nasta - timedelta(days=1)
@@ -208,8 +195,7 @@ def rapport(karta, dolda, ar, m, start, nasta):
     fstart = date(fm_ar, fm_m, 1)
     rang, siffror = mata(karta, start.isoformat(), nasta.isoformat())
     frang, _ = mata(karta, fstart.isoformat(), start.isoformat())
-    synliga = [p for p in rang if p not in dolda]
-    fsynliga = [p for p in frang if p not in dolda]
+    synliga, fsynliga = rang, frang
     top = synliga[: karta.get("toppantal", 10)]
     info = karta.get("projekt_info", {})
     lnf = karta.get("lnf_markering", "")
@@ -225,7 +211,7 @@ def rapport(karta, dolda, ar, m, start, nasta):
         if pi.get("beskrivning"):
             korta.append(f"- {markor}{'[' + p + '](' + pi['lank'] + ')' if pi.get('lank') else p}: {pi['beskrivning']}")
     forklaring = (f"{lnf} = arbete inom Lunds Naturskyddsförening (LNF). " if lnf else "")
-    fynd, dolt, ej_live = produkter(karta, dolda, start, nasta)
+    fynd, ej_live = produkter(karta, start, nasta)
     namn = f"{MANADER[m - 1]} {ar}"
     fnamn = f"{MANADER[fm_m - 1]} {fm_ar}"
     period = f"{start.isoformat()} till {sista.isoformat()}"
@@ -266,7 +252,7 @@ Det här är en **månadsrapport**: en rangordning av de {len(top)} projekt som 
 - **Bara det som committats räknas.** Arbete som inte sparats i Git, och tid vid datorn, syns inte.
 - **Projekten är mjuka.** Vilka mappar som hör till vilket projekt står i `projekt_karta.json` i skillens mapp. När ett projekt vidgas läggs en mapp till på samma projekt, och namnet och placeringen följer med. Förra månaden räknas alltid om med den nuvarande kartan, så jämförelsen blir konsekvent även om kartan ändrats. Rapporter som redan skrivits ändras inte.
 """
-    return ut, rang, siffror, dolda, frang, dolt, ej_live
+    return ut, ej_live
 
 
 BLOB = "https://github.com/kentlundgren/AI-teknik/blob/main/Manadsrapport"
@@ -327,9 +313,9 @@ def uppdatera_index(mal):
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     skriv = "--skriv" in sys.argv
-    karta, dolda = las_karta()
+    karta = las_karta()
     ar, m, start, nasta = manad(args[0] if args else None)
-    ut, rang, siffror, dolda, frang, dolt, ej_live = rapport(karta, dolda, ar, m, start, nasta)
+    ut, ej_live = rapport(karta, ar, m, start, nasta)
     sys.stdout.reconfigure(encoding="utf-8")
     print(ut)
     if skriv:
@@ -342,16 +328,6 @@ def main():
         print("\n--- Nya sidor som inte svarar på sin live-adress (ingår inte i Tabell 2) ---")
         for u in ej_live:
             print(u)
-    if dolt:
-        print(f"\n--- Dolda projekt: {len(dolt)} ny(a) sida(or) utanför Tabell 2 (visas bara i terminalen) ---")
-    dold = [p for p in rang if p in dolda]
-    if dold:
-        print("\n--- Utanför tabellen (visas bara i terminalen, skrivs aldrig i rapportfilen) ---")
-        synliga = [p for p in rang if p not in dolda]
-        for p in dold:
-            d, c, f = siffror[p]
-            plats_om_med = sum(1 for q in synliga if (siffror[q][0], siffror[q][1], siffror[q][2]) > (d, c, f)) + 1
-            print(f"{p}: {d} dagar, {c} commits, {f} filändringar (skulle ha varit plats {plats_om_med})")
 
 
 if __name__ == "__main__":

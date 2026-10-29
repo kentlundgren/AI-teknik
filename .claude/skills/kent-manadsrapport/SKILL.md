@@ -2,7 +2,7 @@
 name: kent-manadsrapport
 description: Skapar eller uppdaterar Kents månadsrapport, en rangordning av de 10 projekt han lagt mest arbete på under en månad (aktiva dagar, commits, filändringar), oavsett vilket repo projektet ligger i, med placering förra månaden. Använd när Kent skriver nyckelordet "månadsrapport" (gärna med månad, till exempel "månadsrapport oktober"), frågar "vad har jag gjort den här månaden?" eller vill ha en topplista över sina projekt. Skriptet läser Git-historiken i hans repon och är oberoende av AI-verktyg.
 metadata:
-  version: "1.3 (2026-10-29: snabbstart för Kent, andra AI-modeller och Claude; varför lokala kloner)"
+  version: "1.4 (2026-10-29: privat arbete utanför rapporten, ingen privat karta)"
 ---
 
 # Månadsrapport
@@ -13,7 +13,7 @@ Rapporten rangordnar **projekt**, inte repon. Ett projekt kan ligga i flera repo
 
 ## Snabbstart: vem gör vad
 
-**Kent:** skriv `månadsrapport` (eller `månadsrapport oktober`) till ett AI-verktyg som kan köra kommandon på hans dator. Verktyget kör skriptet, sparar rapporten i `Manadsrapport/` och berättar i chatten vad som hamnat utanför tabellen. Kent granskar filen och committar och pushar själv. Senaste rapporten finns under *Var skillen ligger* nedan.
+**Kent:** skriv `månadsrapport` (eller `månadsrapport oktober`) till ett AI-verktyg som kan köra kommandon på hans dator. Verktyget kör skriptet, sparar rapporten i `Manadsrapport/` och berättar vilka sidor som inte svarade på sin live-adress. Kent granskar filen och committar och pushar själv. Senaste rapporten finns under *Var skillen ligger* nedan.
 
 **En annan AI-modell (Cursor, Grok Build, andra):**
 1. Läs den här filen. Länken räcker för att läsa instruktionen, men skriptet måste köras på Kents dator, så verktyget måste kunna köra Python och Git där. Ett chattverktyg i webbläsaren (Grok, ChatGPT) når inte hans lokala Git-historik och kan inte skapa rapporten. Det kan däremot läsa och förklara en färdig rapport via länken.
@@ -26,7 +26,7 @@ Rapporten rangordnar **projekt**, inte repon. Ett projekt kan ligga i flera repo
 - Projekten är mjuka och definieras i `projekt_karta.json`. Ändra kartan när ett projekt vidgas eller byter namn, och fråga Kent vid ny mapp.
 - **Tabell 1** är insatsen. **Tabell 2, nya färdiga produkter**, är sidor som blev publicerade första gången under månaden, sorterade på datum.
 - LNF-projekt markeras 🟩. Projektnamn är länkar med hovertext, och beskrivningarna står också som text.
-- Dolda projekt nämns bara i chatten, aldrig i en fil på GitHub (se *Privata projekt*).
+- Bara repon som ligger på GitHub ingår. Privat arbete är utanför rapporten och finns varken i kartan eller i någon fil.
 - Skriptet håller listan, "senaste rapporten" och förra/nästa-länkarna aktuella. README i `Manadsrapport/` följer regeln: live-länk överst (finns ingen live-sida står ingen), avsnittet `## Repo` sist.
 - Kent committar och pusha själv, om han inte uttryckligen ber om det.
 
@@ -37,7 +37,7 @@ Alla projekt i rapporten ligger på GitHub, så samma historik finns där. Skrip
 - **Det som inte är pushat räknas också.** Kent pushar själv, så en rapport mitt i månaden skulle annars ligga efter.
 - **Ett kommando räcker.** Skriptet förutsätter att alla repon som listas i `projekt_karta.json` (`repon`) ligger som syskonmappar i samma överliggande mapp som AI-teknik (`C:\Users\kentl\OneDrive\AI`). Saknas en klon hoppas repot över, och rapporten blir ofullständig utan fel. Kontrollera därför att alla klonerna finns innan du litar på siffrorna.
 
-Det enda som bara finns lokalt är sådant arbete som Kent valt att hålla privat. Det är inte en del av de publika repona och ska inte påverka rapporten (se *Privata projekt*).
+Privat arbete som bara finns lokalt ingår inte i rapporten. Lägg aldrig till ett privat repo i `projekt_karta.json`.
 
 ## Var skillen ligger
 
@@ -55,8 +55,8 @@ Filer i skillens mapp: `SKILL.md` (den här), `manadsrapport.py` (räknar och sk
 
 1. **Kör skriptet** (alla verktyg som kan köra Python): `python -X utf8 manadsrapport.py 2026-10`. Utan månad används innevarande månad. Lägg till `--skriv` för att också spara `AI-teknik/Manadsrapport/<år>-<månad>.md`.
 2. **Granska projektlistan** innan du skriver filen. Finns ett projekt som heter "repo: mapp" eller "repo (rotfiler)" är det en mapp som saknas i kartan. Föreslå för Kent vilket projekt den hör till, eller om den är ett nytt projekt, och uppdatera `projekt_karta.json` när han svarat.
-3. **Kör med `--skriv`**, läs rapporten och kontrollera att den inte innehåller personnamn eller privata projekt.
-4. **Berätta för Kent i chatten** om det som skriptet skriver ut under "Utanför tabellen". Det är projekt som är dolda i rapporten (se nedan) och som bara ska nämnas i samtalet.
+3. **Kör med `--skriv`**, läs rapporten och kontrollera att den inte innehåller personnamn.
+4. **Berätta för Kent i chatten** om sidor som skriptet skriver ut under "Nya sidor som inte svarar på sin live-adress". De ingår inte i Tabell 2.
 5. **Committa inte på eget initiativ.** Kent committar och pushar själv, om han inte uttryckligen ber om det.
 
 ## Projekten är mjuka
@@ -87,14 +87,7 @@ Tabell 1 mäter insats. För kort och intensivt arbete som ger en tydlig produkt
 - **Kolumner:** publicerad, produkt (länk med hovertext), vad den är, projekt, aktiva dagar, commits och dagar från första commit till publicering. Dagar och commits räknas för mappen produkten ligger i och blir för låga om mappen flyttats.
 - **Namn och beskrivning** hämtas ur sidans `<title>` och `<meta name="description">`. Ersätt dem genom att lägga en post i `produkt_info` med mappen som nyckel (till exempel `"Scampi"`), med fälten `namn`, `beskrivning` och `stjarna` (`true` för en produkt Kent vill lyfta, markeras ★).
 - **Utelämna** sidor som är delar av ett större projekt genom att lägga mappen i `produkter_exkludera`. Just nu är det Samrådsguidens rangordning, Struktursidorna för MAXIMA och delningslänkar (`/k/`).
-- **Projekt som är dolda** i den privata kartan ingår inte. Sidor som inte svarar på live-adressen listas bara i terminalen.
-
-## Privata projekt
-
-Vissa projekt ska räknas men inte skrivas i en publik fil. De ligger i en privat karta utanför repot: `C:\Users\kentl\.claude\manadsrapport_privat.json` (med `repon`, `regler` och `dolda`). Skriptet läser den om den finns. Dolda projekt räknas inte med i tabellen och nämns inte i rapportfilen, utan skrivs bara ut i terminalen.
-
-- Skriv aldrig ett dolt projekts namn, eller namnet på dess repo, i `projekt_karta.json`, i rapporterna eller i den här filen.
-- Finns inte den privata kartan (till exempel på en annan dator) ignoreras de dolda repona helt.
+- Sidor som inte svarar på live-adressen listas bara i terminalen.
 
 ## Måtten och begränsningarna
 
