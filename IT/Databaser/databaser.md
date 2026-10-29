@@ -102,10 +102,10 @@ Behovet: en liten förening, omkring tio personer, som ska skriva och ändra gem
 
 ## 5. Var det finns mer <a id="mer"></a>
 
-- Röstningen i Samrådsguiden med Supabase: [supabase.md](https://github.com/kentlundgren/Codex/blob/main/Fritid/NF/Samradsguiden/supabase.md).
-- Firebase i produktion (inpasseringsstatistik): `C:\Users\kentl\OneDrive\AI\Claude\foreningar\BjerredsSaltsjobad\` (`CLAUDE.md`, `README.md`, skillen `bjerred-firebase-sync`).
-- Redis (nyckel–värde) för korta länkar: `C:\Users\kentl\OneDrive\AI\Cursor\Intressen\Vindkraft\vindkraftskalkyl_Vercel_ver2\Vercel-teknik-ver2.md`.
-- Varför Firebase inte valdes i kostnadsverktyget: `C:\Users\kentl\OneDrive\AI\Claude\Ovrigt\Claude_kostnad\PRD\PRD_publik_variant.md`.
+- **Supabase (PostgreSQL):** [omröstningen om MAXIMA i Samrådsguiden](https://kentlundgren.github.io/Codex/Fritid/NF/Samradsguiden/Maxima/rangordning.html) lagrar rösterna i en Supabase-databas. Hur den är kopplad, steg för steg, och jämförelsen med Firebase står i [supabase.md](https://github.com/kentlundgren/Codex/blob/main/Fritid/NF/Samradsguiden/supabase.md).
+- **Firebase (Realtime Database):** [inpasseringsstatistiken för Bjerreds Saltsjöbad](https://kentlundgren.github.io/foreningar/BjerredsSaltsjobad/inpasseringar/databas.html) hämtar sina siffror från Firebase, och sidan beskriver upplägget. Resten av projektet finns i [mappen på GitHub](https://github.com/kentlundgren/foreningar/tree/main/BjerredsSaltsjobad).
+- **Redis (nyckel–värde):** [vindkraftskalkylen](https://vindkraft-ver2.vercel.app) använder Redis för korta länkar. Hur det sattes upp står i [Vercel-teknik-ver2.md](https://github.com/kentlundgren/Vindkraft/blob/main/vindkraftskalkyl_Vercel_ver2/Vercel-teknik-ver2.md).
+- **Varför Firebase inte valdes:** [Claude-kostnad, publik variant](https://kentlundgren.github.io/Ovrigt/Claude_kostnad/dela/index.html) använder ingen databas. Resonemanget och Firebase som framtida möjlighet står i [PRD_publik_variant.md](https://github.com/kentlundgren/Ovrigt/blob/main/Claude_kostnad/PRD/PRD_publik_variant.md).
 
 ---
 
