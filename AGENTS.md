@@ -21,16 +21,21 @@ Samma regel finns som globalt Grok-skill `fraga-forst` och som Regel 2 i `RAG/WO
 - Undantag: uttrycklig begäran («pusha till GitHub», «lägg filen i repot»).
 - Nya HTML-sidor ska ha hörn-länkarna `{ } GitHub` och `</> teknik` enligt `.cursor/rules/horn-lankar-github-teknik.mdc`.
 
-## README-huvud: live-sida och lokal mapp
+## README: live-sida överst, avsnittet `## Repo` sist
 
-Varje mapp-`README.md` ska direkt under rubriken ha två rader:
+Varje mapp-`README.md` har två fasta platser:
 
-1. **Live-sida** – om mappen har en GitHub Pages-sida (`index.html`). Klickbar länk:
+1. **Överst, direkt under rubriken:** live-sidan, om mappen har en GitHub Pages-sida (`index.html`). Klickbar länk:
    `**Live-sida (GitHub Pages):** [https://kentlundgren.github.io/AI-teknik/<sökväg>/](https://kentlundgren.github.io/AI-teknik/<sökväg>/)`
-2. **Lokal mapp** – var mappen ligger på Kents dator, som kod (inte länk):
-   `` **Lokal mapp:** `C:\Users\kentl\OneDrive\AI\AI-teknik\<sökväg med \>` ``
+2. **Sist, som sista avsnitt:** `## Repo` med två rader, GitHub-adressen och den lokala sökvägen på Kents dator (som kod, inte länk):
+   ```markdown
+   ## Repo
 
-Länka **inte** till mappens egen GitHub-sida i README:n – läsaren står redan där. GitHub-länken hör hemma i HTML-sidans hörnlänk `{ } GitHub`.
+   - GitHub: https://github.com/kentlundgren/AI-teknik/tree/main/<sökväg>
+   - Lokal sökväg: `C:\Users\kentl\OneDrive\AI\AI-teknik\<sökväg med \>`
+   ```
+
+Ingen annan rad i README:n anger repo, GitHub-adress eller lokal sökväg till mappen själv, och ingenting står efter `## Repo`. En `**Lokal mapp:**`-rad överst används inte. Regeln gäller även README-filer som skript genererar eller uppdaterar.
 
 Överliggande README som listar mappen ska också ha live-länken. Finns ingen live-sida än, ska README inte låtsas det. Se Regel 6 i `RAG/WORKFLOW.md` och Grok-skill:et `readme-live-lank`.
 
@@ -50,4 +55,4 @@ Synlig hel URL är standard. **Den utskrivna URL:en ska vara klickbar** — i HT
 Pedagogisk, precist om status och osäkerhet, inga påhittade bibliotek eller citat.
 
 *Uppdaterad 2026-09-12: klickbara URL:er i källförteckning.*
-*Uppdaterad 2026-09-25: README-huvud med lokal mapp; ingen länk till mappens egen GitHub-sida.*
+*Uppdaterad 2026-10-29: README har live-sidan överst och avsnittet `## Repo` (GitHub och lokal sökväg) sist.*
