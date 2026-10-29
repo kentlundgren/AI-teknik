@@ -324,6 +324,7 @@ def main():
         (mal / f"{ar}-{m:02d}.md").write_text(ut, encoding="utf-8")
         uppdatera_index(mal)
         print(f"[skrivet till {mal / f'{ar}-{m:02d}.md'}]")
+        print("[Inget är committat eller pushat. Kent gör det själv. Kör git status i AI-teknik för att se vilka filer som ändrats.]")
     if ej_live:
         print("\n--- Nya sidor som inte svarar på sin live-adress (ingår inte i Tabell 2) ---")
         for u in ej_live:

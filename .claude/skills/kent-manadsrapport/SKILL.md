@@ -18,7 +18,7 @@ Rapporten rangordnar **projekt**, inte repon. Ett projekt kan ligga i flera repo
 **En annan AI-modell (Cursor, Grok Build, andra):**
 1. Läs den här filen. Länken räcker för att läsa instruktionen, men skriptet måste köras på Kents dator, så verktyget måste kunna köra Python och Git där. Ett chattverktyg i webbläsaren (Grok, ChatGPT) når inte hans lokala Git-historik och kan inte skapa rapporten. Det kan däremot läsa och förklara en färdig rapport via länken.
 2. Kör: `python -X utf8 <skillens mapp>\manadsrapport.py <ÅÅÅÅ-MM> --skriv`. Skillens mapp lokalt: `C:\Users\kentl\OneDrive\AI\AI-teknik\.claude\skills\kent-manadsrapport`. Skriptet är också på GitHub, men fungerar bara där de andra repona ligger som syskonmappar till AI-teknik (se nedan).
-3. Följ *Arbetsgång* längre ned. Committa och pusha inte.
+3. Följ *Arbetsgång* längre ned. Det gäller även om uppmaningen bara är "ge mig en månadsrapport" med en länk hit: du ska läsa filen som instruktioner och utföra dem, inte bara sammanfatta den. Committa och pusha inte, och säg i slutet att du inte gjort det.
 4. Rapporten ska stå på svenska med gemener i rubriker, utan personnamn och utan påstående att texten är AI-genererad.
 
 **Claude, som minnesstöd** (det här är vad som är bestämt):
@@ -57,7 +57,8 @@ Filer i skillens mapp: `SKILL.md` (den här), `manadsrapport.py` (räknar och sk
 2. **Granska projektlistan** innan du skriver filen. Finns ett projekt som heter "repo: mapp" eller "repo (rotfiler)" är det en mapp som saknas i kartan. Föreslå för Kent vilket projekt den hör till, eller om den är ett nytt projekt, och uppdatera `projekt_karta.json` när han svarat.
 3. **Kör med `--skriv`**, läs rapporten och kontrollera att den inte innehåller personnamn.
 4. **Berätta för Kent i chatten** om sidor som skriptet skriver ut under "Nya sidor som inte svarar på sin live-adress". De ingår inte i Tabell 2.
-5. **Committa inte på eget initiativ.** Kent committar och pushar själv, om han inte uttryckligen ber om det.
+5. **Committa och pusha aldrig**, även om uppmaningen inte säger det. Kent gör det själv, om han inte uttryckligen ber om det i den aktuella konversationen. Kör `git status` i `AI-teknik`.
+6. **Avsluta alltid svaret** med en egen rad: "Inget är committat eller pushat. Nya och ändrade filer: <lista från git status>." Den raden ska stå med även när allt gått bra.
 
 ## Projekten är mjuka
 
