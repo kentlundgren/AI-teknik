@@ -2,7 +2,7 @@
 name: kent-manadsrapport
 description: Skapar eller uppdaterar Kents månadsrapport, en rangordning av de 10 projekt han lagt mest arbete på under en månad (aktiva dagar, commits, filändringar), oavsett vilket repo projektet ligger i, med placering förra månaden. Använd när Kent skriver nyckelordet "månadsrapport" (gärna med månad, till exempel "månadsrapport oktober"), frågar "vad har jag gjort den här månaden?" eller vill ha en topplista över sina projekt. Skriptet läser Git-historiken i hans repon och är oberoende av AI-verktyg.
 metadata:
-  version: "1.2 (2026-10-29: Tabell 2, nya färdiga produkter; länk, beskrivning och LNF-markering per projekt)"
+  version: "1.3 (2026-10-29: snabbstart för Kent, andra AI-modeller och Claude; varför lokala kloner)"
 ---
 
 # Månadsrapport
@@ -10,6 +10,34 @@ metadata:
 **Nyckelord:** `månadsrapport`. När Kent skriver det (eventuellt med månad) ska rapporten skapas eller uppdateras enligt arbetsgången nedan.
 
 Rapporten rangordnar **projekt**, inte repon. Ett projekt kan ligga i flera repon, och ett repo kan innehålla flera projekt. Projekt med flest aktiva dagar hamnar överst, därefter flest commits, därefter flest filändringar. Bara de 10 största visas. Varje projekt visas med sin plats förra månaden och en rörelse (▲ ▼ = ny), som i en topplista.
+
+## Snabbstart: vem gör vad
+
+**Kent:** skriv `månadsrapport` (eller `månadsrapport oktober`) till ett AI-verktyg som kan köra kommandon på hans dator. Verktyget kör skriptet, sparar rapporten i `Manadsrapport/` och berättar i chatten vad som hamnat utanför tabellen. Kent granskar filen och committar och pushar själv. Senaste rapporten finns under *Var skillen ligger* nedan.
+
+**En annan AI-modell (Cursor, Grok Build, andra):**
+1. Läs den här filen. Länken räcker för att läsa instruktionen, men skriptet måste köras på Kents dator, så verktyget måste kunna köra Python och Git där. Ett chattverktyg i webbläsaren (Grok, ChatGPT) når inte hans lokala Git-historik och kan inte skapa rapporten. Det kan däremot läsa och förklara en färdig rapport via länken.
+2. Kör: `python -X utf8 <skillens mapp>\manadsrapport.py <ÅÅÅÅ-MM> --skriv`. Skillens mapp lokalt: `C:\Users\kentl\OneDrive\AI\AI-teknik\.claude\skills\kent-manadsrapport`. Skriptet är också på GitHub, men fungerar bara där de andra repona ligger som syskonmappar till AI-teknik (se nedan).
+3. Följ *Arbetsgång* längre ned. Committa och pusha inte.
+4. Rapporten ska stå på svenska med gemener i rubriker, utan personnamn och utan påstående att texten är AI-genererad.
+
+**Claude, som minnesstöd** (det här är vad som är bestämt):
+- Rangordningen gäller **projekt**, inte repon. Max 10 rader, sorterade på aktiva dagar, commits, filändringar, med plats förra månaden och rörelse.
+- Projekten är mjuka och definieras i `projekt_karta.json`. Ändra kartan när ett projekt vidgas eller byter namn, och fråga Kent vid ny mapp.
+- **Tabell 1** är insatsen. **Tabell 2, nya färdiga produkter**, är sidor som blev publicerade första gången under månaden, sorterade på datum.
+- LNF-projekt markeras 🟩. Projektnamn är länkar med hovertext, och beskrivningarna står också som text.
+- Dolda projekt nämns bara i chatten, aldrig i en fil på GitHub (se *Privata projekt*).
+- Skriptet håller listan, "senaste rapporten" och förra/nästa-länkarna aktuella. README i `Manadsrapport/` följer regeln: live-länk överst (finns ingen live-sida står ingen), avsnittet `## Repo` sist.
+- Kent committar och pusha själv, om han inte uttryckligen ber om det.
+
+## Varför skriptet läser lokala kloner
+
+Alla projekt i rapporten ligger på GitHub, så samma historik finns där. Skriptet läser ändå lokala kloner av följande skäl:
+- **Fullständig historik per fil och månad.** `git log` lokalt ger datum, commits och ändrade filer, och följer filer över namnbyten (`--follow`), utan gränser. GitHubs API har en gräns på antal anrop och ger sämre filstatistik.
+- **Det som inte är pushat räknas också.** Kent pushar själv, så en rapport mitt i månaden skulle annars ligga efter.
+- **Ett kommando räcker.** Skriptet förutsätter att alla repon som listas i `projekt_karta.json` (`repon`) ligger som syskonmappar i samma överliggande mapp som AI-teknik (`C:\Users\kentl\OneDrive\AI`). Saknas en klon hoppas repot över, och rapporten blir ofullständig utan fel. Kontrollera därför att alla klonerna finns innan du litar på siffrorna.
+
+Det enda som bara finns lokalt är sådant arbete som Kent valt att hålla privat. Det är inte en del av de publika repona och ska inte påverka rapporten (se *Privata projekt*).
 
 ## Var skillen ligger
 
@@ -63,7 +91,7 @@ Tabell 1 mäter insats. För kort och intensivt arbete som ger en tydlig produkt
 
 ## Privata projekt
 
-Vissa projekt ska räknas men inte skrivas i en publik fil, till exempel jobbsökandet. De ligger i en privat karta utanför repot: `C:\Users\kentl\.claude\manadsrapport_privat.json` (med `repon`, `regler` och `dolda`). Skriptet läser den om den finns. Dolda projekt räknas inte med i tabellen och nämns inte i rapportfilen, utan skrivs bara ut i terminalen.
+Vissa projekt ska räknas men inte skrivas i en publik fil. De ligger i en privat karta utanför repot: `C:\Users\kentl\.claude\manadsrapport_privat.json` (med `repon`, `regler` och `dolda`). Skriptet läser den om den finns. Dolda projekt räknas inte med i tabellen och nämns inte i rapportfilen, utan skrivs bara ut i terminalen.
 
 - Skriv aldrig ett dolt projekts namn, eller namnet på dess repo, i `projekt_karta.json`, i rapporterna eller i den här filen.
 - Finns inte den privata kartan (till exempel på en annan dator) ignoreras de dolda repona helt.

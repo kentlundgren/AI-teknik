@@ -45,6 +45,10 @@ Skills ligger direkt under repots rot, i `.claude/skills/<namn>/`. Det läses av
 
 Här skedde en uppdatering 2026-10-02: avsnittet lades till.
 
+## Månadsrapport
+
+Skriver Kent nyckelordet **månadsrapport** (eventuellt med månad), eller frågar "vad har jag gjort den här månaden?": läs skillen [kent-manadsrapport](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-manadsrapport/SKILL.md) och följ den. Den räknar projekt över alla Kents repon och kräver att du kan köra Python och Git på hans dator. Färdiga rapporter finns i [Manadsrapport/](https://github.com/kentlundgren/AI-teknik/blob/main/Manadsrapport/README.md). Lokalt ligger skillen i `C:\Users\kentl\OneDrive\AI\AI-teknik\.claude\skills\kent-manadsrapport`. Committa och pusha inte på eget initiativ.
+
 ## Källor
 
 Harvardstil enligt Grok-skill:et `kent-referens` och Regel 3 i `RAG/WORKFLOW.md`.
