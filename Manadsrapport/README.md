@@ -8,7 +8,17 @@ Rangordning av de projekt som arbetet fördelat sig mest på under en månad, oa
 
 ## Rapporter
 
+<!-- senaste:start -->
+**Senaste rapporten: [oktober 2026](2026-10.md)**
+<!-- senaste:slut -->
+
+Alla rapporter, nyast överst:
+
+<!-- lista:start -->
 - [2026-10.md](2026-10.md): oktober 2026
+<!-- lista:slut -->
+
+Länken till den här sidan, som alltid visar senaste rapporten överst: https://github.com/kentlundgren/AI-teknik/blob/main/Manadsrapport/README.md
 
 ## Repo
 

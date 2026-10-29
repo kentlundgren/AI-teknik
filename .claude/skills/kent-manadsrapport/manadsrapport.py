@@ -233,6 +233,9 @@ def rapport(karta, dolda, ar, m, start, nasta):
                   "vilket påverkar jämförelsen.") if pagar else ""
     ut = f"""# Månadsrapport {namn}
 
+<!-- nav:start -->
+<!-- nav:slut -->
+
 Det här är en **månadsrapport**: en rangordning av de {len(top)} projekt som arbetet fördelat sig mest på under månaden, oavsett vilket repo de ligger i. Underlaget är Git-historiken i repona. Period: {period}.{delrapport}
 
 **Nyckelord:** skriv **månadsrapport** (gärna med månad, till exempel "månadsrapport {MANADER[m - 1]}") i ett AI-verktyg som kan läsa skillen, så skapas eller uppdateras den här sammanställningen.
@@ -266,6 +269,61 @@ Det här är en **månadsrapport**: en rangordning av de {len(top)} projekt som 
     return ut, rang, siffror, dolda, frang, dolt, ej_live
 
 
+BLOB = "https://github.com/kentlundgren/AI-teknik/blob/main/Manadsrapport"
+
+
+def _byt_block(text, namn, nytt):
+    """Byter texten mellan <!-- namn:start --> och <!-- namn:slut -->. Finns inte blocket görs ingenting."""
+    a, b = f"<!-- {namn}:start -->", f"<!-- {namn}:slut -->"
+    i, j = text.find(a), text.find(b)
+    if i < 0 or j < 0:
+        return text
+    return text[: i + len(a)] + "\n" + nytt + "\n" + text[j:]
+
+
+def uppdatera_index(mal):
+    """Håller listan, länken till senaste rapporten och förra/nästa-länkarna aktuella efter --skriv."""
+    filer = sorted(p for p in mal.glob("*.md") if re.fullmatch(r"\d{4}-\d{2}", p.stem))
+    if not filer:
+        return
+
+    def etikett(p):
+        ar, m = p.stem.split("-")
+        return f"{MANADER[int(m) - 1]} {ar}"
+
+    senaste = filer[-1]
+    # Navigeringsrad överst i varje rapport.
+    for i, p in enumerate(filer):
+        delar = []
+        if i > 0:
+            delar.append(f"← [{etikett(filer[i - 1])}]({filer[i - 1].name})")
+        delar.append("[alla rapporter](README.md)")
+        if i < len(filer) - 1:
+            delar.append(f"[{etikett(filer[i + 1])}]({filer[i + 1].name}) →")
+        else:
+            delar.append("senaste rapporten")
+        text = p.read_text(encoding="utf-8")
+        ny = _byt_block(text, "nav", " · ".join(delar))
+        if ny != text:
+            p.write_text(ny, encoding="utf-8")
+    # README i rapportmappen.
+    lista = "\n".join(f"- [{p.name}]({p.name}): {etikett(p)}" for p in reversed(filer))
+    senast = f"**Senaste rapporten: [{etikett(senaste)}]({senaste.name})**"
+    rm = mal / "README.md"
+    if rm.exists():
+        t = rm.read_text(encoding="utf-8")
+        t = _byt_block(t, "senaste", senast)
+        t = _byt_block(t, "lista", lista)
+        rm.write_text(t, encoding="utf-8")
+    # SKILL.md: direktlänk till senaste rapporten (blob-vy).
+    sk = HAR / "SKILL.md"
+    t = sk.read_text(encoding="utf-8")
+    ny = _byt_block(t, "senaste", f"- **Senaste rapporten:** [{etikett(senaste)}]({BLOB}/{senaste.name}) "
+                                  f"(alla rapporter: [Manadsrapport/]({BLOB}/README.md))")
+    if ny != t:
+        sk.write_text(ny, encoding="utf-8")
+
+
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     skriv = "--skriv" in sys.argv
@@ -278,6 +336,7 @@ def main():
         mal = AI_TEKNIK / "Manadsrapport"
         mal.mkdir(exist_ok=True)
         (mal / f"{ar}-{m:02d}.md").write_text(ut, encoding="utf-8")
+        uppdatera_index(mal)
         print(f"[skrivet till {mal / f'{ar}-{m:02d}.md'}]")
     if ej_live:
         print("\n--- Nya sidor som inte svarar på sin live-adress (ingår inte i Tabell 2) ---")

@@ -15,7 +15,10 @@ Rapporten rangordnar **projekt**, inte repon. Ett projekt kan ligga i flera repo
 
 - **GitHub:** https://github.com/kentlundgren/AI-teknik/tree/main/.claude/skills/kent-manadsrapport
 - **Lokalt:** `C:\Users\kentl\OneDrive\AI\AI-teknik\.claude\skills\kent-manadsrapport`
-- **Färdiga rapporter:** mappen `Manadsrapport/` i AI-teknik, en fil per månad (`2026-10.md`).
+<!-- senaste:start -->
+- **Senaste rapporten:** [oktober 2026](https://github.com/kentlundgren/AI-teknik/blob/main/Manadsrapport/2026-10.md) (alla rapporter: [Manadsrapport/](https://github.com/kentlundgren/AI-teknik/blob/main/Manadsrapport/README.md))
+<!-- senaste:slut -->
+- **Färdiga rapporter:** mappen `Manadsrapport/` i AI-teknik, en fil per månad (`2026-10.md`). Skriptet håller listan i mappens README, länken till den senaste rapporten ovan och förra/nästa-länkarna i varje rapport aktuella när det körs med `--skriv`. Därför ändras navigeringsraden överst i äldre rapporter när en ny månad läggs till. Övrigt innehåll i äldre rapporter ändras inte.
 - **Pekare** för Claude Code: `C:\Users\kentl\.claude\skills\kent-manadsrapport\SKILL.md`.
 
 Filer i skillens mapp: `SKILL.md` (den här), `manadsrapport.py` (räknar och skriver rapporten), `projekt_karta.json` (vilka mappar som hör till vilket projekt).
