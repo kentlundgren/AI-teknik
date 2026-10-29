@@ -2,8 +2,6 @@
 
 **Live-sida (GitHub Pages):** [https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/Usage/](https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/Usage/)
 
-**Lokal mapp:** `C:\Users\kentl\OneDrive\AI\AI-teknik\AI_modeller\Claude\Usage`
-
 Ett litet program (HTML, CSS och JavaScript) som visar hur mycket av Claudes användningsgränser som är förbrukat, hur mycket som är kvar och hur det har utvecklats över tid.
 
 ## Filer
@@ -42,3 +40,8 @@ Skärmdumparna i `Skarmdumpar/` är publika eftersom repot är publikt.
   - 0 eller mer ger grönt, mellan 0 och −10 gult, under −10 rött.
 - **Prognos** = veckoprocent + (veckoprocent / timmar gångna) × timmar kvar
 - **Produkt av veckan** = produktandel × veckoprocent / 100
+
+## Repo
+
+- GitHub: https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/Claude/Usage
+- Lokal sökväg: `C:\Users\kentl\OneDrive\AI\AI-teknik\AI_modeller\Claude\Usage`

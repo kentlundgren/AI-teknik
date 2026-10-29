@@ -2,8 +2,6 @@
 
 **Live-sida (GitHub Pages):** [https://kentlundgren.github.io/AI-teknik/AI_modeller/AI_tester/](https://kentlundgren.github.io/AI-teknik/AI_modeller/AI_tester/)
 
-**Lokal mapp:** `C:\Users\kentl\OneDrive\AI\AI-teknik\AI_modeller\AI_tester`
-
 En genomgång av de tester som används för att mäta dagens mest avancerade AI-modeller, med Claude Opus 5.5 och GPT-6 Astra som utgångspunkt. Utgångspunkten är tabellen i `AI_tester_260925.jpg` (Anthropics lanseringstabell för Opus 5.5). Materialet finns i tre former: en interaktiv sida, ett blogginlägg och en prompt för en poddgenerering.
 
 ## Innehåll
@@ -28,3 +26,8 @@ Siffrorna hämtades 2026-09-25 och jämfördes med originalkällorna: Anthropics
 - Internt test som CoBench går inte att granska utifrån.
 - Opus 5.5 och Fable 5.1 saknas på ZeroBenchs officiella ledartavla vid hämtningen.
 - "Tidslyx" är ett eget begrepp. Ingen av källorna använder ordet.
+
+## Repo
+
+- GitHub: https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller/AI_tester
+- Lokal sökväg: `C:\Users\kentl\OneDrive\AI\AI-teknik\AI_modeller\AI_tester`

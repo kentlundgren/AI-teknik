@@ -2,8 +2,6 @@
 
 **Live-sida (GitHub Pages):** [https://kentlundgren.github.io/AI-teknik/AI_modeller/](https://kentlundgren.github.io/AI-teknik/AI_modeller/)
 
-**Lokal mapp:** `C:\Users\kentl\OneDrive\AI\AI-teknik\AI_modeller`
-
 Den här delen av **AI-teknik** samlar projekt om enskilda AI-modeller: hur de hänger ihop med sina verktyg och hur man kan förstå och mäta dem. Målet är detsamma som i resten av repot, pedagogiska och styrande dokument snarare än en statisk manual, och innehållet ändras i takt med att modellerna gör det.
 
 ## Projekt i den här mappen
@@ -23,3 +21,8 @@ Den här delen av **AI-teknik** samlar projekt om enskilda AI-modeller: hur de h
   [Vad mäter AI-testerna egentligen?](https://klel.wordpress.com/2026/09/25/vad-mater-ai-testerna-egentligen/)
 
 *Fler projekt tillkommer efter hand.*
+
+## Repo
+
+- GitHub: https://github.com/kentlundgren/AI-teknik/tree/main/AI_modeller
+- Lokal sökväg: `C:\Users\kentl\OneDrive\AI\AI-teknik\AI_modeller`

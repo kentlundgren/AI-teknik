@@ -2,8 +2,6 @@
 
 Anteckningar om databaser: vad skillnaden är mellan en JSON-fil och en databas, SQL och NoSQL, Firebase och Supabase, och vilken lösning som passar när flera ska skriva i gemensamma dokument.
 
-**Lokal mapp:** `C:\Users\kentl\OneDrive\AI\AI-teknik\IT\Databaser`
-
 ## Innehåll
 
 - [databaser.md](databaser.md): grundbegrepp, jämförelser och en checklista för val av lösning.
@@ -14,5 +12,5 @@ Anteckningarna är ett arbetsdokument och inte kvalitetssäkrade. Uppgifter som 
 
 ## Repo
 
-- GitHub: https://github.com/kentlundgren/AI-teknik
+- GitHub: https://github.com/kentlundgren/AI-teknik/tree/main/IT/Databaser
 - Lokal sökväg: `C:\Users\kentl\OneDrive\AI\AI-teknik\IT\Databaser`
