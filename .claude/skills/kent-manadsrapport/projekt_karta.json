@@ -1,0 +1,97 @@
+{
+  "toppantal": 10,
+  "lnf_markering": "🟩",
+  "produkter_exkludera": [
+    "Fritid/NF/Samradsguiden/rangordning/",
+    "Fritid/NF/Maxima/Struktur/",
+    "/k/",
+    "/Bilder/",
+    "/bilder/"
+  ],
+  "produkt_info": {
+    "Scampi": {
+      "beskrivning": "Underhåll av motorn Yanmar YSB12G, hämtat från bloggen Tankar i tiden från Lund, plus val av propylenglykol till motor och vattenpump."
+    },
+    "Presentationer/10": {
+      "beskrivning": "Hur generativ AI landat i civilingenjörsutbildningen. En argumenterande text med tre tester."
+    }
+  },
+  "projekt_info": {
+    "Samrådsguiden": {
+      "lnf": true,
+      "lank": "https://kentlundgren.github.io/Codex/Fritid/NF/Samradsguiden/",
+      "beskrivning": "Generellt verktyg för hur privatpersoner och miljöorganisationer kan lägga upp yttranden och synpunkter under ett samråd, enligt plan- och bygglagen och miljöbalken."
+    },
+    "MAXIMA-yttrandet": {
+      "lnf": true,
+      "lank": "https://kentlundgren.github.io/Codex/Fritid/NF/Samradsguiden/maxima.html",
+      "beskrivning": "Lärdomar från MAXIMA: synpunkterna under samrådet och yttrandet till mark- och miljödomstolen (mål M 3289-25). Utkast som inte är beslutade av föreningen."
+    },
+    "LNF:s kalender och ekonomi": {
+      "lnf": true,
+      "lank": "https://kentlundgren.github.io/Codex/Fritid/NF/Kalendern/",
+      "beskrivning": "Intern sida för styrelsen: programmet i en delad kalender, samt föreningens resultaträkning per period."
+    },
+    "Energiplan och Plangruppen": {
+      "lnf": true,
+      "lank": "https://kentlundgren.github.io/Codex/Fritid/NF/Plangruppen/",
+      "beskrivning": "Arbetsmaterial för plangruppen om Lunds kommuns energiplan 2027–2029, bland annat föreningens inskickade yttrande."
+    },
+    "Verktyg och regler (hooks, spärrar, AGENTS)": {
+      "lank": "https://github.com/kentlundgren/Codex/blob/main/AGENTS.md",
+      "beskrivning": "Regler för AI-verktygen och automatiska spärrar (Git-hooks och hooks i Claude Code) som styr hur material publiceras i repona."
+    },
+    "Grok: skills, agentlogg och arbetssätt": {
+      "lank": "https://github.com/kentlundgren/Grok/blob/main/AGENTLOGG.md",
+      "beskrivning": "Skills, instruktioner och en agentlogg för överlämning mellan AI-agenter och ägaren."
+    },
+    "Grok: dagens dubbel": {
+      "lank": "https://kentlundgren.github.io/Grok/dagens-dubbel/",
+      "beskrivning": "Tips, kuponger och resultat för Dagens Dubbel på lördagar. Statisk app utan build."
+    },
+    "Grok: regeringsbildning 2026": {
+      "lank": "https://kentlundgren.github.io/Grok/aktuellt/regeringsbildning/",
+      "beskrivning": "Fyrfältare som visar fyra sätt som regeringsbildningen efter valet 2026 kan falla ut, med tidsväljare för att jämföra körningar."
+    },
+    "Grok: VEK/TEM": {
+      "lank": "https://kentlundgren.github.io/Grok/aktuellt/VEK_TEM/",
+      "beskrivning": "Samma fråga, nya modeller: hur man ser en organisation så att man kan styra, planera och följa upp den (VEK, TEM och balanserat styrkort)."
+    },
+    "AI-teknik: presentationer": {
+      "lank": "https://kentlundgren.github.io/AI-teknik/Presentationer/10/",
+      "beskrivning": "Serie presentationer om AI. Nummer 10: generativ AI i civilingenjörsutbildningen, med tre tester."
+    },
+    "Bjerreds Saltsjöbad": {
+      "lank": "https://kentlundgren.github.io/foreningar/BjerredsSaltsjobad/",
+      "beskrivning": "Sidor och statistik för Bjerreds Saltsjöbad, bland annat inpasseringar och medlemmar."
+    },
+    "Claude-kostnad": {
+      "lank": "https://kentlundgren.github.io/Ovrigt/Claude_kostnad/index.html",
+      "beskrivning": "Verktyg som visar om användningen av Claude-abonnemanget ligger i fas, per session, vecka och månad."
+    }
+  },
+  "repon": ["Codex", "Grok", "AI-teknik", "Studier", "Claude/foreningar", "Claude/Ovrigt"],
+  "regler": [
+    {"repo": "Codex", "prefix": "Fritid/NF/Samradsguiden/", "projekt": "Samrådsguiden"},
+    {"repo": "Codex", "prefix": "Fritid/NF/Maxima/", "projekt": "MAXIMA-yttrandet"},
+    {"repo": "Codex", "prefix": "Fritid/NF/Kalendern/", "projekt": "LNF:s kalender och ekonomi"},
+    {"repo": "Codex", "prefix": "Fritid/NF/Plangruppen/", "projekt": "Energiplan och Plangruppen"},
+    {"repo": "Codex", "prefix": "Fritid/NF/.claude/", "projekt": "Verktyg och regler (hooks, spärrar, AGENTS)"},
+    {"repo": "Codex", "prefix": ".githooks/", "projekt": "Verktyg och regler (hooks, spärrar, AGENTS)"},
+    {"repo": "Codex", "prefix": "AGENTS.md", "projekt": "Verktyg och regler (hooks, spärrar, AGENTS)"},
+    {"repo": "Grok", "prefix": "aktuellt/regeringsbildning/", "projekt": "Grok: regeringsbildning 2026"},
+    {"repo": "Grok", "prefix": "aktuellt/VEK_TEM/", "projekt": "Grok: VEK/TEM"},
+    {"repo": "Grok", "prefix": "dagens-dubbel/", "projekt": "Grok: dagens dubbel"},
+    {"repo": "Grok", "prefix": ".agents/", "projekt": "Grok: skills, agentlogg och arbetssätt"},
+    {"repo": "Grok", "prefix": "AGENTLOGG.md", "projekt": "Grok: skills, agentlogg och arbetssätt"},
+    {"repo": "Grok", "prefix": "README.md", "projekt": "Grok: skills, agentlogg och arbetssätt"},
+    {"repo": "Grok", "prefix": "aktuellt/kopia_", "projekt": "Grok: skills, agentlogg och arbetssätt"},
+    {"repo": "Grok", "prefix": "", "endast_rot": true, "projekt": "Grok: skills, agentlogg och arbetssätt"},
+    {"repo": "AI-teknik", "prefix": "Presentationer/", "projekt": "AI-teknik: presentationer"},
+    {"repo": "AI-teknik", "prefix": "Manadsrapport/", "projekt": "AI-teknik: skills, RAG och anteckningar"},
+    {"repo": "AI-teknik", "prefix": "", "projekt": "AI-teknik: skills, RAG och anteckningar"},
+    {"repo": "Claude/foreningar", "prefix": "BjerredsSaltsjobad/", "projekt": "Bjerreds Saltsjöbad"},
+    {"repo": "Claude/Ovrigt", "prefix": "Claude_kostnad/", "projekt": "Claude-kostnad"},
+    {"repo": "Studier", "prefix": "", "projekt": "Studier"}
+  ]
+}
