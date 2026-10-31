@@ -3,8 +3,16 @@
 **Namn:** PRD_presentation_tenta_endimensionell_analys
 **Plats:** `AI-teknik/Presentationer/11/PRD_presentation_tenta_endimensionell_analys.md`
 **Skapad:** 2026-10-31
-**Version:** 1 (första utkast efter Kents beskrivning och genomläsning av tentan)
-**Status (2026-10-31):** utkast. Inget är beslutat utom det som står som BESLUTAT. Inga lösningar är ännu framtagna eller kontrollerade.
+**Version:** 2 (läget 2026-10-31 inlagt; prototyp för uppgift 1 och preliminära svar)
+**Status (2026-10-31):** utkast. Inget är beslutat utom det som står som BESLUTAT. Preliminära svar på alla nio uppgifter är beräknade med [kontroll_med_sympy.py](kontroll_med_sympy.py), men inte låsta med tidsstämpel, inte bekräftade av Kent och inte skrivna som lösningar. Prototyp för uppgift 1: [prototyp_uppgift1.html](prototyp_uppgift1.html).
+
+## 0. Läget och nästa steg (läs först i nästa session)
+
+**Gjort 2026-10-31:** tentan avläst (Tabell 1); PRD v1; svar beräknade med sympy/numerik (1: y = −2x + 11, (x−5)² − 6, −2, −1 < x < 1/3, 56, 1/8; 2: x = 2, 5, 10; 4: min 3 i x = 1, max 5 ln 4 − 3 i x = 4, asymptot x = 0; 5: 0, −2/3, 1/4; 6: h = 1, ℓ = 4, b = 3 dm, V = 12 dm³; 7: BD = √6; 8: ej deriverbar i x = kπ/2; 9: PQ min 15√3 cm); prototyp för uppgift 1 med fyra steg, självkontroll och poängräknare; Tabell 1 med svar ligger bakom ett stängt fält. Jämförelse med TATA41 (tentan i `10`): olika innehåll (LTH saknar integraler och serier, har geometri), ungefär jämförbar nivå, bedömning och inte mätning.
+
+**Kent ska besluta/bekräfta:** (1) stämmer avläsningen av tentan (4h)? (2) varifrån kommer PDF:en och får frågorna återges (4e)? (3) fyra steg per uppgift, delsteg med egna kontrollfält, med "vanligt fel"? (4) ska AI-testet vara med (4d)? (5) vilken kursbok/kurssida (4i)? (6) ska jag låsa svaren med tidsstämpel nu?
+
+**Att göra senare:** lås svaren med tidsstämpel; kontrollera om LTH publicerat ett lösningsförslag (titta inte innan svaren är låsta); lagra svar som hashvärden så de inte syns i källkoden; SPEC.md (4l); sedan uppgift 2 och framåt i samma form som uppgift 1; figurer och grafer som SVG (4, 6, 7, 8, 9).
 **Typ:** guidad genomgång av en tenta. Inte en undersökning som `10`, och inte en presentation av Kents arbetssätt som `Nr1` och `Nr2`. Mappnamnet `11` är Kents val 2026-10-31 (följer `10`).
 **Avsändare:** Kent Lundgren.
 
@@ -108,4 +116,5 @@ Därtill efter steg 4: *vanliga fel* och *liknande uppgift att pröva själv*. *
 
 ## Ändringslogg
 
+- **v2 (2026-10-31):** nytt avsnitt 0 (läget och nästa steg); preliminära svar och kontrollskript; prototyp för uppgift 1.
 - **v1 (2026-10-31):** första utkast. Tentan avläst ur den skannade PDF:en (Tabell 1), syfte, guidemodell i fyra steg, tolv frågor med gissade svar, omfattning och leveranser.
