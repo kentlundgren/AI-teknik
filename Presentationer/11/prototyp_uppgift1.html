@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uppgift 1 steg för steg</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<style>
+:root{--bg:#fafaf7;--fg:#1d1d1b;--muted:#5b5b55;--card:#fff;--line:#d9d9d1;--note:#e3f0fb;--ok:#e2f3e4;--warn:#fdebd8;--lock:#ececec;--input:#FFF9C4;--accent:#1f5a99}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#ecebe6;--muted:#a9a8a0;--card:#202225;--line:#383a3e;--note:#1c3042;--ok:#1d3322;--warn:#40301c;--lock:#2b2c2f;--input:#FFF9C4;--accent:#7db4ee}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:46rem;margin:0 auto;padding:1.5rem 16px 4rem}
+h1{font-size:1.6rem;margin:.2rem 0 .3rem}
+h2{font-size:1.2rem;margin:2rem 0 .5rem}
+.sub{color:var(--muted);margin:0 0 1rem}
+.status{background:var(--warn);border-radius:8px;padding:.7rem .9rem;font-size:.95rem}
+.box{background:var(--note);border-radius:8px;padding:.7rem .9rem;margin:.8rem 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1rem;margin:1rem 0}
+.card h3{margin:.1rem 0 .4rem;font-size:1.05rem}
+.q{font-size:1.1rem}
+.step{border-left:4px solid var(--line);padding:.2rem 0 .2rem .8rem;margin:.6rem 0}
+.step.open{border-color:var(--accent)}
+.step .lbl{font-weight:600;font-size:.9rem;color:var(--muted);text-transform:none}
+.hidden{display:none}
+button{font:inherit;padding:.45rem .8rem;border-radius:8px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer;min-height:44px}
+button:hover,button:focus-visible{background:var(--accent);color:var(--bg)}
+button[disabled]{opacity:.45;cursor:default}
+input[type=text]{font:inherit;padding:.45rem .6rem;border:1px solid var(--line);border-radius:8px;background:var(--input);color:#1d1d1b;min-height:44px;width:min(100%,16rem)}
+.row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:.5rem 0}
+.res{padding:.3rem .6rem;border-radius:6px;font-size:.95rem}
+.res.ok{background:var(--ok)}.res.no{background:var(--warn)}
+.calc{background:var(--lock);border-radius:8px;padding:.7rem .9rem;margin:.6rem 0;font-size:.95rem}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:.35rem .5rem;text-align:left;vertical-align:top}
+caption{caption-side:top;text-align:left;font-weight:600;padding:.3rem 0}
+abbr{text-decoration:underline dotted;cursor:help}
+.score{font-weight:600}
+summary{cursor:pointer;color:var(--accent);min-height:44px;padding:.5rem 0}
+</style>
+</head>
+<body>
+<main>
+<h1>Uppgift 1: sex korta frågor, bara svar</h1>
+<p class="sub">Prototyp för hur ett guidekort kan se ut. Ur tentan Endimensionell analys B1, LTH, 2026-10-30.</p>
+<p class="status"><strong>Status:</strong> förslag. Ordalydelsen är avläst ur en skannad PDF och är inte bekräftad av Kent. Svaren är kontrollerade med sympy (se rutan längst ned) men inte granskade av någon utomstående.</p>
+
+<div class="box" id="regel">
+<strong>Så här bedöms uppgift 1 enligt tentan:</strong> endast svar anges, fullständiga lösningar bedöms inte. 0–3 rätta svar ger 0 poäng, 4 rätt ger 1 poäng, 5 rätt ger 2 poäng och 6 rätt ger 3 poäng.
+<div class="row"><span class="score" id="poang">Du har 0 av 6 rätt, vilket motsvarar 0 poäng.</span></div>
+</div>
+
+<h2 id="hur">Så fungerar guiden</h2>
+<p>Varje delfråga har fyra steg som du öppnar ett i taget: <em>vad frågas</em>, <em>ledtråd</em>, <em>delsteg</em> och <em>lösning</em>. Pröva först själv. Skriv ditt svar i fältet och tryck på Kontrollera, så får du veta om det stämmer utan att se lösningen. Tar du alla steg ser du lösningen och varför den är rätt.</p>
+
+<div id="kort"></div>
+
+<h2 id="kontroll">Så har svaren kontrollerats</h2>
+<details id="facit">
+<summary>Visa tabellen (den innehåller alla svar på uppgift 1, så pröva först själv)</summary>
+<table>
+<caption id="tabell1">Tabell 1. Kontroll av varje svar</caption>
+<thead><tr><th>Delfråga</th><th>Svar</th><th>Hur det kontrollerats</th></tr></thead>
+<tbody>
+<tr><td>1a</td><td>y = −2x + 11</td><td>Insättning av punkten (3, 5); lutningen jämförd med 2x + y = 1</td></tr>
+<tr><td>1b</td><td>(x − 5)² − 6</td><td>sympy: skillnaden mot det ursprungliga uttrycket förenklas till 0</td></tr>
+<tr><td>1c</td><td>−2</td><td>sympy, och en andra väg via log₂ 6 = 1 + log₂ 3</td></tr>
+<tr><td>1d</td><td>−1 &lt; x &lt; 1/3</td><td>sympy löser olikheten; stickprov i x = −2, 0 och 1</td></tr>
+<tr><td>1e</td><td>56</td><td>sympy; samma tal som (8 över 3)</td></tr>
+<tr><td>1f</td><td>1/8</td><td>sympy deriverar; en andra väg via f(x) = x/√(1 + x²)</td></tr>
+</tbody></table>
+<p class="sub">Uppgifterna är kontrollerade mot angivna metoder och inte kvalitetssäkrade av någon utomstående rättare. Kontrollera mot källan.</p>
+</details>
+</main>
+
+<script>
+const T=[
+{id:'1a',fråga:'Bestäm en ekvation för linjen som går genom punkten $(3,5)$ och är parallell med linjen $2x+y=1$.',
+ ok:['y=-2x+11','2x+y=11','y=11-2x','y-5=-2(x-3)','y-5=-2x+6'],
+ förklaring:'<abbr title="Två linjer är parallella när de har samma lutning (riktningskoefficient)">Parallell</abbr> betyder samma lutning. En linje på formen $y=kx+m$ har lutningen $k$.',
+ ledtråd:'Skriv om $2x+y=1$ så att $y$ står ensamt. Då ser du lutningen.',
+ delsteg:['Lös ut $y$: $y=-2x+1$. Lutningen är alltså $k=-2$.','Linjen genom $(3,5)$ med lutning $-2$ kan skrivas $y-5=-2(x-3)$.','Förenkla: $y=-2x+6+5$.'],
+ lösning:'$y=-2x+11$, det vill säga $2x+y=11$.',
+ varför:'Lutningen är $-2$ precis som hos den givna linjen, så de är parallella. Insättning av punkten ger $-2\\cdot 3+11=5$, så linjen går genom $(3,5)$.',
+ fel:'Att hålla fast vid $+2$ som lutning (tecknet försvinner när man läser av $2x+y=1$ direkt), eller att glömma att linjen ska gå genom just $(3,5)$ och bara skriva $y=-2x+1$.'},
+{id:'1b',fråga:'<abbr title="Att skriva ett andragradsuttryck på formen (x − a)² + c">Kvadratkomplettera</abbr> uttrycket $x^2-10x+19$.',
+ ok:['(x-5)^2-6','(x-5)^2+(-6)','-6+(x-5)^2','(x-5)²-6'],
+ förklaring:'Målet är att skriva uttrycket som en kvadrat plus ett tal, $(x-a)^2+c$.',
+ ledtråd:'Kvadreringsregeln: $(x-a)^2=x^2-2ax+a^2$. Jämför $-2ax$ med $-10x$.',
+ delsteg:['Från $-2ax=-10x$ får du $a=5$.','$(x-5)^2=x^2-10x+25$.','Du behöver $+19$, inte $+25$. Hur mycket ska du dra bort?'],
+ lösning:'$(x-5)^2-6$.',
+ varför:'Utveckla: $(x-5)^2-6=x^2-10x+25-6=x^2-10x+19$. Det stämmer med det givna uttrycket.',
+ fel:'Att skriva $(x-10)^2$ (halvera koefficienten!), eller att räkna fel på konstanten: $25-19=6$, så det ska subtraheras.'},
+{id:'1c',fråga:'Förenkla $\\,{}^2\\!\\log 6-{}^2\\!\\log 8-{}^2\\!\\log 3$.',
+ ok:['-2','−2'],
+ förklaring:'${}^2\\!\\log a$ är <abbr title="Tvålogaritmen: det tal man ska upphöja 2 till för att få a">2-logaritmen</abbr> av $a$, alltså det $t$ som uppfyller $2^t=a$.',
+ ledtråd:'Logaritmlagen: $\\log a-\\log b=\\log\\frac ab$. Det går att samla allt i en enda logaritm.',
+ delsteg:['${}^2\\!\\log 6-{}^2\\!\\log 8-{}^2\\!\\log 3={}^2\\!\\log\\frac{6}{8\\cdot 3}$.','Förkorta: $\\frac{6}{24}=\\frac14$.','Vilket tal $t$ uppfyller $2^t=\\frac14$?'],
+ lösning:'$-2$.',
+ varför:'${}^2\\!\\log\\frac14=-2$ eftersom $2^{-2}=\\frac14$. Kontroll på ett annat sätt: ${}^2\\!\\log 6=1+{}^2\\!\\log 3$ och ${}^2\\!\\log 8=3$, så uttrycket blir $1+{}^2\\!\\log 3-3-{}^2\\!\\log 3=-2$.',
+ fel:'Att tro att $\\log 6-\\log 8-\\log 3$ blir $\\log(6-8-3)$. Subtraktion av logaritmer är division inuti, inte subtraktion.'},
+{id:'1d',fråga:'Lös olikheten $3<\\dfrac{4}{x+1}$.',
+ ok:['-1<x<1/3','x∈(-1,1/3)','(-1,1/3)','-1<x<0.3333','1/3>x>-1'],
+ förklaring:'Svaret ska vara alla $x$ som gör olikheten sann, oftast ett intervall.',
+ ledtråd:'Multiplicera inte med $x+1$ rakt av: faktorn är negativ för $x<-1$ och då vänds olikhetstecknet. Flytta i stället allt till ena sidan och gör en teckenstudie.',
+ delsteg:['$\\dfrac{4}{x+1}-3>0$.','Gemensam nämnare: $\\dfrac{4-3(x+1)}{x+1}=\\dfrac{1-3x}{x+1}>0$.','Täljaren är noll i $x=\\tfrac13$, nämnaren i $x=-1$ (där uttrycket inte är definierat). Rita en teckentabell.'],
+ lösning:'$-1<x<\\tfrac13$.',
+ varför:'Kvoten är positiv när täljare och nämnare har samma tecken: båda positiva ger $x>-1$ och $x<\\tfrac13$. Båda negativa ger $x<-1$ och $x>\\tfrac13$, vilket är omöjligt. Stickprov: $x=0$ ger $4>3$ (stämmer), $x=1$ ger $2>3$ (stämmer inte), $x=-2$ ger $-4>3$ (stämmer inte).',
+ fel:'Att multiplicera med $x+1$ utan att fundera på tecknet, och då få $x<\\tfrac13$ som svar. Det släpper in alla $x<-1$, där olikheten är falsk.'},
+{id:'1e',fråga:'Beräkna binomialkoefficienten $\\dbinom{8}{5}$.',
+ ok:['56'],
+ förklaring:'$\\binom{n}{k}$ är antalet sätt att välja $k$ saker bland $n$, och beräknas som $\\dfrac{n!}{k!\\,(n-k)!}$. Här är $n!$ <abbr title="Fakultet: produkten 1·2·…·n">n-fakultet</abbr>.',
+ ledtråd:'Sätt in $n=8$ och $k=5$. Mycket förkortas bort.',
+ delsteg:['$\\dbinom85=\\dfrac{8!}{5!\\,3!}$.','Skriv $8!=8\\cdot7\\cdot6\\cdot5!$ och förkorta $5!$.','Kvar: $\\dfrac{8\\cdot7\\cdot6}{3\\cdot2\\cdot1}$.'],
+ lösning:'$56$.',
+ varför:'$\\dfrac{336}{6}=56$. Kontroll: $\\binom85=\\binom83$ (symmetri), och $\\dfrac{8\\cdot7\\cdot6}{6}=56$ på samma sätt.',
+ fel:'Att räkna ut $8!$ och $5!$ helt och hållet. Förkorta först.'},
+{id:'1f',fråga:'Låt $f(x)=\\sin(\\arctan x)$. Beräkna $f\'(\\sqrt3)$.',
+ ok:['1/8','0.125','0,125','(1/2)*(1/4)','1/2*1/4'],
+ förklaring:'$f\'(a)$ är <abbr title="Derivatan i punkten a: lutningen hos tangenten till grafen i a">derivatan</abbr> av $f$ i punkten $a$. $\\arctan x$ är den vinkel (i radianer) vars tangens är $x$.',
+ ledtråd:'Funktionen är en sammansättning: en funktion inuti en annan. Använd kedjeregeln. Kom ihåg derivatan av $\\arctan x$.',
+ delsteg:['$f\'(x)=\\cos(\\arctan x)\\cdot\\dfrac{1}{1+x^2}$.','Sätt in $x=\\sqrt3$: $\\arctan\\sqrt3=\\tfrac\\pi3$ (eftersom $\\tan\\tfrac\\pi3=\\sqrt3$).','$\\cos\\tfrac\\pi3=\\tfrac12$ och $\\dfrac{1}{1+3}=\\tfrac14$.'],
+ lösning:'$f\'(\\sqrt3)=\\tfrac12\\cdot\\tfrac14=\\tfrac18$.',
+ varför:'Kontroll med en annan väg: $\\sin(\\arctan x)=\\dfrac{x}{\\sqrt{1+x^2}}$ (rätvinklig triangel med kateterna $x$ och $1$). Derivering ger $f\'(x)=(1+x^2)^{-3/2}$, och $(1+3)^{-3/2}=4^{-3/2}=\\tfrac18$.',
+ fel:'Att glömma den inre derivatan $\\tfrac{1}{1+x^2}$, eller att byta ut $\\cos(\\arctan\\sqrt3)$ mot ett felaktigt värde. $\\arctan\\sqrt3$ är $\\tfrac\\pi3$, inte $\\tfrac\\pi6$.'}
+];
+const norm=s=>s.toLowerCase().replace(/\s+/g,'').replace(/−/g,'-').replace(/,/g,'.').replace(/²/g,'^2');
+const klara=new Set();
+const rubr=['Vad frågas?','Ledtråd','Delsteg','Lösning och varför den är rätt'];
+const kort=document.getElementById('kort');
+T.forEach(t=>{
+  const d=document.createElement('section');d.className='card';d.id='uppg-'+t.id;
+  d.innerHTML=`<h3>${t.id}</h3><div class="q">${t.fråga}</div>
+  <div class="step open"><div class="lbl">${rubr[0]}</div><div>${t.förklaring}</div></div>
+  <div class="row"><label for="in-${t.id}">Ditt svar:</label><input type="text" id="in-${t.id}" autocomplete="off"><button type="button" data-k="${t.id}">Kontrollera</button><span class="res hidden" id="res-${t.id}"></span></div>
+  <div class="row"><button type="button" data-s="${t.id}" data-n="1">Visa ledtråd</button></div>
+  <div class="step hidden" id="s1-${t.id}"><div class="lbl">${rubr[1]}</div><div>${t.ledtråd}</div></div>
+  <div class="step hidden" id="s2-${t.id}"><div class="lbl">${rubr[2]}</div><ol>${t.delsteg.map(x=>'<li>'+x+'</li>').join('')}</ol></div>
+  <div class="step hidden" id="s3-${t.id}"><div class="lbl">${rubr[3]}</div><div><strong>${t.lösning}</strong></div><p>${t.varför}</p><div class="box"><strong>Vanligt fel:</strong> ${t.fel}</div></div>`;
+  kort.appendChild(d);
+});
+const text=['Visa ledtråd','Visa delsteg','Visa lösningen'];
+kort.addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.k){
+    const id=b.dataset.k,t=T.find(x=>x.id===id),v=norm(document.getElementById('in-'+id).value),r=document.getElementById('res-'+id);
+    r.classList.remove('hidden','ok','no');
+    if(!v){r.textContent='Skriv ett svar först.';r.classList.add('no');return}
+    if(t.ok.map(norm).includes(v)){r.textContent='Stämmer.';r.classList.add('ok');klara.add(id)}
+    else{r.textContent='Stämmer inte än. Ta ett steg till, eller kontrollera tecken och förenkling.';r.classList.add('no');klara.delete(id)}
+    const n=klara.size,p=n>=6?3:n===5?2:n===4?1:0;
+    document.getElementById('poang').textContent=`Du har ${n} av 6 rätt, vilket motsvarar ${p} poäng.`;
+  }else if(b.dataset.s){
+    const id=b.dataset.s,n=+b.dataset.n;
+    document.getElementById('s'+n+'-'+id).classList.remove('hidden');
+    document.getElementById('s'+n+'-'+id).classList.add('open');
+    if(n<3){b.dataset.n=n+1;b.textContent=text[n]}else b.disabled=true;
+  }
+});
+window.addEventListener('load',()=>{
+  if(window.renderMathInElement)renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});
+  new MutationObserver(()=>{window.renderMathInElement&&renderMathInElement(document.getElementById('kort'),{delimiters:[{left:'$',right:'$',display:false}]})}).observe(document.getElementById('kort'),{subtree:true,attributes:true,attributeFilter:['class']});
+});
+</script>
+</body>
+</html>
