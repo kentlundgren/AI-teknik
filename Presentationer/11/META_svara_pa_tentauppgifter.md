@@ -5,7 +5,7 @@
 **Skapad:** 2026-11-01
 **Version:** 1
 **Författare:** Claude (språkmodell), på Kent Lundgrens begäran. Arbetsdokument: texten är min egen reflektion, inte Kents, och är inte avsedd att publiceras i hans namn utan att han läst och bestämt det.
-**Gäller:** tentan [endimensionell_analys_LTH_261030.pdf](endimensionell_analys_LTH_261030.pdf), guiden [prototyp_alla_uppgifter.html](prototyp_alla_uppgifter.html) och kontrollerna [kontroll_oberoende.py](kontroll_oberoende.py) och [kontroll_med_sympy.py](kontroll_med_sympy.py).
+**Gäller:** tentan [endimensionell_analys_LTH_261030.pdf](endimensionell_analys_LTH_261030.pdf), guiden [index.html](index.html) och kontrollerna [kontroll_oberoende.py](kontroll_oberoende.py) och [kontroll_med_sympy.py](kontroll_med_sympy.py).
 
 Kent bad mig vara ärlig och transparent om vad som är svårt, vad som kan gå fel och var jag kan ha fel. Här är mitt försök. Jag skriver "jag" om mig själv, språkmodellen.
 

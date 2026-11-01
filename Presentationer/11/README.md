@@ -26,7 +26,6 @@ Startsidan är `index.html`. Webbläsaren visar bara en fillista om du öppnar s
 | `JAMFORELSE_tentor_LTH_261030_och_LiU_260819.md` | Jämförelse med tentan i Envariabelanalys 1 (TATA41, Linköping) |
 | `kontroll_oberoende.py`, `kontroll_med_sympy.py` | Kontrollerna av svaren (21 respektive flera kontroller) |
 | `*.html` med samma namn som en `.md`-fil | Läsvyer av md-filerna, genererade med `md_till_html.py` |
-| `prototyp_*.html` | Tidiga prototyper (uppgift 1, uppgift 2, alla uppgifter), ersatta av `index.html` |
 | `endimensionell_analys_LTH_261030.pdf` | Den skannade tentan. Rätten att publicera den är inte klarlagd |
 
 ## Underhållsregel
