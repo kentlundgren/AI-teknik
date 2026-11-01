@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tentan steg för steg</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<style>
+:root{--bg:#fafaf7;--fg:#1d1d1b;--muted:#5b5b55;--card:#fff;--line:#d9d9d1;--note:#e3f0fb;--ok:#e2f3e4;--okline:#2e7d32;--warn:#fdebd8;--lock:#ececec;--input:#FFF9C4;--accent:#1f5a99}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--fg:#ecebe6;--muted:#a9a8a0;--card:#202225;--line:#383a3e;--note:#1c3042;--ok:#1d3322;--okline:#7fd08a;--warn:#40301c;--lock:#2b2c2f;--accent:#7db4ee}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:48rem;margin:0 auto;padding:1.5rem 16px 5rem}
+h1{font-size:1.7rem;margin:.2rem 0 .3rem}
+h2{font-size:1.3rem;margin:2.4rem 0 .4rem;padding-top:.5rem;border-top:2px solid var(--line)}
+h3{font-size:1.05rem;margin:.1rem 0 .4rem}
+.sub{color:var(--muted);margin:0 0 1rem}
+.status{background:var(--warn);border-radius:8px;padding:.7rem .9rem;font-size:.95rem}
+.box{background:var(--note);border-radius:8px;padding:.7rem .9rem;margin:.8rem 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1rem;margin:1rem 0}
+.q{font-size:1.1rem}
+.step{border-left:4px solid var(--line);padding:.2rem 0 .2rem .8rem;margin:.7rem 0}
+.step.open{border-color:var(--accent)}
+.lbl{font-weight:600;font-size:.9rem;color:var(--muted)}
+.hidden{display:none}
+button{font:inherit;padding:.45rem .8rem;border-radius:8px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer;min-height:44px}
+button:hover,button:focus-visible{background:var(--accent);color:var(--bg)}
+button[disabled]{opacity:.45;cursor:default}
+input[type=text],textarea{font:inherit;padding:.45rem .6rem;border:1px solid var(--line);border-radius:8px;background:var(--input);color:#1d1d1b;min-height:44px;width:min(100%,18rem)}
+textarea{width:100%;min-height:6rem}
+.row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:.5rem 0}
+.res{padding:.3rem .6rem;border-radius:6px;font-size:.95rem}
+.res.ok{background:var(--ok)}.res.no{background:var(--warn)}
+.fall{background:var(--lock);border-radius:8px;padding:.6rem .9rem;margin:.6rem 0}
+.svar{background:var(--ok);border:2px solid var(--okline);border-radius:10px;padding:.6rem .9rem;margin:.4rem 0}
+.svarlbl{font-weight:700;font-size:.85rem;letter-spacing:.02em;color:var(--okline)}
+.svartext{font-size:1.25rem;font-weight:600}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{border:1px solid var(--line);padding:.35rem .5rem;text-align:left;vertical-align:top}
+caption{caption-side:top;text-align:left;font-weight:600;padding:.3rem 0}
+figure{margin:1rem 0}
+figcaption{font-weight:600;font-size:.95rem;margin-bottom:.3rem}
+svg{width:100%;height:auto;max-width:100%}
+abbr{text-decoration:underline dotted;cursor:help}
+summary{cursor:pointer;color:var(--accent);min-height:44px;padding:.5rem 0}
+.skriv{border:1px dashed var(--line);border-radius:8px;padding:.6rem .9rem}
+.skriv p{margin:.3rem 0}
+.lista label{display:block;margin:.25rem 0}
+.sv{display:inline-block;font-size:.82rem;background:var(--lock);border-radius:6px;padding:.1rem .5rem;margin-right:.3rem}
+nav ul{columns:2;padding-left:1.1rem}
+.poang{font-weight:600}
+</style>
+</head>
+<body>
+<main>
+<h1>Tentan i endimensionell analys, steg för steg</h1>
+<p class="sub">Prototyp med alla nio uppgifterna. Ur tentan Endimensionell analys B1, LTH, 2026-10-30 (kl. 14.00–19.00, inga hjälpmedel).</p>
+<p class="status"><strong>Status:</strong> förslag. Uppgifterna är avlästa ur en skannad PDF, och Kent har bekräftat uppgift 1 och 2. Svaren är kontrollerade med flera metoder (se avsnittet längst ned) men inte granskade av någon utomstående rättare. Tentan är LTH:s; rätten att återge den publikt är inte klarlagd.</p>
+
+<nav aria-label="Uppgifter"><strong>Hoppa till:</strong><ul id="meny"></ul></nav>
+
+<div class="box"><strong>Regler enligt tentan:</strong> varje uppgift kan som mest ge 3 poäng, och lösningarna ska vara försedda med ordentliga motiveringar. Godkäntdel (uppgift 1–6): minst 9 poäng, och 0 poäng på högst en av de sex uppgifterna. Överbetygsdel (uppgift 7–9): 14 poäng på godkäntdelen ger 1 bonuspoäng; betyg 4 kräver minst 3 poäng och betyg 5 minst 6 poäng på denna del.</div>
+
+<h2 id="hur">Så fungerar guiden</h2>
+<p>Varje delfråga har fyra steg som du öppnar ett i taget: <em>vad frågas</em>, <em>ledtråd</em>, <em>delsteg</em> och <em>lösning</em>. Pröva först själv. Skriv ditt svar i det gula fältet och tryck på Kontrollera, så får du veta om det stämmer utan att se lösningen. I delstegen finns små kontrollfält för mellansvar. Där en uppgift kräver en egen skriven lösning eller en skiss kryssar du själv av en checklista.</p>
+
+<div id="uppgifter"></div>
+
+<h2 id="svarighet">Hur svår var varje uppgift?</h2>
+<p>Bedömningen nedan är gjord av Claude (språkmodellen som tagit fram guiden). Den är en bedömning, inte en mätning, och inga statistiska uppgifter om hur många som klarat uppgifterna har använts. Skalan är 1 (lätt) till 5 (mycket svår). Tre saker bedöms: att <em>läsa av</em> uppgiften ur PDF:en, att <em>lösa</em> den (för en modell med räknehjälp), och att lösa den som <em>student</em> utan hjälpmedel på tentan. Det som kan gå fel och varför beskrivs i <a href="META_svara_pa_tentauppgifter.md">META_svara_pa_tentauppgifter.md</a>.</p>
+<table id="tabell-svarighet"><caption>Tabell 1. Svårighet per uppgift (1–5)</caption><thead><tr><th>Uppgift</th><th>Läsa av</th><th>Lösa (modell)</th><th>Student</th><th>Varför</th></tr></thead><tbody></tbody></table>
+
+<h2 id="kontroll">Så har svaren kontrollerats</h2>
+<details id="facit"><summary>Visa tabellen (den innehåller alla svar, så pröva först själv)</summary>
+<table><caption id="tabell2">Tabell 2. Kontroll av varje svar</caption>
+<thead><tr><th>Uppgift</th><th>Svar</th><th>Hur det kontrollerats</th></tr></thead>
+<tbody>
+<tr><td>1a–f</td><td>y = −2x + 11; (x−5)² − 6; −2; −1 &lt; x &lt; 1/3; 56; 1/8</td><td>insättning, identitet i 2001 punkter, rutnät med 10 000 punkter (1d), differenskvot (1f), sympy</td></tr>
+<tr><td>2</td><td>x = 2, 5, 10</td><td>handräkning i tre fall, insättning, teckenbyten på rutnät, sympy</td></tr>
+<tr><td>3a, 3b</td><td>definition; g′(x) = 5x⁴</td><td>3b: differenskvot och sympy; 3a är en definition och kontrolleras mot kursboken, inte numeriskt</td></tr>
+<tr><td>4</td><td>min (1, 3), max (4, 5 ln 4 − 3), asymptot x = 0</td><td>extrempunkter på rutnät med 1 000 000 punkter, gränsvärden, sympy</td></tr>
+<tr><td>5a–c</td><td>0; −2/3; 1/4</td><td>värden nära gränspunkten, sympy, handräkning med två metoder för 5c</td></tr>
+<tr><td>6</td><td>ℓ = 4, b = 3, h = 1 dm; V = 12 dm³</td><td>brute force över h, sympy, derivata för hand</td></tr>
+<tr><td>7</td><td>BD = √6</td><td>triangeln konstruerad numeriskt: AD = 2 och halva vinklarna lika; två lösningsvägar</td></tr>
+<tr><td>8</td><td>x = kπ/2; styckvis linjär graf</td><td>ensidiga lutningar i x = kπ/2, k = −8…8, och lutning mellan dem (4000 punkter), sympy</td></tr>
+<tr><td>9</td><td>PQ min = 15√3 ≈ 25,98 cm</td><td>brute force över vikningen, analytisk lösning med vinkeln θ, kontroll att optimum är genomförbart</td></tr>
+</tbody></table>
+<p class="sub">Uppgifterna är kontrollerade mot angivna metoder och inte kvalitetssäkrade av någon utomstående rättare. Kontrollera mot källan. Hur många poäng en lösning ger avgör en rättare.</p>
+</details>
+</main>
+
+<script>
+/* ===== DATA (skiljs från motorn i bygget) ===== */
+const R=String.raw;
+
+/* --- hjälpare för figurer --- */
+function plot(o){
+  const W=640,H=o.h||320,m={l:40,r:16,t:14,b:30};
+  const sx=x=>m.l+(x-o.x0)/(o.x1-o.x0)*(W-m.l-m.r), sy=y=>H-m.b-(y-o.y0)/(o.y1-o.y0)*(H-m.t-m.b);
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${o.alt}">`;
+  if(o.y0<=0&&o.y1>=0)s+=`<line x1="${m.l}" y1="${sy(0)}" x2="${W-m.r}" y2="${sy(0)}" stroke="currentColor" opacity=".55"/>`;
+  if(o.x0<=0&&o.x1>=0)s+=`<line x1="${sx(0)}" y1="${m.t}" x2="${sx(0)}" y2="${H-m.b}" stroke="currentColor" opacity=".55"/>`;
+  (o.xt||[]).forEach(([v,l])=>{s+=`<line x1="${sx(v)}" y1="${sy(Math.max(o.y0,0))-4}" x2="${sx(v)}" y2="${sy(Math.max(o.y0,0))+4}" stroke="currentColor"/><text x="${sx(v)}" y="${H-9}" font-size="13" text-anchor="middle" fill="currentColor">${l}</text>`});
+  (o.yt||[]).forEach(([v,l])=>{s+=`<text x="${m.l-6}" y="${sy(v)+4}" font-size="13" text-anchor="end" fill="currentColor">${l}</text><line x1="${m.l}" y1="${sy(v)}" x2="${W-m.r}" y2="${sy(v)}" stroke="currentColor" opacity=".12"/>`});
+  (o.vl||[]).forEach(([x,l])=>{s+=`<line x1="${sx(x)}" y1="${m.t}" x2="${sx(x)}" y2="${H-m.b}" stroke="#888" stroke-dasharray="5 4"/>`+(l?`<text x="${sx(x)+6}" y="${m.t+12}" font-size="13" fill="currentColor">${l}</text>`:'')});
+  (o.curves||[]).forEach(c=>{let d='',pen=false;for(let i=0;i<=800;i++){const x=o.x0+(o.x1-o.x0)*i/800,y=c.f(x);if(!isFinite(y)||y<o.y0||y>o.y1){pen=false;continue}d+=(pen?'L':'M')+sx(x).toFixed(1)+','+sy(y).toFixed(1);pen=true}
+    s+=`<path d="${d}" fill="none" stroke="${c.col}" stroke-width="2.5"${c.dash?' stroke-dasharray="6 4"':''}/>`;if(c.lbl)s+=`<text x="${sx(c.lx)}" y="${sy(c.ly)}" font-size="13" fill="${c.col}">${c.lbl}</text>`});
+  (o.pts||[]).forEach(([x,y,l,dx,dy])=>{s+=`<circle cx="${sx(x)}" cy="${sy(y)}" r="5.5" fill="#2e7d32"/>`+(l?`<text x="${sx(x)+(dx||8)}" y="${sy(y)+(dy||18)}" font-size="13" fill="currentColor">${l}</text>`:'')});
+  return s+'</svg>';
+}
+function geo(W,H,body,alt){return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${alt}"><g fill="currentColor" stroke="currentColor" font-size="15">${body}</g></svg>`}
+const tx=(x,y,t,a)=>`<text x="${x}" y="${y}" stroke="none" text-anchor="${a||'middle'}">${t}</text>`;
+const ln=(a,b,c,d,x)=>`<line x1="${a}" y1="${b}" x2="${c}" y2="${d}" stroke-width="2" ${x||''}/>`;
+
+const FIG={
+tallinje:()=>geo(640,110,ln(20,55,620,55)+ln(190,42,190,68)+ln(470,42,470,68)+tx(190,92,'−5')+tx(470,92,'8')+tx(105,35,'fall 1: x &lt; −5')+tx(330,35,'fall 2: −5 ≤ x &lt; 8')+tx(548,35,'fall 3: x ≥ 8'),'Tallinje delad vid minus 5 och 8 i tre fall'),
+graf2:()=>plot({alt:'Graferna till x gånger absolutbeloppet av x minus 8 och absolutbeloppet av x plus 5 plus 5 skär varandra i x lika med 2, 5 och 10',x0:-3,x1:12,y0:-10,y1:50,xt:[[0,'0'],[2,'2'],[5,'5'],[8,'8'],[10,'10']],yt:[[10,'10'],[20,'20'],[30,'30'],[40,'40']],
+  curves:[{f:x=>x*Math.abs(x-8),col:'#1f5a99',lbl:'y = x·|x − 8|',lx:5.2,ly:30},{f:x=>Math.abs(x+5)+5,col:'#c25a00',dash:1,lbl:'y = |x + 5| + 5',lx:-2.8,ly:7}],pts:[[2,12,'x = 2'],[5,15,'x = 5',8,-8],[10,20,'x = 10']]}),
+graf4:()=>plot({alt:'Grafen till f(x) = 4/x − x + 5 ln x för x större än 0, med lodrät asymptot x = 0, minimum i (1, 3) och maximum i (4, ca 3,93)',x0:0,x1:16,y0:-4,y1:12,xt:[[1,'1'],[4,'4'],[8,'8'],[12,'12'],[16,'16']],yt:[[-2,'−2'],[3,'3'],[6,'6'],[9,'9'],[12,'12']],
+  curves:[{f:x=>x>0?4/x-x+5*Math.log(x):NaN,col:'#1f5a99'}],vl:[[0.02,'x = 0 (asymptot)']],pts:[[1,3,'min (1, 3)',10,22],[4,5*Math.log(4)-3,'max (4, 5 ln 4 − 3 ≈ 3,93)',-70,-12]]}),
+lada:()=>{const s=48,x0=60,y0=30,h=1.2*s,b=2.7*s,l=3.6*s,Wd=9*s,Ht=6*s;
+  let g=`<rect x="${x0}" y="${y0}" width="${Wd}" height="${Ht}" fill="none" stroke-width="2.5"/>`;
+  const xs=[0,h,h+b,2*h+b,2*h+2*b,Wd],ys=[0,h,h+l,Ht];
+  xs.slice(1,5).forEach(x=>g+=ln(x0+x,y0,x0+x,y0+Ht,'stroke-dasharray="5 4" opacity=".7"'));
+  ys.slice(1,3).forEach(y=>g+=ln(x0,y0+y,x0+Wd,y0+y,'stroke-dasharray="5 4" opacity=".7"'));
+  const lab=['h','b','h','b','h'];for(let i=0;i<5;i++)g+=tx(x0+(xs[i]+xs[i+1])/2,y0+Ht+22,lab[i]);
+  g+=tx(x0+Wd/2,y0-8,'9');g+=tx(x0-18,y0+Ht/2,'6');
+  ['h','ℓ','h'].forEach((t,i)=>g+=tx(x0+Wd+16,y0+(ys[i]+ys[i+1])/2+5,t));
+  return geo(560,y0+Ht+40,g,'Rektangulärt papper 9 gånger 6 uppdelat i rutor med höjd h, bredd b och längd ℓ')},
+graf6:()=>plot({alt:'Volymen V(h) = 3h(3−h)² med maximum 12 vid h = 1',x0:0,x1:3,y0:0,y1:14,xt:[[0,'0'],[1,'1'],[2,'2'],[3,'3']],yt:[[4,'4'],[8,'8'],[12,'12']],curves:[{f:h=>3*h*(3-h)*(3-h),col:'#1f5a99'}],pts:[[1,12,'maximum: h = 1, V = 12',10,-10]]}),
+tri:()=>{const s=70,ox=130,oy=250,P=(x,y)=>[ox+x*s,oy-y*s],A=P(0,0),B=P(3,0),C=P(-1.2778,3.7945),D=P(1.1667,1.6262);
+  const g=`<polygon points="${A} ${B} ${C}" fill="none" stroke-width="2.5"/>`+ln(...A,...D,'stroke-dasharray="6 4"')+tx(A[0]-14,A[1]+6,'A')+tx(B[0]+14,B[1]+6,'B')+tx(C[0]-12,C[1]-6,'C')+tx(D[0]+16,D[1]+4,'D')+tx((A[0]+B[0])/2,A[1]+22,'3')+tx((A[0]+C[0])/2-14,(A[1]+C[1])/2,'4')+tx((A[0]+D[0])/2+14,(A[1]+D[1])/2+14,'2');
+  return geo(520,290,g,'Triangeln ABC med bisektrisen AD till sidan BC')},
+graf8:()=>{const p=Math.PI;return plot({alt:'Grafen till f(x) = arcsin(cos x) + arccos(sin x): styckvis linjär med knäck i varje multipel av π/2',x0:-p,x1:2*p,y0:-.5,y1:3.8,h:300,xt:[-p,-p/2,0,p/2,p,3*p/2,2*p].map((v,i)=>[v,['−π','−π/2','0','π/2','π','3π/2','2π'][i]]),yt:[[p,'π']],
+  curves:[{f:x=>Math.asin(Math.cos(x))+Math.acos(Math.sin(x)),col:'#1f5a99'}],vl:[],pts:[[0,p,'',0,0],[p/2,0,'',0,0],[p,0,'',0,0],[3*p/2,p,'',0,0],[2*p,p,'',0,0],[-p/2,p,'',0,0],[-p,0,'',0,0]]})},
+vik:(opt)=>{const s=15,x0=40,y0=20,Hh=20*s,Wd=30*s,Y=y=>y0+Hh-y*s,X=x=>x0+x*s;
+  const A=[30,0],P=opt?[30-15*Math.SQRT2,0]:[9.889,0],Q=opt?[30,15]:[30,18.1],T=opt?[15.858,20]:[12,20];
+  let g=`<rect x="${X(0)}" y="${Y(20)}" width="${Wd}" height="${Hh}" fill="none" stroke-width="2.5"/>`+
+   ln(X(P[0]),Y(P[1]),X(T[0]),Y(T[1]))+ln(X(T[0]),Y(T[1]),X(Q[0]),Y(Q[1]))+ln(X(P[0]),Y(P[1]),X(Q[0]),Y(Q[1]),'stroke="#c25a00"')+
+   ln(X(P[0]),Y(0),X(30),Y(0),'stroke-dasharray="6 4"')+ln(X(30),Y(0),X(30),Y(Q[1]),'stroke-dasharray="6 4"')+
+   tx(X(0)-14,Y(20)+4,'C')+tx(X(30)+14,Y(20)+4,'B')+tx(X(0)-14,Y(0)+4,'D')+tx(X(30)+14,Y(0)+4,'A')+tx(X(T[0]),Y(20)-8,"A′")+tx(X(P[0]),Y(0)+20,'P')+tx(X(30)+16,Y(Q[1])+4,'Q');
+  if(opt)g+=tx(X(P[0])+34,Y(0)-8,'θ','middle')+tx(X(15),Y(0)+38,'AP = p','middle');
+  return geo(560,Hh+y0+46,g,opt?'Vikt papper vid optimum: A går till A′ på BC, PQ är vikningslinjen':'Ett rektangulärt papper vikt så att hörnet A hamnar i A′ på sidan BC')}
+};
+
+const U=[
+{nr:1,titel:'Sex korta frågor, bara svar',del:'Godkäntdel',poang:3,
+ sv:{lasa:1,losa:1,stud:2,varfor:'Rena grundkunskaper. Det som kostar är att alla sex ska vara rätt och att inga mellanled får skrivas: 1d (olikhet med tecken i nämnaren) och 1f (kedjeregeln) är fällorna.'},
+ intro:R`Endast svar anges. 0–3 rätt ger 0 poäng, 4 rätt ger 1 poäng, 5 rätt ger 2 poäng och 6 rätt ger 3 poäng.`,
+ delar:[
+ {id:'1a',fraga:R`Bestäm en ekvation för linjen som går genom punkten $(3,5)$ och är parallell med linjen $2x+y=1$.`,
+  begrepp:'<abbr title="Två linjer är parallella när de har samma lutning (riktningskoefficient)">Parallell</abbr> betyder samma lutning. En linje på formen $y=kx+m$ har lutningen $k$.',
+  svar:{typ:'alt',ok:['y=-2x+11','2x+y=11','y=11-2x','y-5=-2(x-3)','y-5=-2x+6']},
+  ledtrad:R`Skriv om $2x+y=1$ så att $y$ står ensamt. Då ser du lutningen.`,
+  delsteg:[R`Lös ut $y$: $y=-2x+1$. Lutningen är alltså $k=-2$.`,R`Linjen genom $(3,5)$ med lutning $-2$ kan skrivas $y-5=-2(x-3)$.`,R`Förenkla: $y=-2x+6+5$.`],
+  losning:R`$y=-2x+11$`,
+  varfor:R`Det kan också skrivas $2x+y=11$. Båda är ekvationer för samma linje och lika rätta: frågan ber om <em>en</em> ekvation för linjen. Lutningen är $-2$ precis som hos den givna linjen, så de är parallella. Insättning av punkten ger $-2\cdot 3+11=5$, så linjen går genom $(3,5)$.`,
+  fel:R`Att hålla fast vid $+2$ som lutning (tecknet försvinner när man läser av $2x+y=1$ direkt), eller att glömma att linjen ska gå genom just $(3,5)$ och bara skriva $y=-2x+1$.`},
+ {id:'1b',fraga:R`<abbr title="Att skriva ett andragradsuttryck på formen (x − a)² + c">Kvadratkomplettera</abbr> uttrycket $x^2-10x+19$.`,
+  begrepp:R`Målet är att skriva uttrycket som en kvadrat plus ett tal, $(x-a)^2+c$.`,
+  svar:{typ:'alt',ok:['(x-5)^2-6','(x-5)^2+(-6)','-6+(x-5)^2']},
+  ledtrad:R`Kvadreringsregeln: $(x-a)^2=x^2-2ax+a^2$. Jämför $-2ax$ med $-10x$.`,
+  delsteg:[R`Från $-2ax=-10x$ får du $a=5$.`,R`$(x-5)^2=x^2-10x+25$.`,R`Du behöver $+19$, inte $+25$. Hur mycket ska du dra bort?`],
+  losning:R`$(x-5)^2-6$`,varfor:R`Utveckla: $(x-5)^2-6=x^2-10x+25-6=x^2-10x+19$. Det stämmer med det givna uttrycket.`,
+  fel:R`Att skriva $(x-10)^2$ (halvera koefficienten!), eller att räkna fel på konstanten: $25-19=6$, så det ska subtraheras.`},
+ {id:'1c',fraga:R`Förenkla $\,{}^2\!\log 6-{}^2\!\log 8-{}^2\!\log 3$.`,
+  begrepp:R`$\,{}^2\!\log a$ är <abbr title="Tvålogaritmen: det tal man ska upphöja 2 till för att få a">2-logaritmen</abbr> av $a$, alltså det $t$ som uppfyller $2^t=a$.`,
+  svar:{typ:'tal',ok:[-2]},
+  ledtrad:R`Logaritmlagen: $\log a-\log b=\log\frac ab$. Det går att samla allt i en enda logaritm.`,
+  delsteg:[R`$\,{}^2\!\log 6-{}^2\!\log 8-{}^2\!\log 3={}^2\!\log\frac{6}{8\cdot 3}$.`,R`Förkorta: $\frac{6}{24}=\frac14$.`,R`Vilket tal $t$ uppfyller $2^t=\frac14$?`],
+  losning:R`$-2$`,varfor:R`$\,{}^2\!\log\frac14=-2$ eftersom $2^{-2}=\frac14$. Kontroll på ett annat sätt: $\,{}^2\!\log 6=1+{}^2\!\log 3$ och $\,{}^2\!\log 8=3$, så uttrycket blir $1+{}^2\!\log 3-3-{}^2\!\log 3=-2$.`,
+  fel:R`Att tro att $\log 6-\log 8-\log 3$ blir $\log(6-8-3)$. Subtraktion av logaritmer är division inuti, inte subtraktion.`},
+ {id:'1d',fraga:R`Lös olikheten $3<\dfrac{4}{x+1}$.`,
+  begrepp:'Svaret ska vara alla $x$ som gör olikheten sann, oftast ett intervall.',
+  svar:{typ:'alt',ok:['-1<x<1/3','x∈(-1,1/3)','(-1,1/3)','-1<x<0.3333','1/3>x>-1']},
+  ledtrad:R`Multiplicera inte med $x+1$ rakt av: faktorn är negativ för $x<-1$ och då vänds olikhetstecknet. Flytta i stället allt till ena sidan och gör en teckenstudie.`,
+  delsteg:[R`$\dfrac{4}{x+1}-3>0$.`,R`Gemensam nämnare: $\dfrac{4-3(x+1)}{x+1}=\dfrac{1-3x}{x+1}>0$.`,R`Täljaren är noll i $x=\tfrac13$, nämnaren i $x=-1$ (där uttrycket inte är definierat). Rita en teckentabell.`],
+  losning:R`$-1<x<\tfrac13$`,
+  varfor:R`Kvoten är positiv när täljare och nämnare har samma tecken: båda positiva ger $x>-1$ och $x<\tfrac13$. Båda negativa ger $x<-1$ och $x>\tfrac13$, vilket är omöjligt. Stickprov: $x=0$ ger $4>3$ (stämmer), $x=1$ ger $2>3$ (stämmer inte), $x=-2$ ger $-4>3$ (stämmer inte).`,
+  fel:R`Att multiplicera med $x+1$ utan att fundera på tecknet, och då få $x<\tfrac13$ som svar. Det släpper in alla $x<-1$, där olikheten är falsk.`},
+ {id:'1e',fraga:R`Beräkna binomialkoefficienten $\dbinom{8}{5}$.`,
+  begrepp:R`$\binom{n}{k}$ är antalet sätt att välja $k$ saker bland $n$, och beräknas som $\dfrac{n!}{k!\,(n-k)!}$. Här är $n!$ <abbr title="Fakultet: produkten 1·2·…·n">n-fakultet</abbr>.`,
+  svar:{typ:'tal',ok:[56]},
+  ledtrad:R`Sätt in $n=8$ och $k=5$. Mycket förkortas bort.`,
+  delsteg:[R`$\dbinom85=\dfrac{8!}{5!\,3!}$.`,R`Skriv $8!=8\cdot7\cdot6\cdot5!$ och förkorta $5!$.`,R`Kvar: $\dfrac{8\cdot7\cdot6}{3\cdot2\cdot1}$.`],
+  losning:R`$56$`,varfor:R`$\dfrac{336}{6}=56$. Kontroll: $\binom85=\binom83$ (symmetri), och $\dfrac{8\cdot7\cdot6}{6}=56$ på samma sätt.`,
+  fel:R`Att räkna ut $8!$ och $5!$ helt och hållet. Förkorta först.`},
+ {id:'1f',fraga:R`Låt $f(x)=\sin(\arctan x)$. Beräkna $f'(\sqrt3)$.`,
+  begrepp:R`$f'(a)$ är <abbr title="Derivatan i punkten a: lutningen hos tangenten till grafen i a">derivatan</abbr> av $f$ i punkten $a$. $\arctan x$ är den vinkel (i radianer) vars tangens är $x$.`,
+  svar:{typ:'tal',ok:[0.125]},
+  ledtrad:R`Funktionen är en sammansättning: en funktion inuti en annan. Använd kedjeregeln. Kom ihåg derivatan av $\arctan x$.`,
+  delsteg:[R`$f'(x)=\cos(\arctan x)\cdot\dfrac{1}{1+x^2}$.`,R`Sätt in $x=\sqrt3$: $\arctan\sqrt3=\tfrac\pi3$ (eftersom $\tan\tfrac\pi3=\sqrt3$).`,R`$\cos\tfrac\pi3=\tfrac12$ och $\dfrac{1}{1+3}=\tfrac14$.`],
+  losning:R`$f'(\sqrt3)=\tfrac12\cdot\tfrac14=\tfrac18$`,
+  varfor:R`Kontroll med en annan väg: $\sin(\arctan x)=\dfrac{x}{\sqrt{1+x^2}}$ (rätvinklig triangel med kateterna $x$ och $1$). Derivering ger $f'(x)=(1+x^2)^{-3/2}$, och $(1+3)^{-3/2}=4^{-3/2}=\tfrac18$.`,
+  fel:R`Att glömma den inre derivatan $\tfrac{1}{1+x^2}$. Ett annat fel är att tro att $\arctan\sqrt3=\tfrac\pi6$; rätt värde är $\tfrac\pi3$.`}
+ ]},
+
+{nr:2,titel:'En ekvation med absolutbelopp',del:'Godkäntdel',poang:3,
+ sv:{lasa:1,losa:2,stud:3,varfor:'Ekvationen är lätt att läsa. Svårigheten är fallindelningen och att förkasta falska rötter. Många tappar poäng på att ta med alla rötter utan att pröva fallens områden.'},
+ delar:[{id:'2',fraga:R`Lös ekvationen $$x\,\lvert x-8\rvert=\lvert x+5\rvert+5.$$`,
+  begrepp:R`Du ska hitta <em>alla</em> tal $x$ som gör att vänsterledet och högerledet blir lika. <abbr title="Avståndet från a till 0 på tallinjen. Alltid 0 eller positivt.">Absolutbeloppet</abbr> $\lvert a\rvert$ är $a$ om $a\ge 0$ och $-a$ om $a<0$.`,
+  svar:{typ:'mängd',ok:[2,5,10],etikett:'Ditt svar (alla lösningar, skilj med komma)'},
+  ledtrad:R`Beloppen byter beteende där det som står innanför är noll: $x-8=0$ ger $x=8$, och $x+5=0$ ger $x=-5$. Dessa två punkter delar tallinjen i tre delar. Lös ekvationen i varje del för sig, utan beloppstecken.`,
+  fig0:{namn:'Tallinjen delad i tre fall',f:'tallinje'},
+  delsteg:[
+   {t:R`<strong>Fall 1: $x<-5$.</strong> Här är $\lvert x-8\rvert=8-x$ och $\lvert x+5\rvert=-x-5$. Ekvationen blir $x(8-x)=-x-5+5$, alltså $8x-x^2=-x$.`,mini:{et:'Lösningar till andragradsekvationen',typ:'mängd',ok:[0,9],efter:R`Ingen av dem ligger i $x<-5$, så fall 1 ger <strong>inga lösningar</strong>.`}},
+   {t:R`<strong>Fall 2: $-5\le x<8$.</strong> Här är $\lvert x-8\rvert=8-x$ och $\lvert x+5\rvert=x+5$. Ekvationen blir $x(8-x)=x+10$, alltså $x^2-7x+10=0$.`,mini:{et:'Lösningar',typ:'mängd',ok:[2,5],efter:R`Båda ligger i $-5\le x<8$, så fall 2 ger <strong>$x=2$ och $x=5$</strong>.`}},
+   {t:R`<strong>Fall 3: $x\ge 8$.</strong> Här är $\lvert x-8\rvert=x-8$ och $\lvert x+5\rvert=x+5$. Ekvationen blir $x(x-8)=x+10$, alltså $x^2-9x-10=0$.`,mini:{et:'Lösningar',typ:'mängd',ok:[-1,10],efter:R`Bara $x=10$ ligger i $x\ge 8$. Talet $x=-1$ <strong>förkastas</strong>. Fall 3 ger <strong>$x=10$</strong>.`}}],
+  losning:R`$x=2$, $x=5$ och $x=10$`,
+  varfor:R`De tre fallen täcker hela tallinjen utan överlapp, så inga lösningar kan missas, och varje lösning hör till sitt eget fall. Prövning i ursprungsekvationen: $x=2$: $2\cdot 6=12$ och $7+5=12$. $x=5$: $5\cdot 3=15$ och $10+5=15$. $x=10$: $10\cdot 2=20$ och $15+5=20$. Alla stämmer.`,
+  fig1:{namn:'De två sidorna av ekvationen som grafer',f:'graf2'},
+  fel:R`Att ta med <em>alla</em> rötter från andragradsekvationerna. Rötterna $0$, $9$ och $-1$ är falska lösningar: de hör inte till sitt fall. Pröva alltid att svaret ligger i fallets område.`,
+  skriv:R`Beloppen byter tecken i $x=-5$ och $x=8$. Fall 1, $x<-5$: $8x-x^2=-x$ ger $x(x-9)=0$, så $x=0$ eller $x=9$; ingen ligger i området. Fall 2, $-5\le x<8$: $x(8-x)=x+10$ ger $(x-2)(x-5)=0$; båda ligger i området. Fall 3, $x\ge 8$: $x(x-8)=x+10$ ger $(x-10)(x+1)=0$; bara $x=10$ ligger i området. Lösningarna är $x=2$, $x=5$ och $x=10$.`}]},
+
+{nr:3,titel:'Definition och härledning',del:'Godkäntdel',poang:3,
+ sv:{lasa:2,losa:1,stud:2,varfor:'Kunskapsfrågor. Svårigheten för modellen är att veta vilken definition kursboken använder, för tentan frågar efter "vad som menas". För studenten: kunna skriva det exakt och med motivering utan hjälpmedel.'},
+ delar:[
+ {id:'3a',fraga:R`Definiera vad som menas med att funktionen $f$ är kontinuerlig i punkten $a$.`,
+  begrepp:R`<abbr title="En funktion är kontinuerlig om grafen kan ritas utan att lyfta pennan, men en definition måste säga det med gränsvärden">Kontinuerlig</abbr> betyder att grafen inte "hoppar" i punkten. Definitionen ska sägas med ord och symboler, inte med en bild.`,
+  svar:{typ:'skriv',lista:[R`$f$ är definierad i $a$, så att $f(a)$ finns.`,R`Gränsvärdet $\lim_{x\to a}f(x)$ existerar.`,R`Gränsvärdet är lika med funktionsvärdet: $\lim_{x\to a}f(x)=f(a)$.`],etikett:'Skriv din definition här (egen kontroll mot checklistan efteråt)'},
+  ledtrad:R`Tre saker måste stämma samtidigt: något om $f(a)$, något om gränsvärdet när $x\to a$, och en relation mellan dem.`,
+  delsteg:[R`Först: finns $f(a)$? Funktionen måste vara definierad i punkten.`,R`Sedan: finns gränsvärdet $\lim_{x\to a}f(x)$?`,R`Slutligen: är de två lika? Det är det tredje villkoret som utesluter hopp och "hål".`],
+  losning:R`$f$ är kontinuerlig i $a$ om $\displaystyle\lim_{x\to a}f(x)=f(a)$`,
+  varfor:R`Likheten innehåller alla tre villkor: att $f(a)$ finns, att gränsvärdet finns och att de är lika. En likvärdig form med $\varepsilon$ och $\delta$ är: för varje $\varepsilon>0$ finns ett $\delta>0$ så att $\lvert x-a\rvert<\delta\Rightarrow\lvert f(x)-f(a)\rvert<\varepsilon$. <em>Vilken av formerna kursboken använder är inte kontrollerat; kontrollera i boken.</em>`,
+  fel:R`Att bara skriva "gränsvärdet finns" och glömma att det ska vara lika med $f(a)$. Eller att beskriva kontinuitet som "man kan rita grafen utan att lyfta pennan", vilket inte är en matematisk definition.`},
+ {id:'3b',fraga:R`Härled derivatan av funktionen $g(x)=x^5$.`,
+  begrepp:R`<em>Härleda</em> betyder att utgå från derivatans definition och räkna fram resultatet, inte bara använda regeln $(x^n)'=nx^{n-1}$.`,
+  svar:{typ:'skriv',lista:[R`Derivatans definition är angiven: $g'(x)=\lim_{h\to0}\dfrac{(x+h)^5-x^5}{h}$.`,R`$(x+h)^5$ är utvecklad (binomialsatsen) med rätt koefficienter $1,5,10,10,5,1$.`,R`$x^5$ tar ut varandra och $h$ förkortas bort.`,R`Gränsövergången $h\to0$ är gjord, och svaret $5x^4$ är angivet.`],etikett:'Skriv din härledning här (egen kontroll mot checklistan efteråt)'},
+  ledtrad:R`Börja med derivatans definition som ett gränsvärde av en <abbr title="Differenskvot: (f(x+h) − f(x)) / h">differenskvot</abbr>. Du behöver utveckla $(x+h)^5$.`,
+  delsteg:[R`$g'(x)=\displaystyle\lim_{h\to0}\frac{(x+h)^5-x^5}{h}$.`,
+   {t:R`Binomialsatsen: $(x+h)^5=x^5+5x^4h+\,?\,x^3h^2+10x^2h^3+5xh^4+h^5$.`,mini:{et:'Vilken koefficient ska stå vid ?',typ:'tal',ok:[10],efter:R`Rätt: det är $\binom52=10$, samma sorts tal som i uppgift 1e.`}},
+   R`Dra bort $x^5$ och dela med $h$: kvoten blir $5x^4+10x^3h+10x^2h^2+5xh^3+h^4$.`,R`Låt $h\to0$: alla termer med $h$ försvinner.`],
+  losning:R`$g'(x)=5x^4$`,
+  varfor:R`$\dfrac{(x+h)^5-x^5}{h}=5x^4+10x^3h+10x^2h^2+5xh^3+h^4\to 5x^4$ då $h\to0$. Det stämmer med regeln $(x^n)'=nx^{n-1}$ för $n=5$.`,
+  fel:R`Att bara skriva $5x^4$ utan härledning. Ett annat fel är att räkna $(x+h)^5=x^5+h^5$.`,
+  skriv:R`$g'(x)=\lim_{h\to0}\dfrac{(x+h)^5-x^5}{h}=\lim_{h\to0}\dfrac{x^5+5x^4h+10x^3h^2+10x^2h^3+5xh^4+h^5-x^5}{h}=\lim_{h\to0}\left(5x^4+10x^3h+10x^2h^2+5xh^3+h^4\right)=5x^4.$`}]},
+
+{nr:4,titel:'Skissera en graf',del:'Godkäntdel',poang:3,
+ sv:{lasa:1,losa:2,stud:3,varfor:'Standardmetod (derivata, teckenstudie, gränsvärden), men många moment som alla ska stämma, och asymptoterna ska motiveras. Beräkning av $f(4)$ med $\\ln 4$ och att utesluta sned asymptot är lätt att missa.'},
+ delar:[{id:'4',fraga:R`Skissera grafen till funktionen $$f(x)=\frac4x-x+5\ln x,\qquad x>0.$$ Ange särskilt eventuella lokala extrempunkter och asymptoter.`,
+  begrepp:R`En <abbr title="Punkt där grafen byter från växande till avtagande eller tvärtom">lokal extrempunkt</abbr> är ett lokalt största eller minsta värde. En <abbr title="Rät linje som grafen närmar sig obegränsat nära">asymptot</abbr> är en linje som grafen närmar sig. Lodrät asymptot: grafen går mot $\pm\infty$ vid ett visst $x$. Sned asymptot: grafen närmar sig en linje $y=kx+m$ när $x\to\infty$.`,
+  svar:{typ:'tal',ok:[3],etikett:'Det lokala minimivärdet (y-värdet)'},
+  ledtrad:R`Derivera, sätt derivatan lika med noll och gör en teckenstudie. Undersök sedan vad som händer när $x\to0^+$ och $x\to\infty$.`,
+  delsteg:[R`$f'(x)=-\dfrac4{x^2}-1+\dfrac5x=\dfrac{-x^2+5x-4}{x^2}=-\dfrac{(x-1)(x-4)}{x^2}$.`,
+   {t:R`Derivatan är noll när täljaren är noll.`,mini:{et:'Nollställen till $f\'$',typ:'mängd',ok:[1,4]}},
+   {t:R`Teckenstudie: för $0<x<1$ är $f'<0$, för $1<x<4$ är $f'>0$, för $x>4$ är $f'<0$.`,mini:{et:'Vad är x=1: minimum eller maximum?',typ:'alt',ok:['minimum','min','ettminimum','lokaltminimum']}},
+   {t:R`Funktionsvärdena: $f(1)=4-1+5\ln1=3$ och $f(4)=1-4+5\ln4=5\ln4-3$.`,mini:{et:'Värdet i maximipunkten (ca)',typ:'tal',ok:[3.9315],tol:0.01}},
+   {t:R`Asymptoter: när $x\to0^+$ går $\dfrac4x\to\infty$ snabbare än $5\ln x\to-\infty$, så $f\to+\infty$: lodrät asymptot $x=0$. När $x\to\infty$ är $f(x)=-x+5\ln x+\dfrac4x\to-\infty$.`,mini:{et:'Finns det en sned asymptot? (ja/nej)',typ:'alt',ok:['nej']}}],
+  losning:R`Lokalt minimum i $(1,3)$, lokalt maximum i $\bigl(4,\,5\ln4-3\bigr)\approx(4;\,3{,}93)$. Lodrät asymptot $x=0$. Ingen sned asymptot.`,
+  varfor:R`Teckenstudien visar att $f$ avtar, växer, avtar: $x=1$ är därför ett minimum och $x=4$ ett maximum. Ingen sned asymptot: $f(x)/x\to-1$ men $f(x)+x=5\ln x+\dfrac4x\to\infty$, så ingen linje $y=-x+m$ följer grafen. Eftersom $f$ avtar mot $-\infty$ efter $x=4$ finns exakt ett nollställe, vid $x\approx13{,}2$.`,
+  fig1:{namn:'Grafen till f(x) = 4/x − x + 5 ln x',f:'graf4'},
+  fel:R`Att glömma att $x>0$ begränsar definitionsmängden, att räkna $f(4)$ fel ($5\ln4-3$, inte $5\ln4-4$), eller att påstå en sned asymptot $y=-x$ utan att kontrollera att skillnaden går mot ett tal.`,
+  lista:[R`Lodrät asymptot $x=0$ med $f\to+\infty$ är markerad.`,R`Minimum $(1,3)$ är markerat.`,R`Maximum $(4,\,5\ln4-3)$ är markerat.`,R`Grafen går mot $-\infty$ när $x\to\infty$, och jag har sagt att det inte finns någon sned asymptot.`,R`Grafen avtar på $(0,1)$ och $(4,\infty)$ och växer på $(1,4)$.`]}]},
+
+{nr:5,titel:'Tre gränsvärden',del:'Godkäntdel',poang:3,
+ sv:{lasa:2,losa:1,stud:3,varfor:'Läsa av: $3^x$ mot $3x$ och tecknen i 5b är små detaljer i skanningen. Lösa: standardtekniker. För studenten: att veta vilken teknik som passar (jämföra tillväxt, standardgränsvärde, förkorta bort en faktor) och att motivera utan hjälpmedel.'},
+ delar:[
+ {id:'5a',fraga:R`Beräkna $\displaystyle\lim_{x\to\infty}\frac{5e^x+x^2}{3^x-\ln x}$.`,
+  begrepp:R`Ett <abbr title="Det värde ett uttryck närmar sig när x går mot en viss punkt eller mot oändligheten">gränsvärde</abbr> när $x\to\infty$ talar om vad uttrycket närmar sig för mycket stora $x$. Här tävlar exponentialfunktioner mot varandra.`,
+  svar:{typ:'tal',ok:[0]},
+  ledtrad:R`Dela täljare och nämnare med den snabbast växande termen i nämnaren, $3^x$.`,
+  delsteg:[R`$\dfrac{5e^x+x^2}{3^x-\ln x}=\dfrac{5\left(\frac e3\right)^x+x^2/3^x}{1-\ln x/3^x}$.`,
+   {t:R`Eftersom $e\approx2{,}718<3$ är $\frac e3<1$.`,mini:{et:'Vad går $(e/3)^x$ mot när $x\to\infty$?',typ:'tal',ok:[0]}},
+   R`Också $x^2/3^x\to0$ och $\ln x/3^x\to0$ (en exponentialfunktion med bas större än 1 växer snabbare än varje potens och varje logaritm).`],
+  losning:R`$0$`,varfor:R`Täljaren går mot $5\cdot0+0=0$ och nämnaren mot $1-0=1$, så kvoten går mot $0$. Intuitivt: $3^x$ växer snabbare än $e^x$.`,
+  fel:R`Att jämföra $e^x$ med $3^x$ fel och svara $\infty$ eller $5/\,$något. Basen $3$ är större än $e$, så nämnaren vinner.`},
+ {id:'5b',fraga:R`Beräkna $\displaystyle\lim_{x\to0}\frac{x^2+x+\ln(1+x)}{4x^3-3x}$.`,
+  begrepp:R`Både täljare och nämnare går mot $0$ när $x\to0$. Då måste uttrycket förenklas innan gränsvärdet kan avläsas.`,
+  svar:{typ:'tal',ok:[-0.6667],tol:0.001},
+  ledtrad:R`Bryt ut $x$ i nämnaren och dela täljare och nämnare med $x$. Du behöver standardgränsvärdet för $\ln(1+x)/x$.`,
+  delsteg:[R`Nämnaren: $4x^3-3x=x(4x^2-3)$.`,R`Dela täljare och nämnare med $x$: $\dfrac{x+1+\frac{\ln(1+x)}{x}}{4x^2-3}$.`,
+   {t:R`Standardgränsvärdet: när $x\to0$ går $\dfrac{\ln(1+x)}{x}\to$ ?`,mini:{et:'Gränsvärdet',typ:'tal',ok:[1]}}],
+  losning:R`$-\dfrac23$`,varfor:R`Täljaren går mot $0+1+1=2$ och nämnaren mot $-3$, så gränsvärdet är $\dfrac{2}{-3}=-\dfrac23$.`,
+  fel:R`Att glömma att $\ln(1+x)$ går mot $0$ men att $\ln(1+x)/x$ går mot $1$, och därför få täljaren till $1$ i stället för $2$.`},
+ {id:'5c',fraga:R`Beräkna $\displaystyle\lim_{x\to1}\frac{x^2-1}{2x^3+x^2-3}$.`,
+  begrepp:R`Insatt $x=1$ blir både täljare och nämnare $0$, alltså ett "$0/0$-uttryck". Det betyder att båda har faktorn $(x-1)$ som kan förkortas bort.`,
+  svar:{typ:'tal',ok:[0.25]},
+  ledtrad:R`Faktorisera täljare och nämnare så att $(x-1)$ syns. Nämnaren är ett tredjegradspolynom som har $x=1$ som rot.`,
+  delsteg:[R`Täljaren: $x^2-1=(x-1)(x+1)$.`,R`Nämnaren: polynomdivision med $(x-1)$ ger $2x^3+x^2-3=(x-1)(2x^2+3x+3)$.`,
+   {t:R`Förkorta $(x-1)$ och sätt in $x=1$ i det som är kvar.`,mini:{et:'Värdet av $2x^2+3x+3$ i $x=1$',typ:'tal',ok:[8]}}],
+  losning:R`$\dfrac14$`,varfor:R`Efter förkortning blir uttrycket $\dfrac{x+1}{2x^2+3x+3}\to\dfrac{2}{8}=\dfrac14$. Kontroll med l'Hôpitals regel: $\dfrac{2x}{6x^2+2x}$ i $x=1$ ger $\dfrac28=\dfrac14$.`,
+  fel:R`Att sätta in $x=1$ direkt och svara "$0/0$", eller att faktorisera nämnaren fel. Pröva faktoriseringen genom att multiplicera ihop den.`}]},
+
+{nr:6,titel:'Maximal volym',del:'Godkäntdel',poang:3,
+ sv:{lasa:3,losa:2,stud:3,varfor:'Läsa av: uppgiften beror på en figur, och sambanden $3h+2b=9$ och $\\ell+2h=6$ måste läsas ur den. Lösa: ren envariabeloptimering när sambanden är uppställda. För studenten: att ställa upp $V$ som funktion av en variabel och att motivera att det är ett maximum.'},
+ delar:[{id:'6',fraga:R`Figuren visar en ritning av hur en låda kan tillverkas av en rektangulär pappskiva med måtten $6\,\mathrm{dm}\times9\,\mathrm{dm}$. Lådan får formen av ett rätblock med längd $\ell$, bredd $b$ och höjd $h$. Volymen är $V=\ell bh$. Bestäm lådans dimensioner så att volymen blir maximal. (Du behöver inte förstå hur lådan konstrueras.)`,
+  fig0:{namn:'Pappskivan och måtten (förenklad återgivning av tentans figur)',f:'lada'},
+  begrepp:R`<abbr title="Ett problem där man söker det största eller minsta värdet av en storhet">Optimering</abbr> innebär att uttrycka storheten (här $V$) med en enda variabel och hitta dess största värde.`,
+  svar:{typ:'mängd',ok:[1,3,4],etikett:'Dimensionerna ℓ, b och h (dm), skilj med komma'},
+  ledtrad:R`Läs av figuren: vad blir summan av längderna längs den långa sidan (9) och längs den korta sidan (6)? Då kan $\ell$ och $b$ uttryckas med $h$.`,
+  delsteg:[R`Längs sidan 9: $h+b+h+b+h=9$, alltså $3h+2b=9$ och $b=\dfrac{9-3h}2$.`,
+   {t:R`Längs sidan 6: $h+\ell+h=6$, alltså $\ell=6-2h$.`,mini:{et:'Värdet av $\ell$ när $h=1$',typ:'tal',ok:[4]}},
+   R`Volymen som funktion av $h$: $V(h)=(6-2h)\cdot\dfrac{9-3h}{2}\cdot h=3h(3-h)^2$, med $0<h<3$ (annars blir $\ell$ eller $b$ negativ).`,
+   {t:R`Derivera: $V'(h)=3(3-h)^2-6h(3-h)=9(3-h)(1-h)$.`,mini:{et:'Nollställe i intervallet $0<h<3$',typ:'tal',ok:[1]}},
+   R`Teckenstudie: $V'>0$ för $h<1$ och $V'<0$ för $1<h<3$, så $h=1$ är ett maximum.`],
+  losning:R`$\ell=4$ dm, $b=3$ dm, $h=1$ dm (volym $V=12$ dm$^3$)`,
+  varfor:R`$V$ växer fram till $h=1$ och avtar därefter, och $V\to0$ vid båda ändpunkterna $h=0$ och $h=3$, så $h=1$ ger det största värdet. Då är $\ell=6-2=4$, $b=\dfrac{9-3}{2}=3$ och $V=4\cdot3\cdot1=12$.`,
+  fig1:{namn:'Volymen V(h)',f:'graf6'},
+  fel:R`Att läsa av figuren fel och skriva $2h+b=9$. Räkna antalet $h$ och $b$ längs varje sida. Ett annat fel är att glömma kontrollera ändpunkterna eller att motivera maximum.`,
+  skriv:R`Längs sidorna gäller $3h+2b=9$ och $\ell+2h=6$, så $b=\frac{9-3h}2$ och $\ell=6-2h$ med $0<h<3$. Då är $V(h)=\ell bh=3h(3-h)^2$. Derivatan $V'(h)=9(3-h)(1-h)$ är noll i $h=1$ (i intervallet), positiv före och negativ efter, och $V\to0$ vid ändpunkterna. Maximum vid $h=1$: $\ell=4$, $b=3$, $h=1$ dm, $V=12$ dm$^3$.`}]},
+
+{nr:7,titel:'Bisektrisen i en triangel',del:'Överbetygsdel',poang:3,
+ sv:{lasa:2,losa:3,stud:4,varfor:'Ingen figur följer med, så läsaren måste rita själv. Uppgiften kräver att man känner till (eller härleder) bisektrissatsen och sedan kombinerar den med cosinussatsen: inga standardformler är tillåtna, så hela kedjan måste motiveras.'},
+ delar:[{id:'7',fraga:R`I triangeln $ABC$ skär bisektrisen till $\angle A$ sidan $BC$ i punkten $D$. Beräkna längden av $BD$ då $AB=3$, $AC=4$ och $AD=2$.`,
+  fig0:{namn:'Triangeln (skiss, inte skalenlig i alla delar)',f:'tri'},
+  begrepp:R`En <abbr title="En linje som delar en vinkel i två lika stora delar">bisektris</abbr> till vinkel $A$ delar $\angle A$ i två lika delar. Låt halva vinkeln vara $\alpha$, så att $\angle BAD=\angle DAC=\alpha$.`,
+  svar:{typ:'tal',ok:[2.4495],tol:0.001,etikett:'Längden BD'},
+  ledtrad:R`Två fakta: (1) bisektrissatsen: $\dfrac{BD}{DC}=\dfrac{AB}{AC}$; (2) cosinussatsen i de två deltrianglarna $ABD$ och $ACD$, som båda innehåller vinkeln $\alpha$ och sidan $AD=2$.`,
+  delsteg:[
+   {t:R`Bisektrissatsen ger $\dfrac{BD}{DC}=\dfrac34$ (areorna av $ABD$ och $ACD$ har samma höjd från $A$ och förhåller sig som $BD:DC$, men också som $AB:AC$ eftersom vinklarna är lika).`,mini:{et:'Kvoten BD/DC som decimaltal',typ:'tal',ok:[0.75]}},
+   R`Cosinussatsen i $ABD$: $BD^2=3^2+2^2-2\cdot3\cdot2\cos\alpha=13-12\cos\alpha$.`,
+   R`Cosinussatsen i $ACD$: $DC^2=4^2+2^2-2\cdot4\cdot2\cos\alpha=20-16\cos\alpha$.`,
+   R`Från $4\,BD=3\,DC$ får du $16\,BD^2=9\,DC^2$, alltså $16(13-12\cos\alpha)=9(20-16\cos\alpha)$.`,
+   {t:R`Lös ut $\cos\alpha$: $208-192\cos\alpha=180-144\cos\alpha$.`,mini:{et:'$\cos\alpha$ som bråk eller decimaltal',typ:'tal',ok:[0.58333],tol:0.001}},
+   R`Sätt in i $BD^2=13-12\cdot\tfrac7{12}=13-7=6$.`],
+  losning:R`$BD=\sqrt6$`,
+  varfor:R`$BD^2=6$ och $BD>0$ ger $BD=\sqrt6\approx2{,}45$. Kontroll: $DC=\tfrac43\sqrt6$ och $BC=\tfrac73\sqrt6\approx5{,}71$, vilket uppfyller triangelolikheten $\lvert4-3\rvert<BC<4+3$. En konstruktion av triangeln med de uppmätta sidorna ger $AD=2$ och två lika halvvinklar.`,
+  fel:R`Att använda bisektrislängdsformeln utan att kunna härleda den (inga hjälpmedel!), eller att blanda ihop vilken sida som hör till vilken kvot: $BD:DC=AB:AC$, alltså $3:4$, inte $4:3$.`,
+  skriv:R`Låt $\angle BAD=\angle DAC=\alpha$. Bisektrissatsen ger $BD:DC=AB:AC=3:4$. Cosinussatsen i $ABD$ och $ACD$ ger $BD^2=13-12\cos\alpha$ och $DC^2=20-16\cos\alpha$. Av $4BD=3DC$ följer $16BD^2=9DC^2$, vilket ger $\cos\alpha=\tfrac7{12}$ och $BD^2=13-7=6$. Alltså $BD=\sqrt6$.`}]},
+
+{nr:8,titel:'Deriverbarhet och graf med arcsin och arccos',del:'Överbetygsdel',poang:3,
+ sv:{lasa:1,losa:4,stud:5,varfor:'Inversa trigonometriska funktioner har begränsade värdemängder, och sammansättningen med $\\cos$ och $\\sin$ ger styckvis olika formler. Det är lätt att derivera formellt och missa att derivatan inte existerar i vissa punkter, eller att grafen blir styckvis linjär. Kräver både derivering och att resonera om var formeln gäller.'},
+ delar:[{id:'8',fraga:R`Låt $$f(x)=\arcsin(\cos x)+\arccos(\sin x).$$ Ange alla $x\in\mathbb R$ för vilka $f$ inte är deriverbar, och skissera grafen till $f$.`,
+  begrepp:R`$\arcsin y$ är den vinkel i $[-\tfrac\pi2,\tfrac\pi2]$ vars sinus är $y$, och $\arccos y$ är den vinkel i $[0,\pi]$ vars cosinus är $y$. Funktionen är <abbr title="Att derivatan existerar i punkten, så att grafen har en entydig tangent">deriverbar</abbr> i en punkt om grafen har en tangent där: vänster- och högerlutningen är lika.`,
+  svar:{typ:'regex',etikett:'Alla x där f inte är deriverbar (t.ex. x = …)'},
+  ledtrad:R`Derivera med kedjeregeln och förenkla $\sqrt{1-\cos^2x}$ och $\sqrt{1-\sin^2x}$. Var är derivatan inte definierad? Där måste du undersöka vänster- och högerlutningen.`,
+  delsteg:[R`$f'(x)=\dfrac{-\sin x}{\sqrt{1-\cos^2x}}+\dfrac{-\cos x}{\sqrt{1-\sin^2x}}$.`,
+   R`Eftersom $\sqrt{1-\cos^2x}=\lvert\sin x\rvert$ och $\sqrt{1-\sin^2x}=\lvert\cos x\rvert$ blir $f'(x)=-\dfrac{\sin x}{\lvert\sin x\rvert}-\dfrac{\cos x}{\lvert\cos x\rvert}$, för alla $x$ med $\sin x\ne0$ och $\cos x\ne0$.`,
+   {t:R`Kvoterna $\dfrac{\sin x}{\lvert\sin x\rvert}$ och $\dfrac{\cos x}{\lvert\cos x\rvert}$ är $\pm1$. Vad blir $f'(x)$ för $0<x<\tfrac\pi2$ (sin och cos positiva)?`,mini:{et:'$f\'(x)$ på $(0,\pi/2)$',typ:'tal',ok:[-2]}},
+   {t:R`Och för $\tfrac\pi2<x<\pi$ (sin positiv, cos negativ)?`,mini:{et:'$f\'(x)$ på $(\pi/2,\pi)$',typ:'tal',ok:[0]}},
+   R`Fortsätt i de två övriga fjärdedelarna: $f'=2$ på $(\pi,\tfrac{3\pi}2)$ och $f'=0$ på $(\tfrac{3\pi}2,2\pi)$. Mönstret upprepas med period $2\pi$.`,
+   {t:R`Formeln är odefinierad när $\sin x=0$ eller $\cos x=0$, det vill säga i $x=k\pi/2$. I varje sådan punkt byter lutningen värde (mellan $-2$, $0$ och $2$), så vänster- och högerderivatan är olika.`,mini:{et:'Funktionsvärdet f(0)',typ:'tal',ok:[3.14159],tol:0.01}}],
+  losning:R`$f$ är inte deriverbar i $x=\dfrac{k\pi}{2}$ för alla heltal $k$. Grafen är styckvis linjär: $f(x)=\pi-2x$ på $[0,\tfrac\pi2]$, $f=0$ på $[\tfrac\pi2,\pi]$, $f(x)=2x-2\pi$ på $[\pi,\tfrac{3\pi}2]$ och $f=\pi$ på $[\tfrac{3\pi}2,2\pi]$, därefter med period $2\pi$.`,
+  varfor:R`Lutningarna på de fyra delintervallen är $-2,\,0,\,2,\,0$. I varje punkt $k\pi/2$ är vänsterlutningen skild från högerlutningen ($-2\neq 0$, $0\neq 2$, $2\neq 0$, $0\neq-2$), så $f$ är inte deriverbar där. Mellan punkterna är $f$ linjär och därmed deriverbar. Värdena i brytpunkterna: $f(0)=\pi$, $f(\tfrac\pi2)=0$, $f(\pi)=0$, $f(\tfrac{3\pi}2)=\pi$, $f(2\pi)=\pi$.`,
+  fig1:{namn:'Grafen till f(x) = arcsin(cos x) + arccos(sin x)',f:'graf8'},
+  fel:R`Att derivera formellt och påstå att derivatan finns överallt. Eller att tro att $f$ bara är icke-deriverbar i några få punkter, när den är det i alla multiplar av $\pi/2$. Kolla alltid vänster- och högerlutning där formeln är odefinierad.`,
+  lista:[R`Grafen är styckvis linjär med lutningarna $-2,0,2,0$ i följd.`,R`Brytpunkterna är markerade vid $x=k\pi/2$ och värdena stämmer ($\pi,0,0,\pi$).`,R`Grafen upprepas med period $2\pi$.`,R`Jag har angett att $f$ inte är deriverbar i alla $x=k\pi/2$.`]}]},
+
+{nr:9,titel:'Det vikta pappret',del:'Överbetygsdel',poang:3,
+ sv:{lasa:3,losa:4,stud:5,varfor:'Geometriuppgift utan färdig metod. Man måste välja en variabel (här vinkeln $\\theta$), ställa upp $PQ$ som funktion av den och inse att viktningen bevarar längder. Figuren måste förstås rätt. Svaret $15\\sqrt3$ är kontrollerat, men vägen dit är lång och många tänker på koordinater i stället, som blir tyngre.'},
+ delar:[{id:'9',fraga:R`Ett rektangulärt pappersark med måtten $20\,\mathrm{cm}\times30\,\mathrm{cm}$ viks, enligt figuren, så att hörnet $A$ hamnar i punkten $A'$ på sidan $BC$. Arket viks längs sträckan $PQ$, där punkterna $P$ och $Q$ ligger på sidorna $AD$ respektive $AB$. Bestäm den minsta möjliga längden av $PQ$.`,
+  fig0:{namn:'Pappersarket vikt (en möjlig vikning, inte den kortaste)',f:'vik0'},
+  begrepp:R`När pappret viks längs $PQ$ speglas $A$ i linjen $PQ$ och hamnar i $A'$. En spegling bevarar längder och vinklar: $PA'=PA$ och $QA'=QA$. Vikningslinjen $PQ$ är därför <abbr title="Linje som är vinkelrät mot sträckan AA′ och går genom dess mittpunkt">mittpunktsnormal</abbr> till $AA'$.`,
+  svar:{typ:'tal',ok:[25.9808],tol:0.01,etikett:'Minsta längd av PQ (cm)'},
+  ledtrad:R`Låt $\theta=\angle APQ$ och $p=AP$. Uttryck $PQ$ med hjälp av $\theta$ och undersök när den är minst. Använd att $A'$ ligger på höjden $20$ över $AD$.`,
+  delsteg:[
+   R`Spegling i $PQ$ ger $\angle A'PQ=\theta$, så $\angle APA'=2\theta$. Dessutom är $PA'=PA=p$.`,
+   R`$A'$ ligger på $BC$, alltså på höjden $20$ över $AD$: $p\sin2\theta=20$, så $p=\dfrac{20}{\sin2\theta}$.`,
+   R`Triangeln $APQ$ är rätvinklig i $A$, så $PQ=\dfrac{p}{\cos\theta}$.`,
+   R`Sätt ihop: $PQ=\dfrac{20}{\sin2\theta\,\cos\theta}=\dfrac{10}{\sin\theta\cos^2\theta}$.`,
+   {t:R`$PQ$ är minst när $g=\sin\theta\cos^2\theta$ är störst. Sätt $s=\sin\theta$: $g=s(1-s^2)=s-s^3$, och $g'=1-3s^2=0$.`,mini:{et:'Vilket värde har $s=\sin\theta$ då?',typ:'tal',ok:[0.57735],tol:0.001}},
+   {t:R`Då är $g=\dfrac1{\sqrt3}\cdot\dfrac23=\dfrac{2}{3\sqrt3}$.`,mini:{et:'$g$ som decimaltal',typ:'tal',ok:[0.3849],tol:0.001}},
+   R`Kontrollera att uppställningen är genomförbar: $p=\dfrac{20}{\sin2\theta}=15\sqrt2\approx21{,}2\le30$ och $AQ=p\tan\theta=15\le20$, så $P$ och $Q$ ligger på sina sidor.`],
+  losning:R`$PQ_{\min}=15\sqrt3\approx25{,}98$ cm`,
+  varfor:R`$PQ=\dfrac{10}{g}$ med $g=\dfrac{2}{3\sqrt3}$ vid maximum ($g''=-6s<0$, så det är ett maximum) ger $PQ=10\cdot\dfrac{3\sqrt3}{2}=15\sqrt3$. Eftersom $PQ$ som funktion av $\theta$ är minst vid detta $\theta$ och det optimala läget är genomförbart (se kontrollen i sista steget), är $15\sqrt3$ det minsta värdet bland alla möjliga vikningar. En numerisk genomsökning av alla lägen på $A'$ ger samma värde.`,
+  fig1:{namn:'Vikningen vid minsta PQ (A′ ≈ 15,9 från D)',f:'vik1'},
+  fel:R`Att anta $A'$ mitt på $BC$ (som ger ett för långt $PQ$), att glömma att $PA'=PA$, eller att lägga upp koordinater utan att inse att vinkeln $\theta$ gör räkningen mycket enklare. Glöm inte kontrollera att $P$ och $Q$ ligger på sina sidor.`,
+  skriv:R`Låt $\theta=\angle APQ$ och $p=AP$. Spegling ger $PA'=p$ och $\angle APA'=2\theta$; $A'$ ligger på $BC$, så $p\sin2\theta=20$. Triangeln $APQ$ är rätvinklig: $PQ=p/\cos\theta=10/(\sin\theta\cos^2\theta)$. Med $s=\sin\theta$ maximeras $s-s^3$ vid $s=1/\sqrt3$, vilket ger $PQ=10\cdot\tfrac{3\sqrt3}{2}=15\sqrt3$. Då är $p=15\sqrt2\le30$ och $AQ=15\le20$, så läget är möjligt. Minsta längd: $15\sqrt3\approx25{,}98$ cm.`}]}
+];
+FIG.vik0=()=>FIG.vik(false);FIG.vik1=()=>FIG.vik(true);
+
+/* ===== MOTOR ===== */
+const norm=s=>s.toLowerCase().replace(/\s+/g,'').replace(/−/g,'-').replace(/²/g,'^2').replace(/,/g,'.');
+function expr(s){
+  let t=s.toLowerCase().replace(/−/g,'-').replace(/\s+/g,'').replace(/(\d),(\d)/g,'$1.$2').replace(/^[a-zℓ]\w*=/,'').replace(/≈.*/,'').replace(/π/g,'pi').replace(/√/g,'sqrt').replace(/\^/g,'**');
+  t=t.replace(/ln\(/g,'log(').replace(/ln(\d)/g,'log($1)').replace(/sqrt(\d+(\.\d+)?)/g,'sqrt($1)');
+  t=t.replace(/(\d|\))(pi|sqrt|log|\()/g,'$1*$2').replace(/\)(\d)/g,')*$1');
+  const probe=t.replace(/sqrt|log|pi/g,'').replace(/[\d+\-*/().]/g,'');
+  if(probe)return NaN;
+  try{return Function('"use strict";const sqrt=Math.sqrt,log=Math.log,pi=Math.PI;return ('+t+')')()}catch(e){return NaN}
+}
+function kolla(sp,v){
+  v=v.trim();if(!v)return{ok:false,msg:'Skriv ett svar först.'};
+  if(sp.typ==='alt'){const n=norm(v);return sp.ok.map(norm).includes(n)?{ok:true}:{ok:false,msg:'Stämmer inte än. Ta ett steg till, eller kontrollera tecken och förenkling.'}}
+  if(sp.typ==='tal'){const x=expr(v);return sp.ok.some(o=>Math.abs(x-o)<=(sp.tol!==undefined?sp.tol:1e-3*Math.max(1,Math.abs(o))))?{ok:true}:{ok:false,msg:isNaN(x)?'Jag kunde inte tolka svaret. Skriv t.ex. 1/8, -2/3 eller sqrt(6).':'Stämmer inte än. Kontrollera räkningen, eller ta ett steg till.'}}
+  if(sp.typ==='mängd'){const xs=(v.replace(/−/g,'-').replace(/\b[xℓbh]\d?\s*=/gi,' ').match(/-?\d+(?:\.\d+)?/g)||[]).map(Number).sort((a,b)=>a-b),ok=[...sp.ok].sort((a,b)=>a-b);
+    if(xs.length===ok.length&&xs.every((a,i)=>Math.abs(a-ok[i])<1e-6))return{ok:true};
+    if(xs.length&&xs.length<ok.length&&xs.every(a=>ok.some(o=>Math.abs(o-a)<1e-6)))return{ok:false,msg:'Det du skrivit stämmer, men det finns fler. Har du gått igenom alla fall?'};
+    return{ok:false,msg:'Stämmer inte än. Pröva att sätta in dina tal i uppgiften.'}}
+  if(sp.typ==='regex'){const n=norm(v).replace(/^x=/,'').replace(/π/g,'pi').replace(/[()·*]/g,'').replace(/[nm]/g,'k');return /^(kpi\/2|pik\/2|k\/2pi|pi\/2k)/.test(n)?{ok:true}:{ok:false,msg:'Stämmer inte än. Var är derivatan inte definierad, och byter lutningen värde där?'}}
+  return{ok:false}
+}
+const dst={};let klara=new Set();
+const $=id=>document.getElementById(id);
+const rubr=['Vad frågas?','Ledtråd','Delsteg','Lösning och varför den är rätt'];
+const text=['Visa ledtråd','Visa delsteg','Visa lösningen'];
+function fig(o,id){return o?`<figure id="fig-${id}"><figcaption>${o.namn}</figcaption>${FIG[o.f]()}</figure>`:''}
+function visa(id,r){const e=$(id);e.classList.remove('hidden','ok','no');e.classList.add(r.ok?'ok':'no');e.textContent=r.ok?'Stämmer.':r.msg}
+function render(){
+  const meny=$('meny'),rot=$('uppgifter'),tb=document.querySelector('#tabell-svarighet tbody');
+  U.forEach(u=>{
+    meny.insertAdjacentHTML('beforeend',`<li><a href="#u${u.nr}">Uppgift ${u.nr}: ${u.titel}</a></li>`);
+    tb.insertAdjacentHTML('beforeend',`<tr><td><a href="#u${u.nr}">${u.nr}</a></td><td>${u.sv.lasa}</td><td>${u.sv.losa}</td><td>${u.sv.stud}</td><td>${u.sv.varfor}</td></tr>`);
+    let h=`<h2 id="u${u.nr}">Uppgift ${u.nr}: ${u.titel}</h2><p class="sub">${u.del}, högst ${u.poang} poäng. <span class="sv">Läsa av ${u.sv.lasa}/5</span><span class="sv">Lösa ${u.sv.losa}/5</span><span class="sv">Student ${u.sv.stud}/5</span></p>`;
+    if(u.intro)h+=`<div class="box">${u.intro}</div>`;
+    if(u.nr===1)h+=`<p class="poang" id="poang">Du har 0 av 6 rätt, vilket motsvarar 0 poäng.</p>`;
+    u.delar.forEach(d=>{
+      const id=d.id,sp=d.svar;
+      let c=`<section class="card" id="d-${id}"><h3>${u.nr===1||u.nr===3||u.nr===5?id:'Uppgiften'}</h3><div class="q">${d.fraga}</div>
+      <div class="step open"><div class="lbl">${rubr[0]}</div><p>${d.begrepp}</p>${fig(d.fig0,id+'a')}</div>`;
+      if(sp.typ==='skriv')c+=`<div class="row" style="display:block"><label for="in-${id}">${sp.etikett}:</label><textarea id="in-${id}"></textarea></div>`;
+      else c+=`<div class="row"><label for="in-${id}">${sp.etikett||'Ditt svar'}:</label><input type="text" id="in-${id}" autocomplete="off"><button type="button" data-k="${id}">Kontrollera</button><span class="res hidden" id="res-${id}"></span></div>`;
+      c+=`<div class="row"><button type="button" data-s="${id}" data-n="1">Visa ledtråd</button></div>
+      <div class="step hidden" id="s1-${id}"><div class="lbl">${rubr[1]}</div><p>${d.ledtrad}</p></div>
+      <div class="step hidden" id="s2-${id}"><div class="lbl">${rubr[2]}</div>${d.delsteg.map((s,i)=>{
+        if(typeof s==='string')return `<div class="fall">${s}</div>`;
+        const m=s.mini,k=id+'m'+i;dst[k]=m;
+        return `<div class="fall">${s.t}<div class="row"><label for="in-${k}">${m.et}:</label><input type="text" id="in-${k}" autocomplete="off"><button type="button" data-m="${k}">Kontrollera</button><span class="res hidden" id="res-${k}"></span></div>${m.efter?`<p class="hidden" id="ef-${k}">${m.efter}</p>`:''}</div>`}).join('')}</div>
+      <div class="step hidden" id="s3-${id}"><div class="lbl">${rubr[3]}</div><div class="svar"><div class="svarlbl">✔ Rätt svar</div><div class="svartext">${d.losning}</div></div><p>${d.varfor}</p>${fig(d.fig1,id+'b')}<div class="box"><strong>Vanligt fel:</strong> ${d.fel}</div>`;
+      if(sp.typ==='skriv'||d.lista){const L=sp.typ==='skriv'?sp.lista:d.lista;c+='';dst['L'+id]=L.length;
+        c+=`<div class="lista"><div class="lbl">Checklista för ${sp.typ==='skriv'?'din lösning':'din skiss'}: kryssa vad din egen version innehåller</div>${L.map((t,i)=>`<label><input type="checkbox" data-l="${id}"> ${t}</label>`).join('')}<p class="res hidden" id="lres-${id}"></p></div>`}
+      if(d.skriv)c+=`<details class="skriv"><summary>Så kan lösningen skrivas på tentan (tentan kräver ordentliga motiveringar)</summary><p>${d.skriv}</p></details>`;
+      c+=`</div></section>`;h+=c});
+    rot.insertAdjacentHTML('beforeend',h)});
+}
+function math(r){window.renderMathInElement&&renderMathInElement(r||document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]})}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.k){const id=b.dataset.k,d=U.flatMap(u=>u.delar).find(x=>x.id===id),r=kolla(d.svar,$('in-'+id).value);visa('res-'+id,r);r.ok?klara.add(id):klara.delete(id);
+    if(id.length===2&&id[0]==='1'){const n=[...klara].filter(x=>/^1[a-f]$/.test(x)).length,p=n>=6?3:n===5?2:n===4?1:0;$('poang').textContent=`Du har ${n} av 6 rätt, vilket motsvarar ${p} poäng.`}}
+  else if(b.dataset.m){const k=b.dataset.m,m=dst[k],r=kolla(m,$('in-'+k).value);visa('res-'+k,r);if(r.ok&&m.efter){$('ef-'+k).classList.remove('hidden');math($('ef-'+k))}}
+  else if(b.dataset.s){const id=b.dataset.s,n=+b.dataset.n,s=$('s'+n+'-'+id);s.classList.remove('hidden');s.classList.add('open');if(n<3){b.dataset.n=n+1;b.textContent=text[n]}else b.disabled=true;math(s)}
+});
+document.addEventListener('change',e=>{const c=e.target;if(!c.dataset||!c.dataset.l)return;const id=c.dataset.l,n=document.querySelectorAll(`input[data-l="${id}"]:checked`).length,t=dst['L'+id],r=$('lres-'+id);r.classList.remove('hidden','ok','no');r.classList.add(n===t?'ok':'no');r.textContent=n===t?'Allt finns med.':`Du har kryssat ${n} av ${t}. Titta på lösningen och komplettera det som saknas.`});
+render();
+window.addEventListener('load',()=>math());
+</script>
+</body>
+</html>
