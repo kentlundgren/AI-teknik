@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Så kontrollerar man i flera steg</title>
+<meta name="description" content="Hur man kontrollerar ett svar led för led, som student eller när man ber en AI-modell lösa uppgifter, och hur man bygger in kontrollerna i en prompt.">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="brodsmulor.css">
+</head>
+<body>
+<!-- brodsmulor:start (genereras av brodsmulor.py från dokument.json: ändra dokument.json, inte här) -->
+<nav class="brodsmulor" aria-label="Brödsmulor och dokument i samma mapp">
+<ol><li><a href="index.html">Tentan i endimensionell analys, steg för steg</a></li><li aria-current="page">Så kontrollerar man i flera steg</li></ol>
+<p class="syskon">Fler dokument i samma mapp: <a href="index.html">Guiden: alla nio uppgifterna</a><span class="sep">·</span><a href="prompt.html">Prompt till andra AI-modeller</a><span class="sep">·</span><strong aria-current="page">Så kontrollerar man i flera steg</strong><span class="sep">·</span><a href="RESULTAT_test1_ChatGPT_variant_B_261101.html">Test 1: ChatGPT, variant B</a><span class="sep">·</span><a href="RESULTAT_test2_GLM53_Perplexity_variant_B_261101.html">Test 2: GLM-5.3 i Perplexity, variant B</a><span class="sep">·</span><a href="PRD_presentation_tenta_endimensionell_analys.html">PRD: beslut och öppna frågor</a><span class="sep">·</span><a href="META_svara_pa_tentauppgifter.html">Metanivå: vad som är svårt och kan gå fel</a><span class="sep">·</span><a href="JAMFORELSE_tentor_LTH_261030_och_LiU_260819.html">Jämförelse med tentan från Linköping</a></p>
+</nav>
+<!-- brodsmulor:slut -->
+<main>
+<p class="brand">Kent Lundgren <span>— uppdaterad den 2 nov 2026</span></p>
+<h1 id="kontroller">Så kontrollerar man i flera steg</h1>
+<p class="sub">Hur man kontrollerar ett svar led för led, som student eller när man ber en AI-modell lösa uppgifter, och hur man bygger in kontrollerna i en prompt. Exemplen kommer från tentan i endimensionell analys (LTH, 2026-10-30) och från testerna av två AI-modeller.</p>
+<p class="box">Exemplen är hämtade ur två testkörningar, och slutsatserna är inte belagda i någon forskning. Rapporterna innehåller alla svar på tentan. Kontrollera mot källan innan något återges.</p>
+
+<p>Ett svar är slutet på en kedja: man läser uppgiften, ställer upp den, räknar och tolkar resultatet. Ett fel i vilket led som helst ger ett fel svar, och felet syns inte alltid i nästa led. En kontroll har bara värde om den prövar ett led mot något som <em>inte</em> hänger på just det ledet. Prövar man ett svar mot sin egen uppställning ser man bara om räkningen stämde, inte om uppställningen var rätt. Det gäller en student på en tenta, en AI-modell som löser samma tenta, och många andra sammanhang (se <a href="#kontroller-utanfor">Utanför tentor</a>).</p>
+<p>Sidan bygger på vad som visade sig när samma tenta gavs till två AI-modeller (<a href="RESULTAT_test1_ChatGPT_variant_B_261101.html">test 1</a> och <a href="RESULTAT_test2_GLM53_Perplexity_variant_B_261101.html">test 2</a>, båda med en varning för att de innehåller alla svar) och på hur <a href="prompt.html#PromptB">prompt B</a> ändrades efter dem.</p>
+
+<h2 id="kontroller-kedjan">Kedjan från uppgift till svar</h2>
+<p><a href="#Tabell1">Tabell 1</a> går igenom de fem leden, vad som kan gå fel i varje, vilken kontroll som fångar felet och vilken som inte gör det.</p>
+<div class="scroll"><table class="kontroller"><caption id="Tabell1">Tabell 1. Kedjan från uppgift till svar och kontrollerna i varje led</caption>
+<thead><tr><th>Led</th><th>Vad kan gå fel</th><th>Kontroll som fångar felet</th><th>Kontroll som inte fångar det</th><th>Exempel ur testerna</th></tr></thead>
+<tbody>
+<tr><td><strong>1. Läsa uppgiften</strong></td><td>Felläst tecken eller ord, missad delfråga, felläst figur</td><td>Läs om mot originalet. Skriv av och jämför med originalet. För en figur: räkna delarna och måtten en och en.</td><td>Läsa sin egen avskrift igen utan att titta på originalet</td><td>I test 2 beskrevs figuren i uppgift 9 spegelvänd. Det påverkade inte svaret, men visar att avläsningen behöver kontrolleras.</td></tr>
+<tr><td><strong>2. Ställa upp</strong> (ekvation, funktion eller <abbr title="Ett villkor som variablerna måste uppfylla, till exempel att delarna längs en sida tillsammans ska bli hela sidan">bivillkor</abbr>)</td><td>Fel samband, glömt villkor</td><td>Jämför varje samband med figuren eller texten, del för del. Sätt in ett enkelt fall där svaret är känt.</td><td>Pröva att svaret uppfyller de ekvationer man själv ställt upp. Det är en <abbr title="En kontroll som bygger på samma led som den ska pröva, och därför inte kan avslöja felet i det ledet">cirkulär kontroll</abbr>.</td><td>Uppgift 6 i test 2: sambandet för bredden skrevs med färre delar än figuren visar, och kontrollen "stämmer ✓" prövade bara mot det felaktiga sambandet.</td></tr>
+<tr><td><strong>3. Räkna</strong></td><td>Slarvfel, fel derivata, fel förenkling</td><td>Lös på ett annat sätt, sätt in tal, pröva numeriskt eller med ett specialfall</td><td>Göra om samma räkning på samma sätt</td><td>Uppgift 1f i test 2: rätt derivata men ett slarvfel i sista insättningen. Uppgift 9: derivatan löstes aldrig, och ett värde antogs i stället.</td></tr>
+<tr><td><strong>4. Tolka resultatet och svara</strong></td><td>Rot utanför intervallet, fel enhet, svar på en annan fråga, ett resultat på <abbr title="Randfall: ett värde precis på gränsen till det tillåtna området, där en punkt till exempel sammanfaller med ett hörn">randen</abbr></td><td>Sätt in svaret i den ursprungliga uppgiften. Rimlighetskontroll: storleksordning, tecken, enhet, gränsfall.</td><td>Kontrollera mot sin egen formel</td><td>Uppgift 9 i test 2: svaret låg på randen av det tillåtna området, en varningssignal som inte följdes upp. Uppgift 6: en volym som en låda av skivan inte kan ha.</td></tr>
+<tr><td><strong>5. Redovisa kontrollen</strong></td><td>Man påstår en kontroll som inte gjorts, eller anger samma säkerhet överallt</td><td>Visa vad som kontrollerades, mot vad, och vad det gav. Ange säkerheten för varje led.</td><td>Skriva "kontrollerat" eller "kod bekräftade" utan att visa det</td><td>Test 2: kontroller som angavs som gjorda med kod "bekräftade" svar som inte stämde vid enkel insättning, och alla svar fick "hög" säkerhet.</td></tr>
+</tbody></table></div>
+
+<h2 id="kontroller-sorter">Fyra sorters kontroll</h2>
+<div class="scroll"><table class="kontroller"><caption id="Tabell2">Tabell 2. Fyra sorters kontroll, vad de kan upptäcka och inte upptäcka</caption>
+<thead><tr><th>Sort</th><th>Vad den prövar</th><th>Fångar</th><th>Fångar inte</th></tr></thead>
+<tbody>
+<tr><td><strong>Mot källan</strong></td><td>Svaret och uppställningen mot uppgiften, figuren eller underlaget</td><td>Läs- och uppställningsfel</td><td>Fel som ligger i villkor man inte prövat. Prövar man bara en del av villkoren i uppgiften kan resten vara fel.</td></tr>
+<tr><td><strong>Annan metod</strong></td><td>Resultatet längs en annan väg: grafiskt, numeriskt, ett specialfall</td><td>Räknefel, och uppställningsfel om den andra vägen utgår från källan</td><td>Fel som båda vägarna delar, till exempel samma uppställning</td></tr>
+<tr><td><strong>Rimlighet</strong></td><td>Storlek, tecken, enhet, gränsfall</td><td>Grova fel, snabbt</td><td>Små fel</td></tr>
+<tr><td><strong>Internt</strong></td><td>Att räkningen stämmer med sig själv: räkna om, summera delar</td><td>Slarvfel</td><td>Fel uppställning och felläsning</td></tr>
+</tbody></table></div>
+
+<h2 id="kontroller-fragor">Fem frågor till varje kontroll</h2>
+<ol>
+<li><strong>Mot vad prövas det?</strong> Uppgiften, figuren och underlaget, eller bara det jag själv skrivit?</li>
+<li><strong>Är kontrollen oberoende av ledet den ska pröva?</strong> Använder den samma uppställning, samma formel eller samma avskrift är den cirkulär.</li>
+<li><strong>Hade den slagit larm om ledet var fel?</strong> Tänk dig ett medvetet fel, till exempel en del för lite i ett samband, och se om kontrollen skulle märka det.</li>
+<li><strong>Går minst en kontroll hela vägen tillbaka till uppgiften?</strong> En kontroll i varje led räcker inte om ingen av dem öppnar originalet.</li>
+<li><strong>Syns det vad som kontrollerats, mot vad, och vad det gav?</strong> Det som inte syns går inte att granska.</li>
+</ol>
+
+<h2 id="kontroller-prompt">Så bygger man in kontrollerna i en prompt</h2>
+<p>Skriver man bara "kontrollera svaret" väljer modellen ofta den kontroll som är lättast, och det är ofta den cirkulära. Det som fungerade bättre i <a href="prompt.html#PromptB">prompt B</a>, version 3:</p>
+<ol>
+<li><strong>Namnge stegen.</strong> Steg 1 är att läsa, steg 2 att lösa. För varje uppgift finns raderna Tolkning, Metod, Lösning, Kontroll mot uppgiften, Kontroll av räkningen, Svar, Hjälpmedel och Säkerhet.</li>
+<li><strong>Säg för varje kontroll vad den ska prövas mot.</strong> Den ena mot uppgiftstexten och figuren (svaret och uppställningen), den andra mot räkningen.</li>
+<li><strong>Kräv att kontrollen skiljer sig från steget.</strong> En annan metod, ett specialfall, och "inte bara samma räkning en gång till".</li>
+<li><strong>Låt kontrollerna hänga ihop.</strong> Steg 1 kontrollerar avläsningen, och i steg 2 kontrollerar den ena raden uppställningen mot uppgiften och den andra räkningen längs en annan väg. Ingen kontroll ersätter en annan.</li>
+<li><strong>Be om att kontrollen redovisas</strong>: vad som kontrollerades mot, och vad det gav.</li>
+<li><strong>Be om redovisning av hjälpmedel, källor och säkerhet.</strong> Säkerheten ska visa vilka led som kontrollerats på riktigt.</li>
+<li><strong>Provkör och läs hur modellen tolkade instruktionen.</strong> Raden "Kontroll" utan "mot vad" gav cirkulära kontroller i test 1 och 2 och blev i version 3 två rader. Prompten ändrades efter vad testerna visade.</li>
+</ol>
+<p>Ett hål finns kvar: prompten kräver ännu inte att ett påstående om körd kod ska kunna visas (vilken kod, vad den gav). Det är ett förslag till en nästa version.</p>
+
+<h2 id="kontroller-utanfor">Utanför tentor</h2>
+<p>Samma tankesätt passar varje arbete som består av flera led. Några exempel, tänkta som illustrationer:</p>
+<ul>
+<li><strong>Kalkylblad.</strong> Stäm formlerna mot källdata. Att en summa stämmer med sig själv visar bara att additionen fungerar.</li>
+<li><strong>Avstämning och bokslut.</strong> Stäm av mot underlaget (till exempel verifikat och kontoutdrag), inte bara mot den egna bokföringen.</li>
+<li><strong>Programmering.</strong> Låt testerna pröva det önskade beteendet enligt kravet, inte bara att koden gör det den gör.</li>
+<li><strong>Beräkningar i vardagen</strong>, till exempel att skala ett recept: kontrollera mot originalet och mot rimlighet (mängd per portion).</li>
+<li><strong>Svar från en AI-modell.</strong> Be om källan och pröva svaret mot den, inte mot modellens egen formulering.</li>
+</ul>
+<p>Vad som kan gå fel när en AI-modell läser av och löser uppgifter beskrivs också i <a href="META_svara_pa_tentauppgifter.html">metafilen</a>.</p>
+
+
+</main>
+
+<a class="corner corner-left" href="https://github.com/kentlundgren/AI-teknik/tree/main/Presentationer/11" target="_blank" rel="noopener">{ } GitHub</a>
+<button type="button" class="corner corner-right" id="techBtn" aria-label="Tekniköversikt">&lt;/&gt; teknik</button>
+
+<div class="modal-overlay" id="techModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="techTitle">
+    <button type="button" class="modal-close" id="techClose" aria-label="Stäng">&times;</button>
+    <h2 id="techTitle">Hur den här sidan är byggd</h2>
+    <p>Två delar: tekniken i sidan, och metoden som användes för att ta fram den. Inget påhittat, bara det som är sant.</p>
+
+    <h3 class="tech-section-title">Tekniken</h3>
+    <div class="tech-grid">
+      <div class="tech-card"><h3>Ren HTML, CSS och JavaScript</h3><p>Inga ramverk, inget byggsteg och inga externa bibliotek. JavaScript behövs bara för <code>#</code>-länkarna vid rubrikerna, förklaringarna vid hovring och den här rutan.</p></div>
+      <div class="tech-card"><h3>Tabellerna är vanlig HTML</h3><p>Två numrerade tabeller som blir bläddringsbara i sidled på smala skärmar. Inga bilder.</p></div>
+      <div class="tech-card"><h3>Ingen data skickas</h3><p>Sidan skickar ingenting till någon server och sparar ingenting.</p></div>
+    </div>
+
+    <h3 class="tech-section-title">Metoden</h3>
+    <div class="tech-grid">
+      <div class="tech-card"><h3>Utgår från testerna</h3><p>Avsnitten bygger på vad som visade sig när samma tenta gavs till två AI-modeller, och på hur prompten ändrades efter dem. Det är två körningar, inget mer.</p></div>
+      <div class="tech-card"><h3>Allmänt, inte bara för tentor</h3><p>Idén kom ur en fråga om hur man gör kontrollerna tydliga både i en prompt och som student:</p><blockquote>"hur man som student bör kontrollera i flera steg"</blockquote></div>
+      <div class="tech-card"><h3>Öppna avvikelser</h3><p>Ingen litteratur om kontrollmetoder är läst för sidan. Exemplen utanför tentor är illustrationer. Se <a href="PRD_presentation_tenta_endimensionell_analys.html">PRD:n</a>.</p></div>
+    </div>
+  </div>
+</div>
+
+<script src="kontroller.js"></script>
+</body>
+</html>

@@ -28,11 +28,11 @@
 <!-- brodsmulor:start (genereras av brodsmulor.py från dokument.json: ändra dokument.json, inte här) -->
 <nav class="brodsmulor" aria-label="Brödsmulor och dokument i samma mapp">
 <ol><li aria-current="page">Tentan i endimensionell analys, steg för steg</li></ol>
-<p class="syskon">Fler dokument i samma mapp: <strong aria-current="page">Guiden: alla nio uppgifterna</strong><span class="sep">·</span><a href="prompt.html">Prompt till andra AI-modeller</a><span class="sep">·</span><a href="RESULTAT_test1_ChatGPT_variant_B_261101.html">Test 1: ChatGPT, variant B</a><span class="sep">·</span><a href="RESULTAT_test2_GLM53_Perplexity_variant_B_261101.html">Test 2: GLM-5.3 i Perplexity, variant B</a><span class="sep">·</span><a href="PRD_presentation_tenta_endimensionell_analys.html">PRD: beslut och öppna frågor</a><span class="sep">·</span><a href="META_svara_pa_tentauppgifter.html">Metanivå: vad som är svårt och kan gå fel</a><span class="sep">·</span><a href="JAMFORELSE_tentor_LTH_261030_och_LiU_260819.html">Jämförelse med tentan från Linköping</a></p>
+<p class="syskon">Fler dokument i samma mapp: <strong aria-current="page">Guiden: alla nio uppgifterna</strong><span class="sep">·</span><a href="prompt.html">Prompt till andra AI-modeller</a><span class="sep">·</span><a href="kontroller.html">Så kontrollerar man i flera steg</a><span class="sep">·</span><a href="RESULTAT_test1_ChatGPT_variant_B_261101.html">Test 1: ChatGPT, variant B</a><span class="sep">·</span><a href="RESULTAT_test2_GLM53_Perplexity_variant_B_261101.html">Test 2: GLM-5.3 i Perplexity, variant B</a><span class="sep">·</span><a href="PRD_presentation_tenta_endimensionell_analys.html">PRD: beslut och öppna frågor</a><span class="sep">·</span><a href="META_svara_pa_tentauppgifter.html">Metanivå: vad som är svårt och kan gå fel</a><span class="sep">·</span><a href="JAMFORELSE_tentor_LTH_261030_och_LiU_260819.html">Jämförelse med tentan från Linköping</a></p>
 </nav>
 <!-- brodsmulor:slut -->
 <main>
-<p class="brand">Kent Lundgren <span id="versionText">— uppdaterad den 1 nov 2026</span></p>
+<p class="brand">Kent Lundgren <span id="versionText">— uppdaterad den 2 nov 2026</span></p>
 <h1 id="Start">Tentan i endimensionell analys, steg för steg</h1>
 <p class="sub">Alla nio uppgifterna ur <a href="https://kentlundgren.github.io/AI-teknik/Presentationer/11/endimensionell_analys_LTH_261030.pdf">tentan</a> Endimensionell analys B1, Lunds tekniska högskola (LTH), 2026-10-30, kl. 14.00–19.00, inga hjälpmedel.</p>
 <p class="box">Uppgifterna är avlästa ur en skannad PDF, och avläsningen är jämförd mot originalet. Svaren är kontrollerade med flera metoder (se <a href="#Tabell2">Tabell 2</a>) men inte granskade av någon utomstående rättare. Kontrollera mot källan innan något återges.</p>
@@ -42,7 +42,7 @@
 <div class="box"><strong>Regler enligt tentan:</strong> varje uppgift kan som mest ge 3 poäng, och lösningarna ska vara försedda med ordentliga motiveringar. Godkäntdel (uppgift 1–6): minst 9 poäng, och 0 poäng på högst en av de sex uppgifterna. Överbetygsdel (uppgift 7–9): 14 poäng på godkäntdelen ger 1 bonuspoäng; betyg 4 kräver minst 3 poäng och betyg 5 minst 6 poäng på denna del.</div>
 
 <h2 id="SaFungerar">Så fungerar guiden</h2>
-<p>Varje delfråga har fyra steg som du öppnar ett i taget: <em>vad frågas</em>, <em>ledtråd</em>, <em>delsteg</em> och <em>lösning</em>. Pröva först själv. Skriv ditt svar i det gula fältet och tryck på Kontrollera, så får du veta om det stämmer utan att se lösningen. I delstegen finns små kontrollfält för mellansvar. Där en uppgift kräver en egen skriven lösning eller en skiss kryssar du själv av en checklista. Kurslitteraturen enligt <a href="https://kurser.lth.se/kursplaner/19_20/FMAA05.pdf">LTH:s kursplan</a> står under <a href="#Kallor">Källor</a>.</p>
+<p>Varje delfråga har fyra steg som du öppnar ett i taget: <em>vad frågas</em>, <em>ledtråd</em>, <em>delsteg</em> och <em>lösning</em>. Pröva först själv. Skriv ditt svar i det gula fältet och tryck på Kontrollera, så får du veta om det stämmer utan att se lösningen. I delstegen finns små kontrollfält för mellansvar. Där en uppgift kräver en egen skriven lösning eller en skiss kryssar du själv av en checklista. Kurslitteraturen enligt <a href="https://kurser.lth.se/kursplaner/19_20/FMAA05.pdf">LTH:s kursplan</a> står under <a href="#Kallor">Källor</a>. Hur man kontrollerar ett svar i flera steg, och hur man skriver en prompt som bygger in kontrollerna, står på sidan <a href="kontroller.html">Så kontrollerar man i flera steg</a>.</p>
 
 <div id="uppgifter"></div>
 
@@ -67,6 +67,9 @@
 </tbody></table>
 <p class="sub">Uppgifterna är kontrollerade mot angivna metoder och inte kvalitetssäkrade av någon utomstående rättare. Kontrollera mot källan. Hur många poäng en lösning ger avgör en rättare. Kontrollerna finns i filerna <code>kontroll_oberoende.py</code> och <code>kontroll_med_sympy.py</code> i mappen.</p>
 </details>
+
+<h2 id="kontroller">Så kontrollerar man i flera steg</h2>
+<p>Hur man kontrollerar ett svar i flera led, och hur man bygger in kontrollerna i en prompt till en AI-modell, har en egen sida: <a href="kontroller.html">Så kontrollerar man i flera steg</a>.</p>
 
 <h2 id="Kallor">Källor</h2>
 <ol class="kallor">

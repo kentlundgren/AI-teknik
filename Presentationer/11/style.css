@@ -76,3 +76,7 @@ abbr[data-fk]{text-decoration:underline dotted;cursor:help}
 /* Källor */
 .kallor{padding-left:1.2rem}.kallor li{margin:.5rem 0}
 @media print{.corner,.modal-overlay{display:none}}
+
+/* Tabeller med många kolumner */
+.scroll{overflow-x:auto;margin:.8rem 0}
+.scroll table.kontroller{min-width:44rem;font-size:.88rem}
