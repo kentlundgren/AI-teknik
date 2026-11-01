@@ -38,6 +38,10 @@ th,td{border:1px solid var(--line);padding:.35rem .5rem;text-align:left;vertical
 caption{caption-side:top;text-align:left;font-weight:600;padding:.3rem 0}
 abbr{text-decoration:underline dotted;cursor:help}
 .score{font-weight:600}
+.svar{background:var(--ok);border:2px solid #2e7d32;border-radius:10px;padding:.6rem .9rem;margin:.4rem 0}
+.svarlbl{font-weight:700;font-size:.85rem;letter-spacing:.02em;color:#2e7d32}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .svarlbl{color:#7fd08a}}
+.svartext{font-size:1.25rem;font-weight:600}
 summary{cursor:pointer;color:var(--accent);min-height:44px;padding:.5rem 0}
 </style>
 </head>
@@ -82,8 +86,8 @@ const T=[
  förklaring:'<abbr title="Två linjer är parallella när de har samma lutning (riktningskoefficient)">Parallell</abbr> betyder samma lutning. En linje på formen $y=kx+m$ har lutningen $k$.',
  ledtråd:'Skriv om $2x+y=1$ så att $y$ står ensamt. Då ser du lutningen.',
  delsteg:['Lös ut $y$: $y=-2x+1$. Lutningen är alltså $k=-2$.','Linjen genom $(3,5)$ med lutning $-2$ kan skrivas $y-5=-2(x-3)$.','Förenkla: $y=-2x+6+5$.'],
- lösning:'$y=-2x+11$, det vill säga $2x+y=11$.',
- varför:'Lutningen är $-2$ precis som hos den givna linjen, så de är parallella. Insättning av punkten ger $-2\\cdot 3+11=5$, så linjen går genom $(3,5)$.',
+ lösning:'$y=-2x+11$',
+ varför:'Det kan också skrivas $2x+y=11$. Båda är ekvationer för samma linje och lika rätta: frågan ber om <em>en</em> ekvation för linjen, och den ena går över i den andra när man flyttar över $2x$. Lutningen är $-2$ precis som hos den givna linjen, så de är parallella. Insättning av punkten ger $-2\\cdot 3+11=5$, så linjen går genom $(3,5)$.',
  fel:'Att hålla fast vid $+2$ som lutning (tecknet försvinner när man läser av $2x+y=1$ direkt), eller att glömma att linjen ska gå genom just $(3,5)$ och bara skriva $y=-2x+1$.'},
 {id:'1b',fråga:'<abbr title="Att skriva ett andragradsuttryck på formen (x − a)² + c">Kvadratkomplettera</abbr> uttrycket $x^2-10x+19$.',
  ok:['(x-5)^2-6','(x-5)^2+(-6)','-6+(x-5)^2','(x-5)²-6'],
@@ -138,7 +142,7 @@ T.forEach(t=>{
   <div class="row"><button type="button" data-s="${t.id}" data-n="1">Visa ledtråd</button></div>
   <div class="step hidden" id="s1-${t.id}"><div class="lbl">${rubr[1]}</div><div>${t.ledtråd}</div></div>
   <div class="step hidden" id="s2-${t.id}"><div class="lbl">${rubr[2]}</div><ol>${t.delsteg.map(x=>'<li>'+x+'</li>').join('')}</ol></div>
-  <div class="step hidden" id="s3-${t.id}"><div class="lbl">${rubr[3]}</div><div><strong>${t.lösning}</strong></div><p>${t.varför}</p><div class="box"><strong>Vanligt fel:</strong> ${t.fel}</div></div>`;
+  <div class="step hidden" id="s3-${t.id}"><div class="lbl">${rubr[3]}</div><div class="svar"><div class="svarlbl">✔ Rätt svar</div><div class="svartext">${t.lösning}</div></div><p>${t.varför}</p><div class="box"><strong>Vanligt fel:</strong> ${t.fel}</div></div>`;
   kort.appendChild(d);
 });
 const text=['Visa ledtråd','Visa delsteg','Visa lösningen'];
