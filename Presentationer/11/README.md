@@ -19,6 +19,7 @@ Startsidan är `index.html`. Webbläsaren visar bara en fillista om du öppnar s
 |---|---|
 | `index.html`, `style.css` | Sidan och dess utseende |
 | `data.js` | Alla uppgifter, svar, ledtrådar, delsteg och svårighetsbedömning |
+| `og-bild.jpg` | Delningsbilden (1200 × 630) som LinkedIn och X visar när länken delas; taggarna står i `<head>` i `index.html` |
 | `figurer.js` | Figurerna (grafer och geometri) som SVG, ritade av kod |
 | `script.js` | Motorn: bygger sidan, kontrollerar svar, modal, ankare |
 | `PRD_presentation_tenta_endimensionell_analys.md` | Beslut, öppna frågor och ändringslogg |
