@@ -56,17 +56,47 @@
 </ol>
 
 <h2 id="kontroller-prompt">Så bygger man in kontrollerna i en prompt</h2>
-<p>Skriver man bara "kontrollera svaret" väljer modellen ofta den kontroll som är lättast, och det är ofta den cirkulära. Det som fungerade bättre i <a href="prompt.html#PromptB">prompt B</a>, version 3:</p>
+<p>Skriver man bara "kontrollera svaret" väljer modellen ofta den kontroll som är lättast, och det är ofta den cirkulära. Så är <a href="prompt.html#PromptB">prompt B</a>, version 4, uppbyggd. Version 1 och 2 gav cirkulära kontroller i testerna. Version 3 och 4 är ännu inte provkörda:</p>
 <ol>
-<li><strong>Namnge stegen.</strong> Steg 1 är att läsa, steg 2 att lösa. För varje uppgift finns raderna Tolkning, Metod, Lösning, Kontroll mot uppgiften, Kontroll av räkningen, Svar, Hjälpmedel och Säkerhet.</li>
-<li><strong>Säg för varje kontroll vad den ska prövas mot.</strong> Den ena mot uppgiftstexten och figuren (svaret och uppställningen), den andra mot räkningen.</li>
+<li><strong>Namnge stegen.</strong> Steg 1 är att läsa, steg 2 att lösa. För varje uppgift finns raderna Tolkning, Metod, Lösning, Kontroll mot uppgiften, Kontroll av räkningen, Kontroll av rimlighet, Svar, Hjälpmedel och Säkerhet.</li>
+<li><strong>Säg för varje kontroll vad den ska prövas mot.</strong> Den ena mot uppgiftstexten och figuren (svaret och uppställningen), den andra mot räkningen och den tredje mot rimlighet (storlek, tecken, enhet, gränsfall).</li>
 <li><strong>Kräv att kontrollen skiljer sig från steget.</strong> En annan metod, ett specialfall, och "inte bara samma räkning en gång till".</li>
 <li><strong>Låt kontrollerna hänga ihop.</strong> Steg 1 kontrollerar avläsningen, och i steg 2 kontrollerar den ena raden uppställningen mot uppgiften och den andra räkningen längs en annan väg. Ingen kontroll ersätter en annan.</li>
 <li><strong>Be om att kontrollen redovisas</strong>: vad som kontrollerades mot, och vad det gav.</li>
-<li><strong>Be om redovisning av hjälpmedel, källor och säkerhet.</strong> Säkerheten ska visa vilka led som kontrollerats på riktigt.</li>
+<li><strong>Be om redovisning av hjälpmedel, källor och säkerhet.</strong> Säkerheten ska visa vilka led som kontrollerats på riktigt, och ett påstående om körd kod ska kunna visas (vilken kod, vad den gav).</li>
 <li><strong>Provkör och läs hur modellen tolkade instruktionen.</strong> Raden "Kontroll" utan "mot vad" gav cirkulära kontroller i test 1 och 2 och blev i version 3 två rader. Prompten ändrades efter vad testerna visade.</li>
 </ol>
-<p>Ett hål finns kvar: prompten kräver ännu inte att ett påstående om körd kod ska kunna visas (vilken kod, vad den gav). Det är ett förslag till en nästa version.</p>
+<p>Prompt B ber om tre av de fyra sorterna i <a href="#Tabell2">Tabell 2</a>: kontroll mot källan, en annan metod och rimlighet. Den fjärde, intern kontroll, ber den inte om, eftersom "samma räkning en gång till" ger lite.</p>
+
+<h2 id="kontroller-harness">Bättre svar utanför modellen: prompten och omgivningen</h2>
+<p>Att förbättra prompten, som gjorts på den här sidan, är ett exempel på något som ligger <em>utanför</em> själva AI-modellen. Modellen är en del av ett system. Runt den finns prompten (vad som begärs), stegen (i vilken ordning arbetet görs), verktygen (till exempel kod som kan köras), kontrollerna och den som läser resultatet. Allt det som omger modellen och styr hur den används kallas här modellens <abbr title="Ordet används löst. Här menas allt som omger modellen och styr hur den arbetar: prompt, steg, verktyg och kontroller. Något etablerat svenskt ord finns inte.">harness</abbr> (ungefär "sele" eller "ställning"). En bättre harness kan ge bättre svar med samma modell. Om ändringarna av prompt B har gett bättre svar är inte provat: version 1 och 2 är körda i testerna, version 3 och 4 är det inte.</p>
+
+<h3 id="kontroller-fraga">Som man frågar får man svar</h3>
+<p>Ordspråket stämmer på ett sätt. En prompt är en beställning, och det som inte beställs får man inte med säkerhet. Där önskemålet är vagt väljer modellen själv, och den väljer ofta det lättaste. "Kontrollera svaret" utan "mot vad" gav cirkulära kontroller i båda testerna. Det som inte står i prompten är inte garanterat.</p>
+<p>Men ordspråket är bara halva sanningen, av två skäl:</p>
+<ol>
+<li><strong>En väl formulerad fråga gör inte modellen riktig.</strong> I test 2 bad prompten (version 2) om kontroll och redovisning, och svaren innehöll ändå fel och kontroller som inte stämde.</li>
+<li><strong>Att be om en kontroll är inte samma sak som att få den.</strong> Modellen kan skriva att en kontroll är gjord utan att det syns att den gjorts. Beställningen måste därför följas av en granskning av leveransen.</li>
+</ol>
+<p>Man kan därför säga: som man frågar får man svar, och som man kontrollerar får man tillit. Frågan "hur säker är du på att du vet rätt svar" hör hit. Raden "Säkerhet: hög" säger bara att modellen skrev det, och inte att något prövats.</p>
+
+<h3 id="kontroller-sjalva">Kontrollerar modellerna sig själva?</h3>
+<p>Delvis, men man kan inte lita på att det räcker, och man ser inte alltid vad som gjorts.</p>
+<ul>
+<li><strong>Några kontroller sker av sig själva.</strong> Flera nyare modeller har ett resonemangsläge, där modellen skriver en tankekedja före svaret (ofta dold) och försöker pröva och rätta sig. Agentmiljöer, som de som användes i testerna, kan dessutom köra kod.</li>
+<li><strong>Man ser inte vad som kontrollerats.</strong> Det som syns är det modellen <em>säger</em> sig ha gjort. I test 2 beskrevs GLM-5.3 i en källa som en modell med resonemang alltid påslaget, och ändå innehöll svaret cirkulära kontroller, kontroller som sades vara gjorda med kod men inte stämde vid enkel insättning, och ett rätt arbete som byttes mot ett fel. Se <a href="RESULTAT_test2_GLM53_Perplexity_variant_B_261101.html">test 2</a>.</li>
+<li><strong>Forskningen är inte entydig.</strong> <a href="https://arxiv.org/abs/2310.01798">Huang m.fl. (2023)</a> fann att språkmodeller har svårt att rätta sina egna svar i resonemangsuppgifter utan extern återkoppling, och att resultatet ibland blev sämre. <a href="https://arxiv.org/abs/2303.17651">Madaan m.fl. (2023)</a> visade att en modell som ger sig själv återkoppling och förbättrar svaret i flera varv gav bättre resultat i sju uppgifter. Det beror alltså på uppgiften och på om återkopplingen kommer från något oberoende. Båda studierna gjordes med modeller från 2023 och säger inte hur modellerna beter sig 2026. Bara sammanfattningarna (abstract) är lästa, inte hela artiklarna.</li>
+<li><strong>Vad modellerna gör utan att bli ombedda är inte provat här.</strong> Båda testerna hade en prompt som bad om kontroller. För att veta skulle samma tenta behöva köras med en minimal prompt, till exempel bara "lös bifogade frågor", och sedan granskas för vilka kontroller modellen gör av sig själv.</li>
+</ul>
+
+<h3 id="kontroller-oberoende">Den som gör bör inte ensam godkänna</h3>
+<p>En gammal princip i intern kontroll är att den som utför ett arbete inte ensam bör vara den som godkänner det (ofta kallad fyraögonprincipen eller åtskillnad av arbetsuppgifter). Samma tanke gäller här. En modell som kontrollerar sitt eget svar granskar sig själv, med samma blinda fläckar som när den löste uppgiften. Mer oberoende kontroller är:</p>
+<ul>
+<li><strong>Ett program som löser uppgiften på ett annat sätt</strong> och körs av någon annan än modellen. I det här projektet är det kontrollskripten med genomsökning och sympy (<code>kontroll_oberoende.py</code> och <code>kontroll_med_sympy.py</code>).</li>
+<li><strong>En annan modell eller en annan körning,</strong> och en jämförelse av svaren. När två modeller svarar olika, som i uppgift 6 och 9 i testerna, är det ett tecken att undersöka.</li>
+<li><strong>En människa som läser kontrollen</strong> och inte bara svaret.</li>
+<li><strong>Källan:</strong> uppgiftstexten, figuren eller underlaget.</li>
+</ul>
 
 <h2 id="kontroller-utanfor">Utanför tentor</h2>
 <p>Samma tankesätt passar varje arbete som består av flera led. Några exempel, tänkta som illustrationer:</p>
@@ -79,6 +109,12 @@
 </ul>
 <p>Vad som kan gå fel när en AI-modell läser av och löser uppgifter beskrivs också i <a href="META_svara_pa_tentauppgifter.html">metafilen</a>.</p>
 
+
+<h2 id="kontroller-kallor">Källor</h2>
+<ol class="kallor">
+<li id="ref-huang">Huang, J., Chen, X., Mishra, S., Zheng, H. S. m.fl. (2023) <em>Large Language Models Cannot Self-Correct Reasoning Yet</em>. <a href="https://arxiv.org/abs/2310.01798">https://arxiv.org/abs/2310.01798</a> (hämtad 2026-11-02). <em>Sammanfattningen är läst. Anger att modeller har svårt att rätta sina svar i resonemangsuppgifter utan extern återkoppling.</em></li>
+<li id="ref-madaan">Madaan, A., Tandon, N., Gupta, P., Hallinan, S. m.fl. (2023) <em>Self-Refine: Iterative Refinement with Self-Feedback</em>. <a href="https://arxiv.org/abs/2303.17651">https://arxiv.org/abs/2303.17651</a> (hämtad 2026-11-02). <em>Sammanfattningen är läst. Anger förbättring i sju uppgifter när modellen ger sig själv återkoppling i flera varv.</em></li>
+</ol>
 
 </main>
 
