@@ -1,13 +1,13 @@
 # Presentation 11: tentan i endimensionell analys, steg för steg
 
-- **Live:** [https://kentlundgren.github.io/AI-teknik/Presentationer/11/](https://kentlundgren.github.io/AI-teknik/Presentationer/11/) (adressen fungerar först när mappen är pushad och publicerad)
+- **Live:** [https://kentlundgren.github.io/AI-teknik/Presentationer/11/](https://kentlundgren.github.io/AI-teknik/Presentationer/11/)
 - **Avsändare:** Kent Lundgren
 
 En guide där läsaren leds steg för steg genom tentan i Endimensionell analys B1 vid Lunds tekniska högskola (LTH), skriven 2026-10-30. Varje uppgift har fyra steg som läsaren öppnar ett i taget (vad frågas, ledtråd, delsteg, lösning), kontrollfält för svar och mellansvar, checklistor där svaret är en text eller en skiss, figurer och en bedömning av hur svår uppgiften var. Uppgifterna är hämtade ur tentan och de källor som anges längst ned på sidan och är inte kvalitetssäkrade av någon utomstående. Kontrollera mot källan innan något återges.
 
 **Vad det är:** en guide, varken en undersökning som `10` eller en presentation av Kents arbetssätt som `Nr1` och `Nr2`. Mappnumret är inte en version. Sidhuvudet visar "uppdaterad den [datum]", som ändras vid varje innehållsändring (format `1 nov 2026`).
 
-**Status (2026-11-01):** arbetsversion, inte publicerad. Rätten att återge tentan publikt är inte klarlagd. Se `PRD_presentation_tenta_endimensionell_analys.md` för öppna frågor.
+**Status (2026-11-01):** publicerad (sidan och tentan-PDF:en svarar 200 på GitHub Pages, kontrollerat 2026-11-01). Rätten att återge tentan publikt är inte klarlagd. Se `PRD_presentation_tenta_endimensionell_analys.md` för öppna frågor.
 
 ## Så öppnar du sidan lokalt
 

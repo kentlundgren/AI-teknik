@@ -28,7 +28,7 @@ Sidor där läsaren leds steg för steg till att själv lösa något. De har ing
 
 | Mapp | Vad | Live |
 |---|---|---|
-| [11](11/) | Tentan i endimensionell analys (LTH, 2026-10-30), uppgift för uppgift: ledtråd, delsteg, kontrollerad lösning och svårighetsbedömning. Arbetsversion, inte publicerad | Ännu inte publicerad |
+| [11](11/) | Tentan i endimensionell analys (LTH, 2026-10-30), uppgift för uppgift: ledtråd, delsteg, kontrollerad lösning och svårighetsbedömning | [Live](https://kentlundgren.github.io/AI-teknik/Presentationer/11/) |
 
 ## Övrigt
 

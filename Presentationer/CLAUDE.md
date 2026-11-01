@@ -138,8 +138,8 @@ rubriken "Underhållsregler".
   en *guide*, varken undersökning eller presentation av Kents arbetssätt: ett
   guidekort per uppgift (ledtråd, delsteg, kontrollerad lösning), med
   kontrollfält, figurer och en svårighetsbedömning. Sidhuvudet säger
-  "uppdaterad den [datum]". Arbetsversion, inte publicerad; rätten att återge
-  tentan publikt är inte klarlagd. Se `11/PRD_presentation_tenta_endimensionell_analys.md`
+  "uppdaterad den [datum]". Publicerad (svarar 200 på GitHub Pages,
+  kontrollerat 2026-11-01); rätten att återge tentan publikt är inte klarlagd. Se `11/PRD_presentation_tenta_endimensionell_analys.md`
   och `11/META_svara_pa_tentauppgifter.md`.
 - **`Nr3`** — tom mapp lokalt (ingen fil, inget på GitHub, 2026-10-22).
   Innehåll och syfte är inte bestämda.
