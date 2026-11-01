@@ -42,6 +42,10 @@ i en undermapp. Ett tunt pekar-skill finns kvar globalt
 i AI-teknik-repot — håll det pekar-skillet i synk med namnet/syftet här,
 men lägg inget innehåll där.
 
+Varje ny presentationsmapp (`NrX`, `10`, `11` ...) har `index.html` som startsida
+och **båda** hörnlänkarna (`{ } GitHub` nedre vänster, `</> teknik` nedre höger):
+gå igenom punkt 0 i `kent-bygg-sidor` innan mappen kallas klar.
+
 Gäller tillsammans med [[kent-bygg-sidor]] — den skillen har de allmänna
 reglerna för Kents interaktiva sidor (fråga vid minsta tvekan, bygg/testa
 lokalt, publicera aldrig utan godkännande, Kents upplevelse väger tyngst,

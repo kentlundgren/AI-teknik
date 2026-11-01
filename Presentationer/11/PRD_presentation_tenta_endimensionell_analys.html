@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRD – Presentation 11: tentan i endimensionell analys, steg för steg</title>
+<link rel="stylesheet" href="PRD_presentation_tenta_endimensionell_analys.css">
+<link rel="stylesheet" href="brodsmulor.css">
+</head>
+<body>
+<!-- brodsmulor:start (genereras av brodsmulor.py från dokument.json: ändra dokument.json, inte här) -->
+<nav class="brodsmulor" aria-label="Brödsmulor och dokument i samma mapp">
+<ol><li><a href="index.html">Tentan i endimensionell analys, steg för steg</a></li><li aria-current="page">PRD: beslut och öppna frågor</li></ol>
+<p class="syskon">Fler dokument i samma mapp: <a href="index.html">Guiden: alla nio uppgifterna</a><span class="sep">·</span><strong aria-current="page">PRD: beslut och öppna frågor</strong><span class="sep">·</span><a href="META_svara_pa_tentauppgifter.html">Metanivå: vad som är svårt och kan gå fel</a><span class="sep">·</span><a href="JAMFORELSE_tentor_LTH_261030_och_LiU_260819.html">Jämförelse med tentan från Linköping</a></p>
+</nav>
+<!-- brodsmulor:slut -->
+<!-- genererad av md_till_html.py: ändra md-filen, inte den här sidan -->
+<div class="wrap">
+<p class="top"><span>Läsvy av <code>PRD_presentation_tenta_endimensionell_analys.md</code></span><a href="PRD_presentation_tenta_endimensionell_analys.md">Visa råtext (.md)</a></p>
+<main class="doc">
+<h1 id="prd--presentation-11-tentan-i-endimensionell-analys-steg-för-steg">PRD – Presentation 11: tentan i endimensionell analys, steg för steg</h1>
+<p><strong>Namn:</strong> PRD_presentation_tenta_endimensionell_analys<br>
+<strong>Plats:</strong> <code>AI-teknik/Presentationer/11/PRD_presentation_tenta_endimensionell_analys.md</code><br>
+<strong>Skapad:</strong> 2026-10-31<br>
+<strong>Version:</strong> 2 (läget 2026-10-31 inlagt; prototyp för uppgift 1 och preliminära svar)<br>
+<strong>Status (2026-10-31):</strong> utkast. Inget är beslutat utom det som står som BESLUTAT. Preliminära svar på alla nio uppgifter är beräknade med <a href="kontroll_med_sympy.py">kontroll_med_sympy.py</a>, men inte låsta med tidsstämpel, inte bekräftade av Kent och inte skrivna som lösningar. Prototyp för uppgift 1: <a href="prototyp_uppgift1.html">prototyp_uppgift1.html</a>.</p>
+<h2 id="0-läget-och-nästa-steg-läs-först-i-nästa-session">0. Läget och nästa steg (läs först i nästa session) <a class="anchor" href="#0-läget-och-nästa-steg-läs-först-i-nästa-session" aria-label="Länk till avsnittet">#</a></h2>
+<p><strong>Gjort 2026-10-31:</strong> tentan avläst (Tabell 1); PRD v1; svar beräknade med sympy/numerik (1: y = −2x + 11, (x−5)² − 6, −2, −1 &lt; x &lt; 1/3, 56, 1/8; 2: x = 2, 5, 10; 4: min 3 i x = 1, max 5 ln 4 − 3 i x = 4, asymptot x = 0; 5: 0, −2/3, 1/4; 6: h = 1, ℓ = 4, b = 3 dm, V = 12 dm³; 7: BD = √6; 8: ej deriverbar i x = kπ/2; 9: PQ min 15√3 cm); prototyp för uppgift 1 med fyra steg, självkontroll och poängräknare; Tabell 1 med svar ligger bakom ett stängt fält. Jämförelse med TATA41 (tentan i <code>10</code>): olika innehåll (LTH saknar integraler och serier, har geometri), ungefär jämförbar nivå, bedömning och inte mätning.</p>
+<p><strong>Kent ska besluta/bekräfta:</strong> (1) stämmer avläsningen av tentan (4h)? (2) varifrån kommer PDF:en och får frågorna återges (4e)? (3) fyra steg per uppgift, delsteg med egna kontrollfält, med "vanligt fel"? (4) ska AI-testet vara med (4d)? (5) vilken kursbok/kurssida (4i)? (6) ska jag låsa svaren med tidsstämpel nu?</p>
+<p><strong>Att göra senare:</strong> lås svaren med tidsstämpel; kontrollera om LTH publicerat ett lösningsförslag (titta inte innan svaren är låsta); lagra svar som hashvärden så de inte syns i källkoden; SPEC.md (4l); sedan uppgift 2 och framåt i samma form som uppgift 1; figurer och grafer som SVG (4, 6, 7, 8, 9).<br>
+<strong>Typ:</strong> guidad genomgång av en tenta. Inte en undersökning som <code>10</code>, och inte en presentation av Kents arbetssätt som <code>Nr1</code> och <code>Nr2</code>. Mappnamnet <code>11</code> är Kents val 2026-10-31 (följer <code>10</code>).<br>
+<strong>Avsändare:</strong> Kent Lundgren.</p>
+<h2 id="1-bakgrund">1. Bakgrund <a class="anchor" href="#1-bakgrund" aria-label="Länk till avsnittet">#</a></h2>
+<p>I <a href="../10/README.md">Presentation 10</a> prövade Kent hur generativ AI klarar envariabelanalys: Claude Code löste en öppen tenta (TATA41, Linköpings universitet) och Grok löste samma tenta och en värmeledningsuppgift mot ett facit som var låst i förväg. Det handlade om vad modellerna kan.</p>
+<p>Den 2026-10-31 la Kent en ny tenta i mappen <code>11</code>: <a href="endimensionell_analys_LTH_261030.pdf">endimensionell_analys_LTH_261030.pdf</a>. Enligt sidhuvudet är den en tentamensskrivning vid Lunds tekniska högskola, matematik, "Endimensionell analys B1", skriven 2026-10-30 kl. 14.00–19.00, utan hjälpmedel. Filen är en skannad bild av två sidor utan textlager; texten nedan är avläst ur bilden och ska kontrolleras av Kent (se 4h).</p>
+<p>Denna gång är frågan en annan: <strong>inte "kan AI lösa tentan", utan "hur får man en läsare att kunna lösa den själv?"</strong> Kent vill att presentationen visar frågorna, ger förslag på lösningar och guidar läsaren så att hen kan lösa uppgifterna på egen hand.</p>
+<h2 id="2-syfte">2. Syfte <a class="anchor" href="#2-syfte" aria-label="Länk till avsnittet">#</a></h2>
+<ul>
+<li><strong>Guida läsaren till egen lösning.</strong> Varje uppgift ska ha en väg från "jag förstår inte frågan" till "jag klarade den", där läsaren själv bestämmer hur mycket hjälp hen tar.</li>
+<li><strong>Visa vilket kunnande varje uppgift prövar</strong> (algebra, funktioner, gränsvärden, derivata, optimering, geometri), så att läsaren ser vad som behöver övas.</li>
+<li><strong>Visa hur en motiverad lösning ser ut.</strong> Tentan kräver "ordentliga motiveringar" (se Tabell 1), och det är där många poäng går förlorade.</li>
+<li><strong>Knyta an till <code>10</code>:</strong> samma ämne, men fokus på lärande, inte på modellens förmåga.</li>
+</ul>
+<h2 id="3-tentan-vad-den-innehåller">3. Tentan: vad den innehåller <a class="anchor" href="#3-tentan-vad-den-innehåller" aria-label="Länk till avsnittet">#</a></h2>
+<p><strong>Tabell 1. Tentans uppgifter, avlästa ur PDF:en.</strong> (Ordalydelsen skrivs in i <code>data.js</code> först när Kent bekräftat avläsningen.)</p>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Uppgift</th><th scope="col">Innehåll</th><th scope="col">Del</th><th scope="col">Poäng</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Sex korta delfrågor, bara svar: a) linje genom (3, 5) parallell med 2x + y = 1; b) kvadratkomplettera x² − 10x + 19; c) förenkla ²log 6 − ²log 8 − ²log 3; d) lös 3 &lt; 4/(x + 1); e) binomialkoefficienten (8 över 5); f) f′(√3) för f(x) = sin(arctan x)</td><td>Godkänd</td><td>0–3 (0–3 rätt = 0 p, 4 rätt = 1 p, 5 rätt = 2 p, 6 rätt = 3 p)</td></tr>
+<tr><td>2</td><td>Lös ekvationen x·\</td><td>x − 8\</td><td>= \</td><td>x + 5\</td><td>+ 5</td><td>Godkänd</td><td>3</td></tr>
+<tr><td>3</td><td>a) definiera kontinuitet i punkten a; b) härled derivatan av g(x) = x⁵</td><td>Godkänd</td><td>3</td></tr>
+<tr><td>4</td><td>Skissera grafen till f(x) = 4/x − x + 5 ln x, x &gt; 0, med lokala extrempunkter och asymptoter</td><td>Godkänd</td><td>3</td></tr>
+<tr><td>5</td><td>Gränsvärden: a) x → ∞ av (5eˣ + x²)/(3ˣ − ln x); b) x → 0 av (x² + x + ln(1 + x))/(4x³ − 3x); c) x → 1 av (x² − 1)/(2x³ + x² − 3)</td><td>Godkänd</td><td>3</td></tr>
+<tr><td>6</td><td>Maximera volymen V = ℓbh för en låda av ett rektangulärt papper 6 dm × 9 dm (figur med måtten h, b, ℓ)</td><td>Godkänd</td><td>3</td></tr>
+<tr><td>7</td><td>Triangeln ABC: bisektrisen till ∠A skär BC i D. Beräkna BD då AB = 3, AC = 4, AD = 2</td><td>Överbetyg</td><td>3</td></tr>
+<tr><td>8</td><td>f(x) = arcsin(cos x) + arccos(sin x): ange alla x där f inte är deriverbar och skissera grafen</td><td>Överbetyg</td><td>3</td></tr>
+<tr><td>9</td><td>Ett papper 20 cm × 30 cm viks så att hörnet A hamnar på sidan BC; bestäm minsta möjliga längd av vikningslinjen PQ (figur)</td><td>Överbetyg</td><td>3</td></tr>
+</tbody></table></div>
+<p><strong>Regler enligt tentan (att återge exakt, inte tolka):</strong> inga hjälpmedel; varje uppgift ger som mest 3 poäng; lösningarna ska vara försedda med ordentliga motiveringar; för godkänt och betyg 3 krävs minst 9 poäng på godkäntdelen samt 0 poäng på högst en av de sex uppgifterna; 14 poäng på godkäntdelen ger 1 bonuspoäng på överbetygsdelen; betyg 4 kräver minst 3 poäng och betyg 5 minst 6 poäng på överbetygsdelen.</p>
+<p>Notera: figurerna till uppgift 6 och 9 är en del av uppgiften och måste ritas om på sidan (SVG), inte bara beskrivas.</p>
+<h2 id="4-frågor-och-beslut">4. Frågor och beslut <a class="anchor" href="#4-frågor-och-beslut" aria-label="Länk till avsnittet">#</a></h2>
+<p>Varje fråga har mitt gissade svar (förslag), så att Kent kan svara "ja" eller ändra.</p>
+<p><strong>a. Huvudläsare — ÖPPEN. Förslag:</strong> den som ska läsa eller läser envariabelanalys första gången (teknolog, eller gymnasieelev som siktar på teknisk högskola), plus lärare och föräldrar som vill se vad en tenta kräver. Texten svensk. Ska även en som inte läst kursen kunna följa? Förslag: ja, via en nivå som förklarar begrepp.</p>
+<p><strong>b. Guidemodell — ÖPPEN. Förslag: en trappa med fyra steg per uppgift</strong>, där läsaren öppnar ett steg i taget och aldrig ser nästa förrän hen väljer det:</p>
+<ol>
+<li><em>Vad frågas?</em> Frågan omskriven med begreppen förklarade (t.ex. vad en asymptot är). Ingen lösning.</li>
+<li><em>Ledtråd.</em> En mening om vilken metod som är relevant (t.ex. "förläng med konjugatet", "derivera och leta nollställen").</li>
+<li><em>Delsteg med kontrollpunkter.</em> Lösningen uppdelad i steg där läsaren kan kontrollera sitt mellansvar innan hen går vidare.</li>
+<li><em>Fullständig lösning med motivering.</em> Så som tentan kräver att den skrivs.</li>
+</ol>
+<p>Därtill efter steg 4: <em>vanliga fel</em> och <em>liknande uppgift att pröva själv</em>. <strong>Fråga:</strong> ska även <em>självkontroll</em> finnas (läsaren skriver sitt svar i ett fält och får "stämmer / stämmer inte" utan att se lösningen)? Förslag: ja, för uppgifterna med kort svar (1a–f, 5a–c, 6, 9); gult <code>#FFF9C4</code> används då bara på inmatningsfältet.</p>
+<p><strong>c. Vem tar fram lösningarna, och hur kontrolleras de — ÖPPEN, viktigast.</strong> Ingen officiell lösning finns i mappen. Förslag: lösningarna är <em>förslag på lösningar</em> som kontrolleras innan något publiceras: (1) varje svar räknas fram med datorverktyg (t.ex. Python/sympy) mot en andra metod, (2) facit för kortsvarsuppgifterna låses i förväg som i test 2 i <code>10</code> (hashvärde), (3) Kent går igenom varje lösning och bekräftar den innan den får stå på sidan. Texten får aldrig säga att Kent själv räknat eller kontrollerat något han inte gjort (regel 13 i <code>kent-meta-regler-for-code</code>); den får säga att uppgifterna är kontrollerade mot angivna metoder. Ingen AI-märkning, men ett öppet metodavsnitt ("så här har lösningarna kontrollerats").</p>
+<p><strong>d. Ska AI-testet från <code>10</code> vara med — ÖPPEN. Förslag: ja, men som en liten del på slutet, inte som huvudsak.</strong> Tentan skrevs 2026-10-30, dagen före, vilket gör den till en uppgift som ingen modell kan ha sett i sin träning. Det är ett rent test av samma slag som i <code>10</code>. Alternativ: lämna det helt åt <code>10</code> och håll <code>11</code> till lärandet. Vill Kent ha testet: samma upplägg som test 1–3 (facit låst först, en körning, redovisat vad som inte visas). Notera att tentan säger "inga hjälpmedel"; AI-testet är då ett test av modellen, inte ett förslag till studenter.</p>
+<p><strong>e. Rättigheter och publicering — ÖPPEN, avgörande för om frågorna får återges.</strong> Tentan är LTH:s och Matematiks dokument. Jag vet inte var Kent fått PDF:en och inte om LTH tillåter att tentafrågor återges publikt (i <code>10</code> gick LTH:s offentliga tentaarkiv inte att nå). <strong>Förslag:</strong> fråga Kent varifrån PDF:en kommer; kontrollera LTH:s och institutionens villkor (och om tentan redan är publicerad av institutionen); om tillstånd saknas, länka till institutionens egen sida i stället för att kopiera uppgifterna, och bygg guiden kring egna, likartade uppgifter. PDF:en ligger redan i en mapp som kan pushas till ett publikt repo; Kent committar själv, så flagga detta innan första commit.</p>
+<p><strong>f. Form — ÖPPEN. Förslag:</strong> en lång scrollsida i samma teknik som <code>10</code> (HTML/CSS/JS, data skild från motor, ingen automatisk uppspelning, läsbar på mobil, utskriftsvänlig). Översikt överst (Tabell 1 med länkar till varje uppgift), sedan ett kort per uppgift med trappan. Matematiken sätts med KaTeX från en CDN med exakt version. Grafer (uppgift 4 och 8) och figurer (6, 9, 7) ritas som SVG av <code>data.js</code>. Varje tabell och figur får nummer, namn och eget ankare; hänvisningar i löptext är klickbara.</p>
+<p><strong>g. Ordning och nivåer — ÖPPEN. Förslag:</strong> följ tentans ordning (1–9), med en märkning per uppgift av vilken del den tillhör (godkänd/överbetyg) och en rekommenderad väg: <em>börja med uppgift 1–3 för att nå godkänt, därefter 4–6, och 7–9 om du siktar högre.</em> Poängreglerna återges exakt från tentan.</p>
+<p><strong>h. Kontroll av avläsningen — ÖPPEN.</strong> Jag läste tentan ur en skannad bild. Innan något byggs ska Kent bekräfta Tabell 1, särskilt 1c (logaritm med bas 2), 1d, 5a–c, 8 och måtten i uppgift 6 och 9. Fel i en siffra gör hela lösningen fel.</p>
+<p><strong>i-1. Kursbok — läst i original (2026-11-01).</strong> LTH:s kursplan för Endimensionell analys (FMAA05, spår B, läsåret 2019/20; samma kurs finns som FMAA01, spår A) anger som kurslitteratur Månsson, J. och Nordbeck, P.: <em>Endimensionell analys</em>, Studentlitteratur, 2011, ISBN 9789144056104, samt <em>Övningar i endimensionell analys</em>, Studentlitteratur, 2018, ISBN 9789144127187, och Diehl, S.: <em>Inledande geometri för högskolestudier</em>, Studentlitteratur, 2015, kapitel P, T och A (<a href="https://kurser.lth.se/kursplaner/19_20/FMAA05.pdf" target="_blank" rel="noopener">kursplanen, PDF</a>, hämtad 2026-11-01). Kursplanen för 2026/27 hittades inte; kontrollera mot LTH:s aktuella kursplan innan boken anges som gällande. Vilket spår "B1" motsvarar är inte kontrollerat.</p>
+<p><strong>i. Källor — UTKAST.</strong> Teori (kontinuitet, derivatans definition, extrempunkter, gränsvärden, logaritmlagar) ska hänvisa till en kursbok eller institutionens kursmaterial som läses i original. <strong>Vilken bok/kurssida LTH använder vet jag inte; Kent anger.</strong> Harvardstil, alfabetisk ordning, hämtdatum för webbkällor, kursiv relevansförklaring, länkkontroll före leverans. Ingen källa som inte läst i original.</p>
+<p><strong>j. Röst och ton.</strong> Kent är avsändare. Ramtexten i hans röst (granskad mot <code>kent-skrivstil</code> och <code>humanizer_ton</code>). Lösningstexterna är matematiskt sakliga och riktar sig direkt till läsaren ("pröva att…", "titta på…"). Förklara uttryck vid första användning (asymptot, kvadratkomplettering, bisektris, derivata, kontinuitet m.fl.), i löptext och vid hovring/fokus/tryck.</p>
+<p><strong>k. Mappnamn och plats — BESLUTAT ✓ (Kent 2026-10-31): <code>11</code>.</strong> Notera mot <code>10</code>:s öppna fråga om en egen mapp <code>Undersokningar/</code>: <code>11</code> är en guide, inte en undersökning, så den räknas inte som den andra undersökningen. Påminn ändå Kent vid nästa undersökning. Adressen på Pages blir <code>https://kentlundgren.github.io/AI-teknik/Presentationer/11/</code> när den publicerats.</p>
+<p><strong>l. Behövs ett SPEC.md-steg härifrån?</strong> <strong>Ja, när 4b, 4c, 4e och 4f är beslutade.</strong> Då finns acceptanskriterier värda att skriva: datastruktur per uppgift (steg 1–4), regler för självkontroll, hur facit låses, figurer och grafer, mobilbredder, tillgänglighet, vad som aldrig får med.</p>
+<h2 id="5-omfattning">5. Omfattning <a class="anchor" href="#5-omfattning" aria-label="Länk till avsnittet">#</a></h2>
+<p><strong>Ingår (förslag):</strong></p>
+<ul>
+<li>En publik statisk sida på <code>.../AI-teknik/Presentationer/11/</code>.</li>
+<li>Översikt över tentan, ett guidekort per uppgift (fyra steg), regler för poäng och betyg återgivna exakt.</li>
+<li>Kontrollerade förslag på lösningar med motiveringar, kontrollmetod redovisad.</li>
+<li>Källförteckning, README med Live-länk och <code>## Repo</code> sist, "uppdaterad den [datum]" i sidhuvudet (underhållsregeln i <code>Presentationer/CLAUDE.md</code>).</li>
+</ul>
+<p><strong>Ingår inte:</strong></p>
+<ul>
+<li>Påståenden om hur LTH rättar eller poängsätter utöver det tentan själv anger.</li>
+<li>Uppgifter om verkliga personer (studenter, tentavakter, lärare).</li>
+<li>Löften om att läsaren får ett visst betyg.</li>
+<li>Lösningar som inte är kontrollerade.</li>
+</ul>
+<h2 id="6-leveranser">6. Leveranser <a class="anchor" href="#6-leveranser" aria-label="Länk till avsnittet">#</a></h2>
+<ul>
+<li class="task"><input type="checkbox" disabled aria-label="Bockruta"> Kent bekräftar avläsningen av tentan (4h)</li>
+<li class="task"><input type="checkbox" disabled aria-label="Bockruta"> Beslut om rättigheter och publicering (4e)</li>
+<li class="task"><input type="checkbox" disabled aria-label="Bockruta"> Beslut om guidemodell och självkontroll (4b), lösningsprocess (4c) och AI-del (4d)</li>
+<li class="task"><input type="checkbox" disabled aria-label="Bockruta"> Källor valda, lästa i original och länkkontrollerade (4i)</li>
+<li class="task"><input type="checkbox" disabled aria-label="Bockruta"> SPEC.md skriven och godkänd (4l)</li>
+<li class="task"><input type="checkbox" disabled aria-label="Bockruta"> Facit framtaget och låst, lösningarna kontrollerade och bekräftade av Kent</li>
+<li class="task"><input type="checkbox" disabled aria-label="Bockruta"> Fräscha-ögon-genomläsning av PRD:en innan den kallas klar</li>
+<li class="task"><input type="checkbox" disabled aria-label="Bockruta"> Bygge, README med Live-länk, versionsdatum i sidhuvudet</li>
+</ul>
+<h2 id="7-nästa-steg">7. Nästa steg <a class="anchor" href="#7-nästa-steg" aria-label="Länk till avsnittet">#</a></h2>
+<ol>
+<li>Kent svarar på 4e (var kommer tentan ifrån, får frågorna återges?), 4h (stämmer avläsningen?), 4b, 4c och 4d.</li>
+<li>Därefter SPEC.md (4l), och först då framtagning av lösningar och facit.</li>
+</ol>
+<h2 id="ändringslogg">Ändringslogg <a class="anchor" href="#ändringslogg" aria-label="Länk till avsnittet">#</a></h2>
+<ul>
+<li><strong>v5 (2026-11-01):</strong> Kent bekräftade avläsningen av uppgift 1 och 2. Ny prototyp med alla nio uppgifter: <a href="prototyp_alla_uppgifter.html">prototyp_alla_uppgifter.html</a> (gemensam motor, data i ett block, kontrollfält för mellansvar, checklistor för definitions-, bevis- och skissuppgifter, figurer som SVG, svårighetstabell). Kontrollen utökad till 21 kontroller inklusive mellanled (<a href="kontroll_oberoende.py">kontroll_oberoende.py</a>). Nya filer: <a href="META_svara_pa_tentauppgifter.html">META_svara_pa_tentauppgifter.md</a> (vad som är svårt och kan gå fel) och <a href="JAMFORELSE_tentor_LTH_261030_och_LiU_260819.html">JAMFORELSE_tentor_LTH_261030_och_LiU_260819.md</a>. Svårighetsbedömningen i sidan är Claudes och anges som sådan; reglerna om AI-märkning i <code>CLAUDE.md</code> bör vägas mot detta före publicering. "Vanligt fel"-rutorna är min bedömning och bör rubriceras som typiska fallgropar före publicering.</li>
+<li><strong>v4 (2026-11-01):</strong> <a href="prototyp_uppgift2.html">prototyp_uppgift2.html</a> tillagd: guide för uppgift 2 med samma fyra steg, plus kontrollfält för mellansvar i varje fall, Figur 1 (tallinje med tre fall) och Figur 2 (graferna med de tre skärningspunkterna), och ett förslag på hur lösningen kan skrivas med motivering. Provkörd i förhandsvisningen. Uppgift 1 och 2 delar ännu motor genom kopiering; motor och data ska skiljas i bygget (SPEC).</li>
+<li><strong>v3 (2026-11-01):</strong> tentan kommer från Kents son (fick med den hem efter skrivningen); rättigheterna i 4e är fortfarande inte klarlagda. Tidsstämpellåsning av svar utgår (svaren är tidsoberoende; låsning behövs bara om en modells förmåga testas mot ett facit). I stället: <a href="kontroll_oberoende.py">kontroll_oberoende.py</a> prövar alla svar med brute force och insättning, 15 av 15 kontroller OK. Kursbok läst i original (4i-1). Prototypen markerar rätt svar i en grön ruta.</li>
+<li><strong>v2 (2026-10-31):</strong> nytt avsnitt 0 (läget och nästa steg); preliminära svar och kontrollskript; prototyp för uppgift 1.</li>
+<li><strong>v1 (2026-10-31):</strong> första utkast. Tentan avläst ur den skannade PDF:en (Tabell 1), syfte, guidemodell i fyra steg, tolv frågor med gissade svar, omfattning och leveranser.</li>
+</ul>
+</main>
+<p class="foot">Genererad ur PRD_presentation_tenta_endimensionell_analys.md. Ändra md-filen och kör om skriptet, ändra inte den här sidan.</p>
+</div>
+</body>
+</html>

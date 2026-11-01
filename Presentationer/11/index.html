@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tentan i endimensionell analys, steg för steg</title>
+<meta name="description" content="Tentan i endimensionell analys vid LTH 2026-10-30, uppgift för uppgift: ledtråd, delsteg och kontrollerad lösning, så att du kan lösa den själv.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="style.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="brodsmulor.css">
+</head>
+<body>
+<!-- brodsmulor:start (genereras av brodsmulor.py från dokument.json: ändra dokument.json, inte här) -->
+<nav class="brodsmulor" aria-label="Brödsmulor och dokument i samma mapp">
+<ol><li aria-current="page">Tentan i endimensionell analys, steg för steg</li></ol>
+<p class="syskon">Fler dokument i samma mapp: <strong aria-current="page">Guiden: alla nio uppgifterna</strong><span class="sep">·</span><a href="PRD_presentation_tenta_endimensionell_analys.html">PRD: beslut och öppna frågor</a><span class="sep">·</span><a href="META_svara_pa_tentauppgifter.html">Metanivå: vad som är svårt och kan gå fel</a><span class="sep">·</span><a href="JAMFORELSE_tentor_LTH_261030_och_LiU_260819.html">Jämförelse med tentan från Linköping</a></p>
+</nav>
+<!-- brodsmulor:slut -->
+<main>
+<p class="brand">Kent Lundgren <span id="versionText">— uppdaterad den 1 nov 2026</span></p>
+<h1 id="Start">Tentan i endimensionell analys, steg för steg</h1>
+<p class="sub">Alla nio uppgifterna ur tentan Endimensionell analys B1, Lunds tekniska högskola (LTH), 2026-10-30, kl. 14.00–19.00, inga hjälpmedel.</p>
+<p class="status"><strong>Arbetsversion:</strong> den här rutan och de rader som säger "arbetsversion" tas bort före publicering. Uppgifterna är avlästa ur en skannad PDF, och avläsningen är jämförd mot originalet. Svaren är kontrollerade med flera metoder (se <a href="#Tabell2">Tabell 2</a>) men inte granskade av någon utomstående rättare. Rätten att återge tentan publikt är inte klarlagd.</p>
+
+<nav aria-label="Uppgifter"><strong>Hoppa till:</strong><ul id="meny"></ul></nav>
+
+<div class="box"><strong>Regler enligt tentan:</strong> varje uppgift kan som mest ge 3 poäng, och lösningarna ska vara försedda med ordentliga motiveringar. Godkäntdel (uppgift 1–6): minst 9 poäng, och 0 poäng på högst en av de sex uppgifterna. Överbetygsdel (uppgift 7–9): 14 poäng på godkäntdelen ger 1 bonuspoäng; betyg 4 kräver minst 3 poäng och betyg 5 minst 6 poäng på denna del.</div>
+
+<h2 id="SaFungerar">Så fungerar guiden</h2>
+<p>Varje delfråga har fyra steg som du öppnar ett i taget: <em>vad frågas</em>, <em>ledtråd</em>, <em>delsteg</em> och <em>lösning</em>. Pröva först själv. Skriv ditt svar i det gula fältet och tryck på Kontrollera, så får du veta om det stämmer utan att se lösningen. I delstegen finns små kontrollfält för mellansvar. Där en uppgift kräver en egen skriven lösning eller en skiss kryssar du själv av en checklista. Kurslitteraturen enligt <a href="https://kurser.lth.se/kursplaner/19_20/FMAA05.pdf">LTH:s kursplan</a> står under <a href="#Kallor">Källor</a>.</p>
+
+<div id="uppgifter"></div>
+
+<h2 id="Svarighet">Hur svår var varje uppgift?</h2>
+<p>Bedömningen i <a href="#Tabell1">Tabell 1</a> är gjord av Claude (språkmodellen som tagit fram guiden). Den är en bedömning, inte en mätning, och ingen statistik över hur många som klarat uppgifterna har använts. Skalan är 1 (lätt) till 5 (mycket svår). Tre saker bedöms: att <em>läsa av</em> uppgiften ur PDF:en, att <em>lösa</em> den (för en modell med räknehjälp), och att lösa den som <em>student</em> utan hjälpmedel på tentan. Vad som kan gå fel beskrivs i <a href="META_svara_pa_tentauppgifter.html">metafilen</a>, och jämförelsen med en annan tenta i <a href="JAMFORELSE_tentor_LTH_261030_och_LiU_260819.html">jämförelsen</a>.</p>
+<table id="tabell-svarighet"><caption id="Tabell1">Tabell 1. Svårighet per uppgift (1–5)</caption><thead><tr><th>Uppgift</th><th>Läsa av</th><th>Lösa (modell)</th><th>Student</th><th>Varför</th></tr></thead><tbody></tbody></table>
+
+<h2 id="Kontroll">Så har svaren kontrollerats</h2>
+<details id="facit"><summary>Visa tabellen (den innehåller alla svar, så pröva först själv)</summary>
+<table><caption id="Tabell2">Tabell 2. Kontroll av varje svar</caption>
+<thead><tr><th>Uppgift</th><th>Svar</th><th>Hur det kontrollerats</th></tr></thead>
+<tbody>
+<tr><td>1a–f</td><td>y = −2x + 11; (x−5)² − 6; −2; −1 &lt; x &lt; 1/3; 56; 1/8</td><td>insättning, identitet i 2001 punkter, rutnät med 10 000 punkter (1d), differenskvot (1f), sympy</td></tr>
+<tr><td>2</td><td>x = 2, 5, 10</td><td>handräkning i tre fall, insättning, teckenbyten på rutnät, sympy</td></tr>
+<tr><td>3a, 3b</td><td>definition; g′(x) = 5x⁴</td><td>3b: differenskvot och sympy; 3a är en definition och ska kontrolleras mot kursboken, inte numeriskt</td></tr>
+<tr><td>4</td><td>min (1, 3), max (4, 5 ln 4 − 3), asymptot x = 0</td><td>extrempunkter på rutnät med 1 000 000 punkter, gränsvärden, sympy, nollställe x ≈ 13,2</td></tr>
+<tr><td>5a–c</td><td>0; −2/3; 1/4</td><td>värden nära gränspunkten, sympy, faktoriseringen i 5c prövad i 1001 punkter</td></tr>
+<tr><td>6</td><td>ℓ = 4, b = 3, h = 1 dm; V = 12 dm³</td><td>genomsökning över h, sympy, derivata och V(h) prövade numeriskt</td></tr>
+<tr><td>7</td><td>BD = √6</td><td>triangeln konstruerad numeriskt: AD = 2 och halva vinklarna lika; cos α = 7/12 prövad</td></tr>
+<tr><td>8</td><td>x = kπ/2; styckvis linjär graf</td><td>ensidiga lutningar i x = kπ/2, k = −8…8, och lutning mellan dem (4000 punkter); den styckvisa formeln prövad i 5001 punkter</td></tr>
+<tr><td>9</td><td>PQ min = 15√3 ≈ 25,98 cm</td><td>genomsökning över vikningen, analytisk PQ(θ) mot geometrisk modell, optimum genomförbart (AP ≈ 21,2 ≤ 30; AQ = 15 ≤ 20)</td></tr>
+</tbody></table>
+<p class="sub">Uppgifterna är kontrollerade mot angivna metoder och inte kvalitetssäkrade av någon utomstående rättare. Kontrollera mot källan. Hur många poäng en lösning ger avgör en rättare. Kontrollerna finns i filerna <code>kontroll_oberoende.py</code> och <code>kontroll_med_sympy.py</code> i mappen.</p>
+</details>
+
+<h2 id="Kallor">Källor</h2>
+<ol class="kallor">
+<li id="ref-lth-kursplan">Lunds tekniska högskola (2019) <em>Kursplan för Endimensionell analys, FMAA05, läsåret 2019/20</em>. <a href="https://kurser.lth.se/kursplaner/19_20/FMAA05.pdf">https://kurser.lth.se/kursplaner/19_20/FMAA05.pdf</a> (hämtad 2026-11-01). <em>Anger kurslitteraturen. Kursplanen för 2026/27 hittades inte, så kursboken kan ha bytts.</em></li>
+<li id="ref-lth-tenta">Lunds tekniska högskola, Matematik (2026) <em>Tentamensskrivning Endimensionell analys B1, 2026-10-30</em>. Skannad tentamen utan publik länk. <em>Uppgifterna på den här sidan är avlästa ur den.</em></li>
+<li id="ref-mansson">Månsson, J. och Nordbeck, P. (2011) <em>Endimensionell analys</em>. Lund: Studentlitteratur. ISBN 9789144056104. <em>Anges som kurslitteratur i kursplanen ovan. Boken är inte läst i original för den här sidan; kontrollera definitioner och metoder (till exempel i uppgift 3a) mot boken.</em></li>
+</ol>
+</main>
+
+<a class="corner corner-left" href="https://github.com/kentlundgren/AI-teknik/tree/main/Presentationer/11" target="_blank" rel="noopener">{ } GitHub</a>
+<button type="button" class="corner corner-right" id="techBtn" aria-label="Tekniköversikt">&lt;/&gt; teknik</button>
+
+<div class="modal-overlay" id="techModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="techTitle">
+    <button type="button" class="modal-close" id="techClose" aria-label="Stäng">&times;</button>
+    <h2 id="techTitle">Hur den här sidan är byggd</h2>
+    <p>Två delar: tekniken i sidan, och metoden som användes för att ta fram den. Inget påhittat, bara det som är sant.</p>
+
+    <h3 class="tech-section-title">Tekniken</h3>
+    <div class="tech-grid">
+      <div class="tech-card"><h3>Ren HTML, CSS och JavaScript</h3><p>Inga ramverk och inget byggsteg. Det enda externa biblioteket är KaTeX (version 0.16.9, från cdnjs) som sätter formlerna.</p></div>
+      <div class="tech-card"><h3>Innehåll skilt från motor</h3><p><code>data.js</code> har alla uppgifter, svar, ledtrådar och delsteg. <code>script.js</code> är motorn och <code>figurer.js</code> ritar figurerna. Att lägga till en uppgift är en post i <code>data.js</code>.</p></div>
+      <div class="tech-card"><h3>Figurerna är kod, inte bilder</h3><p>Graferna plottas ur själva funktionerna (till exempel f(x) = 4/x − x + 5 ln x) som SVG. Geometrifigurerna ritas med koordinater. Inga bildfiler.</p></div>
+      <div class="tech-card"><h3>Svar kontrolleras i din webbläsare</h3><p>Ditt svar tolkas och jämförs lokalt, så att <code>1/8</code>, <code>0,125</code> och <code>sqrt(6)</code> går bra. Ingen data skickas till någon server och inget sparas.</p></div>
+      <div class="tech-card"><h3>Svaren syns i källkoden</h3><p>De rätta svaren ligger i klartext i <code>data.js</code>. Den som öppnar källkoden kan se dem. Guiden bygger på att läsaren vill lösa uppgifterna själv.</p></div>
+      <div class="tech-card"><h3>Egen kontroll där svaret är text</h3><p>Definitioner, härledningar och skisser kan inte kontrolleras automatiskt. Där kryssar läsaren av en checklista och jämför med lösningen.</p></div>
+    </div>
+
+    <h3 class="tech-section-title">Metoden</h3>
+    <div class="tech-grid">
+      <div class="tech-card"><h3>Beslut före bygge</h3><p>Syfte, guidemodell och öppna frågor skrevs först i en PRD: <a href="PRD_presentation_tenta_endimensionell_analys.html">PRD för sidan</a>.</p></div>
+      <div class="tech-card"><h3>Varje slutsvar kontrollerat flera gånger</h3><p>Handräkning, insättning i frågan, genomsökning av tusentals punkter och sympy. Skripten <code>kontroll_oberoende.py</code> (21 kontroller) och <code>kontroll_med_sympy.py</code> ligger i mappen.</p></div>
+      <div class="tech-card"><h3>Avläsningen jämförd mot originalet</h3><p>Tentan är en skannad PDF. Avläsningen jämfördes mot originalet av sidans avsändare. Det fångade att den vänstra figuren i uppgift 9 saknades:</p><blockquote>"jag kan inte se att du har med den vänstra figuren"</blockquote></div>
+      <div class="tech-card"><h3>Öppna avvikelser</h3><p>Ingen rättare har granskat lösningarna. Svårighetsbetygen är en bedömning. Kursboken är inte kontrollerad mot kursplanen för 2026/27. Vad som kan gå fel beskrivs i <a href="META_svara_pa_tentauppgifter.html">metafilen</a>.</p></div>
+    </div>
+  </div>
+</div>
+
+<script src="figurer.js"></script>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

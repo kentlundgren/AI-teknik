@@ -341,7 +341,7 @@ const U=[
 {nr:9,titel:'Det vikta pappret',del:'Överbetygsdel',poang:3,
  sv:{lasa:3,losa:4,stud:5,varfor:'Geometriuppgift utan färdig metod. Man måste välja en variabel (här vinkeln $\\theta$), ställa upp $PQ$ som funktion av den och inse att viktningen bevarar längder. Figuren måste förstås rätt. Svaret $15\\sqrt3$ är kontrollerat, men vägen dit är lång och många tänker på koordinater i stället, som blir tyngre.'},
  delar:[{id:'9',fraga:R`Ett rektangulärt pappersark med måtten $20\,\mathrm{cm}\times30\,\mathrm{cm}$ viks, enligt figuren, så att hörnet $A$ hamnar i punkten $A'$ på sidan $BC$. Arket viks längs sträckan $PQ$, där punkterna $P$ och $Q$ ligger på sidorna $AD$ respektive $AB$. Bestäm den minsta möjliga längden av $PQ$.`,
-  fig0:{namn:'Pappersarket vikt (en möjlig vikning, inte den kortaste)',f:'vik0'},
+  fig0:{namn:'Pappersarket före och efter vikningen (en möjlig vikning, inte den kortaste)',f:'vik0'},
   begrepp:R`När pappret viks längs $PQ$ speglas $A$ i linjen $PQ$ och hamnar i $A'$. En spegling bevarar längder och vinklar: $PA'=PA$ och $QA'=QA$. Vikningslinjen $PQ$ är därför <abbr title="Linje som är vinkelrät mot sträckan AA′ och går genom dess mittpunkt">mittpunktsnormal</abbr> till $AA'$.`,
   svar:{typ:'tal',ok:[25.9808],tol:0.01,etikett:'Minsta längd av PQ (cm)'},
   ledtrad:R`Låt $\theta=\angle APQ$ och $p=AP$. Uttryck $PQ$ med hjälp av $\theta$ och undersök när den är minst. Använd att $A'$ ligger på höjden $20$ över $AD$.`,
@@ -359,7 +359,16 @@ const U=[
   fel:R`Att anta $A'$ mitt på $BC$ (som ger ett för långt $PQ$), att glömma att $PA'=PA$, eller att lägga upp koordinater utan att inse att vinkeln $\theta$ gör räkningen mycket enklare. Glöm inte kontrollera att $P$ och $Q$ ligger på sina sidor.`,
   skriv:R`Låt $\theta=\angle APQ$ och $p=AP$. Spegling ger $PA'=p$ och $\angle APA'=2\theta$; $A'$ ligger på $BC$, så $p\sin2\theta=20$. Triangeln $APQ$ är rätvinklig: $PQ=p/\cos\theta=10/(\sin\theta\cos^2\theta)$. Med $s=\sin\theta$ maximeras $s-s^3$ vid $s=1/\sqrt3$, vilket ger $PQ=10\cdot\tfrac{3\sqrt3}{2}=15\sqrt3$. Då är $p=15\sqrt2\le30$ och $AQ=15\le20$, så läget är möjligt. Minsta längd: $15\sqrt3\approx25{,}98$ cm.`}]}
 ];
-FIG.vik0=()=>FIG.vik(false);FIG.vik1=()=>FIG.vik(true);
+FIG.vik0=()=>{const s=9,w=30*s,h=20*s,xa=30,xb=xa+w+90,y0=24,Y=y=>y0+h-y*s;
+  const P=[9.889,0],Q=[30,18.1],T=[12,20],XA=x=>xa+x*s,XB=x=>xb+x*s;
+  let g=`<rect x="${xa}" y="${y0}" width="${w}" height="${h}" fill="none" stroke-width="2.5"/>`+
+   tx(xa-12,y0+4,'C')+tx(xa+w+12,y0+4,'B')+tx(xa-12,y0+h+4,'D')+tx(xa+w+12,y0+h+4,'A')+tx(xa-16,y0+h/2+4,'20')+tx(xa+w/2,y0+h+20,'30')+
+   `<path d="M ${xa+w+30},${y0+h/2} Q ${xa+w+50},${y0+h/2-60} ${xb-30},${y0+h/2-8}" fill="none" stroke-width="2"/><polygon points="${xb-30},${y0+h/2-8} ${xb-42},${y0+h/2-14} ${xb-40},${y0+h/2+1}" stroke="none"/>`+
+   `<rect x="${xb}" y="${y0}" width="${w}" height="${h}" fill="none" stroke-width="2.5"/>`+
+   ln(XB(P[0]),Y(0),XB(T[0]),Y(20))+ln(XB(T[0]),Y(20),XB(30),Y(Q[1]))+ln(XB(P[0]),Y(0),XB(30),Y(Q[1]))+
+   ln(XB(P[0]),Y(0),XB(30),Y(0),'stroke-dasharray="6 4"')+ln(XB(30),Y(0),XB(30),Y(Q[1]),'stroke-dasharray="6 4"')+
+   tx(xb-12,y0+4,'C')+tx(xb+w+12,y0+4,'B')+tx(xb-12,y0+h+4,'D')+tx(xb+w+12,y0+h+4,'A')+tx(XB(T[0]),y0-8,"A′")+tx(XB(P[0]),y0+h+20,'P')+tx(XB(30)+14,Y(Q[1])+4,'Q');
+  return geo(xb+w+40,h+y0+34,g,'Pappersarket före vikningen (rektangeln ABCD, 20 gånger 30) och efter vikningen, där A hamnar i A′ på sidan BC')};FIG.vik1=()=>FIG.vik(true);
 
 /* ===== MOTOR ===== */
 const norm=s=>s.toLowerCase().replace(/\s+/g,'').replace(/−/g,'-').replace(/²/g,'^2').replace(/,/g,'.');

@@ -92,6 +92,12 @@ rubriken "Underhållsregler".
   sök upp och fråga efter de andra medierna om samma ämne, och notera
   kopplingarna (Provbänken fråga 5, fältet `medier`). Påstå aldrig att ett
   medium finns när det inte gör det. Se skillen `kent-ai-arbetssatt`, avsnitt 7.
+- **Startsida och hörnlänkar:** varje presentationsmapp (`NrX`, `10`, `11` ...)
+  har `index.html` som startsida (adressen `.../Presentationer/<mapp>/` på
+  GitHub Pages visar då sidan), plus **båda** hörnlänkarna i samma leverans:
+  `{ } GitHub` nedre vänster och `</> teknik` (modal med "Tekniken" och
+  "Metoden") nedre höger, kopierade från `Nr1/`. Lokalt visar `file:///…/mapp/`
+  bara en fillista: öppna `index.html`. Regel 6 i `kent-bygg-sidor`.
 - **README-konvention:** varje presentationsmapp (`NrX`) ska ha en
   `README.md` med kort beskrivning och länk till Live Page-URL:en, så fort
   den publicerats.
@@ -128,6 +134,13 @@ rubriken "Underhållsregler".
   "uppdaterad den [datum]" (ändras vid varje innehållsändring, format
   `22 okt 2026`). Publicerad 2026-10-22 (svarar 200 på GitHub Pages). Se
   `10/PRD_presentation_generation_2005.md`, `10/SPEC.md` och `10/README.md`.
+- **`11` — tentan i endimensionell analys (LTH 2026-10-30), steg för steg** —
+  en *guide*, varken undersökning eller presentation av Kents arbetssätt: ett
+  guidekort per uppgift (ledtråd, delsteg, kontrollerad lösning), med
+  kontrollfält, figurer och en svårighetsbedömning. Sidhuvudet säger
+  "uppdaterad den [datum]". Arbetsversion, inte publicerad; rätten att återge
+  tentan publikt är inte klarlagd. Se `11/PRD_presentation_tenta_endimensionell_analys.md`
+  och `11/META_svara_pa_tentauppgifter.md`.
 - **`Nr3`** — tom mapp lokalt (ingen fil, inget på GitHub, 2026-10-22).
   Innehåll och syfte är inte bestämda.
 - **Öppen fråga (2026-10-22): egen mapp `Undersokningar/`?** Vi har funderat på

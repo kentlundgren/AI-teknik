@@ -1,0 +1,9 @@
+{
+  "titel": "Tentan i endimensionell analys, steg för steg",
+  "dokument": [
+    {"fil": "index.html", "namn": "Guiden: alla nio uppgifterna", "roll": "huvud"},
+    {"fil": "PRD_presentation_tenta_endimensionell_analys.html", "namn": "PRD: beslut och öppna frågor", "roll": "sida"},
+    {"fil": "META_svara_pa_tentauppgifter.html", "namn": "Metanivå: vad som är svårt och kan gå fel", "roll": "sida"},
+    {"fil": "JAMFORELSE_tentor_LTH_261030_och_LiU_260819.html", "namn": "Jämförelse med tentan från Linköping", "roll": "sida"}
+  ]
+}

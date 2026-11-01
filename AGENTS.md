@@ -19,7 +19,7 @@ Samma regel finns som globalt Grok-skill `fraga-forst` och som Regel 2 i `RAG/WO
 
 - Standard: användaren committar och pushar själv.
 - Undantag: uttrycklig begäran («pusha till GitHub», «lägg filen i repot»).
-- Nya HTML-sidor ska ha hörn-länkarna `{ } GitHub` och `</> teknik` enligt `.cursor/rules/horn-lankar-github-teknik.mdc`.
+- Nya HTML-sidor ska ha `index.html` som startsida i sin mapp och **båda** hörn-länkarna `{ } GitHub` (nedre vänster) och `</> teknik` (nedre höger) i samma leverans, enligt `.cursor/rules/horn-lankar-github-teknik.mdc`.
 
 ## README: live-sida överst, avsnittet `## Repo` sist
 

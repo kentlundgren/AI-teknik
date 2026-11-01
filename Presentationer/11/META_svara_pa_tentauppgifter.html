@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metanivå: vad som är svårt när en AI läser av och löser tentauppgifter</title>
+<link rel="stylesheet" href="META_svara_pa_tentauppgifter.css">
+<link rel="stylesheet" href="brodsmulor.css">
+</head>
+<body>
+<!-- brodsmulor:start (genereras av brodsmulor.py från dokument.json: ändra dokument.json, inte här) -->
+<nav class="brodsmulor" aria-label="Brödsmulor och dokument i samma mapp">
+<ol><li><a href="index.html">Tentan i endimensionell analys, steg för steg</a></li><li aria-current="page">Metanivå: vad som är svårt och kan gå fel</li></ol>
+<p class="syskon">Fler dokument i samma mapp: <a href="index.html">Guiden: alla nio uppgifterna</a><span class="sep">·</span><a href="PRD_presentation_tenta_endimensionell_analys.html">PRD: beslut och öppna frågor</a><span class="sep">·</span><strong aria-current="page">Metanivå: vad som är svårt och kan gå fel</strong><span class="sep">·</span><a href="JAMFORELSE_tentor_LTH_261030_och_LiU_260819.html">Jämförelse med tentan från Linköping</a></p>
+</nav>
+<!-- brodsmulor:slut -->
+<!-- genererad av md_till_html.py: ändra md-filen, inte den här sidan -->
+<div class="wrap">
+<p class="top"><span>Läsvy av <code>META_svara_pa_tentauppgifter.md</code></span><a href="META_svara_pa_tentauppgifter.md">Visa råtext (.md)</a></p>
+<main class="doc">
+<h1 id="metanivå-vad-som-är-svårt-när-en-ai-läser-av-och-löser-tentauppgifter">Metanivå: vad som är svårt när en AI läser av och löser tentauppgifter</h1>
+<p><strong>Namn:</strong> META_svara_pa_tentauppgifter<br>
+<strong>Plats:</strong> <code>AI-teknik/Presentationer/11/META_svara_pa_tentauppgifter.md</code><br>
+<strong>Skapad:</strong> 2026-11-01<br>
+<strong>Version:</strong> 1<br>
+<strong>Författare:</strong> Claude (språkmodell), på Kent Lundgrens begäran. Arbetsdokument: texten är min egen reflektion, inte Kents, och är inte avsedd att publiceras i hans namn utan att han läst och bestämt det.<br>
+<strong>Gäller:</strong> tentan <a href="endimensionell_analys_LTH_261030.pdf">endimensionell_analys_LTH_261030.pdf</a>, guiden <a href="prototyp_alla_uppgifter.html">prototyp_alla_uppgifter.html</a> och kontrollerna <a href="kontroll_oberoende.py">kontroll_oberoende.py</a> och <a href="kontroll_med_sympy.py">kontroll_med_sympy.py</a>.</p>
+<p>Kent bad mig vara ärlig och transparent om vad som är svårt, vad som kan gå fel och var jag kan ha fel. Här är mitt försök. Jag skriver "jag" om mig själv, språkmodellen.</p>
+<h2 id="1-det-första-momentet-är-att-läsa-av-pdfen-och-det-har-en-egen-felrisk">1. Det första momentet är att läsa av PDF:en, och det har en egen felrisk <a class="anchor" href="#1-det-första-momentet-är-att-läsa-av-pdfen-och-det-har-en-egen-felrisk" aria-label="Länk till avsnittet">#</a></h2>
+<p>Tentan är en skannad bild utan textlager. Jag får alltså sidorna som bilder och tolkar dem; ingen separat teckenigenkänning kontrollerar mig. Det jag gjorde: jag renderade sidorna först i 110 punkter per tum och sedan i 220, beskar ut varje uppgift och läste om den. Tentan och guiden har jag jämfört på några enkla sätt: antalet delfrågor stämmer med tentans text ("sex" i uppgift 1), måtten i figurerna stämmer med måtten i texten (6 × 9 dm, 20 × 30 cm), och poängreglerna går ihop.</p>
+<p><strong>Det jag inte kan utesluta:</strong></p>
+<ul>
+<li><strong>Små tecken och index.</strong> Skillnaden mellan <code>³ˣ</code> och <code>3x</code>, mellan ett minustecken och ett tankstreck, och mellan <code>x²</code> och <code>x₂</code> avgörs av några få bildpunkter. I 5a läser jag <code>3^x</code>. Om det i själva verket vore <code>3x</code> blir gränsvärdet oändligt.</li>
+<li><strong>Skrivsätt.</strong> I 1c står <code>²log</code> (tvålogaritmen). Jag tolkar det som logaritm med bas 2, vilket är svensk skolnotation. Läser man det som något annat blir svaret ett annat.</li>
+<li><strong>Figurer.</strong> Uppgift 6 och 9 beror på figurerna. Jag har läst av att längs sidan 9 ligger <code>h, b, h, b, h</code> och längs sidan 6 ligger <code>h, ℓ, h</code>, och att <code>A′</code> hamnar på <code>BC</code> med <code>P</code> på <code>AD</code> och <code>Q</code> på <code>AB</code>. Det är min tolkning av en ritning; en annan läsare kan se något annat.</li>
+<li><strong>Gemensam felläsning.</strong> Min avläsning och mina senare kontroller bygger på samma tolkning. Om jag läst något fel kommer alla kontroller att bekräfta det felet. Den enda riktigt oberoende kontrollen av avläsningen är Kents egen jämförelse mot PDF:en. Han har bekräftat uppgift 1 och 2; uppgift 3–9 är ännu inte bekräftade av honom.</li>
+</ul>
+<p>Kent frågade om avläsningen är det svåraste momentet. Delvis: det är det moment där jag har minst möjlighet att kontrollera mig själv, och där ett litet fel får störst följder. Själva matematiken är ofta lättare att kontrollera än bilden.</p>
+<h2 id="2-vad-som-är-svårt-i-själva-lösningen">2. Vad som är svårt i själva lösningen <a class="anchor" href="#2-vad-som-är-svårt-i-själva-lösningen" aria-label="Länk till avsnittet">#</a></h2>
+<p>Per uppgift, med det jag bedömer som mest riskfyllt:</p>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Uppgift</th><th scope="col">Vad som kan gå fel</th></tr></thead>
+<tbody>
+<tr><td>1d</td><td>Att multiplicera med <code>x + 1</code> utan att tänka på tecknet. Ger svaret <code>x &lt; 1/3</code> i stället för <code>−1 &lt; x &lt; 1/3</code>.</td></tr>
+<tr><td>1f</td><td>Glömd inre derivata, eller fel värde på <code>arctan √3</code> (det är <code>π/3</code>).</td></tr>
+<tr><td>2</td><td>Att ta med falska rötter från andragradsekvationerna. Rötterna 0, 9 och −1 hör inte till sina fall.</td></tr>
+<tr><td>3a</td><td>Vilken definition kursboken använder. Jag har inte kontrollerat kursbokens formulering.</td></tr>
+<tr><td>3b</td><td>Att skriva <code>5x⁴</code> utan härledning; tentan säger "härled".</td></tr>
+<tr><td>4</td><td>Att glömma <code>x &gt; 0</code>, att räkna <code>f(4)</code> fel, och att påstå en sned asymptot utan att pröva den.</td></tr>
+<tr><td>5a</td><td>Jämförelsen <code>e^x</code> mot <code>3^x</code> och hur mycket som måste motiveras ("exponentialfunktioner växer snabbare än potenser" är en standardsats som jag hänvisar till, inte bevisar).</td></tr>
+<tr><td>6</td><td>Att läsa av sambanden ur figuren, och att motivera att det är ett maximum och inte bara ett stationärt värde.</td></tr>
+<tr><td>7</td><td>Ingen figur följer med. Uppgiften kräver bisektrissatsen och cosinussatsen utan formelsamling.</td></tr>
+<tr><td>8</td><td>Att derivera formellt och missa att derivatan inte finns i <code>kπ/2</code>. Det räcker inte att derivatan är odefinierad; man måste visa att vänster- och högerlutningen skiljer sig.</td></tr>
+<tr><td>9</td><td>Att välja en bra variabel (vinkeln <code>θ</code>), att inse att vikningen bevarar längder, och att kontrollera att optimum är genomförbart.</td></tr>
+</tbody></table></div>
+<p><strong>Allmänt riskfyllt för mig:</strong> långa kedjor där ett tecken kan slinka fel, och uppgifter som bygger på en figur. Rutinräkning (derivata, gränsvärde, olikhet) är sällan problemet; det är val av metod, definitionsområden och fallgropar.</p>
+<h2 id="3-vad-att-jag-kontrollerat-svaret-betyder-och-inte-betyder">3. Vad "att jag kontrollerat svaret" betyder och inte betyder <a class="anchor" href="#3-vad-att-jag-kontrollerat-svaret-betyder-och-inte-betyder" aria-label="Länk till avsnittet">#</a></h2>
+<p>Jag har kontrollerat varje slutsvar med minst en metod som skiljer sig från handräkningen: insättning i den ursprungliga frågan, genomsökning av tusentals punkter, konstruktion av triangeln i uppgift 7, och sympy. Se Tabell 2 i guiden och <a href="kontroll_oberoende.py">kontroll_oberoende.py</a> (21 av 21 kontroller OK).</p>
+<p><strong>Gränser:</strong></p>
+<ol>
+<li><strong>Numerik är inte bevis.</strong> En genomsökning av punkter visar att ett svar stämmer i de punkter jag prövat, inte att det stämmer överallt. Den ger mig förtroende, inte ett bevis.</li>
+<li><strong>Samma författare, samma tolkning.</strong> Metoderna är olika, men det är jag som valt dem och jag som tolkat uppgiften. Det gör kontrollen svagare än om en annan person räknat.</li>
+<li><strong>Ett test kan vara felkonstruerat.</strong> Ett gränsvärde prövat i en enda punkt säger lite. I 5a är kvoten vid <code>x = 60</code> ännu 0,0135, eftersom <code>(e/3)^x</code> inte hunnit bli liten, och ett test som kräver ett värde nära 0 där ger falskt larm. Kontrollen måste pröva flera punkter, långt ut, och jämföras med ett svar som härletts på annat sätt. Det gäller åt båda hållen: ett test kan också godkänna ett felaktigt svar.</li>
+<li><strong>Verktygets utdata måste granskas.</strong> I test 1 i <code>10</code> gav sympy ett komplext uttryck som var matematiskt rätt men inte i den form man väntar sig.</li>
+<li><strong>Inget facit.</strong> I test 1 i <code>10</code> fanns en officiell lösningsskiss. För den här tentan har jag inte hittat något lösningsförslag från LTH. Mina svar är därför inte jämförda med någon rättare.</li>
+<li><strong>Motiveringar och poäng är okontrollerade.</strong> Tentan kräver "ordentliga motiveringar". Jag har kontrollerat slutsvar. Hur mycket poäng en skriven lösning ger avgör en rättare, och det har ingen gjort.</li>
+</ol>
+<h2 id="4-skillnader-mellan-mig-och-en-student">4. Skillnader mellan mig och en student <a class="anchor" href="#4-skillnader-mellan-mig-och-en-student" aria-label="Länk till avsnittet">#</a></h2>
+<p>Jag har ingen tidspress, kan köra kod och pröva tusentals fall, och kan förklara flytande. Studenten har fem timmar, inga hjälpmedel och tentanervositet. Därför är mina svårighetsbetyg för "student" gissningar. De bygger på min bedömning av hur många steg och val en uppgift kräver, inte på uppgifter om hur studenter faktiskt klarat uppgifterna.</p>
+<h2 id="5-det-jag-skrivit-i-guiden-som-är-min-åsikt-inte-en-kontrollerad-fakta">5. Det jag skrivit i guiden som är min åsikt, inte en kontrollerad fakta <a class="anchor" href="#5-det-jag-skrivit-i-guiden-som-är-min-åsikt-inte-en-kontrollerad-fakta" aria-label="Länk till avsnittet">#</a></h2>
+<ul>
+<li><strong>"Vanligt fel"-rutorna</strong> beskriver vad jag tror är typiska fel. De bygger på allmän kunskap om hur sådana uppgifter brukar misslyckas, inte på data från LTH. Före publicering bör rubriken ändras till något som "typiska fallgropar", eller så ska de styrkas.</li>
+<li><strong>Svårighetsbetygen</strong> (1–5) är min bedömning.</li>
+<li><strong>Ledtrådarna och delstegen</strong> har jag formulerat själv. Slutsvaren är kontrollerade, men om en ledtråd är pedagogiskt bra har jag inte prövat på någon läsare.</li>
+<li><strong>Påståendet att en uppgift är "överbetygsuppgift"</strong> kommer ur tentans egen indelning, inte från mig.</li>
+</ul>
+<h2 id="6-flytande-text-är-inte-samma-sak-som-rätt-text">6. Flytande text är inte samma sak som rätt text <a class="anchor" href="#6-flytande-text-är-inte-samma-sak-som-rätt-text" aria-label="Länk till avsnittet">#</a></h2>
+<p>En förklaring från mig kan låta självsäker och vara fel. Det är en av de viktigaste sakerna att veta om att läsa en AI:s lösning. Skyddet är det som guiden försöker bygga in: läsaren ska kunna pröva sitt svar själv, se en kontroll på ett andra sätt, och jämföra mot kursboken. Sidan säger därför öppet att svaren är kontrollerade mot angivna metoder men inte granskade av någon utomstående, och att läsaren ska kontrollera mot källan.</p>
+<h2 id="7-vad-jag-bett-kent-göra-och-vad-som-återstår">7. Vad jag bett Kent göra, och vad som återstår <a class="anchor" href="#7-vad-jag-bett-kent-göra-och-vad-som-återstår" aria-label="Länk till avsnittet">#</a></h2>
+<ol>
+<li><strong>Bekräfta avläsningen</strong> av uppgift 3–9 mot PDF:en (uppgift 1 och 2 är bekräftade).</li>
+<li><strong>Klargöra om frågorna får återges publikt.</strong> Tentan kommer från Kents son, vilket visar att den finns hos Kent, inte att LTH tillåter publicering.</li>
+<li><strong>Låta en person med kunskap om kursen läsa guidens lösningar</strong>, helst en lärare eller en student som läst kursen, för att pröva ledtrådarna och motiveringarna.</li>
+<li><strong>Kontrollera 3a mot kursboken</strong> (Månsson och Nordbeck, <em>Endimensionell analys</em>, 2011, enligt kursplanen för 2019/20).</li>
+<li><strong>Om LTH publicerar ett lösningsförslag:</strong> jämför mina svar med det och notera eventuella skillnader öppet.</li>
+</ol>
+<h2 id="ändringslogg">Ändringslogg <a class="anchor" href="#ändringslogg" aria-label="Länk till avsnittet">#</a></h2>
+<ul>
+<li><strong>v1 (2026-11-01):</strong> första version.</li>
+</ul>
+</main>
+<p class="foot">Genererad ur META_svara_pa_tentauppgifter.md. Ändra md-filen och kör om skriptet, ändra inte den här sidan.</p>
+</div>
+</body>
+</html>
