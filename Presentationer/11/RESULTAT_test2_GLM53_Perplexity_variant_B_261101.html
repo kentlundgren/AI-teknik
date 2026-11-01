@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test 2 av en annan AI-modell: GLM-5.3 i Perplexity, variant B (tentan som PDF), 2026-11-01</title>
+<link rel="stylesheet" href="RESULTAT_test2_GLM53_Perplexity_variant_B_261101.css">
+<link rel="stylesheet" href="brodsmulor.css">
+</head>
+<body>
+<!-- brodsmulor:start (genereras av brodsmulor.py från dokument.json: ändra dokument.json, inte här) -->
+<nav class="brodsmulor" aria-label="Brödsmulor och dokument i samma mapp">
+<ol><li><a href="index.html">Tentan i endimensionell analys, steg för steg</a></li><li aria-current="page">Test 2: GLM-5.3 i Perplexity, variant B</li></ol>
+<p class="syskon">Fler dokument i samma mapp: <a href="index.html">Guiden: alla nio uppgifterna</a><span class="sep">·</span><a href="prompt.html">Prompt till andra AI-modeller</a><span class="sep">·</span><a href="RESULTAT_test1_ChatGPT_variant_B_261101.html">Test 1: ChatGPT, variant B</a><span class="sep">·</span><strong aria-current="page">Test 2: GLM-5.3 i Perplexity, variant B</strong><span class="sep">·</span><a href="PRD_presentation_tenta_endimensionell_analys.html">PRD: beslut och öppna frågor</a><span class="sep">·</span><a href="META_svara_pa_tentauppgifter.html">Metanivå: vad som är svårt och kan gå fel</a><span class="sep">·</span><a href="JAMFORELSE_tentor_LTH_261030_och_LiU_260819.html">Jämförelse med tentan från Linköping</a></p>
+</nav>
+<!-- brodsmulor:slut -->
+<!-- genererad av md_till_html.py: ändra md-filen, inte den här sidan -->
+<div class="wrap">
+<p class="top"><span>Läsvy av <code>RESULTAT_test2_GLM53_Perplexity_variant_B_261101.md</code></span><a href="RESULTAT_test2_GLM53_Perplexity_variant_B_261101.md">Visa råtext (.md)</a></p>
+<main class="doc">
+<h1 id="test-2-av-en-annan-ai-modell-glm-53-i-perplexity-variant-b-tentan-som-pdf-2026-11-01">Test 2 av en annan AI-modell: GLM-5.3 i Perplexity, variant B (tentan som PDF), 2026-11-01</h1>
+<p><strong>Namn:</strong> RESULTAT_test2_GLM53_Perplexity_variant_B_261101<br>
+<strong>Plats:</strong> <code>AI-teknik/Presentationer/11/RESULTAT_test2_GLM53_Perplexity_variant_B_261101.md</code><br>
+<strong>Skapad:</strong> 2026-11-02<br>
+<strong>Version:</strong> 1<br>
+<strong>Författare:</strong> Claude (språkmodell), på Kent Lundgrens begäran. Arbetsdokument; bedömningarna är mina.</p>
+<p><strong>Varning:</strong> den här filen innehåller alla svar på tentan. Pröva uppgifterna själv först, eller läs <a href="index.html">guiden</a>.</p>
+<p><strong>Underlag:</strong> en sammanfattningsbild (<a href="Bilder/GLM_5_3_i_Perplexity_loser_tentan_bild1_261101.jpg">bild</a>) och en skärminspelning på 2 minuter 11 sekunder (<a href="Video/Perplexity_loser_tentan_261101.mp4">video</a>, 14 MB). Jag har sett omkring 15 bildrutor ur videon, inte varje sekund, så delar av svaret kan jag inte ha sett. Länken till Perplexity-uppgiften har jag inte öppnat (den kräver inloggning), så jag har inte sett verktygsstegen eller koden. Prompten är <a href="prompt.html#PromptB">prompt B</a>, version 2 (videon visar att den innehåller "Gör steg 1 och steg 2 i samma svar"), och tentan är <a href="endimensionell_analys_LTH_261030.pdf">PDF:en</a>, bifogad som fil.</p>
+<h2 id="1-kort-resultat">1. Kort resultat <a class="anchor" href="#1-kort-resultat" aria-label="Länk till avsnittet">#</a></h2>
+<ul>
+<li><strong>13 av 17 delsvar stämmer, ett stämmer delvis och tre är fel.</strong> Felen är 1f, 6 och 9. Uppgift 8 har rätt svar på frågan om var funktionen inte är deriverbar, men grafen är fel. Se <a href="#tabell-1">Tabell 1</a>.</li>
+<li><strong>Tre av de felaktiga svaren följer samma mönster:</strong> modellen skriver att den kontrollerat med kod (sympy), och kontrollen bekräftar ett svar som inte stämmer. I uppgift 6 kontrolleras lösningen mot modellens egen felaktiga ekvation. I uppgift 8 och 9 stämmer det "bekräftade" inte med enkel insättning. Se avsnitt 5.</li>
+<li>Modellens redovisning av hjälpmedel och källor går inte att lita på utan att se verktygsloggen. Under svaret visas dessutom "1 källa", medan modellen skriver att den inte sökt på nätet. Se avsnitt 6.</li>
+<li>Testet gjordes med Perplexitys gratisabonnemang (enligt Kent). Det säger inget om hur modellen klarar tentan i ett betalt abonnemang eller via sitt eget API.</li>
+<li>Det här är en körning av en modell i en agentmiljö, inte en mätning av själva modellen.</li>
+</ul>
+<h2 id="2-vad-som-framgår-och-vad-som-saknas">2. Vad som framgår och vad som saknas <a class="anchor" href="#2-vad-som-framgår-och-vad-som-saknas" aria-label="Länk till avsnittet">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Fråga</th><th scope="col">Svar</th></tr></thead>
+<tbody>
+<tr><td>Modell</td><td>Modellen skriver själv "GLM-5.3 via Perplexitys agentmiljö". Det är modellens egen uppgift. Kent angav GLM 5.3.</td></tr>
+<tr><td>Miljö</td><td>Perplexity, en uppgift ("task") i Perplexitys agentmiljö. Gratisabonnemang. Vad gratisabonnemanget innehåller i övrigt har jag inte undersökt.</td></tr>
+<tr><td>Prompt</td><td>B, version 2.</td></tr>
+<tr><td>Körningar</td><td>En.</td></tr>
+<tr><td>Arbetstid</td><td>Videon visar "Arbetar 19s" när svaret börjar skrivas ut. Hur lång den totala arbetstiden var syns inte.</td></tr>
+<tr><td>Webbsökning</td><td>Okänt. Modellen uppger att den inte sökt. Under svaret står "1 källa" (<a href="Bilder/GLM_5_3_i_Perplexity_loser_tentan_bild1_261101.jpg">bild</a>). <strong>Saknas: vad den källan är.</strong> Det kan vara den bifogade PDF:en, men det är inte kontrollerat.</td></tr>
+<tr><td>Hur filen lästes</td><td>Modellen anger "Läsning: rendering av sidorna" och att ingen separat OCR användes. Se avsnitt 4 om vem som läste.</td></tr>
+</tbody></table></div>
+<h2 id="3-svaren-jämfört-med-guidens-kontrollerade-svar">3. Svaren jämfört med guidens kontrollerade svar <a class="anchor" href="#3-svaren-jämfört-med-guidens-kontrollerade-svar" aria-label="Länk till avsnittet">#</a></h2>
+<div class="table-wrap"><table>
+<caption id="tabell-1"><strong>Tabell 1.</strong> GLM-5.3:s slutsvar mot de kontrollerade svaren</caption>
+<thead><tr><th scope="col">Uppgift</th><th scope="col">GLM-5.3</th><th scope="col">Kontrollerat svar (guiden)</th><th scope="col">Utfall</th></tr></thead>
+<tbody>
+<tr><td>1a</td><td>y = −2x + 11</td><td>y = −2x + 11</td><td>Stämmer</td></tr>
+<tr><td>1b</td><td>(x − 5)² − 6</td><td>(x − 5)² − 6</td><td>Stämmer</td></tr>
+<tr><td>1c</td><td>−2</td><td>−2</td><td>Stämmer</td></tr>
+<tr><td>1d</td><td>−1 &lt; x &lt; 1/3</td><td>−1 &lt; x &lt; 1/3</td><td>Stämmer</td></tr>
+<tr><td>1e</td><td>56</td><td>56</td><td>Stämmer</td></tr>
+<tr><td>1f</td><td>1/4</td><td>1/8</td><td><strong>Fel</strong></td></tr>
+<tr><td>2</td><td>x = 2, 5, 10</td><td>x = 2, 5, 10</td><td>Stämmer</td></tr>
+<tr><td>3a</td><td>lim f(x) = f(a) när x → a (f ska vara definierad i a)</td><td>samma definition</td><td>Stämmer</td></tr>
+<tr><td>3b</td><td>g′(x) = 5x⁴ (härlett ur definitionen)</td><td>g′(x) = 5x⁴</td><td>Stämmer i slutsvaret. Härledningen har jag inte sett.</td></tr>
+<tr><td>4</td><td>min (1, 3), max (4, −3 + 5 ln 4), asymptot x = 0</td><td>samma</td><td>Stämmer. Närmevärdet ≈ 3,926 i lösningen är något fel (rätt ≈ 3,931), tabellen säger 3,93.</td></tr>
+<tr><td>5a</td><td>0</td><td>0</td><td>Stämmer</td></tr>
+<tr><td>5b</td><td>−2/3</td><td>−2/3</td><td>Stämmer</td></tr>
+<tr><td>5c</td><td>1/4</td><td>1/4</td><td>Stämmer</td></tr>
+<tr><td>6</td><td>h = (5 − √7)/2, b = (4 + √7)/2, ℓ = 1 + √7, V ≈ 14,3 dm³</td><td>h = 1, b = 3, ℓ = 4 dm, V = 12 dm³</td><td><strong>Fel</strong></td></tr>
+<tr><td>7</td><td>BD = √6 ≈ 2,45</td><td>BD = √6</td><td>Stämmer</td></tr>
+<tr><td>8</td><td>inte deriverbar för x = kπ/2; "triangelvåg" mellan π/2 och π</td><td>inte deriverbar för x = kπ/2; styckvis linjär graf med platta delar på nivåerna 0 och π</td><td>Delvis: svaret på frågan stämmer, grafen är fel</td></tr>
+<tr><td>9</td><td>PQ min = 20√2 ≈ 28,28 cm</td><td>PQ min = 15√3 ≈ 25,98 cm</td><td><strong>Fel</strong></td></tr>
+</tbody></table></div>
+<p>Enligt tentans poängregel för uppgift 1 ger fem rätt av sex 2 poäng. Hur många poäng övriga lösningar skulle ge avgör en rättare.</p>
+<h2 id="4-steg-1-avläsningen">4. Steg 1: avläsningen <a class="anchor" href="#4-steg-1-avläsningen" aria-label="Länk till avsnittet">#</a></h2>
+<ul>
+<li><strong>Uppgiftstexterna</strong> ser ut att stämma mot originalet i de bildrutor jag sett (uppgift 1–5, 7–9).</li>
+<li><strong>Figur 6</strong> är rätt läst: "segmenten h, b, h, b, h" längs nederkanten och "h, ℓ, h" längs högerkanten. Felet i uppgift 6 kommer alltså inte från läsningen (avsnitt 5).</li>
+<li><strong>Figur 9</strong> är felbeskriven: modellen skriver att A är nere till vänster, B nere till höger, C uppe till höger och D uppe till vänster, med DA = 30 cm som vänster lodrät sida. I tentans figur är C uppe till vänster, B uppe till höger, D nere till vänster och A nere till höger, och DA = 30 är den nedre sidan. Beskrivningen är en spegelbild av figuren. Modellens beräkning använder däremot en koordinatmodell som är geometriskt likvärdig med figuren (AB = 20 och AD = 30, A′ på BC). Felet i uppgift 9 kommer därför inte från den felaktiga beskrivningen. Men beskrivningen av figuren stämmer inte med bilden.</li>
+<li><strong>Vem läste bilderna?</strong> Enligt en källa är GLM-5.3 en modell som bara arbetar med text (se avsnitt 7). Om det stämmer kan modellen inte själv ha sett de renderade sidorna, och det var då Perplexitys agentmiljö (ett annat verktyg eller en annan modell) som läste av skanningen. Modellens uppgift "rendering av sidorna" säger inte vem som läste. Det kan jag inte avgöra av underlaget.</li>
+</ul>
+<h2 id="5-var-det-gick-fel">5. Var det gick fel <a class="anchor" href="#5-var-det-gick-fel" aria-label="Länk till avsnittet">#</a></h2>
+<ol>
+<li><strong>Uppgift 1f (1/4 i stället för 1/8).</strong> Uppgiften ska bara besvaras med svar, så det finns ingen lösning att granska. Rätt är f(x) = x/√(1 + x²), f′(x) = (1 + x²)^(−3/2), och f′(√3) = 4^(−3/2) = 1/8.</li>
+<li><strong>Uppgift 6.</strong> Modellen läser figuren rätt (h, b, h, b, h) men skriver bivillkoret som 2h + 2b = 9, alltså med en h för lite. Rätt är 3h + 2b = 9. Resultatet blir en låda som inte kan tillverkas av skivan: med modellens värden är 3h + 2b ≈ 10,18, inte 9, och volymen 14,3 dm³ är större än det verkliga maximet 12 dm³. Modellens kontroll ("2h + 2b = 9 ✓, 2h + ℓ = 6 ✓") prövar bara att lösningen uppfyller modellens egna ekvationer och kan inte upptäcka felet. En kontroll mot figuren (summan av fem delar längs nederkanten) hade gjort det.</li>
+<li><strong>Uppgift 8.</strong> Funktionen anges som "tandvåg" mellan π/2 och π med f(π/2) = π/2, f(π) = π och f(π/4) = 3π/4. Direkt insättning ger f(π/2) = arcsin 0 + arccos 1 = 0, f(π) = arcsin(−1) + arccos 0 = 0 och f(π/4) = π/4 + π/4 = π/2. Jag har prövat värdena numeriskt: av de sex värden som modellen anger i sin värdetabell stämmer bara f(0) = π. Modellen skriver att "maskinell plot och derivering … bekräftar" grafen, vilket inte stämmer med de värden som kod hade gett. Rätt är fyra delar (π − 2x, 0, 2x − 2π, π) som upprepas med perioden 2π, med knäckpunkter i alla x = kπ/2. Att knäckpunkterna ändå hamnar rätt gör att svaret på frågan "ange alla x" blir rätt, men det är en följd av att fel funktion också har knäckpunkter där.</li>
+<li><strong>Uppgift 9.</strong> Modellens uppställning är riktig och motsvarar guidens: PQ² = (200/y + y/2)² + (10 + y²/40)². Den gör sedan derivatan fel (skriver "y⁴ − 200y² + 160000", "40-ish" och "exakt lösning … är inte rätt väg") och väljer i stället y = 20 som en "symmetripunkt". Rätt derivata ger (y² − 200)(y² + 400)² = 0, alltså y = 10√2 ≈ 14,14 och PQ = 15√3. Med y = 20 blir PQ = √800 = 20√2, vilket stämmer med modellens svar men är inte minimum. Jag har prövat genom att söka numeriskt över y: minimum är 25,981 vid y ≈ 14,14.</li>
+</ol>
+<h2 id="6-hur-tillförlitlig-är-redovisningen">6. Hur tillförlitlig är redovisningen? <a class="anchor" href="#6-hur-tillförlitlig-är-redovisningen" aria-label="Länk till avsnittet">#</a></h2>
+<ol>
+<li><strong>"Kod (sympy)" och "maskinell kontroll" i svar som är fel.</strong> I uppgift 6, 8 och 9 skriver modellen att kod bekräftat resultatet, men resultatet är fel. Kod som löst uppgift 9 med sympy hade gett y² = 200. Antingen kördes inte koden som modellen säger, eller så redovisas resultatet fel. Jag kan inte avgöra vilket utan verktygsloggen. Videon visar "Arbetar 19s" innan svaret börjar, vilket är kort för det antal kodkontroller som tabellen anger (nio delsvar med "kod").</li>
+<li><strong>Svaret innehåller oredigerat resonemang.</strong> I uppgift 9 står "Ännu enklare klassisk formulering …", "= 0 … exakt lösning … är inte rätt väg" och "PQ_min = √(800)·?" mitt i lösningen. Det är ett försök som lämnats kvar i svaret. ChatGPT-testets svar var rent uppställda.</li>
+<li><strong>Säkerheten säger emot sig.</strong> Uppgift 9 har "Säkerhet: medel" i lösningen men "hög" i sammanfattningstabellen. Alla andra uppgifter är "hög", även de tre fel som finns.</li>
+<li><strong>Modellen pekar ut fel risk.</strong> I "Övrigt" tar den upp osäkerheten om vilken sida som är 20 och 30 cm i uppgift 9. Den osäkerheten orsakade inte felet. Felet ligger i derivatan och i valet av y = 20. Samma sak för uppgift 6: modellen anger ingen osäkerhet alls.</li>
+<li><strong>"1 källa".</strong> Modellen skriver att svaret är genererat av den och inte sökt på nätet, att uppgifterna inte är kända från tidigare material, och att inga källor använts. Gränssnittet visar ändå "1 källa" under svaret. Kent bör öppna uppgiften i Perplexity och se vad källan är. Är det en webbkälla är raden "Källor utöver din egen räkning: inga" fel.</li>
+<li><strong>Det som är bra:</strong> modellen följde svarsmallen och steg 1 och 2 i samma svar (version 2 av prompten fungerade), angav "Läsning:", gav uppgift 1 som enbart svar och redovisade hjälpmedel per uppgift.</li>
+</ol>
+<h2 id="7-om-glm-53-och-om-testmiljön">7. Om GLM-5.3 och om testmiljön <a class="anchor" href="#7-om-glm-53-och-om-testmiljön" aria-label="Länk till avsnittet">#</a></h2>
+<ul>
+<li><strong>GLM-5.3</strong> är en språkmodell från Z.ai (Zhipu AI), lanserad enligt sökresultaten den 14 augusti 2026. Z.ai beskriver den som en uppdatering inriktad på programmering, långa arbetsuppgifter och cybersäkerhet, byggd på samma bas som GLM-5.2 med förbättringar i efterträningen. En lista anger 1 miljon tokens kontext, text som enda indata och att resonemang alltid är påslaget. Vikterna (modellens inlärda parametrar) skulle enligt Z.ai släppas öppet ungefär två veckor efter lanseringen. Jag har inte kunnat bekräfta att det skedde. Alla uppgifter är hämtade ur sökresultat och inte läst i originalkällorna, och prestandasiffror är företagets egna.</li>
+<li><strong>Perplexity</strong> är en söktjänst med AI-svar. Jag hittade ingen uppgift om att Perplexity erbjuder GLM-5.3 eller hur modellen används i deras agentmiljö, så det modellen skriver om sig själv ("GLM-5.3 via Perplexitys agentmiljö") är det enda stödet. Modeller kan ha fel om vilken modell de är.</li>
+<li><strong>Gratisabonnemang.</strong> Vilken modell och hur mycket verktygsanvändning som ingår i gratisnivån har jag inte undersökt. Resultatet gäller därför just den här körningen i den här miljön.</li>
+</ul>
+<p><strong>Källor</strong> (alla läsna som sökresultat, inte i original): <a href="https://technode.com/2026/08/17/z-ai-launches-glm-5-3-with-claimed-50-gain-on-coding-benchmark/" target="_blank" rel="noopener">TechNode (2026) Z.ai launches GLM-5.3</a>; <a href="https://opper.ai/zhipu/glm-5-3" target="_blank" rel="noopener">Opper, GLM 5.3</a>; <a href="https://dev.to/hassann/how-to-use-the-glm-53-api-4ie9" target="_blank" rel="noopener">DEV Community, How to use the GLM-5.3 API</a>. Kontrollera mot källan innan något återges.</p>
+<h2 id="8-jämförelse-med-test-1-chatgpt-variant-b">8. Jämförelse med test 1 (ChatGPT, variant B) <a class="anchor" href="#8-jämförelse-med-test-1-chatgpt-variant-b" aria-label="Länk till avsnittet">#</a></h2>
+<div class="table-wrap"><table>
+<caption id="tabell-2"><strong>Tabell 2.</strong> Test 1 och test 2 sida vid sida</caption>
+<thead><tr><th scope="col"></th><th scope="col">ChatGPT (test 1)</th><th scope="col">GLM-5.3 i Perplexity (test 2)</th></tr></thead>
+<tbody>
+<tr><td>Promptversion</td><td>B, version 1</td><td>B, version 2</td></tr>
+<tr><td>Rätt delsvar av 17</td><td>17</td><td>13 (1 delvis, 3 fel)</td></tr>
+<tr><td>Figuravläsning</td><td>Båda figurerna rätt beskrivna</td><td>Figur 6 rätt, figur 9 felbeskriven</td></tr>
+<tr><td>Fel i kontroller</td><td>Två (uppgift 4 och 7), inget påverkar svaret</td><td>Kontrollerna bekräftar fel svar (6, 8, 9)</td></tr>
+<tr><td>Hjälpmedel</td><td>Python/SymPy bara i uppgift 9</td><td>"Kod" i nio delsvar</td></tr>
+<tr><td>Säkerhet</td><td>"Hög" överallt</td><td>"Hög" överallt, "medel" i texten för 9</td></tr>
+<tr><td>Svarets form</td><td>Rent uppställt</td><td>Oredigerat resonemang kvar i uppgift 9</td></tr>
+<tr><td>Källor</td><td>"Inga"</td><td>"Inga", men "1 källa" visas i gränssnittet</td></tr>
+</tbody></table></div>
+<p>Båda modellerna gör steg 1 och 2 och följer svarsmallen. Skillnaden i resultat sitter i det som prompten inte styr: om kontrollen faktiskt är oberoende och om modellens redovisning stämmer med det den gjort.</p>
+<h2 id="9-förslag-till-nästa-steg">9. Förslag till nästa steg <a class="anchor" href="#9-förslag-till-nästa-steg" aria-label="Länk till avsnittet">#</a></h2>
+<ol>
+<li><strong>Kent öppnar Perplexity-uppgiften</strong> och noterar vad "1 källa" är, vilka verktygssteg och vilken kod som kördes, och om uppgiften visar vilken modell som användes.</li>
+<li><strong>Granska rad 2 i Tabell 1</strong> på <a href="prompt.html#Tabell1">prompt.html</a> och fyll i det som saknas (sökning, vad "1 källa" var).</li>
+<li><strong>Be modellen testa lösningen mot uppgiften</strong>, inte mot den egna uppställningen: lägg till i prompten att "Kontroll" ska prova svaret mot uppgiftstexten eller figuren, och inte mot dina egna ekvationer. Det ändrar prompten och ger en version 3, så det görs bara efter Kents besked.</li>
+<li><strong>Kör samma modell med variant A</strong> för att se om felen i uppgift 6 och 9 beror på läsningen eller på modellens räkning. Utfallet pekar på räkningen, men en körning av A skulle visa det.</li>
+<li><strong>Fler körningar per modell.</strong> En modell kan svara olika vid olika körningar.</li>
+</ol>
+</main>
+<p class="foot">Genererad ur RESULTAT_test2_GLM53_Perplexity_variant_B_261101.md. Ändra md-filen och kör om skriptet, ändra inte den här sidan.</p>
+</div>
+</body>
+</html>
