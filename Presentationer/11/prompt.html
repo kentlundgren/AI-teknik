@@ -24,25 +24,27 @@
 
 <nav aria-label="Avsnitt"><strong>Hoppa till:</strong><ul class="meny">
 <li><a href="#Anvandning">Så använder jag den</a></li>
-<li><a href="#Prompten">Prompten</a></li>
+<li><a href="#Prompten">Prompt A</a></li>
+<li><a href="#PromptB">Prompt B (PDF)</a></li>
 <li><a href="#Figurer">Figurerna</a></li>
 <li><a href="#Resultat">Resultatmall</a></li>
+<li><a href="#Fusk">Kan en modell hitta lösningen?</a></li>
 <li><a href="#Bedomning">Hur svaren bedöms</a></li>
 </ul></nav>
 
 <h2 id="Anvandning">Så använder jag den</h2>
 <ol class="steg">
 <li><strong>Nytt, tomt samtal</strong> för varje modell, så att inget tidigare samtal påverkar svaret.</li>
-<li><strong>Kopiera prompten</strong> (knappen under <a href="#Prompten">Prompten</a>) och klistra in den. Kan modellen ta emot bilder bifogar jag de två figurerna från <a href="#Figurer">Figurerna</a>: Figur 1 först, sedan Figur 2. Kan den inte det räcker textbeskrivningarna, som redan står i prompten.</li>
+<li><strong>Välj variant.</strong> A: kopiera <a href="#Prompten">prompt A</a>. Kan modellen ta emot bilder bifogar jag de två figurerna från <a href="#Figurer">Figurerna</a>, Figur 1 först, annars räcker textbeskrivningarna i prompten. B: kopiera <a href="#PromptB">prompt B</a> och bifoga PDF:en som fil. Helst körs båda varianterna med samma modell.</li>
 <li><strong>Inga följdfrågor och ingen rättning.</strong> Svaret jag får är svaret som bedöms. Gärna tre körningar per modell, eftersom svaren kan skilja sig mellan körningar.</li>
-<li><strong>Anteckna</strong> modell, version, datum och om modellens "tänkande" var på. Resultaten förs in i <a href="#Tabell1">Tabell 1</a>.</li>
+<li><strong>Anteckna</strong> modell, version, datum och om modellens "tänkande" var på. Jag stänger av webbsökning där det går. Resultaten förs in i <a href="#Tabell1">Tabell 1</a>.</li>
 </ol>
 
-<h2 id="Prompten">Prompten</h2>
-<p>Hela texten nedan är prompten. Den är på svenska, som tentan. Rutan är grå eftersom texten är låst: det är ingen inmatning.</p>
+<h2 id="Prompten">Prompt A: text och figurbeskrivning</h2>
+<p>Det finns två varianter. <strong>Variant A</strong> (den här) ger modellen tentatexten som text, med figurerna beskrivna i ord och som bifogade bilder. Den mäter matematiken och är rättvis mot modeller som inte kan läsa en skannad PDF. <strong>Variant B</strong> (<a href="#PromptB">längre ned</a>) ger bara den skannade tentan som PDF-fil. Den mäter läsning och lösning tillsammans, som när en student får papperet. Skillnaden mellan A och B visar hur mycket av felen som kommer från läsningen. Båda är på svenska, som tentan. Rutorna är grå eftersom texten är låst: det är ingen inmatning.</p>
 <div class="row">
-<button type="button" id="kopiera">Kopiera prompten</button>
-<button type="button" id="ladda">Ladda ned som textfil</button>
+<button type="button" id="kopiera">Kopiera prompt A</button>
+<button type="button" id="ladda">Ladda ned prompt A som textfil</button>
 <span id="status" class="res" role="status" aria-live="polite"></span>
 </div>
 <pre id="promptText" tabindex="0" aria-label="Prompten i sin helhet">Du ska lösa en skriftlig tentamen i endimensionell analys, den första matematikkursen på en teknisk högskola (Lunds tekniska högskola, tentamen 2026-10-30). Det är nio uppgifter. Jag vill se hur väl du löser dem på egen hand och hur tydligt du redovisar svaren.
@@ -50,10 +52,10 @@
 REGLER
 
 1. Lös uppgifterna själv.
-Sök inte efter tentan eller efter lösningar till den. Hittar du ändå, eller känner du igen, den här tentan eller en lösning av den (på en webbsida, i en källa du har tillgång till, i din träningsdata eller någon annanstans), ska du säga det tydligt i din redovisning och ange var. Använd inte en sådan lösning som facit. Lös uppgifterna själv och redovisa vad du kom fram till.
+Sök inte på nätet efter uppgifterna eller efter lösningar till dem, och använd inte en färdig lösning om du ändå skulle se en. Lös uppgifterna själv och redovisa vad du kom fram till. Känner du igen uppgifterna eller en lösning av dem, säg det och ange varifrån.
 
 2. Hjälpmedel.
-På den riktiga tentan var inga hjälpmedel tillåtna. Du får här använda hjälpmedel (till exempel kod, räknare eller symbolisk algebra), men du ska redovisa vilka du har använt, uppgift för uppgift. Motivera ändå lösningen så att en mänsklig rättare kan följa den utan hjälpmedel.
+På den riktiga tentan var inga hjälpmedel tillåtna. Du får här använda hjälpmedel (till exempel kod, räknare eller symbolisk algebra), men du ska redovisa vilka du har använt, uppgift för uppgift. Använder du kod, visa koden eller beskriv kort vad du räknade ut. Motivera ändå lösningen så att en mänsklig rättare kan följa den utan hjälpmedel.
 
 3. Figurer.
 Uppgift 6 och 9 har figurer. Varje figur finns både som bild (bifogad, om du kan ta emot bilder) och som textbeskrivning nedan. Börja varje sådan uppgift med att skriva hur du tolkar figuren. Skiljer sig bilden från beskrivningen, säg det och utgå från bilden. Uppgift 7 har ingen figur i originalet. Bifogade bilder, om du kan se dem: Bild 1 är figuren i uppgift 6 och Bild 2 är figuren i uppgift 9.
@@ -70,10 +72,11 @@ För varje uppgift 2–9, använd exakt den här mallen:
 
 Uppgift N
 Tolkning: (hur du läser uppgiften och, i uppgift 6 och 9, figuren)
+Metod: (en mening: vilken metod du använder, till exempel "derivering och teckentabell")
 Lösning: (stegen, med motiveringar)
 Kontroll: (en kontroll som inte bara är samma räkning en gång till, till exempel insättning, ett specialfall eller en annan metod)
 Svar: (en enda rad med slutsvaret)
-Hjälpmedel: inga | kod/räknare | annat (ange vilket)
+Hjälpmedel: inga | kod/räknare | webbsökning eller uppslag | annat (ange vilket)
 Säkerhet: hög | medel | låg, och en mening om varför
 
 Uppgift 1 ska bara besvaras med svar, utan lösning, så som uppgiften säger. Skriv en rad per delfråga ("1a Svar: ...", "1b Svar: ..." och så vidare) och därefter en rad "Hjälpmedel: ..." för hela uppgift 1.
@@ -85,7 +88,7 @@ Uppgift 4 och 8 ber om en skiss. Du kan inte rita, så beskriv grafen i ord, ang
 Avsluta med en sammanfattningstabell med en rad per delsvar:
 | Uppgift | Slutsvar | Hjälpmedel | Säkerhet |
 och därefter två rader:
-Hittade eller kände igen en lösning av tentan: nej | ja (var och vad)
+Källor utöver din egen räkning: inga | ja (vilka)
 Övrigt som jag bör veta: (valfritt)
 
 TENTAN
@@ -142,8 +145,64 @@ Ange alla x ∈ R för vilka f inte är deriverbar, och skissera grafen till f.
 
 SLUT PÅ TENTAN. Börja nu med uppgift 1 och använd svarsmallen.</pre>
 
+<h2 id="PromptB">Prompt B: den skannade tentan som PDF</h2>
+<p>Här bifogar jag tentan som <a href="endimensionell_analys_LTH_261030.pdf" download>PDF-fil</a> (två sidor, en skanning utan textlager) och klistrar in prompten nedan. Jag bifogar filen och länkar den inte: en modell utan webbläsning kan inte öppna en länk, och en länk i det här arkivet ligger bredvid guiden med svaren. Modeller som läser en PDF genom att plocka ut text får ingenting ur en skanning. Då ska modellen enligt prompten säga det och avbryta, och det räknas som att den inte kunde läsa filen, inte som fel matematik. Första steget är att modellen skriver av uppgifterna, så att jag kan jämföra avskriften med mitt facit och se om ett fel beror på läsningen eller på räkningen.</p>
+<div class="row">
+<button type="button" id="kopieraB">Kopiera prompt B</button>
+<button type="button" id="laddaB">Ladda ned prompt B som textfil</button>
+<span id="statusB" class="res" role="status" aria-live="polite"></span>
+</div>
+<pre id="promptB" tabindex="0" aria-label="Prompt B i sin helhet">Bifogat finns en skannad tentamen i endimensionell analys (Lunds tekniska högskola, 2026-10-30) som en PDF-fil med två sidor. Det är nio uppgifter. Lös dem själv. Jag vill se hur väl du löser dem och hur tydligt du redovisar svaren.
+
+STEG 1, LÄS
+
+Skriv först av varje uppgift ordagrant som text, med delfrågor, och beskriv med några meningar vad figurerna i uppgift 6 och 9 visar. Kan du inte läsa filen, eller bara en del av den, säg det och avbryt, hellre än att gissa vad som står.
+
+STEG 2, LÖS
+
+REGLER
+
+1. Lös uppgifterna själv.
+Sök inte på nätet efter uppgifterna eller efter lösningar till dem, och använd inte en färdig lösning om du ändå skulle se en. Lös uppgifterna själv och redovisa vad du kom fram till. Känner du igen uppgifterna eller en lösning av dem, säg det och ange varifrån.
+
+2. Hjälpmedel.
+På den riktiga tentan var inga hjälpmedel tillåtna. Du får här använda hjälpmedel (till exempel kod, räknare eller symbolisk algebra), men du ska redovisa vilka du har använt, uppgift för uppgift. Använder du kod, visa koden eller beskriv kort vad du räknade ut. Motivera ändå lösningen så att en mänsklig rättare kan följa den utan hjälpmedel.
+
+3. Språk och skrivsätt.
+Svara på svenska. Skriv matematiken så att den går att läsa som ren text (till exempel sqrt(3), 1/8, pi/2, x^2) eller med LaTeX. Slutsvaren ska stå i exakt form (till exempel 5*sqrt(3) och inte bara 8,66), gärna med ett närmevärde i parentes.
+
+4. Var ärlig om osäkerhet.
+Gissa inte tyst. Är du osäker, säg det och förklara varför. Hittar du ett fel i din egen lösning, rätta det och säg att du gjort det.
+
+SVARSMALL
+
+För varje uppgift 2–9, använd exakt den här mallen:
+
+Uppgift N
+Tolkning: (hur du läser uppgiften och, i uppgift 6 och 9, figuren)
+Metod: (en mening: vilken metod du använder, till exempel "derivering och teckentabell")
+Lösning: (stegen, med motiveringar)
+Kontroll: (en kontroll som inte bara är samma räkning en gång till, till exempel insättning, ett specialfall eller en annan metod)
+Svar: (en enda rad med slutsvaret)
+Hjälpmedel: inga | kod/räknare | webbsökning eller uppslag | annat (ange vilket)
+Säkerhet: hög | medel | låg, och en mening om varför
+
+Uppgift 1 ska bara besvaras med svar, utan lösning, så som tentan säger. Skriv en rad per delfråga ("1a Svar: ...", "1b Svar: ..." och så vidare) och därefter en rad "Hjälpmedel: ..." för hela uppgift 1.
+
+Uppgift 3: skriv definitionen respektive resultatet på raden Svar: och ge härledningen under Lösning.
+
+Uppgift 4 och 8 ber om en skiss. Du kan inte rita, så beskriv grafen i ord, ange nyckelpunkter med koordinater och gör gärna en enkel textskiss eller värdetabell. Svara dessutom uttryckligen på det uppgiften frågar efter (extrempunkter, asymptoter, punkter där funktionen inte är deriverbar).
+
+Avsluta med en sammanfattningstabell med en rad per delsvar:
+| Uppgift | Slutsvar | Hjälpmedel | Säkerhet |
+och därefter två rader:
+Källor utöver din egen räkning: inga | ja (vilka)
+Övrigt som jag bör veta: (valfritt)
+
+Börja nu med steg 1.</pre>
+
 <h2 id="Figurer">Figurerna</h2>
-<p>Figurerna är beskurna ur den skannade tentan (300 punkter per tum) och gråskalade. På skanningen lyser texten på pappersarkets baksida igenom som blek, spegelvänd text. Den är borttagen i de rensade kopiorna, som är de jag bifogar. Linjer, bokstäver och mått är orörda. De obearbetade beskärningarna finns som länk under varje figur. Uppgift 7 har ingen figur i originalet. Textbeskrivningarna av båda figurerna står i <a href="#Prompten">prompten</a>.</p>
+<p>Figurerna hör till variant A. De är beskurna ur den skannade tentan (300 punkter per tum) och gråskalade. På skanningen lyser texten på pappersarkets baksida igenom som blek, spegelvänd text. Den är borttagen i de rensade kopiorna, som är de jag bifogar. Linjer, bokstäver och mått är orörda. De obearbetade beskärningarna finns som länk under varje figur. Uppgift 7 har ingen figur i originalet. Textbeskrivningarna av båda figurerna står i <a href="#Prompten">prompten</a>.</p>
 
 <figure id="Figur1">
 <figcaption>Figur 1. Figuren i uppgift 6 (pappskivan till lådan), rensad kopia ur tentan</figcaption>
@@ -158,16 +217,27 @@ SLUT PÅ TENTAN. Börja nu med uppgift 1 och använd svarsmallen.</pre>
 </figure>
 
 <h2 id="Resultat">Resultatmall</h2>
-<p>En rad per körning. Fyll i <strong>R</strong> för rätt, <strong>D</strong> för delvis rätt, <strong>F</strong> för fel och <strong>–</strong> om modellen inte svarade. Kolumnerna 1–9 är uppgifterna, där 3 räknas som en uppgift. Jämförelsen sker mot de kontrollerade svaren i <a href="index.html#Tabell2">Tabell 2 i guiden</a> (den innehåller alla svar). Mallen är en vanlig tabell, så den kopieras som markdown med knappen under tabellen och fylls i där resultaten förs.</p>
+<p>En rad per körning. Fyll i <strong>R</strong> för rätt, <strong>D</strong> för delvis rätt, <strong>F</strong> för fel och <strong>–</strong> om modellen inte svarade. Kolumnerna 1–9 är uppgifterna, där 3 räknas som en uppgift. I variant B noteras dessutom i anmärkningen om modellens avskrift av uppgifterna stämde. Jämförelsen sker mot de kontrollerade svaren i <a href="index.html#Tabell2">Tabell 2 i guiden</a> (den innehåller alla svar). Mallen är en vanlig tabell, så den kopieras som markdown med knappen under tabellen och fylls i där resultaten förs.</p>
 <table class="mall" id="mall"><caption id="Tabell1">Tabell 1. Resultatmall: en rad per modell och körning</caption>
-<thead><tr><th>Modell</th><th>Version och datum</th><th>Körning</th><th><abbr title="Redovisade hjälpmedel: inga, kod/räknare eller annat">Hjälpm.</abbr></th><th><abbr title="Redovisade modellen att den hittat eller känt igen en lösning av tentan: nej eller ja (var)">Hittade lösning?</abbr></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>Anmärkning</th></tr></thead>
+<thead><tr><th>Modell</th><th>Version och datum</th><th><abbr title="Variant A (text och figurbeskrivning) eller B (PDF)">Var.</abbr></th><th>Körning</th><th><abbr title="Var webbsökning påslagen för modellen under körningen: ja eller nej">Sök på?</abbr></th><th><abbr title="Redovisade hjälpmedel: inga, kod/räknare, webbsökning eller annat">Hjälpm.</abbr></th><th><abbr title="Redovisade modellen källor utöver sin egen räkning: inga eller ja (vilka)">Källor?</abbr></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>Anmärkning</th></tr></thead>
 <tbody>
-<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 </tbody></table>
 <div class="row"><button type="button" id="kopieraMall">Kopiera mallen som markdown</button><span id="statusMall" class="res" role="status" aria-live="polite"></span></div>
+
+<h2 id="Fusk">Kan en modell hitta lösningen?</h2>
+<p>Det går inte att tvinga en modell att vara ärlig. Man kan be om redovisning och sedan kontrollera den mot det man kan se. Det här är vad jag vet och inte vet:</p>
+<ul>
+<li><strong>Träningsdata.</strong> Tentan skrevs 2026-10-30. En modell som tränats före det datumet kan inte ha sett tentan eller våra svar. Det gäller bara modeller som inte söker på nätet.</li>
+<li><strong>Webbsökning.</strong> En sökning med en söktjänst den 1 nov 2026, på en mening ur uppgift 6 och på sidans adress, gav inga träffar på tentan eller guiden. Det är en söktjänst vid ett enda tillfälle. Nya sidor tar tid att indexera, och guiden innehåller både uppgiftstexten och svaren. Sannolikheten går därför inte att ange i procent, och den kan ändras.</li>
+<li><strong>Den säkraste åtgärden</strong> är att stänga av webbsökning och andra verktyg för körningen där modellen tillåter det, och notera det i <a href="#Tabell1">Tabell 1</a>.</li>
+<li><strong>Så syns det om en modell ändå sökt eller kopierat.</strong> Gränssnittet visar ofta när en modell söker. Raden <em>Hjälpmedel</em> och raden <em>Källor utöver din egen räkning</em> i svaret säger det modellen själv uppger. Ett svar som följer vår lösning steg för steg, med samma egenheter, är ett tecken. Inget av detta är ett bevis.</li>
+<li><strong>Prompten säger inte att lösningar finns.</strong> Regeln är formulerad som en vanlig tentaregel ("sök inte på nätet … om du ändå skulle se en"), så att den inte avslöjar att det finns lösningar att hitta.</li>
+<li><strong>Redovisningen av hur modellen räknat behålls.</strong> Ett rätt slutsvar utan väg dit går inte att skilja från en gissning eller en kopia, och en tentalösning ska ha motiveringar. Slutsvaren är ändå lätta att jämföra, eftersom de står på en egen rad och i sammanfattningstabellen. Raden <em>Metod</em> är en mening som säger hur modellen räknat, och raden <em>Hjälpmedel</em> säger vilka verktyg den använt.</li>
+</ul>
 
 <h2 id="Bedomning">Hur svaren bedöms</h2>
 <p>Facit är de svar jag kontrollerat på flera sätt (se <a href="index.html#Kontroll">Så har svaren kontrollerats</a>). Det finns inget officiellt facit för tentan, och ingen utomstående rättare har granskat mina lösningar. När en modell avviker från mitt svar utgår jag därför inte från att modellen har fel, utan granskar avvikelsen. Delvis rätt (D) betyder att metoden eller en del av svaret stämmer men slutsvaret inte gör det.</p>

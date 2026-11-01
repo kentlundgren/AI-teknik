@@ -1,7 +1,7 @@
 /* Extra för prompt.html (bas i style.css) */
 .meny{columns:2;padding-left:1.1rem;margin:.3rem 0}
 .steg{padding-left:1.3rem}.steg li{margin:.5rem 0}
-#promptText{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--lock);color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:1rem;font:.88rem/1.55 ui-monospace,"Cascadia Mono",Consolas,monospace;max-height:34rem;overflow:auto;margin:.6rem 0 1rem}
+#promptText,#promptB{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--lock);color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:1rem;font:.88rem/1.55 ui-monospace,"Cascadia Mono",Consolas,monospace;max-height:34rem;overflow:auto;margin:.6rem 0 1rem}
 img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
 .mall{display:block;overflow-x:auto}
 .mall th,.mall td{min-width:2.2rem;height:2.4rem}

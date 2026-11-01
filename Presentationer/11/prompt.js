@@ -23,13 +23,16 @@ function kopiera(text,statusId){
   try{const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();const r=document.execCommand('copy');document.body.removeChild(t);r?ok():nej()}catch(e){nej()}
 }
 function promptKnappar(){
-  const rutan=$('promptText');
-  $('kopiera').addEventListener('click',()=>kopiera(rutan.textContent,'status'));
-  $('ladda').addEventListener('click',()=>{
-    const b=new Blob([rutan.textContent],{type:'text/plain;charset=utf-8'});
-    const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='prompt_tenta_endimensionell_analys_261030.txt';
-    document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(()=>URL.revokeObjectURL(a.href),1000);
-    $('status').textContent='Textfilen laddas ned';$('status').className='res ok';
+  [['promptText','kopiera','ladda','status','prompt_A_tenta_endimensionell_analys_261030.txt'],
+   ['promptB','kopieraB','laddaB','statusB','prompt_B_tenta_endimensionell_analys_261030.txt']].forEach(([ruta,kop,lad,st,fil])=>{
+    const rutan=$(ruta);
+    $(kop).addEventListener('click',()=>kopiera(rutan.textContent,st));
+    $(lad).addEventListener('click',()=>{
+      const b=new Blob([rutan.textContent],{type:'text/plain;charset=utf-8'});
+      const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fil;
+      document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+      $(st).textContent='Textfilen laddas ned';$(st).className='res ok';
+    });
   });
   $('kopieraMall').addEventListener('click',()=>{
     const rubr=[...document.querySelectorAll('#mall thead th')].map(th=>th.textContent.trim());

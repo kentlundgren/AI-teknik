@@ -19,7 +19,7 @@ Startsidan är `index.html`. Webbläsaren visar bara en fillista om du öppnar s
 |---|---|
 | `index.html`, `style.css` | Sidan och dess utseende |
 | `data.js` | Alla uppgifter, svar, ledtrådar, delsteg och svårighetsbedömning |
-| `prompt.html`, `prompt.css`, `prompt.js` | Prompten med alla nio uppgifterna för att testa andra AI-modeller (kopieringsknapp, resultatmall) |
+| `prompt.html`, `prompt.css`, `prompt.js` | Två prompter med alla nio uppgifterna för att testa andra AI-modeller: A (text och figurbeskrivning) och B (den skannade tentan som bifogad PDF). Kopieringsknappar, avsnitt om fusk och resultatmall |
 | `figur6_rensad.png`, `figur9_rensad.png` (och `*_original.png`) | Figurerna i uppgift 6 och 9, beskurna ur den skannade tentan; de rensade har baksidans genomlysning borttagen |
 | `og-bild.jpg` | Delningsbilden (1200 × 630) som LinkedIn och X visar när länken delas; taggarna står i `<head>` i `index.html` |
 | `figurer.js` | Figurerna (grafer och geometri) som SVG, ritade av kod |
