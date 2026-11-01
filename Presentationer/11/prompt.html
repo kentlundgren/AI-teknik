@@ -71,10 +71,11 @@ SVARSMALL
 För varje uppgift 2–9, använd exakt den här mallen:
 
 Uppgift N
-Tolkning: (hur du läser uppgiften och, i uppgift 6 och 9, figuren)
+Tolkning: (hur du läser uppgiften och, i uppgift 6 och 9, vilka mått och samband du läser ur figuren)
 Metod: (en mening: vilken metod du använder, till exempel "derivering och teckentabell")
 Lösning: (stegen, med motiveringar)
-Kontroll: (en kontroll som inte bara är samma räkning en gång till, till exempel insättning, ett specialfall eller en annan metod)
+Kontroll mot uppgiften: (sätt in svaret i den ursprungliga uppgiftstexten, eller kontrollera det mot figuren, och se att alla villkor i uppgiften är uppfyllda. Kontrollera också att din uppställning, det vill säga dina ekvationer, din funktion eller dina samband, stämmer med uppgiftstexten och figuren. Skriv vad du kontrollerade mot.)
+Kontroll av räkningen: (kontrollera din räkning på ett annat sätt än du löste uppgiften, till exempel med en annan metod, ett specialfall eller insättning i din uppställning. Det ska inte bara vara samma räkning en gång till.)
 Svar: (en enda rad med slutsvaret)
 Hjälpmedel: inga | kod/räknare | webbsökning eller uppslag | annat (ange vilket)
 Säkerhet: hög | medel | låg, och en mening om varför
@@ -147,7 +148,7 @@ SLUT PÅ TENTAN. Börja nu med uppgift 1 och använd svarsmallen.</pre>
 
 <h2 id="PromptB">Prompt B: den skannade tentan som PDF</h2>
 <p>Här bifogar jag tentan som <a href="endimensionell_analys_LTH_261030.pdf" download>PDF-fil</a> (två sidor, en skanning utan textlager) och klistrar in prompten nedan. Jag bifogar filen och länkar den inte: en modell utan webbläsning kan inte öppna en länk, och en länk i det här arkivet ligger bredvid guiden med svaren. Modeller som läser en PDF genom att plocka ut text får ingenting ur en skanning. Då ska modellen enligt prompten säga det och avbryta, och det räknas som att den inte kunde läsa filen, inte som fel matematik. Första steget är att modellen skriver av uppgifterna, så att jag kan jämföra avskriften med mitt facit och se om ett fel beror på läsningen eller på räkningen. Modellen anger också hur den läste filen (direkt, rendering av sidorna eller OCR, textigenkänning).</p>
-<p class="sub">Version 2 (1 nov 2026): modellen ska göra båda stegen i samma svar och ange hur filen lästes. <a href="RESULTAT_test1_ChatGPT_variant_B_261101.html">Test 1 (ChatGPT)</a> gjordes med version 1, som saknade de två tilläggen. Skriv version i <a href="#Tabell1">Tabell 1</a>.</p>
+<p class="sub">Version 3 av prompt B (2 nov 2026): kontrollen delas i två. I steg 1 kontrollerar modellen sin avläsning, särskilt sambanden i figurerna. I steg 2 finns raderna <em>Kontroll mot uppgiften</em> (svaret och uppställningen mot uppgiftstexten och figuren) och <em>Kontroll av räkningen</em> (mot modellens egen uppställning, med en annan metod). Version 2 (1 nov 2026) lade till "gör steg 1 och 2 i samma svar" och raden om hur filen lästes. <a href="RESULTAT_test1_ChatGPT_variant_B_261101.html">Test 1 (ChatGPT)</a> gjordes med version 1 och <a href="RESULTAT_test2_GLM53_Perplexity_variant_B_261101.html">test 2 (GLM-5.3)</a> med version 2. Prompt A har inte körts än och har fått samma ändring av svarsmallen, utan eget versionsnummer. Skriv version i <a href="#Tabell1">Tabell 1</a>.</p>
 <div class="row">
 <button type="button" id="kopieraB">Kopiera prompt B</button>
 <button type="button" id="laddaB">Ladda ned prompt B som textfil</button>
@@ -157,7 +158,7 @@ SLUT PÅ TENTAN. Börja nu med uppgift 1 och använd svarsmallen.</pre>
 
 STEG 1, LÄS
 
-Skriv först av varje uppgift ordagrant som text, med delfrågor, och beskriv med några meningar vad figurerna i uppgift 6 och 9 visar. Kan du inte läsa filen, eller bara en del av den, säg det och avbryt, hellre än att gissa vad som står. Ange också hur du läste filen: Läsning: direkt ur filen | rendering av sidorna | OCR | annat (ange vilket).
+Skriv först av varje uppgift ordagrant som text, med delfrågor, och beskriv med några meningar vad figurerna i uppgift 6 och 9 visar. Läs därefter varje uppgift en gång till mot filen och ange de tecken eller ord du är osäker på. För figurerna: skriv de mått och samband du läser ur dem (till exempel hur en sida delas upp i delar) och kontrollera varje samband mot figuren genom att räkna delarna en och en. Kan du inte läsa filen, eller bara en del av den, säg det och avbryt, hellre än att gissa vad som står. Ange också hur du läste filen: Läsning: direkt ur filen | rendering av sidorna | OCR | annat (ange vilket).
 
 STEG 2, LÖS
 
@@ -180,10 +181,11 @@ SVARSMALL
 För varje uppgift 2–9, använd exakt den här mallen:
 
 Uppgift N
-Tolkning: (hur du läser uppgiften och, i uppgift 6 och 9, figuren)
+Tolkning: (hur du läser uppgiften och, i uppgift 6 och 9, vilka mått och samband du läser ur figuren)
 Metod: (en mening: vilken metod du använder, till exempel "derivering och teckentabell")
 Lösning: (stegen, med motiveringar)
-Kontroll: (en kontroll som inte bara är samma räkning en gång till, till exempel insättning, ett specialfall eller en annan metod)
+Kontroll mot uppgiften: (sätt in svaret i den ursprungliga uppgiftstexten, eller kontrollera det mot figuren, och se att alla villkor i uppgiften är uppfyllda. Kontrollera också att din uppställning, det vill säga dina ekvationer, din funktion eller dina samband, stämmer med uppgiftstexten och figuren. Skriv vad du kontrollerade mot.)
+Kontroll av räkningen: (kontrollera din räkning på ett annat sätt än du löste uppgiften, till exempel med en annan metod, ett specialfall eller insättning i din uppställning. Det ska inte bara vara samma räkning en gång till.)
 Svar: (en enda rad med slutsvaret)
 Hjälpmedel: inga | kod/räknare | webbsökning eller uppslag | annat (ange vilket)
 Säkerhet: hög | medel | låg, och en mening om varför

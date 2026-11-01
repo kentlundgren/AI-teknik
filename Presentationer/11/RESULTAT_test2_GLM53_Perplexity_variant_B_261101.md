@@ -113,6 +113,6 @@ Båda modellerna gör steg 1 och 2 och följer svarsmallen. Skillnaden i resulta
 
 1. **Kent öppnar Perplexity-uppgiften** och noterar vad "1 källa" är, vilka verktygssteg och vilken kod som kördes, och om uppgiften visar vilken modell som användes.
 2. **Granska rad 2 i Tabell 1** på [prompt.html](prompt.html#Tabell1) och fyll i det som saknas (sökning, vad "1 källa" var).
-3. **Be modellen testa lösningen mot uppgiften**, inte mot den egna uppställningen: lägg till i prompten att "Kontroll" ska prova svaret mot uppgiftstexten eller figuren, och inte mot dina egna ekvationer. Det ändrar prompten och ger en version 3, så det görs bara efter Kents besked.
+3. **Prompt B version 3** (2026-11-02, på Kents begäran) delar kontrollen i en kontroll mot uppgiften och en kontroll av räkningen, och ber modellen i steg 1 kontrollera sambanden i figurerna. Den här körningen gjordes med version 2.
 4. **Kör samma modell med variant A** för att se om felen i uppgift 6 och 9 beror på läsningen eller på modellens räkning. Utfallet pekar på räkningen, men en körning av A skulle visa det.
 5. **Fler körningar per modell.** En modell kan svara olika vid olika körningar.
