@@ -1,9 +1,9 @@
 # Presentationer
 
-- **Lokal sökväg:** `C:\Users\kentl\OneDrive\AI\AI-teknik\Presentationer`
+- **Live:** [https://kentlundgren.github.io/AI-teknik/Presentationer/](https://kentlundgren.github.io/AI-teknik/Presentationer/)
 - **Avsändare:** Kent Lundgren
 
-Samlingsmapp för Kents HTML/CSS/JS-sidor om generativ AI. Det finns två sorter, och mappnumret säger inte vilken sort det är.
+Samlingsmapp för Kents HTML/CSS/JS-sidor om generativ AI. Det finns tre sorter, och mappnumret säger inte vilken sort det är.
 
 ## Presentationer av hur jag arbetar med generativ AI
 
@@ -22,10 +22,23 @@ Argumenterande texter med egna tester. De har ingen versionsserie. Siffran i map
 |---|---|---|
 | [10](10/) | 2026 är året det blev normalt och moget: generativ AI i civilingenjörsutbildningen, med tre tester | [Live](https://kentlundgren.github.io/AI-teknik/Presentationer/10/) |
 
+## Guider
+
+Sidor där läsaren leds steg för steg till att själv lösa något. De har ingen versionsserie, och sidhuvudet anger bara "uppdaterad den [datum]".
+
+| Mapp | Vad | Live |
+|---|---|---|
+| [11](11/) | Tentan i endimensionell analys (LTH, 2026-10-30), uppgift för uppgift: ledtråd, delsteg, kontrollerad lösning och svårighetsbedömning. Arbetsversion, inte publicerad | Ännu inte publicerad |
+
 ## Övrigt
 
 - `Nr3` är en tom mapp lokalt (ingen fil, inget på GitHub). Syftet är inte bestämt.
-- Arbetsregler för mappen (versionsdatum, Kents röst, git, README, PRD) finns i [CLAUDE.md](CLAUDE.md).
+- Arbetsregler för mappen (versionsdatum, Kents röst, git, README, PRD, startsida och hörnlänkar) finns i [CLAUDE.md](CLAUDE.md).
 - Varje undermapp har egen README och PRD.
 
 Uppgifterna på sidorna är hämtade ur de källor som anges på respektive sida och är inte kvalitetssäkrade. Kontrollera mot källan innan något återges.
+
+## Repo
+
+- GitHub: https://github.com/kentlundgren/AI-teknik/tree/main/Presentationer
+- Lokal sökväg: `C:\Users\kentl\OneDrive\AI\AI-teknik\Presentationer`
