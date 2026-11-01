@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test 1 av en annan AI-modell: ChatGPT, variant B (tentan som PDF), 2026-11-01</title>
+<link rel="stylesheet" href="RESULTAT_test1_ChatGPT_variant_B_261101.css">
+<link rel="stylesheet" href="brodsmulor.css">
+</head>
+<body>
+<!-- brodsmulor:start (genereras av brodsmulor.py från dokument.json: ändra dokument.json, inte här) -->
+<nav class="brodsmulor" aria-label="Brödsmulor och dokument i samma mapp">
+<ol><li><a href="index.html">Tentan i endimensionell analys, steg för steg</a></li><li aria-current="page">Test 1: ChatGPT, variant B</li></ol>
+<p class="syskon">Fler dokument i samma mapp: <a href="index.html">Guiden: alla nio uppgifterna</a><span class="sep">·</span><a href="prompt.html">Prompt till andra AI-modeller</a><span class="sep">·</span><strong aria-current="page">Test 1: ChatGPT, variant B</strong><span class="sep">·</span><a href="PRD_presentation_tenta_endimensionell_analys.html">PRD: beslut och öppna frågor</a><span class="sep">·</span><a href="META_svara_pa_tentauppgifter.html">Metanivå: vad som är svårt och kan gå fel</a><span class="sep">·</span><a href="JAMFORELSE_tentor_LTH_261030_och_LiU_260819.html">Jämförelse med tentan från Linköping</a></p>
+</nav>
+<!-- brodsmulor:slut -->
+<!-- genererad av md_till_html.py: ändra md-filen, inte den här sidan -->
+<div class="wrap">
+<p class="top"><span>Läsvy av <code>RESULTAT_test1_ChatGPT_variant_B_261101.md</code></span><a href="RESULTAT_test1_ChatGPT_variant_B_261101.md">Visa råtext (.md)</a></p>
+<main class="doc">
+<h1 id="test-1-av-en-annan-ai-modell-chatgpt-variant-b-tentan-som-pdf-2026-11-01">Test 1 av en annan AI-modell: ChatGPT, variant B (tentan som PDF), 2026-11-01</h1>
+<p><strong>Namn:</strong> RESULTAT_test1_ChatGPT_variant_B_261101<br>
+<strong>Plats:</strong> <code>AI-teknik/Presentationer/11/RESULTAT_test1_ChatGPT_variant_B_261101.md</code><br>
+<strong>Skapad:</strong> 2026-11-01<br>
+<strong>Version:</strong> 1<br>
+<strong>Författare:</strong> Claude (språkmodell), på Kent Lundgrens begäran. Arbetsdokument; bedömningarna är mina.</p>
+<p><strong>Varning:</strong> den här filen innehåller alla svar på tentan. Pröva uppgifterna själv först, eller läs <a href="index.html">guiden</a>.</p>
+<p><strong>Underlag:</strong> fyra bilder från samtalet med ChatGPT (<a href="Bilder/ChatGPT_ska_losa_tentan_bild1_261101.jpg">bild 1</a>, <a href="Bilder/ChatGPT_ska_losa_tentan_bild2_261101.jpg">bild 2</a>, <a href="Bilder/ChatGPT_ska_losa_tentan_bild3_261101.jpg">bild 3</a>, <a href="Bilder/ChatGPT_ska_losa_tentan_bild4_261101.jpg">bild 4</a>) och modellens fullständiga svar, inklistrat i samtalet med mig. Det inklistrade svaret är inte sparat som egen fil. Prompten är <a href="prompt.html#PromptB">prompt B</a>, och tentan är <a href="endimensionell_analys_LTH_261030.pdf">PDF:en</a>, bifogad som fil.</p>
+<h2 id="1-kort-resultat">1. Kort resultat <a class="anchor" href="#1-kort-resultat" aria-label="Länk till avsnittet">#</a></h2>
+<ul>
+<li>Alla 17 delsvar (1a–1f, 2, 3a, 3b, 4, 5a–5c, 6, 7, 8, 9) stämmer med de svar som guiden kontrollerat, se <a href="#tabell-1">Tabell 1</a>.</li>
+<li>Modellen kunde inte läsa PDF:ens textlager (det finns inget) men läste sidorna visuellt, och avskriften av uppgifterna ser ut att stämma mot originalet, se <a href="#tabell-2">Tabell 2</a>.</li>
+<li>Modellen redovisade hjälpmedel (Python och SymPy i uppgift 9) och uppgav att den inte använt webbsökning eller färdiga lösningar. Det går inte att kontrollera av bilderna.</li>
+<li>Fyra saker i redovisningen är svaga trots rätta svar: kontrollen i uppgift 7 är felaktig, kontrollen i uppgift 4 har ett räknefel, säkerheten är "Hög" på alla uppgifter, och läsverktygen redovisas inte som hjälpmedel. Se avsnitt 5.</li>
+<li>Det här är en körning av en modell. Det säger inget om hur andra modeller eller andra körningar klarar tentan.</li>
+</ul>
+<h2 id="2-vad-som-framgår-och-vad-som-saknas">2. Vad som framgår och vad som saknas <a class="anchor" href="#2-vad-som-framgår-och-vad-som-saknas" aria-label="Länk till avsnittet">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Fråga</th><th scope="col">Svar</th></tr></thead>
+<tbody>
+<tr><td>Modell och version</td><td>Anges inte på bilderna. Gränssnittet heter ChatGPT. <strong>Saknas: Kent anger modell och version.</strong></td></tr>
+<tr><td>Läge</td><td><a href="Bilder/ChatGPT_ska_losa_tentan_bild1_261101.jpg">Bild 1</a> visar att modellen erbjöd valet "Fortsätt i ChatGPT Work" eller "Stanna i Chat", med motiveringen att Work kan granska sidorna visuellt och köra OCR (textigenkänning). Svaret säger att Python och SymPy kördes i uppgift 9, vilket tyder på ett läge med verktyg. <strong>Saknas: vilken knapp som valdes.</strong></td></tr>
+<tr><td>Webbsökning påslagen</td><td>Okänt. Modellen uppger att den inte sökt. <strong>Saknas: Kent anger om sökning var påslagen.</strong></td></tr>
+<tr><td>Antal körningar</td><td>En.</td></tr>
+<tr><td>Variant</td><td>B: kort prompt och bifogad PDF.</td></tr>
+<tr><td>Uppföljning mellan steg 1 och 2</td><td>Modellen avslutade steg 1 med att den skulle gå vidare till steg 2 "när vi går vidare" (<a href="Bilder/ChatGPT_ska_losa_tentan_bild2_261101.jpg">bild 2</a>), och steg 2 finns som ett eget svar. Det betyder att modellen stannade efter steg 1 och att ett nytt meddelande behövdes. <strong>Saknas: vad Kent skrev emellan.</strong> Prompten säger inte att modellen ska vänta.</td></tr>
+</tbody></table></div>
+<h2 id="3-svaren-jämfört-med-guidens-kontrollerade-svar">3. Svaren jämfört med guidens kontrollerade svar <a class="anchor" href="#3-svaren-jämfört-med-guidens-kontrollerade-svar" aria-label="Länk till avsnittet">#</a></h2>
+<div class="table-wrap"><table>
+<caption id="tabell-1"><strong>Tabell 1.</strong> ChatGPTs slutsvar mot de kontrollerade svaren</caption>
+<thead><tr><th scope="col">Uppgift</th><th scope="col">ChatGPT</th><th scope="col">Kontrollerat svar (guiden)</th><th scope="col">Utfall</th></tr></thead>
+<tbody>
+<tr><td>1a</td><td>2x + y = 11</td><td>y = −2x + 11</td><td>Samma linje</td></tr>
+<tr><td>1b</td><td>(x − 5)² − 6</td><td>(x − 5)² − 6</td><td>Stämmer</td></tr>
+<tr><td>1c</td><td>−2</td><td>−2</td><td>Stämmer</td></tr>
+<tr><td>1d</td><td>−1 &lt; x &lt; 1/3</td><td>−1 &lt; x &lt; 1/3</td><td>Stämmer</td></tr>
+<tr><td>1e</td><td>56</td><td>56</td><td>Stämmer</td></tr>
+<tr><td>1f</td><td>1/8</td><td>1/8</td><td>Stämmer</td></tr>
+<tr><td>2</td><td>x = 2, 5, 10</td><td>x = 2, 5, 10</td><td>Stämmer</td></tr>
+<tr><td>3a</td><td>gränsvärde och epsilon-delta-definition</td><td>definition (inte kontrollerad mot kursboken)</td><td>Rimlig; poäng avgörs av rättare</td></tr>
+<tr><td>3b</td><td>g′(x) = 5x⁴, härledd med differenskvot och binomialsatsen</td><td>g′(x) = 5x⁴</td><td>Stämmer</td></tr>
+<tr><td>4</td><td>min (1, 3), max (4, 5 ln 4 − 3), asymptot x = 0</td><td>samma</td><td>Stämmer</td></tr>
+<tr><td>5a</td><td>0</td><td>0</td><td>Stämmer</td></tr>
+<tr><td>5b</td><td>−2/3</td><td>−2/3</td><td>Stämmer</td></tr>
+<tr><td>5c</td><td>1/4</td><td>1/4</td><td>Stämmer</td></tr>
+<tr><td>6</td><td>h = 1, b = 3, ℓ = 4 dm, V = 12 dm³</td><td>samma</td><td>Stämmer</td></tr>
+<tr><td>7</td><td>BD = √6</td><td>BD = √6</td><td>Stämmer</td></tr>
+<tr><td>8</td><td>inte deriverbar för x = kπ/2, k ∈ ℤ; styckvis linjär graf</td><td>samma</td><td>Stämmer</td></tr>
+<tr><td>9</td><td>PQ = 15√3 cm</td><td>PQ = 15√3 cm</td><td>Stämmer</td></tr>
+</tbody></table></div>
+<p>Jag har dessutom följt räkningen i uppgift 2, 4, 5, 6, 7, 8 och 9 steg för steg. Slutsvaren stämmer, men jag hittade två fel i kontrollerna (uppgift 4 och 7, se avsnitt 5). I uppgift 8 stämmer de fyra styckvisa uttrycken med funktionsvärdena i x = 0, π/2, π och 3π/2. I uppgift 9 ger modellens derivata F′(t) = (t² − 200)(t² + 400)² / (400t³) samma uttryck som jag får när jag deriverar själv, och den kontrollerar att optimum ligger inom det tillåtna intervallet (AP ≈ 21,2 cm, AQ = 15 cm).</p>
+<p>Att två vägar ger samma svar höjer förtroendet för svaren, särskilt i uppgift 7 och 9 där modellen valde andra metoder än guidens kontroll (Stewarts sats i 7, en parameter för förskjutningen av A′ i 9, medan guidens kontroll söker över vikningsvinkeln). Det är inget bevis: det finns fortfarande inget officiellt facit, och båda har läst samma figurer.</p>
+<h2 id="4-steg-1-avläsningen">4. Steg 1: avläsningen <a class="anchor" href="#4-steg-1-avläsningen" aria-label="Länk till avsnittet">#</a></h2>
+<p><a href="Bilder/ChatGPT_ska_losa_tentan_bild2_261101.jpg">Bild 2</a> visar avskriften. Modellen skriver att textläsningen direkt ur PDF:en inte fungerade, men att den läste de renderade sidorna visuellt. Det är det läge prompt B förutsåg: skanningen saknar textlager.</p>
+<div class="table-wrap"><table>
+<caption id="tabell-2"><strong>Tabell 2.</strong> Avläsningen i steg 1</caption>
+<thead><tr><th scope="col">Moment</th><th scope="col">Vad modellen gjorde</th><th scope="col">Min bedömning</th></tr></thead>
+<tbody>
+<tr><td>Uppgiftstexterna</td><td>Skrev av alla nio uppgifterna med delfrågor</td><td>Ser ut att stämma mot originalet i det som syns på bilden. Bilden är liten, så ordagrann jämförelse tecken för tecken är inte gjord.</td></tr>
+<tr><td>Tentans regler</td><td>Återgav "Inga hjälpmedel", poängregler och uppgift 1:s svarsregel</td><td>Stämmer</td></tr>
+<tr><td>Uppgift 1c</td><td>Noterade att ²log betyder logaritm med bas 2</td><td>Rätt tolkning</td></tr>
+<tr><td>Figur 6</td><td>Beskrev måtten h, b, h, b, h och h, ℓ, h, bredd 9 och höjd 6, och att de streckade linjerna är viklinjer</td><td>Stämmer med figuren. "Viklinjer" är en tolkning som är rimlig.</td></tr>
+<tr><td>Figur 9</td><td>Beskrev båda delfigurerna, hörnens placering, 20 och 30, att A flyttats till A′ på BC och punkterna P och Q</td><td>Stämmer med figuren</td></tr>
+<tr><td>Egen kontroll</td><td>En tabell "Kontroll av avläsningen": 2 sidor, 9 uppgifter, delfrågor, figurer avlästa, inga saknade uppgifter</td><td>Rimlig och kort</td></tr>
+</tbody></table></div>
+<p>Modellen avbröt inte läsningen, vilket prompten bad den göra bara om filen inte gick att läsa. Filen gick att läsa visuellt.</p>
+<h2 id="5-svagheter-i-redovisningen-trots-rätta-svar">5. Svagheter i redovisningen, trots rätta svar <a class="anchor" href="#5-svagheter-i-redovisningen-trots-rätta-svar" aria-label="Länk till avsnittet">#</a></h2>
+<ol>
+<li><strong>Kontrollen i uppgift 7 är fel.</strong> Modellen skriver att den kontrollerar "i triangeln ABD" med AB² = AD² + BD² − 2·AD·BD·cos A₁ och får cos A₁ = 1/(4√6). Den vinkel formeln gäller är vinkeln vid D, inte vinkeln A₁ vid A (som är vinkeln mellan AB och AD och har cos = 7/12). Slutsatsen "konsistent" bygger alltså på en felbenämnd vinkel och kontrollerar inte bisektrisvillkoret. Svaret BD = √6 är ändå rätt.</li>
+<li><strong>Kontrollen i uppgift 4 har ett räknefel.</strong> Modellen skriver f″(4) = 8/64 − 5/16 = −1/8. Rätt värde är −3/16 (8/64 = 2/16, och 2/16 − 5/16 = −3/16). Tecknet, och därmed slutsatsen att x = 4 är ett lokalt maximum, påverkas inte. En rättare skulle dock se felet.</li>
+<li><strong>Lösningen i uppgift 7 slutar halvvägs.</strong> Sista raden i räkningen är BD = 3·√6/3, och likheten fram till √6 skrivs bara i raden Svar.</li>
+<li><strong>Säkerheten är "Hög" på alla uppgifter.</strong> Samtidigt skriver modellen i slutet att uppgift 3, 6, 8 och 9 är de som kräver särskild granskning. Raden Säkerhet skiljer alltså inte mellan uppgifterna.</li>
+<li><strong>Flera kontroller är ingen oberoende kontroll.</strong> I 3a är kontrollen ett exempel (x² i punkten 2), i 5a en omformulering av resonemanget och i 3b potensregeln (som bekräftar resultatet men inte härledningen). Bra kontroller finns i 2 (insättning), 4 (andraderivata), 5b (Taylorutveckling), 5c (L'Hôpital) och 6 (bivillkoren och gränsfall).</li>
+<li><strong>Läsverktygen redovisas inte som hjälpmedel.</strong> Raden Hjälpmedel gäller lösningen. Att modellen renderade sidorna och enligt <a href="Bilder/ChatGPT_ska_losa_tentan_bild1_261101.jpg">bild 1</a> kunde köra OCR syns bara i steg 1, inte i sammanfattningstabellen. Prompt B frågar inte efter hur filen lästes.</li>
+<li><strong>Textskisserna i uppgift 4 och 8 är ungefärliga.</strong> De är schematiska och inte skalenliga, vilket modellen också skriver. Den exakta beskrivningen med koordinater och styckvisa uttryck är korrekt.</li>
+<li><strong>Hjälpmedel och källor uppges i sammanfattningstabellen:</strong> "Inga" utom uppgift 9 (Python/SymPy), och "Källor utöver din egen räkning: Inga. Ingen webbsökning, inga externa lösningsförslag eller uppslagsverk." Det är det modellen uppger, och det kan inte kontrolleras av bilderna (ingen verktygslogg syns).</li>
+</ol>
+<p>Det som är bra: modellen följde svarsmallen i alla uppgifter, gav uppgift 1 som enbart svar, skrev slutsvaren i exakt form med närmevärden som komplement, gav exakt vilken figuravläsning den använde i uppgift 6, och lyfte själv att poängen inte avgörs av slutsvaret utan av hur tydligt resonemanget är.</p>
+<h2 id="6-tecken-på-att-modellen-hämtat-lösningen">6. Tecken på att modellen hämtat lösningen <a class="anchor" href="#6-tecken-på-att-modellen-hämtat-lösningen" aria-label="Länk till avsnittet">#</a></h2>
+<p>Inget i svaret tyder på att modellen kopierat en färdig lösning. Lösningsvägarna är standardmetoder (falluppdelning, teckentabell, bisektrissats och Stewarts sats, parametrisering av vikningen). Svaret har egna parametrar och egna felsteg, vilket en kopia av guiden inte skulle ha. En sökning med en söktjänst den 1 nov 2026 gav inte heller några träffar på tentan eller guiden (se <a href="prompt.html#Fusk">Kan en modell hitta lösningen?</a>). Det går inte att bevisa, eftersom ingen verktygslogg finns bland bilderna.</p>
+<h2 id="7-förslag-till-nästa-steg">7. Förslag till nästa steg <a class="anchor" href="#7-förslag-till-nästa-steg" aria-label="Länk till avsnittet">#</a></h2>
+<ol>
+<li><strong>Kent anger modell, version, läge (Chat eller Work), om webbsökning var påslagen och vad som skrevs mellan steg 1 och 2.</strong> Då kan Tabell 1 i <a href="prompt.html#Tabell1">prompt.html</a> fyllas i fullständigt.</li>
+<li><strong>Ändra prompt B</strong> så att den säger "gör steg 1 och steg 2 i samma svar" och lägger till en rad om hur filen lästes ("Läsning: direkt ur filen | rendering av sidor | OCR | annat"). Det ändrar prompten, så den här körningen noteras som gjord med den nuvarande versionen. Jag ändrar inte prompten utan Kents besked.</li>
+<li><strong>Kör variant A med samma modell</strong> och jämför med B. Här fanns inga läsfel, så B visar att modellen klarade skanningen, och A kan visa om skillnaden är noll även för andra modeller.</li>
+<li><strong>Fler modeller och fler körningar per modell.</strong> En körning av en modell är ett stickprov.</li>
+<li><strong>Be modellen ange säkerhet per uppgift med en mening om vad som skulle få den att ändra svaret</strong>, så att raden Säkerhet blir användbar.</li>
+</ol>
+</main>
+<p class="foot">Genererad ur RESULTAT_test1_ChatGPT_variant_B_261101.md. Ändra md-filen och kör om skriptet, ändra inte den här sidan.</p>
+</div>
+</body>
+</html>

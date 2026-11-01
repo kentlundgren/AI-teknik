@@ -139,7 +139,10 @@ rubriken "Underhållsregler".
   guidekort per uppgift (ledtråd, delsteg, kontrollerad lösning), med
   kontrollfält, figurer och en svårighetsbedömning. Sidhuvudet säger
   "uppdaterad den [datum]". Publicerad (svarar 200 på GitHub Pages,
-  kontrollerat 2026-11-01); rätten att återge tentan publikt är inte klarlagd. Se `11/PRD_presentation_tenta_endimensionell_analys.md`
+  kontrollerat 2026-11-01); rätten att återge tentan publikt är inte klarlagd.
+  Sidan `prompt.html` har prompter för att testa andra AI-modeller; första
+  testet (ChatGPT, variant B, 2026-11-01) är rapporterat i
+  `11/RESULTAT_test1_ChatGPT_variant_B_261101.md`. Se `11/PRD_presentation_tenta_endimensionell_analys.md`
   och `11/META_svara_pa_tentauppgifter.md`.
 - **`Nr3`** — tom mapp lokalt (ingen fil, inget på GitHub, 2026-10-22).
   Innehåll och syfte är inte bestämda.
