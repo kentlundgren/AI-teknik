@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt till andra AI-modeller</title>
+<meta name="description" content="Prompten med alla nio uppgifterna ur tentan i endimensionell analys (LTH, 2026-10-30), för att testa om andra AI-modeller kan lösa dem och redovisa svaren tydligt.">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="prompt.css">
+<link rel="stylesheet" href="brodsmulor.css">
+</head>
+<body>
+<!-- brodsmulor:start (genereras av brodsmulor.py från dokument.json: ändra dokument.json, inte här) -->
+<nav class="brodsmulor" aria-label="Brödsmulor och dokument i samma mapp">
+<ol><li><a href="index.html">Tentan i endimensionell analys, steg för steg</a></li><li aria-current="page">Prompt till andra AI-modeller</li></ol>
+<p class="syskon">Fler dokument i samma mapp: <a href="index.html">Guiden: alla nio uppgifterna</a><span class="sep">·</span><strong aria-current="page">Prompt till andra AI-modeller</strong><span class="sep">·</span><a href="PRD_presentation_tenta_endimensionell_analys.html">PRD: beslut och öppna frågor</a><span class="sep">·</span><a href="META_svara_pa_tentauppgifter.html">Metanivå: vad som är svårt och kan gå fel</a><span class="sep">·</span><a href="JAMFORELSE_tentor_LTH_261030_och_LiU_260819.html">Jämförelse med tentan från Linköping</a></p>
+</nav>
+<!-- brodsmulor:slut -->
+<main>
+<p class="brand">Kent Lundgren <span>— uppdaterad den 1 nov 2026</span></p>
+<h1 id="Start">Prompt till andra AI-modeller</h1>
+<p class="sub">En färdig prompt med alla nio uppgifterna ur tentan Endimensionell analys B1, Lunds tekniska högskola (LTH), 2026-10-30. Jag skickar den till andra AI-modeller (språkmodeller, LLM) för att se om de kan lösa uppgifterna på egen hand, få rätt svar och redovisa dem så tydligt att de inte kan missförstås.</p>
+<p class="box">Prompten innehåller inga svar och inga ledtrådar. Tentatexten är avläst ur den skannade PDF:en och figurerna är beskurna ur skanningen. Prompten är inte provkörd på någon modell än. Kontrollera mot källan innan något återges.</p>
+
+<nav aria-label="Avsnitt"><strong>Hoppa till:</strong><ul class="meny">
+<li><a href="#Anvandning">Så använder jag den</a></li>
+<li><a href="#Prompten">Prompten</a></li>
+<li><a href="#Figurer">Figurerna</a></li>
+<li><a href="#Resultat">Resultatmall</a></li>
+<li><a href="#Bedomning">Hur svaren bedöms</a></li>
+</ul></nav>
+
+<h2 id="Anvandning">Så använder jag den</h2>
+<ol class="steg">
+<li><strong>Nytt, tomt samtal</strong> för varje modell, så att inget tidigare samtal påverkar svaret.</li>
+<li><strong>Kopiera prompten</strong> (knappen under <a href="#Prompten">Prompten</a>) och klistra in den. Kan modellen ta emot bilder bifogar jag de två figurerna från <a href="#Figurer">Figurerna</a>: Figur 1 först, sedan Figur 2. Kan den inte det räcker textbeskrivningarna, som redan står i prompten.</li>
+<li><strong>Inga följdfrågor och ingen rättning.</strong> Svaret jag får är svaret som bedöms. Gärna tre körningar per modell, eftersom svaren kan skilja sig mellan körningar.</li>
+<li><strong>Anteckna</strong> modell, version, datum och om modellens "tänkande" var på. Resultaten förs in i <a href="#Tabell1">Tabell 1</a>.</li>
+</ol>
+
+<h2 id="Prompten">Prompten</h2>
+<p>Hela texten nedan är prompten. Den är på svenska, som tentan. Rutan är grå eftersom texten är låst: det är ingen inmatning.</p>
+<div class="row">
+<button type="button" id="kopiera">Kopiera prompten</button>
+<button type="button" id="ladda">Ladda ned som textfil</button>
+<span id="status" class="res" role="status" aria-live="polite"></span>
+</div>
+<pre id="promptText" tabindex="0" aria-label="Prompten i sin helhet">Du ska lösa en skriftlig tentamen i endimensionell analys, den första matematikkursen på en teknisk högskola (Lunds tekniska högskola, tentamen 2026-10-30). Det är nio uppgifter. Jag vill se hur väl du löser dem på egen hand och hur tydligt du redovisar svaren.
+
+REGLER
+
+1. Lös uppgifterna själv.
+Sök inte efter tentan eller efter lösningar till den. Hittar du ändå, eller känner du igen, den här tentan eller en lösning av den (på en webbsida, i en källa du har tillgång till, i din träningsdata eller någon annanstans), ska du säga det tydligt i din redovisning och ange var. Använd inte en sådan lösning som facit. Lös uppgifterna själv och redovisa vad du kom fram till.
+
+2. Hjälpmedel.
+På den riktiga tentan var inga hjälpmedel tillåtna. Du får här använda hjälpmedel (till exempel kod, räknare eller symbolisk algebra), men du ska redovisa vilka du har använt, uppgift för uppgift. Motivera ändå lösningen så att en mänsklig rättare kan följa den utan hjälpmedel.
+
+3. Figurer.
+Uppgift 6 och 9 har figurer. Varje figur finns både som bild (bifogad, om du kan ta emot bilder) och som textbeskrivning nedan. Börja varje sådan uppgift med att skriva hur du tolkar figuren. Skiljer sig bilden från beskrivningen, säg det och utgå från bilden. Uppgift 7 har ingen figur i originalet. Bifogade bilder, om du kan se dem: Bild 1 är figuren i uppgift 6 och Bild 2 är figuren i uppgift 9.
+
+4. Språk och skrivsätt.
+Svara på svenska. Skriv matematiken så att den går att läsa som ren text (till exempel sqrt(3), 1/8, pi/2, x^2) eller med LaTeX. Slutsvaren ska stå i exakt form (till exempel 5*sqrt(3) och inte bara 8,66), gärna med ett närmevärde i parentes.
+
+5. Var ärlig om osäkerhet.
+Gissa inte tyst. Är du osäker, säg det och förklara varför. Hittar du ett fel i din egen lösning, rätta det och säg att du gjort det.
+
+SVARSMALL
+
+För varje uppgift 2–9, använd exakt den här mallen:
+
+Uppgift N
+Tolkning: (hur du läser uppgiften och, i uppgift 6 och 9, figuren)
+Lösning: (stegen, med motiveringar)
+Kontroll: (en kontroll som inte bara är samma räkning en gång till, till exempel insättning, ett specialfall eller en annan metod)
+Svar: (en enda rad med slutsvaret)
+Hjälpmedel: inga | kod/räknare | annat (ange vilket)
+Säkerhet: hög | medel | låg, och en mening om varför
+
+Uppgift 1 ska bara besvaras med svar, utan lösning, så som uppgiften säger. Skriv en rad per delfråga ("1a Svar: ...", "1b Svar: ..." och så vidare) och därefter en rad "Hjälpmedel: ..." för hela uppgift 1.
+
+Uppgift 3: skriv definitionen respektive resultatet på raden Svar: och ge härledningen under Lösning.
+
+Uppgift 4 och 8 ber om en skiss. Du kan inte rita, så beskriv grafen i ord, ange nyckelpunkter med koordinater och gör gärna en enkel textskiss eller värdetabell. Svara dessutom uttryckligen på det uppgiften frågar efter (extrempunkter, asymptoter, punkter där funktionen inte är deriverbar).
+
+Avsluta med en sammanfattningstabell med en rad per delsvar:
+| Uppgift | Slutsvar | Hjälpmedel | Säkerhet |
+och därefter två rader:
+Hittade eller kände igen en lösning av tentan: nej | ja (var och vad)
+Övrigt som jag bör veta: (valfritt)
+
+TENTAN
+
+LUNDS TEKNISKA HÖGSKOLA, MATEMATIK
+TENTAMENSSKRIVNING, ENDIMENSIONELL ANALYS B1
+2026-10-30 kl. 14.00–19.00
+
+Så stod det på tentan: INGA HJÄLPMEDEL. Varje uppgift kan som mest ge 3 poäng. Lösningarna ska vara försedda med ordentliga motiveringar. Ge tydliga och enkla svar där så är möjligt.
+
+Godkäntdel
+För att bli godkänd och erhålla betyg 3 krävs minst 9 poäng på denna del, samt 0 poäng på högst en av dessa sex uppgifter.
+
+1. Till denna uppgift ska endast svar anges. Eventuella fullständiga lösningar kommer inte att bedömas. 0–3 rätt ger 0 poäng på uppgiften, 4 rätt ger 1 poäng, 5 rätt ger 2 poäng och 6 rätt ger 3 poäng.
+a) Bestäm en ekvation för linjen som går genom punkten (3, 5) och är parallell med linjen 2x + y = 1.
+b) Kvadratkomplettera uttrycket x^2 − 10x + 19.
+c) Förenkla ²log 6 − ²log 8 − ²log 3. (Förtydligande: ²log betyder logaritmen med bas 2.)
+d) Lös olikheten 3 &lt; 4/(x + 1).
+e) Beräkna binomialkoefficienten (8 över 5), det vill säga "8 välj 5".
+f) Låt f(x) = sin(arctan x). Beräkna f′(√3).
+
+2. Lös ekvationen
+x|x − 8| = |x + 5| + 5.
+
+3.
+a) Definiera vad som menas med att funktionen f är kontinuerlig i punkten a.
+b) Härled derivatan av funktionen g(x) = x^5.
+
+4. Skissera grafen till funktionen
+f(x) = 4/x − x + 5 ln x, x &gt; 0.
+Ange särskilt eventuella lokala extrempunkter och asymptoter.
+
+5. Beräkna gränsvärdena
+a) lim (x → ∞) (5e^x + x^2) / (3^x − ln x)
+b) lim (x → 0) (x^2 + x + ln(1 + x)) / (4x^3 − 3x)
+c) lim (x → 1) (x^2 − 1) / (2x^3 + x^2 − 3)
+
+6. Figuren nedan visar en ritning av hur en låda kan tillverkas av en rektangulär pappskiva med måtten 6 dm × 9 dm. Lådan får formen av ett rätblock, och beteckningarna i figuren anger lådans längd ℓ, bredd b och höjd h. Lådans volym V ges därmed av V = ℓbh. Bestäm lådans dimensioner så att dess volym blir maximal. (Du behöver inte förstå hur lådan konstrueras för att lösa uppgiften.)
+
+[Figurbeskrivning, uppgift 6 (Bild 1): Figuren visar en rektangulär pappskiva, liggande, med bredden 9 (markerad med klammer ovanför) och höjden 6 (markerad med klammer till vänster), båda i dm. Längs högra sidan är höjden uppdelad uppifrån och ned i tre delar märkta h, ℓ och h. Längs nedre sidan är bredden uppdelad från vänster till höger i fem delar märkta h, b, h, b och h. Två streckade vågräta linjer går tvärs över hela skivan, vid gränserna mellan den övre h-delen och ℓ-delen respektive mellan ℓ-delen och den nedre h-delen. Fyra streckade lodräta linjer går mellan de två vågräta, vid gränserna mellan delarna längs nedre sidan (efter första h, efter första b, efter andra h och efter andra b). I den översta och den understa h-remsan fortsätter de fyra lodräta linjerna som kortare, kraftigare heldragna linjer från den streckade linjen ut till skivans kant. Skivans ytterkant är heldragen.]
+
+Överbetygsdel
+Om du klarat godkäntdelen har du chans att få överbetyg. Om du fått minst 14 poäng på föregående del så får du 1 bonuspoäng tillgodo här. För betyg 4 krävs minst 3 poäng på denna del; för betyg 5 minst 6 poäng.
+
+7. I triangeln ABC skär bisektrisen till ∠A sidan BC i punkten D. Beräkna längden av BD då AB = 3, AC = 4 och AD = 2.
+
+8. Låt
+f(x) = arcsin(cos x) + arccos(sin x).
+Ange alla x ∈ R för vilka f inte är deriverbar, och skissera grafen till f.
+
+9. Ett rektangulärt pappersark med måtten 20 cm × 30 cm viks, enligt figuren nedan, så att hörnet A hamnar i punkten A′ på sidan BC. Arket viks längs sträckan PQ, där punkterna P och Q ligger på sidorna AD respektive AB. Bestäm den minsta möjliga längden av PQ.
+
+[Figurbeskrivning, uppgift 9 (Bild 2): Figuren har två delar med en böjd pil från den vänstra till den högra. Vänstra delen är en liggande rektangel med hörnen märkta C (övre vänstra), B (övre högra), D (nedre vänstra) och A (nedre högra). Den vänstra sidan CD är märkt 20 och den nedre sidan DA är märkt 30. Högra delen visar samma rektangel efter vikningen, med hörnen C (övre vänstra), B (övre högra), D (nedre vänstra) och A (nedre högra). På övre sidan CB ligger punkten A′ mellan C och B. På nedre sidan DA ligger punkten P, och på högra sidan BA ligger punkten Q. Tre heldragna sträckor är ritade: PQ, PA′ och A′Q, som tillsammans bildar en triangel. Två streckade sträckor är ritade: från P längs nedre sidan till A och från A upp längs högra sidan till Q.]
+
+SLUT PÅ TENTAN. Börja nu med uppgift 1 och använd svarsmallen.</pre>
+
+<h2 id="Figurer">Figurerna</h2>
+<p>Figurerna är beskurna ur den skannade tentan (300 punkter per tum) och gråskalade. På skanningen lyser texten på pappersarkets baksida igenom som blek, spegelvänd text. Den är borttagen i de rensade kopiorna, som är de jag bifogar. Linjer, bokstäver och mått är orörda. De obearbetade beskärningarna finns som länk under varje figur. Uppgift 7 har ingen figur i originalet. Textbeskrivningarna av båda figurerna står i <a href="#Prompten">prompten</a>.</p>
+
+<figure id="Figur1">
+<figcaption>Figur 1. Figuren i uppgift 6 (pappskivan till lådan), rensad kopia ur tentan</figcaption>
+<img src="figur6_rensad.png" width="1043" height="766" alt="En rektangulär pappskiva, 9 bred och 6 hög. Höjden är uppdelad i h, ℓ, h och bredden i h, b, h, b, h, med streckade linjer och korta kraftiga linjer i övre och nedre kanten.">
+<p class="sub"><a href="figur6_rensad.png" download>Ladda ned den rensade bilden</a> · <a href="figur6_original.png" download>ladda ned den obearbetade beskärningen</a></p>
+</figure>
+
+<figure id="Figur2">
+<figcaption>Figur 2. Figuren i uppgift 9 (arket före och efter vikningen), rensad kopia ur tentan</figcaption>
+<img src="figur9_rensad.png" width="1673" height="495" alt="Till vänster en rektangel CBAD med måtten 20 och 30. Till höger samma rektangel efter vikningen, med punkterna A′ på CB, Q på BA och P på DA och triangeln PQA′.">
+<p class="sub"><a href="figur9_rensad.png" download>Ladda ned den rensade bilden</a> · <a href="figur9_original.png" download>ladda ned den obearbetade beskärningen</a></p>
+</figure>
+
+<h2 id="Resultat">Resultatmall</h2>
+<p>En rad per körning. Fyll i <strong>R</strong> för rätt, <strong>D</strong> för delvis rätt, <strong>F</strong> för fel och <strong>–</strong> om modellen inte svarade. Kolumnerna 1–9 är uppgifterna, där 3 räknas som en uppgift. Jämförelsen sker mot de kontrollerade svaren i <a href="index.html#Tabell2">Tabell 2 i guiden</a> (den innehåller alla svar). Mallen är en vanlig tabell, så den kopieras som markdown med knappen under tabellen och fylls i där resultaten förs.</p>
+<table class="mall" id="mall"><caption id="Tabell1">Tabell 1. Resultatmall: en rad per modell och körning</caption>
+<thead><tr><th>Modell</th><th>Version och datum</th><th>Körning</th><th><abbr title="Redovisade hjälpmedel: inga, kod/räknare eller annat">Hjälpm.</abbr></th><th><abbr title="Redovisade modellen att den hittat eller känt igen en lösning av tentan: nej eller ja (var)">Hittade lösning?</abbr></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>Anmärkning</th></tr></thead>
+<tbody>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<div class="row"><button type="button" id="kopieraMall">Kopiera mallen som markdown</button><span id="statusMall" class="res" role="status" aria-live="polite"></span></div>
+
+<h2 id="Bedomning">Hur svaren bedöms</h2>
+<p>Facit är de svar jag kontrollerat på flera sätt (se <a href="index.html#Kontroll">Så har svaren kontrollerats</a>). Det finns inget officiellt facit för tentan, och ingen utomstående rättare har granskat mina lösningar. När en modell avviker från mitt svar utgår jag därför inte från att modellen har fel, utan granskar avvikelsen. Delvis rätt (D) betyder att metoden eller en del av svaret stämmer men slutsvaret inte gör det.</p>
+<p>Det jag särskilt tittar på är om modellen tolkat uppgiften och figuren rätt (raden Tolkning), om den redovisar sina hjälpmedel, om den kontrollerat sitt svar, och om den uppger att den hittat en lösning av tentan. Vad som kan gå fel när en modell läser av och löser den här sortens uppgifter beskrivs i <a href="META_svara_pa_tentauppgifter.html">metafilen</a>.</p>
+</main>
+
+<a class="corner corner-left" href="https://github.com/kentlundgren/AI-teknik/tree/main/Presentationer/11" target="_blank" rel="noopener">{ } GitHub</a>
+<button type="button" class="corner corner-right" id="techBtn" aria-label="Tekniköversikt">&lt;/&gt; teknik</button>
+
+<div class="modal-overlay" id="techModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="techTitle">
+    <button type="button" class="modal-close" id="techClose" aria-label="Stäng">&times;</button>
+    <h2 id="techTitle">Hur den här sidan är byggd</h2>
+    <p>Två delar: tekniken i sidan, och metoden som användes för att ta fram den. Inget påhittat, bara det som är sant.</p>
+
+    <h3 class="tech-section-title">Tekniken</h3>
+    <div class="tech-grid">
+      <div class="tech-card"><h3>Ren HTML, CSS och JavaScript</h3><p>Inga ramverk, inget byggsteg och inga externa bibliotek. Prompten är ren text och behöver ingen formelsättning.</p></div>
+      <div class="tech-card"><h3>En enda källa för prompten</h3><p>Texten finns bara en gång, i rutan på sidan. Knapparna <em>Kopiera</em> och <em>Ladda ned som textfil</em> läser från rutan, så kopian och nedladdningen kan inte skilja sig från det som visas.</p></div>
+      <div class="tech-card"><h3>Figurerna är beskurna ur skanningen</h3><p>Beskurna ur PDF:en med PyMuPDF i 300 punkter per tum och gråskalade. Texten som lyser igenom från baksidan är borttagen med en enkel nivåjustering. Inget är ritat om.</p></div>
+      <div class="tech-card"><h3>Inga svar i prompten</h3><p>Prompten har uppgifterna, reglerna och svarsmallen, men inga svar och inga ledtrådar. Svaren finns i guiden, inte här.</p></div>
+      <div class="tech-card"><h3>Ingen data skickas</h3><p>Kopieringen sker i din webbläsare. Sidan skickar ingenting till någon server och sparar ingenting.</p></div>
+    </div>
+
+    <h3 class="tech-section-title">Metoden</h3>
+    <div class="tech-grid">
+      <div class="tech-card"><h3>Resonemang före bygge</h3><p>Först resonerade vi om hur en prompt bör se ut: en prompt för alla uppgifter, svarsmall med tolkning, kontroll och säkerhet, och två varianter av figurerna (text och bild).</p></div>
+      <div class="tech-card"><h3>Hjälpmedel och hittade lösningar redovisas</h3><p>Modellerna får använda hjälpmedel om de redovisar dem. Jag ville också att de redovisar om de hittar en lösning:</p><blockquote>"bra om LLM:en så klart redovisar om den hittar våra, dina, lösning - eller någon annans lösning av samma tenta"</blockquote></div>
+      <div class="tech-card"><h3>Bilderna så nära originalet som möjligt</h3><p>Figurerna ska ligga så nära PDF-originalet som möjligt:</p><blockquote>"så nära pdf-orginalet som möjligt"</blockquote></div>
+      <div class="tech-card"><h3>Öppna avvikelser</h3><p>Prompten är inte provkörd på någon modell. Det finns inget officiellt facit, och rätten att återge tentan publikt är inte klarlagd. Se <a href="PRD_presentation_tenta_endimensionell_analys.html">PRD:n</a>.</p></div>
+    </div>
+  </div>
+</div>
+
+<script src="prompt.js"></script>
+</body>
+</html>
