@@ -146,17 +146,18 @@ Ange alla x ∈ R för vilka f inte är deriverbar, och skissera grafen till f.
 SLUT PÅ TENTAN. Börja nu med uppgift 1 och använd svarsmallen.</pre>
 
 <h2 id="PromptB">Prompt B: den skannade tentan som PDF</h2>
-<p>Här bifogar jag tentan som <a href="endimensionell_analys_LTH_261030.pdf" download>PDF-fil</a> (två sidor, en skanning utan textlager) och klistrar in prompten nedan. Jag bifogar filen och länkar den inte: en modell utan webbläsning kan inte öppna en länk, och en länk i det här arkivet ligger bredvid guiden med svaren. Modeller som läser en PDF genom att plocka ut text får ingenting ur en skanning. Då ska modellen enligt prompten säga det och avbryta, och det räknas som att den inte kunde läsa filen, inte som fel matematik. Första steget är att modellen skriver av uppgifterna, så att jag kan jämföra avskriften med mitt facit och se om ett fel beror på läsningen eller på räkningen.</p>
+<p>Här bifogar jag tentan som <a href="endimensionell_analys_LTH_261030.pdf" download>PDF-fil</a> (två sidor, en skanning utan textlager) och klistrar in prompten nedan. Jag bifogar filen och länkar den inte: en modell utan webbläsning kan inte öppna en länk, och en länk i det här arkivet ligger bredvid guiden med svaren. Modeller som läser en PDF genom att plocka ut text får ingenting ur en skanning. Då ska modellen enligt prompten säga det och avbryta, och det räknas som att den inte kunde läsa filen, inte som fel matematik. Första steget är att modellen skriver av uppgifterna, så att jag kan jämföra avskriften med mitt facit och se om ett fel beror på läsningen eller på räkningen. Modellen anger också hur den läste filen (direkt, rendering av sidorna eller OCR, textigenkänning).</p>
+<p class="sub">Version 2 (1 nov 2026): modellen ska göra båda stegen i samma svar och ange hur filen lästes. <a href="RESULTAT_test1_ChatGPT_variant_B_261101.html">Test 1 (ChatGPT)</a> gjordes med version 1, som saknade de två tilläggen. Skriv version i <a href="#Tabell1">Tabell 1</a>.</p>
 <div class="row">
 <button type="button" id="kopieraB">Kopiera prompt B</button>
 <button type="button" id="laddaB">Ladda ned prompt B som textfil</button>
 <span id="statusB" class="res" role="status" aria-live="polite"></span>
 </div>
-<pre id="promptB" tabindex="0" aria-label="Prompt B i sin helhet">Bifogat finns en skannad tentamen i endimensionell analys (Lunds tekniska högskola, 2026-10-30) som en PDF-fil med två sidor. Det är nio uppgifter. Lös dem själv. Jag vill se hur väl du löser dem och hur tydligt du redovisar svaren.
+<pre id="promptB" tabindex="0" aria-label="Prompt B i sin helhet">Bifogat finns en skannad tentamen i endimensionell analys (Lunds tekniska högskola, 2026-10-30) som en PDF-fil med två sidor. Det är nio uppgifter. Lös dem själv. Jag vill se hur väl du löser dem och hur tydligt du redovisar svaren. Gör steg 1 och steg 2 i samma svar. Vänta inte på något svar från mig mellan stegen.
 
 STEG 1, LÄS
 
-Skriv först av varje uppgift ordagrant som text, med delfrågor, och beskriv med några meningar vad figurerna i uppgift 6 och 9 visar. Kan du inte läsa filen, eller bara en del av den, säg det och avbryt, hellre än att gissa vad som står.
+Skriv först av varje uppgift ordagrant som text, med delfrågor, och beskriv med några meningar vad figurerna i uppgift 6 och 9 visar. Kan du inte läsa filen, eller bara en del av den, säg det och avbryt, hellre än att gissa vad som står. Ange också hur du läste filen: Läsning: direkt ur filen | rendering av sidorna | OCR | annat (ange vilket).
 
 STEG 2, LÖS
 
@@ -199,7 +200,7 @@ och därefter två rader:
 Källor utöver din egen räkning: inga | ja (vilka)
 Övrigt som jag bör veta: (valfritt)
 
-Börja nu med steg 1.</pre>
+Börja nu med steg 1 och fortsätt direkt med steg 2.</pre>
 
 <h2 id="Figurer">Figurerna</h2>
 <p>Figurerna hör till variant A. De är beskurna ur den skannade tentan (300 punkter per tum) och gråskalade. På skanningen lyser texten på pappersarkets baksida igenom som blek, spegelvänd text. Den är borttagen i de rensade kopiorna, som är de jag bifogar. Linjer, bokstäver och mått är orörda. De obearbetade beskärningarna finns som länk under varje figur. Uppgift 7 har ingen figur i originalet. Textbeskrivningarna av båda figurerna står i <a href="#Prompten">prompten</a>.</p>
@@ -219,9 +220,9 @@ Börja nu med steg 1.</pre>
 <h2 id="Resultat">Resultatmall</h2>
 <p>En rad per körning. Fyll i <strong>R</strong> för rätt, <strong>D</strong> för delvis rätt, <strong>F</strong> för fel och <strong>–</strong> om modellen inte svarade. Kolumnerna 1–9 är uppgifterna, där 3 räknas som en uppgift. I variant B noteras dessutom i anmärkningen om modellens avskrift av uppgifterna stämde. Jämförelsen sker mot de kontrollerade svaren i <a href="index.html#Tabell2">Tabell 2 i guiden</a> (den innehåller alla svar). Rad 1 är ifylld med det första testet, ChatGPT med variant B (<a href="RESULTAT_test1_ChatGPT_variant_B_261101.html">rapport</a>). Mallen är en vanlig tabell, så den kopieras som markdown med knappen under tabellen och fylls i där resultaten förs.</p>
 <table class="mall" id="mall"><caption id="Tabell1">Tabell 1. Resultatmall: en rad per modell och körning</caption>
-<thead><tr><th>Modell</th><th>Version och datum</th><th><abbr title="Variant A (text och figurbeskrivning) eller B (PDF)">Var.</abbr></th><th>Körning</th><th><abbr title="Var webbsökning påslagen för modellen under körningen: ja eller nej">Sök på?</abbr></th><th><abbr title="Redovisade hjälpmedel: inga, kod/räknare, webbsökning eller annat">Hjälpm.</abbr></th><th><abbr title="Redovisade modellen källor utöver sin egen räkning: inga eller ja (vilka)">Källor?</abbr></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>Anmärkning</th></tr></thead>
+<thead><tr><th>Modell</th><th>Version och datum</th><th><abbr title="Variant A (text och figurbeskrivning) eller B (PDF), med promptens version, till exempel B (v2)">Var.</abbr></th><th>Körning</th><th><abbr title="Var webbsökning påslagen för modellen under körningen: ja eller nej">Sök på?</abbr></th><th><abbr title="Redovisade hjälpmedel: inga, kod/räknare, webbsökning eller annat">Hjälpm.</abbr></th><th><abbr title="Redovisade modellen källor utöver sin egen räkning: inga eller ja (vilka)">Källor?</abbr></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>Anmärkning</th></tr></thead>
 <tbody>
-<tr><td>ChatGPT</td><td>ej angiven, 1 nov 2026</td><td>B</td><td>1</td><td>okänt</td><td>Python/SymPy (uppg. 9)</td><td>inga (uppgivet)</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>Avskriften stämde. Fel i kontrollerna i uppgift 4 och 7. <a href="RESULTAT_test1_ChatGPT_variant_B_261101.html">Rapport</a></td></tr>
+<tr><td>ChatGPT</td><td>ej angiven, 1 nov 2026</td><td>B (v1)</td><td>1</td><td>okänt</td><td>Python/SymPy (uppg. 9)</td><td>inga (uppgivet)</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>Avskriften stämde. Fel i kontrollerna i uppgift 4 och 7. <a href="RESULTAT_test1_ChatGPT_variant_B_261101.html">Rapport</a></td></tr>
 <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>

@@ -94,7 +94,7 @@ Inget i svaret tyder på att modellen kopierat en färdig lösning. Lösningsvä
 ## 7. Förslag till nästa steg
 
 1. **Kent anger modell, version, läge (Chat eller Work), om webbsökning var påslagen och vad som skrevs mellan steg 1 och 2.** Då kan Tabell 1 i [prompt.html](prompt.html#Tabell1) fyllas i fullständigt.
-2. **Ändra prompt B** så att den säger "gör steg 1 och steg 2 i samma svar" och lägger till en rad om hur filen lästes ("Läsning: direkt ur filen | rendering av sidor | OCR | annat"). Det ändrar prompten, så den här körningen noteras som gjord med den nuvarande versionen. Jag ändrar inte prompten utan Kents besked.
+2. **Prompt B version 2** (gjord 2026-11-01 på Kents begäran) säger "gör steg 1 och steg 2 i samma svar" och ber om en rad om hur filen lästes ("Läsning: direkt ur filen | rendering av sidorna | OCR | annat"). Den här körningen gjordes med version 1, som saknade båda tilläggen.
 3. **Kör variant A med samma modell** och jämför med B. Här fanns inga läsfel, så B visar att modellen klarade skanningen, och A kan visa om skillnaden är noll även för andra modeller.
 4. **Fler modeller och fler körningar per modell.** En körning av en modell är ett stickprov.
 5. **Be modellen ange säkerhet per uppgift med en mening om vad som skulle få den att ändra svaret**, så att raden Säkerhet blir användbar.
