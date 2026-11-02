@@ -7,3 +7,4 @@ img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);bord
 .mall th,.mall td{min-width:2.2rem;height:2.4rem}
 .mall td{background:var(--card)}
 @media (max-width:640px){.meny{columns:1}}
+video{max-width:100%;height:auto;background:#000;border:1px solid var(--line);border-radius:8px}
