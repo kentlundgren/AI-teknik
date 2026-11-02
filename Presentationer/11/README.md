@@ -19,7 +19,7 @@ Startsidan är `index.html`. Webbläsaren visar bara en fillista om du öppnar s
 |---|---|
 | `index.html`, `style.css` | Sidan och dess utseende |
 | `data.js` | Alla uppgifter, svar, ledtrådar, delsteg och svårighetsbedömning |
-| `prompt.html`, `prompt.css`, `prompt.js` | Två prompter med alla nio uppgifterna för att testa andra AI-modeller: A (text och figurbeskrivning) och B (den skannade tentan som bifogad PDF). Kopieringsknappar, avsnitt om fusk och resultatmall |
+| `prompt.html`, `prompt.css`, `prompt.js` | Tre prompter med alla nio uppgifterna för att testa andra AI-modeller: A (text och figurbeskrivning), B (den skannade tentan som bifogad PDF) och C (minimal prompt utan kontrollkrav, för att se vad modellen gör av sig själv). Kopieringsknappar, avsnitt om fusk och resultatmall |
 | `kontroller.html`, `kontroller.js` | Hur man kontrollerar ett svar led för led (som student eller med en AI-modell) och bygger in kontroller i en prompt. Adress: `kontroller.html`; pekare i guiden: `index.html#kontroller` |
 | `RESULTAT_test1_ChatGPT_variant_B_261101.md` (och `.html`), `Bilder/` | Test 1 av en annan AI-modell: ChatGPT med variant B (tentan som PDF), jämfört med de kontrollerade svaren. Fyra bilder från samtalet ligger i `Bilder/` |
 | `RESULTAT_test2_GLM53_Perplexity_variant_B_261101.md` (och `.html`), `Bilder/`, `Video/` | Test 2: GLM-5.3 i Perplexity (gratisabonnemang) med variant B. 13 av 17 delsvar rätt. En sammanfattningsbild och en skärminspelning på 2 min ligger i `Bilder/` och `Video/` |

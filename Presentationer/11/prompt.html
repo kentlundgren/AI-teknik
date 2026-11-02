@@ -26,6 +26,7 @@
 <li><a href="#Anvandning">Så använder jag den</a></li>
 <li><a href="#Prompten">Prompt A</a></li>
 <li><a href="#PromptB">Prompt B (PDF)</a></li>
+<li><a href="#PromptC">Prompt C (minimal)</a></li>
 <li><a href="#Figurer">Figurerna</a></li>
 <li><a href="#Resultat">Resultatmall</a></li>
 <li><a href="#Fusk">Kan en modell hitta lösningen?</a></li>
@@ -35,13 +36,13 @@
 <h2 id="Anvandning">Så använder jag den</h2>
 <ol class="steg">
 <li><strong>Nytt, tomt samtal</strong> för varje modell, så att inget tidigare samtal påverkar svaret.</li>
-<li><strong>Välj variant.</strong> A: kopiera <a href="#Prompten">prompt A</a>. Kan modellen ta emot bilder bifogar jag de två figurerna från <a href="#Figurer">Figurerna</a>, Figur 1 först, annars räcker textbeskrivningarna i prompten. B: kopiera <a href="#PromptB">prompt B</a> och bifoga PDF:en som fil. Helst körs båda varianterna med samma modell.</li>
+<li><strong>Välj variant.</strong> A: kopiera <a href="#Prompten">prompt A</a>. Kan modellen ta emot bilder bifogar jag de två figurerna från <a href="#Figurer">Figurerna</a>, Figur 1 först, annars räcker textbeskrivningarna i prompten. B: kopiera <a href="#PromptB">prompt B</a> och bifoga PDF:en som fil. C: kopiera <a href="#PromptC">prompt C</a> och bifoga PDF:en som fil. Helst körs alla varianterna med samma modell.</li>
 <li><strong>Inga följdfrågor och ingen rättning.</strong> Svaret jag får är svaret som bedöms. Gärna tre körningar per modell, eftersom svaren kan skilja sig mellan körningar.</li>
 <li><strong>Anteckna</strong> modell, version, datum och om modellens "tänkande" var på. Jag stänger av webbsökning där det går. Resultaten förs in i <a href="#Tabell1">Tabell 1</a>.</li>
 </ol>
 
 <h2 id="Prompten">Prompt A: text och figurbeskrivning</h2>
-<p>Det finns två varianter. <strong>Variant A</strong> (den här) ger modellen tentatexten som text, med figurerna beskrivna i ord och som bifogade bilder. Den mäter matematiken och är rättvis mot modeller som inte kan läsa en skannad PDF. <strong>Variant B</strong> (<a href="#PromptB">längre ned</a>) ger bara den skannade tentan som PDF-fil. Den mäter läsning och lösning tillsammans, som när en student får papperet. Skillnaden mellan A och B visar hur mycket av felen som kommer från läsningen. Båda är på svenska, som tentan. Rutorna är grå eftersom texten är låst: det är ingen inmatning.</p>
+<p>Det finns tre varianter. <strong>Variant A</strong> (den här) ger modellen tentatexten som text, med figurerna beskrivna i ord och som bifogade bilder. Den mäter matematiken och är rättvis mot modeller som inte kan läsa en skannad PDF. <strong>Variant B</strong> (<a href="#PromptB">längre ned</a>) ger bara den skannade tentan som PDF-fil. Den mäter läsning och lösning tillsammans, som när en student får papperet. Skillnaden mellan A och B visar hur mycket av felen som kommer från läsningen. <strong>Variant C</strong> (<a href="#PromptC">efter B</a>) är en minimal prompt med bifogad PDF som inte ber om några kontroller, för att se vad modellen gör av sig själv. Alla är på svenska, som tentan. Rutorna är grå eftersom texten är låst: det är ingen inmatning.</p>
 <div class="row">
 <button type="button" id="kopiera">Kopiera prompt A</button>
 <button type="button" id="ladda">Ladda ned prompt A som textfil</button>
@@ -206,6 +207,15 @@ Källor utöver din egen räkning: inga | ja (vilka)
 
 Börja nu med steg 1 och fortsätt direkt med steg 2.</pre>
 
+<h2 id="PromptC">Prompt C: minimal prompt, den skannade tentan som PDF</h2>
+<p>Prompt C ber inte om kontroller, steg, hjälpmedel eller säkerhet. Den är till för att se vad en modell gör av sig själv när ingen ber om kontroller. Den har bara med att tentan är bifogad, att svaret ska vara på svenska och att modellen ska lösa uppgifterna själv utan att söka efter dem. Jag bifogar <a href="endimensionell_analys_LTH_261030.pdf" download>PDF-filen</a> som i variant B, ställer inga följdfrågor och noterar i <a href="#Tabell1">Tabell 1</a> modell, version, läge och om webbsökning var på. Svaret har ingen fast mall, så det granskas mot <a href="#Tabell2">Tabell 2</a>. Mer om varför: <a href="kontroller.html#kontroller-sjalva">Kontrollerar modellerna sig själva?</a></p>
+<div class="row">
+<button type="button" id="kopieraC">Kopiera prompt C</button>
+<button type="button" id="laddaC">Ladda ned prompt C som textfil</button>
+<span id="statusC" class="res" role="status" aria-live="polite"></span>
+</div>
+<pre id="promptC" tabindex="0" aria-label="Prompt C i sin helhet">Bifogat finns en skannad tentamen i endimensionell analys (Lunds tekniska högskola, 2026-10-30) som en PDF-fil. Lös uppgifterna. Svara på svenska. Lös dem själv: sök inte på nätet efter tentan eller efter lösningar till den.</pre>
+
 <h2 id="Figurer">Figurerna</h2>
 <p>Figurerna hör till variant A. De är beskurna ur den skannade tentan (300 punkter per tum) och gråskalade. På skanningen lyser texten på pappersarkets baksida igenom som blek, spegelvänd text. Den är borttagen i de rensade kopiorna, som är de jag bifogar. Linjer, bokstäver och mått är orörda. De obearbetade beskärningarna finns som länk under varje figur. Uppgift 7 har ingen figur i originalet. Textbeskrivningarna av båda figurerna står i <a href="#Prompten">prompten</a>.</p>
 
@@ -224,7 +234,7 @@ Börja nu med steg 1 och fortsätt direkt med steg 2.</pre>
 <h2 id="Resultat">Resultatmall</h2>
 <p>En rad per körning. Fyll i <strong>R</strong> för rätt, <strong>D</strong> för delvis rätt, <strong>F</strong> för fel och <strong>–</strong> om modellen inte svarade. Kolumnerna 1–9 är uppgifterna, där 3 räknas som en uppgift. I variant B noteras dessutom i anmärkningen om modellens avskrift av uppgifterna stämde. Jämförelsen sker mot de kontrollerade svaren i <a href="index.html#Tabell2">Tabell 2 i guiden</a> (den innehåller alla svar). Rad 1 är ifylld med det första testet, ChatGPT med variant B (<a href="RESULTAT_test1_ChatGPT_variant_B_261101.html">rapport</a>) och rad 2 med GLM-5.3 i Perplexity (<a href="RESULTAT_test2_GLM53_Perplexity_variant_B_261101.html">rapport</a>). Uppgift 1 räknas som R om alla delfrågor stämmer, annars R* (ett fel) eller F. Mallen är en vanlig tabell, så den kopieras som markdown med knappen under tabellen och fylls i där resultaten förs.</p>
 <table class="mall" id="mall"><caption id="Tabell1">Tabell 1. Resultatmall: en rad per modell och körning</caption>
-<thead><tr><th>Modell</th><th>Version och datum</th><th><abbr title="Variant A (text och figurbeskrivning) eller B (PDF), med promptens version, till exempel B (v2)">Var.</abbr></th><th>Körning</th><th><abbr title="Var webbsökning påslagen för modellen under körningen: ja eller nej">Sök på?</abbr></th><th><abbr title="Redovisade hjälpmedel: inga, kod/räknare, webbsökning eller annat">Hjälpm.</abbr></th><th><abbr title="Redovisade modellen källor utöver sin egen räkning: inga eller ja (vilka)">Källor?</abbr></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>Anmärkning</th></tr></thead>
+<thead><tr><th>Modell</th><th>Version och datum</th><th><abbr title="Variant A (text och figurbeskrivning), B (PDF) eller C (minimal prompt), med promptens version, till exempel B (v4)">Var.</abbr></th><th>Körning</th><th><abbr title="Var webbsökning påslagen för modellen under körningen: ja eller nej">Sök på?</abbr></th><th><abbr title="Redovisade hjälpmedel: inga, kod/räknare, webbsökning eller annat">Hjälpm.</abbr></th><th><abbr title="Redovisade modellen källor utöver sin egen räkning: inga eller ja (vilka)">Källor?</abbr></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>Anmärkning</th></tr></thead>
 <tbody>
 <tr><td>ChatGPT</td><td>ej angiven, 1 nov 2026</td><td>B (v1)</td><td>1</td><td>okänt</td><td>Python/SymPy (uppg. 9)</td><td>inga (uppgivet)</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>Avskriften stämde. Fel i kontrollerna i uppgift 4 och 7. <a href="RESULTAT_test1_ChatGPT_variant_B_261101.html">Rapport</a></td></tr>
 <tr><td>GLM-5.3 i Perplexity (gratis)</td><td>ej angiven, 1 nov 2026</td><td>B (v2)</td><td>1</td><td>okänt</td><td>kod (sympy, numerisk), i nio delsvar</td><td>inga uppgivet; "1 källa" visas</td><td>R*</td><td>R</td><td>R</td><td>R</td><td>R</td><td>F</td><td>R</td><td>D</td><td>F</td><td>1f, 6 och 9 fel; grafen i 8 fel. *1f fel (2 av 3 p). Kontrollerna bekräftar felaktiga svar. <a href="RESULTAT_test2_GLM53_Perplexity_variant_B_261101.html">Rapport</a></td></tr>
@@ -243,6 +253,21 @@ Börja nu med steg 1 och fortsätt direkt med steg 2.</pre>
 <li><strong>Prompten säger inte att lösningar finns.</strong> Regeln är formulerad som en vanlig tentaregel ("sök inte på nätet … om du ändå skulle se en"), så att den inte avslöjar att det finns lösningar att hitta.</li>
 <li><strong>Redovisningen av hur modellen räknat behålls.</strong> Ett rätt slutsvar utan väg dit går inte att skilja från en gissning eller en kopia, och en tentalösning ska ha motiveringar. Slutsvaren är ändå lätta att jämföra, eftersom de står på en egen rad och i sammanfattningstabellen. Raden <em>Metod</em> är en mening som säger hur modellen räknat, och raden <em>Hjälpmedel</em> säger vilka verktyg den använt.</li>
 </ul>
+
+<h3 id="Granskning">Vad man tittar efter i svar på prompt C</h3>
+<p>Prompt C har ingen svarsmall. <a href="#Tabell2">Tabell 2</a> anger vilka kontroller och redovisningar som svaret granskas för. Det som är intressant är vad modellen gör <em>utan</em> att bli ombedd. Kontrollsorterna förklaras i <a href="kontroller.html#kontroller-sorter">Fyra sorters kontroll</a>.</p>
+<table class="mall"><caption id="Tabell2">Tabell 2. Vad modellen gör av sig själv i svar på prompt C</caption>
+<thead><tr><th>Moment</th><th>Vad man ser efter</th><th>Ja, nej eller delvis</th></tr></thead>
+<tbody>
+<tr><td>Läser om och skriver av uppgifterna</td><td>Skriver av uppgifterna eller ställer upp dem med egna ord innan den löser</td><td></td></tr>
+<tr><td>Kontroll mot uppgiften</td><td>Sätter in svaret i den ursprungliga uppgiften, eller kontrollerar uppställningen mot figuren</td><td></td></tr>
+<tr><td>Annan metod</td><td>Löser eller prövar på ett annat sätt (grafiskt, numeriskt, specialfall)</td><td></td></tr>
+<tr><td>Rimlighet</td><td>Kommenterar storlek, tecken, enhet eller gränsfall</td><td></td></tr>
+<tr><td>Redovisar hjälpmedel</td><td>Säger om den använt kod, sökning eller annat</td><td></td></tr>
+<tr><td>Visar koden och vad den gav</td><td>Om den påstår att kod bekräftat något: visar koden och resultatet</td><td></td></tr>
+<tr><td>Anger osäkerhet</td><td>Säger vad den är osäker på, eller markerar vilka svar som är kontrollerade</td><td></td></tr>
+<tr><td>Frågar eller avbryter</td><td>Ställer en fråga eller väntar på besked innan den svarar</td><td></td></tr>
+</tbody></table>
 
 <h2 id="Bedomning">Hur svaren bedöms</h2>
 <p>Facit är de svar jag kontrollerat på flera sätt (se <a href="index.html#Kontroll">Så har svaren kontrollerats</a>). Det finns inget officiellt facit för tentan, och ingen utomstående rättare har granskat mina lösningar. När en modell avviker från mitt svar utgår jag därför inte från att modellen har fel, utan granskar avvikelsen. Delvis rätt (D) betyder att metoden eller en del av svaret stämmer men slutsvaret inte gör det.</p>

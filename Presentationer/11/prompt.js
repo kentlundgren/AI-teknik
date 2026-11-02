@@ -24,7 +24,8 @@ function kopiera(text,statusId){
 }
 function promptKnappar(){
   [['promptText','kopiera','ladda','status','prompt_A_tenta_endimensionell_analys_261030.txt'],
-   ['promptB','kopieraB','laddaB','statusB','prompt_B_tenta_endimensionell_analys_261030.txt']].forEach(([ruta,kop,lad,st,fil])=>{
+   ['promptB','kopieraB','laddaB','statusB','prompt_B_tenta_endimensionell_analys_261030.txt'],
+   ['promptC','kopieraC','laddaC','statusC','prompt_C_tenta_endimensionell_analys_261030.txt']].forEach(([ruta,kop,lad,st,fil])=>{
     const rutan=$(ruta);
     $(kop).addEventListener('click',()=>kopiera(rutan.textContent,st));
     $(lad).addEventListener('click',()=>{
