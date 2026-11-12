@@ -4,6 +4,7 @@
  * (data-post, data-formel, data-kalla, data-lista), visar markering av hur väl en siffra är belagd,
  * förklaringar vid hovring/fokus/tryck, tekniknivån i hörnet och versionsraden.
  *
+ * UPPDATERING 2026-11-12: nyckelkällor markeras och förklaras i källförteckningen (harvardPost, fältet nyckel). Version 1.11.
  * UPPDATERING 2026-11-12: termerna fältexperiment, promptografi, medelbudskap och fotorealism för sidan Bilder och förtroende. Version 1.10.
  * UPPDATERING 2026-11-12: introt startar vid varje laddning av startsidan. Version 1.9.
  * UPPDATERING 2026-11-12: ändrad rubrik i introt (Energiåtgång för AI) och på delningsbilden. Version 1.8.
@@ -19,7 +20,7 @@
  * Testläge: lägg ?test=1 efter adressen för att köra validering och testfall (SPEC avsnitt 3, 4 och 8).
  * Obs: fetch fungerar inte på file://. Testa via en lokal server (python -m http.server).
  */
-const VERSION = "1.10";
+const VERSION = "1.11";
 const VERSIONSDATUM = "2026-11-12";
 const AVSANDARE = "Kent Lundgren";
 const GITHUB_MAPP = "https://github.com/kentlundgren/AI-teknik/tree/main/AI_anvandning/NF";
@@ -47,7 +48,7 @@ const TERMER = {
   mikro: "Tid i en mikrovågsugn på 1 000 W (märkeffekt). Se antagandet MW_EFFEKT och förbättringsrad F-06.",
   "fältexperiment": "Ett experiment som görs i en verklig miljö, här annonser på Facebook, i stället för i ett laboratorium eller en enkät. Resultatet visar vad människor gör (till exempel klickar), inte bara vad de säger.",
   promptografi: "Ordet Mediemyndigheten använder för en AI-genererad bild som liknar ett fotografi: gjord utan kamera, lins och verkligt motiv, med en textbeskrivning (prompt) som underlag.",
-  medelbudskap: "Att sättet man kommunicerar på strider mot det man säger sig stå för, till exempel att en hållbarhetskampanj görs med energikrävande verktyg. Engelska: message-medium misalignment (UEA, pressmeddelande).",
+  medelbudskap: "Att sättet man kommunicerar på strider mot det man säger sig stå för, till exempel att en hållbarhetskampanj görs med energikrävande verktyg. Engelska: message-medium misalignment (Adesina & Girling, 2026).",
   fotorealism: "Bilder som är gjorda för att se ut som fotografier. Bond rekommenderar att gå bort från det, eftersom sådana bilder väcker mest granskning."
 };
 
@@ -251,6 +252,11 @@ function lank(url, text) {
 /* En källa i Harvardformat: referens, DOI eller Tillgänglig på, hämtdatum och en kursiv relevansnot i samma stycke. */
 function harvardPost(k) {
   const li = document.createElement("li"); li.id = "ref-" + k.id;
+  if (k.nyckel) {
+    li.className = "nyckelkalla";
+    const m = document.createElement("strong"); m.className = "nyckelmarke"; m.textContent = "Nyckelkälla";
+    li.append(m, document.createTextNode(" "));
+  }
   li.append(document.createTextNode(k.harvard + " "));
   if (k.doi) {
     li.append(document.createTextNode("DOI: "), lank("https://doi.org/" + k.doi));
@@ -262,6 +268,12 @@ function harvardPost(k) {
   li.append(document.createTextNode(k.url || k.doi ? ". " : ""));
   const n = document.createElement("em"); n.textContent = "(" + k.not + ")";
   li.append(n);
+  if (k.nyckel) {
+    const w = document.createElement("span"); w.className = "nyckeltext";
+    const st = document.createElement("strong"); st.textContent = "Varför den är extra intressant: ";
+    w.append(st, document.createTextNode(k.nyckel));
+    li.append(w);
+  }
   return li;
 }
 

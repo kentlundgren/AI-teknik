@@ -1761,52 +1761,48 @@
   },
   {
    "id": "UEA_BILDER",
-   "namn": "Antal AI-genererade bilder i UEA:s analys",
+   "namn": "Antal AI-genererade bilder i rapporten",
    "varde": 171,
    "enhet": "bilder",
    "typ": "uppmatt",
-   "belagd": "sekundar",
-   "kalla": "uea_2026",
+   "belagd": "original",
+   "kalla": "adesina_2026",
    "sida": null,
    "hamtdatum": "2026-11-12",
-   "forbattring": [
-    "F-41"
-   ],
-   "kommentar": "Enligt pressmeddelandet. Själva rapporten är inte läst.",
+   "forbattring": [],
+   "kommentar": "Rapporten, kapitel 3.",
    "spann": null,
    "formel": null
   },
   {
    "id": "UEA_ORGANISATIONER",
-   "namn": "Antal organisationer i UEA:s analys",
+   "namn": "Antal organisationer i rapporten",
    "varde": 17,
    "enhet": "organisationer",
    "typ": "uppmatt",
-   "belagd": "sekundar",
-   "kalla": "uea_2026",
+   "belagd": "original",
+   "kalla": "adesina_2026",
    "sida": null,
    "hamtdatum": "2026-11-12",
-   "forbattring": [
-    "F-41"
-   ],
-   "kommentar": "Bland andra Amnesty International, Plan International, WHO och WWF.",
+   "forbattring": [],
+   "kommentar": "Bland andra Amnesty International, Plan International, WHO, UNOCHA och WWF Danmark.",
    "spann": null,
    "formel": null
   },
   {
    "id": "UEA_KOMMENTARER",
-   "namn": "Antal offentliga kommentarer i UEA:s analys",
-   "varde": 400,
+   "namn": "Antal analyserade kommentarer (tonläge)",
+   "varde": 472,
    "enhet": "kommentarer",
    "typ": "uppmatt",
-   "belagd": "sekundar",
-   "kalla": "uea_2026",
+   "belagd": "original",
+   "kalla": "adesina_2026",
    "sida": null,
    "hamtdatum": "2026-11-12",
    "forbattring": [
     "F-41"
    ],
-   "kommentar": "Pressmeddelandet anger mer än 400 kommentarer.",
+   "kommentar": "Rapporten: 472 kommentarer analyserade. Temadelen summerar till 541 (F-41). Pressmeddelandet anger mer än 400.",
    "spann": null,
    "formel": null
   },
@@ -1816,65 +1812,119 @@
    "varde": 80,
    "enhet": "kommentarer",
    "typ": "uppmatt",
-   "belagd": "sekundar",
-   "kalla": "uea_2026",
+   "belagd": "original",
+   "kalla": "adesina_2026",
    "sida": null,
    "hamtdatum": "2026-11-12",
-   "forbattring": [
-    "F-41"
-   ],
-   "kommentar": "Pressmeddelandet: färre än en femtedel av kommentarerna.",
+   "forbattring": [],
+   "kommentar": "Rapporten: bara 80 kommentarer handlade i första hand om kampanjen eller saken.",
    "spann": null,
    "formel": null
   },
   {
    "id": "UEA_ETIK",
-   "namn": "Kommentarer som handlade om AI-etik och äkthet",
+   "namn": "Kommentarer om AI-etik",
    "varde": 141,
    "enhet": "kommentarer",
    "typ": "uppmatt",
-   "belagd": "sekundar",
-   "kalla": "uea_2026",
+   "belagd": "original",
+   "kalla": "adesina_2026",
    "sida": null,
    "hamtdatum": "2026-11-12",
-   "forbattring": [
-    "F-41"
-   ],
-   "kommentar": "Kategorierna redovisas i pressmeddelandet utan att summan förklaras.",
+   "forbattring": [],
+   "kommentar": "Äkthet, samtycke, vilseledning, arbete, miljökostnad och känslomässig manipulation.",
    "spann": null,
    "formel": null
   },
   {
    "id": "UEA_UTFORANDE",
-   "namn": "Kommentarer som kritiserade bildernas tekniska utförande och kvalitet",
+   "namn": "Kommentarer om bildernas tekniska utförande och kvalitet",
    "varde": 122,
    "enhet": "kommentarer",
    "typ": "uppmatt",
-   "belagd": "sekundar",
-   "kalla": "uea_2026",
+   "belagd": "original",
+   "kalla": "adesina_2026",
    "sida": null,
    "hamtdatum": "2026-11-12",
    "forbattring": [
     "F-41"
    ],
-   "kommentar": null,
+   "kommentar": "Texten anger 122, temadelens tabell 124 (F-41).",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "UEA_NEUTRAL",
+   "namn": "Neutrala kommentarer",
+   "varde": 215,
+   "enhet": "kommentarer",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "adesina_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Cirka 45,6 procent. Vanligast i kampanjer utan redovisning av AI.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "UEA_KRITISK",
+   "namn": "Kritiska kommentarer",
+   "varde": 131,
+   "enhet": "kommentarer",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "adesina_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Cirka 27,8 procent.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "UEA_STODJANDE",
+   "namn": "Stödjande kommentarer",
+   "varde": 86,
+   "enhet": "kommentarer",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "adesina_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Cirka 18,2 procent.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "UEA_AMBIVALENT",
+   "namn": "Ambivalenta eller nyanserade kommentarer",
+   "varde": 40,
+   "enhet": "kommentarer",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "adesina_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Cirka 8,5 procent.",
    "spann": null,
    "formel": null
   },
   {
    "id": "UEA_MARKTA",
    "namn": "Andel bilder som var märkta som AI-genererade",
-   "varde": 85,
+   "varde": 84.8,
    "enhet": "%",
    "typ": "uppmatt",
-   "belagd": "sekundar",
-   "kalla": "uea_2026",
+   "belagd": "original",
+   "kalla": "adesina_2026",
    "sida": null,
    "hamtdatum": "2026-11-12",
-   "forbattring": [
-    "F-41"
-   ],
-   "kommentar": "Pressmeddelandet: 85 procent korrekt märkta.",
+   "forbattring": [],
+   "kommentar": "Rapporten: 84,8 procent. Hur och när märkningen gjordes är inte känt.",
    "spann": null,
    "formel": null
   },
@@ -1884,14 +1934,12 @@
    "varde": 51,
    "enhet": "bilder",
    "typ": "uppmatt",
-   "belagd": "sekundar",
-   "kalla": "uea_2026",
+   "belagd": "original",
+   "kalla": "adesina_2026",
    "sida": null,
    "hamtdatum": "2026-11-12",
-   "forbattring": [
-    "F-41"
-   ],
-   "kommentar": null,
+   "forbattring": [],
+   "kommentar": "Nästan alla (50 av 51) fotorealistiska.",
    "spann": null,
    "formel": null
   },
@@ -1901,14 +1949,12 @@
    "varde": 35,
    "enhet": "bilder",
    "typ": "uppmatt",
-   "belagd": "sekundar",
-   "kalla": "uea_2026",
+   "belagd": "original",
+   "kalla": "adesina_2026",
    "sida": null,
    "hamtdatum": "2026-11-12",
-   "forbattring": [
-    "F-41"
-   ],
-   "kommentar": null,
+   "forbattring": [],
+   "kommentar": "Alla illustrerade och märkta som AI-genererade.",
    "spann": null,
    "formel": null
   },
@@ -1991,7 +2037,8 @@
    "url": "https://platform.claude.com/docs/en/about-claude/pricing",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Priser per miljon tokens för Claude Sonnet 5.5 och Opus 5.5 (indata, cacheskrivning, cacheläsning, utdata). Läst via en genomgång av sidan (F-38)."
+   "not": "Priser per miljon tokens för Claude Sonnet 5.5 och Opus 5.5 (indata, cacheskrivning, cacheläsning, utdata). Läst via en genomgång av sidan (F-38).",
+   "nyckel": null
   },
   {
    "id": "kontextmatare",
@@ -2000,7 +2047,8 @@
    "url": null,
    "doi": null,
    "hamtad": null,
-   "not": "Hur stor del av kontextfönstret som är använd och hur det fördelar sig."
+   "not": "Hur stor del av kontextfönstret som är använd och hur det fördelar sig.",
+   "nyckel": null
   },
   {
    "id": "abonnemang_matare",
@@ -2009,7 +2057,8 @@
    "url": null,
    "doi": null,
    "hamtad": null,
-   "not": "Procent av gränserna och extra användning. Gäller hela kontot."
+   "not": "Procent av gränserna och extra användning. Gäller hela kontot.",
+   "nyckel": null
   },
   {
    "id": "jegham_2025",
@@ -2018,7 +2067,8 @@
    "url": "https://arxiv.org/abs/2505.09598",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Jämförande mätning av energi, vatten och koldioxid för 30 modeller i kommersiella datacenter. Abstract läst, hela artikeln inte."
+   "not": "Jämförande mätning av energi, vatten och koldioxid för 30 modeller i kommersiella datacenter. Abstract läst, hela artikeln inte.",
+   "nyckel": null
   },
   {
    "id": "anthropic_2026",
@@ -2027,7 +2077,8 @@
    "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Hur cachning av prompt-prefix fungerar, priset för cachade läsningar och skrivningar (0,1 respektive 1,25 gånger vanligt pris) och minsta längd. Priset säger inget om energin. Läst delvis via en genomgång (F-33)."
+   "not": "Hur cachning av prompt-prefix fungerar, priset för cachade läsningar och skrivningar (0,1 respektive 1,25 gånger vanligt pris) och minsta längd. Priset säger inget om energin. Läst delvis via en genomgång (F-33).",
+   "nyckel": null
   },
   {
    "id": "cavagna_2026",
@@ -2036,7 +2087,8 @@
    "url": "https://arxiv.org/abs/2611.03330",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Förtryck. Modell för energin per token som skiljer indata (prefill) från avkodning och minnet av tidigare tokens (KV-cachen). Mätt på 13 öppna modeller. Abstract läst, hela artikeln inte (F-34)."
+   "not": "Förtryck. Modell för energin per token som skiljer indata (prefill) från avkodning och minnet av tidigare tokens (KV-cachen). Mätt på 13 öppna modeller. Abstract läst, hela artikeln inte (F-34).",
+   "nyckel": null
   },
   {
    "id": "google_2026",
@@ -2045,7 +2097,8 @@
    "url": "https://aistudio.google.com/docs/caching?generate-content=true",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Implicit och explicit cachning av indata, sänkt pris utan angivet belopp. Läst via en genomgång (F-33)."
+   "not": "Implicit och explicit cachning av indata, sänkt pris utan angivet belopp. Läst via en genomgång (F-33).",
+   "nyckel": null
   },
   {
    "id": "openai_2026",
@@ -2054,7 +2107,8 @@
    "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Cachning återanvänder redan beräknade tillstånd för ett gemensamt prefix, rabatt på cachad indata upp till 95 procent. Delvis läst."
+   "not": "Cachning återanvänder redan beräknade tillstånd för ett gemensamt prefix, rabatt på cachad indata upp till 95 procent. Delvis läst.",
+   "nyckel": null
   },
   {
    "id": "altman_2025",
@@ -2063,7 +2117,8 @@
    "url": "https://blog.samaltman.com/the-gentle-singularity",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "OpenAI-chefens uppgift om 0,34 Wh och 0,000085 gallon vatten per genomsnittlig fråga. Ingen metod redovisas."
+   "not": "OpenAI-chefens uppgift om 0,34 Wh och 0,000085 gallon vatten per genomsnittlig fråga. Ingen metod redovisas.",
+   "nyckel": null
   },
   {
    "id": "bast_i_test",
@@ -2072,7 +2127,8 @@
    "url": "https://www.bast-i-test.se/tester_pa_basta/mikrovagsugn.html",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Jämförelsesajt: vanligaste märkeffekt 500–900 W, testade modeller 800 W och 900–1 000 W. Ingen auktoritativ källa (F-06)."
+   "not": "Jämförelsesajt: vanligaste märkeffekt 500–900 W, testade modeller 800 W och 900–1 000 W. Ingen auktoritativ källa (F-06).",
+   "nyckel": null
   },
   {
    "id": "ember_2025",
@@ -2081,7 +2137,8 @@
    "url": "https://ember-energy.org/latest-insights/global-electricity-review-2025/global-electricity-trends/",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Global elmix 2024: 473 g CO2/kWh."
+   "not": "Global elmix 2024: 473 g CO2/kWh.",
+   "nyckel": null
   },
   {
    "id": "energimyndigheten_2023",
@@ -2090,7 +2147,8 @@
    "url": "https://www.energimyndigheten.se/492f27/contentassets/054d98cfdcd54cb5a802e24b53779452/energianvandning-i-datacenter-och-digitala-system.pdf",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Svenska datacenters elanvändning 2022 och prognos till 2030."
+   "not": "Svenska datacenters elanvändning 2022 och prognos till 2030.",
+   "nyckel": null
   },
   {
    "id": "ekonomifakta_2026",
@@ -2099,7 +2157,8 @@
    "url": "https://www.ekonomifakta.se/sakomraden/elfakta/",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Sveriges totala elanvändning 2024, cirka 136 TWh. Hämtad ur sökresultat, inte öppnad (F-02)."
+   "not": "Sveriges totala elanvändning 2024, cirka 136 TWh. Hämtad ur sökresultat, inte öppnad (F-02).",
+   "nyckel": null
   },
   {
    "id": "epoch_2025",
@@ -2108,7 +2167,8 @@
    "url": "https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Definition av en typisk fråga (500 tokens), 0,3 Wh per fråga och uppskattningar för långa indata. Beräkningar för GPT-4o."
+   "not": "Definition av en typisk fråga (500 tokens), 0,3 Wh per fråga och uppskattningar för långa indata. Beräkningar för GPT-4o.",
+   "nyckel": null
   },
   {
    "id": "iea_2025",
@@ -2117,7 +2177,8 @@
    "url": "https://www.iea.org/reports/energy-and-ai/executive-summary",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Datacentrens elanvändning i världen, 415 TWh år 2024."
+   "not": "Datacentrens elanvändning i världen, 415 TWh år 2024.",
+   "nyckel": null
   },
   {
    "id": "li_2025",
@@ -2126,7 +2187,8 @@
    "url": "https://arxiv.org/abs/2304.03271",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Metod och siffror för vattenavtryck, GPT-3 i amerikanska anläggningar."
+   "not": "Metod och siffror för vattenavtryck, GPT-3 i amerikanska anläggningar.",
+   "nyckel": null
   },
   {
    "id": "luccioni_2024",
@@ -2135,7 +2197,8 @@
    "url": "https://arxiv.org/abs/2311.16863",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Mätning av energi per 1 000 användningar och uppgiftstyp. Bildgenerering dyrast."
+   "not": "Mätning av energi per 1 000 användningar och uppgiftstyp. Bildgenerering dyrast.",
+   "nyckel": null
   },
   {
    "id": "microsoft_2024",
@@ -2144,7 +2207,8 @@
    "url": "https://www.microsoft.com/en-us/microsoft-cloud/blog/2024/12/09/sustainable-by-design-next-generation-datacenters-consume-zero-water-for-cooling/",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Slutna kretsar utan avdunstning och energikonsekvensen. Läst via en genomgång av sidan (F-16)."
+   "not": "Slutna kretsar utan avdunstning och energikonsekvensen. Läst via en genomgång av sidan (F-16).",
+   "nyckel": null
   },
   {
    "id": "microsoft_2026",
@@ -2153,7 +2217,8 @@
    "url": "https://blogs.microsoft.com/blog/2026/06/24/inside-microsofts-two-decade-push-to-cut-water-intensity-while-scaling-for-growth/",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Microsofts WUE 0,27 L/kWh 2025. Läst via en genomgång av sidan (F-16)."
+   "not": "Microsofts WUE 0,27 L/kWh 2025. Läst via en genomgång av sidan (F-16).",
+   "nyckel": null
   },
   {
    "id": "naturvardsverket_2026",
@@ -2162,7 +2227,8 @@
    "url": "https://www.naturvardsverket.se/495f5e/globalassets/amnen/klimatomstallning/klimatklivet/dokument/klimatklivet-varden-for-att-berakna-utslappsminskning.pdf",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Utsläppsfaktor 59 g CO2e/kWh för el, nordisk elmix 2021–2023."
+   "not": "Utsläppsfaktor 59 g CO2e/kWh för el, nordisk elmix 2021–2023.",
+   "nyckel": null
   },
   {
    "id": "shehabi_2024",
@@ -2171,7 +2237,8 @@
    "url": "https://escholarship.org/uc/item/32d6m0d1",
    "doi": "10.71468/P1WC7Q",
    "hamtad": "2026-11-12",
-   "not": "Direkt och indirekt vattenanvändning i USA:s datacenter (DOI 10.71468/P1WC7Q). PDF-kopian som lästes är märkt som embargo, men utgivningen är bekräftad."
+   "not": "Direkt och indirekt vattenanvändning i USA:s datacenter (DOI 10.71468/P1WC7Q). PDF-kopian som lästes är märkt som embargo, men utgivningen är bekräftad.",
+   "nyckel": null
   },
   {
    "id": "summera_tokens",
@@ -2180,7 +2247,8 @@
    "url": "https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/summera_tokens.py",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Skriptet som gav sessionens uppmätta tokens, se Analys om användningssätt. Senaste mättidpunkt 2026-11-12 kl. 14:39 (A3)."
+   "not": "Skriptet som gav sessionens uppmätta tokens, se Analys om användningssätt. Senaste mättidpunkt 2026-11-12 kl. 14:39 (A3).",
+   "nyckel": null
   },
   {
    "id": "unep_2024",
@@ -2189,7 +2257,8 @@
    "url": "https://wedocs.unep.org/handle/20.500.11822/46288",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Livscykelperspektiv med energi, vatten, mineral, utsläpp och e-avfall. Abstract läst, hela rapporten inte (F-11)."
+   "not": "Livscykelperspektiv med energi, vatten, mineral, utsläpp och e-avfall. Abstract läst, hela rapporten inte (F-11).",
+   "nyckel": null
   },
   {
    "id": "usgs_2019",
@@ -2198,7 +2267,8 @@
    "url": "https://pubs.usgs.gov/sir/2019/5103/sir20195103.pdf",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Uttag och förbrukning vid genomströmning och kyltorn, koefficienter för 2015."
+   "not": "Uttag och förbrukning vid genomströmning och kyltorn, koefficienter för 2015.",
+   "nyckel": null
   },
   {
    "id": "vahdat_dean_2025",
@@ -2207,7 +2277,8 @@
    "url": "https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Googles uppgift om 0,24 Wh, 0,03 g CO2e och 0,26 ml vatten per median-textfråga. Ej verifierad av tredje part."
+   "not": "Googles uppgift om 0,24 Wh, 0,03 g CO2e och 0,26 ml vatten per median-textfråga. Ej verifierad av tredje part.",
+   "nyckel": null
   },
   {
    "id": "wang_2024",
@@ -2216,7 +2287,8 @@
    "url": "https://www.nature.com/articles/s43588-024-00712-6",
    "doi": "10.1038/s43588-024-00712-6",
    "hamtad": "2026-11-12",
-   "not": "Scenario för elektroniskt avfall: 1,2–5,0 miljoner ton 2020–2030. Abstract läst."
+   "not": "Scenario för elektroniskt avfall: 1,2–5,0 miljoner ton 2020–2030. Abstract läst.",
+   "nyckel": null
   },
   {
    "id": "bond_2026",
@@ -2225,7 +2297,8 @@
    "url": "https://www.bond.org.uk/news/2026/03/artificial-authenticity-are-ngos-risking-their-reputation-when-using-ai-generated-imagery/",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Brittiskt nätverk för biståndsorganisationer sammanfattar UEA-analysen och ger fem råd. Artikeln läst. Månaden är hämtad ur adressen."
+   "not": "Brittiskt nätverk för biståndsorganisationer sammanfattar UEA-analysen och ger fem råd. Artikeln läst. Månaden är hämtad ur adressen.",
+   "nyckel": null
   },
   {
    "id": "mediemyndigheten_2025",
@@ -2234,7 +2307,8 @@
    "url": "https://mediemyndigheten.se/globalassets/barn-och-unga-2/for-vuxna/bilders-makt--ai-och-visuell-paverkan/ai-bilder-och-fotografiets-sanningsansprak/lararmanus---ai-bilderoch-fotografiets-sanningsansprak.pdf",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Undervisningsmaterial om hur AI-bilder som liknar fotografier utmanar fotografiets sanningsanspråk. Inledningen läst."
+   "not": "Undervisningsmaterial om hur AI-bilder som liknar fotografier utmanar fotografiets sanningsanspråk. Inledningen läst.",
+   "nyckel": null
   },
   {
    "id": "orf_2025",
@@ -2243,7 +2317,8 @@
    "url": "https://orf.at/stories/3409001/",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Referat av The Guardian om hälsoorganisationers AI-bilder av fattigdom och forskares varning för stereotyper. Artikeln läst, Guardian-originalet inte."
+   "not": "Referat av The Guardian om hälsoorganisationers AI-bilder av fattigdom och forskares varning för stereotyper. Artikeln läst, Guardian-originalet inte.",
+   "nyckel": null
   },
   {
    "id": "petapixel_2023",
@@ -2252,16 +2327,18 @@
    "url": "https://petapixel.com/2023/05/02/it-devalues-photographers-amnesty-deletes-ai-images-after-backlash",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Nyhetsreferat om Amnestys AI-bilder från Colombia 2023, kritiken och organisationens svar. Artikeln läst. Återger Amnestys svar per e-post 2023, inte en aktuell policy."
+   "not": "Nyhetsreferat om Amnestys AI-bilder från Colombia 2023, kritiken och organisationens svar. Artikeln läst. Återger Amnestys svar per e-post 2023, inte en aktuell policy.",
+   "nyckel": null
   },
   {
-   "id": "uea_2026",
-   "kort": "UEA (u.å.)",
-   "harvard": "University of East Anglia (u.å.) 'New research warns charities against ‘AI shortcut’ to empathy', UEA News. Om rapporten Artificial Authenticity: The Rise of Images Generated by Artificial Intelligence in Charity and Development Communications.",
-   "url": "https://www.uea.ac.uk/about/news/article/new-research-warns-charities-against-ai-shortcut-to-empathy",
+   "id": "adesina_2026",
+   "kort": "Adesina & Girling (2026)",
+   "harvard": "Adesina, D. & Girling, D. (2026) 'Artificial Authenticity: The rise of images generated by artificial intelligence (AI) in the charity and development communications', University of East Anglia, mars 2026.",
+   "url": "https://charity-advertising.co.uk/uploads/charity-and-ai-report-2026.pdf",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Pressmeddelande om en analys av 171 AI-bilder från 17 organisationer och över 400 kommentarer. Pressmeddelandet läst i sin helhet, själva rapporten inte (F-41)."
+   "not": "Rapport (28 sidor) om 171 AI-bilder från 17 organisationer och 472 kommentarer. Hämtad som PDF och läst i relevanta delar: metod, ämnen, tonläge, diskursanalys och slutsatser. Rapportens siffror är inte helt konsekventa (F-41).",
+   "nyckel": "Den mest direkta studie jag hittat av hur publiken reagerar på AI-bilder från verkliga organisationer: 171 bilder från 17 organisationer och 472 kommentarer. Den visar att samtalet flyttas från saken till AI:n, att märkning är nödvändig men sällan tillräcklig, och innehåller fallet WWF Danmark. Det är en kvalitativ analys av kommentarer, inte ett experiment, och den gäller mest bistånd. Sidan Bilder och förtroende bygger på den."
   },
   {
    "id": "yahoo_2025",
@@ -2270,7 +2347,8 @@
    "url": "https://www.yahoo.com/news/articles/why-scientists-worried-ai-generated-133131403.html",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Nyhetstext om Heinz Sielmann Stiftungs varning för AI-djurbilder. Artikeln läst. Stiftelsens eget pressmeddelande är inte hittat (F-44). Sidan visar också en AI-genererad sammanfattning från Yahoo, som inte använts."
+   "not": "Nyhetstext om Heinz Sielmann Stiftungs varning för AI-djurbilder. Artikeln läst. Stiftelsens eget pressmeddelande är inte hittat (F-44). Sidan visar också en AI-genererad sammanfattning från Yahoo, som inte använts.",
+   "nyckel": null
   },
   {
    "id": "zhao_2026",
@@ -2279,7 +2357,8 @@
    "url": "https://link.springer.com/article/10.1007/s10551-026-06247-2",
    "doi": "10.1007/s10551-026-06247-2",
    "hamtad": "2026-11-12",
-   "not": "Fältexperiment och fyra kontrollerade experiment om AI-märkta välgörenhetsannonser och givande. Abstract läst, fulltexten kräver prenumeration (F-42)."
+   "not": "Fältexperiment och fyra kontrollerade experiment om AI-märkta välgörenhetsannonser och givande. Abstract läst, fulltexten kräver prenumeration (F-42).",
+   "nyckel": null
   }
  ],
  "forbattringar": [
@@ -2559,7 +2638,7 @@
   {
    "id": "F-41",
    "omrade": "Bilder",
-   "rubrik": "Läs rapporten Artificial Authenticity (UEA) i original, webbplatsen charity-advertising.co.uk gav 403 vid hämtning, och kontrollera siffrorna och fallet WWF Danmark mot en primärkälla. Idag bara pressmeddelandet läst",
+   "rubrik": "Rapportens siffror (Adesina & Girling, 2026) är inte helt konsekventa: 472 kommentarer i tonläget mot 541 i temaanalysen, 122 mot 124 kommentarer om kvalitet, och minst 20 % mot minst 50 % av kommentarerna kodade vid hög aktivitet. Fråga författarna eller redovisa vilka siffror sidan använder",
    "malversion": "1.x",
    "syns": true
   },
@@ -2766,13 +2845,13 @@
    "resultat": "Stämmer på abstractnivå"
   },
   {
-   "kalla": "University of East Anglia (u.å.)",
+   "kalla": "Adesina & Girling (2026)",
    "ids": [
-    "uea_2026"
+    "adesina_2026"
    ],
-   "paastaende": "Analys av 171 AI-bilder från 17 organisationer och över 400 kommentarer. Färre än en femtedel av kommentarerna gällde sakfrågan. 85 % av bilderna märkta, nära 70 % fotorealistiska. WWF Danmark kritiserat för energikrävande AI-verktyg",
-   "kontroll": "Pressmeddelandet hämtat och läst i sin helhet. Rapportens webbplats gav 403 och är inte läst",
-   "resultat": "Stämmer enligt pressmeddelandet. WWF Danmark-fallet är inte kontrollerat mot en primärkälla (F-41)"
+   "paastaende": "Analys av 171 AI-bilder från 17 organisationer och 472 kommentarer: 215 neutrala, 131 kritiska, 86 stödjande, 40 ambivalenta. 141 om AI-etik, 122 om kvalitet, 80 om sakfrågan. 84,8 % märkta. Fattigdom 51 och miljö 35 bilder. WWF Danmark: anklagelser om grönmålning trots illustrationsstil",
+   "kontroll": "PDF (28 sidor) hämtad och läst i relevanta delar: metod, ämnen, tonläge, diskurs och slutsatser. UEA:s pressmeddelande jämfört",
+   "resultat": "Stämmer. Ordet ecocidal står i pressmeddelandet men inte i rapporten och används inte. Rapportens siffror är inte helt konsekventa (F-41)"
   },
   {
    "kalla": "Bond (2026)",
@@ -2830,6 +2909,11 @@
   }
  ],
  "versionslogg": [
+  {
+   "version": "1.11",
+   "datum": "2026-11-12",
+   "text": "Sidan Bilder och förtroende bygger nu på själva rapporten Artificial Authenticity (Adesina & Girling, 2026), läst i original: 472 kommentarer och tonfördelning, WWF Danmark enligt rapporten och författarnas begränsningar. Rapporten är markerad som nyckelkälla i källförteckningen."
+  },
   {
    "version": "1.10",
    "datum": "2026-11-12",

@@ -1,6 +1,7 @@
 # SPEC: sidan om AI i en miljöorganisation (datamodell, beräkningar, struktur)
 
-**Version:** 0.8 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.9 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Ändringar i 0.9:** källor kan ha fältet nyckel (förklaring till varför källan är extra intressant), som visas som en markering i källförteckningen. Poster för bildrapporten uppdaterade (472 kommentarer, tonläge).
 **Ändringar i 0.8:** nya sidor bilder.html och bakgrund.html (version 1.10), elva nya poster (UEA_*, ZHAO_*), sju nya källor och fyra nya termer i sida.js.
 **Ändringar i 0.7:** intro på startsidan (`intro.js`, `intro.css`): gissa, mikron, kvitto, med händelsen `siffror-laddade` från `sida.js`, och delningsbild (`og-bild.jpg`, genererad av `gen_og_bild.py`) med Open Graph-taggar på alla sidor.
 **Ändringar i 0.6:** källor i Harvardformat enligt kent-referens-skill: fälten `doi`, `hamtad` och `not` per källa, `ids` per rad i verifieringsloggen, `kort` med författare och år (a/b när år saknas), listtypen `sidkallor` (en källförteckning på varje sida, byggd av de källor sidan använder) och summarad (`tfoot`) i tabellen över tokens och kostnad.

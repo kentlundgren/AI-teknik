@@ -1,6 +1,6 @@
 # Förbättringsregister och verifieringslogg
 
-**Version:** 0.10 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.11 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** arbetsdokument. Samlar allt som ska analyseras och beskrivas bättre i kommande versioner, och vad som är kontrollerat mot originalkällor. Hör ihop med [PRD_ai_riktlinjer_261112.md](PRD_ai_riktlinjer_261112.md).
 
 ## 1. Hur vi skriver upp och minns
@@ -60,7 +60,7 @@ Tabell 1. Kvarvarande förbättringar
 | F-38 | Pengar | Kontrollera kostnadsberäkningen mot en faktisk faktura eller användningsrapport, vilken modell underagenterna körs på, hur resonerande tokens räknas och om cachen skrivs med 5 minuters eller 1 timmes livslängd. Idag en uppskattning ur prislistan | Uppskattning | 1.x | Ja |
 | F-39 | Delning | Uppdatera delningsbilden (og-bild.jpg) när ögonblicksbilden för arbetet ändras. Bilden genereras av gen_og_bild.py ur datafilen, och tiderna på bilden (0:01, 0:10 och 33:00) hör till ögonblicksbild A3 | Aktuell | 1.x | Nej |
 | F-40 | Bilder | Hitta Naturskyddsföreningens och riksorganisationens egen publika rekommendation om AI-bilder och jämför den med underlaget. Sökningen 2026-11-12 gav ingen träff | Saknas | 1.x | Ja |
-| F-41 | Bilder | Läs rapporten Artificial Authenticity (UEA) i original, webbplatsen charity-advertising.co.uk gav 403 vid hämtning, och kontrollera siffrorna och fallet WWF Danmark mot en primärkälla. Idag bara pressmeddelandet läst | Pressmeddelande läst | 1.x | Ja |
+| F-41 | Bilder | Rapportens siffror (Adesina & Girling, 2026) är inte helt konsekventa: 472 kommentarer i tonläget mot 541 i temaanalysen, 122 mot 124 kommentarer om kvalitet, och minst 20 % mot minst 50 % av kommentarerna kodade vid hög aktivitet. Fråga författarna eller redovisa vilka siffror sidan använder | Rapport läst | 1.x | Ja |
 | F-42 | Bilder | Läs Zhao m.fl. (2026) i fulltext och Arango m.fl. (2023, Journal of Advertising, bara metadata läst): gäller resultaten bilder eller AI-användning i annonser i allmänhet? | Abstract läst | 1.x | Ja |
 | F-43 | Bilder | Kontrollera studier som nämnts i sökresultat men inte öppnats: tre experiment om realistiska AI-bilder av klimatkatastrofer (Eppler, 2026) och en uppgift om en studie i Nature. De används inte på sidan | Ej verifierat | 1.x | Ja |
 | F-44 | Bilder | Läs Heinz Sielmann Stiftungs egen text om AI-djurbilder och leta forskning om hur AI-bilder av arter avviker från verkligheten. Idag bara en nyhetstext läst | Nyhetstext läst | 1.x | Ja |
@@ -89,6 +89,7 @@ Tabell 1. Kvarvarande förbättringar
 | K-07 | Antalet modellanrop och tokens i sessionen uppmätta ur transkriptet (modellanrop, producerade och återlästa tokens) | 2026-11-12 | Analys_anvandningssatt v0.2 |
 | K-08 | Hur återlästa tokens räknas och vad de kostar i energi: cachning hos Anthropic, OpenAI och Google, och KV-cachen (Cavagna m.fl.) | 2026-11-12 | Analys_anvandningssatt v0.3, sidan version 1.1 |
 | K-09 | Underlag om AI-bilder: förtroende, märkning och naturbilder (UEA, Bond, Zhao m.fl., Amnesty, Sielmann), se bilder.html | 2026-11-12 | Sidan version 1.10 |
+| K-10 | Rapporten Artificial Authenticity läst i original (PDF, 28 sidor), bildsidan omarbetad efter den, rapporten markerad som nyckelkälla | 2026-11-12 | Sidan version 1.11 |
 
 ## 5. Verifieringslogg 2026-11-12
 
@@ -110,7 +111,7 @@ Tabell 2. Vad som kontrollerats och hur
 | Energimyndigheten (2023), RISE | 2,8–3,2 TWh 2022 m.m. | PDF hämtad och lästa avsnitt | Stämmer |
 | Naturvårdsverket (2026) | 59 g CO2e/kWh | PDF hämtad och lästa avsnitt | Stämmer |
 | Wang m.fl. (2024), Nature Computational Science | 1,2–5,0 miljoner ton e-avfall 2020–2030, 16–86 % minskning med cirkulära åtgärder | Abstract hämtat | Stämmer på abstractnivå |
-| University of East Anglia (u.å.), pressmeddelande om *Artificial Authenticity* | 171 AI-bilder från 17 organisationer, över 400 kommentarer, färre än en femtedel om sakfrågan, 85 % märkta, nära 70 % fotorealistiska, WWF Danmark kritiserat | Pressmeddelandet hämtat och läst i sin helhet. Rapportens webbplats gav 403 | Stämmer enligt pressmeddelandet. WWF Danmark-fallet inte kontrollerat mot primärkälla (F-41) |
+| Adesina & Girling (2026), *Artificial Authenticity* (University of East Anglia, PDF 28 sidor) | 171 bilder, 17 organisationer, 472 kommentarer (215 neutrala, 131 kritiska, 86 stödjande, 40 ambivalenta), 141 om etik, 122 om kvalitet, 80 om sakfrågan, 84,8 % märkta, fattigdom 51 och miljö 35 bilder, WWF Danmark: anklagelser om grönmålning trots illustrationsstil | PDF hämtad och läst i relevanta delar. Pressmeddelandet jämfört | Stämmer. Ordet ecocidal står i pressmeddelandet men inte i rapporten och används inte. Siffrorna inte helt konsekventa (F-41) |
 | Bond (2026) | Samma analys, märkning hjälpte inte, fem råd | Artikeln hämtad och läst | Stämmer |
 | PetaPixel (2023) | Amnesty tog bort AI-bilderna efter kritik, skydd av demonstranter som motiv, ingen policy vid tidpunkten | Artikeln hämtad och läst | Stämmer. Nyhetsreferat av Amnestys svar |
 | Zhao m.fl. (2026), *Journal of Business Ethics* 208, s. 123–140 | Fältexperiment N = 118 927, AI-märkta annonser lägre klickfrekvens. Studie 5: ideella organisationer större negativa effekter än företag | Abstract läst på förlagets sida | Stämmer på abstractnivå (F-42) |
