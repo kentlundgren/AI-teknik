@@ -1,7 +1,8 @@
 <!doctype html>
 <!--
   AI i en miljöorganisation: min förbrukning (kontext, tokens, energi och pengar).
-  Version 1.5 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  Version 1.6 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  UPPDATERING 2026-11-12: källor i Harvardformat och en källförteckning på sidan. Version 1.6.
   UPPDATERING 2026-11-12: ny sida. Version 1.5.
   Alla siffror kommer ur data/siffror.json via platshållare (data-post, data-formel).
 -->
@@ -52,8 +53,13 @@
         <tr><td>Återlästa tokens</td><td>Tidigare kontext som läses om ur cachen vid varje anrop</td><td><span data-post="Y_ATER"></span></td><td><span data-post="PRIS_SONNET55_LAS" data-badge="nej"></span></td><td><span data-post="KOSTNAD_DEL_LAS"></span></td></tr>
         <tr><td>Producerade tokens (utdata)</td><td>Det modellen skriver. Det är oklart om modellens interna resonemang räknas med (<a href="kallor.html#F-29">F-29</a>)</td><td><span data-post="Y_UT"></span></td><td><span data-post="PRIS_SONNET55_UTDATA" data-badge="nej"></span></td><td><span data-post="KOSTNAD_DEL_UT"></span></td></tr>
       </tbody>
+      <tfoot>
+        <tr><th scope="row" colspan="2">Summa, cacheskrivning 5 minuter</th><td><span data-formel="Y_INDATA_OCACHAD+Y_CACHE_SKRIV+Y_ATER+Y_UT" data-sig="8" data-enhet="tokens" data-cirka="nej"></span></td><td></td><td><span data-post="KOSTNAD_SONNET_5M"></span></td></tr>
+        <tr><th scope="row" colspan="2">Summa, cacheskrivning 1 timme</th><td></td><td></td><td><span data-post="KOSTNAD_SONNET_1H"></span></td></tr>
+      </tfoot>
     </table>
   </div>
+  <p>Summan är uträknad på de exakta värdena och inte på de avrundade raderna ovan. Det är kostnaden för <em>hela</em> arbetet i den här sessionen, alltså även sidfrågor och kontroller som inte ingår i själva produkten, och den växer medan arbetet fortsätter.</p>
   <p>Tre saker att se i tabellen. För det första är utdata dyrast <em>per token</em>, men indatan är så mycket större att återläsningen blir den största posten. För det andra läses allt som hamnar i kontexten om vid varje följande anrop, så en fil som läses tidigt följer med i alla anrop efter det. För det tredje är en token inte samma enhet i alla modeller: nyare Claude-modeller ger cirka <span data-post="TOKENIZER_EXTRA" data-badge="nej"></span> fler tokens för samma text än tidigare modeller (<span data-kalla="anthropic_priser"></span>).</p>
 
   <h2 id="kontextfonstret">Kontextfönstret: vad «<span data-formel="KONTEXT_ANDEL" data-sig="2" data-enhet="%" data-cirka="nej"></span> använt» betyder</h2>
@@ -140,7 +146,8 @@
   <div data-lista="forbattringar" data-ids="F-25,F-34,F-35,F-36,F-37,F-38"></div>
 
   <h2 id="kallor">Källor</h2>
-  <p>Se <a href="kallor.html">Källor och logg</a>.</p>
+  <p>Källorna som den här sidan hänvisar till, i Harvardformat. Hela förteckningen och hur varje källa kontrollerats finns på sidan <a href="kallor.html">Källor och logg</a>.</p>
+  <div data-lista="sidkallor"></div>
 </main>
 </body>
 </html>

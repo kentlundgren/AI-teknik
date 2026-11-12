@@ -1799,23 +1799,29 @@
  "kallor": [
   {
    "id": "anthropic_priser",
-   "kort": "Anthropic (u.å., priser)",
-   "harvard": "Anthropic (u.å.) 'Pricing', Claude Developer Platform.",
+   "kort": "Anthropic (u.å.b)",
+   "harvard": "Anthropic (u.å.b) 'Pricing', Claude Developer Platform.",
    "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Priser per miljon tokens för Claude Sonnet 5.5 och Opus 5.5 (indata, cacheskrivning, cacheläsning, utdata). Läst via en genomgång av sidan (F-38)."
   },
   {
    "id": "kontextmatare",
-   "kort": "Kontextmätaren i appen",
-   "harvard": "Claude Code (2026) Kontextmätaren i appen, avläst av användaren 2026-11-12 (skärmdump).",
+   "kort": "Claude Code (2026a)",
+   "harvard": "Claude Code (2026a) Kontextmätaren i appen, avläst av användaren 2026-11-12 (skärmdump).",
    "url": null,
+   "doi": null,
+   "hamtad": null,
    "not": "Hur stor del av kontextfönstret som är använd och hur det fördelar sig."
   },
   {
    "id": "abonnemang_matare",
-   "kort": "Abonnemangets mätare",
-   "harvard": "Claude Code (2026) Abonnemangets användningsmätare (5 timmar, vecka, extra användning), avläst 2026-11-12.",
+   "kort": "Claude Code (2026b)",
+   "harvard": "Claude Code (2026b) Abonnemangets användningsmätare (5 timmar, vecka, extra användning), avläst 2026-11-12.",
    "url": null,
+   "doi": null,
+   "hamtad": null,
    "not": "Procent av gränserna och extra användning. Gäller hela kontot."
   },
   {
@@ -1823,13 +1829,17 @@
    "kort": "Jegham m.fl. (2025)",
    "harvard": "Jegham, N. m.fl. (2025) 'How hungry is AI? Benchmarking energy, water, and carbon footprint of LLM inference'. arXiv:2505.09598.",
    "url": "https://arxiv.org/abs/2505.09598",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Jämförande mätning av energi, vatten och koldioxid för 30 modeller i kommersiella datacenter. Abstract läst, hela artikeln inte."
   },
   {
    "id": "anthropic_2026",
-   "kort": "Anthropic (u.å.)",
-   "harvard": "Anthropic (u.å.) 'Prompt caching', Claude Developer Platform.",
+   "kort": "Anthropic (u.å.a)",
+   "harvard": "Anthropic (u.å.a) 'Prompt caching', Claude Developer Platform.",
    "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Hur cachning av prompt-prefix fungerar, priset för cachade läsningar och skrivningar (0,1 respektive 1,25 gånger vanligt pris) och minsta längd. Priset säger inget om energin. Läst delvis via en genomgång (F-33)."
   },
   {
@@ -1837,13 +1847,17 @@
    "kort": "Cavagna m.fl. (2026)",
    "harvard": "Cavagna, H. P., Proia, A., Cesarini, D. & Kiziltan, Z. (2026) 'The SIMPLE law for energy cost of LLM inference'. arXiv:2611.03330, 2 november 2026.",
    "url": "https://arxiv.org/abs/2611.03330",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Förtryck. Modell för energin per token som skiljer indata (prefill) från avkodning och minnet av tidigare tokens (KV-cachen). Mätt på 13 öppna modeller. Abstract läst, hela artikeln inte (F-34)."
   },
   {
    "id": "google_2026",
-   "kort": "Google (u.å., cachning)",
+   "kort": "Google (u.å.)",
    "harvard": "Google (u.å.) 'Context caching', Gemini API documentation.",
    "url": "https://aistudio.google.com/docs/caching?generate-content=true",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Implicit och explicit cachning av indata, sänkt pris utan angivet belopp. Läst via en genomgång (F-33)."
   },
   {
@@ -1851,6 +1865,8 @@
    "kort": "OpenAI (u.å.)",
    "harvard": "OpenAI (u.å.) 'Prompt caching', OpenAI API documentation.",
    "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Cachning återanvänder redan beräknade tillstånd för ett gemensamt prefix, rabatt på cachad indata upp till 95 procent. Delvis läst."
   },
   {
@@ -1858,13 +1874,17 @@
    "kort": "Altman (2025)",
    "harvard": "Altman, S. (2025) 'The gentle singularity'.",
    "url": "https://blog.samaltman.com/the-gentle-singularity",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "OpenAI-chefens uppgift om 0,34 Wh och 0,000085 gallon vatten per genomsnittlig fråga. Ingen metod redovisas."
   },
   {
    "id": "bast_i_test",
-   "kort": "Bäst i test",
+   "kort": "Bäst i test (u.å.)",
    "harvard": "Bäst i test (u.å.) 'Mikrovågsugn: bäst i test'.",
    "url": "https://www.bast-i-test.se/tester_pa_basta/mikrovagsugn.html",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Jämförelsesajt: vanligaste märkeffekt 500–900 W, testade modeller 800 W och 900–1 000 W. Ingen auktoritativ källa (F-06)."
   },
   {
@@ -1872,6 +1892,8 @@
    "kort": "Ember (2025)",
    "harvard": "Ember (2025) 'Global Electricity Review 2025'.",
    "url": "https://ember-energy.org/latest-insights/global-electricity-review-2025/global-electricity-trends/",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Global elmix 2024: 473 g CO2/kWh."
   },
   {
@@ -1879,13 +1901,17 @@
    "kort": "Energimyndigheten (2023)",
    "harvard": "Energimyndigheten (2023) 'Energianvändning i datacenter och digitala system' (rapport av RISE).",
    "url": "https://www.energimyndigheten.se/492f27/contentassets/054d98cfdcd54cb5a802e24b53779452/energianvandning-i-datacenter-och-digitala-system.pdf",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Svenska datacenters elanvändning 2022 och prognos till 2030."
   },
   {
    "id": "ekonomifakta_2026",
-   "kort": "Ekonomifakta",
+   "kort": "Ekonomifakta (u.å.)",
    "harvard": "Ekonomifakta (u.å.) 'Elfakta'.",
    "url": "https://www.ekonomifakta.se/sakomraden/elfakta/",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Sveriges totala elanvändning 2024, cirka 136 TWh. Hämtad ur sökresultat, inte öppnad (F-02)."
   },
   {
@@ -1893,6 +1919,8 @@
    "kort": "Epoch AI (You, 2025)",
    "harvard": "You, J. (2025) 'How much energy does ChatGPT use?', Epoch AI, Gradient Updates, 7 februari 2025.",
    "url": "https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Definition av en typisk fråga (500 tokens), 0,3 Wh per fråga och uppskattningar för långa indata. Beräkningar för GPT-4o."
   },
   {
@@ -1900,6 +1928,8 @@
    "kort": "IEA (2025)",
    "harvard": "Internationella energiorganet (IEA) (2025) 'Energy and AI', sammanfattning.",
    "url": "https://www.iea.org/reports/energy-and-ai/executive-summary",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Datacentrens elanvändning i världen, 415 TWh år 2024."
   },
   {
@@ -1907,6 +1937,8 @@
    "kort": "Li m.fl. (2025)",
    "harvard": "Li, P., Yang, J., Islam, M. A. & Ren, S. (2025) 'Making AI less thirsty: uncovering and addressing the secret water footprint of AI models'. arXiv:2304.03271.",
    "url": "https://arxiv.org/abs/2304.03271",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Metod och siffror för vattenavtryck, GPT-3 i amerikanska anläggningar."
   },
   {
@@ -1914,20 +1946,26 @@
    "kort": "Luccioni m.fl. (2024)",
    "harvard": "Luccioni, A. S., Jernite, Y. & Strubell, E. (2024) 'Power hungry processing: watts driving the cost of AI deployment?'. arXiv:2311.16863.",
    "url": "https://arxiv.org/abs/2311.16863",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Mätning av energi per 1 000 användningar och uppgiftstyp. Bildgenerering dyrast."
   },
   {
    "id": "microsoft_2024",
-   "kort": "Microsoft (2024)",
+   "kort": "Microsoft (Solomon, 2024)",
    "harvard": "Microsoft (Solomon, S.) (2024) 'Sustainable by design: next-generation datacenters consume zero water for cooling', 9 december 2024.",
    "url": "https://www.microsoft.com/en-us/microsoft-cloud/blog/2024/12/09/sustainable-by-design-next-generation-datacenters-consume-zero-water-for-cooling/",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Slutna kretsar utan avdunstning och energikonsekvensen. Läst via en genomgång av sidan (F-16)."
   },
   {
    "id": "microsoft_2026",
-   "kort": "Microsoft (2026)",
+   "kort": "Microsoft (Priest & Solomon, 2026)",
    "harvard": "Microsoft (Priest, J. & Solomon, S.) (2026) 'Inside Microsoft's two-decade push to cut water intensity while scaling for growth', 24 juni 2026.",
    "url": "https://blogs.microsoft.com/blog/2026/06/24/inside-microsofts-two-decade-push-to-cut-water-intensity-while-scaling-for-growth/",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Microsofts WUE 0,27 L/kWh 2025. Läst via en genomgång av sidan (F-16)."
   },
   {
@@ -1935,20 +1973,26 @@
    "kort": "Naturvårdsverket (2026)",
    "harvard": "Naturvårdsverket (2026) 'Klimatklivet: värden för att beräkna utsläppsminskning', 2026-03-25.",
    "url": "https://www.naturvardsverket.se/495f5e/globalassets/amnen/klimatomstallning/klimatklivet/dokument/klimatklivet-varden-for-att-berakna-utslappsminskning.pdf",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Utsläppsfaktor 59 g CO2e/kWh för el, nordisk elmix 2021–2023."
   },
   {
    "id": "shehabi_2024",
    "kort": "Shehabi m.fl. (2024)",
-   "harvard": "Shehabi, A. m.fl. (2024) '2024 United States Data Center Energy Usage Report', LBNL-2001637, Lawrence Berkeley National Laboratory, utgiven 2024-12-19.",
+   "harvard": "Shehabi, A. m.fl. (2024) '2024 United States Data Center Energy Usage Report', LBNL-2001637. Lawrence Berkeley National Laboratory, utgiven 2024-12-19.",
    "url": "https://escholarship.org/uc/item/32d6m0d1",
+   "doi": "10.71468/P1WC7Q",
+   "hamtad": "2026-11-12",
    "not": "Direkt och indirekt vattenanvändning i USA:s datacenter (DOI 10.71468/P1WC7Q). PDF-kopian som lästes är märkt som embargo, men utgivningen är bekräftad."
   },
   {
    "id": "summera_tokens",
-   "kort": "summera_tokens.py",
+   "kort": "Lundgren (2026)",
    "harvard": "Lundgren, K. (2026) summera_tokens.py, skript som summerar tokens i en Claude Code-session.",
    "url": "https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/summera_tokens.py",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Skriptet som gav sessionens uppmätta tokens, se Analys om användningssätt. Senaste mättidpunkt 2026-11-12 kl. 14:39 (A3)."
   },
   {
@@ -1956,6 +2000,8 @@
    "kort": "UNEP (2024)",
    "harvard": "UNEP (2024) 'Artificial intelligence (AI) end-to-end: the environmental impact of the full AI lifecycle needs to be comprehensively assessed' (issue note).",
    "url": "https://wedocs.unep.org/handle/20.500.11822/46288",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Livscykelperspektiv med energi, vatten, mineral, utsläpp och e-avfall. Abstract läst, hela rapporten inte (F-11)."
   },
   {
@@ -1963,6 +2009,8 @@
    "kort": "USGS (2019)",
    "harvard": "USGS (2019) 'Withdrawal and consumption of water by thermoelectric power plants in the United States, 2015', Scientific Investigations Report 2019-5103.",
    "url": "https://pubs.usgs.gov/sir/2019/5103/sir20195103.pdf",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Uttag och förbrukning vid genomströmning och kyltorn, koefficienter för 2015."
   },
   {
@@ -1970,13 +2018,17 @@
    "kort": "Google (Vahdat & Dean, 2025)",
    "harvard": "Vahdat, A. & Dean, J. (2025) 'How much energy does Google's AI use? We did the math', Google Cloud Blog, 21 augusti 2025.",
    "url": "https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference",
+   "doi": null,
+   "hamtad": "2026-11-12",
    "not": "Googles uppgift om 0,24 Wh, 0,03 g CO2e och 0,26 ml vatten per median-textfråga. Ej verifierad av tredje part."
   },
   {
    "id": "wang_2024",
    "kort": "Wang m.fl. (2024)",
-   "harvard": "Wang, P. m.fl. (2024) 'E-waste challenges of generative artificial intelligence', Nature Computational Science, november 2024.",
+   "harvard": "Wang, P. m.fl. (2024) 'E-waste challenges of generative artificial intelligence', Nature Computational Science, 4.",
    "url": "https://www.nature.com/articles/s43588-024-00712-6",
+   "doi": "10.1038/s43588-024-00712-6",
+   "hamtad": "2026-11-12",
    "not": "Scenario för elektroniskt avfall: 1,2–5,0 miljoner ton 2020–2030. Abstract läst."
   }
  ],
@@ -2244,120 +2296,183 @@
  "verifieringar": [
   {
    "kalla": "Jegham m.fl. (2025)",
+   "ids": [
+    "jegham_2025"
+   ],
    "paastaende": "Benchmark av 30 modeller: de mest energikrävande överstiger 29 Wh per lång fråga, över 65 gånger de mest effektiva",
    "kontroll": "Abstract läst i arXiv-posten",
    "resultat": "Stämmer på abstractnivå. Hela artikeln inte läst"
   },
   {
    "kalla": "Cavagna m.fl. (2026)",
+   "ids": [
+    "cavagna_2026"
+   ],
    "paastaende": "Prefixcachning minskar indatakostnaden med 93 procent, men inte kostnaden för KV-cachen. Agentiskt anrop 13,0 gånger, med cachning 4,8 gånger. GQA upp till 3 gånger lägre energi per token",
    "kontroll": "Abstract läst i arXiv-posten",
    "resultat": "Stämmer på abstractnivå. Förtryck, öppna modeller, ej Claude. Hela artikeln inte läst"
   },
   {
    "kalla": "Anthropic (u.å.), prompt caching",
+   "ids": [
+    "anthropic_2026"
+   ],
    "paastaende": "Cachade läsningar 0,1 gånger vanligt indatapris (lägre för vissa modeller), skrivningar 1,25 gånger (5 min) och 2 gånger (1 timme). Minsta längd 512–4 096 tokens beroende på modell",
    "kontroll": "Sidan läst via en genomgång, första delen ordagrant",
    "resultat": "Stämmer enligt genomgången. Priset säger inget om energin"
   },
   {
    "kalla": "OpenAI (u.å.), prompt caching",
+   "ids": [
+    "openai_2026"
+   ],
    "paastaende": "Cachning återanvänder beräknade tillstånd (KV) för ett gemensamt prefix. Rabatt på cachad indata upp till 95 procent",
    "kontroll": "Sidans början hämtad och läst",
    "resultat": "Stämmer"
   },
   {
    "kalla": "Google (u.å.), context caching",
+   "ids": [
+    "google_2026"
+   ],
    "paastaende": "Implicit och explicit cachning, sänkt pris utan angivet belopp, minsta längd 2 048–4 096 tokens för implicit cachning",
    "kontroll": "Sidan läst via en genomgång",
    "resultat": "Stämmer enligt genomgången"
   },
   {
    "kalla": "Ember (2025)",
+   "ids": [
+    "ember_2025"
+   ],
    "paastaende": "Global elmix 2024: 473 g CO2/kWh",
    "kontroll": "Sidtexten hämtad och läst",
    "resultat": "Stämmer"
   },
   {
    "kalla": "Luccioni m.fl. (2024)",
+   "ids": [
+    "luccioni_2024"
+   ],
    "paastaende": "Bildgenerering 2,907 kWh per 1 000 användningar, text 0,047 kWh, minst effektiva bildmodell 11,49 kWh",
    "kontroll": "Hela artikeln hämtad och sökt i",
    "resultat": "Stämmer. Värdet beror på bildstorlek och inställningar"
   },
   {
    "kalla": "Li m.fl. (2025)",
+   "ids": [
+    "li_2025"
+   ],
    "paastaende": "500 ml per 10–50 svar. 16,9 ml per svar (2,2 plus 14,7 ml). 4,2–6,6 miljarder kubikmeter vattenuttag 2027",
    "kontroll": "Hela artikeln hämtad och sökt i",
    "resultat": "Stämmer. Gäller GPT-3 i USA"
   },
   {
    "kalla": "USGS (2019)",
+   "ids": [
+    "usgs_2019"
+   ],
    "paastaende": "Kärnkraft: genomströmning uttag 39 och förbrukning 0,41 gallon/kWh. Kyltorn 0,70 och 0,50",
    "kontroll": "Hela rapporten hämtad, tabell 8 och 9 lästa",
    "resultat": "Stämmer. Förbrukning är inte modellerad för saltvatten"
   },
   {
    "kalla": "Shehabi m.fl. (2024), LBNL",
+   "ids": [
+    "shehabi_2024"
+   ],
    "paastaende": "66 miljarder liter direkt, cirka 800 miljarder liter indirekt, 4,52 L/kWh, 178 TWh",
    "kontroll": "PDF hämtad och relevanta avsnitt lästa. Utgivning bekräftad på LBNL:s publikationssida",
    "resultat": "Stämmer"
   },
   {
    "kalla": "UNEP (2024)",
+   "ids": [
+    "unep_2024"
+   ],
    "paastaende": "Livscykelperspektiv med energi, vatten, mineral, utsläpp, e-avfall och indirekta effekter",
    "kontroll": "Dokumentsidans abstract läst i webbläsare",
    "resultat": "Stämmer på abstractnivå. Hela rapporten inte läst"
   },
   {
    "kalla": "Microsoft (2024, 2026)",
+   "ids": [
+    "microsoft_2024",
+    "microsoft_2026"
+   ],
    "paastaende": "Slutna kretsar, WUE 0,30 respektive 0,27 L/kWh, nominell energiökning",
    "kontroll": "Båda sidorna lästa via en genomgång",
    "resultat": "Stämmer enligt genomgången. Egen läsning kvar"
   },
   {
    "kalla": "Altman (2025)",
+   "ids": [
+    "altman_2025"
+   ],
    "paastaende": "0,34 Wh och 0,000085 gallon per genomsnittlig fråga",
    "kontroll": "Sidtexten hämtad",
    "resultat": "Stämmer. Metod saknas"
   },
   {
    "kalla": "Google (Vahdat & Dean, 2025)",
+   "ids": [
+    "vahdat_dean_2025"
+   ],
    "paastaende": "0,24 Wh, 0,03 g CO2e, 0,26 ml. Inte verifierade av tredje part",
    "kontroll": "Sidtexten hämtad",
    "resultat": "Stämmer"
   },
   {
    "kalla": "Epoch AI (2025)",
+   "ids": [
+    "epoch_2025"
+   ],
    "paastaende": "0,3 Wh per fråga, 500 tokens, 2,5 och 40 Wh för långa indata, 0,75 ord per token",
    "kontroll": "Sidtexten hämtad",
    "resultat": "Stämmer"
   },
   {
    "kalla": "IEA (2025)",
+   "ids": [
+    "iea_2025"
+   ],
    "paastaende": "415 TWh, cirka 1,5 %, cirka 12 % per år",
    "kontroll": "Sidtexten hämtad",
    "resultat": "Stämmer"
   },
   {
    "kalla": "Energimyndigheten (2023)",
+   "ids": [
+    "energimyndigheten_2023"
+   ],
    "paastaende": "Svenska datacenter 2,8–3,2 TWh 2022 och prognos",
    "kontroll": "PDF hämtad och relevanta avsnitt lästa",
    "resultat": "Stämmer"
   },
   {
    "kalla": "Naturvårdsverket (2026)",
+   "ids": [
+    "naturvardsverket_2026"
+   ],
    "paastaende": "59 g CO2e/kWh",
    "kontroll": "PDF hämtad och relevanta avsnitt lästa",
    "resultat": "Stämmer"
   },
   {
    "kalla": "Wang m.fl. (2024)",
+   "ids": [
+    "wang_2024"
+   ],
    "paastaende": "1,2–5,0 miljoner ton e-avfall 2020–2030, 16–86 % minskning",
    "kontroll": "Abstract hämtat",
    "resultat": "Stämmer på abstractnivå"
   }
  ],
  "versionslogg": [
+  {
+   "version": "1.6",
+   "datum": "2026-11-12",
+   "text": "Källor enligt Harvardformat: källförteckning med Tillgänglig på, hämtdatum och DOI, en källförteckning på varje sida, länkar på alla källor i verifieringsloggen och författare och år i alla hänvisningar. Summarad i tabellen över tokens och kostnad."
+  },
   {
    "version": "1.5",
    "datum": "2026-11-12",

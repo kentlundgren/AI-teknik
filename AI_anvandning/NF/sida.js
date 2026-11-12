@@ -4,6 +4,7 @@
  * (data-post, data-formel, data-kalla, data-lista), visar markering av hur väl en siffra är belagd,
  * förklaringar vid hovring/fokus/tryck, tekniknivån i hörnet och versionsraden.
  *
+ * UPPDATERING 2026-11-12: källor i Harvardformat (Tillgänglig på, hämtdatum, DOI), källförteckning på varje sida (sidkallor), länkar i verifieringsloggen. Version 1.6.
  * UPPDATERING 2026-11-12: visning i USD (data-visa="usd"), källor utan webbadress, termerna anrop och utdata, nya testvärden (A3). Version 1.5.
  * UPPDATERING 2026-11-12: förklaring av bedömningen (term bedomning), det tredje räknesättet som underrad, nya testvärden för ögonblicksbild A2. Version 1.4.
  * UPPDATERING 2026-11-12: raderna för arbetets tre räknesätt förklaras vid hovring, fokus och tryck (scen_under, scen_ovre, scen_tredje). Version 1.3.
@@ -14,7 +15,7 @@
  * Testläge: lägg ?test=1 efter adressen för att köra validering och testfall (SPEC avsnitt 3, 4 och 8).
  * Obs: fetch fungerar inte på file://. Testa via en lokal server (python -m http.server).
  */
-const VERSION = "1.5";
+const VERSION = "1.6";
 const VERSIONSDATUM = "2026-11-12";
 const AVSANDARE = "Kent Lundgren";
 const GITHUB_MAPP = "https://github.com/kentlundgren/AI-teknik/tree/main/AI_anvandning/NF";
@@ -115,6 +116,17 @@ let DATA = null;
 const POSTER = {};
 const KALLOR = {};
 const CACHE = {};
+const ANVANDA = new Set();
+
+/* Samlar de källor som en formel bygger på (rekursivt genom beräknade poster). */
+function kallorFran(formel) {
+  (formel.match(/[A-Z][A-Z0-9_]*/g) || []).forEach((id) => {
+    const p = POSTER[id];
+    if (!p) return;
+    if (p.kalla) ANVANDA.add(p.kalla);
+    if (p.typ === "beraknad" && p.formel) kallorFran(p.formel);
+  });
+}
 
 function varde(id, stack) {
   stack = stack || [];
@@ -174,6 +186,8 @@ function fyllPlatshallare() {
   document.querySelectorAll("[data-post]").forEach((el) => {
     const p = POSTER[el.dataset.post];
     if (!p) { el.textContent = "?"; console.error("Okänd post i data-post:", el.dataset.post); return; }
+    if (p.kalla) ANVANDA.add(p.kalla);
+    if (p.typ === "beraknad" && p.formel) kallorFran(p.formel);
     const v = p.typ === "beraknad" ? sig(varde(p.id), +(el.dataset.sig || 2)) + (p.enhet ? " " + p.enhet : "") : visaPost(p);
     el.textContent = el.dataset.utanenhet ? v.replace(" " + p.enhet, "") : v;
     if (el.dataset.badge !== "nej") {
@@ -184,6 +198,8 @@ function fyllPlatshallare() {
 
   document.querySelectorAll("[data-formel]").forEach((el) => {
     try {
+      kallorFran(el.dataset.formel);
+      if (el.dataset.formel2) kallorFran(el.dataset.formel2);
       const a = utvardera(el.dataset.formel);
       const b = el.dataset.formel2 ? utvardera(el.dataset.formel2) : undefined;
       const visa = el.dataset.visa || "tal";
@@ -207,6 +223,7 @@ function fyllPlatshallare() {
   document.querySelectorAll("[data-kalla]").forEach((el) => {
     const k = KALLOR[el.dataset.kalla];
     if (!k) { el.textContent = "?"; return; }
+    ANVANDA.add(k.id);
     if (!k.url) { el.textContent = el.dataset.text || k.kort; return; }
     const a = document.createElement("a");
     a.href = k.url; a.target = "_blank"; a.rel = "noopener"; a.className = "kalla-lank";
@@ -217,6 +234,41 @@ function fyllPlatshallare() {
 }
 
 /* ---------- listor ur datafilen ---------- */
+function lank(url, text) {
+  const a = document.createElement("a");
+  a.href = url; a.target = "_blank"; a.rel = "noopener"; a.textContent = text || url;
+  return a;
+}
+
+/* En källa i Harvardformat: referens, DOI eller Tillgänglig på, hämtdatum och en kursiv relevansnot i samma stycke. */
+function harvardPost(k) {
+  const li = document.createElement("li"); li.id = "ref-" + k.id;
+  li.append(document.createTextNode(k.harvard + " "));
+  if (k.doi) {
+    li.append(document.createTextNode("DOI: "), lank("https://doi.org/" + k.doi));
+    if (k.url) li.append(document.createTextNode(" Fulltext: "), lank(k.url));
+  } else if (k.url) {
+    li.append(document.createTextNode("Tillgänglig på: "), lank(k.url));
+  }
+  if (k.hamtad) li.append(document.createTextNode(" (hämtad " + k.hamtad + ")"));
+  li.append(document.createTextNode(k.url || k.doi ? ". " : ""));
+  const n = document.createElement("em"); n.textContent = "(" + k.not + ")";
+  li.append(n);
+  return li;
+}
+
+/* Källcell i verifieringsloggen: varje källa är en länk till originalet. */
+function kallCell(v) {
+  const c = document.createElement("td");
+  const ids = (v.ids || []).filter((id) => KALLOR[id]);
+  if (!ids.length) { c.textContent = v.kalla; return c; }
+  ids.forEach((id, i) => {
+    if (i) c.append(document.createTextNode("; "));
+    const k = KALLOR[id];
+    c.append(k.url ? lank(k.url, k.kort) : document.createTextNode(k.kort));
+  });
+  return c;
+}
 function td(txt, cls) { const e = document.createElement("td"); if (cls) e.className = cls; e.textContent = txt; return e; }
 function tr(...cells) { const r = document.createElement("tr"); cells.forEach((c) => r.appendChild(c)); return r; }
 function th(txt) { const e = document.createElement("th"); e.scope = "col"; e.textContent = txt; return e; }
@@ -231,16 +283,11 @@ function tabell(rubriker, rader, klass) {
 
 function byggLista(el, mal) {
   const typ = el.dataset.lista;
-  if (typ === "kallor") {
+  if (typ === "kallor" || typ === "sidkallor") {
+    const kl = typ === "kallor" ? DATA.kallor.slice() : Array.from(ANVANDA).map((id) => KALLOR[id]).filter(Boolean);
+    kl.sort((x, y) => x.harvard.localeCompare(y.harvard, "sv"));
     const ul = document.createElement("ul"); ul.className = "kallista";
-    DATA.kallor.slice().sort((a, b) => a.harvard.localeCompare(b.harvard, "sv")).forEach((k) => {
-      const li = document.createElement("li"); li.id = "ref-" + k.id;
-      const t = document.createElement("span"); t.textContent = k.harvard + " ";
-      const a = document.createElement("a"); a.href = k.url; a.target = "_blank"; a.rel = "noopener"; a.textContent = k.url;
-      const n = document.createElement("em"); n.textContent = " (" + k.not + ")";
-      if (k.url) li.append(t, a, n); else li.append(t, n);
-      ul.appendChild(li);
-    });
+    kl.forEach((k) => ul.appendChild(harvardPost(k)));
     mal.appendChild(ul);
   } else if (typ === "forbattringar") {
     const ids = el.dataset.ids ? el.dataset.ids.split(",").map((s) => s.trim()) : null;
@@ -268,7 +315,7 @@ function byggLista(el, mal) {
       DATA.antaganden.map((a) => tr(td(a.id), td(a.datum), td(a.poster.join(", ")), td(a.skal)))));
   } else if (typ === "verifieringar") {
     mal.appendChild(tabell(["Källa", "Påstående", "Hur kontrollerat", "Resultat"],
-      DATA.verifieringar.map((v) => tr(td(v.kalla), td(v.paastaende), td(v.kontroll), td(v.resultat)))));
+      DATA.verifieringar.map((v) => tr(kallCell(v), td(v.paastaende), td(v.kontroll), td(v.resultat)))));
   } else if (typ === "versionslogg") {
     mal.appendChild(tabell(["Version", "Datum", "Vad som ändrats"],
       DATA.versionslogg.map((v) => tr(td(v.version), td(v.datum), td(v.text)))));
@@ -281,6 +328,7 @@ function listInfo(el) {
   const typ = el.dataset.lista;
   const ids = el.dataset.ids ? el.dataset.ids.split(",").map((x) => x.trim()) : null;
   if (typ === "kallor") return { n: DATA.kallor.length, etikett: (n) => "Visa källförteckningen (" + n + " källor)" };
+  if (typ === "sidkallor") return { n: ANVANDA.size, etikett: (n) => "Visa källförteckningen på den här sidan (" + n + " källor)" };
   if (typ === "forbattringar") {
     const n = DATA.forbattringar.filter((f) => (ids ? ids.indexOf(f.id) >= 0 : true) && (el.dataset.filter === "syns" ? f.syns : true)).length;
     return { n, etikett: (m) => "Visa de " + m + " förbättringarna" };

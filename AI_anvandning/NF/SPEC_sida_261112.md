@@ -1,6 +1,7 @@
 # SPEC: sidan om AI i en miljöorganisation (datamodell, beräkningar, struktur)
 
-**Version:** 0.5 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.6 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Ändringar i 0.6:** källor i Harvardformat enligt kent-referens-skill: fälten `doi`, `hamtad` och `not` per källa, `ids` per rad i verifieringsloggen, `kort` med författare och år (a/b när år saknas), listtypen `sidkallor` (en källförteckning på varje sida, byggd av de källor sidan använder) och summarad (`tfoot`) i tabellen över tokens och kostnad.
 **Ändringar i 0.5:** ny sida `forbrukning.html` (kontext, tokens, energi och pengar), källor utan webbadress (`url: null`), visning `data-visa="usd"`, ögonblicksbild A3 (Y_NY 1 214 129, Y_UT 397 735, Y_ATER 70 562 497, 195 anrop) med nya testvärden: Z_NY "cirka 2 000", Z_UT "cirka 800", Z_ALLA "cirka 120 000", tredje räknesättet "220–760 Wh", bedömd energi "550 Wh", API-kostnad Sonnet 5 minuter "13".
 **Ändringar i 0.4:** testfallen för Z gäller ögonblicksbild A2 (Y_NY 1 154 565, Y_UT 370 966, Y_ATER 65 782 935, 188 anrop): Z_NY "cirka 1 900", Z_UT "cirka 740", Z_ALLA "cirka 110 000", tredje räknesättet "220–730 Wh". Nya poster ENERGI_BEDOMNING och ENERGI_KVOT_OVRE_UNDRE (beräknade), JEGHAM_WH_LANG_MAX och JEGHAM_FAKTOR.
 **Ändringar i 0.3:** SPEC:en följer det som byggdes i sidans version 1.0: posttypen `uppskattad` (källans egen beräkning) och fältet `spann`, USGS-posterna som fyra poster plus två beräknade, platshållarnas attribut dokumenterade (avsnitt 5), testfallet för 0,3 Wh ändrat till "cirka 1,1 sekunder" (en decimal under 10 sekunder), öppna punkter uppdaterade (avsnitt 10).
