@@ -1,6 +1,6 @@
 # Rangordning med databas: Supabase i AI-teknik
 
-**Version:** 1.2 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 1.3 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 
 Beskriver hur sidan [AI i proportion](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/proportion.html) kan kopplas till en databas så att läsare kan rangordna tio frågor, välja att skriva sitt namn och se gruppens gemensamma rangordning. Tekniken är den som användes i Samrådsguiden ([supabase.md](https://github.com/kentlundgren/Codex/blob/main/Fritid/NF/Samradsguiden/supabase.md)), men gjord för flera omröstningar i samma projekt. Uppgifter om Supabase är hämtade ur deras prissida och dokumentation 2026-11-12. Kontrollera mot [supabase.com/docs](https://supabase.com/docs) innan något beslut bygger på dem.
 
@@ -122,6 +122,8 @@ Första kommandot kan provas så här (byt `PROJEKT` och `NYCKEL`). Svaret ska i
 ```bash
 curl -s -X POST "https://PROJEKT.supabase.co/rest/v1/rpc/rang_hamta_status" -H "apikey: NYCKEL" -H "Content-Type: application/json" -d "{\"p_omrostning\":\"ai_proportion_hot10\"}"
 ```
+
+**Hur uppkopplingen gick till, med skärmdumpar:** [Uppkoppling_Supabase.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/Uppkoppling_Supabase.md).
 
 ## 5b. Genvägar mellan sidan och Supabase <a id="genvagar"></a>
 
