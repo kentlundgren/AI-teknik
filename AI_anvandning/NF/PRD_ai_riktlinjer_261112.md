@@ -1,19 +1,24 @@
 # PRD: förhållningssätt och riktlinjer för generativ AI i en ideell miljöorganisation
 
-**Version:** 0.1 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
-**Status:** planeringsunderlag på eget initiativ. Inte beslutat av Lunds Naturskyddsförening eller av Naturskyddsföreningen.
+**Version:** 0.2 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Status:** Kents egen undersökning, på eget initiativ och utan samordning. Inte beslutat av Lunds Naturskyddsförening eller av Naturskyddsföreningen.
+**Ändringar i 0.2:** Kents svar inarbetade (öppen publicering på GitHub, resursanalys som eget underlag, format md först och sedan html/css/js, databasidé, anonymisering). Se [Analys_resurser_261112.md](Analys_resurser_261112.md).
 
-> **Antaganden som går att rätta** (jag tolkar uppdraget så här tills något annat sägs):
-> 1. Materialet är ett *förslag* som en krets (Lunds Naturskyddsförening, LNF) kan använda som diskussionsunderlag, inte en antagen policy.
-> 2. Det ska gälla ideella organisationer generellt, med Naturskyddsföreningen och LNF som konkret exempel.
-> 3. Det är en text och ev. en HTML-sida, inte ett verktyg eller en app.
+> **Utgångspunkter (bekräftade av Kent 2026-11-12):**
+> 1. Det är Kents egen undersökning, utan samordning med föreningen just nu.
+> 2. Resultatet publiceras öppet på webben via GitHub, som en genomtänkt sida att hänvisa till i stället för att svara på enskilda e-postfrågor.
+> 3. Materialet är ett *förslag* och ett underlag för diskussion, inte en antagen policy, och gäller ideella organisationer generellt med Naturskyddsföreningen som exempel.
 > 4. Kent skriver och står som avsändare. Föreningen nämns som ämne, aldrig som upphov.
+> 5. Rekommendationerna ska vara konkreta, med skälen för och mot öppet redovisade.
+> 6. Skeptikernas hållning respekteras. Det som "många vet" om AI:s resursanvändning prövas mot källor i stället för att antas eller avfärdas.
+> 7. Varje version märks med versionsnummer och datum, så att det alltid framgår vilken som gäller.
+> 8. Namnet på dokumentet är öppet tills vidare.
 
 ---
 
 ## 1. Bakgrund
 
-Inför Kulturens adventsmässa i Lund 2026 skissade LNF:s klimatgrupp en informationsplansch om El Niño. En medlem lät en AI-tjänst göra ett layoutförslag, en annan gjorde ett utkast med traditionella metoder. Det väckte frågan om föreningen har en hållning till AI. En styrelseledamot i LNF skrev den 2026-11-10 till Naturskyddsföreningens rikskansli och ställde två frågor:
+Inför Kulturens adventsmässa i Lund 2026 skissade LNF:s klimatgrupp en informationsplansch om El Niño. En medlem lät en AI-tjänst göra ett layoutförslag, en annan gjorde ett utkast med traditionella metoder. Det väckte frågan om föreningen har en hållning till AI. En kommunikationsansvarig i LNF skrev den 2026-11-10 till Naturskyddsföreningens rikskansli och ställde två frågor:
 
 - Ska vi avstå från AI i alla sammanhang, med tanke på teknikens el- och vattenförbrukning?
 - Är vi redo att lämna traditionell layout för en mer otraditionell form som AI föreslår (mer slagkraftig och ungdomlig, eller för gräll och oseriös)?
@@ -27,7 +32,7 @@ Rikskansliet svarade den 2026-11-11 (återgivet ur e-posten, inte ur någon publ
 
 Slutsatsen i e-posten är alltså försiktighet, särskilt för bilder. Det som saknas är en **hel bild**: vad är rimligt, vad är olämpligt, och varför. Kretsar och medlemmar behöver ett stöd som inte bara säger "var försiktig".
 
-Underlaget är en privat e-posttråd. Den ligger inte i repot och ska inte citeras med namn.
+Underlaget är en privat e-posttråd. Den ligger inte i repot. Sidan nämner inga personer med namn: beskrivningen sker med roller ("kommunikationsansvarig", "kommunikationsavdelningen") eller generellt ("någon i klimatgruppen"), och helst utan att peka ut vem som tog initiativet.
 
 ## 2. Syfte och mål
 
@@ -89,15 +94,18 @@ Gemensamt för hela dokumentet: kort, konkret, och med både skälen *för* och 
 - Källor enligt Harvard med länkar som kontrollerats. Inga påhittade siffror.
 - Ingen AI-märkning av dokumentet självt, men sant formulerad process (inga påståenden om genomläsning som inte skett).
 
-## 7. Leveransformat (att välja)
+## 7. Leveransformat
 
-| Alternativ | Innehåll | För | Emot |
-|---|---|---|---|
-| A. Kort riktlinje | 1–2 sidor, checklista | Läses, går att anta | Lite plats för skälen |
-| B. Bakgrundsdokument | 8–12 sidor, avsnitt 5 i sin helhet | Övertygar skeptiker | Läses inte av alla |
-| C. HTML-sida med båda | Kort version överst, fördjupning under rubriker | Nås med en länk, gemensam källa | Kräver sidbygge och underhåll |
+Beslut av Kent: först en struktur i `.md` som visar vad vi vill säga, sedan, när innehållet är klart, en presentation i HTML, CSS och JavaScript på GitHub Pages. En Word-version kan göras vid behov.
 
-Förslag: **A + B**, och C som ett senare steg. Word-version enligt Kents mall om styrelsen vill ha den.
+| Steg | Leverans |
+|---|---|
+| 1 | `.md`: PRD, analys, innehållsstruktur (detta arbete) |
+| 2 | Kort version (1–2 sidor) och längre bakgrund i `.md` |
+| 3 | HTML-sida med båda: kort version överst, fördjupning under rubriker, alla siffror med källa och hämtdatum |
+| 4 | Siffror i en datafil (JSON) som sidan läser, med version och datum per värde (se Analys_resurser, avsnitt 6). Databas först om uppdateringen ska automatiseras |
+
+Sidan följer Kents sidregler: version och datum synligt, `index.html` som startsida, hörnlänkarna `{ } GitHub` och `</> teknik`, README med Live-länk överst.
 
 ## 8. Faktaunderlag som behöver samlas in och verifieras
 
@@ -115,7 +123,7 @@ Allt nedan är *uppgifter att hitta*, inget är ännu kontrollerat:
 
 | Fas | Innehåll | Leverans |
 |---|---|---|
-| 0 | Kent svarar på öppna frågor (avsnitt 12), PRD v1.0 fryses efter genomläsning | Denna PRD |
+| 0 | Öppna frågor (avsnitt 12) besvaras, PRD v1.0 fryses efter genomläsning | Denna PRD |
 | 1 | Faktaunderlag: sök och verifiera källor | Annoterad källförteckning |
 | 2 | Gör ett första utkast av alternativ A (kort riktlinje) | Utkast 1 |
 | 3 | Gör B (bakgrund, FAQ, miljöavsnitt) | Utkast 2 |
@@ -140,16 +148,28 @@ Allt nedan är *uppgifter att hitta*, inget är ännu kontrollerat:
 
 ## 12. Öppna frågor
 
-1. **Beställare och mandat.** Är detta Kents eget underlag, eller ett uppdrag från LNF:s styrelse (eller klimatgruppen)? Påverkar ton, avsändare och förankring.
-2. **Publik.** Bara LNF, alla kretsar, eller öppet på webben?
-3. **Hållning.** Ska förslaget vara neutralt ("här är avvägningarna") eller landa i konkreta rekommendationer? Förslag: konkreta rekommendationer, med motiveringar.
-4. **Bilder.** Är rikskansliets rekommendation (ingen AI-producerad bildkommunikation) en utgångspunkt som vi följer, eller ett skäl att pröva? Förslag: följa den som ram för externt material, men särskilja intern användning (skisser, utkast).
-5. **Miljöavsnittet.** Hur djupt? En kort ärlig rad eller ett eget faktaavsnitt med källor?
-6. **Format.** A + B, eller något annat? Word, HTML, båda?
-7. **Samordning.** Ska vi kontakta rikskansliet (och vem gör det) för att höra om deras riktlinjer kommer att delas?
-8. **Tidsram.** Behövs något före Julstöket/adventsmässan, eller är detta ett längre arbete?
-9. **Tillåtet underlag.** Får e-posttråden och affischerna användas som anonymiserat exempel?
-10. **Namn på dokumentet.** Riktlinjer, förhållningssätt eller vägledning? ("Riktlinjer" låter bindande.)
+Besvarade av Kent 2026-11-12:
+
+| Fråga | Svar |
+|---|---|
+| Beställare och mandat | Eget initiativ, ingen samordning just nu |
+| Publik | Öppet på webben, GitHub |
+| Hållning | Konkreta rekommendationer med skäl |
+| Bilder | Skeptikerns reaktion ska tas på allvar, men resursargumentet analyseras mot källor (se analysen) |
+| Miljöavsnittet | Eget analysavsnitt, med möjlig databaskoppling för aktuella värden |
+| Format | `.md` först, sedan HTML, CSS och JavaScript |
+| Samordning med riksorganisationen | Inte nu |
+| Tidsram | Underlaget ska kunna användas för att svara föreningen idag. Sidan i version 1.0 kan komma efteråt |
+| Anonymisering | Inga namn. Roller eller generell framställan |
+| Namn på dokumentet | Öppet, avgörs senare |
+
+Kvarstår:
+
+1. **Svar till föreningen idag:** vad ska svaret vara, en kort text med länk till GitHub-mappen, eller vänta tills HTML-sidan finns? (Förslag: en kort text i dag med länk till analysen, och en uppdatering när sidan finns.)
+2. **Trafikljusets gränser:** var går gul och röd för text och bild? (Förslag finns i avsnitt 5.)
+3. **Namnet:** förslag kan samlas under arbetet ("riktlinjer", "förhållningssätt", "vägledning", "kompass", med mera).
+4. **Resursavsnittets djup i första versionen:** räcker tabell 1 i analysen, eller ska jämförelser med vardagsvanor med (kräver fler verifierade källor)?
+5. **Måste siffror finnas för svenska förhållanden** (elmix, vattenanvändning i datacenter), eller räcker globala källor med en tydlig reservation?
 
 ## Repo
 

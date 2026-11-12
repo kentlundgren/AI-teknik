@@ -4,7 +4,8 @@ Planering av ett förhållningssätt och riktlinjer för generativ AI i en ideel
 
 | Fil | Innehåll |
 |---|---|
-| [PRD_ai_riktlinjer_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/PRD_ai_riktlinjer_261112.md) | PRD v0.1 (2026-11-12): bakgrund, mål, målgrupper, innehåll, faser, öppna frågor |
+| [PRD_ai_riktlinjer_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/PRD_ai_riktlinjer_261112.md) | PRD v0.2 (2026-11-12): bakgrund, mål, målgrupper, innehåll, faser, öppna frågor |
+| [Analys_resurser_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_resurser_261112.md) | Analys v0.1 (2026-11-12): energi, vatten och bilder, med källor |
 
 Underlaget (en privat e-posttråd) finns inte i repot.
 
