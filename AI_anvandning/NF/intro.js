@@ -2,8 +2,10 @@
  *
  * Alla tider, energier och kostnader räknas ur data/siffror.json med funktionerna i sida.js (utvardera, visaTid,
  * visaEnergi, visaVatten, sig, fp). Introt väntar på händelsen "siffror-laddade".
- * Visas första gången. ?intro=1 visar det alltid, ?intro=0 aldrig. Knappen "Visa introt igen" öppnar det.
+ * Startar automatiskt varje gång startsidan laddas (även vid omladdning), utom när besökaren kommer från en annan sida i samma mapp
+ * (till exempel via brödsmulorna). ?intro=1 visar det alltid, ?intro=0 aldrig. Knappen "Visa introt" öppnar det.
  *
+ * UPPDATERING 2026-11-12: startar vid varje laddning och omladdning, inte bara första gången. Version 1.9.
  * UPPDATERING 2026-11-12: rubriken Energiåtgång för AI. Version 1.8.
  * UPPDATERING 2026-11-12: första versionen. Version 1.7.
  */
@@ -13,8 +15,23 @@
   var MIN_S = 0.1;
   var MAX_S = 36000;
 
-  function lagrat() { try { return window.localStorage.getItem(NYCKEL) === "1"; } catch (e) { return false; } }
-  function lagra() { try { window.localStorage.setItem(NYCKEL, "1"); } catch (e) { /* utan lagring visas introt igen */ } }
+  /* Startar introt vid varje laddning och omladdning. Undantag: besökaren kommer från en annan sida i samma mapp. */
+  function skaVisas() {
+    var q = window.location.search;
+    if (q.indexOf("intro=0") >= 0) { return false; }
+    if (q.indexOf("intro=1") >= 0) { return true; }
+    var typ = "";
+    try { typ = window.performance.getEntriesByType("navigation")[0].type; } catch (e) { typ = ""; }
+    if (typ === "reload") { return true; }
+    try {
+      if (document.referrer) {
+        var r = new URL(document.referrer);
+        var dir = window.location.pathname.replace(/[^\/]*$/, "");
+        if (r.origin === window.location.origin && r.pathname.indexOf(dir) === 0 && r.pathname !== window.location.pathname && r.pathname !== dir) { return false; }
+      }
+    } catch (e) { /* utan referrer visas introt */ }
+    return true;
+  }
   function reducerad() { return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches); }
   function pad(n) { return (n < 10 ? "0" : "") + n; }
   function skarm(s) {
@@ -165,7 +182,6 @@
     function stang() {
       stoppad = true;
       if (aktivRaf) window.clearInterval(aktivRaf);
-      lagra();
       rot.classList.remove("visas");
       document.body.style.overflow = "";
       var igen = document.getElementById("introIgen");
@@ -265,7 +281,6 @@
     bKvitto.addEventListener("click", tillKvitto);
     bIgen.addEventListener("click", function () { stoppad = false; visaSteg(1); });
     bStang.addEventListener("click", stang);
-    bLas.addEventListener("click", function () { lagra(); });
     hoppa.addEventListener("click", stang);
     rot.addEventListener("keydown", function (e) {
       if (e.key === "Escape") { stang(); return; }
@@ -281,10 +296,7 @@
     var igen = document.getElementById("introIgen");
     if (igen) igen.addEventListener("click", function () { oppna(0); });
 
-    var q = window.location.search;
-    var tvinga = q.indexOf("intro=1") >= 0;
-    var aldrig = q.indexOf("intro=0") >= 0;
-    if (tvinga || (!aldrig && !lagrat())) oppna(0);
+    if (skaVisas()) { oppna(0); }
   }
 
   if (typeof DATA !== "undefined" && DATA) { init(); }

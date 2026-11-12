@@ -1,7 +1,8 @@
 # PRD: förhållningssätt och riktlinjer för generativ AI i en ideell miljöorganisation
 
-**Version:** 0.18 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.19 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** Kents egen undersökning, på eget initiativ och utan samordning. Inte beslutat av Lunds Naturskyddsförening eller av Naturskyddsföreningen.
+**Ändringar i 0.19:** sidan är version 1.9: introt startar vid varje laddning och omladdning av startsidan.
 **Ändringar i 0.18:** sidan är version 1.8: rubriken i introt och på delningsbilden är Energiåtgång för AI, och tiderna på bilden står som 1 sek, 10 sek och 33 min.
 **Ändringar i 0.17:** sidan är version 1.7: intro på startsidan (gissa, mikron, kvitto) och delningsbild med delningstaggar.
 **Ändringar i 0.16:** sidan är version 1.6: källor i Harvardformat med källförteckning på varje sida, länkar i verifieringsloggen och en summarad i tabellen över tokens och kostnad.

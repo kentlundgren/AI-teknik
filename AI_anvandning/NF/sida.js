@@ -4,6 +4,7 @@
  * (data-post, data-formel, data-kalla, data-lista), visar markering av hur väl en siffra är belagd,
  * förklaringar vid hovring/fokus/tryck, tekniknivån i hörnet och versionsraden.
  *
+ * UPPDATERING 2026-11-12: introt startar vid varje laddning av startsidan. Version 1.9.
  * UPPDATERING 2026-11-12: ändrad rubrik i introt (Energiåtgång för AI) och på delningsbilden. Version 1.8.
  * UPPDATERING 2026-11-12: händelsen "siffror-laddade" för introt på startsidan. Version 1.7.
  * UPPDATERING 2026-11-12: källor i Harvardformat (Tillgänglig på, hämtdatum, DOI), källförteckning på varje sida (sidkallor), länkar i verifieringsloggen. Version 1.6.
@@ -17,7 +18,7 @@
  * Testläge: lägg ?test=1 efter adressen för att köra validering och testfall (SPEC avsnitt 3, 4 och 8).
  * Obs: fetch fungerar inte på file://. Testa via en lokal server (python -m http.server).
  */
-const VERSION = "1.8";
+const VERSION = "1.9";
 const VERSIONSDATUM = "2026-11-12";
 const AVSANDARE = "Kent Lundgren";
 const GITHUB_MAPP = "https://github.com/kentlundgren/AI-teknik/tree/main/AI_anvandning/NF";

@@ -1,10 +1,10 @@
 # AI i en miljöorganisation (NF)
 
-- **Live:** [https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/) (adressen gäller när sidan är pushad och GitHub Pages har byggt den; sidan är byggd och testad lokalt, version 1.8)
+- **Live:** [https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/) (adressen gäller när sidan är pushad och GitHub Pages har byggt den; sidan är byggd och testad lokalt, version 1.9)
 
 En analys av generativ AI:s resursanvändning (energi, vatten och övriga miljöfaktorer) för både dem som gillar AI och dem som är skeptiska, med Naturskyddsföreningen och Lunds Naturskyddsförening som exempel. Förslag på eget initiativ, inte beslutat av någon förening. Ett förslag till förhållningssätt (principer, trafikljus, bilder, checklista, vanliga frågor) kommer i en senare version (F-32).
 
-## Sidan (version 1.8, 2026-11-12)
+## Sidan (version 1.9, 2026-11-12)
 
 | Fil | Innehåll |
 |---|---|
@@ -18,7 +18,7 @@ En analys av generativ AI:s resursanvändning (energi, vatten och övriga miljö
 | [data/siffror.json](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/data/siffror.json) | Alla siffror, källor, antaganden och förbättringsrader |
 | [sida.js](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/sida.js) | Gemensamt skript (version och datum står här) |
 | [sida.css](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/sida.css) | Gemensam stil |
-| [intro.js](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/intro.js) och [intro.css](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/intro.css) | Intro på startsidan: gissa, mikron, kvitto (`?intro=1` visar det, `?intro=0` döljer det) |
+| [intro.js](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/intro.js) och [intro.css](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/intro.css) | Intro på startsidan: gissa, mikron, kvitto. Startar vid varje laddning och omladdning (`?intro=0` döljer det) |
 | [og-bild.jpg](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/og-bild.jpg) och [gen_og_bild.py](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/gen_og_bild.py) | Delningsbild (1200×630) och skriptet som genererar den ur datafilen |
 | [dokument.json](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/dokument.json) | Brödsmulor (skapade med `brodsmulor.py`) |
 | [summera_tokens.py](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/summera_tokens.py) | Skript som summerar tokens i en Claude Code-session |

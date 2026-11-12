@@ -2476,6 +2476,11 @@
  ],
  "versionslogg": [
   {
+   "version": "1.9",
+   "datum": "2026-11-12",
+   "text": "Introt på startsidan startar nu automatiskt vid varje laddning och omladdning, utom när besökaren kommer från en annan sida i samma mapp."
+  },
+  {
    "version": "1.8",
    "datum": "2026-11-12",
    "text": "Rubriken i introt och på delningsbilden är nu Energiåtgång för AI, och tiderna på delningsbilden står som 1 sek, 10 sek och 33 min."
