@@ -1,6 +1,6 @@
 # Så kopplades rangordningen till Supabase: steg för steg med bilder
 
-**Version:** 1.1 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 1.2 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** berättelse om hur uppkopplingen gick till, med skärmdumpar. Tekniken och reglerna står i [supabase.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase.md). Sidan som använder databasen är [AI i proportion](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/proportion.html).
 
 ## Kort version <a id="kort-version"></a>
@@ -110,6 +110,16 @@ På sidan flyttade jag raderna i rangordningen och skrev ett provnamn. Därefter
 - Skapandet av Supabase-kontot, organisationen och projektet `samradsquiden`. De gjordes för Samrådsguiden. Stegen finns i [Samrådsguidens supabase.md](https://github.com/kentlundgren/Codex/blob/main/Fritid/NF/Samradsguiden/supabase.md).
 - Dialogen med **Resume project** i steg 1.
 - Adminkoden. Den ska inte synas i något dokument.
+
+## Så hittar du koden i Supabase igen <a id="hitta-koden"></a>
+
+Supabase sparar inte den inklistrade SQL-filen som en fil. Tabellerna syns i **Table Editor**, men koden som skapade dem finns på tre ställen, och de ger olika mycket.
+
+1. **Tabellens definition.** Öppna [Table Editor](https://supabase.com/dashboard/project/basgvwqqdbkwadfjzaxc/editor), klicka på tabellen (till exempel `rang_rost`) och klicka på **Definition** längst ned till höger, bredvid **Data**. Rubriken är "SQL Definition of rang_rost (Read only)". Där står ett `create table`-kommando med kolumner, primärnyckel, främmande nyckel mot `rang_omrostning` (`on delete cascade`) och reglerna för namn (högst 40 tecken) och ordning (2 till 50 poster). Knappen **Open in SQL Editor** uppe till höger öppnar den i SQL Editor. Det är Supabases egen genererade version av tabellen, så kommentarerna från filen saknas.
+2. **Funktionerna.** Klicka på **Database** i vänstermenyn och sedan på **Functions**, eller öppna [direktlänken](https://supabase.com/dashboard/project/basgvwqqdbkwadfjzaxc/database/functions). Listan visar mina fem funktioner (`rang_hamta_roster`, `rang_hamta_status`, `rang_spara_rost`, `rang_radera_min_rost`, `rang_nollstall`), alla med säkerheten *Definer*, och Samrådsguidens (`hamta_roster`, `hamta_status`, `nollstall_roster`, `radera_min_rost`). Klicka på en funktion för att se dess kod.
+3. **Själva filen.** Den ursprungliga koden, med kommentarer, är [supabase_rangordning.sql](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase_rangordning.sql) på GitHub. Den första frågan i SQL Editor ("Untitled query") sparades aldrig under ett namn, och i [SQL Editor](https://supabase.com/dashboard/project/basgvwqqdbkwadfjzaxc/sql/new) står bara frågan "AI i proportion" under **Private**. Vill du ha grundkoden i Supabase, klistra in filen i en ny fråga, klicka **Save** och döp den till `AI i proportion: skapa tabeller (grundkod)`. Du behöver inte köra den.
+
+Koden för Samrådsguidens tabeller ligger i ett annat repo, se [Var finns koden för Samrådsguiden i samma projekt?](#samradsguiden-koden).
 
 ## Genvägar mellan sidan och Supabase <a id="genvagar"></a>
 
