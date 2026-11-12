@@ -1,6 +1,6 @@
 # Rangordning med databas: Supabase i AI-teknik
 
-**Version:** 1.1 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 1.2 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 
 Beskriver hur sidan [AI i proportion](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/proportion.html) kan kopplas till en databas så att läsare kan rangordna tio frågor, välja att skriva sitt namn och se gruppens gemensamma rangordning. Tekniken är den som användes i Samrådsguiden ([supabase.md](https://github.com/kentlundgren/Codex/blob/main/Fritid/NF/Samradsguiden/supabase.md)), men gjord för flera omröstningar i samma projekt. Uppgifter om Supabase är hämtade ur deras prissida och dokumentation 2026-11-12. Kontrollera mot [supabase.com/docs](https://supabase.com/docs) innan något beslut bygger på dem.
 
@@ -122,6 +122,17 @@ Första kommandot kan provas så här (byt `PROJEKT` och `NYCKEL`). Svaret ska i
 ```bash
 curl -s -X POST "https://PROJEKT.supabase.co/rest/v1/rpc/rang_hamta_status" -H "apikey: NYCKEL" -H "Content-Type: application/json" -d "{\"p_omrostning\":\"ai_proportion_hot10\"}"
 ```
+
+## 5b. Genvägar mellan sidan och Supabase <a id="genvagar"></a>
+
+**Från sidan till Supabase.** Längst upp på [AI i proportion](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/proportion.html), under versionsraden, finns en liten rad med länkar till [Supabase-projektet](https://supabase.com/dashboard/project/basgvwqqdbkwadfjzaxc), [SQL Editor](https://supabase.com/dashboard/project/basgvwqqdbkwadfjzaxc/sql/new) och [adminkommandona](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase_admin.sql). Länkarna ger ingen åtkomst: dashboarden kräver inloggning, och projektkoden är ändå publik i `rangordning_config.js`. Raden döljs vid utskrift. Hemliga nycklar och adminkoden ligger aldrig i en länk.
+
+**Från Supabase tillbaka till sidan.** Supabase har inget fält för en klickbar länk, så tre sätt fungerar:
+1. Filen [`supabase_admin.sql`](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase_admin.sql) har sidans adress i första raderna. Klistra in hela filen i SQL Editor och klicka **Save**, och döp frågan till "AI i proportion: adminkommandon". Adressen är text i kommentaren, inte en länk, men går att kopiera.
+2. Kör de två raderna `comment on table` i samma fil. Då står tillbakaadressen vid tabellerna `rang_omrostning` och `rang_rost` i Table Editor och Database.
+3. Lägg ett bokmärke i Chrome i en mapp, till exempel "AI i proportion", med sidan, SQL Editor och projektet. Det är det enda helt klickbara sättet åt det hållet.
+
+Kör bara en rad i taget i SQL Editor: markera raden och klicka Run, annars körs hela filen, inklusive `delete`.
 
 ## 6. Integritet och säkerhet
 

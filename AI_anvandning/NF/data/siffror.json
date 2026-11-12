@@ -3583,6 +3583,11 @@
  ],
  "versionslogg": [
   {
+   "version": "1.19",
+   "datum": "2026-11-12",
+   "text": "Sidan AI i proportion har en diskret adminrad med länkar till Supabase-projektet, SQL Editor och adminkommandona (databas/supabase_admin.sql)."
+  },
+  {
    "version": "1.18",
    "datum": "2026-11-12",
    "text": "Rangordningen använder samma Supabase-projekt som Samrådsguiden (konfigurationen ifylld) och tål att databasen inte svarar eller inte är färdig: ordningen sparas i webbläsaren och skickas när databasen svarar. Beslutet, skälen och gränserna för återbruk står i databas/supabase.md, avsnitt 2b."

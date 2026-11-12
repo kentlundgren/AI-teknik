@@ -1,7 +1,8 @@
 # PRD: förhållningssätt och riktlinjer för generativ AI i en ideell miljöorganisation
 
-**Version:** 0.28 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.29 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** Kents egen undersökning, på eget initiativ och utan samordning. Inte beslutat av Lunds Naturskyddsförening eller av Naturskyddsföreningen.
+**Ändringar i 0.29:** sidan är version 1.19: AI i proportion har en diskret adminrad med länkar till Supabase, och databas/supabase_admin.sql samlar adminkommandona.
 **Ändringar i 0.28:** sidan är version 1.18: rangordningen använder Samrådsguidens Supabase-projekt och tål att databasen inte svarar.
 **Ändringar i 0.27:** sidan är version 1.17: ny sida AI i proportion (AI jämförd med världens andra frågor, med originalkällor) och en rangordning som läsaren kan göra, förberedd för en Supabase-databas.
 **Ändringar i 0.26:** sidan är version 1.16: startsidan visar två korta svar överst (el och vatten, bilder), eftersom länken till startsidan är den som delas med styrelsen.
