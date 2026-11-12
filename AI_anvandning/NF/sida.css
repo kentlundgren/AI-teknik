@@ -1,4 +1,5 @@
 /* sida.css: gemensam stil för sidorna om AI i en miljöorganisation.
+ * UPPDATERING 2026-11-12: ihopfällda listor (details.hopfall). Version 1.2.
  * UPPDATERING 2026-11-12: första versionen. Version 1.0.
  * Gult används aldrig här: det är reserverat för inmatningsfält (det finns inga i den här versionen).
  */
@@ -129,6 +130,18 @@ a.belagd:hover { border-color: currentColor; }
 #termpop[hidden] { display: none; }
 
 .kallista li { margin-bottom: 0.7rem; }
+details.hopfall { border: 1px solid var(--hair); border-radius: var(--rad); background: var(--panel); margin: 0.6rem 0 1rem; }
+details.hopfall > summary {
+  cursor: pointer; padding: 0.6rem 0.9rem; font-weight: 600; color: var(--accent-ink); list-style: none;
+  display: flex; align-items: center; gap: 0.5rem; border-radius: var(--rad);
+}
+details.hopfall > summary::-webkit-details-marker { display: none; }
+details.hopfall > summary::before { content: "▸"; display: inline-block; transition: transform 0.15s; }
+details.hopfall[open] > summary::before { transform: rotate(90deg); }
+details.hopfall[open] > summary { border-bottom: 1px solid var(--hair); border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+details.hopfall > summary:hover { text-decoration: underline; }
+.hopfall-innehall { padding: 0.5rem 0.9rem 0.3rem; background: var(--bg); border-radius: 0 0 var(--rad) var(--rad); }
+.hopfall-innehall .tabellvy { margin-bottom: 0.5rem; }
 .forblista li { margin-bottom: 0.35rem; }
 .linkkort { list-style: none; padding: 0; display: grid; gap: 0.7rem; }
 .linkkort li { margin: 0; }

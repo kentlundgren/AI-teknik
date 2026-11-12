@@ -1560,6 +1560,11 @@
  ],
  "versionslogg": [
   {
+   "version": "1.2",
+   "datum": "2026-11-12",
+   "text": "Långa listor och tabeller (förbättringar, källförteckning, verifieringslogg, alla siffror, förbättringsregister) är ihopfällda som standard och öppnas med ett klick, eller automatiskt av en ankarlänk."
+  },
+  {
    "version": "1.1",
    "datum": "2026-11-12",
    "text": "Nytt avsnitt om återlästa tokens: vad som räknas som nya och gamla tokens, hur cachning fungerar hos Anthropic, OpenAI och Google, vad som kostar energi (KV-cachen) och ett tredje räknesätt för arbetspassets energi. Rutan om arbete jämfört med fråga uppdaterad."

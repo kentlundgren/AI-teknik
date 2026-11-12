@@ -4,13 +4,14 @@
  * (data-post, data-formel, data-kalla, data-lista), visar markering av hur väl en siffra är belagd,
  * förklaringar vid hovring/fokus/tryck, tekniknivån i hörnet och versionsraden.
  *
+ * UPPDATERING 2026-11-12: långa listor och tabeller ur datafilen är ihopfällda som standard (details/summary), öppnas automatiskt av ankarlänkar och vid utskrift. Version 1.2.
  * UPPDATERING 2026-11-12: nya termer (KV-cache, prefill) och ett testfall för det tredje räknesättet. Version 1.1.
  * UPPDATERING 2026-11-12: första versionen. Version 1.0.
  *
  * Testläge: lägg ?test=1 efter adressen för att köra validering och testfall (SPEC avsnitt 3, 4 och 8).
  * Obs: fetch fungerar inte på file://. Testa via en lokal server (python -m http.server).
  */
-const VERSION = "1.1";
+const VERSION = "1.2";
 const VERSIONSDATUM = "2026-11-12";
 const AVSANDARE = "Kent Lundgren";
 const GITHUB_MAPP = "https://github.com/kentlundgren/AI-teknik/tree/main/AI_anvandning/NF";
@@ -213,7 +214,7 @@ function tabell(rubriker, rader, klass) {
   return wrap;
 }
 
-function lista(el) {
+function byggLista(el, mal) {
   const typ = el.dataset.lista;
   if (typ === "kallor") {
     const ul = document.createElement("ul"); ul.className = "kallista";
@@ -225,7 +226,7 @@ function lista(el) {
       li.append(t, a, n);
       ul.appendChild(li);
     });
-    el.appendChild(ul);
+    mal.appendChild(ul);
   } else if (typ === "forbattringar") {
     const ids = el.dataset.ids ? el.dataset.ids.split(",").map((s) => s.trim()) : null;
     const bara = el.dataset.filter === "syns";
@@ -236,28 +237,79 @@ function lista(el) {
       li.append(b, document.createTextNode(f.rubrik + " (mål: version " + f.malversion + ")"));
       ul.appendChild(li);
     });
-    el.appendChild(ul);
+    mal.appendChild(ul);
   } else if (typ === "forbattringar-alla") {
-    el.appendChild(tabell(["Nr", "Område", "Vad som ska förbättras", "Målversion", "Syns på sidan"],
+    mal.appendChild(tabell(["Nr", "Område", "Vad som ska förbättras", "Målversion", "Syns på sidan"],
       DATA.forbattringar.map((f) => { const r = tr(td(f.id), td(f.omrade), td(f.rubrik), td(f.malversion), td(f.syns ? "ja" : "nej")); r.id = f.id; return r; })));
   } else if (typ === "poster") {
-    el.appendChild(tabell(["Id", "Namn", "Värde", "Typ", "Belagd", "Källa", "Hämtad"],
+    mal.appendChild(tabell(["Id", "Namn", "Värde", "Typ", "Belagd", "Källa", "Hämtad"],
       DATA.poster.map((p) => {
         const r = tr(td(p.id, "kod"), td(p.namn), td(p.typ === "beraknad" ? "beräknas: " + p.formel : visaPost(p)), td(p.typ), td(p.typ === "beraknad" ? "beräknad" : (BELAGD[p.belagd] || ["?"])[0]),
           td(p.kalla ? KALLOR[p.kalla].kort : "–"), td(p.hamtdatum || "–"));
         return r;
       }), "poster"));
   } else if (typ === "antaganden") {
-    el.appendChild(tabell(["Antagandeversion", "Datum", "Poster", "Skäl"],
+    mal.appendChild(tabell(["Antagandeversion", "Datum", "Poster", "Skäl"],
       DATA.antaganden.map((a) => tr(td(a.id), td(a.datum), td(a.poster.join(", ")), td(a.skal)))));
   } else if (typ === "verifieringar") {
-    el.appendChild(tabell(["Källa", "Påstående", "Hur kontrollerat", "Resultat"],
+    mal.appendChild(tabell(["Källa", "Påstående", "Hur kontrollerat", "Resultat"],
       DATA.verifieringar.map((v) => tr(td(v.kalla), td(v.paastaende), td(v.kontroll), td(v.resultat)))));
   } else if (typ === "versionslogg") {
-    el.appendChild(tabell(["Version", "Datum", "Vad som ändrats"],
+    mal.appendChild(tabell(["Version", "Datum", "Vad som ändrats"],
       DATA.versionslogg.map((v) => tr(td(v.version), td(v.datum), td(v.text)))));
   }
 }
+
+/* Antal rader och etikett för att fälla ihop en lista. Listor med fler än TROSKEL punkter fälls ihop som standard. */
+const TROSKEL = 5;
+function listInfo(el) {
+  const typ = el.dataset.lista;
+  const ids = el.dataset.ids ? el.dataset.ids.split(",").map((x) => x.trim()) : null;
+  if (typ === "kallor") return { n: DATA.kallor.length, etikett: (n) => "Visa källförteckningen (" + n + " källor)" };
+  if (typ === "forbattringar") {
+    const n = DATA.forbattringar.filter((f) => (ids ? ids.indexOf(f.id) >= 0 : true) && (el.dataset.filter === "syns" ? f.syns : true)).length;
+    return { n, etikett: (m) => "Visa de " + m + " förbättringarna" };
+  }
+  if (typ === "forbattringar-alla") return { n: DATA.forbattringar.length, etikett: (n) => "Visa hela förbättringsregistret (" + n + " rader)" };
+  if (typ === "poster") return { n: DATA.poster.length, etikett: (n) => "Visa alla " + n + " siffror" };
+  if (typ === "verifieringar") return { n: DATA.verifieringar.length, etikett: (n) => "Visa verifieringsloggen (" + n + " källor)" };
+  if (typ === "antaganden") return { n: DATA.antaganden.length, etikett: (n) => "Visa antagandeloggen (" + n + " rader)" };
+  if (typ === "versionslogg") return { n: DATA.versionslogg.length, etikett: (n) => "Visa versionsloggen (" + n + " versioner)" };
+  return { n: 0, etikett: () => "Visa" };
+}
+
+function lista(el) {
+  const info = listInfo(el);
+  const fall = el.dataset.hopfall === "ja" || (el.dataset.hopfall !== "nej" && info.n > TROSKEL);
+  if (!fall) { byggLista(el, el); return; }
+  const d = document.createElement("details");
+  d.className = "hopfall";
+  const sm = document.createElement("summary");
+  sm.textContent = info.etikett(info.n);
+  d.appendChild(sm);
+  const inre = document.createElement("div");
+  inre.className = "hopfall-innehall";
+  byggLista(el, inre);
+  d.appendChild(inre);
+  el.appendChild(d);
+}
+
+/* Öppnar ihopfällda listor som innehåller målet för en ankarlänk, och alla vid utskrift. */
+function oppnaForAnkare() {
+  if (!location.hash) return;
+  const t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if (!t) return;
+  let d = t.closest("details");
+  while (d) { d.open = true; d = d.parentElement && d.parentElement.closest("details"); }
+  t.scrollIntoView();
+}
+let oppnadeForUtskrift = [];
+window.addEventListener("beforeprint", () => {
+  oppnadeForUtskrift = [];
+  document.querySelectorAll("details.hopfall:not([open])").forEach((d) => { d.open = true; oppnadeForUtskrift.push(d); });
+});
+window.addEventListener("afterprint", () => { oppnadeForUtskrift.forEach((d) => { d.open = false; }); });
+window.addEventListener("hashchange", oppnaForAnkare);
 
 /* ---------- förklaringar vid hovring, fokus och tryck ---------- */
 function initTermer() {
@@ -451,6 +503,6 @@ async function start() {
   document.querySelectorAll("[data-lista]").forEach(lista);
   lankaReferenser();
   if (location.search.indexOf("test=1") >= 0) testpanel();
-  if (location.hash) { const t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
+  oppnaForAnkare();
 }
 document.addEventListener("DOMContentLoaded", start);
