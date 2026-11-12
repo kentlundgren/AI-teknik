@@ -1,0 +1,94 @@
+/* intro.css: intro på startsidan (gissa, mikron, kvitto).
+ * UPPDATERING 2026-11-12: första versionen. Version 1.7.
+ * Gult (#FFF9C4) används bara på reglagen, som är inmatningsfält. Glöden i mikron är orange.
+ */
+.intro {
+  position: fixed; inset: 0; z-index: 60; display: none; overflow-y: auto;
+  background: radial-gradient(ellipse at top, #1b4a3b 0%, #0e2620 60%, #0a1a16 100%);
+  color: #eef4f1; padding: 1rem;
+}
+.intro.visas { display: block; }
+.intro-ram { max-width: 640px; margin: 0 auto; padding: 3.2rem 0 2rem; position: relative; }
+.intro-hoppa {
+  position: fixed; top: 0.8rem; right: 0.8rem; z-index: 61; background: rgba(255, 255, 255, 0.1); color: #eef4f1;
+  border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 999px; padding: 0.4rem 0.9rem; font-size: 0.9rem; cursor: pointer;
+}
+.intro-hoppa:hover { background: rgba(255, 255, 255, 0.2); }
+.intro button:focus-visible, .intro input:focus-visible, .intro a:focus-visible { outline: 3px solid #ff963c; outline-offset: 2px; }
+.intro h2 { font-size: 2rem; line-height: 1.15; margin: 0 0 0.8rem; border: none; padding: 0; color: #fff; }
+.intro h3 { color: #fff; font-size: 1.1rem; }
+.intro p { max-width: 60ch; }
+.intro .liten { font-size: 0.85rem; color: #b8cbc3; }
+.intro-steg { display: none; }
+.intro-steg.aktiv { display: block; animation: intro-in 0.35s ease both; }
+.intro-knapp {
+  display: inline-block; margin: 0.6rem 0.5rem 0 0; padding: 0.65rem 1.2rem; border-radius: 10px; font-size: 1rem; font-weight: 600;
+  background: #ff963c; color: #1a1209; border: none; cursor: pointer; text-decoration: none;
+}
+.intro-knapp:hover { filter: brightness(1.08); }
+.intro-knapp.sekundar { background: transparent; color: #eef4f1; border: 1px solid rgba(255, 255, 255, 0.45); }
+
+.gissa-falt { background: #FFF9C4; color: #1d2623; border-radius: 10px; padding: 0.7rem 0.9rem; margin: 0.8rem 0; }
+.gissa-falt label { display: block; font-weight: 600; }
+.gissa-falt .gissa-rad { display: flex; gap: 0.8rem; align-items: center; margin-top: 0.4rem; }
+.gissa-falt input[type="range"] { flex: 1; accent-color: #1f6f54; min-width: 0; }
+.gissa-falt output { min-width: 7.5rem; text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+
+/* mikrovågsugnen */
+.mikro { display: flex; gap: 12px; max-width: 440px; margin: 1rem 0; padding: 12px; border-radius: 16px; background: #2d3836; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45); }
+.mikro-fonster { flex: 1; height: 170px; position: relative; overflow: hidden; border-radius: 10px; background: #080d0c; border: 3px solid #4b5855; perspective: 300px; }
+.tallrik { position: absolute; left: 50%; bottom: 14px; width: 64%; height: 18px; transform: translateX(-50%); border-radius: 50%; background: #cdd6d3; }
+.mat { position: absolute; left: 50%; bottom: 28px; width: 34%; height: 46px; margin-left: -17%; border-radius: 40% 40% 12% 12%; background: #8a5a3a; }
+.mikro.kor .mikro-fonster { box-shadow: inset 0 0 46px 12px rgba(255, 150, 60, 0.55); animation: glod 0.9s ease-in-out infinite alternate; }
+.mikro.kor .mat { animation: vrid 1.6s linear infinite; }
+.mikro-panel { width: 124px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 6px 0; }
+.mikro-display {
+  width: 100%; text-align: center; padding: 0.5rem 0.2rem; border-radius: 8px; background: #050807; color: #ff963c;
+  font: 700 1.55rem/1 ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace; letter-spacing: 0.02em; text-shadow: 0 0 10px rgba(255, 150, 60, 0.7);
+}
+.mikro-effekt { color: #b8cbc3; font-size: 0.85rem; }
+.mikro-etikett { font-size: 0.85rem; color: #b8cbc3; text-align: center; min-height: 2.4em; }
+.mikro.ping .mikro-display { animation: ping 0.7s ease both; }
+
+.resultat { background: rgba(255, 255, 255, 0.08); border-left: 4px solid #ff963c; border-radius: 8px; padding: 0.55rem 0.8rem; margin: 0.5rem 0; animation: intro-in 0.35s ease both; }
+.resultat strong { color: #fff; }
+.poang { font-weight: 700; color: #ff963c; }
+.slutsumma { font-size: 1.2rem; margin: 0.8rem 0 0.3rem; }
+
+/* kvittot */
+.kvitto {
+  max-width: 440px; margin: 1rem 0; padding: 1.1rem 1.2rem 1.4rem; background: #f6f3ea; color: #1b1b1b; position: relative;
+  font: 0.9rem/1.5 ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), 97% 100%, 94% calc(100% - 10px), 91% 100%, 88% calc(100% - 10px), 85% 100%, 82% calc(100% - 10px), 79% 100%, 76% calc(100% - 10px), 73% 100%, 70% calc(100% - 10px), 67% 100%, 64% calc(100% - 10px), 61% 100%, 58% calc(100% - 10px), 55% 100%, 52% calc(100% - 10px), 49% 100%, 46% calc(100% - 10px), 43% 100%, 40% calc(100% - 10px), 37% 100%, 34% calc(100% - 10px), 31% 100%, 28% calc(100% - 10px), 25% 100%, 22% calc(100% - 10px), 19% 100%, 16% calc(100% - 10px), 13% 100%, 10% calc(100% - 10px), 7% 100%, 4% calc(100% - 10px), 1% 100%, 0 calc(100% - 10px));
+}
+.kvitto h3 { font: 700 1rem/1.3 inherit; color: #1b1b1b; margin: 0 0 0.2rem; text-align: center; letter-spacing: 0.04em; }
+.kvitto .datum { text-align: center; color: #555; margin-bottom: 0.5rem; }
+.kvitto hr { border: none; border-top: 2px dashed #888; margin: 0.5rem 0; }
+.kvitto .rad { display: flex; justify-content: space-between; gap: 0.8rem; }
+.kvitto .rad span:last-child { text-align: right; white-space: nowrap; }
+.kvitto .under { padding-left: 1rem; color: #444; font-size: 0.85rem; }
+.kvitto .stampel {
+  display: inline-block; margin: 0.6rem 0 0; padding: 0.15rem 0.7rem; border: 3px solid #b3261e; color: #b3261e; font-weight: 700;
+  letter-spacing: 0.08em; transform: rotate(-4deg); border-radius: 6px;
+}
+.kvitto .liten { color: #555; font-size: 0.78rem; margin-top: 0.5rem; }
+.knappar { margin-top: 0.8rem; }
+.visuellt-dold { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.intro-igen { margin: 0.5rem 0 0; }
+
+@keyframes intro-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes glod { from { box-shadow: inset 0 0 36px 8px rgba(255, 150, 60, 0.4); } to { box-shadow: inset 0 0 56px 16px rgba(255, 150, 60, 0.7); } }
+@keyframes vrid { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+@keyframes ping { 0% { transform: scale(1); } 40% { transform: scale(1.12); } 100% { transform: scale(1); } }
+@media (max-width: 520px) {
+  .intro h2 { font-size: 1.6rem; }
+  .gissa-falt .gissa-rad { flex-direction: column; align-items: stretch; }
+  .gissa-falt output { text-align: left; }
+  .mikro-panel { width: 104px; }
+  .mikro-display { font-size: 1.3rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro-steg.aktiv, .resultat { animation: none; }
+  .mikro.kor .mikro-fonster, .mikro.kor .mat, .mikro.ping .mikro-display { animation: none; }
+}
+@media print { .intro { display: none !important; } }

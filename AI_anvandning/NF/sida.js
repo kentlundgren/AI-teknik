@@ -4,6 +4,7 @@
  * (data-post, data-formel, data-kalla, data-lista), visar markering av hur väl en siffra är belagd,
  * förklaringar vid hovring/fokus/tryck, tekniknivån i hörnet och versionsraden.
  *
+ * UPPDATERING 2026-11-12: händelsen "siffror-laddade" för introt på startsidan. Version 1.7.
  * UPPDATERING 2026-11-12: källor i Harvardformat (Tillgänglig på, hämtdatum, DOI), källförteckning på varje sida (sidkallor), länkar i verifieringsloggen. Version 1.6.
  * UPPDATERING 2026-11-12: visning i USD (data-visa="usd"), källor utan webbadress, termerna anrop och utdata, nya testvärden (A3). Version 1.5.
  * UPPDATERING 2026-11-12: förklaring av bedömningen (term bedomning), det tredje räknesättet som underrad, nya testvärden för ögonblicksbild A2. Version 1.4.
@@ -15,7 +16,7 @@
  * Testläge: lägg ?test=1 efter adressen för att köra validering och testfall (SPEC avsnitt 3, 4 och 8).
  * Obs: fetch fungerar inte på file://. Testa via en lokal server (python -m http.server).
  */
-const VERSION = "1.6";
+const VERSION = "1.7";
 const VERSIONSDATUM = "2026-11-12";
 const AVSANDARE = "Kent Lundgren";
 const GITHUB_MAPP = "https://github.com/kentlundgren/AI-teknik/tree/main/AI_anvandning/NF";
@@ -571,5 +572,6 @@ async function start() {
   lankaReferenser();
   if (location.search.indexOf("test=1") >= 0) testpanel();
   oppnaForAnkare();
+  document.dispatchEvent(new Event("siffror-laddade"));
 }
 document.addEventListener("DOMContentLoaded", start);

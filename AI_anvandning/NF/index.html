@@ -1,7 +1,8 @@
 <!doctype html>
 <!--
   AI i en miljöorganisation: hubb (startsida).
-  Version 1.6 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  Version 1.7 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  UPPDATERING 2026-11-12: intro (gissa, mikron, kvitto) och delningstaggar. Version 1.7.
   UPPDATERING 2026-11-12: första versionen. Version 1.0.
 -->
 <html lang="sv">
@@ -10,8 +11,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI i en miljöorganisation</title>
   <meta name="description" content="En analys av generativ AI:s resursanvändning (energi, vatten och övriga miljöfaktorer) för både entusiaster och skeptiker. Förslag på eget initiativ, med källor.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sv_SE">
+  <meta property="og:site_name" content="AI i en miljöorganisation">
+  <meta property="og:title" content="Vad kostar AI egentligen? En analys med källor">
+  <meta property="og:description" content="En analys av generativ AI:s resursanvändning (energi, vatten och övriga miljöfaktorer) för både entusiaster och skeptiker. Förslag på eget initiativ, med källor.">
+  <meta property="og:url" content="https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/">
+  <meta property="og:image" content="https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/og-bild.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mikrovågsdisplay som visar 0:01 för en textfråga, 0:10 för en genererad bild och 33:00 för ett helt arbete">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vad kostar AI egentligen? En analys med källor">
+  <meta name="twitter:description" content="En analys av generativ AI:s resursanvändning (energi, vatten och övriga miljöfaktorer) för både entusiaster och skeptiker. Förslag på eget initiativ, med källor.">
+  <meta name="twitter:image" content="https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/og-bild.jpg">
   <link rel="stylesheet" href="sida.css">
+  <link rel="stylesheet" href="intro.css">
   <script src="sida.js" defer></script>
+  <script src="intro.js" defer></script>
 <link rel="stylesheet" href="brodsmulor.css">
 </head>
 <body>
@@ -28,6 +45,8 @@
   <p class="notis">Förslag och analys på eget initiativ, inte beslutat av Lunds Naturskyddsförening eller Naturskyddsföreningen. Siffrorna är hämtade ur källorna och inte kvalitetssäkrade. Kontrollera mot källan innan något återges.</p>
 
   <p class="ingress">Den här sidan sammanställer vad som är känt om hur mycket energi och vatten generativ AI använder, och vilka andra miljöfaktorer som finns. Den vänder sig både till dem som vill använda AI och till dem som är skeptiska. Varje siffra har en källa och en markering av om den är mätt, uppskattad eller antagen.</p>
+
+  <p class="intro-igen"><button type="button" id="introIgen" class="intro-knapp" style="margin:0">Visa introt: gissa först</button></p>
 
   <h2 id="sa-laser-du">Så läser du sidan</h2>
   <p>Varje svår fråga presenteras i två steg: först en kort, faktamässigt korrekt version, och sedan en fullständig analys att klicka vidare till. Börja i <a href="analys.html">analysen i korthet</a>.</p>

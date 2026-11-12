@@ -1,7 +1,8 @@
 # PRD: förhållningssätt och riktlinjer för generativ AI i en ideell miljöorganisation
 
-**Version:** 0.16 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.17 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** Kents egen undersökning, på eget initiativ och utan samordning. Inte beslutat av Lunds Naturskyddsförening eller av Naturskyddsföreningen.
+**Ändringar i 0.17:** sidan är version 1.7: intro på startsidan (gissa, mikron, kvitto) och delningsbild med delningstaggar.
 **Ändringar i 0.16:** sidan är version 1.6: källor i Harvardformat med källförteckning på varje sida, länkar i verifieringsloggen och en summarad i tabellen över tokens och kostnad.
 **Ändringar i 0.15:** sidan är version 1.5: bedömningen av arbetets energi som egen rad, och en ny sida Min förbrukning om kontext, tokens, energi och pengar (abonnemang och API). Förbättringsrader F-37 och F-38.
 **Ändringar i 0.14:** sidan är version 1.4: tabellen över arbetets energi förenklad till två alternativ med en tydlig bedömning, ny mätning (A2), och nya avsnitt om kontextfönstret och om skillnader mellan tjänster (F-36).

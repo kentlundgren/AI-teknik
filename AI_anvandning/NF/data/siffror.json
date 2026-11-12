@@ -2291,6 +2291,13 @@
    "rubrik": "Kontrollera kostnadsberäkningen mot en faktisk faktura eller användningsrapport, vilken modell underagenterna körs på, hur resonerande tokens räknas och om cachen skrivs med 5 minuters eller 1 timmes livslängd. Idag en uppskattning ur prislistan",
    "malversion": "1.x",
    "syns": true
+  },
+  {
+   "id": "F-39",
+   "omrade": "Delning",
+   "rubrik": "Uppdatera delningsbilden (og-bild.jpg) när ögonblicksbilden för arbetet ändras. Bilden genereras av gen_og_bild.py ur datafilen, och tiderna på bilden (0:01, 0:10 och 33:00) hör till ögonblicksbild A3",
+   "malversion": "1.x",
+   "syns": false
   }
  ],
  "verifieringar": [
@@ -2468,6 +2475,11 @@
   }
  ],
  "versionslogg": [
+  {
+   "version": "1.7",
+   "datum": "2026-11-12",
+   "text": "Intro på startsidan: gissa hur länge mikrovågsugnen ska gå, se facit i en mikrovågsugn och få ett kvitto. Delningsbild och delningstaggar (Open Graph) på alla sidor."
+  },
   {
    "version": "1.6",
    "datum": "2026-11-12",

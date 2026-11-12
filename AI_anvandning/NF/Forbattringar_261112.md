@@ -1,6 +1,6 @@
 # Förbättringsregister och verifieringslogg
 
-**Version:** 0.8 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.9 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** arbetsdokument. Samlar allt som ska analyseras och beskrivas bättre i kommande versioner, och vad som är kontrollerat mot originalkällor. Hör ihop med [PRD_ai_riktlinjer_261112.md](PRD_ai_riktlinjer_261112.md).
 
 ## 1. Hur vi skriver upp och minns
@@ -58,6 +58,7 @@ Tabell 1. Kvarvarande förbättringar
 | F-36 | Resurser | Jämför energin för samma projekt mellan Claude, ChatGPT, Gemini och Grok. Idag finns uppgifter per fråga för Gemini (Google) och ChatGPT (Epoch AI, OpenAI), men ingen hittad för Claude eller Grok, och ingen för samma projekt | Saknas | 2.0 | Ja |
 | F-37 | Pengar | Hur abonnemangets gränser (5 timmar, vecka) räknar tokens: väger cachade och nya tokens lika? Idag redovisas bara mätarens procent, inte hur de beräknas | Saknas | 1.x | Ja |
 | F-38 | Pengar | Kontrollera kostnadsberäkningen mot en faktisk faktura eller användningsrapport, vilken modell underagenterna körs på, hur resonerande tokens räknas och om cachen skrivs med 5 minuters eller 1 timmes livslängd. Idag en uppskattning ur prislistan | Uppskattning | 1.x | Ja |
+| F-39 | Delning | Uppdatera delningsbilden (og-bild.jpg) när ögonblicksbilden för arbetet ändras. Bilden genereras av gen_og_bild.py ur datafilen, och tiderna på bilden (0:01, 0:10 och 33:00) hör till ögonblicksbild A3 | Aktuell | 1.x | Nej |
 
 ## 3. Mikrovågsugnens effekt (F-06)
 
