@@ -2995,6 +2995,11 @@
  ],
  "versionslogg": [
   {
+   "version": "1.16",
+   "datum": "2026-11-12",
+   "text": "Startsidan visar nu två korta svar överst (el och vatten, och bilder) med en liten bild av affisch 3. Knappen Gå direkt till bilderna i introt, bildkortet lyft i sidlistan och en ny delningsbeskrivning som nämner både energi och bilder."
+  },
+  {
    "version": "1.15",
    "datum": "2026-11-12",
    "text": "Affisch 3 i A4-format (stående, skalar till A3) med ljusa färger och 10 mm marginal, PDF-filer i exakt A4- och A3-storlek, och en egen länk till varje bild (#bild1, #bild2, #bild3 och -stor). Ny förbättringspost (F-49)."

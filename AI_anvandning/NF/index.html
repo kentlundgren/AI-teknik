@@ -1,7 +1,8 @@
 <!doctype html>
 <!--
   AI i en miljöorganisation: hubb (startsida).
-  Version 1.15 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  Version 1.16 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  UPPDATERING 2026-11-12: två korta svar överst (energi och bilder), liten bild av affisch 3, bildkortet lyft i sidlistan och ny delningsbeskrivning. Version 1.16.
   UPPDATERING 2026-11-12: bildsidan bygger på rapporten Artificial Authenticity. Version 1.11.
   UPPDATERING 2026-11-12: nya sidor Bilder och förtroende och Bakgrund och användning. Version 1.10.
   UPPDATERING 2026-11-12: introt startar vid varje laddning. Version 1.9.
@@ -14,12 +15,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI i en miljöorganisation</title>
-  <meta name="description" content="En analys av generativ AI:s resursanvändning (energi, vatten och övriga miljöfaktorer) för både entusiaster och skeptiker. Förslag på eget initiativ, med källor.">
+  <meta name="description" content="Går det åt mycket el och vatten, och vad gör vi med bilder som AI har tagit fram? Energi, vatten och AI-bilder med källor, för både entusiaster och skeptiker. Förslag på eget initiativ.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="sv_SE">
   <meta property="og:site_name" content="AI i en miljöorganisation">
   <meta property="og:title" content="Energiåtgång för AI: en analys med källor">
-  <meta property="og:description" content="En analys av generativ AI:s resursanvändning (energi, vatten och övriga miljöfaktorer) för både entusiaster och skeptiker. Förslag på eget initiativ, med källor.">
+  <meta property="og:description" content="Går det åt mycket el och vatten, och vad gör vi med bilder som AI har tagit fram? Energi, vatten och AI-bilder med källor, för både entusiaster och skeptiker. Förslag på eget initiativ.">
   <meta property="og:url" content="https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/">
   <meta property="og:image" content="https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/og-bild.jpg">
   <meta property="og:image:width" content="1200">
@@ -27,7 +28,7 @@
   <meta property="og:image:alt" content="Mikrovågsdisplay som visar tiden 1 sek för en textfråga, 10 sek för en genererad bild och 33 min för ett helt arbete">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Energiåtgång för AI: en analys med källor">
-  <meta name="twitter:description" content="En analys av generativ AI:s resursanvändning (energi, vatten och övriga miljöfaktorer) för både entusiaster och skeptiker. Förslag på eget initiativ, med källor.">
+  <meta name="twitter:description" content="Går det åt mycket el och vatten, och vad gör vi med bilder som AI har tagit fram? Energi, vatten och AI-bilder med källor, för både entusiaster och skeptiker. Förslag på eget initiativ.">
   <meta name="twitter:image" content="https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/og-bild.jpg">
   <link rel="stylesheet" href="sida.css">
   <link rel="stylesheet" href="intro.css">
@@ -48,19 +49,35 @@
 
   <p class="notis">Förslag och analys på eget initiativ, inte beslutat av Lunds Naturskyddsförening eller Naturskyddsföreningen. Siffrorna är hämtade ur källorna och inte kvalitetssäkrade. Kontrollera mot källan innan något återges.</p>
 
-  <p class="ingress">Den här sidan sammanställer vad som är känt om hur mycket energi och vatten generativ AI använder, och vilka andra miljöfaktorer som finns. Den vänder sig både till dem som vill använda AI och till dem som är skeptiska. Varje siffra har en källa och en markering av om den är mätt, uppskattad eller antagen.</p>
+  <p class="ingress">Den här sidan sammanställer vad som är känt om hur mycket energi och vatten generativ AI använder, vilka andra miljöfaktorer som finns och hur man kan se på bilder som AI har tagit fram. Den vänder sig både till dem som vill använda AI och till dem som är skeptiska. Varje siffra har en källa och en markering av om den är mätt, uppskattad eller antagen.</p>
 
   <p class="intro-igen"><button type="button" id="introIgen" class="intro-knapp" style="margin:0">Visa introt: gissa först</button></p>
 
+  <h2 id="svar">Två frågor, två korta svar</h2>
+  <p>Frågorna kom ur en diskussion i en styrelse (se <a href="bakgrund.html">Bakgrund och användning</a>). Svaren är korta. Fördjupningarna och källorna finns bakom länkarna.</p>
+  <div class="svarsrutor">
+    <div class="steg1" id="svar-energi">
+      <p class="etikett">Går det åt mycket el och vatten?</p>
+      <p><strong>Per fråga är det litet.</strong> En textfråga motsvarar <span data-formel="GOOGLE_WH_FRAGA*3600/MW_EFFEKT" data-formel2="EPOCH_WH_FRAGA*3600/MW_EFFEKT" data-visa="tid"></span> i en mikrovågsugn på <span class="term" data-term="mikro">1 000 W</span>, och en genererad bild <span data-formel="BILD_WH*3600/MW_EFFEKT" data-visa="tid"></span>. Vattnet vid datacentret är bråkdelar av en milliliter per textfråga, <span data-formel="WUE_MICROSOFT_2025*GOOGLE_WH_FRAGA" data-formel2="ALTMAN_ML" data-visa="vatten" data-cirka="nej"></span>, men det största vattnet förbrukas där elen produceras. Ett helt arbete är en annan sak: bedömningen är <span data-formel="ENERGI_BEDOMNING" data-visa="energi" data-cirka="ja"></span>, motsvarande <span data-formel="ENERGI_BEDOMNING*3600/MW_EFFEKT" data-visa="tid"></span> i mikron, med osäkerhet uppåt. Totalt använde datacentren <span data-post="DATACENTER_ANDEL_VARLD_2024" data-badge="nej"></span> av världens el 2024, och ökningen är cirka <span data-post="IEA_TILLVAXT_PER_AR" data-badge="nej"></span> per år.</p>
+      <p class="svar-lankar"><a href="analys.html">Analysen i korthet</a> · <a href="vatten.html">Vatten i detalj</a> · <a href="forbrukning.html">Min förbrukning</a></p>
+    </div>
+    <div class="steg1" id="svar-bilder">
+      <p class="etikett">Vad gör vi med bilder som AI har tagit fram?</p>
+      <a class="svar-bild-lank" href="bilder.html#bild3"><img src="media/el_nino_vektor.svg" width="794" height="1123" alt="Affisch 3 om El Niño i A4-format, ritad av AI som vektorgrafik. Öppnar sidan Bilder och förtroende."><span>Förslag 3: AI-ritad affisch, A4</span></a>
+      <p><strong>Energin är inte det som avgör.</strong> En bild motsvarar i mätningen <span data-formel="BILD_WH*3600/MW_EFFEKT" data-visa="tid"></span> i mikron. Det som väcker reaktioner är i underlaget mest förtroende och äkthet: i en analys av <span data-post="UEA_BILDER" data-badge="nej" data-utanenhet="1"></span> bilder gällde bara <span data-post="UEA_ENGAGERADE" data-badge="nej" data-utanenhet="1"></span> av <span data-post="UEA_KOMMENTARER" data-badge="nej" data-utanenhet="1"></span> kommentarer själva saken, enligt <span data-kalla="adesina_2026"></span>, och märkning som AI-genererad var nödvändig men räckte sällan. I ett experiment straffades ideella organisationer hårdare än företag. <strong>Bedömning:</strong> troligen extra känsligt för en miljöorganisation, men underlaget är indirekt och gäller mest hjälporganisationer. Frågan gällde också form, om en AI-layout är ungdomlig eller för grällt, och det mäter underlaget inte.</p>
+      <p class="svar-lankar"><a href="bilder.html">Bilder och förtroende</a> · <a href="bilder.html#bilderna">De tre affischerna</a> · <a href="bilder.html#utskrift">Skriv ut affisch 3</a></p>
+    </div>
+  </div>
+
   <h2 id="sa-laser-du">Så läser du sidan</h2>
-  <p>Varje svår fråga presenteras i två steg: först en kort, faktamässigt korrekt version, och sedan en fullständig analys att klicka vidare till. Börja i <a href="analys.html">analysen i korthet</a>.</p>
+  <p>Varje svår fråga presenteras i två steg: först en kort, faktamässigt korrekt version, och sedan en fullständig analys att klicka vidare till. Börja med de två svaren ovan, eller i <a href="analys.html">analysen i korthet</a> (energi och vatten) eller <a href="bilder.html">Bilder och förtroende</a> (bilder).</p>
 
   <h2 id="sidor">Sidorna</h2>
   <ul class="linkkort">
     <li><a href="analys.html"><strong>Analysen i korthet</strong><span>Energi, vatten, övriga miljöfaktorer och vad ett arbete är, i kort form.</span></a></li>
+    <li class="markerat"><a href="bilder.html"><strong>Bilder och förtroende</strong><span>Vad underlaget säger om reaktioner på AI-bilder: äkthet, märkning och naturbilders riktighet, med tre affischer att förstora och skriva ut.</span></a></li>
     <li><a href="vatten.html"><strong>Vatten i detalj</strong><span>Uttag, förbrukning, kylmetoder och en jämförelse med kärnkraft.</span></a></li>
     <li><a href="miljofaktorer.html"><strong>Övriga miljöfaktorer och gradering</strong><span>Hårdvara, avfall, elnät och en egen bedömning av vad som väger tyngst.</span></a></li>
-    <li><a href="bilder.html"><strong>Bilder och förtroende</strong><span>Vad underlaget säger om reaktioner på AI-bilder: äkthet, märkning och naturbilders riktighet.</span></a></li>
     <li><a href="anvandningssatt.html"><strong>Vad är en fråga, och vad är ett arbete?</strong><span>Definitionerna X, Y och Z, och en uppmätt session.</span></a></li>
     <li><a href="forbrukning.html"><strong>Min förbrukning</strong><span>Kontextfönstret, tokens in och ut, energi och pengar: i ett abonnemang och med API-betalning.</span></a></li>
     <li><a href="bakgrund.html"><strong>Bakgrund och användning</strong><span>Varför sidan finns, vad den inte är och en logg över hur den har använts.</span></a></li>
@@ -68,7 +85,7 @@
   </ul>
 
   <h2 id="status">Status</h2>
-  <p>Den här versionen innehåller analysen av resursanvändningen och en genomgång av underlaget om AI-bilder. Ett förslag till förhållningssätt (principer, ett trafikljus för användning, en riktlinje för bilder, checklista och vanliga frågor) kommer i en senare version. Se <a href="analys.html#forbattras">vad som förbättras i kommande versioner</a> och <a href="kallor.html#versionslogg">versionsloggen</a>.</p>
+  <p>Den här versionen innehåller analysen av resursanvändningen, en genomgång av underlaget om AI-bilder och tre affischer om El Niño. Ett förslag till förhållningssätt (principer, ett trafikljus för användning, en riktlinje för bilder, checklista och vanliga frågor) kommer i en senare version. Se <a href="analys.html#forbattras">vad som förbättras i kommande versioner</a> och <a href="kallor.html#versionslogg">versionsloggen</a>.</p>
 </main>
 </body>
 </html>

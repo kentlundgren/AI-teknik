@@ -5,6 +5,7 @@
  * Startar automatiskt varje gång startsidan laddas (även vid omladdning), utom när besökaren kommer från en annan sida i samma mapp
  * (till exempel via brödsmulorna). ?intro=1 visar det alltid, ?intro=0 aldrig. Knappen "Visa introt" öppnar det.
  *
+ * UPPDATERING 2026-11-12: knappen Gå direkt till bilderna på startskärmen. Version 1.16.
  * UPPDATERING 2026-11-12: startar vid varje laddning och omladdning, inte bara första gången. Version 1.9.
  * UPPDATERING 2026-11-12: rubriken Energiåtgång för AI. Version 1.8.
  * UPPDATERING 2026-11-12: första versionen. Version 1.7.
@@ -84,6 +85,9 @@
     var bGissa = el("button", "intro-knapp", "Gissa först");
     bGissa.type = "button";
     s0.appendChild(bGissa);
+    var bBilder = el("a", "intro-knapp sekundar", "Gå direkt till bilderna");
+    bBilder.href = "bilder.html#bilderna";
+    s0.appendChild(bBilder);
 
     /* ---------- steg 1: gissa ---------- */
     var s1 = el("section", "intro-steg");

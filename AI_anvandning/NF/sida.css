@@ -1,4 +1,5 @@
 /* sida.css: gemensam stil för sidorna om AI i en miljöorganisation.
+ * UPPDATERING 2026-11-12: de två svaren på startsidan (.svarsrutor), liten bild (.svar-bild-lank) och markerat kort (li.markerat). Version 1.16.
  * UPPDATERING 2026-11-12: ihopfällda förbehållsrutor (details.notis-dold). Version 1.13.
  * UPPDATERING 2026-11-12: nyckelkälla i källförteckningen (li.nyckelkalla, .nyckelmarke, .nyckeltext). Version 1.11.
  * UPPDATERING 2026-11-12: summarad (tfoot). Version 1.6.
@@ -219,3 +220,13 @@ details.notis-dold[open] > summary::before { content: "▾ "; }
 details.notis-dold > summary:hover { text-decoration: underline; }
 details.notis-dold > summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 details.notis-dold > .notis { margin-top: 0.5rem; }
+
+/* startsidan: två korta svar bredvid varandra, med en liten bild */
+.svarsrutor { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 1rem; margin: 0.8rem 0 1.6rem; }
+.svarsrutor .steg1 { margin: 0; }
+.svarsrutor .svar-lankar { margin-bottom: 0; font-size: 0.95rem; }
+.svar-bild-lank { float: right; width: 108px; margin: 0.1rem 0 0.6rem 1rem; text-align: center; font-size: 0.78rem; line-height: 1.25; color: var(--muted); text-decoration: none; }
+.svar-bild-lank img { display: block; width: 100%; height: auto; border: 1px solid var(--hair); border-radius: 4px; background: #fff; margin-bottom: 0.25rem; }
+.svar-bild-lank:hover span { text-decoration: underline; }
+.svar-bild-lank:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.linkkort li.markerat a { border-left: 5px solid var(--accent); }

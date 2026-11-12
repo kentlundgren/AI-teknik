@@ -4,6 +4,7 @@
  * (data-post, data-formel, data-kalla, data-lista), visar markering av hur väl en siffra är belagd,
  * förklaringar vid hovring/fokus/tryck, tekniknivån i hörnet och versionsraden.
  *
+ * UPPDATERING 2026-11-12: versionen följer startsidan (två korta svar överst). Version 1.16.
  * UPPDATERING 2026-11-12: versionen följer sidan Bilder och förtroende (A4-affisch, PDF och länkar till bilderna). Version 1.15.
  * UPPDATERING 2026-11-12: versionen följer sidan Bilder och förtroende (tredje bilden och förstoring i forstora.js). Version 1.14.
  * UPPDATERING 2026-11-12: förbehållsrutorna (.notis) är ihopfällda som standard och öppnas med ett klick eller vid utskrift (doljNotiser). Version 1.13.
@@ -24,7 +25,7 @@
  * Testläge: lägg ?test=1 efter adressen för att köra validering och testfall (SPEC avsnitt 3, 4 och 8).
  * Obs: fetch fungerar inte på file://. Testa via en lokal server (python -m http.server).
  */
-const VERSION = "1.15";
+const VERSION = "1.16";
 const VERSIONSDATUM = "2026-11-12";
 const AVSANDARE = "Kent Lundgren";
 const GITHUB_MAPP = "https://github.com/kentlundgren/AI-teknik/tree/main/AI_anvandning/NF";
