@@ -95,7 +95,7 @@
   {
    "id": "Y_UT",
    "namn": "Producerade tokens i sessionen",
-   "varde": 370966,
+   "varde": 397735,
    "enhet": "tokens",
    "typ": "uppmatt",
    "belagd": "original",
@@ -106,14 +106,14 @@
     "F-29",
     "F-30"
    ],
-   "kommentar": "Mätt ur sessionens transkript 2026-11-12 kl. 14:22 (antagandeversion A2), huvudsession och delegerade underagenter. Oklart om modellens interna resonemang räknas med.",
+   "kommentar": "Mätt ur sessionens transkript 2026-11-12 kl. 14:39 (antagandeversion A3), huvudsession och delegerade underagenter. Oklart om modellens interna resonemang räknas med.",
    "spann": null,
    "formel": null
   },
   {
    "id": "Y_NY",
    "namn": "Nya tokens i sessionen (producerade, ny indata och nya cachade)",
-   "varde": 1154565,
+   "varde": 1214129,
    "enhet": "tokens",
    "typ": "uppmatt",
    "belagd": "original",
@@ -123,14 +123,14 @@
    "forbattring": [
     "F-30"
    ],
-   "kommentar": "Ögonblicksbild 2026-11-12 kl. 14:22 (A2).",
+   "kommentar": "Ögonblicksbild 2026-11-12 kl. 14:39 (A3).",
    "spann": null,
    "formel": null
   },
   {
    "id": "Y_ATER",
    "namn": "Återlästa tokens i sessionen (ur cache)",
-   "varde": 65782935,
+   "varde": 70562497,
    "enhet": "tokens",
    "typ": "uppmatt",
    "belagd": "original",
@@ -140,14 +140,14 @@
    "forbattring": [
     "F-30"
    ],
-   "kommentar": "Ögonblicksbild 2026-11-12 kl. 14:22 (A2).",
+   "kommentar": "Ögonblicksbild 2026-11-12 kl. 14:39 (A3).",
    "spann": null,
    "formel": null
   },
   {
    "id": "Y_ANROP",
    "namn": "Modellanrop i sessionen",
-   "varde": 188,
+   "varde": 195,
    "enhet": "anrop",
    "typ": "uppmatt",
    "belagd": "original",
@@ -1105,6 +1105,659 @@
    "kommentar": "Över 65 gånger enligt artikelns sammanfattning.",
    "spann": null,
    "formel": null
+  },
+  {
+   "id": "Y_INDATA_OCACHAD",
+   "namn": "Ej cachad ny indata i sessionen",
+   "varde": 446,
+   "enhet": "tokens",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "summera_tokens",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-30"
+   ],
+   "kommentar": "Ögonblicksbild 2026-11-12 kl. 14:39 (A3).",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "Y_CACHE_SKRIV",
+   "namn": "Nya cachade tokens (skrivna till cachen) i sessionen",
+   "varde": 815948,
+   "enhet": "tokens",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "summera_tokens",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-30",
+    "F-38"
+   ],
+   "kommentar": "Ögonblicksbild 2026-11-12 kl. 14:39 (A3). Om cachen skrivs med 5 minuters eller 1 timmes livslängd är inte kontrollerat.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "PRIS_SONNET55_INDATA",
+   "namn": "Pris Claude Sonnet 5.5: vanlig indata",
+   "varde": 2,
+   "enhet": "USD per miljon tokens",
+   "typ": "uppskattad",
+   "belagd": "bolagets_egen",
+   "kalla": "anthropic_priser",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-38"
+   ],
+   "kommentar": "Från Anthropics prislista, läst via en genomgång.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "PRIS_SONNET55_SKRIV_5M",
+   "namn": "Pris Claude Sonnet 5.5: cacheskrivning, 5 minuter",
+   "varde": 2.5,
+   "enhet": "USD per miljon tokens",
+   "typ": "uppskattad",
+   "belagd": "bolagets_egen",
+   "kalla": "anthropic_priser",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-38"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "PRIS_SONNET55_SKRIV_1H",
+   "namn": "Pris Claude Sonnet 5.5: cacheskrivning, 1 timme",
+   "varde": 4,
+   "enhet": "USD per miljon tokens",
+   "typ": "uppskattad",
+   "belagd": "bolagets_egen",
+   "kalla": "anthropic_priser",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-38"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "PRIS_SONNET55_LAS",
+   "namn": "Pris Claude Sonnet 5.5: cacheläsning",
+   "varde": 0.1,
+   "enhet": "USD per miljon tokens",
+   "typ": "uppskattad",
+   "belagd": "bolagets_egen",
+   "kalla": "anthropic_priser",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-38"
+   ],
+   "kommentar": "0,05 gånger vanlig indata enligt prislistans fotnot.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "PRIS_SONNET55_UTDATA",
+   "namn": "Pris Claude Sonnet 5.5: utdata",
+   "varde": 10,
+   "enhet": "USD per miljon tokens",
+   "typ": "uppskattad",
+   "belagd": "bolagets_egen",
+   "kalla": "anthropic_priser",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-38"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "PRIS_OPUS55_INDATA",
+   "namn": "Pris Claude Opus 5.5: vanlig indata",
+   "varde": 4,
+   "enhet": "USD per miljon tokens",
+   "typ": "uppskattad",
+   "belagd": "bolagets_egen",
+   "kalla": "anthropic_priser",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-38"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "PRIS_OPUS55_SKRIV_5M",
+   "namn": "Pris Claude Opus 5.5: cacheskrivning, 5 minuter",
+   "varde": 5,
+   "enhet": "USD per miljon tokens",
+   "typ": "uppskattad",
+   "belagd": "bolagets_egen",
+   "kalla": "anthropic_priser",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-38"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "PRIS_OPUS55_SKRIV_1H",
+   "namn": "Pris Claude Opus 5.5: cacheskrivning, 1 timme",
+   "varde": 8,
+   "enhet": "USD per miljon tokens",
+   "typ": "uppskattad",
+   "belagd": "bolagets_egen",
+   "kalla": "anthropic_priser",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-38"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "PRIS_OPUS55_LAS",
+   "namn": "Pris Claude Opus 5.5: cacheläsning",
+   "varde": 0.2,
+   "enhet": "USD per miljon tokens",
+   "typ": "uppskattad",
+   "belagd": "bolagets_egen",
+   "kalla": "anthropic_priser",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-38"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "PRIS_OPUS55_UTDATA",
+   "namn": "Pris Claude Opus 5.5: utdata",
+   "varde": 20,
+   "enhet": "USD per miljon tokens",
+   "typ": "uppskattad",
+   "belagd": "bolagets_egen",
+   "kalla": "anthropic_priser",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-38"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "TOKENIZER_EXTRA",
+   "namn": "Fler tokens för samma text med nyare modellers tokenizer (Claude 4.7 och senare)",
+   "varde": 30,
+   "enhet": "%",
+   "typ": "uppskattad",
+   "belagd": "bolagets_egen",
+   "kalla": "anthropic_priser",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-35"
+   ],
+   "kommentar": "Ungefär 30 procent fler tokens än tidigare modeller för samma text.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "KOSTNAD_SONNET_5M",
+   "namn": "API-kostnad för arbetet med Sonnet 5.5-priser, cacheskrivning 5 minuter",
+   "varde": null,
+   "enhet": "USD",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [
+    "F-38"
+   ],
+   "kommentar": "Uppskattning ur prislistan. Alla tokens antas ha körts på Sonnet 5.5.",
+   "spann": null,
+   "formel": "(Y_INDATA_OCACHAD*PRIS_SONNET55_INDATA+Y_CACHE_SKRIV*PRIS_SONNET55_SKRIV_5M+Y_ATER*PRIS_SONNET55_LAS+Y_UT*PRIS_SONNET55_UTDATA)/1000000"
+  },
+  {
+   "id": "KOSTNAD_SONNET_1H",
+   "namn": "API-kostnad för arbetet med Sonnet 5.5-priser, cacheskrivning 1 timme",
+   "varde": null,
+   "enhet": "USD",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [
+    "F-38"
+   ],
+   "kommentar": "Uppskattning ur prislistan.",
+   "spann": null,
+   "formel": "(Y_INDATA_OCACHAD*PRIS_SONNET55_INDATA+Y_CACHE_SKRIV*PRIS_SONNET55_SKRIV_1H+Y_ATER*PRIS_SONNET55_LAS+Y_UT*PRIS_SONNET55_UTDATA)/1000000"
+  },
+  {
+   "id": "KOSTNAD_OPUS_5M",
+   "namn": "API-kostnad för arbetet med Opus 5.5-priser, cacheskrivning 5 minuter",
+   "varde": null,
+   "enhet": "USD",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [
+    "F-38"
+   ],
+   "kommentar": "Uppskattning ur prislistan. För jämförelse.",
+   "spann": null,
+   "formel": "(Y_INDATA_OCACHAD*PRIS_OPUS55_INDATA+Y_CACHE_SKRIV*PRIS_OPUS55_SKRIV_5M+Y_ATER*PRIS_OPUS55_LAS+Y_UT*PRIS_OPUS55_UTDATA)/1000000"
+  },
+  {
+   "id": "KOSTNAD_OPUS_1H",
+   "namn": "API-kostnad för arbetet med Opus 5.5-priser, cacheskrivning 1 timme",
+   "varde": null,
+   "enhet": "USD",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [
+    "F-38"
+   ],
+   "kommentar": "Uppskattning ur prislistan. För jämförelse.",
+   "spann": null,
+   "formel": "(Y_INDATA_OCACHAD*PRIS_OPUS55_INDATA+Y_CACHE_SKRIV*PRIS_OPUS55_SKRIV_1H+Y_ATER*PRIS_OPUS55_LAS+Y_UT*PRIS_OPUS55_UTDATA)/1000000"
+  },
+  {
+   "id": "KOSTNAD_DEL_LAS",
+   "namn": "Del av API-kostnaden: återlästa tokens (Sonnet 5.5)",
+   "varde": null,
+   "enhet": "USD",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [
+    "F-38"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": "Y_ATER*PRIS_SONNET55_LAS/1000000"
+  },
+  {
+   "id": "KOSTNAD_DEL_UT",
+   "namn": "Del av API-kostnaden: producerade tokens (Sonnet 5.5)",
+   "varde": null,
+   "enhet": "USD",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [
+    "F-38"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": "Y_UT*PRIS_SONNET55_UTDATA/1000000"
+  },
+  {
+   "id": "KOSTNAD_DEL_SKRIV_5M",
+   "namn": "Del av API-kostnaden: cacheskrivning, 5 minuter (Sonnet 5.5)",
+   "varde": null,
+   "enhet": "USD",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [
+    "F-38"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": "Y_CACHE_SKRIV*PRIS_SONNET55_SKRIV_5M/1000000"
+  },
+  {
+   "id": "KOSTNAD_PER_ANROP_LAS",
+   "namn": "Kostnad för att läsa hela kontexten ur cachen vid ett anrop (Sonnet 5.5)",
+   "varde": null,
+   "enhet": "USD",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [
+    "F-38"
+   ],
+   "kommentar": "Bara återläsningen, utan utdata och nya tokens.",
+   "spann": null,
+   "formel": "KONTEXT_TOTAL*PRIS_SONNET55_LAS/1000000"
+  },
+  {
+   "id": "KONTEXT_TOTAL",
+   "namn": "Använt av kontextfönstret",
+   "varde": 693400,
+   "enhet": "tokens",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "kontextmatare",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Avläst ur appens kontextmätare, skärmdump 2026-11-12.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "KONTEXT_TAK",
+   "namn": "Kontextfönstrets storlek",
+   "varde": 1000000,
+   "enhet": "tokens",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "kontextmatare",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "KONTEXT_ANDEL",
+   "namn": "Andel av kontextfönstret som är använd",
+   "varde": null,
+   "enhet": "%",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": "KONTEXT_TOTAL/KONTEXT_TAK*100"
+  },
+  {
+   "id": "KONTEXT_MEDDELANDEN",
+   "namn": "Kontext: meddelanden",
+   "varde": 65600,
+   "enhet": "tokens",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "kontextmatare",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "KONTEXT_VERKTYG_SYSTEM",
+   "namn": "Kontext: systemverktyg",
+   "varde": 22300,
+   "enhet": "tokens",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "kontextmatare",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "KONTEXT_VERKTYG_MCP",
+   "namn": "Kontext: MCP-verktyg",
+   "varde": 14900,
+   "enhet": "tokens",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "kontextmatare",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "KONTEXT_MINNESFILER",
+   "namn": "Kontext: minnesfiler",
+   "varde": 10500,
+   "enhet": "tokens",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "kontextmatare",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "KONTEXT_SKILLS",
+   "namn": "Kontext: skills",
+   "varde": 10000,
+   "enhet": "tokens",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "kontextmatare",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "KONTEXT_SYSTEMPROMPT",
+   "namn": "Kontext: systemprompt",
+   "varde": 9900,
+   "enhet": "tokens",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "kontextmatare",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "KONTEXT_MCP_INSTR",
+   "namn": "Kontext: MCP-serverinstruktioner",
+   "varde": 2800,
+   "enhet": "tokens",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "kontextmatare",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "KONTEXT_SEDAN_UPPD",
+   "namn": "Kontext: «sedan senaste uppdateringen»",
+   "varde": 557500,
+   "enhet": "tokens",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "kontextmatare",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Appens egen kategori. Dess exakta innebörd är inte kontrollerad här.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "KONTEXT_BUFFERT",
+   "namn": "Kontext: buffert för automatisk komprimering",
+   "varde": 33000,
+   "enhet": "tokens",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "kontextmatare",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "KONTEXT_LEDIGT",
+   "namn": "Kontext: ledigt utrymme",
+   "varde": 273600,
+   "enhet": "tokens",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "kontextmatare",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "KONTEXT_FASTA",
+   "namn": "Kontext: de fasta delarna (verktyg, minnesfiler, skills, systemprompt, instruktioner)",
+   "varde": null,
+   "enhet": "tokens",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [],
+   "kommentar": "Summan av de sex fasta delarna.",
+   "spann": null,
+   "formel": "KONTEXT_VERKTYG_SYSTEM+KONTEXT_VERKTYG_MCP+KONTEXT_MINNESFILER+KONTEXT_SKILLS+KONTEXT_SYSTEMPROMPT+KONTEXT_MCP_INSTR"
+  },
+  {
+   "id": "ABO_5H_PROCENT",
+   "namn": "Abonnemangets 5-timmarsgräns: använt",
+   "varde": 7,
+   "enhet": "%",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "abonnemang_matare",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-37"
+   ],
+   "kommentar": "Avläst 2026-11-12 kl. 14:39.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "ABO_VECKA_PROCENT",
+   "namn": "Abonnemangets veckogräns (alla modeller): använt",
+   "varde": 7,
+   "enhet": "%",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "abonnemang_matare",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-37"
+   ],
+   "kommentar": "Avläst 2026-11-12 kl. 14:39. Gäller hela kontot, inte bara det här arbetet.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "ABO_VECKA_FORE",
+   "namn": "Veckogränsen tidigare under arbetet",
+   "varde": 3,
+   "enhet": "%",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "abonnemang_matare",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-37"
+   ],
+   "kommentar": "Avläst tidigare under arbetet samma dag. Gäller hela kontot.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "ABO_EXTRA_KOSTNAD",
+   "namn": "Extra användning: kostnad hittills",
+   "varde": 0,
+   "enhet": "EUR",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "abonnemang_matare",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-37"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "ABO_EXTRA_TAK",
+   "namn": "Extra användning: månadsgräns",
+   "varde": 40,
+   "enhet": "EUR",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "abonnemang_matare",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-37"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
   }
  ],
  "antaganden": [
@@ -1119,6 +1772,19 @@
    "skal": "X ur Epoch AI (2025) och en antagen fråga på 75 ord. Y mätt med summera_tokens.py. Mikrovågsugnen antas vara 1 000 W (märkeffekt)."
   },
   {
+   "id": "A3",
+   "datum": "2026-11-12",
+   "poster": [
+    "Y_UT",
+    "Y_NY",
+    "Y_ATER",
+    "Y_ANROP",
+    "Y_INDATA_OCACHAD",
+    "Y_CACHE_SKRIV"
+   ],
+   "skal": "Ny ögonblicksbild kl. 14:39 (195 anrop) inför sidan om förbrukning. Samma X. Bedömd energi cirka 550 Wh."
+  },
+  {
    "id": "A2",
    "datum": "2026-11-12",
    "poster": [
@@ -1131,6 +1797,27 @@
   }
  ],
  "kallor": [
+  {
+   "id": "anthropic_priser",
+   "kort": "Anthropic (u.å., priser)",
+   "harvard": "Anthropic (u.å.) 'Pricing', Claude Developer Platform.",
+   "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+   "not": "Priser per miljon tokens för Claude Sonnet 5.5 och Opus 5.5 (indata, cacheskrivning, cacheläsning, utdata). Läst via en genomgång av sidan (F-38)."
+  },
+  {
+   "id": "kontextmatare",
+   "kort": "Kontextmätaren i appen",
+   "harvard": "Claude Code (2026) Kontextmätaren i appen, avläst av användaren 2026-11-12 (skärmdump).",
+   "url": null,
+   "not": "Hur stor del av kontextfönstret som är använd och hur det fördelar sig."
+  },
+  {
+   "id": "abonnemang_matare",
+   "kort": "Abonnemangets mätare",
+   "harvard": "Claude Code (2026) Abonnemangets användningsmätare (5 timmar, vecka, extra användning), avläst 2026-11-12.",
+   "url": null,
+   "not": "Procent av gränserna och extra användning. Gäller hela kontot."
+  },
   {
    "id": "jegham_2025",
    "kort": "Jegham m.fl. (2025)",
@@ -1262,7 +1949,7 @@
    "kort": "summera_tokens.py",
    "harvard": "Lundgren, K. (2026) summera_tokens.py, skript som summerar tokens i en Claude Code-session.",
    "url": "https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/summera_tokens.py",
-   "not": "Skriptet som gav sessionens uppmätta tokens, se Analys om användningssätt. Senaste mättidpunkt 2026-11-12 kl. 14:22 (A2)."
+   "not": "Skriptet som gav sessionens uppmätta tokens, se Analys om användningssätt. Senaste mättidpunkt 2026-11-12 kl. 14:39 (A3)."
   },
   {
    "id": "unep_2024",
@@ -1538,6 +2225,20 @@
    "rubrik": "Jämför energin för samma projekt mellan Claude, ChatGPT, Gemini och Grok. Idag finns uppgifter per fråga för Gemini (Google) och ChatGPT (Epoch AI, OpenAI), men ingen hittad för Claude eller Grok, och ingen för samma projekt",
    "malversion": "2.0",
    "syns": true
+  },
+  {
+   "id": "F-37",
+   "omrade": "Pengar",
+   "rubrik": "Hur abonnemangets gränser (5 timmar, vecka) räknar tokens: väger cachade och nya tokens lika? Idag redovisas bara mätarens procent, inte hur de beräknas",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-38",
+   "omrade": "Pengar",
+   "rubrik": "Kontrollera kostnadsberäkningen mot en faktisk faktura eller användningsrapport, vilken modell underagenterna körs på, hur resonerande tokens räknas och om cachen skrivs med 5 minuters eller 1 timmes livslängd. Idag en uppskattning ur prislistan",
+   "malversion": "1.x",
+   "syns": true
   }
  ],
  "verifieringar": [
@@ -1657,6 +2358,11 @@
   }
  ],
  "versionslogg": [
+  {
+   "version": "1.5",
+   "datum": "2026-11-12",
+   "text": "Ny sida Min förbrukning: kontextfönstret, tokens in och ut, energi och pengar (abonnemang och API). Bedömningen av arbetets energi (troligast) står nu som en egen rad i tabellerna. Ny mätning (A3)."
+  },
   {
    "version": "1.4",
    "datum": "2026-11-12",

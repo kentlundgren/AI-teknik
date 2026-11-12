@@ -1,0 +1,146 @@
+<!doctype html>
+<!--
+  AI i en miljöorganisation: min förbrukning (kontext, tokens, energi och pengar).
+  Version 1.5 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  UPPDATERING 2026-11-12: ny sida. Version 1.5.
+  Alla siffror kommer ur data/siffror.json via platshållare (data-post, data-formel).
+-->
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Min förbrukning</title>
+  <meta name="description" content="Vad ett enskilt arbete med generativ AI förbrukar: kontextfönstret, tokens in och ut, energi och pengar, både i ett abonnemang och om man betalar API-kostnaden.">
+  <link rel="stylesheet" href="sida.css">
+  <script src="sida.js" defer></script>
+<link rel="stylesheet" href="brodsmulor.css">
+</head>
+<body>
+<!-- brodsmulor:start (genereras av brodsmulor.py från dokument.json: ändra dokument.json, inte här) -->
+<nav class="brodsmulor" aria-label="Brödsmulor och dokument i samma mapp">
+<ol><li><a href="index.html">AI i en miljöorganisation</a></li><li aria-current="page">Min förbrukning</li></ol>
+<p class="syskon">Fler dokument i samma mapp: <a href="index.html">Startsida</a><span class="sep">·</span><a href="analys.html">Analysen i korthet</a><span class="sep">·</span><a href="vatten.html">Vatten i detalj</a><span class="sep">·</span><a href="miljofaktorer.html">Övriga miljöfaktorer</a><span class="sep">·</span><a href="anvandningssatt.html">Fråga och arbete</a><span class="sep">·</span><strong aria-current="page">Min förbrukning</strong><span class="sep">·</span><a href="kallor.html">Källor och logg</a></p>
+</nav>
+<!-- brodsmulor:slut -->
+<main>
+  <h1>Min förbrukning: kontext, tokens, energi och pengar</h1>
+  <p class="versionsrad"></p>
+  <p class="notis">Förslag och analys på eget initiativ, inte beslutat av Lunds Naturskyddsförening eller Naturskyddsföreningen. Siffrorna är hämtade ur källorna eller avlästa ur mätare och inte kvalitetssäkrade. Kontrollera mot källan innan något återges. <a href="analys.html#vad-kostade-arbetet">Tillbaka till den korta versionen.</a></p>
+  <p>Det här är en personlig redovisning av ett enskilt arbete: att ta fram analysen och sidorna i en och samma session. Siffrorna gäller det arbetet och ändras medan det pågår. Tokens är mätta vid en ögonblicksbild (antagandeversion A3, 2026-11-12 kl. 14:39). Sidan är öppen på GitHub, och abonnemangets procenttal gäller hela mitt konto.</p>
+
+  <h2 id="kort-version">Kort version</h2>
+  <div class="steg1">
+    <p class="etikett">Steg 1: kort version</p>
+    <ul>
+      <li><strong>Kontextfönstret</strong> är fyllt till <span data-post="KONTEXT_ANDEL" data-badge="nej"></span> (<span data-post="KONTEXT_TOTAL" data-badge="nej"></span> av <span data-post="KONTEXT_TAK" data-badge="nej"></span>). Det är hur mycket modellen ser vid nästa anrop. Det är inte det som förbrukats.</li>
+      <li><strong>Förbrukat i arbetet:</strong> <span data-post="Y_ANROP" data-badge="nej" data-utanenhet="ja"></span> anrop, <span data-post="Y_NY" data-badge="nej" data-utanenhet="ja"></span> nya tokens och <span data-post="Y_ATER" data-badge="nej" data-utanenhet="ja"></span> återlästa tokens.</li>
+      <li><strong>Energi:</strong> bedömning <span data-formel="ENERGI_BEDOMNING" data-visa="energi"></span>, med ett tak på <span data-formel="Z_ALLA*GOOGLE_WH_FRAGA" data-formel2="Z_ALLA*EPOCH_WH_FRAGA" data-visa="energi"></span>. Det är en bedömning, inte ett mätvärde.</li>
+      <li><strong>Pengar i mitt abonnemang (Pro):</strong> jag betalar inte per token. Användningen räknas mot gränser: veckogränsen är använd till <span data-post="ABO_VECKA_PROCENT" data-badge="nej"></span> och 5-timmarsgränsen till <span data-post="ABO_5H_PROCENT" data-badge="nej"></span>. Extra användning har kostat <span data-post="ABO_EXTRA_KOSTNAD" data-badge="nej"></span> av en månadsgräns på <span data-post="ABO_EXTRA_TAK" data-badge="nej"></span>.</li>
+      <li><strong>Pengar om jag betalat API-kostnaden:</strong> cirka <span data-formel="KOSTNAD_SONNET_5M" data-formel2="KOSTNAD_SONNET_1H" data-visa="usd" data-cirka="nej"></span> med priserna för Sonnet 5.5. Det är en uppskattning ur prislistan, inte en faktura.</li>
+    </ul>
+  </div>
+
+  <h2 id="tokens-in-och-ut">Tokens in och ut</h2>
+  <p>En <span class="term" data-term="token">token</span> är den enhet en språkmodell räknar text i. Vid varje <span class="term" data-term="anrop">anrop</span> läser modellen <em>indata</em> (tokens in: din fråga, allt tidigare i samtalet, verktygsresultat och filer) och skriver <em>utdata</em> (tokens ut: svaret). Indata delas i tre slag, som kostar olika:</p>
+  <div class="tabellvy">
+    <table id="Tabell1">
+      <caption id="Tabell1-rubrik">Tabell 1. Tokens i arbetet, och vad de kostar med priserna för Claude Sonnet 5.5 (uppskattning)</caption>
+      <thead><tr><th scope="col">Slag</th><th scope="col">Vad det är</th><th scope="col">Mängd i arbetet</th><th scope="col">Pris per miljon tokens</th><th scope="col">Kostnad i arbetet</th></tr></thead>
+      <tbody>
+        <tr><td>Ny indata, ej cachad</td><td>Indata som modellen inte har i sin <span class="term" data-term="cachade">cache</span></td><td><span data-post="Y_INDATA_OCACHAD"></span></td><td><span data-post="PRIS_SONNET55_INDATA" data-badge="nej"></span></td><td><span data-formel="Y_INDATA_OCACHAD*PRIS_SONNET55_INDATA/1000000" data-visa="usd"></span></td></tr>
+        <tr><td>Nya cachade tokens</td><td>Ny indata som sparas i cachen för att kunna återanvändas</td><td><span data-post="Y_CACHE_SKRIV"></span></td><td><span data-post="PRIS_SONNET55_SKRIV_5M" data-badge="nej"></span> (5 minuter) eller <span data-post="PRIS_SONNET55_SKRIV_1H" data-badge="nej"></span> (1 timme)</td><td><span data-post="KOSTNAD_DEL_SKRIV_5M"></span> (5 minuter)</td></tr>
+        <tr><td>Återlästa tokens</td><td>Tidigare kontext som läses om ur cachen vid varje anrop</td><td><span data-post="Y_ATER"></span></td><td><span data-post="PRIS_SONNET55_LAS" data-badge="nej"></span></td><td><span data-post="KOSTNAD_DEL_LAS"></span></td></tr>
+        <tr><td>Producerade tokens (utdata)</td><td>Det modellen skriver. Det är oklart om modellens interna resonemang räknas med (<a href="kallor.html#F-29">F-29</a>)</td><td><span data-post="Y_UT"></span></td><td><span data-post="PRIS_SONNET55_UTDATA" data-badge="nej"></span></td><td><span data-post="KOSTNAD_DEL_UT"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Tre saker att se i tabellen. För det första är utdata dyrast <em>per token</em>, men indatan är så mycket större att återläsningen blir den största posten. För det andra läses allt som hamnar i kontexten om vid varje följande anrop, så en fil som läses tidigt följer med i alla anrop efter det. För det tredje är en token inte samma enhet i alla modeller: nyare Claude-modeller ger cirka <span data-post="TOKENIZER_EXTRA" data-badge="nej"></span> fler tokens för samma text än tidigare modeller (<span data-kalla="anthropic_priser"></span>).</p>
+
+  <h2 id="kontextfonstret">Kontextfönstret: vad «<span data-formel="KONTEXT_ANDEL" data-sig="2" data-enhet="%" data-cirka="nej"></span> använt» betyder</h2>
+  <p>Mätaren i appen visar hur stor del av modellens <em>kontextfönster</em> som är fylld. Det är det som modellen ser vid nästa anrop, alltså hela samtalet hittills plus de fasta delarna. Det är en storlek, inte en summa av det som förbrukats (se också <a href="anvandningssatt.html#kontextfonster">Kontextfönstret är inte förbrukningen</a>).</p>
+  <div class="tabellvy">
+    <table id="Tabell2">
+      <caption id="Tabell2-rubrik">Tabell 2. Kontextfönstret just nu (avläst ur appens kontextmätare)</caption>
+      <thead><tr><th scope="col">Del</th><th scope="col">Tokens</th><th scope="col">Andel av fönstret</th></tr></thead>
+      <tbody>
+        <tr><td>Fasta delar (verktyg, minnesfiler, skills, systemprompt, instruktioner)</td><td><span data-post="KONTEXT_FASTA"></span></td><td><span data-formel="KONTEXT_FASTA/KONTEXT_TAK*100" data-enhet="%"></span></td></tr>
+        <tr><td>Meddelanden</td><td><span data-post="KONTEXT_MEDDELANDEN"></span></td><td><span data-formel="KONTEXT_MEDDELANDEN/KONTEXT_TAK*100" data-enhet="%"></span></td></tr>
+        <tr><td>«Sedan senaste uppdateringen» (appens egen kategori, innebörden är inte kontrollerad här)</td><td><span data-post="KONTEXT_SEDAN_UPPD"></span></td><td><span data-formel="KONTEXT_SEDAN_UPPD/KONTEXT_TAK*100" data-enhet="%"></span></td></tr>
+        <tr><td><strong>Använt totalt</strong></td><td><span data-post="KONTEXT_TOTAL"></span></td><td><span data-post="KONTEXT_ANDEL" data-badge="nej"></span></td></tr>
+        <tr><td>Buffert för automatisk komprimering</td><td><span data-post="KONTEXT_BUFFERT"></span></td><td><span data-formel="KONTEXT_BUFFERT/KONTEXT_TAK*100" data-enhet="%"></span></td></tr>
+        <tr><td>Ledigt utrymme</td><td><span data-post="KONTEXT_LEDIGT"></span></td><td><span data-formel="KONTEXT_LEDIGT/KONTEXT_TAK*100" data-enhet="%"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul>
+    <li><strong>En session börjar inte på noll.</strong> De fasta delarna ligger i varje session, så en ny session börjar med en liten men inte tom kontext.</li>
+    <li><strong>Varje steg läser om allt.</strong> Kostnaden för bara återläsningen är just nu cirka <span data-post="KOSTNAD_PER_ANROP_LAS" data-badge="nej"></span> per anrop med Sonnet 5.5-priser, och den växer med kontexten.</li>
+    <li><strong>Vid taket komprimeras sessionen.</strong> Appen reserverar en buffert för automatisk komprimering, och det som komprimeras ersätts av en sammanfattning.</li>
+  </ul>
+
+  <h2 id="energi">Energi</h2>
+  <p>Bedömningen av energin för arbetet är <strong><span data-formel="ENERGI_BEDOMNING" data-visa="energi"></span></strong>, motsvarande <span data-formel="ENERGI_BEDOMNING*3600/MW_EFFEKT" data-visa="tid"></span> i en mikrovågsugn på 1 000 W. Spannet är <span data-formel="Z_NY*GOOGLE_WH_FRAGA" data-formel2="Z_NY*EPOCH_WH_FRAGA" data-visa="energi"></span> (undre gräns) till <span data-formel="Z_ALLA*GOOGLE_WH_FRAGA" data-formel2="Z_ALLA*EPOCH_WH_FRAGA" data-visa="energi"></span> (övre gräns, ett tak). Förklaringen, med de tre räknesätten, står i <a href="analys.html#energi">Tabell 1 på huvudsidan</a> och i <a href="anvandningssatt.html#aterlasta-tokens">Räknas bara nya tokens, eller även gamla?</a>.</p>
+  <p><strong>Energin är densamma oavsett hur jag betalar.</strong> Ett abonnemang eller API-betalning avgör vad jag betalar, inte hur mycket el datacentret använder. Priset för cachade läsningar (<span data-post="PRIS_SONNET55_LAS" data-badge="nej"></span> mot <span data-post="PRIS_SONNET55_INDATA" data-badge="nej"></span> för vanlig indata) är leverantörens prissättning och säger inte hur mycket energi som sparas.</p>
+
+  <h2 id="abonnemang">Pengar i ett abonnemang</h2>
+  <p>Jag har ett Pro-abonnemang. Det är ett fast pris, och jag betalar inte per token. I stället mäts användningen mot gränser: en gräns som gäller ett fönster på fem timmar och en veckogräns, och extra användning kan slås på mot en månadsgräns. Mätaren visar procent och när varje gräns återställs.</p>
+  <div class="tabellvy">
+    <table id="Tabell3">
+      <caption id="Tabell3-rubrik">Tabell 3. Abonnemangets mätare (avläst 2026-11-12 kl. 14:39, gäller hela kontot)</caption>
+      <thead><tr><th scope="col">Mätare</th><th scope="col">Värde</th></tr></thead>
+      <tbody>
+        <tr><td>5-timmarsgränsen: använt</td><td><span data-post="ABO_5H_PROCENT"></span></td></tr>
+        <tr><td>Veckogränsen (alla modeller): använt</td><td><span data-post="ABO_VECKA_PROCENT"></span></td></tr>
+        <tr><td>Veckogränsen tidigare under arbetet</td><td><span data-post="ABO_VECKA_FORE"></span></td></tr>
+        <tr><td>Extra användning: kostnad hittills</td><td><span data-post="ABO_EXTRA_KOSTNAD"></span></td></tr>
+        <tr><td>Extra användning: månadsgräns</td><td><span data-post="ABO_EXTRA_TAK"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Under arbetet steg veckogränsen från <span data-post="ABO_VECKA_FORE" data-badge="nej" data-utanenhet="ja"></span> till <span data-post="ABO_VECKA_PROCENT" data-badge="nej"></span>, ungefär <span data-formel="ABO_VECKA_PROCENT-ABO_VECKA_FORE" data-enhet="procentenheter" data-sig="1" data-cirka="nej"></span>. Procenten gäller hela kontot och kan innehålla annat än det här arbetet. Hur gränserna räknas, till exempel om cachade och nya tokens väger lika, är inte redovisat i det jag har läst (<a href="kallor.html#F-37">F-37</a>). Det som går att säga är att arbetet inte har kostat något extra i pengar, och att det syns som procent av mätarna.</p>
+
+  <h2 id="api">Pengar om jag betalat API-kostnaden</h2>
+  <p>Med API-betalning betalar man per token, med olika pris för varje slag (Tabell 1). Räknat på samma tokens blir kostnaden:</p>
+  <div class="tabellvy">
+    <table id="Tabell4">
+      <caption id="Tabell4-rubrik">Tabell 4. Uppskattad API-kostnad för arbetet (USD, ur Anthropics prislista)</caption>
+      <thead><tr><th scope="col">Modell</th><th scope="col">Cacheskrivning 5 minuter</th><th scope="col">Cacheskrivning 1 timme</th></tr></thead>
+      <tbody>
+        <tr><td>Claude Sonnet 5.5</td><td><span data-post="KOSTNAD_SONNET_5M"></span></td><td><span data-post="KOSTNAD_SONNET_1H"></span></td></tr>
+        <tr><td>Claude Opus 5.5 (för jämförelse)</td><td><span data-post="KOSTNAD_OPUS_5M"></span></td><td><span data-post="KOSTNAD_OPUS_1H"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tabellvy">
+    <table id="Tabell5">
+      <caption id="Tabell5-rubrik">Tabell 5. Priser per miljon tokens (USD)</caption>
+      <thead><tr><th scope="col">Slag</th><th scope="col">Sonnet 5.5</th><th scope="col">Opus 5.5</th></tr></thead>
+      <tbody>
+        <tr><td>Vanlig indata</td><td><span data-post="PRIS_SONNET55_INDATA" data-badge="nej"></span></td><td><span data-post="PRIS_OPUS55_INDATA" data-badge="nej"></span></td></tr>
+        <tr><td>Cacheskrivning, 5 minuter</td><td><span data-post="PRIS_SONNET55_SKRIV_5M" data-badge="nej"></span></td><td><span data-post="PRIS_OPUS55_SKRIV_5M" data-badge="nej"></span></td></tr>
+        <tr><td>Cacheskrivning, 1 timme</td><td><span data-post="PRIS_SONNET55_SKRIV_1H" data-badge="nej"></span></td><td><span data-post="PRIS_OPUS55_SKRIV_1H" data-badge="nej"></span></td></tr>
+        <tr><td>Cacheläsning</td><td><span data-post="PRIS_SONNET55_LAS" data-badge="nej"></span></td><td><span data-post="PRIS_OPUS55_LAS" data-badge="nej"></span></td></tr>
+        <tr><td>Utdata</td><td><span data-post="PRIS_SONNET55_UTDATA" data-badge="nej"></span></td><td><span data-post="PRIS_OPUS55_UTDATA" data-badge="nej"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Förbehåll: kostnaden är en uppskattning och ingen faktura (<a href="kallor.html#F-38">F-38</a>). Alla tokens antas ha körts på den angivna modellen, men delegerade underagenter kan ha körts på en annan, billigare modell. Det är inte kontrollerat om cachen skrivs med 5 minuters eller 1 timmes livslängd, och inte heller om modellens interna resonemang räknas som utdata. Priserna är lästa via en genomgång av prislistan (<span data-kalla="anthropic_priser"></span>).</p>
+
+  <h2 id="vad-kan-jag-gora">Vad skiljer, och vad kan jag göra?</h2>
+  <ul>
+    <li><strong>Håll kontexten kort.</strong> Varje steg läser om allt i kontexten. Spara det viktiga i filer och starta en ny session för en ny uppgift, så börjar den med en kort kontext.</li>
+    <li><strong>Utdata är dyrast per token.</strong> När ett kort svar räcker, be om ett kort svar.</li>
+    <li><strong>Behåll början av instruktionerna.</strong> Cachningen återanvänder ett oförändrat prefix, så ändringar tidigt i en lång text gör att cachen inte kan användas.</li>
+    <li><strong>Modellvalet påverkar priset.</strong> Opus 5.5 kostar ungefär två gånger Sonnet 5.5 per token i prislistan (Tabell 5). Om energin skiljer är inte känt (<a href="kallor.html#F-36">F-36</a>).</li>
+    <li><strong>Pengar och energi följs inte åt.</strong> Det som är billigt i pris, till exempel cacheläsningar, kan ändå kosta energi.</li>
+  </ul>
+
+  <h2 id="aterstar">Det som återstår</h2>
+  <p>Det här ska analyseras och beskrivas bättre i kommande versioner:</p>
+  <div data-lista="forbattringar" data-ids="F-25,F-34,F-35,F-36,F-37,F-38"></div>
+
+  <h2 id="kallor">Källor</h2>
+  <p>Se <a href="kallor.html">Källor och logg</a>.</p>
+</main>
+</body>
+</html>

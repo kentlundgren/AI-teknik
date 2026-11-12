@@ -4,6 +4,7 @@
  * (data-post, data-formel, data-kalla, data-lista), visar markering av hur väl en siffra är belagd,
  * förklaringar vid hovring/fokus/tryck, tekniknivån i hörnet och versionsraden.
  *
+ * UPPDATERING 2026-11-12: visning i USD (data-visa="usd"), källor utan webbadress, termerna anrop och utdata, nya testvärden (A3). Version 1.5.
  * UPPDATERING 2026-11-12: förklaring av bedömningen (term bedomning), det tredje räknesättet som underrad, nya testvärden för ögonblicksbild A2. Version 1.4.
  * UPPDATERING 2026-11-12: raderna för arbetets tre räknesätt förklaras vid hovring, fokus och tryck (scen_under, scen_ovre, scen_tredje). Version 1.3.
  * UPPDATERING 2026-11-12: långa listor och tabeller ur datafilen är ihopfällda som standard (details/summary), öppnas automatiskt av ankarlänkar och vid utskrift. Version 1.2.
@@ -13,7 +14,7 @@
  * Testläge: lägg ?test=1 efter adressen för att köra validering och testfall (SPEC avsnitt 3, 4 och 8).
  * Obs: fetch fungerar inte på file://. Testa via en lokal server (python -m http.server).
  */
-const VERSION = "1.4";
+const VERSION = "1.5";
 const VERSIONSDATUM = "2026-11-12";
 const AVSANDARE = "Kent Lundgren";
 const GITHUB_MAPP = "https://github.com/kentlundgren/AI-teknik/tree/main/AI_anvandning/NF";
@@ -35,6 +36,8 @@ const TERMER = {
   cachade: "Tokens som modellen läser om ur ett mellanlager (cache) i stället för att bearbeta dem från början. De kostar mindre per styck än nya tokens.",
   indirekt: "Vatten som förbrukas där elen produceras (till exempel kylvatten i kraftverk), inte vid datacentret.",
   "KV-cache": "Mellanresultat (key-value-tillstånd) för alla tidigare tokens i kontexten. Modellen läser dem för varje ny token den skriver. Cachning sparar dem för ett prefix så att de slipper beräknas om (OpenAI, Cavagna m.fl.).",
+  anrop: "En omgång där modellen får all kontext och skriver ett svar eller ett verktygsanrop. Ett arbete med verktyg består av många anrop, och varje anrop läser om hela kontexten.",
+  utdata: "Det modellen skriver (tokens ut). Det är dyrast per token.",
   prefill: "Att bearbeta indatan innan modellen börjar skriva svaret (Cavagna m.fl., 2026). Skiljs från avkodningen, som skriver svaret token för token.",
   mikro: "Tid i en mikrovågsugn på 1 000 W (märkeffekt). Se antagandet MW_EFFEKT och förbättringsrad F-06."
 };
@@ -188,6 +191,7 @@ function fyllPlatshallare() {
       if (visa === "tid") txt = visaTid(a, b);
       else if (visa === "energi") txt = visaEnergi(a, b);
       else if (visa === "vatten") txt = visaVatten(a, b);
+      else if (visa === "usd") txt = (b === undefined || sig(a, 2) === sig(b, 2) ? sig(a, 2) : sig(a, 2) + "–" + sig(b, 2)) + " USD";
       else {
         const s = +(el.dataset.sig || 2);
         txt = b === undefined ? sig(a, s) : (sig(a, s) === sig(b, s) ? sig(a, s) : sig(a, s) + "–" + sig(b, s));
@@ -203,6 +207,7 @@ function fyllPlatshallare() {
   document.querySelectorAll("[data-kalla]").forEach((el) => {
     const k = KALLOR[el.dataset.kalla];
     if (!k) { el.textContent = "?"; return; }
+    if (!k.url) { el.textContent = el.dataset.text || k.kort; return; }
     const a = document.createElement("a");
     a.href = k.url; a.target = "_blank"; a.rel = "noopener"; a.className = "kalla-lank";
     a.textContent = el.dataset.text || k.kort;
@@ -233,7 +238,7 @@ function byggLista(el, mal) {
       const t = document.createElement("span"); t.textContent = k.harvard + " ";
       const a = document.createElement("a"); a.href = k.url; a.target = "_blank"; a.rel = "noopener"; a.textContent = k.url;
       const n = document.createElement("em"); n.textContent = " (" + k.not + ")";
-      li.append(t, a, n);
+      if (k.url) li.append(t, a, n); else li.append(t, n);
       ul.appendChild(li);
     });
     mal.appendChild(ul);
@@ -468,11 +473,13 @@ function testfall() {
     lika("0,24 Wh vid 1 000 W", "cirka " + visaTid(mw("GOOGLE_WH_FRAGA")), "cirka 0,9 sekunder"),
     lika("0,3 Wh vid 1 000 W", "cirka " + visaTid(mw("EPOCH_WH_FRAGA")), "cirka 1,1 sekunder"),
     lika("2,907 Wh vid 1 000 W", "cirka " + visaTid(mw("BILD_WH")), "cirka 10 sekunder"),
-    lika("Z_NY", sig(varde("Z_NY"), 2).replace(/\s/g, " "), "1 900".replace(/\s/g, " ")),
-    lika("Z_UT", sig(varde("Z_UT"), 2), "740"),
-    lika("Z_ALLA", sig(varde("Z_ALLA"), 2).replace(/\s/g, " "), "110 000".replace(/\s/g, " ")),
+    lika("Z_NY", sig(varde("Z_NY"), 2).replace(/\s/g, " "), "2 000".replace(/\s/g, " ")),
+    lika("Z_UT", sig(varde("Z_UT"), 2), "800"),
+    lika("Z_ALLA", sig(varde("Z_ALLA"), 2).replace(/\s/g, " "), "120 000".replace(/\s/g, " ")),
     lika("X", String(varde("X")), "600"),
-    lika("Tredje räknesättet, energi", visaEnergi(utvardera("Y_ANROP*SIMPLE_AGENTISK_CACHAD*GOOGLE_WH_FRAGA"), utvardera("Y_ANROP*SIMPLE_AGENTISK_OCACHAD*EPOCH_WH_FRAGA")), "220–730 Wh")
+    lika("Tredje räknesättet, energi", visaEnergi(utvardera("Y_ANROP*SIMPLE_AGENTISK_CACHAD*GOOGLE_WH_FRAGA"), utvardera("Y_ANROP*SIMPLE_AGENTISK_OCACHAD*EPOCH_WH_FRAGA")), "220–760 Wh"),
+    lika("Bedömd energi", visaEnergi(varde("ENERGI_BEDOMNING")), "550 Wh"),
+    lika("API-kostnad Sonnet 5 min", sig(varde("KOSTNAD_SONNET_5M"), 2), "13")
   ];
 }
 
