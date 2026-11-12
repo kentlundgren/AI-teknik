@@ -1560,6 +1560,11 @@
  ],
  "versionslogg": [
   {
+   "version": "1.3",
+   "datum": "2026-11-12",
+   "text": "De tre räknesätten för arbetets energi (undre gräns, övre gräns, tredje räknesätt) förklaras vid hovring, fokus och tryck, med en bedömning av vilket som troligen gäller."
+  },
+  {
    "version": "1.2",
    "datum": "2026-11-12",
    "text": "Långa listor och tabeller (förbättringar, källförteckning, verifieringslogg, alla siffror, förbättringsregister) är ihopfällda som standard och öppnas med ett klick, eller automatiskt av en ankarlänk."

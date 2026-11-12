@@ -4,6 +4,7 @@
  * (data-post, data-formel, data-kalla, data-lista), visar markering av hur väl en siffra är belagd,
  * förklaringar vid hovring/fokus/tryck, tekniknivån i hörnet och versionsraden.
  *
+ * UPPDATERING 2026-11-12: raderna för arbetets tre räknesätt förklaras vid hovring, fokus och tryck (scen_under, scen_ovre, scen_tredje). Version 1.3.
  * UPPDATERING 2026-11-12: långa listor och tabeller ur datafilen är ihopfällda som standard (details/summary), öppnas automatiskt av ankarlänkar och vid utskrift. Version 1.2.
  * UPPDATERING 2026-11-12: nya termer (KV-cache, prefill) och ett testfall för det tredje räknesättet. Version 1.1.
  * UPPDATERING 2026-11-12: första versionen. Version 1.0.
@@ -11,7 +12,7 @@
  * Testläge: lägg ?test=1 efter adressen för att köra validering och testfall (SPEC avsnitt 3, 4 och 8).
  * Obs: fetch fungerar inte på file://. Testa via en lokal server (python -m http.server).
  */
-const VERSION = "1.2";
+const VERSION = "1.3";
 const VERSIONSDATUM = "2026-11-12";
 const AVSANDARE = "Kent Lundgren";
 const GITHUB_MAPP = "https://github.com/kentlundgren/AI-teknik/tree/main/AI_anvandning/NF";
@@ -36,6 +37,13 @@ const TERMER = {
   prefill: "Att bearbeta indatan innan modellen börjar skriva svaret (Cavagna m.fl., 2026). Skiljs från avkodningen, som skriver svaret token för token.",
   mikro: "Tid i en mikrovågsugn på 1 000 W (märkeffekt). Se antagandet MW_EFFEKT och förbättringsrad F-06."
 };
+
+/* Värde och enhet för en post, för förklaringar som hämtar siffror ur datafilen. */
+function fp(id) { const p = POSTER[id]; return NF4.format(varde(id)) + (p.enhet ? " " + p.enhet : ""); }
+
+TERMER.scen_under = () => "Undre gräns: energin följer bara de nya tokens (det som skrivs och läses första gången). Återläsningen av tidigare kontext antas kosta inget. Det underskattar troligen energin, eftersom modellen vid varje ny token ändå måste läsa minnet (KV-cachen) av hela kontexten. Bedömning: ligger troligen närmare verkligheten än den övre gränsen.";
+TERMER.scen_ovre = () => "Övre gräns: varje återläst token antas kosta lika mycket som en ny. Det överskattar energin, eftersom cachning tar bort det mesta av kostnaden för att bearbeta indatan (" + fp("SIMPLE_PREFILL_MINSKNING") + " enligt ett förtryck). Bedömning: ett tak som sannolikt inte nås.";
+TERMER.scen_tredje = () => "Tredje räknesättet: antalet anrop × hur många gånger mer energi ett agentiskt anrop med cachning respektive utan cachning kostar än ett vanligt anrop (" + fp("SIMPLE_AGENTISK_CACHAD") + " respektive " + fp("SIMPLE_AGENTISK_OCACHAD") + "), enligt ett förtryck på öppna modeller, inte Claude. En indikation, inte en mätning. Bedömning: stödjer att energin ligger i området några hundra Wh, men anropen här har mycket längre kontext än i förtrycket, så det kan bli mer.";
 
 /* ---------- format ---------- */
 const NF0 = new Intl.NumberFormat("sv-SE", { maximumFractionDigits: 0 });
@@ -317,8 +325,7 @@ function initTermer() {
     const nyckel = el.dataset.term || el.textContent.trim();
     if (!TERMER[nyckel]) return;
     el.tabIndex = 0;
-    el.setAttribute("role", "button");
-    el.setAttribute("aria-label", el.textContent + ": " + TERMER[nyckel]);
+    if (el.tagName !== "TR") el.setAttribute("role", "button");
   });
   const pop = document.createElement("div");
   pop.id = "termpop"; pop.setAttribute("role", "tooltip"); pop.hidden = true;
@@ -327,7 +334,10 @@ function initTermer() {
   const visa = (el) => {
     const nyckel = el.dataset.term || el.textContent.trim();
     if (!TERMER[nyckel]) return;
-    pop.textContent = TERMER[nyckel];
+    const f = TERMER[nyckel];
+    let txt;
+    try { txt = typeof f === "function" ? f() : f; } catch (e) { txt = "Förklaringen kunde inte läsas (datafilen är inte läst)."; }
+    pop.textContent = txt;
     pop.hidden = false;
     const r = el.getBoundingClientRect();
     const w = Math.min(320, window.innerWidth - 24);
