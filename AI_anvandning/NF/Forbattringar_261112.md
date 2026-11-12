@@ -1,6 +1,6 @@
 # Förbättringsregister och verifieringslogg
 
-**Version:** 0.1 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.2 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** arbetsdokument. Samlar allt som ska analyseras och beskrivas bättre i kommande versioner, och vad som är kontrollerat mot originalkällor. Hör ihop med [PRD_ai_riktlinjer_261112.md](PRD_ai_riktlinjer_261112.md).
 
 ## 1. Hur vi skriver upp och minns
@@ -44,6 +44,11 @@ Tabell 1. Kvarvarande förbättringar
 | F-21 | Bilder | Forskning om hur publik reagerar på AI-bilder och märkning (stöd för skälen 2–5 i Analys_resurser avsnitt 4) | Saknas, bara organisationens egen erfarenhet | 1.x | Ja |
 | F-22 | Vatten | Kontrollera kylmetod för ett svenskt datacenter genom att läsa respektive bolags miljöredovisning | Saknas | 1.x | Ja |
 | F-23 | Vatten | Kyltornens och genomströmningskylningens relevans för datacenter (hur vanligt är vad?). Idag bygger jämförelsen på kraftverk | Kraftverk (USGS) | 1.x | Ja |
+| F-24 | Nytta | Belägg för hur mycket AI-stöd faktiskt sparar eller ger i arbete (forskningen är, så vitt jag vet, blandad, men inga källor är hämtade). Sidan påstår ingen siffra för nyttan | Saknas | 1.0 | Ja |
+| F-25 | Resurser | Energi per token och per modellanrop för arbete med många steg, och hur cachning av återläst kontext påverkar. Idag bara en proxy ur Epoch AI för GPT-4o | Proxy | 2.0 | Ja |
+| F-26 | Resurser | Googles definition av median-prompten i hela artikeln (arXiv:2508.15734): längd i tokens. Idag bara abstract läst | Abstract | 1.0 | Nej |
+| F-27 | Resurser | Exakt antal modellanrop i den här sessionen, i stället för uppskattningen cirka 70 | Uppskattning | 1.x | Ja |
+| F-28 | Nytta | Jämförelse med människans resursanvändning för motsvarande arbete (källa saknas) | Saknas | 2.0 | Ja |
 
 ## 3. Mikrovågsugnens effekt (F-06)
 

@@ -1,7 +1,8 @@
 # PRD: förhållningssätt och riktlinjer för generativ AI i en ideell miljöorganisation
 
-**Version:** 0.6 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.7 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** Kents egen undersökning, på eget initiativ och utan samordning. Inte beslutat av Lunds Naturskyddsförening eller av Naturskyddsföreningen.
+**Ändringar i 0.7:** ny analys av vad en "fråga" är och av olika sätt att använda AI ([Analys_anvandningssatt_261112.md](Analys_anvandningssatt_261112.md)), med räkneexempel för den här sessionen. SPEC-checkpointen (avsnitt 10) omprövad: ja, en kort SPEC för sidans datamodell och struktur.
 **Ändringar i 0.6:** förbättringsregister och verifieringslogg ([Forbattringar_261112.md](Forbattringar_261112.md)) införda. Mikrovågsugnen är fast 1 000 W utan parameter, med källa att hitta (F-06). Namnet "analys" diskuterat. Flera källor kontrollerade mot originalen.
 **Ändringar i 0.5:** vattenavsnittet (uttag, förbrukning, temperatur, kärnkraftsjämförelse) och en ny miljöfaktoranalys ([Analys_miljofaktorer_261112.md](Analys_miljofaktorer_261112.md)) med graderingsram. Presentationsmodell i två steg införd (avsnitt 7). Hubb-och-sidor-struktur föreslagen.
 **Ändringar i 0.4:** ny vattenanalys ([Analys_vatten_261112.md](Analys_vatten_261112.md)): direkt och indirekt vatten, slutna kylsystem, per fråga och per arbetspass. Mikrovågsugnen fastställd till 1 000 W.
@@ -143,7 +144,14 @@ Allt nedan är *uppgifter att hitta*, inget är ännu kontrollerat:
 
 ## 10. SPEC.md-checkpoint
 
-*Behövs ett SPEC.md-steg härifrån?* **Nej.** Leveransen är text, inte ett tekniskt eller agentdrivet system med indata och gränsfall. Prövas på nytt om en HTML-sida (fas 6) får interaktiva delar, till exempel en beslutshjälp.
+*Behövs ett SPEC.md-steg härifrån?* **Ja, en kort, för bygget av HTML-sidan.** Texten behöver ingen SPEC, men sidan har en teknisk del där en agent annars fyller i luckor med gissningar:
+
+- **Datafilen (JSON):** fält för varje värde (id, värde, enhet, källa med länk, hämtdatum, hur väl belagt, nummer i förbättringsregistret) och hur sidan visar markeringen.
+- **Beräkningarna:** formeln för mikrovågsugnen (sekunder = Wh × 3 600 ÷ 1 000 W), vatten i vardagsmått och scenarierna per session, så att siffrorna på sidan alltid kommer från datafilen.
+- **Sidstruktur:** `index.html` som hubb, huvudsidan med stabilt namn, fördjupningssidor, `old/` för äldre versioner, version och datum i konstanter, brödsmulor, hörnlänkarna.
+- **Tvåstegsmodellen:** kort ruta och länk till fördjupning, och rutan "förbättras i kommande versioner".
+
+SPEC:en ska vara kort (en till två sidor) och skrivas före bygget. Den minskar också antalet varv i bygget och därmed resursanvändningen.
 
 ## 11. Risker
 
