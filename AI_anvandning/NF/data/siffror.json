@@ -2476,6 +2476,11 @@
  ],
  "versionslogg": [
   {
+   "version": "1.8",
+   "datum": "2026-11-12",
+   "text": "Rubriken i introt och på delningsbilden är nu Energiåtgång för AI, och tiderna på delningsbilden står som 1 sek, 10 sek och 33 min."
+  },
+  {
    "version": "1.7",
    "datum": "2026-11-12",
    "text": "Intro på startsidan: gissa hur länge mikrovågsugnen ska gå, se facit i en mikrovågsugn och få ett kvitto. Delningsbild och delningstaggar (Open Graph) på alla sidor."

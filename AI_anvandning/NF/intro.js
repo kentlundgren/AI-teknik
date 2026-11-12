@@ -4,6 +4,7 @@
  * visaEnergi, visaVatten, sig, fp). Introt väntar på händelsen "siffror-laddade".
  * Visas första gången. ?intro=1 visar det alltid, ?intro=0 aldrig. Knappen "Visa introt igen" öppnar det.
  *
+ * UPPDATERING 2026-11-12: rubriken Energiåtgång för AI. Version 1.8.
  * UPPDATERING 2026-11-12: första versionen. Version 1.7.
  */
 (function () {
@@ -58,7 +59,7 @@
 
     /* ---------- steg 0: start ---------- */
     var s0 = el("section", "intro-steg");
-    var h0 = el("h2", null, "Vad kostar AI egentligen?");
+    var h0 = el("h2", null, "Energiåtgång för AI");
     h0.id = "intro-titel";
     s0.appendChild(h0);
     s0.appendChild(el("p", null, "Två frågor kommer ofta upp: går det åt mycket el och vatten, och vad gör vi med bilder? Börja med att gissa. Det tar en halv minut."));

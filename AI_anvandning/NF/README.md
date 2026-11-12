@@ -1,10 +1,10 @@
 # AI i en miljöorganisation (NF)
 
-- **Live:** [https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/) (adressen gäller när sidan är pushad och GitHub Pages har byggt den; sidan är byggd och testad lokalt, version 1.7)
+- **Live:** [https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/) (adressen gäller när sidan är pushad och GitHub Pages har byggt den; sidan är byggd och testad lokalt, version 1.8)
 
 En analys av generativ AI:s resursanvändning (energi, vatten och övriga miljöfaktorer) för både dem som gillar AI och dem som är skeptiska, med Naturskyddsföreningen och Lunds Naturskyddsförening som exempel. Förslag på eget initiativ, inte beslutat av någon förening. Ett förslag till förhållningssätt (principer, trafikljus, bilder, checklista, vanliga frågor) kommer i en senare version (F-32).
 
-## Sidan (version 1.7, 2026-11-12)
+## Sidan (version 1.8, 2026-11-12)
 
 | Fil | Innehåll |
 |---|---|

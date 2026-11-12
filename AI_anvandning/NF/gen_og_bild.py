@@ -41,9 +41,15 @@ def mmss(s, avrunda_min=False):
     return '%d:%02d' % (s // 60, s % 60)
 
 
-tider = [('0:01' if fraga < 1.5 else mmss(fraga), 'en textfråga'),
-         (mmss(bild), 'en genererad bild'),
-         (mmss(arbete, True), 'ett helt arbete')]
+def tid_enhet(s):
+    if s < 90:
+        return str(max(1, round(s))), 'sek'
+    return str(round(s / 60)), 'min'
+
+
+tider = [tid_enhet(fraga) + ('en textfråga',),
+         tid_enhet(bild) + ('en genererad bild',),
+         tid_enhet(arbete) + ('ett helt arbete',)]
 print('tider', tider, 'sek', round(fraga, 2), round(bild, 2), round(arbete))
 
 W, H = 1200, 630
@@ -68,16 +74,16 @@ def font(fil, storlek):
 
 f_titel = font('arialbd.ttf', 66)
 f_sub = font('calibrib.ttf', 32)
-f_tid = font('consolab.ttf', 92)
+f_tid = font('consolab.ttf', 84)
 f_etikett = font('calibrib.ttf', 34)
 f_liten = font('calibrib.ttf', 26)
 f_url = font('calibrib.ttf', 24)
 
 # titel
-d.text((70, 52), 'Vad kostar AI', font=f_titel, fill=VIT)
-d.text((70, 128), 'egentligen?', font=f_titel, fill=GRON)
-d.text((70, 216), 'Energin i en mikrovågsugn', font=f_sub, fill=(190, 205, 198))
-d.text((70, 254), 'på 1 000 W', font=f_sub, fill=(190, 205, 198))
+d.text((70, 52), 'Energiåtgång', font=f_titel, fill=VIT)
+d.text((70, 128), 'för AI', font=f_titel, fill=GRON)
+d.text((70, 216), 'Mätt som tid i en', font=f_sub, fill=(190, 205, 198))
+d.text((70, 254), 'mikrovågsugn på 1 000 W', font=f_sub, fill=(190, 205, 198))
 
 # mikrovågsdisplay (höger)
 bx0, by0, bx1, by1 = 540, 50, 1150, 548
@@ -88,15 +94,18 @@ img.paste(Image.new('RGB', (W, H), ORANGE), (0, 0), mask)
 d = ImageDraw.Draw(img)
 d.rounded_rectangle((bx0, by0, bx1, by1), radius=30, fill=SVART, outline=ORANGE, width=4)
 
-rad_h = 140
-for i, (tid, etikett) in enumerate(tider):
-    y = by0 + 26 + i * rad_h
-    d.text((bx0 + 40, y + 18), tid, font=f_tid, fill=ORANGE)
-    d.text((bx0 + 330, y + 44), etikett, font=f_etikett, fill=VIT)
+rad_h = 128
+f_enhet = font('consolab.ttf', 46)
+for i, (tal, enhet, etikett) in enumerate(tider):
+    y = by0 + 50 + i * rad_h
+    d.text((bx0 + 40, y + 12), tal, font=f_tid, fill=ORANGE)
+    d.text((bx0 + 40 + int(d.textlength(tal, font=f_tid)) + 14, y + 52), enhet, font=f_enhet, fill=ORANGE)
+    d.text((bx0 + 330, y + 38), etikett, font=f_etikett, fill=VIT)
     if i < 2:
         d.line([(bx0 + 40, y + rad_h - 6), (bx1 - 40, y + rad_h - 6)], fill=(60, 52, 44), width=2)
 
-d.text((bx0 + 40, by1 - 52), 'cirka-tider. Det sista är en bedömning', font=f_liten, fill=(190, 150, 110))
+d.text((bx0 + 40, by0 + 16), 'tid i en mikrovågsugn på 1 000 W', font=f_liten, fill=(255, 190, 120))
+d.text((bx0 + 40, by1 - 46), 'cirka-tider. Det sista är en bedömning', font=f_liten, fill=(190, 150, 110))
 
 # nederkant
 d.text((70, 380), 'Analys med källor.', font=f_sub, fill=VIT)
