@@ -1,7 +1,8 @@
 # PRD: förhållningssätt och riktlinjer för generativ AI i en ideell miljöorganisation
 
-**Version:** 0.8 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.9 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** Kents egen undersökning, på eget initiativ och utan samordning. Inte beslutat av Lunds Naturskyddsförening eller av Naturskyddsföreningen.
+**Ändringar i 0.9:** SPEC skriven: [SPEC_sida_261112.md](SPEC_sida_261112.md) (datamodell, beräkningar, filstruktur, krav för att kalla bygget klart). SPEC-checkpointen (avsnitt 10) är uppfylld.
 **Ändringar i 0.8:** nyckeltalen X (normal fråga och svar, 600 tokens), Y (sessionens tokens, uppmätt) och Z = Y ÷ X definierade som versionerade antaganden i [Analys_anvandningssatt_261112.md](Analys_anvandningssatt_261112.md), med antagandelogg i registret och skriptet [summera_tokens.py](summera_tokens.py). I första mätningen är Z_ny cirka 950.
 **Ändringar i 0.7:** ny analys av vad en "fråga" är och av olika sätt att använda AI ([Analys_anvandningssatt_261112.md](Analys_anvandningssatt_261112.md)), med räkneexempel för den här sessionen. SPEC-checkpointen (avsnitt 10) omprövad: ja, en kort SPEC för sidans datamodell och struktur.
 **Ändringar i 0.6:** förbättringsregister och verifieringslogg ([Forbattringar_261112.md](Forbattringar_261112.md)) införda. Mikrovågsugnen är fast 1 000 W utan parameter, med källa att hitta (F-06). Namnet "analys" diskuterat. Flera källor kontrollerade mot originalen.
