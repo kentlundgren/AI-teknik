@@ -1,6 +1,6 @@
 # Rangordning med databas: Supabase i AI-teknik
 
-**Version:** 1.0 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 1.1 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 
 Beskriver hur sidan [AI i proportion](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/proportion.html) kan kopplas till en databas så att läsare kan rangordna tio frågor, välja att skriva sitt namn och se gruppens gemensamma rangordning. Tekniken är den som användes i Samrådsguiden ([supabase.md](https://github.com/kentlundgren/Codex/blob/main/Fritid/NF/Samradsguiden/supabase.md)), men gjord för flera omröstningar i samma projekt. Uppgifter om Supabase är hämtade ur deras prissida och dokumentation 2026-11-12. Kontrollera mot [supabase.com/docs](https://supabase.com/docs) innan något beslut bygger på dem.
 
@@ -10,7 +10,7 @@ Beskriver hur sidan [AI i proportion](https://kentlundgren.github.io/AI-teknik/A
 |---|---|
 | Sidan, koden och SQL-filen | Klara och provade utan databas |
 | Supabase-projekt och SQL körd | **Inte gjort.** Det är dina steg (avsnitt 4), eftersom de kräver ditt konto. |
-| `rangordning_config.js` | Tom. Då visar sidan bara läsarens egen ordning (sparas i webbläsaren), utan påhittade röster. |
+| `rangordning_config.js` | Ifylld med det befintliga projektets adress och publika nyckel (samma som i Samrådsguiden). Projektets adress gick inte att slå upp från min dator 2026-11-12, se avsnitt 2b. Sidan tål det: den sparar läsarens ordning i webbläsaren tills databasen svarar. |
 
 ## 2. Är Supabase bäst och smidigast?
 
@@ -26,6 +26,71 @@ För den här uppgiften, ja. Sidan ligger på GitHub Pages och kan inte spara n�
 
 **Det som kan bita:** ett gratisprojekt som ingen använt på en vecka pausas, och sidan visar då "Det går inte att nå databasen" tills du väcker projektet med ett klick i Supabase. För en sida som skickats till en styrelse kan det hända. Pro-planen (från 25 USD per månad) har ingen paus. Det finns också inga säkerhetskopior på gratisnivån, så exportera rösterna när omröstningen är klar.
 
+## 2b. Att återanvända ett befintligt projekt: hur, varför, hur många gånger och när <a id="aterbruk"></a>
+
+**Beslut 2026-11-12:** rangordningen på AI i proportion använder samma Supabase-projekt som Samrådsguiden (`samradsguiden`, region West EU, Irland, gratisplanen). Kent bestämde det.
+
+### Hur det görs
+
+1. **Nya saker bredvid de gamla.** SQL-filen skapar tabellerna `rang_omrostning` och `rang_rost` och fem funktioner som heter `rang_…`. Den rör inga av Samrådsguidens tabeller eller funktioner (`rangordning_roster`, `hamta_roster` och de andra), och den raderar eller ändrar inget som finns. Filen går att köra om.
+2. **Varje omröstning är en rad.** I `rang_omrostning` har varje omröstning ett eget id (här `ai_proportion_hot10`) och sin egen postlista. Rösterna i `rang_rost` hör till ett omröstnings-id, och funktionerna tar id:t som parameter. Två omröstningar kan därför aldrig blandas ihop.
+3. **Sidan pekar på samma projekt.** `rangordning_config.js` har projektets adress och publika nyckel. Samma två värden fungerar för alla sidor som använder projektet, eftersom åtkomsten styrs av databasens regler och inte av nyckeln.
+4. **Du kör SQL-filen en gång** i projektets SQL Editor (steg 2). Det är det enda som återstår i databasen.
+
+### Varför det är rimligt att återanvända
+
+- **Samma ägare, samma sorts data.** Allt är anonyma rangordningar med frivilliga namn, hos samma person (dig) och i samma EU-region. Då behövs ingen separation av juridiska skäl.
+- **Ingen krock.** Prefixet `rang_` håller objekten åtskilda, och Samrådsguidens omröstning om MAXIMA är stängd (sista dag var 2026-11-06).
+- **Samma skydd.** Projektet är redan uppsatt som i steg 1: tabeller exponeras inte av sig själva och Row Level Security är på. De nya tabellerna låses på samma sätt av SQL-filen.
+- **Gratisnivån räcker.** Du får ha två aktiva gratisprojekt ([Billing FAQ](https://supabase.com/docs/guides/platform/billing-faq)), men du behöver inte använda det andra för det här.
+- **Mindre att underhålla.** Ett projekt att väcka, ett lösenord att hålla reda på och en adress i alla konfigurationsfiler.
+
+### Hur många gånger kan man återanvända det?
+
+Det finns ingen gräns för antalet omröstningar eller sidor. Varje ny omröstning är en rad i en tabell, och prissidan anger **obegränsat antal API-anrop** på gratisnivån. Det som begränsar är de resurser som alla omröstningar delar ([prissidan](https://supabase.com/pricing), läst 2026-11-12):
+
+| Delad resurs på gratisnivån | Gräns | Vad det betyder här |
+|---|---|---|
+| Databasens storlek | 500 MB | En röst med tio poster är bara några hundra byte. Min grova uppskattning, inte mätt, är att det ryms hundratusentals röster. |
+| Trafik ut (egress) | 5 GB per månad | **Den som kan ta slut först.** Sidan hämtar alla röster var 15:e sekund. Med 1 000 röster blir varje hämtning ungefär 150 kB, så en mängd öppna flikar kan förbruka trafiken. Min uppskattning, inte mätt. |
+| Aktiva projekt | 2 | Du har ett i bruk här. |
+| Inaktivitet | **Paus efter en vecka** | Pausen gäller hela projektet, och alla sidor som använder det slutar fungera tills du väcker det. |
+
+Tumregel: några omröstningar med några hundra röster var är inga problem. Räknar du med tusentals röster i en omröstning bör sidan hämta bara medelplatserna i stället för alla röster (en ny funktion i SQL-filen), och då är egress inte längre ett problem. Det görs när behovet finns.
+
+### När kan man återanvända, och när bör man skapa ett nytt projekt?
+
+| Återanvänd när… | Skapa ett eget projekt när… |
+|---|---|
+| Du är ensam ägare och administratör av all data | Någon annan ska ha eget ansvar eller egen administration |
+| Omröstningarna är anonyma eller har bara frivilliga namn | Datan är känslig (hälsa, ekonomi, personnummer, adresser) |
+| Alla ligger i samma EU-region och under samma villkor | En annan organisation är personuppgiftsansvarig för datan |
+| Skyddet är detsamma: låsta tabeller och funktioner | Du behöver andra regler, till exempel inloggade användare |
+| Du kan leva med att en paus eller ett fel påverkar alla | Sidan måste vara uppe oavsett (då Pro-plan och ett eget projekt) |
+| Omröstningarna är små eller medelstora | En enskild omröstning väntas bli mycket stor eller viral |
+
+Ett sätt att tänka: **ett projekt per ägare och risknivå, inte ett per sida.**
+
+### Kan jag göra det många gånger, till exempel när något ska rangordnas?
+
+Ja. För varje ny rangordning gör du bara tre saker, utan att röra databasens uppsättning:
+
+1. Lägg en rad i `rang_omrostning` med ett nytt id och postlistan (kommandot längst ned i SQL-filen).
+2. Gör sidan med tabellen och behållaren (skillen `kent-interaktiv-rangordning` beskriver det).
+3. Använd samma `rangordning_config.js`.
+
+Rangordningar som ska hållas hemliga eller ligga hos någon annan ska däremot inte hamna här.
+
+### Läget just nu
+
+**Projektet är pausat** (bekräftat i Supabases dashboard 2026-11-12, organisationen `samradsguiden`, projektet `samradsquiden`, region eu-west-1, gratisplanen). Det förklarar varför adressen `basgvwqqdbkwadfjzaxc.supabase.co` inte gick att slå upp från min dator: ett pausat projekt svarar inte. Det är alltså inte raderat. Enligt Supabases [Billing FAQ](https://supabase.com/docs/guides/platform/billing-faq) kostar ett pausat projekt inget och räknas inte mot de två gratisprojekten.
+
+**Så väcker du det:** öppna projektet från organisationssidan ([dashboard/org/vgxnypkoomlcwopoigwh](https://supabase.com/dashboard/org/vgxnypkoomlcwopoigwh)) eller direkt ([dashboard/project/basgvwqqdbkwadfjzaxc](https://supabase.com/dashboard/project/basgvwqqdbkwadfjzaxc)) och klicka på **Resume project**. Vänta tills det står **Healthy**. Supabases dashboard visar för det här projektet att all data, även säkerhetskopior, är säker, att det går att väcka till och med 7 december 2027 och att datan går att ladda ned efter det. Knappen heter **Resume project** (Restore används i Supabase för att återställa en säkerhetskopia, vilket är en annan åtgärd). Klicka inte på Upgrade to Pro.
+
+**Därför pausas det:** gratisprojekt pausas efter en veckas inaktivitet ([prissidan](https://supabase.com/pricing)). Samrådsguidens omröstning stängdes 2026-11-06, och sedan dess har ingen använt projektet. Det händer igen om ingen besöker sidan på en vecka. Pro-planen har ingen paus.
+
+**Sidan fungerar under tiden:** den sparar läsarens ordning i webbläsaren och skickar den när databasen svarar. En läsare ser då en banner om att databasen inte svarar just nu. Räknar du med besök med mer än en veckas mellanrum är det ett skäl att antingen väcka projektet före varje utskick eller välja Pro.
+
 ## 3. Så fungerar det
 
 - Webbläsaren får en slumpad nyckel (token) och sparar den. Den är läsarens "lösenord" till den egna rösten.
@@ -35,10 +100,10 @@ För den här uppgiften, ja. Sidan ligger på GitHub Pages och kan inte spara n�
 
 ## 4. Steg för steg (du gör)
 
-1. **Välj projekt.** Du har ett gratisprojekt (`samradsguiden`, region West EU) och får ha två aktiva. Två vägar: (a) **återanvänd det**, eftersom tabellerna här heter `rang_…` och inte krockar med Samrådsguidens `rangordning_…`, eller (b) skapa ett nytt projekt om du vill hålla sidorna åtskilda. Välj region *Europe*, kryssa ur *Automatically expose new tables* och kryssa i *Enable automatic RLS* (som i Samrådsguiden).
+1. **Projektet är valt: återanvänd `samradsguiden`** (avsnitt 2b). Kontrollera först att det lever (avsnitt 2b, Läget just nu). Ska du i stället skapa ett nytt projekt: välj region *Europe*, kryssa ur *Automatically expose new tables* och kryssa i *Enable automatic RLS* (som i Samrådsguiden).
 2. **Kör SQL-filen.** I projektet: **SQL Editor**, **New query**. Klistra in hela [supabase_rangordning.sql](supabase_rangordning.sql) och tryck **Run**. Filen skapar tabellerna, funktionerna och omröstningen `ai_proportion_hot10`. Den går att köra om.
 3. **Sätt en adminkod** (för knappen *nollställ*). Välj en kod på minst tolv tecken som du inte använder någon annanstans, och kör det sista kommandot i SQL-filen med din kod i stället för `DIN-KOD-HÄR`. Skriv inte koden i chatten eller i någon fil i repot. Radera texten ur SQL Editor efteråt.
-4. **Koppla sidan.** Öppna `rangordning_config.js` och fyll i `supabaseUrl` (projektets adress, `https://PROJEKT.supabase.co`) och `anonKey` (den **publika** nyckeln, ofta `sb_publishable_…`, under **Connect** eller **Project Settings, API Keys**). Lägg **aldrig** in `service_role` eller `secret`. Är du osäker kan du skicka mig adressen och den publika nyckeln, så fyller jag i dem.
+4. **Koppla sidan.** **Redan gjort** för projektet `samradsguiden`: `rangordning_config.js` har adressen och den publika nyckeln. Skapar du ett nytt projekt öppnar du `rangordning_config.js` och fyller i `supabaseUrl` (projektets adress, `https://PROJEKT.supabase.co`) och `anonKey` (den **publika** nyckeln, ofta `sb_publishable_…`, under **Connect** eller **Project Settings, API Keys**). Lägg **aldrig** in `service_role` eller `secret`. Är du osäker kan du skicka mig adressen och den publika nyckeln, så fyller jag i dem.
 5. **Provkör** (avsnitt 5), nollställ provrösterna och pusha.
 6. **Säkerhetskontroll.** I projektet: **Advisors** (Security). Tabellerna `rang_omrostning` och `rang_rost` ska ha Row Level Security på. Dokumentationen säger att en tabell utan RLS i ett öppet schema kan läsas och skrivas av vem som helst ([Row Level Security](https://supabase.com/docs/guides/database/postgres/row-level-security)).
 

@@ -3201,7 +3201,7 @@
   {
    "id": "F-50",
    "omrade": "Proportion",
-   "rubrik": "Koppla rangordningen till Supabase: skapa eller återanvänd ett projekt, kör databas/supabase_rangordning.sql, sätt adminkod och fyll i rangordning_config.js. Idag visar sidan bara läsarens egen ordning",
+   "rubrik": "Koppla rangordningen till Supabase: skapa eller återanvänd ett projekt, kör databas/supabase_rangordning.sql, sätt adminkod och fyll i rangordning_config.js. Konfigurationen är ifylld för projektet samradsguiden, som är pausat och väcks av Kent. SQL-filen är inte körd",
    "malversion": "1.x",
    "syns": true
   },
@@ -3582,6 +3582,11 @@
   }
  ],
  "versionslogg": [
+  {
+   "version": "1.18",
+   "datum": "2026-11-12",
+   "text": "Rangordningen använder samma Supabase-projekt som Samrådsguiden (konfigurationen ifylld) och tål att databasen inte svarar eller inte är färdig: ordningen sparas i webbläsaren och skickas när databasen svarar. Beslutet, skälen och gränserna för återbruk står i databas/supabase.md, avsnitt 2b."
+  },
   {
    "version": "1.17",
    "datum": "2026-11-12",

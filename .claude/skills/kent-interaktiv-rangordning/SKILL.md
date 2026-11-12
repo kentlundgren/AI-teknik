@@ -9,7 +9,7 @@ description: >
   säkerhets- och integritetsreglerna. Referensimplementation i AI-teknik, mappen AI_anvandning/NF.
 metadata:
   type: process
-  version: "1.0 (2026-11-12)"
+  version: "1.1 (2026-11-12)"
 ---
 
 # Interaktiv rangordning med valfritt namn och databas
@@ -42,7 +42,7 @@ Kent behöver bara skriva det här. Saknas något frågar Claude (högst en frå
 5. **Resultat:** visa gruppens rangordning direkt (standard), eller dölj tills omröstningen är stängd.
 6. **Egen bedömning:** vill Kent visa sin egen ordning? Den döljs då tills läsaren har rangordnat.
 7. **Tid:** ingen sista dag (standard) eller ett datum.
-8. **Databas:** samma projekt som tidigare (standard), eller ett nytt. Börja utan databas om Kent inte hunnit skapa en.
+8. **Databas:** samma Supabase-projekt som tidigare (standard, se Återbruk nedan), eller ett nytt. Börja utan databas om Kent inte hunnit skapa en.
 
 **Exempel Kent kan klistra in:** "Använd skillen kent-interaktiv-rangordning. Lägg en rangordning på sidan X under rubriken Y. Läsaren ska ranka dessa sju förslag: [lista med en rad per förslag och en mening om varje]. Frivilligt namn, gruppens ordning ska visas, ingen sista dag, samma Supabase-projekt som AI i proportion."
 
@@ -57,9 +57,19 @@ Kent behöver bara skriva det här. Saknas något frågar Claude (högst en frå
 7. **Config:** fyll i `supabaseUrl` och `anonKey` när Kent har dem, annars lämna tomma. Sidan visar då bara läsarens egen ordning, med en banner som säger det.
 8. **Testa lokalt** (se nedan), höj version och datum enligt Kents regler för sidor, uppdatera README och registret, och skriv i svaret vad Kent själv måste göra.
 
+## Återbruk av Supabase-projektet (standard)
+
+Använd Kents befintliga projekt (`samradsguiden`, region West EU) för nya rangordningar. Varje omröstning är en rad i `rang_omrostning`, och funktionerna tar omröstningens id, så omröstningar blandas aldrig ihop. Prefixet `rang_` krockar inte med Samrådsguidens tabeller. Det finns ingen gräns för antalet omröstningar. Det som begränsar är det de delar på gratisnivån: 500 MB databas, 5 GB trafik per månad och en paus av hela projektet efter en veckas inaktivitet.
+
+**Återanvänd när** Kent är ensam ägare, datan är anonym eller har frivilliga namn, projektet ligger i EU och omröstningarna är små eller medelstora. **Skapa ett eget projekt när** datan är känslig, en annan organisation är personuppgiftsansvarig, någon annan ska administrera, du behöver inloggning eller en enskild omröstning kan bli mycket stor. Tumregel: ett projekt per ägare och risknivå, inte ett per sida.
+
+**Kontrollera alltid först att projektet är vaket.** Ett pausat projekt svarar inte, och adressen går då inte att slå upp (dashboard visar *Project is paused*). Kent väcker det med **Resume project**. Sidan tål att databasen inte svarar: den sparar läsarens ordning i webbläsaren och skickar den när databasen är uppe, med en banner som säger det. Är det många omröstningar med tusentals röster: byt de funktioner som hämtar alla röster mot en som bara ger medelplatserna, så att trafiken räcker.
+
+Fullständig beskrivning, med skäl och gränser: `AI_anvandning/NF/databas/supabase.md`, avsnitt 2b.
+
 ## Vad Kent själv gör (Claude kan inte)
 
-Skapa eller välj Supabase-projekt, köra SQL-filen i SQL Editor, välja och sätta adminkoden, och ge Claude den **publika** nyckeln (eller klistra in den själv). Claude fyller aldrig i konton, lösenord eller hemliga nycklar, och ber aldrig om `service_role`, `secret` eller adminkoden.
+Väcka projektet om det är pausat, köra SQL-filen i SQL Editor, välja och sätta adminkoden, och ge Claude den **publika** nyckeln (eller klistra in den själv). Claude fyller aldrig i konton, lösenord eller hemliga nycklar, och ber aldrig om `service_role`, `secret` eller adminkoden.
 
 ## Testa
 

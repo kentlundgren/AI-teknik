@@ -12,6 +12,7 @@
  * Läge: utan supabaseUrl och anonKey visas bara den egna ordningen (sparas i webbläsaren). ?demo=1 lägger till påhittade röster för test.
  * Databasen: databas/supabase_rangordning.sql. Beskrivning: databas/supabase.md.
  *
+ * UPPDATERING 2026-11-12: tål att databasen inte nås eller inte är färdig: ordningen sparas i webbläsaren och skickas när databasen svarar. Version 1.18.
  * UPPDATERING 2026-11-12: första versionen. Version 1.17.
  */
 (function () {
@@ -84,6 +85,7 @@
   var status = { stangd: false, frist: cfg.frist || "", antal: 0 };
   var prevRank = null, connection = HAR_DB ? "ansluter" : "ok", saveTimer = null, saveState = "", savedAt = "", focusAfterRender = null, loadedOnce = false;
   var visaMin = store("visa_min") === "1";
+  var behovSynk = false;   // en ändring sparades bara lokalt och ska skickas när databasen svarar igen
 
   function normalize(arr) {
     var seen = {}, out = [];
@@ -241,7 +243,7 @@
     if (!HAR_DB && !DEMO) { banner.textContent = "Ingen databas är ansluten än. Du kan rangordna för dig själv, och ordningen sparas i den här webbläsaren. Gruppens rangordning visas när databasen är kopplad."; }
     else if (DEMO) { banner.textContent = "Demoläge (?demo=1): påhittade röster för test, sparade i den här webbläsaren."; }
     else if (closed) { banner.textContent = "Omröstningen är stängd" + (status.frist ? " (sista dag " + fmtTid(status.frist) + ")" : "") + ". Tabellen visar den slutliga rangordningen."; }
-    else if (connection === "fel") { banner.textContent = "Det går inte att nå databasen just nu. Din ordning sparas inte, men du kan fortfarande flytta rader."; }
+    else if (connection === "fel") { banner.textContent = "Databasen svarar inte just nu eller är inte färdig. Du kan rangordna ändå: din ordning sparas i den här webbläsaren och skickas när databasen svarar."; }
     banner.className = "rg-banner" + (closed || connection === "fel" ? " rg-banner--varning" : "");
 
     ownList.textContent = "";
@@ -284,7 +286,8 @@
       });
       prevRank = g.rank;
       var senaste = votes.slice().sort(function (a, b) { return new Date(b.andrad) - new Date(a.andrad); })[0];
-      groupMeta.textContent = g.n
+      groupMeta.textContent = connection === "fel" ? "Gruppens rangordning kan inte hämtas just nu."
+        : g.n
         ? "Medel av " + g.n + (g.n === 1 ? " röst" : " röster") + (senaste ? ". Senast ändrad av " + (senaste.namn || "anonym") + " " + fmtTid(senaste.andrad) + "." : ".")
         : "Ingen har röstat än. Flytta en rad så räknas din ordning med.";
       var namnLista = votes.filter(function (v) { return v.namn; }).map(function (v) { return v.namn; });
@@ -297,6 +300,7 @@
     var t = "";
     if (saveState === "sparar") { t = "Sparar …"; }
     else if (saveState === "sparat") { t = "Sparat " + savedAt + ". Din ordning är med" + (HAR_DB ? " i gruppens ordning." : " (bara i den här webbläsaren)."); }
+    else if (saveState === "lokal") { t = "Din ordning är sparad i den här webbläsaren. Databasen svarar inte just nu, så den är inte med i gruppens ordning än."; }
     else if (saveState === "fel") { t = "Kunde inte spara. Försök igen om en stund."; }
     else if (!harRostat) { t = "Du har inte rangordnat än. Flytta en rad så sparas din ordning."; }
     else { t = "Din ordning är sparad."; }
@@ -402,8 +406,8 @@
       saveState = "sparat"; savedAt = new Date().toLocaleTimeString("sv-SE", { hour: "2-digit", minute: "2-digit" }); connection = "ok";
       return load();
     }).catch(function (err) {
-      saveState = "fel";
-      if (/stängd/i.test(String(err && err.message))) { status.stangd = true; }
+      if (/stängd/i.test(String(err && err.message))) { saveState = "fel"; status.stangd = true; }
+      else { saveState = "lokal"; connection = "fel"; behovSynk = true; }   // ordningen finns kvar i webbläsaren
       render();
     });
   }
@@ -413,6 +417,7 @@
       if (!loadedOnce) { loadedOnce = true; prevRank = null; }
       if (harRostat && myId && !votes.some(function (v) { return v.id === myId; }) && HAR_DB) { harRostat = false; store("har_rostat", null); }
       render();
+      if (behovSynk && harRostat && !status.stangd) { behovSynk = false; schemaladSparning(); }
     }).catch(function () { connection = "fel"; render(); });
   }
 
