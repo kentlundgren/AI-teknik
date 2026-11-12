@@ -1,6 +1,7 @@
 # Analys: vad menar vi med "en fråga", och hur använder man AI på bästa sätt?
 
-**Version:** 0.2 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.3 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Ändringar i 0.3:** nytt avsnitt 7 om återlästa tokens: vad leverantörerna räknar och tar betalt för (Anthropic, OpenAI, Google), vad cachning sparar i energi och inte (KV-cachen, Cavagna m.fl., 2026), skillnader mellan modeller och ett tredje räknesätt för energin. Efterföljande avsnitt omnumrerade.
 **Ändringar i 0.2:** X, Y och Z definierade som versionerade antaganden (avsnitt 4). Sessionens tokenanvändning uppmätt ur transkriptet (avsnitt 5) i stället för uppskattad. Energiscenarierna räknade om (avsnitt 6).
 **Status:** arbetsunderlag. Siffrorna är hämtade ur angivna källor eller är egna uppskattningar som är märkta som sådana. De är inte kvalitetssäkrade. Läsaren ska kontrollera mot källan. Hämtdatum: 2026-11-12. Hör ihop med [Analys_resurser_261112.md](Analys_resurser_261112.md).
 
@@ -98,14 +99,38 @@ Tabell 6. Sessionen i energi (grov proxy)
 
 Det sanna värdet ligger troligen närmare den undre gränsen eftersom cachad indata inte beräknas om, men det går inte att säga hur nära. Att läsa lång kontext kostar mer än att läsa kort (Epoch AI, 2025: cirka 2,5 Wh vid 10 000 tokens indata och cirka 40 Wh vid 100 000). Spannet är därför brett, och vi ska inte låtsas veta mer.
 
-## 7. Hur antagandena följs över tid
+## 7. Räknas bara nya tokens, eller även gamla?
+
+**Kort svar:** båda, men på olika sätt. Leverantörerna skiljer på nya och återlästa (cachade) tokens i redovisning och pris. I energi sparar cachningen mest av arbetet att läsa in indatan, men inte kostnaden för att varje ny token ska ta hänsyn till hela kontexten.
+
+Tabell 7. Cachning hos tre leverantörer
+
+| Nr | Leverantör | Hur cachningen fungerar | Pris för cachade läsningar | Hur det redovisas |
+|---|---|---|---|---|
+| 1 | Anthropic (u.å.) | Återanvänder ett tidigare bearbetat prefix upp till en markerad brytpunkt | 0,1 gånger vanligt indatapris, lägre för vissa modeller (0,05 gånger för Opus 5.5 och Sonnet 5.5, 0,025 gånger för Fable och Mythos). Skrivning 1,25 gånger (5 minuter) eller 2 gånger (1 timme) | Separata fält för nya, cachade nyskrivna och cachade lästa tokens, samt producerade tokens. Minsta längd 512–4 096 tokens, 5 minuter som standard |
+| 2 | OpenAI (u.å.) | Återanvänder redan beräknade KV-tillstånd för ett gemensamt prefix. På som standard | Rabatt upp till 95 % på cachad indata, varierar mellan modeller | Fältnamn och minsta längd inte kontrollerade |
+| 3 | Google (u.å.) | Implicit och explicit cachning. Cachat innehåll är ett prefix | Reducerat pris, inget belopp angivet på sidan | `usage_metadata`. 2 048–4 096 tokens för implicit cachning |
+
+Priset är leverantörens prissättning och säger inte hur mycket energi som sparas.
+
+**Vad kostar de gamla tokens i energi?** När en modell läser in en text sparar den mellanresultat (key-value-tillstånd, KV) som låter den hänvisa tillbaka till tidigare tokens (OpenAI, u.å.). Cachning sparar dem för ett prefix så att de slipper bearbetas om. Men för varje ny token modellen skriver måste den läsa tillstånden för hela kontexten. Cavagna m.fl. (2026), ett förtryck från 2 november 2026 mätt på 13 öppna modeller på H100-kort, visar: prefixcachning tar bort 93 % av indatakostnaden (prefill) men KV-cachen är opåverkad. Ett agentiskt anrop (lång indata) kostar 13,0 gånger ett icke-agentiskt anrop, och med cachning fortfarande 4,8 gånger. Resultatet gäller inte Claude, jämförelsen är per anrop relativt ett annat anrop, och hela artikeln är inte läst (F-34).
+
+**Skiljer det mellan modeller?** Ja: arkitektur (prefillenergin växer kvadratiskt med modellens dolda dimension, och grupperad nyckelhantering, GQA, minskar energin per token med upp till 3 gånger jämfört med MHA, enligt Cavagna m.fl.), cachningsregler (minsta längd, livslängd), prissättning och tokenräkning (en token är inte samma enhet i alla modeller, F-35).
+
+**Konsekvens för Z och energispannet.**
+- Z_NY (bara nya tokens) antar att återläsningen kostar inget: underskattar troligen energin, eftersom KV-cachen finns kvar.
+- Z_ALLA (alla tokens lika) antar att återläst kostar som ny: överskattar energin, eftersom det mesta av indatakostnaden sparas.
+- Ett tredje räknesätt utgår från antalet anrop: 93 anrop × (4,8 till 13) × energi per normal fråga (0,24–0,3 Wh) blir cirka 110–360 Wh, vilket överlappar den undre gränsen (cirka 230–280 Wh). Det är en indikation, inte en mätning. Anropen i det här arbetet bearbetade i genomsnitt cirka 220 000 tokens vardera, en mycket längre kontext än i förtrycket.
+- Bedömning: energin för arbetet ligger troligen i området några hundra Wh, men långa kontexter kan ge mer. Övre gränsen är ett tak som sannolikt inte nås. Spannet behålls i redovisningen.
+
+## 8. Hur antagandena följs över tid
 
 - **Antagandelogg** i [Forbattringar_261112.md](Forbattringar_261112.md): varje ändring av X, Y eller Z får en rad med version, datum, värde och skäl.
 - **I datafilen (JSON):** X_in, X_ut, Y och Z är poster med fält för värde, enhet, källa, datum och antagandeversion. Z räknas av sidan, aldrig för hand.
 - **Nya mätningar:** skriptet kan köras på fler sessioner och projekt, så att Y blir ett genomsnitt över flera i stället för en enskild session (F-30).
 - **Ändras X** (andra vanor, längre svar) **eller Y** (andra modeller, mer effektiv cachning) ändras Z, och sidan visar den nya versionen och datumet.
 
-## 8. Är det bättre att göra mer utförliga produkter?
+## 9. Är det bättre att göra mer utförliga produkter?
 
 Resonemanget, i steg, med vad som är belagt och vad som är en värdering:
 
@@ -118,14 +143,18 @@ Resonemanget, i steg, med vad som är belagt och vad som är en värdering:
 
 **Slutsats för sidan:** säg att enkla frågor är den billigaste användningen och att utförliga arbeten kan vara mer värda trots att de kostar mer, men att det är något man ska väga i varje fall. Visa resurserna öppet och med osäkerheten, i stället för att gömma dem eller förstora dem.
 
-## 9. Det som återstår
+## 10. Det som återstår
 
-Se [Forbattringar_261112.md](Forbattringar_261112.md): F-24 (belägg för nytta), F-25 (energi per token för agentarbete och cachning), F-26 (Googles definition av median-prompten), F-28 (människans resursanvändning för jämförelse), F-29 (räknar fältet för producerade tokens även modellens interna resonemang?) och F-30 (fler mätpunkter för Y).
+Se [Forbattringar_261112.md](Forbattringar_261112.md): F-24 (belägg för nytta), F-25 (energi per token för agentarbete och cachning), F-26 (Googles definition av median-prompten), F-28 (människans resursanvändning för jämförelse), F-29 (räknar fältet för producerade tokens även modellens interna resonemang?) och F-30 (fler mätpunkter för Y), F-33 (cachningsdokumentation i sin helhet), F-34 (SIMPLE-artikeln i sin helhet och oberoende mätningar) och F-35 (tokenräkning mellan modeller).
 
 ## Källor (Harvard, alfabetisk ordning, hämtade 2026-11-12)
 
 - Altman, S. (2025) 'The gentle singularity'. https://blog.samaltman.com/the-gentle-singularity *(Genomsnittlig ChatGPT-fråga, 0,34 Wh. Ingen definition av "genomsnittlig". Läst i originalet.)*
+- Anthropic (u.å.) 'Prompt caching', Claude Developer Platform. https://platform.claude.com/docs/en/build-with-claude/prompt-caching *(Hur cachning av prompt-prefix fungerar, priset för cachade läsningar och skrivningar, minsta längd. Priset säger inget om energin. Läst delvis via en genomgång.)*
+- Cavagna, H. P., Proia, A., Cesarini, D. & Kiziltan, Z. (2026) 'The SIMPLE law for energy cost of LLM inference'. arXiv:2611.03330. https://arxiv.org/abs/2611.03330 *(Förtryck. Energi per token som skiljer indata från avkodning och KV-cachen. Abstract läst.)*
+- Google (u.å.) 'Context caching', Gemini API documentation. https://aistudio.google.com/docs/caching?generate-content=true *(Implicit och explicit cachning. Läst via en genomgång.)*
 - Luccioni, A. S., Jernite, Y. & Strubell, E. (2024) 'Power hungry processing: watts driving the cost of AI deployment?'. arXiv:2311.16863. https://arxiv.org/abs/2311.16863 *(Mätning per 1 000 användningar och uppgiftstyp. Hela artikeln hämtad.)*
+- OpenAI (u.å.) 'Prompt caching', OpenAI API documentation. https://developers.openai.com/api/docs/guides/prompt-caching *(Cachning återanvänder KV-tillstånd för ett gemensamt prefix, rabatt upp till 95 procent. Sidans början läst.)*
 - Shehabi, A. m.fl. (2024) *2024 United States Data Center Energy Usage Report*, LBNL-2001637. https://escholarship.org/uc/item/32d6m0d1 *(Indirekt vatten, 4,52 liter per kWh. Läst.)*
 - Vahdat, A. & Dean, J. (2025) 'How much energy does Google's AI use? We did the math', Google Cloud Blog, 21 augusti 2025. https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference *(Median-textfråga, 0,24 Wh. Hela den tillhörande artikeln, arXiv:2508.15734, är inte läst; endast abstract.)*
 - You, J. (2025) 'How much energy does ChatGPT use?', Epoch AI, Gradient Updates, 7 februari 2025. https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use *(Definition av en typisk fråga (500 tokens), 0,3 Wh, och uppskattningar för långa indata, cirka 2,5 respektive 40 Wh. Läst i originalet, beräkningar för GPT-4o.)*

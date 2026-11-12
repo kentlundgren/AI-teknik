@@ -1,7 +1,8 @@
 <!doctype html>
 <!--
   AI i en miljöorganisation: en analys (huvudsidan, stabilt namn).
-  Version 1.0 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  Version 1.1 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  UPPDATERING 2026-11-12: arbetsraden i Tabell 1 och sammanfattningen visar ett tredje räknesätt, och en hänvisning till avsnittet om återlästa tokens. Version 1.1.
   UPPDATERING 2026-11-12: första versionen. Version 1.0.
   Alla siffror kommer ur data/siffror.json via platshållare (data-post, data-formel).
 -->
@@ -41,7 +42,7 @@
     <li><strong>Bilder.</strong> En bild kräver betydligt mer: i en mätning i genomsnitt <span data-post="BILD_WH" data-badge="nej"></span> (<span data-formel="BILD_WH*3600/MW_EFFEKT" data-visa="tid"></span> i mikrovågsugnen), med mycket stor spridning mellan modeller enligt <span data-kalla="luccioni_2024"></span>. Det gäller äldre modeller.</li>
     <li><strong>Vatten.</strong> Vid datacentret handlar det om bråkdelar av en milliliter per textfråga, <span data-formel="WUE_MICROSOFT_2025*GOOGLE_WH_FRAGA" data-formel2="ALTMAN_ML" data-visa="vatten" data-cirka="nej"></span> enligt <span data-kalla="microsoft_2026"></span>, <span data-kalla="vahdat_dean_2025"></span> och <span data-kalla="altman_2025"></span>. Räknar man med vattnet som förbrukas där elen produceras blir det omkring <span data-formel="INDIREKT_VATTEN_USA*GOOGLE_WH_FRAGA" data-visa="vatten" data-cirka="nej"></span> med amerikansk elmix enligt <span data-kalla="shehabi_2024"></span>. Hur mycket som förbrukas beror på hur anläggningen kyls.</li>
     <li><strong>Totalt.</strong> Datacentren använde cirka <span data-post="DATACENTER_TWH_VARLD_2024" data-badge="nej"></span> år 2024, <span data-post="DATACENTER_ANDEL_VARLD_2024" data-badge="nej"></span> av världens elanvändning, och ökningen är cirka <span data-post="IEA_TILLVAXT_PER_AR" data-badge="nej"></span> per år enligt <span data-kalla="iea_2025"></span>. Per fråga är det litet. Sammanlagt är det inte det.</li>
-    <li><strong>Arbete jämfört med fråga.</strong> Ett utförligt arbete, som analysen på den här sidan, använder cirka <span data-post="Z_NY" data-badge="nej" data-utanenhet="ja"></span> gånger fler nya tokens än en normal fråga och ett normalt svar. Energin är ett spann, <span data-formel="Z_NY*GOOGLE_WH_FRAGA*3600/MW_EFFEKT" data-formel2="Z_NY*EPOCH_WH_FRAGA*3600/MW_EFFEKT" data-visa="tid"></span> i mikrovågsugnen i den undre gränsen, och en bra bit mer i den övre. Se <a href="anvandningssatt.html">Vad är en fråga, och vad är ett arbete?</a></li>
+    <li><strong>Arbete jämfört med fråga.</strong> Ett utförligt arbete, som analysen på den här sidan, använder cirka <span data-post="Z_NY" data-badge="nej" data-utanenhet="ja"></span> gånger fler nya tokens än en normal fråga och ett normalt svar. Energin är ett spann, <span data-formel="Z_NY*GOOGLE_WH_FRAGA*3600/MW_EFFEKT" data-formel2="Z_NY*EPOCH_WH_FRAGA*3600/MW_EFFEKT" data-visa="tid"></span> i mikrovågsugnen i den undre gränsen, och en bra bit mer i den övre. Hur återlästa tokens ska räknas är osäkert: de kostar mycket mindre än nya, men inte noll. Se <a href="anvandningssatt.html#aterlasta-tokens">Räknas bara nya tokens, eller även gamla?</a> och <a href="anvandningssatt.html">Vad är en fråga, och vad är ett arbete?</a></li>
     <li><strong>Osäkerhet.</strong> Många siffror är bolagens egna uppgifter eller beräkningar, inte oberoende mätningar. Energin per arbetspass mäts inte av någon. Det som saknas står i <a href="#forbattras">listan över förbättringar</a>.</li>
   </ul>
 
@@ -57,6 +58,7 @@
         <tr><td>En genererad bild (genomsnitt)</td><td><span data-post="BILD_WH"></span></td><td><span data-formel="BILD_WH*3600/MW_EFFEKT" data-visa="tid"></span></td><td>Mätning av äldre modeller, stor spridning</td></tr>
         <tr><td>Ett utförligt arbete som detta, undre gräns</td><td><span data-formel="Z_NY*GOOGLE_WH_FRAGA" data-formel2="Z_NY*EPOCH_WH_FRAGA" data-visa="energi"></span></td><td><span data-formel="Z_NY*GOOGLE_WH_FRAGA*3600/MW_EFFEKT" data-formel2="Z_NY*EPOCH_WH_FRAGA*3600/MW_EFFEKT" data-visa="tid"></span></td><td>Scenario: energin följer nya tokens, återläsning kostar inget</td></tr>
         <tr><td>Samma arbete, övre gräns</td><td><span data-formel="Z_ALLA*GOOGLE_WH_FRAGA" data-formel2="Z_ALLA*EPOCH_WH_FRAGA" data-visa="energi"></span></td><td><span data-formel="Z_ALLA*GOOGLE_WH_FRAGA*3600/MW_EFFEKT" data-formel2="Z_ALLA*EPOCH_WH_FRAGA*3600/MW_EFFEKT" data-visa="tid"></span></td><td>Scenario: varje återläst token kostar lika mycket som en ny</td></tr>
+        <tr><td>Samma arbete, tredje räknesätt (indikation ur ett förtryck)</td><td><span data-formel="Y_ANROP*SIMPLE_AGENTISK_CACHAD*GOOGLE_WH_FRAGA" data-formel2="Y_ANROP*SIMPLE_AGENTISK_OCACHAD*EPOCH_WH_FRAGA" data-visa="energi"></span></td><td><span data-formel="Y_ANROP*SIMPLE_AGENTISK_CACHAD*GOOGLE_WH_FRAGA*3600/MW_EFFEKT" data-formel2="Y_ANROP*SIMPLE_AGENTISK_OCACHAD*EPOCH_WH_FRAGA*3600/MW_EFFEKT" data-visa="tid"></span></td><td>Scenario: anrop × energi per anrop enligt Cavagna m.fl. Gäller öppna modeller, inte Claude</td></tr>
       </tbody>
     </table>
   </div>

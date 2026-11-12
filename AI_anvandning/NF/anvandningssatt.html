@@ -1,7 +1,8 @@
 <!doctype html>
 <!--
   AI i en miljöorganisation: vad är en fråga, och vad är ett arbete? (steg 2).
-  Version 1.0 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  Version 1.1 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  UPPDATERING 2026-11-12: nytt avsnitt om återlästa tokens (cachning, KV-cachen, skillnader mellan modeller) och ett tredje räknesätt för energin. Version 1.1.
   UPPDATERING 2026-11-12: första versionen. Version 1.0.
 -->
 <html lang="sv">
@@ -29,7 +30,7 @@
   <h2 id="kort-version">Kort version</h2>
   <div class="steg1">
     <p class="etikett">Steg 1: kort version</p>
-    <p>Energin «per fråga» gäller en <em>normal fråga och ett normalt svar</em>: en kort, manuellt skriven fråga (<span data-post="X_IN" data-badge="nej"></span>) och ett svar på ungefär en sida text (<span data-post="X_UT" data-badge="nej"></span>), tillsammans X = <span data-post="X" data-badge="nej"></span>. Arbetet med den här analysen använde <span data-post="Y_NY" data-badge="nej" data-utanenhet="ja"></span> nya tokens (Y). Det är Z = Y ÷ X, alltså <span data-formel="Y_NY/X" data-sig="2" data-enhet="gånger"></span> fler nya tokens än en normal fråga. Antagandena är versionerade och kan ändras när det finns nya källor, nya vanor eller nya modeller.</p>
+    <p>Energin «per fråga» gäller en <em>normal fråga och ett normalt svar</em>: en kort, manuellt skriven fråga (<span data-post="X_IN" data-badge="nej"></span>) och ett svar på ungefär en sida text (<span data-post="X_UT" data-badge="nej"></span>), tillsammans X = <span data-post="X" data-badge="nej"></span>. Arbetet med den här analysen använde <span data-post="Y_NY" data-badge="nej" data-utanenhet="ja"></span> nya tokens (Y). Det är Z = Y ÷ X, alltså <span data-formel="Y_NY/X" data-sig="2" data-enhet="gånger"></span> fler nya tokens än en normal fråga. Antagandena är versionerade och kan ändras när det finns nya källor, nya vanor eller nya modeller. Hur <em>återlästa</em> tokens ska räknas är en egen fråga, som besvaras <a href="#aterlasta-tokens">längre ned</a>: de kostar mycket mindre än nya, men inte noll.</p>
   </div>
 
   <h2 id="fragan">Frågan</h2>
@@ -112,19 +113,74 @@
   </div>
   <p>Arbetet använder alltså cirka <span data-post="Z_NY" data-badge="nej" data-utanenhet="ja"></span> gånger fler nya tokens än en normal fråga och ett normalt svar, och cirka <span data-post="Z_UT" data-badge="nej" data-utanenhet="ja"></span> gånger mer producerad text. Med all återläsning av kontexten blir talet <span data-post="Z_ALLA" data-badge="nej" data-utanenhet="ja"></span>, men det överdriver kostnaden. Förbehåll: det är oklart om fältet för producerade tokens också räknar modellens interna resonemang (<a href="kallor.html#F-29">F-29</a>), och arbetet är inte slut.</p>
 
+  <h2 id="aterlasta-tokens">Räknas bara nya tokens, eller även gamla?</h2>
+  <div class="steg1">
+    <p class="etikett">Steg 1: kort svar</p>
+    <p>Båda, men på olika sätt. Leverantörerna skiljer på <em>nya</em> och <em>återlästa</em> (cachade) tokens, och de återlästa är mycket billigare i pris. I energi sparar cachningen mest av arbetet att läsa in indatan (enligt ett förtryck cirka <span data-post="SIMPLE_PREFILL_MINSKNING" data-badge="nej"></span>), men inte kostnaden för att varje ny token ska ta hänsyn till hela den tidigare kontexten. Räknar man bara nya tokens underskattas energin, och räknar man alla lika överskattas den. Därför redovisas energin som ett spann. Modellerna skiljer sig åt, se <a href="#skiljer-modeller">nedan</a>.</p>
+  </div>
+
+  <h3 id="leverantorer">Vad leverantörerna redovisar och tar betalt för</h3>
+  <div class="tabellvy">
+    <table id="Tabell7">
+      <caption id="Tabell7-rubrik">Tabell 7. Cachning hos tre leverantörer: hur den fungerar, vad den kostar och hur den redovisas</caption>
+      <thead><tr><th scope="col">Leverantör</th><th scope="col">Hur cachningen fungerar</th><th scope="col">Pris för cachade läsningar</th><th scope="col">Hur det redovisas</th><th scope="col">Minsta längd och livslängd</th></tr></thead>
+      <tbody>
+        <tr><td><span data-kalla="anthropic_2026"></span></td><td>Återanvänder ett tidigare bearbetat prefix (verktyg, systemtext, meddelanden) upp till en markerad brytpunkt</td><td><span data-post="ANTHROPIC_CACHE_LAS"></span> vanligt indatapris, lägre för vissa modeller (0,05 gånger för Opus 5.5 och Sonnet 5.5, 0,025 gånger för Fable och Mythos). Skrivning <span data-post="ANTHROPIC_CACHE_SKRIV_5M" data-badge="nej"></span> (5 minuter) eller 2 gånger (1 timme)</td><td>Separata fält för nya, cachade nyskrivna och cachade lästa tokens (<code>input_tokens</code>, <code>cache_creation_input_tokens</code>, <code>cache_read_input_tokens</code>) och för producerade tokens (<code>output_tokens</code>)</td><td>512–4 096 tokens beroende på modell. 5 minuter som standard, förnyas vid användning. 1 timme som tillval</td></tr>
+        <tr><td><span data-kalla="openai_2026"></span></td><td>Återanvänder redan beräknade tillstånd (KV-tillstånd) för ett gemensamt prefix. På som standard för stödda modeller</td><td>Rabatt på cachad indata upp till <span data-post="OPENAI_CACHE_RABATT_MAX" data-badge="nej"></span>, varierar mellan modeller</td><td>Redovisas i användningsfältet (fältnamnen är inte kontrollerade här)</td><td>Inte kontrollerat här</td></tr>
+        <tr><td><span data-kalla="google_2026"></span></td><td>Implicit och explicit cachning. Modellen skiljer inte på cachade och vanliga indatatokens: cachat innehåll är ett prefix</td><td>«Reducerat pris», inget belopp angivet på sidan</td><td>I <code>usage_metadata</code> (fältnamnet skiljer mellan sidor)</td><td>2 048–4 096 tokens för implicit cachning, beroende på modell. Explicit cachning har 1 timme som standardlivslängd</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Priset är leverantörens prissättning och säger inte hur mycket <em>energi</em> som sparas. Anthropic och Google beskriver mekanismen som att ett redan bearbetat prefix återanvänds. Det som skiljer är alltså vad som <em>räknas och tas betalt för</em>, inte hur mycket energi som åtgår.</p>
+
+  <h3 id="energi-gamla">Vad kostar de gamla tokens i energi?</h3>
+  <p>När en modell läser in en text bearbetar den tokens och sparar mellanresultat, <span class="term" data-term="KV-cache">key-value-tillstånd (KV)</span>, som gör att den kan hänvisa tillbaka till tidigare tokens medan den bearbetar ny indata och skriver svar. Cachning sparar de tillstånden för ett prefix, så att modellen slipper bearbeta det igen (<span data-kalla="openai_2026"></span>). Men för varje ny token modellen skriver måste den fortfarande läsa tillstånden för hela kontexten.</p>
+  <p>Det är exakt skillnaden som <span data-kalla="cavagna_2026"></span> mäter. Varje token går in i KV-cachen och gör de följande tokens dyrare, så energin växer ojämnt längs en text. Deras modell skiljer indatan (<span class="term" data-term="prefill">prefill</span>) från avkodningen och delar avkodningen i KV-cachen och själva nästa token.</p>
+  <div class="tabellvy">
+    <table id="Tabell8">
+      <caption id="Tabell8-rubrik">Tabell 8. Vad cachning tar bort och vad den lämnar kvar (förtryck, öppna modeller på H100-kort)</caption>
+      <thead><tr><th scope="col">Vad</th><th scope="col">Effekt</th></tr></thead>
+      <tbody>
+        <tr><td>Energin för att bearbeta indatan (prefill) med prefixcachning</td><td>Minskar med <span data-post="SIMPLE_PREFILL_MINSKNING"></span></td></tr>
+        <tr><td>Kostnaden för KV-cachen (att läsa all tidigare kontext vid varje ny token)</td><td>Opåverkad av cachningen</td></tr>
+        <tr><td>Ett anrop vid agentiskt arbete (lång indata), jämfört med ett icke-agentiskt anrop, utan cachning</td><td><span data-post="SIMPLE_AGENTISK_OCACHAD"></span> så mycket energi</td></tr>
+        <tr><td>Samma anrop med prefixcachning</td><td><span data-post="SIMPLE_AGENTISK_CACHAD"></span> så mycket energi</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Förbehåll: artikeln är ett förtryck från 2 november 2026, mätt på 13 öppna modeller från sex familjer, inte på Claude eller andra slutna modeller. Jämförelserna gäller energi <em>per anrop relativt ett icke-agentiskt anrop</em>, inte absoluta värden. Hela artikeln är inte läst (<a href="kallor.html#F-34">F-34</a>).</p>
+
+  <h3 id="skiljer-modeller">Skiljer det mellan modeller?</h3>
+  <p>Ja, på flera sätt:</p>
+  <ul>
+    <li><strong>Arkitektur.</strong> Enligt <span data-kalla="cavagna_2026"></span> växer prefillenergin kvadratiskt med modellens dolda dimension, så större modeller drabbas mest av lång indata. Grupperad nyckelhantering (GQA) minskar energin per token med upp till <span data-post="SIMPLE_GQA_FAKTOR" data-badge="nej"></span> jämfört med standardmetoden (MHA).</li>
+    <li><strong>Cachningsregler.</strong> Minsta längd, livslängd och vad som kräver en särskild markering skiljer mellan leverantörer och modeller (Tabell 7).</li>
+    <li><strong>Prissättning.</strong> Rabatten på cachade tokens varierar mellan leverantörer och modeller, även inom en leverantör (Tabell 7).</li>
+    <li><strong>Tokenräkning.</strong> En token är inte samma enhet i alla modeller, och leverantörerna redovisar olika fält. Talen är därför inte direkt jämförbara mellan modeller (<a href="kallor.html#F-35">F-35</a>).</li>
+  </ul>
+
+  <h3 id="konsekvens-z">Konsekvens för Z och energispannet</h3>
+  <ul>
+    <li><strong>Z_NY</strong> (bara nya tokens) antar att återläsningen kostar inget. Det underskattar troligen energin, eftersom KV-cachen finns kvar.</li>
+    <li><strong>Z_ALLA</strong> (alla tokens lika) antar att en återläst token kostar som en ny. Det överskattar energin, eftersom det mesta av indatakostnaden sparas.</li>
+    <li>Ett <strong>tredje räknesätt</strong> utgår från antalet anrop: arbetet hade <span data-post="Y_ANROP" data-badge="nej" data-utanenhet="ja"></span> anrop, och om varje anrop kostar som ett cachat respektive ocachat agentiskt anrop i förtrycket (<span data-post="SIMPLE_AGENTISK_CACHAD" data-badge="nej" data-utanenhet="ja"></span>–<span data-post="SIMPLE_AGENTISK_OCACHAD" data-badge="nej" data-utanenhet="ja"></span> gånger en normal fråga) blir det <span data-formel="Y_ANROP*SIMPLE_AGENTISK_CACHAD*GOOGLE_WH_FRAGA" data-formel2="Y_ANROP*SIMPLE_AGENTISK_OCACHAD*EPOCH_WH_FRAGA" data-visa="energi"></span>. Det är en <em>indikation</em>, inte en mätning: förtryckets agentiska anrop är inte samma som de här, och de här anropen bearbetade i genomsnitt <span data-formel="(Y_NY+Y_ATER)/Y_ANROP" data-enhet="tokens"></span> per anrop, vilket är en mycket längre kontext.</li>
+  </ul>
+  <p>Bedömningen är att undre gränsen och det tredje räknesättet överlappar, så energin för arbetet ligger troligen i området några hundra Wh, men att långa kontexter kan ge mer. Övre gränsen ska läsas som ett tak som sannolikt inte nås. Det är en bedömning, inte ett mätvärde, och spannet behålls i redovisningen.</p>
+
   <h2 id="energi-scenarier">Vad det betyder i energi: scenarier, inte mätningar</h2>
   <p>Energin per token är inte offentlig för den modell som användes. Två gränser går att räkna på, med Googles och Epoch AI:s uppskattningar per normal fråga som proxy:</p>
   <div class="tabellvy">
     <table id="Tabell6">
-      <caption id="Tabell6-rubrik">Tabell 6. Arbetet i energi, mikrovågsugn (1 000 W) och direkt vatten (grov proxy)</caption>
+      <caption id="Tabell6-rubrik">Tabell 6. Arbetet i energi, mikrovågsugn (1 000 W) och direkt vatten (grov proxy, tre räknesätt)</caption>
       <thead><tr><th scope="col">Antagande</th><th scope="col">Energi</th><th scope="col">I mikrovågsugn</th><th scope="col">Direkt vatten</th></tr></thead>
       <tbody>
         <tr><td>Undre gräns: energin följer nya tokens, återläsningen kostar inget (Z_NY × energi per fråga)</td><td><span data-formel="Z_NY*GOOGLE_WH_FRAGA" data-formel2="Z_NY*EPOCH_WH_FRAGA" data-visa="energi"></span></td><td><span data-formel="Z_NY*GOOGLE_WH_FRAGA*3600/MW_EFFEKT" data-formel2="Z_NY*EPOCH_WH_FRAGA*3600/MW_EFFEKT" data-visa="tid"></span></td><td><span data-formel="Z_NY*GOOGLE_WH_FRAGA*WUE_MICROSOFT_2025" data-formel2="Z_NY*EPOCH_WH_FRAGA*GOOGLE_L_KWH" data-visa="vatten"></span></td></tr>
         <tr><td>Övre gräns: varje återläst token kostar lika mycket som en ny (Z_ALLA × energi per fråga)</td><td><span data-formel="Z_ALLA*GOOGLE_WH_FRAGA" data-formel2="Z_ALLA*EPOCH_WH_FRAGA" data-visa="energi"></span></td><td><span data-formel="Z_ALLA*GOOGLE_WH_FRAGA*3600/MW_EFFEKT" data-formel2="Z_ALLA*EPOCH_WH_FRAGA*3600/MW_EFFEKT" data-visa="tid"></span></td><td><span data-formel="Z_ALLA*GOOGLE_WH_FRAGA*WUE_MICROSOFT_2025" data-formel2="Z_ALLA*EPOCH_WH_FRAGA*GOOGLE_L_KWH" data-visa="vatten"></span></td></tr>
+        <tr><td>Tredje räknesätt, indikation: anrop × 4,8–13 gånger energin per normal fråga (ur ett förtryck, se <a href="#konsekvens-z">Konsekvens för Z</a>)</td><td><span data-formel="Y_ANROP*SIMPLE_AGENTISK_CACHAD*GOOGLE_WH_FRAGA" data-formel2="Y_ANROP*SIMPLE_AGENTISK_OCACHAD*EPOCH_WH_FRAGA" data-visa="energi"></span></td><td><span data-formel="Y_ANROP*SIMPLE_AGENTISK_CACHAD*GOOGLE_WH_FRAGA*3600/MW_EFFEKT" data-formel2="Y_ANROP*SIMPLE_AGENTISK_OCACHAD*EPOCH_WH_FRAGA*3600/MW_EFFEKT" data-visa="tid"></span></td><td><span data-formel="Y_ANROP*SIMPLE_AGENTISK_CACHAD*GOOGLE_WH_FRAGA*WUE_MICROSOFT_2025" data-formel2="Y_ANROP*SIMPLE_AGENTISK_OCACHAD*EPOCH_WH_FRAGA*GOOGLE_L_KWH" data-visa="vatten"></span></td></tr>
       </tbody>
     </table>
   </div>
-  <p>Det sanna värdet ligger troligen närmare den undre gränsen eftersom cachad indata inte beräknas om, men det går inte att säga hur nära. Att läsa lång kontext kostar mer än att läsa kort (se Tabell 1). Spannet är brett, och det är poängen: det är inte känt, och det ska inte låtsas vara känt.</p>
+  <p>Det sanna värdet ligger troligen närmare den undre gränsen eftersom cachad indata inte beräknas om från början, men KV-cachen finns kvar, så det går inte att säga hur nära (se <a href="#aterlasta-tokens">Räknas bara nya tokens, eller även gamla?</a>). Att läsa lång kontext kostar mer än att läsa kort (se Tabell 1). Spannet är brett, och det är poängen: det är inte känt, och det ska inte låtsas vara känt.</p>
 
   <h2 id="antagandelogg">Hur antagandena följs över tid</h2>
   <p>Varje ändring av ett antagande får en rad med version, datum, vilka poster det gäller och skäl. Z räknas alltid av sidan ur X och Y. Skriptet för mätningen kan köras på fler arbeten, så att Y blir ett genomsnitt över flera i stället för ett enskilt arbete (<a href="kallor.html#F-30">F-30</a>).</p>
@@ -142,7 +198,7 @@
 
   <h2 id="aterstar">Det som återstår</h2>
   <p>Det här ska analyseras och beskrivas bättre i kommande versioner:</p>
-  <div data-lista="forbattringar" data-ids="F-24,F-25,F-26,F-28,F-29,F-30"></div>
+  <div data-lista="forbattringar" data-ids="F-24,F-25,F-26,F-28,F-29,F-30,F-33,F-34,F-35"></div>
 
   <h2 id="kallor">Källor</h2>
   <p>Se <a href="kallor.html">Källor och logg</a>.</p>

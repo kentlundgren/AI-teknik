@@ -919,6 +919,125 @@
     5.0
    ],
    "formel": null
+  },
+  {
+   "id": "SIMPLE_PREFILL_MINSKNING",
+   "namn": "Minskning av energin för att bearbeta indata (prefill) med prefixcachning",
+   "varde": 93,
+   "enhet": "%",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "cavagna_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-34"
+   ],
+   "kommentar": "Förtryck. 13 öppna modeller från sex familjer på H100-grafikkort. Gäller inte Claude.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "SIMPLE_AGENTISK_OCACHAD",
+   "namn": "Energi per anrop vid agentiskt arbete, jämfört med ett icke-agentiskt anrop (utan cachning)",
+   "varde": 13.0,
+   "enhet": "gånger",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "cavagna_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-34"
+   ],
+   "kommentar": "Förtryck. Ett agentiskt anrop har lång indata. Gäller inte Claude.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "SIMPLE_AGENTISK_CACHAD",
+   "namn": "Energi per anrop vid agentiskt arbete med prefixcachning, jämfört med ett icke-agentiskt anrop",
+   "varde": 4.8,
+   "enhet": "gånger",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "cavagna_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-34"
+   ],
+   "kommentar": "Förtryck. Cachningen tar bort det mesta av indatakostnaden men inte kostnaden för minnet av tidigare tokens (KV-cachen). Gäller inte Claude.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "SIMPLE_GQA_FAKTOR",
+   "namn": "Minskning av energi per token med grupperad nyckelhantering (GQA) jämfört med standardmetoden (MHA)",
+   "varde": 3,
+   "enhet": "gånger",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "cavagna_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-34"
+   ],
+   "kommentar": "Som mest, enligt förtrycket.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "ANTHROPIC_CACHE_LAS",
+   "namn": "Anthropic: pris för cachade läsningar jämfört med vanlig indata",
+   "varde": 0.1,
+   "enhet": "gånger priset",
+   "typ": "uppskattad",
+   "belagd": "bolagets_egen",
+   "kalla": "anthropic_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-33"
+   ],
+   "kommentar": "Priset, inte energin. För vissa modeller lägre: 0,05 gånger för Opus 5.5 och Sonnet 5.5, 0,025 gånger för Fable och Mythos.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "ANTHROPIC_CACHE_SKRIV_5M",
+   "namn": "Anthropic: pris för att skriva till cachen (5 minuter)",
+   "varde": 1.25,
+   "enhet": "gånger priset",
+   "typ": "uppskattad",
+   "belagd": "bolagets_egen",
+   "kalla": "anthropic_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-33"
+   ],
+   "kommentar": "Priset, inte energin.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "OPENAI_CACHE_RABATT_MAX",
+   "namn": "OpenAI: högsta rabatt på cachad indata",
+   "varde": 95,
+   "enhet": "%",
+   "typ": "uppskattad",
+   "belagd": "bolagets_egen",
+   "kalla": "openai_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-33"
+   ],
+   "kommentar": "Priset, inte energin. Varierar mellan modeller. Cachning är på som standard.",
+   "spann": null,
+   "formel": null
   }
  ],
  "antaganden": [
@@ -934,6 +1053,34 @@
   }
  ],
  "kallor": [
+  {
+   "id": "anthropic_2026",
+   "kort": "Anthropic (u.å.)",
+   "harvard": "Anthropic (u.å.) 'Prompt caching', Claude Developer Platform.",
+   "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+   "not": "Hur cachning av prompt-prefix fungerar, priset för cachade läsningar och skrivningar (0,1 respektive 1,25 gånger vanligt pris) och minsta längd. Priset säger inget om energin. Läst delvis via en genomgång (F-33)."
+  },
+  {
+   "id": "cavagna_2026",
+   "kort": "Cavagna m.fl. (2026)",
+   "harvard": "Cavagna, H. P., Proia, A., Cesarini, D. & Kiziltan, Z. (2026) 'The SIMPLE law for energy cost of LLM inference'. arXiv:2611.03330, 2 november 2026.",
+   "url": "https://arxiv.org/abs/2611.03330",
+   "not": "Förtryck. Modell för energin per token som skiljer indata (prefill) från avkodning och minnet av tidigare tokens (KV-cachen). Mätt på 13 öppna modeller. Abstract läst, hela artikeln inte (F-34)."
+  },
+  {
+   "id": "google_2026",
+   "kort": "Google (u.å., cachning)",
+   "harvard": "Google (u.å.) 'Context caching', Gemini API documentation.",
+   "url": "https://aistudio.google.com/docs/caching?generate-content=true",
+   "not": "Implicit och explicit cachning av indata, sänkt pris utan angivet belopp. Läst via en genomgång (F-33)."
+  },
+  {
+   "id": "openai_2026",
+   "kort": "OpenAI (u.å.)",
+   "harvard": "OpenAI (u.å.) 'Prompt caching', OpenAI API documentation.",
+   "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
+   "not": "Cachning återanvänder redan beräknade tillstånd för ett gemensamt prefix, rabatt på cachad indata upp till 95 procent. Delvis läst."
+  },
   {
    "id": "altman_2025",
    "kort": "Altman (2025)",
@@ -1278,9 +1425,54 @@
    "rubrik": "Skriv texten till PRD avsnitt 5: principer, trafikljus, bilder och video, checklista, vanliga frågor. Saknas som text idag",
    "malversion": "1.0",
    "syns": false
+  },
+  {
+   "id": "F-33",
+   "omrade": "Resurser",
+   "rubrik": "Läs Anthropics och Googles dokumentation om cachning i sin helhet (nu delvis via en genomgång), och OpenAI:s utöver sidans början. Priset för cachade läsningar säger inget om energin",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-34",
+   "omrade": "Resurser",
+   "rubrik": "Läs hela SIMPLE-artikeln (Cavagna m.fl., 2026), kontrollera om den granskats, och hitta oberoende mätningar av hur energin per token växer med kontextens längd för modeller liknande de som används. Idag ett förtryck med öppna modeller",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-35",
+   "omrade": "Resurser",
+   "rubrik": "Hur olika modeller och tjänster räknar tokens (olika tokenizers) och vad de redovisar som nya och cachade tokens",
+   "malversion": "2.0",
+   "syns": true
   }
  ],
  "verifieringar": [
+  {
+   "kalla": "Cavagna m.fl. (2026)",
+   "paastaende": "Prefixcachning minskar indatakostnaden med 93 procent, men inte kostnaden för KV-cachen. Agentiskt anrop 13,0 gånger, med cachning 4,8 gånger. GQA upp till 3 gånger lägre energi per token",
+   "kontroll": "Abstract läst i arXiv-posten",
+   "resultat": "Stämmer på abstractnivå. Förtryck, öppna modeller, ej Claude. Hela artikeln inte läst"
+  },
+  {
+   "kalla": "Anthropic (u.å.), prompt caching",
+   "paastaende": "Cachade läsningar 0,1 gånger vanligt indatapris (lägre för vissa modeller), skrivningar 1,25 gånger (5 min) och 2 gånger (1 timme). Minsta längd 512–4 096 tokens beroende på modell",
+   "kontroll": "Sidan läst via en genomgång, första delen ordagrant",
+   "resultat": "Stämmer enligt genomgången. Priset säger inget om energin"
+  },
+  {
+   "kalla": "OpenAI (u.å.), prompt caching",
+   "paastaende": "Cachning återanvänder beräknade tillstånd (KV) för ett gemensamt prefix. Rabatt på cachad indata upp till 95 procent",
+   "kontroll": "Sidans början hämtad och läst",
+   "resultat": "Stämmer"
+  },
+  {
+   "kalla": "Google (u.å.), context caching",
+   "paastaende": "Implicit och explicit cachning, sänkt pris utan angivet belopp, minsta längd 2 048–4 096 tokens för implicit cachning",
+   "kontroll": "Sidan läst via en genomgång",
+   "resultat": "Stämmer enligt genomgången"
+  },
   {
    "kalla": "Ember (2025)",
    "paastaende": "Global elmix 2024: 473 g CO2/kWh",
@@ -1367,6 +1559,11 @@
   }
  ],
  "versionslogg": [
+  {
+   "version": "1.1",
+   "datum": "2026-11-12",
+   "text": "Nytt avsnitt om återlästa tokens: vad som räknas som nya och gamla tokens, hur cachning fungerar hos Anthropic, OpenAI och Google, vad som kostar energi (KV-cachen) och ett tredje räknesätt för arbetspassets energi. Rutan om arbete jämfört med fråga uppdaterad."
+  },
   {
    "version": "1.0",
    "datum": "2026-11-12",

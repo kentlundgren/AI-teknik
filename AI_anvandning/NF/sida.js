@@ -4,12 +4,13 @@
  * (data-post, data-formel, data-kalla, data-lista), visar markering av hur väl en siffra är belagd,
  * förklaringar vid hovring/fokus/tryck, tekniknivån i hörnet och versionsraden.
  *
+ * UPPDATERING 2026-11-12: nya termer (KV-cache, prefill) och ett testfall för det tredje räknesättet. Version 1.1.
  * UPPDATERING 2026-11-12: första versionen. Version 1.0.
  *
  * Testläge: lägg ?test=1 efter adressen för att köra validering och testfall (SPEC avsnitt 3, 4 och 8).
  * Obs: fetch fungerar inte på file://. Testa via en lokal server (python -m http.server).
  */
-const VERSION = "1.0";
+const VERSION = "1.1";
 const VERSIONSDATUM = "2026-11-12";
 const AVSANDARE = "Kent Lundgren";
 const GITHUB_MAPP = "https://github.com/kentlundgren/AI-teknik/tree/main/AI_anvandning/NF";
@@ -30,6 +31,8 @@ const TERMER = {
   median: "Mittenvärdet: hälften av frågorna använder mindre och hälften mer.",
   cachade: "Tokens som modellen läser om ur ett mellanlager (cache) i stället för att bearbeta dem från början. De kostar mindre per styck än nya tokens.",
   indirekt: "Vatten som förbrukas där elen produceras (till exempel kylvatten i kraftverk), inte vid datacentret.",
+  "KV-cache": "Mellanresultat (key-value-tillstånd) för alla tidigare tokens i kontexten. Modellen läser dem för varje ny token den skriver. Cachning sparar dem för ett prefix så att de slipper beräknas om (OpenAI, Cavagna m.fl.).",
+  prefill: "Att bearbeta indatan innan modellen börjar skriva svaret (Cavagna m.fl., 2026). Skiljs från avkodningen, som skriver svaret token för token.",
   mikro: "Tid i en mikrovågsugn på 1 000 W (märkeffekt). Se antagandet MW_EFFEKT och förbättringsrad F-06."
 };
 
@@ -404,7 +407,8 @@ function testfall() {
     lika("Z_NY", sig(varde("Z_NY"), 2), "950"),
     lika("Z_UT", sig(varde("Z_UT"), 2), "290"),
     lika("Z_ALLA", sig(varde("Z_ALLA"), 2).replace(/\s/g, " "), "34 000".replace(/\s/g, " ")),
-    lika("X", String(varde("X")), "600")
+    lika("X", String(varde("X")), "600"),
+    lika("Tredje räknesättet, energi", visaEnergi(utvardera("Y_ANROP*SIMPLE_AGENTISK_CACHAD*GOOGLE_WH_FRAGA"), utvardera("Y_ANROP*SIMPLE_AGENTISK_OCACHAD*EPOCH_WH_FRAGA")), "110–360 Wh")
   ];
 }
 

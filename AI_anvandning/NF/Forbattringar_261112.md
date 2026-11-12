@@ -1,6 +1,6 @@
 # Förbättringsregister och verifieringslogg
 
-**Version:** 0.5 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.6 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** arbetsdokument. Samlar allt som ska analyseras och beskrivas bättre i kommande versioner, och vad som är kontrollerat mot originalkällor. Hör ihop med [PRD_ai_riktlinjer_261112.md](PRD_ai_riktlinjer_261112.md).
 
 ## 1. Hur vi skriver upp och minns
@@ -52,6 +52,9 @@ Tabell 1. Kvarvarande förbättringar
 | F-30 | Resurser | Fler mätpunkter för Y: kör skriptet på fler sessioner och projekt och redovisa ett genomsnitt eller spann i stället för en enskild session | En session | 1.x | Ja |
 | F-31 | Teknik | Databas eller schemalagt skript som kontrollerar om källorna ändrats och uppdaterar siffrorna. Version 1.0 läser en JSON-fil | JSON-fil | 2.0 | Nej |
 | F-32 | Innehåll | Skriv texten till PRD avsnitt 5: principer, trafikljus, bilder och video, checklista, vanliga frågor. Saknas som text idag | Saknas | 1.0 | Nej |
+| F-33 | Resurser | Läs Anthropics och Googles dokumentation om cachning i sin helhet (nu delvis via en genomgång), och OpenAI:s utöver sidans början. Priset för cachade läsningar säger inget om energin | Delvis | 1.x | Ja |
+| F-34 | Resurser | Läs hela SIMPLE-artikeln (Cavagna m.fl., 2026), kontrollera om den granskats, och hitta oberoende mätningar av hur energin per token växer med kontextens längd för modeller liknande de som används. Idag ett förtryck med öppna modeller | Abstract | 1.x | Ja |
+| F-35 | Resurser | Hur olika modeller och tjänster räknar tokens (olika tokenizers) och vad de redovisar som nya och cachade tokens | Saknas | 2.0 | Ja |
 
 ## 3. Mikrovågsugnens effekt (F-06)
 
@@ -74,6 +77,7 @@ Tabell 1. Kvarvarande förbättringar
 | K-05 | Li m.fl.: 500 ml per 10–50 svar och 16,9 ml per svar kontrollerade i artikeln | 2026-11-12 | Analys_vatten v0.3 |
 | K-06 | UNEP:s abstract kontrollerat på UNEP:s dokumentsida | 2026-11-12 | Analys_miljofaktorer v0.2 |
 | K-07 | Antalet modellanrop och tokens i sessionen uppmätta ur transkriptet (modellanrop, producerade och återlästa tokens) | 2026-11-12 | Analys_anvandningssatt v0.2 |
+| K-08 | Hur återlästa tokens räknas och vad de kostar i energi: cachning hos Anthropic, OpenAI och Google, och KV-cachen (Cavagna m.fl.) | 2026-11-12 | Analys_anvandningssatt v0.3, sidan version 1.1 |
 
 ## 5. Verifieringslogg 2026-11-12
 
