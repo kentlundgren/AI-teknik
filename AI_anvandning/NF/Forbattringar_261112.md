@@ -1,6 +1,6 @@
 # Förbättringsregister och verifieringslogg
 
-**Version:** 0.13 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.14 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** arbetsdokument. Samlar allt som ska analyseras och beskrivas bättre i kommande versioner, och vad som är kontrollerat mot originalkällor. Hör ihop med [PRD_ai_riktlinjer_261112.md](PRD_ai_riktlinjer_261112.md).
 
 ## 1. Hur vi skriver upp och minns
@@ -68,6 +68,7 @@ Tabell 1. Kvarvarande förbättringar
 | F-46 | Bilder | Be skaparna av de två affischerna om tillstånd att visa dem publikt (den traditionella innehåller fotografier och föreningens logotyp) och om bilder i högre upplösning. Idag visas två små bilder ur en vidarebefordrad PDF | Öppen | 1.x | Ja |
 | F-47 | Bilder | Det finns inget underlag om hur gräll, ungdomlig eller seriös en AI-layout upplevs jämfört med en traditionell, vilket var den andra halvan av den ursprungliga frågan. Leta studier om layout och formspråk, eller redovisa det som en smakfråga | Saknas | 1.x | Ja |
 | F-48 | Bilder | Låt en sakkunnig granska fakta i affisch 3 (egen genomgång mot NOAA och SMHI, inte expertgranskning) innan den används utanför sidan, och ta ställning till om en AI-ritad affisch passar i föreningens kanaler | Öppen | 1.x | Ja |
+| F-49 | Bilder | Provtrycka affisch 3 på en riktig skrivare (A4, och A3 om det behövs) och kontrollera marginaler, läsbarhet och bläckåtgång. PDF-filerna skapas av PyMuPDF med standardtypsnittet Helvetica (inte inbäddat) och är inte provtryckta | Öppen | 1.x | Ja |
 
 ## 3. Mikrovågsugnens effekt (F-06)
 
@@ -94,6 +95,7 @@ Tabell 1. Kvarvarande förbättringar
 | K-09 | Underlag om AI-bilder: förtroende, märkning och naturbilder (UEA, Bond, Zhao m.fl., Amnesty, Sielmann), se bilder.html | 2026-11-12 | Sidan version 1.10 |
 | K-10 | Rapporten Artificial Authenticity läst i original (PDF, 28 sidor), bildsidan omarbetad efter den, rapporten markerad som nyckelkälla | 2026-11-12 | Sidan version 1.11 |
 | K-11 | Affisch 3 om El Niño ritad som vektorgrafik med fakta från NOAA och SMHI (genomgång mot källorna) | 2026-11-12 | Sidan version 1.14 |
+| K-12 | Affisch 3 omritad i A4-format (1:1,414) med ljusa färger, PDF i A4 och A3 med exakt sidstorlek, och länkar till varje bild | 2026-11-12 | Sidan version 1.15 |
 
 ## 5. Verifieringslogg 2026-11-12
 

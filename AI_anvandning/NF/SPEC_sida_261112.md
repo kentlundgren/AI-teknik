@@ -1,6 +1,7 @@
 # SPEC: sidan om AI i en miljöorganisation (datamodell, beräkningar, struktur)
 
-**Version:** 0.12 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.13 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Ändringar i 0.13:** gor_pdf.py (PDF i A4 och A3 med PyMuPDF), affisch 3 i A4 med enfärgade ytor och ritade pilspetsar, och djuplänkar till bilderna: #bildN visar bilden, #bildN-stor öppnar den förstorad, adressen följer valet (history.replaceState) och knappen Kopiera länk.
 **Ändringar i 0.12:** forstora.js och forstora.css (förstoring i ett fönster med hela bilden, bredd, 100 %, zoom, rullning och Esc), gen_affisch.py (affisch 3 som SVG, text bruten efter uppmätt bredd) och tre nya källor.
 **Ändringar i 0.11:** förbehållsrutor (.notis) fälls ihop av sida.js (doljNotiser) till en rad som öppnar rutan, med valfri rubrik i data-rubrik, och öppnas vid utskrift. Utan JavaScript syns rutan.
 **Ändringar i 0.10:** bildvaxel.js och bildvaxel.css (växlande bildvisning med paus, val av bild och stöd för minskad rörelse) och mappen media med två bilder.

@@ -2720,6 +2720,13 @@
    "rubrik": "Låt en sakkunnig granska fakta i affisch 3 (egen genomgång mot NOAA och SMHI, inte expertgranskning) innan den används utanför sidan, och ta ställning till om en AI-ritad affisch passar i föreningens kanaler",
    "malversion": "1.x",
    "syns": true
+  },
+  {
+   "id": "F-49",
+   "omrade": "Bilder",
+   "rubrik": "Provtrycka affisch 3 på en riktig skrivare (A4, och A3 om det behövs) och kontrollera marginaler, läsbarhet och bläckåtgång. PDF-filerna skapas av PyMuPDF med standardtypsnittet Helvetica (inte inbäddat) och är inte provtryckta",
+   "malversion": "1.x",
+   "syns": true
   }
  ],
  "verifieringar": [
@@ -2987,6 +2994,11 @@
   }
  ],
  "versionslogg": [
+  {
+   "version": "1.15",
+   "datum": "2026-11-12",
+   "text": "Affisch 3 i A4-format (stående, skalar till A3) med ljusa färger och 10 mm marginal, PDF-filer i exakt A4- och A3-storlek, och en egen länk till varje bild (#bild1, #bild2, #bild3 och -stor). Ny förbättringspost (F-49)."
+  },
   {
    "version": "1.14",
    "datum": "2026-11-12",

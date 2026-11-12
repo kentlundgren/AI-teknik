@@ -1,7 +1,8 @@
 <!doctype html>
 <!--
   AI i en miljöorganisation: bilder framtagna med AI, förtroende och märkning (steg 2).
-  Version 1.14 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  Version 1.15 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  UPPDATERING 2026-11-12: affisch 3 i A4-format med ljusa färger och PDF (A4 och A3), och en egen länk till varje bild (#bild1, #bild2, #bild3 och -stor). Version 1.15.
   UPPDATERING 2026-11-12: tredje bilden (affisch ritad som vektorgrafik, med källor) och förstoring av bilderna (forstora.js, forstora.css). Version 1.14.
   UPPDATERING 2026-11-12: rubrik på rutan om bildernas kvalitet (förbehållsrutorna är ihopfällda). Version 1.13.
   UPPDATERING 2026-11-12: de två affischerna som frågan började med visas växelvis (bildvaxel.js, bildvaxel.css) och ett avsnitt om frågan om form. Version 1.12.
@@ -58,7 +59,7 @@
   <p>Är bilder som AI har tagit fram extra känsliga för en miljöorganisation, och vad handlar reaktionerna i så fall om? Frågan kom ur samma styrelsediskussion som energifrågan (se <a href="bakgrund.html">Bakgrund och användning</a>), men energin per bild är liten: en bild motsvarar i mätningen <span data-formel="BILD_WH*3600/MW_EFFEKT" data-visa="tid"></span> i en mikrovågsugn på 1 000 W (<a href="analys.html#Tabell1">Tabell 1 i analysen</a>). Om reaktionerna ändå är starka måste de bero på något annat.</p>
 
   <h2 id="bilderna">Bilderna: två som frågan gällde och en tredje</h2>
-  <p>Frågan började med två förslag till en affisch om El Niño, till ett bord på en adventsmässa. Det ena togs fram med AI och det andra med traditionella metoder i ett dataprogram. Här finns också ett tredje förslag: en affisch som AI ritat som vektorgrafik, med källor och i högre kvalitet så att texten går att läsa. Bilderna växlar av sig själva. Klicka på en bild, eller på Förstora, för att se den större och zooma.</p>
+  <p>Frågan började med två förslag till en affisch om El Niño, till ett bord på en adventsmässa. Det ena togs fram med AI och det andra med traditionella metoder i ett dataprogram. Här finns också ett tredje förslag: en affisch som AI ritat som vektorgrafik, med källor och i högre kvalitet så att texten går att läsa. Bilderna växlar av sig själva. Klicka på en bild, eller på Förstora, för att se den större och zooma. Varje bild går att länka till (se nedan).</p>
   <div class="bildvaxel" id="bildvaxel">
     <div class="kontroller">
       <button type="button" data-visa="0" aria-pressed="true">Förslag 1: AI-bild</button>
@@ -67,23 +68,25 @@
       <button type="button" data-spel aria-pressed="true">Pausa växlingen</button>
     </div>
     <div class="ram">
-      <figure class="aktiv">
+      <figure id="bild1" class="aktiv">
         <a class="forstorbar" href="media/el_nino_ai.jpg" data-rubrik="Förslag 1: gjort med AI"><img src="media/el_nino_ai.jpg" width="337" height="472" alt="Affisch om El Niño i färgstark, illustrerad stil: rubriken El Niño, en jordglob med varmt vatten i Stilla havet, tre numrerade rutor och en ruta med rubriken Att ta med sig. Framtagen med AI."></a>
-        <figcaption>Förslag 1: gjort med AI. <a class="forstorbar forstora-lank" href="media/el_nino_ai.jpg" data-rubrik="Förslag 1: gjort med AI" data-text="Affisch om El Niño i färgstark, illustrerad stil: rubriken El Niño, en jordglob med varmt vatten i Stilla havet, tre numrerade rutor och en ruta med rubriken Att ta med sig. Framtagen med AI.">Förstora</a></figcaption>
+        <figcaption>Förslag 1: gjort med AI. <a class="forstorbar forstora-lank" href="media/el_nino_ai.jpg" data-rubrik="Förslag 1: gjort med AI" data-text="Affisch om El Niño i färgstark, illustrerad stil: rubriken El Niño, en jordglob med varmt vatten i Stilla havet, tre numrerade rutor och en ruta med rubriken Att ta med sig. Framtagen med AI.">Förstora</a> <a class="forstora-lank" href="media/el_nino_ai.jpg" target="_blank" rel="noopener">Bildfilen</a></figcaption>
       </figure>
-      <figure>
+      <figure id="bild2">
         <a class="forstorbar" href="media/el_nino_traditionell.jpg" data-rubrik="Förslag 2: gjort med traditionella metoder"><img src="media/el_nino_traditionell.jpg" width="319" height="478" alt="Affisch om El Niño på vit bakgrund: rubriken El Niño, en karta, fyra fotografier och löptext i kolumner. Framtagen med traditionella metoder i ett dataprogram."></a>
-        <figcaption>Förslag 2: gjort med traditionella metoder. <a class="forstorbar forstora-lank" href="media/el_nino_traditionell.jpg" data-rubrik="Förslag 2: gjort med traditionella metoder" data-text="Affisch om El Niño på vit bakgrund: rubriken El Niño, en karta, fyra fotografier och löptext i kolumner. Framtagen med traditionella metoder i ett dataprogram.">Förstora</a></figcaption>
+        <figcaption>Förslag 2: gjort med traditionella metoder. <a class="forstorbar forstora-lank" href="media/el_nino_traditionell.jpg" data-rubrik="Förslag 2: gjort med traditionella metoder" data-text="Affisch om El Niño på vit bakgrund: rubriken El Niño, en karta, fyra fotografier och löptext i kolumner. Framtagen med traditionella metoder i ett dataprogram.">Förstora</a> <a class="forstora-lank" href="media/el_nino_traditionell.jpg" target="_blank" rel="noopener">Bildfilen</a></figcaption>
       </figure>
-      <figure>
-        <a class="forstorbar" href="media/el_nino_vektor.svg" data-rubrik="Förslag 3: ritad av AI som vektorgrafik, med källor"><img src="media/el_nino_vektor.svg" width="1400" height="2491" alt="Affisch om El Niño i färgstark stil, ritad som vektorgrafik: rubrik, förklaring, två tvärsnitt av Stilla havet (normalt och under El Niño), tre steg, och rutor om Sverige, klimatförändringen och läget hösten 2026, med källor längst ned."></a>
-        <figcaption>Förslag 3: ritad av AI som vektorgrafik, med källor. <a class="forstorbar forstora-lank" href="media/el_nino_vektor.svg" data-rubrik="Förslag 3: ritad av AI som vektorgrafik, med källor" data-text="Affisch om El Niño i färgstark stil, ritad som vektorgrafik: rubrik, förklaring, två tvärsnitt av Stilla havet (normalt och under El Niño), tre steg, och rutor om Sverige, klimatförändringen och läget hösten 2026, med källor längst ned.">Förstora</a></figcaption>
+      <figure id="bild3">
+        <a class="forstorbar" href="media/el_nino_vektor.svg" data-rubrik="Förslag 3: ritad av AI som vektorgrafik, A4"><img src="media/el_nino_vektor.svg" width="794" height="1123" alt="Affisch om El Niño i A4-format, stående, med ljusa färger och ritad som vektorgrafik: rubrik, förklaring, två tvärsnitt av Stilla havet (normalt och under El Niño), tre steg, och rutor om Sverige, klimatförändringen och läget hösten 2026, med källor längst ned."></a>
+        <figcaption>Förslag 3: ritad av AI som vektorgrafik, A4. <a class="forstorbar forstora-lank" href="media/el_nino_vektor.svg" data-rubrik="Förslag 3: ritad av AI som vektorgrafik, A4" data-text="Affisch om El Niño i A4-format, stående, med ljusa färger och ritad som vektorgrafik: rubrik, förklaring, två tvärsnitt av Stilla havet (normalt och under El Niño), tre steg, och rutor om Sverige, klimatförändringen och läget hösten 2026, med källor längst ned.">Förstora</a> <a class="forstora-lank" href="media/el_nino_vektor.svg" target="_blank" rel="noopener">Bildfilen</a> <a class="forstora-lank" href="media/el_nino_affisch_A4.pdf" target="_blank" rel="noopener">PDF, A4</a> <a class="forstora-lank" href="media/el_nino_affisch_A3.pdf" target="_blank" rel="noopener">PDF, A3</a></figcaption>
       </figure>
     </div>
   </div>
+  <p id="lanka-bilderna">Varje bild har en egen länk. <a href="#bild1">#bild1</a> visar förslag 1, <a href="#bild2">#bild2</a> förslag 2 och <a href="#bild3">#bild3</a> förslag 3, till exempel <code>https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/bilder.html#bild3</code>. Lägger du till <code>-stor</code> öppnas bilden förstorad: <a href="#bild3-stor">#bild3-stor</a>. Knappen Kopiera länk under varje bild ger adressen, och adressfältet följer det du väljer. Bildfilerna och PDF-filerna har också egna adresser (länkarna Bildfilen, PDF, A4 och PDF, A3).</p>
   <p>Frågan till riksorganisationen hade två delar. Den ena gällde om man bör avstå från AI på grund av elen och vattnet. Den andra gällde formen: om AI-förslaget är mer ungdomligt och slagkraftigt, eller för grällt och oseriöst. Det är alltså inte bara förtroende och energi som frågan gällde utan också smak (<a href="kallor.html#F-47">F-47</a>).</p>
   <p>Hur förslag 1 togs fram (verktyg och antal försök) är inte känt här, så dess energi går inte att ange. En genererad bild motsvarar i genomsnitt <span data-formel="BILD_WH*3600/MW_EFFEKT" data-visa="tid"></span> i en mikrovågsugn på 1 000 W, i en mätning av äldre modeller (<a href="analys.html#Tabell1">Tabell 1 i analysen</a>).</p>
   <p id="forslag3">Förslag 3 är inte en genererad bild på samma sätt som förslag 1. Det är kod (SVG) som en språkmodell har skrivit, där koden sätter texten. Därför går texten att läsa och bilden kan förstoras utan att bli suddig, och energin är den för text och inte för en bild. Den är inte uppmätt separat. Faktapåståendena i affischen kommer ur tre källor: tidsintervallen, vindarna, uppvällningen och namnet ur <span data-kalla="noaa_ocean_2026"></span> och <span data-kalla="noaa_climate_2026"></span>, och nederbörden, kopplingen till Sverige och klimatet och läget hösten 2026 ur <span data-kalla="smhi_2026"></span>. Tvärsnitten är schematiska. Faktan är genomgången mot källorna men inte granskad av en sakkunnig (<a href="kallor.html#F-48">F-48</a>), och affischen är ett förslag, inte en officiell affisch.</p>
+  <p id="utskrift">Förslag 3 är gjord för att skrivas ut. Den är stående A4 (210 × 297 mm), och samma ritning skalar exakt till A3 (297 × 420 mm), så PDF-filerna <a href="media/el_nino_affisch_A4.pdf">A4</a> (67 kB) och <a href="media/el_nino_affisch_A3.pdf">A3</a> (67 kB) har exakt sidstorlek. Brödtexten är cirka 10 pt på A4 och cirka 14 pt på A3. Det finns en blank marginal på cirka 10 mm runt om, så att vanliga skrivare får med allt. Färgerna är ljusa och de mörka ytorna små, eftersom stora mörka ytor går åt mer bläck eller toner. Affischen är inte provtryckt på en riktig skrivare (<a href="kallor.html#F-49">F-49</a>).</p>
   <p class="notis" data-rubrik="Om bildernas kvalitet">Förslag 1 och 2 är av låg upplösning, utdragna ur en vidarebefordrad PDF, och visas för att visa vad frågan gällde. Bättre bilder och tillstånd att visa dem är en förbättringspost (<a href="kallor.html#F-46">F-46</a>).</p>
 
   <h2 id="skal">Vilka skäl finns, och hur väl är de belagda?</h2>
@@ -155,7 +158,7 @@
 
   <h2 id="aterstar">Det som återstår</h2>
   <p>Det här ska undersökas bättre i kommande versioner:</p>
-  <div data-lista="forbattringar" data-ids="F-21,F-24,F-32,F-40,F-41,F-42,F-43,F-44,F-46,F-47,F-48"></div>
+  <div data-lista="forbattringar" data-ids="F-21,F-24,F-32,F-40,F-41,F-42,F-43,F-44,F-46,F-47,F-48,F-49"></div>
 
   <h2 id="kallor">Källor</h2>
   <p>Källorna som den här sidan hänvisar till, i Harvardformat. Hela förteckningen och hur varje källa kontrollerats finns på sidan <a href="kallor.html">Källor och logg</a>.</p>

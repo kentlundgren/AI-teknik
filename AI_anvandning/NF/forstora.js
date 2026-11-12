@@ -4,6 +4,7 @@
  * Med JavaScript öppnas bilden i ett fönster med knappar för hela bilden, bredd, 100 % och zoom (tangenterna + och - och 0 fungerar,
  * Esc stänger). Utan JavaScript, och vid Ctrl- eller Cmd-klick, öppnas bilden i en ny flik som vanligt.
  *
+ * UPPDATERING 2026-11-12: adressen får #bildN-stor när en bild förstoras (länkbar), knappen Kopiera länk och händelsen forstora-oppna. Version 1.15.
  * UPPDATERING 2026-11-12: första versionen. Version 1.14.
  */
 (function () {
@@ -15,6 +16,8 @@
   var lage = "hela";      // "hela", "bredd" eller "full"
   var k = 1;              // extra förstoring ovanpå läget
   var opener = null;
+  var aktivtId = "";
+  var kopieraKnapp = null;
   var STEG = [1, 1.5, 2, 3, 4, 6];
   var KLASS = "forstora";
 
@@ -71,6 +74,7 @@
       knapp("−", "Zooma ut", function () { zooma(-1); }),
       knapp("+", "Zooma in", function () { zooma(1); }),
       zoomtext, nyFlik,
+      kopieraKnapp = knapp("Kopiera länk", "Kopiera länken till den förstorade bilden", function () { kopieraLank(); }),
       knapp("Stäng", "Stäng den förstorade bilden", function () { dlg.close(); })
     );
     rad.append(titel, knappar);
@@ -80,7 +84,10 @@
     yta.appendChild(bild);
     dlg.append(rad, yta);
     document.body.appendChild(dlg);
-    dlg.addEventListener("close", function () { if (opener) { opener.focus(); } });
+    dlg.addEventListener("close", function () {
+      if (aktivtId) { sattAdress("#" + aktivtId); }
+      if (opener) { opener.focus(); }
+    });
     dlg.addEventListener("click", function (ev) { if (ev.target === dlg) { dlg.close(); } });
     dlg.addEventListener("keydown", function (ev) {
       if (ev.key === "+" || ev.key === "=") { zooma(1); ev.preventDefault(); }
@@ -88,6 +95,23 @@
       else if (ev.key === "0") { satt("hela"); ev.preventDefault(); }
     });
     window.addEventListener("resize", function () { if (dlg.open) { tillampa(); } });
+  }
+
+  function kopieraLank() {
+    var url = window.location.href;
+    var klar = function () {
+      kopieraKnapp.textContent = "Länken är kopierad";
+      window.setTimeout(function () { kopieraKnapp.textContent = "Kopiera länk"; }, 2200);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(klar, function () { window.prompt("Kopiera länken:", url); });
+    } else {
+      window.prompt("Kopiera länken:", url);
+    }
+  }
+
+  function sattAdress(hash) {
+    try { window.history.replaceState(null, "", window.location.pathname + window.location.search + hash); } catch (e) { /* ingen historik */ }
   }
 
   function oppna(a) {
@@ -103,6 +127,9 @@
     // håll en pågående bildväxling stilla medan bilden är förstorad
     var spel = document.querySelector("#bildvaxel [data-spel]");
     if (spel && spel.getAttribute("aria-pressed") === "true") { spel.click(); }
+    var fig = a.closest("figure");
+    aktivtId = fig && fig.id ? fig.id : "";
+    if (aktivtId) { sattAdress("#" + aktivtId + "-stor"); }
     dlg.showModal();
     lage = "hela"; k = 1;
     var klar = function () { tillampa(); yta.scrollTo(0, 0); };
@@ -110,6 +137,13 @@
     bild.src = a.href;
     if (bild.complete) { klar(); }
   }
+
+  document.addEventListener("forstora-oppna", function (ev) {
+    if (ev.detail && ev.detail.lank && !(dlg && dlg.open)) { oppna(ev.detail.lank); }
+  });
+  window.addEventListener("hashchange", function () {
+    if (dlg && dlg.open && !/-stor$/.test(window.location.hash)) { aktivtId = ""; dlg.close(); }
+  });
 
   for (var i = 0; i < lankar.length; i++) {
     lankar[i].addEventListener("click", function (ev) {
