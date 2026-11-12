@@ -1,6 +1,6 @@
 # Förbättringsregister och verifieringslogg
 
-**Version:** 0.2 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.3 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** arbetsdokument. Samlar allt som ska analyseras och beskrivas bättre i kommande versioner, och vad som är kontrollerat mot originalkällor. Hör ihop med [PRD_ai_riktlinjer_261112.md](PRD_ai_riktlinjer_261112.md).
 
 ## 1. Hur vi skriver upp och minns
@@ -47,8 +47,9 @@ Tabell 1. Kvarvarande förbättringar
 | F-24 | Nytta | Belägg för hur mycket AI-stöd faktiskt sparar eller ger i arbete (forskningen är, så vitt jag vet, blandad, men inga källor är hämtade). Sidan påstår ingen siffra för nyttan | Saknas | 1.0 | Ja |
 | F-25 | Resurser | Energi per token och per modellanrop för arbete med många steg, och hur cachning av återläst kontext påverkar. Idag bara en proxy ur Epoch AI för GPT-4o | Proxy | 2.0 | Ja |
 | F-26 | Resurser | Googles definition av median-prompten i hela artikeln (arXiv:2508.15734): längd i tokens. Idag bara abstract läst | Abstract | 1.0 | Nej |
-| F-27 | Resurser | Exakt antal modellanrop i den här sessionen, i stället för uppskattningen cirka 70 | Uppskattning | 1.x | Ja |
 | F-28 | Nytta | Jämförelse med människans resursanvändning för motsvarande arbete (källa saknas) | Saknas | 2.0 | Ja |
+| F-29 | Resurser | Kontrollera om fältet för producerade tokens (output) också räknar modellens interna resonemang. Påverkar Y_ut och Z_ut | Okänt | 1.0 | Ja |
+| F-30 | Resurser | Fler mätpunkter för Y: kör skriptet på fler sessioner och projekt och redovisa ett genomsnitt eller spann i stället för en enskild session | En session | 1.x | Ja |
 
 ## 3. Mikrovågsugnens effekt (F-06)
 
@@ -70,6 +71,7 @@ Tabell 1. Kvarvarande förbättringar
 | K-04 | LBNL: officiell referens (utgiven 2024-12-19, DOI) funnen | 2026-11-12 | Analys_vatten v0.3 |
 | K-05 | Li m.fl.: 500 ml per 10–50 svar och 16,9 ml per svar kontrollerade i artikeln | 2026-11-12 | Analys_vatten v0.3 |
 | K-06 | UNEP:s abstract kontrollerat på UNEP:s dokumentsida | 2026-11-12 | Analys_miljofaktorer v0.2 |
+| K-07 | Antalet modellanrop och tokens i sessionen uppmätta ur transkriptet (tidigare F-27, uppskattning) | 2026-11-12 | Analys_anvandningssatt v0.2 |
 
 ## 5. Verifieringslogg 2026-11-12
 
@@ -91,6 +93,16 @@ Tabell 2. Vad som kontrollerats och hur
 | Energimyndigheten (2023), RISE | 2,8–3,2 TWh 2022 m.m. | PDF hämtad och lästa avsnitt | Stämmer |
 | Naturvårdsverket (2026) | 59 g CO2e/kWh | PDF hämtad och lästa avsnitt | Stämmer |
 | Wang m.fl. (2024), Nature Computational Science | 1,2–5,0 miljoner ton e-avfall 2020–2030, 16–86 % minskning med cirkulära åtgärder | Abstract hämtat | Stämmer på abstractnivå |
+
+## 6. Antagandelogg (X, Y och Z)
+
+Varje ändring av ett antagande får en rad. Z räknas alltid ur X och Y.
+
+Tabell 3. Antagandelogg
+
+| Antagandeversion | Datum | X (normal fråga och svar) | Y_ny (nya tokens, sessionen) | Z_ny | Skäl och källa |
+|---|---|---|---|---|---|
+| A1 | 2026-11-12 | 600 tokens (100 in och 500 ut) | 569 298 (ögonblicksbild kl. 13:14, huvudsession och fyra underagenter) | cirka 950 | X ur Epoch AI (2025) och egen antagen fråga på 75 ord. Y mätt med summera_tokens.py |
 
 ## Repo
 

@@ -1,6 +1,7 @@
 # Analys: vad menar vi med "en fråga", och hur använder man AI på bästa sätt?
 
-**Version:** 0.1 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.2 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Ändringar i 0.2:** X, Y och Z definierade som versionerade antaganden (avsnitt 4). Sessionens tokenanvändning uppmätt ur transkriptet (avsnitt 5) i stället för uppskattad. Energiscenarierna räknade om (avsnitt 6).
 **Status:** arbetsunderlag. Siffrorna är hämtade ur angivna källor eller är egna uppskattningar som är märkta som sådana. De är inte kvalitetssäkrade. Läsaren ska kontrollera mot källan. Hämtdatum: 2026-11-12. Hör ihop med [Analys_resurser_261112.md](Analys_resurser_261112.md).
 
 ## 1. Frågan
@@ -32,41 +33,79 @@ Tabell 2. Tre nivåer av användning
 |---|---|---|---|
 | 1 | Enkel fråga och svar | "Vad är El Niño?" | En fråga enligt tabell 1, cirka 0,24–0,3 Wh |
 | 2 | Längre samtal | Ett utkast som förbättras i tio rundor | Tiotals frågor, och längre indata efterhand som samtalet växer |
-| 3 | Arbete med många steg | En hel produkt: sökning, läsning av källor, filer som skrivs och granskas, kontroller | Många modellanrop med stor mängd indata i varje, se avsnitt 4 |
+| 3 | Arbete med många steg | En hel produkt: sökning, läsning av källor, filer som skrivs och granskas, kontroller | Många modellanrop med stor mängd indata i varje, se avsnitt 5 |
 
-Nivå 3 använder mycket mer resurser än nivå 1, men den ersätter inte en fråga. Den ersätter ett arbete som annars tar en människa timmar eller dagar.
+Nivå 3 använder mycket mer resurser än nivå 1 (i den här sessionen cirka tusen gånger fler nya tokens än en normal fråga, se avsnitt 5), men den ersätter inte en fråga. Den ersätter ett arbete som annars tar en människa timmar eller dagar.
 
-## 4. Den här sessionen i siffror
+## 4. Definitioner: X, Y och Z
 
-Sessionen har pågått i knappt två timmar. Det som är **uppmätt** (av verktyget som visar sessionens kontext) och det som är **uppskattat** av mig skiljs åt nedan.
+För att kunna jämföra och följa förändringar över tid definierar vi tre tal. De är **antaganden**, med version och källa, och ska kunna ändras när det finns nya källor, nya vanor eller nya modeller.
 
-Tabell 3. Sessionen: uppmätt och uppskattat
+Tabell 3. Definitioner och antaganden (antagandeversion A1, 2026-11-12)
 
-| Nr | Uppgift | Värde | Status |
+| Nr | Beteckning | Definition | Värde | Status och källa |
+|---|---|---|---|---|
+| 1 | X_in | Indata i en normal fråga: en kort, manuellt skriven fråga på cirka 75 ord | 100 tokens | Antagande. Omräkning ord till tokens: en token är cirka 0,75 ord (Epoch AI, 2025) |
+| 2 | X_ut | Utdata i ett normalt svar: ungefär en sida text, cirka 400 ord | 500 tokens | Epoch AI (2025) antar 500 tokens. De påpekar att en annan studie fann 261 tokens i snitt |
+| 3 | **X** | En normal fråga och ett normalt svar, utan tidigare samtal: X = X_in + X_ut | **600 tokens** | Beräkning ur rad 1 och 2 |
+| 4 | Y_ny | Nya tokens i en session eller ett projekt: producerad text, ny indata och nya cachade tokens | uppmätt, se tabell 4 | Mätt ur sessionens transkript |
+| 5 | Y_åter | Återlästa tokens: den tidigare kontexten som modellen läser om vid varje steg, ur cachen | uppmätt, se tabell 4 | Mätt ur sessionens transkript |
+| 6 | **Z_ny** | Hur många gånger mer nya tokens sessionen använder än en normal fråga: Z_ny = Y_ny ÷ X | se tabell 5 | Beräkning |
+| 7 | Z_ut | Samma för bara producerad text: Y_ut ÷ X_ut | se tabell 5 | Beräkning |
+| 8 | Z_alla | Samma för alla bearbetade tokens, även återlästa | se tabell 5 | Beräkning. Ger ett högre tal, men återlästa tokens kostar mindre per styck än nya |
+
+Varför flera Z? En enda "mängd tokens" blandar saker som kostar olika mycket. Nya tokens (Z_ny) är det som faktiskt skrivs och läses första gången. Återlästa tokens är samma kontext som läses om i varje steg. Därför redovisas tre tal, men **Z_ny är det vi lyfter fram** i huvudtexten.
+
+**Obs:** en token är inte samma sak i alla modeller. Antagandena gäller "ungefär en token per tre fjärdedels ord" och bör ses som storleksordningar.
+
+## 5. Den här sessionen: uppmätt
+
+Jag har summerat tokenanvändningen ur sessionens egen transkriptfil med skriptet [summera_tokens.py](summera_tokens.py). Det är mätningar, inte uppskattningar. Mätningen är en ögonblicksbild: 2026-11-12 cirka kl. 13:14 (lokal tid), och siffrorna ökar medan sessionen fortsätter.
+
+Tabell 4. Uppmätt tokenanvändning (huvudsession plus fyra delegerade underagenter)
+
+| Nr | Uppgift | Huvudsession | Underagenter | Summa |
+|---|---|---|---|---|
+| 1 | Modellanrop | 82 | 11 | 93 |
+| 2 | Producerade tokens (utdata) | 132 254 | 13 451 | 145 705 |
+| 3 | Ny indata (ej cachad plus nya cachade) | 289 273 | 134 320 | 423 593 |
+| 4 | **Y_ny** = rad 2 + rad 3 | 421 527 | 147 771 | **569 298** |
+| 5 | **Y_åter** (återlästa ur cache) | 19 568 234 | 79 903 | **19 648 137** |
+| 6 | Alla bearbetade (Y_ny + Y_åter) | 19 989 761 | 227 674 | 20 217 435 |
+
+Tabell 5. Z: hur många gånger mer än en normal fråga och ett normalt svar (X = 600 tokens)
+
+| Nr | Mått | Beräkning | Z |
 |---|---|---|---|
-| 1 | Kontextens storlek just nu | 330 408 tokens (varav meddelanden 264 750) | Uppmätt, 2026-11-12 |
-| 2 | Antal modellanrop (verktygsrundor) hittills | cirka 70 | Min uppskattning |
-| 3 | Genomsnittlig kontext per anrop | cirka 150 000–170 000 tokens | Beräkning ur rad 1 och 2 (kontexten växer från nästan noll) |
-| 4 | Sammanlagt inläst indata | cirka 10–12 miljoner tokens, till största delen återläsning av samma kontext (cachad) | Beräkning, osäker |
-| 5 | Producerad text (utdata) | i storleksordningen 50 000–100 000 tokens | Min grova uppskattning |
+| 1 | **Z_ny** | 569 298 ÷ 600 | **cirka 950** |
+| 2 | Z_ut | 145 705 ÷ 500 | cirka 290 |
+| 3 | Z_alla | 20 217 435 ÷ 600 | cirka 33 700 |
 
-Jämfört med en enkel fråga (cirka 500 tokens svar och kort indata) är det i storleksordningen **hundra gånger mer utdata** och **tusentals gånger mer inläst indata**.
+Alltså: **den här sessionen använder cirka tusen gånger fler nya tokens än en normal fråga och ett normalt svar** (Z_ny cirka 950), och cirka tre hundra gånger mer producerad text. Med hänsyn till all återläsning av kontexten blir talet cirka 34 000 (Z_alla), men det talet överdriver kostnaden, eftersom cachade tokens inte beräknas om från början.
 
-**Vad det betyder i energi.** Inga uppgifter finns för vad dessa anrop kostar i energi, och leverantörerna redovisar det inte per modell. Två saker går att räkna på, och de ger ett spann, inte ett svar. Beräkningen använder Epoch AI:s uppskattningar för en GPT-4o-fråga som en grov proxy:
+**Förbehåll.** (a) Det är oklart om fältet för producerade tokens också räknar modellens interna resonemang (F-29). (b) Underagenterna räknas med eftersom de gjorde en del av arbetet. (c) Sessionen är inte slut.
 
-Tabell 4. Sessionen uttryckt i energi, mikrovågsugn och "frågor" (scenarier, inte mätningar)
+## 6. Vad det betyder i energi (scenarier, inte mätningar)
 
-| Nr | Antagande per anrop | Energi per anrop | 70 anrop | I mikrovågsugn (1 000 W) | Motsvarar vanliga frågor (0,24 Wh) |
+Energin per token är inte offentlig för den här modellen. Två gränser går att räkna på, med Epoch AI:s och Googles uppskattningar per normal fråga (0,24–0,3 Wh) som proxy:
+
+Tabell 6. Sessionen i energi (grov proxy)
+
+| Nr | Antagande | Beräkning | Energi | I mikrovågsugn (1 000 W) | Direkt vatten (0,27–1,08 liter per kWh) |
 |---|---|---|---|---|---|
-| 1 | Varje anrop är som en vanlig fråga (undre gräns) | 0,3 Wh | 21 Wh | cirka 75 sekunder | cirka 90 |
-| 2 | Varje anrop läser cirka 10 000 tokens indata | cirka 2,5 Wh | 175 Wh | cirka 10 minuter | cirka 730 |
-| 3 | Varje anrop läser cirka 100 000 tokens indata (övre gräns, utan hänsyn till cachning) | cirka 40 Wh | 2,8 kWh | cirka 2,8 timmar | cirka 11 700 |
+| 1 | Undre gräns: energin följer nya tokens, återläsningen kostar inget | Z_ny × 0,24–0,3 Wh | cirka 230–285 Wh | cirka 14–17 minuter | cirka 60–310 ml |
+| 2 | Övre gräns: varje återläst token kostar lika mycket som en ny | Z_alla × 0,24–0,3 Wh | cirka 8–10 kWh | cirka 8–10 timmar | cirka 2–11 liter |
 
-Alltså: **mellan ungefär 100 och ungefär 10 000 vanliga frågor**, beroende på hur mycket av kontexten som faktiskt behöver beräknas om vid varje anrop. Cachning av den återlästa kontexten drar ned siffran mot den undre delen av spannet, men jag kan inte säga hur mycket. Spannet är bredare än skillnaden mellan olika modeller, och det är poängen: vi vet inte, och ska inte låtsas veta.
+Det sanna värdet ligger troligen närmare den undre gränsen eftersom cachad indata inte beräknas om, men det går inte att säga hur nära. Att läsa lång kontext kostar mer än att läsa kort (Epoch AI, 2025: cirka 2,5 Wh vid 10 000 tokens indata och cirka 40 Wh vid 100 000). Spannet är därför brett, och vi ska inte låtsas veta mer.
 
-**Vatten i samma scenarier (direkt, vid datacentret).** Med 0,27–1,08 liter per kWh (Microsofts genomsnitt 2025 respektive Googles uppgift omräknad från 0,26 ml per 0,24 Wh) blir det cirka 6–23 ml i scenario 1, cirka 47–190 ml i scenario 2 och cirka 0,8–3 liter i scenario 3. Det är direkt vatten. Med amerikansk elmix kommer indirekt vatten på cirka 4,5 liter per kWh (Shehabi m.fl., 2024), alltså upp till cirka 13 liter i scenario 3.
+## 7. Hur antagandena följs över tid
 
-## 5. Är det bättre att göra mer utförliga produkter?
+- **Antagandelogg** i [Forbattringar_261112.md](Forbattringar_261112.md): varje ändring av X, Y eller Z får en rad med version, datum, värde och skäl.
+- **I datafilen (JSON):** X_in, X_ut, Y och Z är poster med fält för värde, enhet, källa, datum och antagandeversion. Z räknas av sidan, aldrig för hand.
+- **Nya mätningar:** skriptet kan köras på fler sessioner och projekt, så att Y blir ett genomsnitt över flera i stället för en enskild session (F-30).
+- **Ändras X** (andra vanor, längre svar) **eller Y** (andra modeller, mer effektiv cachning) ändras Z, och sidan visar den nya versionen och datumet.
+
+## 8. Är det bättre att göra mer utförliga produkter?
 
 Resonemanget, i steg, med vad som är belagt och vad som är en värdering:
 
@@ -79,9 +118,9 @@ Resonemanget, i steg, med vad som är belagt och vad som är en värdering:
 
 **Slutsats för sidan:** säg att enkla frågor är den billigaste användningen och att utförliga arbeten kan vara mer värda trots att de kostar mer, men att det är något man ska väga i varje fall. Visa resurserna öppet och med osäkerheten, i stället för att gömma dem eller förstora dem.
 
-## 6. Det som återstår
+## 9. Det som återstår
 
-Se [Forbattringar_261112.md](Forbattringar_261112.md): F-24 (belägg för nytta och produktivitet), F-25 (energi per token och per modellanrop för agentarbete, hur cachning påverkar), F-26 (Googles definition av median-prompten i hela artikeln), F-27 (antalet anrop i den här sessionen: räkna exakt i stället för att uppskatta), F-28 (jämförelse med människans resursanvändning för motsvarande arbete).
+Se [Forbattringar_261112.md](Forbattringar_261112.md): F-24 (belägg för nytta), F-25 (energi per token för agentarbete och cachning), F-26 (Googles definition av median-prompten), F-28 (människans resursanvändning för jämförelse), F-29 (räknar fältet för producerade tokens även modellens interna resonemang?) och F-30 (fler mätpunkter för Y).
 
 ## Källor (Harvard, alfabetisk ordning, hämtade 2026-11-12)
 
