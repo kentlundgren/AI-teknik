@@ -95,7 +95,7 @@
   {
    "id": "Y_UT",
    "namn": "Producerade tokens i sessionen",
-   "varde": 145705,
+   "varde": 370966,
    "enhet": "tokens",
    "typ": "uppmatt",
    "belagd": "original",
@@ -106,14 +106,14 @@
     "F-29",
     "F-30"
    ],
-   "kommentar": "Mätt ur sessionens transkript 2026-11-12 kl. 13:14, huvudsession och fyra delegerade underagenter. Oklart om modellens interna resonemang räknas med.",
+   "kommentar": "Mätt ur sessionens transkript 2026-11-12 kl. 14:22 (antagandeversion A2), huvudsession och delegerade underagenter. Oklart om modellens interna resonemang räknas med.",
    "spann": null,
    "formel": null
   },
   {
    "id": "Y_NY",
    "namn": "Nya tokens i sessionen (producerade, ny indata och nya cachade)",
-   "varde": 569298,
+   "varde": 1154565,
    "enhet": "tokens",
    "typ": "uppmatt",
    "belagd": "original",
@@ -123,14 +123,14 @@
    "forbattring": [
     "F-30"
    ],
-   "kommentar": "Ögonblicksbild 2026-11-12 kl. 13:14.",
+   "kommentar": "Ögonblicksbild 2026-11-12 kl. 14:22 (A2).",
    "spann": null,
    "formel": null
   },
   {
    "id": "Y_ATER",
    "namn": "Återlästa tokens i sessionen (ur cache)",
-   "varde": 19648137,
+   "varde": 65782935,
    "enhet": "tokens",
    "typ": "uppmatt",
    "belagd": "original",
@@ -140,14 +140,14 @@
    "forbattring": [
     "F-30"
    ],
-   "kommentar": "Ögonblicksbild 2026-11-12 kl. 13:14.",
+   "kommentar": "Ögonblicksbild 2026-11-12 kl. 14:22 (A2).",
    "spann": null,
    "formel": null
   },
   {
    "id": "Y_ANROP",
    "namn": "Modellanrop i sessionen",
-   "varde": 93,
+   "varde": 188,
    "enhet": "anrop",
    "typ": "uppmatt",
    "belagd": "original",
@@ -157,7 +157,7 @@
    "forbattring": [
     "F-30"
    ],
-   "kommentar": "Huvudsession 82 och underagenter 11.",
+   "kommentar": "Huvudsession och delegerade underagenter.",
    "spann": null,
    "formel": null
   },
@@ -1038,6 +1038,73 @@
    "kommentar": "Priset, inte energin. Varierar mellan modeller. Cachning är på som standard.",
    "spann": null,
    "formel": null
+  },
+  {
+   "id": "ENERGI_BEDOMNING",
+   "namn": "Bedömd energi för arbetet: Z_NY × medelvärdet av Googles och Epoch AI:s energi per fråga",
+   "varde": null,
+   "enhet": "Wh",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [
+    "F-25",
+    "F-34"
+   ],
+   "kommentar": "Bedömning, inte mätvärde. Se förklaringen vid raderna i tabellen.",
+   "spann": null,
+   "formel": "Z_NY*(GOOGLE_WH_FRAGA+EPOCH_WH_FRAGA)/2"
+  },
+  {
+   "id": "ENERGI_KVOT_OVRE_UNDRE",
+   "namn": "Hur många gånger större den övre gränsen är än den undre",
+   "varde": null,
+   "enhet": "gånger",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [],
+   "kommentar": "Växer med sessionens längd.",
+   "spann": null,
+   "formel": "Z_ALLA/Z_NY"
+  },
+  {
+   "id": "JEGHAM_WH_LANG_MAX",
+   "namn": "Energi per lång fråga för de mest energikrävande modellerna i en benchmark av 30 modeller (minst)",
+   "varde": 29,
+   "enhet": "Wh",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "jegham_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-36"
+   ],
+   "kommentar": "Anges som att de mest energikrävande modellerna överstiger 29 Wh per lång fråga.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "JEGHAM_FAKTOR",
+   "namn": "Hur många gånger mer de mest energikrävande modellerna använder än de mest effektiva, per lång fråga (minst)",
+   "varde": 65,
+   "enhet": "gånger",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "jegham_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-36"
+   ],
+   "kommentar": "Över 65 gånger enligt artikelns sammanfattning.",
+   "spann": null,
+   "formel": null
   }
  ],
  "antaganden": [
@@ -1049,10 +1116,28 @@
     "X_UT",
     "MW_EFFEKT"
    ],
-   "skal": "X ur Epoch AI (2025) och en antagen fråga på 75 ord. Y mätt med summera_tokens.py (ögonblicksbild kl. 13:14). Mikrovågsugnen antas vara 1 000 W (märkeffekt)."
+   "skal": "X ur Epoch AI (2025) och en antagen fråga på 75 ord. Y mätt med summera_tokens.py. Mikrovågsugnen antas vara 1 000 W (märkeffekt)."
+  },
+  {
+   "id": "A2",
+   "datum": "2026-11-12",
+   "poster": [
+    "Y_UT",
+    "Y_NY",
+    "Y_ATER",
+    "Y_ANROP"
+   ],
+   "skal": "Ny ögonblicksbild kl. 14:22 (188 anrop) eftersom arbetet fortsatte. Samma X. Z_NY och energispannet ökar med sessionens längd, och kvoten mellan övre och undre gräns växer eftersom återläsningen växer snabbare än de nya tokens."
   }
  ],
  "kallor": [
+  {
+   "id": "jegham_2025",
+   "kort": "Jegham m.fl. (2025)",
+   "harvard": "Jegham, N. m.fl. (2025) 'How hungry is AI? Benchmarking energy, water, and carbon footprint of LLM inference'. arXiv:2505.09598.",
+   "url": "https://arxiv.org/abs/2505.09598",
+   "not": "Jämförande mätning av energi, vatten och koldioxid för 30 modeller i kommersiella datacenter. Abstract läst, hela artikeln inte."
+  },
   {
    "id": "anthropic_2026",
    "kort": "Anthropic (u.å.)",
@@ -1177,7 +1262,7 @@
    "kort": "summera_tokens.py",
    "harvard": "Lundgren, K. (2026) summera_tokens.py, skript som summerar tokens i en Claude Code-session.",
    "url": "https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/summera_tokens.py",
-   "not": "Skriptet som gav sessionens uppmätta tokens, se Analys om användningssätt. Mättidpunkt 2026-11-12 kl. 13:14."
+   "not": "Skriptet som gav sessionens uppmätta tokens, se Analys om användningssätt. Senaste mättidpunkt 2026-11-12 kl. 14:22 (A2)."
   },
   {
    "id": "unep_2024",
@@ -1446,9 +1531,22 @@
    "rubrik": "Hur olika modeller och tjänster räknar tokens (olika tokenizers) och vad de redovisar som nya och cachade tokens",
    "malversion": "2.0",
    "syns": true
+  },
+  {
+   "id": "F-36",
+   "omrade": "Resurser",
+   "rubrik": "Jämför energin för samma projekt mellan Claude, ChatGPT, Gemini och Grok. Idag finns uppgifter per fråga för Gemini (Google) och ChatGPT (Epoch AI, OpenAI), men ingen hittad för Claude eller Grok, och ingen för samma projekt",
+   "malversion": "2.0",
+   "syns": true
   }
  ],
  "verifieringar": [
+  {
+   "kalla": "Jegham m.fl. (2025)",
+   "paastaende": "Benchmark av 30 modeller: de mest energikrävande överstiger 29 Wh per lång fråga, över 65 gånger de mest effektiva",
+   "kontroll": "Abstract läst i arXiv-posten",
+   "resultat": "Stämmer på abstractnivå. Hela artikeln inte läst"
+  },
   {
    "kalla": "Cavagna m.fl. (2026)",
    "paastaende": "Prefixcachning minskar indatakostnaden med 93 procent, men inte kostnaden för KV-cachen. Agentiskt anrop 13,0 gånger, med cachning 4,8 gånger. GQA upp till 3 gånger lägre energi per token",
@@ -1559,6 +1657,11 @@
   }
  ],
  "versionslogg": [
+  {
+   "version": "1.4",
+   "datum": "2026-11-12",
+   "text": "Tabellen över arbetets energi förenklad till två alternativ (undre och övre gräns), med det tredje räknesättet som understöd till den undre och en tydlig bedömning. Ny mätning av arbetet (188 anrop). Nya avsnitt om kontextfönstret mot förbrukning och om skillnader mellan Claude, ChatGPT, Gemini och Grok."
+  },
   {
    "version": "1.3",
    "datum": "2026-11-12",

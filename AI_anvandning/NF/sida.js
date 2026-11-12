@@ -4,6 +4,7 @@
  * (data-post, data-formel, data-kalla, data-lista), visar markering av hur väl en siffra är belagd,
  * förklaringar vid hovring/fokus/tryck, tekniknivån i hörnet och versionsraden.
  *
+ * UPPDATERING 2026-11-12: förklaring av bedömningen (term bedomning), det tredje räknesättet som underrad, nya testvärden för ögonblicksbild A2. Version 1.4.
  * UPPDATERING 2026-11-12: raderna för arbetets tre räknesätt förklaras vid hovring, fokus och tryck (scen_under, scen_ovre, scen_tredje). Version 1.3.
  * UPPDATERING 2026-11-12: långa listor och tabeller ur datafilen är ihopfällda som standard (details/summary), öppnas automatiskt av ankarlänkar och vid utskrift. Version 1.2.
  * UPPDATERING 2026-11-12: nya termer (KV-cache, prefill) och ett testfall för det tredje räknesättet. Version 1.1.
@@ -12,7 +13,7 @@
  * Testläge: lägg ?test=1 efter adressen för att köra validering och testfall (SPEC avsnitt 3, 4 och 8).
  * Obs: fetch fungerar inte på file://. Testa via en lokal server (python -m http.server).
  */
-const VERSION = "1.3";
+const VERSION = "1.4";
 const VERSIONSDATUM = "2026-11-12";
 const AVSANDARE = "Kent Lundgren";
 const GITHUB_MAPP = "https://github.com/kentlundgren/AI-teknik/tree/main/AI_anvandning/NF";
@@ -43,7 +44,8 @@ function fp(id) { const p = POSTER[id]; return NF4.format(varde(id)) + (p.enhet 
 
 TERMER.scen_under = () => "Undre gräns: energin följer bara de nya tokens (det som skrivs och läses första gången). Återläsningen av tidigare kontext antas kosta inget. Det underskattar troligen energin, eftersom modellen vid varje ny token ändå måste läsa minnet (KV-cachen) av hela kontexten. Bedömning: ligger troligen närmare verkligheten än den övre gränsen.";
 TERMER.scen_ovre = () => "Övre gräns: varje återläst token antas kosta lika mycket som en ny. Det överskattar energin, eftersom cachning tar bort det mesta av kostnaden för att bearbeta indatan (" + fp("SIMPLE_PREFILL_MINSKNING") + " enligt ett förtryck). Bedömning: ett tak som sannolikt inte nås.";
-TERMER.scen_tredje = () => "Tredje räknesättet: antalet anrop × hur många gånger mer energi ett agentiskt anrop med cachning respektive utan cachning kostar än ett vanligt anrop (" + fp("SIMPLE_AGENTISK_CACHAD") + " respektive " + fp("SIMPLE_AGENTISK_OCACHAD") + "), enligt ett förtryck på öppna modeller, inte Claude. En indikation, inte en mätning. Bedömning: stödjer att energin ligger i området några hundra Wh, men anropen här har mycket längre kontext än i förtrycket, så det kan bli mer.";
+TERMER.bedomning = () => "Bedömning: Z_NY × medelvärdet av Googles och Epoch AI:s energi per fråga. Den undre gränsens mitt väljs eftersom återläsning av cachad kontext inte beräknas om från början (OpenAI), och det tredje räknesättet (ett förtryck) ligger i samma område. Energin kan vara högre eftersom KV-cachen finns kvar och anropen har mycket lång kontext. Det är en bedömning, inte ett mätvärde.";
+TERMER.scen_tredje = () => "Understöd för den undre gränsen, ett tredje räknesätt: antalet anrop × hur många gånger mer energi ett agentiskt anrop med cachning respektive utan cachning kostar än ett vanligt anrop (" + fp("SIMPLE_AGENTISK_CACHAD") + " respektive " + fp("SIMPLE_AGENTISK_OCACHAD") + "), enligt ett förtryck på öppna modeller, inte Claude. En indikation, inte en mätning. Bedömning: stödjer att energin ligger i området några hundra Wh, men anropen här har mycket längre kontext än i förtrycket, så det kan bli mer.";
 
 /* ---------- format ---------- */
 const NF0 = new Intl.NumberFormat("sv-SE", { maximumFractionDigits: 0 });
@@ -466,11 +468,11 @@ function testfall() {
     lika("0,24 Wh vid 1 000 W", "cirka " + visaTid(mw("GOOGLE_WH_FRAGA")), "cirka 0,9 sekunder"),
     lika("0,3 Wh vid 1 000 W", "cirka " + visaTid(mw("EPOCH_WH_FRAGA")), "cirka 1,1 sekunder"),
     lika("2,907 Wh vid 1 000 W", "cirka " + visaTid(mw("BILD_WH")), "cirka 10 sekunder"),
-    lika("Z_NY", sig(varde("Z_NY"), 2), "950"),
-    lika("Z_UT", sig(varde("Z_UT"), 2), "290"),
-    lika("Z_ALLA", sig(varde("Z_ALLA"), 2).replace(/\s/g, " "), "34 000".replace(/\s/g, " ")),
+    lika("Z_NY", sig(varde("Z_NY"), 2).replace(/\s/g, " "), "1 900".replace(/\s/g, " ")),
+    lika("Z_UT", sig(varde("Z_UT"), 2), "740"),
+    lika("Z_ALLA", sig(varde("Z_ALLA"), 2).replace(/\s/g, " "), "110 000".replace(/\s/g, " ")),
     lika("X", String(varde("X")), "600"),
-    lika("Tredje räknesättet, energi", visaEnergi(utvardera("Y_ANROP*SIMPLE_AGENTISK_CACHAD*GOOGLE_WH_FRAGA"), utvardera("Y_ANROP*SIMPLE_AGENTISK_OCACHAD*EPOCH_WH_FRAGA")), "110–360 Wh")
+    lika("Tredje räknesättet, energi", visaEnergi(utvardera("Y_ANROP*SIMPLE_AGENTISK_CACHAD*GOOGLE_WH_FRAGA"), utvardera("Y_ANROP*SIMPLE_AGENTISK_OCACHAD*EPOCH_WH_FRAGA")), "220–730 Wh")
   ];
 }
 

@@ -1,4 +1,5 @@
 /* sida.css: gemensam stil för sidorna om AI i en miljöorganisation.
+ * UPPDATERING 2026-11-12: underrader i tabeller (tr.underrad). Version 1.4.
  * UPPDATERING 2026-11-12: förklaring vid hovring på tabellrader (tr.term). Version 1.3.
  * UPPDATERING 2026-11-12: ihopfällda listor (details.hopfall). Version 1.2.
  * UPPDATERING 2026-11-12: första versionen. Version 1.0.
@@ -126,6 +127,8 @@ a.belagd:hover { border-color: currentColor; }
 tr.term { border-bottom: none; cursor: help; }
 tr.term:hover td, tr.term:focus-visible td { background: var(--panel); }
 tr.term td:first-child { border-left: 3px solid var(--accent); }
+tr.underrad td { font-size: 0.86rem; color: var(--muted); }
+tr.underrad td:first-child { padding-left: 1.4rem; font-style: italic; }
 #termpop {
   position: absolute; z-index: 30; background: var(--bg); color: var(--ink); border: 1px solid var(--accent);
   border-radius: var(--rad); padding: 0.6rem 0.8rem; font-size: 0.88rem; line-height: 1.45;

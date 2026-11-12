@@ -1,6 +1,7 @@
 # SPEC: sidan om AI i en miljöorganisation (datamodell, beräkningar, struktur)
 
-**Version:** 0.3 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.4 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Ändringar i 0.4:** testfallen för Z gäller ögonblicksbild A2 (Y_NY 1 154 565, Y_UT 370 966, Y_ATER 65 782 935, 188 anrop): Z_NY "cirka 1 900", Z_UT "cirka 740", Z_ALLA "cirka 110 000", tredje räknesättet "220–730 Wh". Nya poster ENERGI_BEDOMNING och ENERGI_KVOT_OVRE_UNDRE (beräknade), JEGHAM_WH_LANG_MAX och JEGHAM_FAKTOR.
 **Ändringar i 0.3:** SPEC:en följer det som byggdes i sidans version 1.0: posttypen `uppskattad` (källans egen beräkning) och fältet `spann`, USGS-posterna som fyra poster plus två beräknade, platshållarnas attribut dokumenterade (avsnitt 5), testfallet för 0,3 Wh ändrat till "cirka 1,1 sekunder" (en decimal under 10 sekunder), öppna punkter uppdaterade (avsnitt 10).
 **Ändringar i 0.2:** genomläsning med fräscha ögon: typ och belagd skiljs åt, beräknade poster har formel i stället för värde, platshållare i texten (`data-post`) så att inga siffror skrivs för hand, kontroll av att datafilen och registret stämmer överens, hänsyn till att `fetch` inte fungerar på `file://`, trafikljusets mellannivå visas i orange (inte gult), och två nya öppna punkter (innehållet i PRD avsnitt 5 saknas som text, databasen är en egen förbättringsrad).
 **Status:** teknisk specifikation inför bygget av HTML-sidan. Hör ihop med [PRD_ai_riktlinjer_261112.md](PRD_ai_riktlinjer_261112.md) (vad och varför). Den här filen säger *exakt hur*. Inte beslutad av Lunds Naturskyddsförening eller Naturskyddsföreningen.
@@ -90,7 +91,7 @@ Ett objekt med fyra listor. Fält utan värde utelämnas inte, de sätts till `n
 
 **Talformat:** svensk standard: decimalkomma, tusentalsavgränsare med tunt mellanrum (`Intl.NumberFormat('sv-SE')`).
 
-**Testfall (måste klara):** 0,24 Wh vid 1 000 W blir 0,864 s och visas "cirka 0,9 sekunder". 0,3 Wh blir 1,08 s, "cirka 1,1 sekunder". 2,907 Wh (`BILD_WH`) blir 10,47 s, "cirka 10 sekunder". 569 298 ÷ 600 blir 948,8 och visas "cirka 950". 145 705 ÷ 500 blir 291,4, "cirka 290".
+**Testfall (måste klara):** 0,24 Wh vid 1 000 W blir 0,864 s och visas "cirka 0,9 sekunder". 0,3 Wh blir 1,08 s, "cirka 1,1 sekunder". 2,907 Wh (`BILD_WH`) blir 10,47 s, "cirka 10 sekunder". Med ögonblicksbild A2: 1 154 565 ÷ 600 blir 1 924,3 och visas "cirka 1 900". 370 966 ÷ 500 blir 741,9, "cirka 740". (Z_ALLA ÷ 600: (1 154 565 + 65 782 935) ÷ 600 blir 111 562, "cirka 110 000".) Testvärdena ändras när en ny ögonblicksbild införs.
 
 Ändras `X_IN`, `X_UT`, `Y_NY`, `Y_ATER` eller `MW_EFFEKT` i datafilen ska alla visade värden uppdateras utan att något annat ändras. `Y_NY` och `Y_ATER` kommer från skriptet `summera_tokens.py` (ögonblicksbild med tidpunkt, F-30).
 
