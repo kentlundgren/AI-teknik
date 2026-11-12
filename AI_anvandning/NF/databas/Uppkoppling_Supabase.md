@@ -1,6 +1,6 @@
 # Så kopplades rangordningen till Supabase: steg för steg med bilder
 
-**Version:** 1.0 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 1.1 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** berättelse om hur uppkopplingen gick till, med skärmdumpar. Tekniken och reglerna står i [supabase.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase.md). Sidan som använder databasen är [AI i proportion](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/proportion.html).
 
 ## Kort version <a id="kort-version"></a>
@@ -14,6 +14,16 @@ Bilderna är skärmdumpar från min webbläsare. Jag har beskurit bort webbläsa
 - **Projektet:** `samradsquiden` i organisationen `Samradsguiden`, gratisplanen (Free), regionen West EU (Ireland), `eu-west-1`.
 - **Varför samma projekt:** varje omröstning är en rad i tabellen `rang_omrostning`, och funktionerna tar omröstningens id, så flera omröstningar kan dela projekt utan att blandas ihop. Resonemanget står i [supabase.md, avsnitt 2b](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase.md).
 - **SQL-filen:** [supabase_rangordning.sql](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase_rangordning.sql) skapar två tabeller, slår på Row Level Security (radskydd, se [Ordlista](#ordlista)) och lägger till fem funktioner. Den lägger också in omröstningen `ai_proportion_hot10` med tio poster. Alla namn börjar på `rang_`, så Samrådsguidens egna tabeller berörs inte.
+
+### Var finns koden för Samrådsguiden i samma projekt? <a id="samradsguiden-koden"></a>
+
+Samrådsguidens egna tabeller och funktioner skapades med en annan SQL-fil, i ett annat repo (Codex). Alla filerna ligger i [Fritid/NF/Samradsguiden](https://github.com/kentlundgren/Codex/tree/main/Fritid/NF/Samradsguiden):
+
+- [supabase_setup.sql](https://github.com/kentlundgren/Codex/blob/main/Fritid/NF/Samradsguiden/supabase_setup.sql): SQL som skapade Samrådsguidens tabeller och funktioner.
+- [supabase.md](https://github.com/kentlundgren/Codex/blob/main/Fritid/NF/Samradsguiden/supabase.md): stegen för kontot och projektet, med bilder.
+- [rangordning/](https://github.com/kentlundgren/Codex/tree/main/Fritid/NF/Samradsguiden/rangordning): sidans kod (`rangordning.js`, `rangordning.css`, `rangordning_config.js`).
+
+Tabellerna själva ligger i projektet och syns i dashboarden under **Table Editor** (tabellikonen i vänstermenyn). Där visas både Samrådsguidens tabeller och mina `rang_`-tabeller. Funktionerna syns under **Database > Functions**. De två SQL-filerna blandas inte ihop, eftersom mina namn börjar på `rang_`.
 
 ## Steg 1. Väck projektet <a id="steg1"></a>
 
@@ -33,11 +43,13 @@ I vänstermenyn finns **SQL Editor**. Där öppnade jag en ny, tom fråga. SQL E
 
 ## Steg 3. Klistra in SQL-filen <a id="steg3"></a>
 
-Jag öppnade `supabase_rangordning.sql` på min dator, kopierade hela innehållet och klistrade in det i fönstret. De första raderna är kommentarer som säger vad filen gör: ingen inloggning för läsarna, låsta tabeller, funktioner som kontrollerar all indata och frivilliga namn.
+Jag öppnade [`supabase_rangordning.sql`](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase_rangordning.sql) på min dator, kopierade hela innehållet och klistrade in det i fönstret. De första raderna är kommentarer som säger vad filen gör: ingen inloggning för läsarna, låsta tabeller, funktioner som kontrollerar all indata och frivilliga namn.
 
 ![Bild 3. SQL-filen inklistrad](bilder/bild3_sql_inklistrad.jpg)
 
 *<a id="bild3"></a>Bild 3. Hela SQL-filen inklistrad i SQL Editor, med de första tabelldefinitionerna synliga.*
+
+**SQL-filen som skapade tabellerna:** [supabase_rangordning.sql](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase_rangordning.sql) på GitHub. Den skapar tabellerna `rang_omrostning` och `rang_rost`, slår på radskyddet och lägger till de fem funktionerna.
 
 ## Steg 4. Kör filen och bekräfta varningen <a id="steg4"></a>
 
