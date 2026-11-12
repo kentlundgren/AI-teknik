@@ -1,6 +1,7 @@
 # Analys: energi, vatten och bilder (underlag till sidan)
 
-**Version:** 0.2 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.3 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Ändringar i 0.3:** bildsiffran (Luccioni m.fl.) och Embers siffra kontrollerade mot originalen. Mikrovågsugnens effekt är fast 1 000 W (ingen parameter). Avsnitt 9 ersatt av hänvisning till [Forbattringar_261112.md](Forbattringar_261112.md).
 **Ändringar i 0.2:** nytt avsnitt 6 (komprimerad version med liknelser) och 7 (Sverige och världen). Databasidén är nu avsnitt 8 och det som återstår är avsnitt 9.
 **Status:** arbetsunderlag. Siffrorna är hämtade ur angivna källor och inte kvalitetssäkrade. Läsaren ska kontrollera mot källan. Hämtdatum för alla webbkällor: 2026-11-12.
 
@@ -16,7 +17,7 @@ Tabell 1. Uppmätta eller beräknade siffror per användning
 |---|---|---|---|---|
 | 1 | Energi, en vanlig textfråga till Gemini | 0,24 Wh (median), 0,03 g koldioxidekvivalenter, 0,26 ml vatten ("ungefär fem droppar") | Google (Vahdat & Dean, 2025) | Egen mätning i driftmiljö. Google skriver själva att uppgifterna inte är verifierade av tredje part. Narrare mätmetod (bara aktiva chip) ger lägre värden |
 | 2 | Energi, en vanlig textfråga till ChatGPT (GPT-4o) | cirka 0,3 Wh | Epoch AI (You, 2025) | Beräkning med tydliga antaganden, inte mätning. Utesluter bilder och långa "resonerande" svar |
-| 3 | Energi, bildgenerering | i en studie ungefär 2,9 kWh per 1 000 bilder i genomsnitt (cirka 2,9 Wh per bild), mycket stor spridning mellan modeller | Luccioni, Jernite & Strubell (2024) | Den ursprungliga artikeln har jag bara läst som sammanfattning (abstract). Siffran kommer från andrahandsreferat, och en diskussion om samma modell visar att värdet beror på bildstorlek och inställningar. Kontrolleras mot artikeltexten |
+| 3 | Energi, bildgenerering | i en studie ungefär 2,9 kWh per 1 000 bilder i genomsnitt (cirka 2,9 Wh per bild), mycket stor spridning mellan modeller | Luccioni, Jernite & Strubell (2024) | Kontrollerad mot artikeln (arXiv v3, 2026-11-12): 2,907 kWh per 1 000 bilder i genomsnitt, textgenerering 0,047 kWh, den minst effektiva bildmodellen 11,49 kWh. Värdet beror på bildstorlek och inställningar |
 | 4 | Vatten, per svar | Källorna skiljer sig mycket (från bråkdelar av en milliliter till tiotals milliliter), beroende på om man räknar vattnet vid datacentret eller också vid elproduktionen | Google (se 1), Li m.fl. (2025) | Osäker. Skillnaden beror mest på var gränsen dras |
 | 5 | Datacentrens elanvändning i världen | cirka 415 TWh år 2024, cirka 1,5 % av världens elanvändning, ökning cirka 12 % per år de senaste fem åren | Internationella energiorganet (IEA, 2025) | Etablerad källa. Gäller datacenter totalt, inte bara AI |
 
@@ -58,7 +59,7 @@ Skillnaden mellan skäl 1 och 2–5 är viktig i en riktlinje: även om energin 
 
 Sidan ska visa resursanvändningen i vardagsmått. Alla liknelser bygger på siffrorna i tabell 1 och på en uttalad antagen effekt för mikrovågsugnen.
 
-**Antagande om mikrovågsugnen.** En vanlig mikrovågsugn drar vi kallt räknat 1 000 W ur eluttaget. Svenska jämförelsesajter anger 600–1 200 W (Pricerunner) respektive 500–900 W som vanligaste effekt (Testra), så 1 000 W är ett antagande i mitten, inte ett mätvärde. Effekten är en inställbar parameter på sidan (se avsnitt 8). Formeln är: sekunder = Wh × 3 600 ÷ watt.
+**Antagande om mikrovågsugnen.** En vanlig mikrovågsugn drar vi kallt räknat 1 000 W ur eluttaget. Svenska jämförelsesajter anger 600–1 200 W (Pricerunner) respektive 500–900 W som vanligaste effekt (Testra), så 1 000 W är ett antagande i mitten, inte ett mätvärde. Effekten är fast 1 000 W (ingen inställbar parameter). Källa för effekten: se F-06 i registret. Formeln är: sekunder = Wh × 3 600 ÷ watt.
 
 Tabell 2. Energi uttryckt som tid i mikrovågsugn (1 000 W)
 
@@ -66,7 +67,7 @@ Tabell 2. Energi uttryckt som tid i mikrovågsugn (1 000 W)
 |---|---|---|---|---|
 | 1 | En vanlig textfråga (Googles median) | 0,24 Wh | cirka 0,9 sekunder | Googles egen mätning, ej tredjepartsgranskad |
 | 2 | En vanlig textfråga (Epoch AI, ChatGPT) | 0,3 Wh | cirka 1 sekund | Beräkning med tydliga antaganden |
-| 3 | En bild (Luccioni m.fl., genomsnitt) | cirka 2,9 Wh | cirka 10 sekunder | Osäker: stor spridning mellan modeller och inställningar, ej kontrollerad mot tabellerna |
+| 3 | En bild (Luccioni m.fl., genomsnitt) | cirka 2,9 Wh | cirka 10 sekunder | Stor spridning mellan modeller och inställningar (kontrollerad mot artikeln, gäller äldre modeller) |
 | 4 | Ett arbetspass med 200 textfrågor (scenario) | 200 × 0,24 = 48 Wh | cirka 3 minuter | Illustration, inte mätning |
 | 5 | Samma pass om varje fråga kostar tio gånger mer (långa samtal, många verktygsanrop) | 480 Wh | cirka 29 minuter | Illustration, inte mätning |
 
@@ -96,7 +97,7 @@ Tabell 4. Elens klimatpåverkan och datacenter, Sverige och världen
 
 | Nr | Uppgift | Sverige/Norden | Världen | Källa och säkerhet |
 |---|---|---|---|---|
-| 1 | Klimatpåverkan per kWh el | 59 g CO2e/kWh (nordiska elmixen, snitt 2021–2023, med direkta och indirekta utsläpp, import och export) | 473 g CO2/kWh (global elmix 2024, nedgång från 484 år 2023) | Naturvårdsverket (2026), Ember (2025). Måtten är inte helt jämförbara (olika avgränsningar). Ember-siffran har jag sett i ett sökresultat, inte öppnat i originalet |
+| 1 | Klimatpåverkan per kWh el | 59 g CO2e/kWh (nordiska elmixen, snitt 2021–2023, med direkta och indirekta utsläpp, import och export) | 473 g CO2/kWh (global elmix 2024, nedgång från 484 år 2023) | Naturvårdsverket (2026), Ember (2025). Måtten är inte helt jämförbara (olika avgränsningar). Ember-siffran är kontrollerad mot Embers egen sida |
 | 2 | Datacenters elanvändning | cirka 2,8–3,2 TWh 2022, uppskattat 4,0–4,4 TWh 2025 och 4,4–5,2 TWh 2030. Rapporten räknar även en mycket högre variant (22 TWh 2030) med snabbare tillväxttakt | cirka 415 TWh 2024, cirka 1,5 % av världens el | Energimyndigheten (2023), IEA (2025). Svenska siffran är en uppskattning av RISE, inte en mätning |
 | 3 | Datacenter som andel av elanvändningen | cirka 2 % (3,0 TWh av cirka 135 TWh totalt, en grov jämförelse mellan olika år) | cirka 1,5 % | Egen räkning. Totalen 135–136 TWh kommer från Energiföretagen/Ekonomifakta via sökresultat och är inte kontrollerad mot Energimyndigheten |
 | 4 | Vatten för datacenterkylning | inga svenska siffror hittade | stora skillnader, beror på kylmetod | Hittar vi inga, skriver vi det på sidan |
@@ -114,25 +115,16 @@ Siffrorna ändras, så sidan bör kunna hämta aktuella värden. Förslag (att p
 
 ## 9. Det som återstår att verifiera
 
-- Luccioni m.fl. (2024): kontrollera siffrorna mot artikelns tabell (jag har läst abstract, inte tabellerna).
-- Vatten: Li m.fl. (2025) har tydliga siffror per svar, jag har bara läst abstract. Hämta och läs metoden.
-- Jämförelser med andra vardagsvanor (strömning, resor, bilkörning): inte gjort. Mikrovågsugn är vald, och effekten (1 000 W) är ett antagande som bör kontrolleras mot energideklarationer eller Energimyndigheten.
-- Jämförelse mellan text och bild i nyare mätningar.
-- Ember (2025): öppna originalet och bekräfta 473 g/kWh för 2024.
-- Total svensk elanvändning: bekräfta mot Energimyndigheten (energiläget).
-- Datacenters vattenanvändning i Sverige: ingen siffra funnen. Sök vidare.
-- Slutna kylsystem: hitta en oberoende källa (inte leverantör) om vatten kontra el.
-- Energimyndighetens scenariostudie om elanvändning till 2030 (datacenter som tillkommande användare): bara sett i sökresultat. Öppna originalet.
-- Naturskyddsföreningens egna uttalanden om AI: hittade inget i en första sökning. Kontrollera på deras webbplats.
+Allt som återstår att verifiera eller förbättra står nu samlat i [Forbattringar_261112.md](Forbattringar_261112.md), med nummer (F-01 och framåt), målversion och om det syns på sidan. Verifieringsloggen för 2026-11-12 finns där också. Hit hör bland annat jämförelser med fler vardagsvanor (F-01), total svensk elanvändning (F-02), svenska datacenters vatten (F-03) och mikrovågsugnens källa (F-06).
 
 ## Källor (Harvard, alfabetisk ordning, hämtade 2026-11-12)
 
-- Ember (2025) *Global Electricity Review 2025*. https://ember-energy.org/latest-insights/global-electricity-review-2025/global-electricity-trends/ *(Global elmix 2024: 473 g CO2/kWh. Uppgiften är hämtad ur ett sökresultat och bör bekräftas i originalet.)*
+- Ember (2025) *Global Electricity Review 2025*. https://ember-energy.org/latest-insights/global-electricity-review-2025/global-electricity-trends/ *(Global elmix 2024: 473 g CO2/kWh. Kontrollerad mot Embers egen sida 2026-11-12.)*
 - Energimyndigheten (2023) *Energianvändning i datacenter och digitala system*, rapport av RISE (kontaktperson Tor Björn Minde), daterad 2023-01-05, publicerad 2023-02-02. https://www.energimyndigheten.se/492f27/contentassets/054d98cfdcd54cb5a802e24b53779452/energianvandning-i-datacenter-och-digitala-system.pdf *(Svenska datacenters elanvändning 2022 och prognos till 2030. Hämtad, delarna som citeras är lästa.)*
 - Google (Vahdat, A. & Dean, J.) (2025) 'How much energy does Google's AI use? We did the math', Google Cloud Blog, 21 augusti 2025. https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference *(Googles egna mätningar per textfråga: 0,24 Wh, 0,03 g CO2e, 0,26 ml vatten. Google skriver att uppgifterna inte är verifierade av tredje part.)*
 - Internationella energiorganet (IEA) (2025) *Energy and AI*, sammanfattning. https://www.iea.org/reports/energy-and-ai/executive-summary *(Datacentrens elanvändning i världen, 415 TWh 2024.)*
-- Li, P., Yang, J., Islam, M. A. & Ren, S. (2025) 'Making AI less "thirsty": uncovering and addressing the secret water footprint of AI models'. arXiv:2304.03271. https://arxiv.org/abs/2304.03271 *(Metod för att räkna vattenavtryck. Abstract läst, resten inte.)*
-- Luccioni, A. S., Jernite, Y. & Strubell, E. (2024) 'Power hungry processing: watts driving the cost of AI deployment?'. arXiv:2311.16863. https://arxiv.org/abs/2311.16863 *(Mätning av energi per 1 000 användningar, bildgenerering dyrast. Abstract läst, tabellerna inte.)*
+- Li, P., Yang, J., Islam, M. A. & Ren, S. (2025) 'Making AI less "thirsty": uncovering and addressing the secret water footprint of AI models'. arXiv:2304.03271. https://arxiv.org/abs/2304.03271 *(Metod för att räkna vattenavtryck. Artikeln hämtad och relevanta delar lästa 2026-11-12.)*
+- Luccioni, A. S., Jernite, Y. & Strubell, E. (2024) 'Power hungry processing: watts driving the cost of AI deployment?'. arXiv:2311.16863. https://arxiv.org/abs/2311.16863 *(Mätning av energi per 1 000 användningar, bildgenerering dyrast. Hela artikeln hämtad och sökt i, 2026-11-12.)*
 - Naturvårdsverket (2026) *Klimatklivet: värden för att beräkna utsläppsminskning*, 2026-03-25. https://www.naturvardsverket.se/495f5e/globalassets/amnen/klimatomstallning/klimatklivet/dokument/klimatklivet-varden-for-att-berakna-utslappsminskning.pdf *(Utsläppsfaktor 59 g CO2e/kWh för el, baserad på nordisk elmix 2021–2023. Hämtad och läst.)*
 - You, J. (2025) 'How much energy does ChatGPT use?', Epoch AI, Gradient Updates, 7 februari 2025. https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use *(Räknar om den äldre siffran 3 Wh till cirka 0,3 Wh per fråga.)*
 

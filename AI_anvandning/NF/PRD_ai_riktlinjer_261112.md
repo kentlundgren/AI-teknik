@@ -1,7 +1,8 @@
 # PRD: förhållningssätt och riktlinjer för generativ AI i en ideell miljöorganisation
 
-**Version:** 0.5 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.6 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** Kents egen undersökning, på eget initiativ och utan samordning. Inte beslutat av Lunds Naturskyddsförening eller av Naturskyddsföreningen.
+**Ändringar i 0.6:** förbättringsregister och verifieringslogg ([Forbattringar_261112.md](Forbattringar_261112.md)) införda. Mikrovågsugnen är fast 1 000 W utan parameter, med källa att hitta (F-06). Namnet "analys" diskuterat. Flera källor kontrollerade mot originalen.
 **Ändringar i 0.5:** vattenavsnittet (uttag, förbrukning, temperatur, kärnkraftsjämförelse) och en ny miljöfaktoranalys ([Analys_miljofaktorer_261112.md](Analys_miljofaktorer_261112.md)) med graderingsram. Presentationsmodell i två steg införd (avsnitt 7). Hubb-och-sidor-struktur föreslagen.
 **Ändringar i 0.4:** ny vattenanalys ([Analys_vatten_261112.md](Analys_vatten_261112.md)): direkt och indirekt vatten, slutna kylsystem, per fråga och per arbetspass. Mikrovågsugnen fastställd till 1 000 W.
 **Ändringar i 0.3:** besvarade frågor och liknelser (mikrovågsugn, vatten) samt Sverige/världen inarbetade. Kvarstående frågor uppdaterade.
@@ -183,10 +184,10 @@ Besvarade senare samma dag (Kent):
 
 Kvarstår:
 
-1. **Namnet:** förslag samlas under arbetet ("förhållningssätt" kan heta *approach*, *stance* eller *position* på engelska; "riktlinjer" heter *guidelines*, "policy" heter *policy*).
-2. **Mikrovågsugnens effekt:** 1 000 W (beslutat). Ska den ändå vara en inställbar parameter på sidan?
-3. **Vattnet:** hur ska sidan beskriva att vattnet *cirkulerar* i vissa anläggningar men förångas i andra, utan att påstå mer än källorna visar?
-4. **Verifieringar före publicering:** Luccioni (bildsiffran), Li (vattenmetoden), Ember, total svensk elanvändning och slutna kylsystem. Se Analys_resurser, avsnitt 9.
+1. **Namnet:** "analys" (`analys.html`) är ett kandidatnamn. "Förhållningssätt" kan heta *approach*, *stance* eller *position* på engelska, "riktlinjer" heter *guidelines*. Beslut senare (F-19).
+2. **Källa för mikrovågsugnens effekt (F-06):** märkeffekt omkring 900–1 000 W är belagd för enskilda modeller, men uttagen effekt saknar källa. Ingen parameter görs.
+3. **Vattnet:** beskrivs så bra vi kan i version 1.0, med de kvarstående förbättringarna i registret och en synlig ruta "förbättras i kommande versioner".
+4. **Förbättringsregistret:** allt som ska förbättras i kommande versioner står i Forbattringar_261112.md. Övriga dokument hänvisar dit.
 
 ## Repo
 

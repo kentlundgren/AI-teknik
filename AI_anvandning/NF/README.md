@@ -4,10 +4,11 @@ Planering av ett förhållningssätt och riktlinjer för generativ AI i en ideel
 
 | Fil | Innehåll |
 |---|---|
-| [PRD_ai_riktlinjer_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/PRD_ai_riktlinjer_261112.md) | PRD v0.5 (2026-11-12): bakgrund, mål, målgrupper, innehåll, faser, öppna frågor |
-| [Analys_resurser_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_resurser_261112.md) | Analys v0.2 (2026-11-12): energi, vatten och bilder, med källor |
-| [Analys_vatten_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_vatten_261112.md) | Analys v0.2 (2026-11-12): vatten i moderna AI-anläggningar, kort version och fullständig analys |
-| [Analys_miljofaktorer_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_miljofaktorer_261112.md) | Analys v0.1 (2026-11-12): miljöfaktorer utöver energi och vatten, och en graderingsram |
+| [PRD_ai_riktlinjer_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/PRD_ai_riktlinjer_261112.md) | PRD v0.6 (2026-11-12): bakgrund, mål, målgrupper, innehåll, faser, öppna frågor |
+| [Analys_resurser_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_resurser_261112.md) | Analys v0.3 (2026-11-12): energi, vatten och bilder, med källor |
+| [Analys_vatten_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_vatten_261112.md) | Analys v0.3 (2026-11-12): vatten i moderna AI-anläggningar, kort version och fullständig analys |
+| [Analys_miljofaktorer_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_miljofaktorer_261112.md) | Analys v0.2 (2026-11-12): miljöfaktorer utöver energi och vatten, och en graderingsram |
+| [Forbattringar_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Forbattringar_261112.md) | Förbättringsregister och verifieringslogg v0.1 (2026-11-12) |
 
 Underlaget (en privat e-posttråd) finns inte i repot.
 

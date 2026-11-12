@@ -1,6 +1,7 @@
 # Analys: miljöpåverkan från generativ AI utöver energi och vatten, och en graderingsram
 
-**Version:** 0.1 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.2 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Ändringar i 0.2:** UNEP:s abstract kontrollerat på UNEP:s dokumentsida. Avsnitt 6 ersatt av hänvisning till [Forbattringar_261112.md](Forbattringar_261112.md).
 **Status:** arbetsunderlag. Det finns ingen publicerad, vedertagen rangordning av AI:s miljöpåverkan. Graderingen nedan är en egen bedömning med uttalade kriterier, inte ett forskningsresultat. Siffrorna är hämtade ur angivna källor och inte kvalitetssäkrade. Läsaren ska kontrollera mot källan. Hämtdatum: 2026-11-12. Hör ihop med [Analys_resurser_261112.md](Analys_resurser_261112.md) och [Analys_vatten_261112.md](Analys_vatten_261112.md).
 
 ## 1. Frågan
@@ -9,7 +10,7 @@ Energi och vatten är de mest diskuterade faktorerna, men inte de enda. Vad mer 
 
 ## 2. Vilka faktorer finns
 
-FN:s miljöprogram (UNEP) beskriver AI:s miljöpåverkan över hela livscykeln, från datainsamling och modellutveckling till drift och infrastruktur. Som direkta effekter nämns energi, vatten och mineralanvändning, utsläpp och elektroniskt avfall, och som indirekta effekter förändringar i ekonomi och beteende (UNEP, 2024; uppgiften är hämtad ur sökresultat, UNEP-sidan gick inte att läsa i sin helhet).
+FN:s miljöprogram (UNEP) beskriver AI:s miljöpåverkan över hela livscykeln, från datainsamling och modellutveckling till drift och infrastruktur. Som direkta effekter nämns energi, vatten och mineralanvändning, utsläpp och elektroniskt avfall, och som indirekta effekter förändringar i ekonomi och beteende (UNEP, 2024; kontrollerat mot UNEP:s dokumentsida, abstract. Hela rapporten är inte läst).
 
 Tabell 1. Miljöfaktorer i livscykeln
 
@@ -64,17 +65,13 @@ Tabell 2. Gradering (preliminär)
 
 ## 6. Det som återstår att verifiera
 
-- UNEP (2024): öppna dokumentet i original och kontrollera formuleringarna om mineral och e-avfall.
-- Tillverkningens andel av hårdvarans livscykelutsläpp: sök en studie.
-- Storleken på global e-avfallsmängd, för att kunna sätta Wang m.fl. i proportion.
-- Mark, ljud och natur: sök källor eller skriv att det inte undersökts.
-- Träning kontra användning: äldre uppskattningar ger användningens andel som 35–60 % av energin, nyare projektioner högre (uppgifter ur en sammanställning i en vetenskaplig förtryckt artikel, ej öppnad). Kontrollera.
+Samlat i [Forbattringar_261112.md](Forbattringar_261112.md). Miljöfaktorer: F-11 (UNEP:s hela rapport), F-12 (tillverkningens andel), F-13 (e-avfall i proportion), F-14 (mark, ljud, natur), F-15 (träning mot användning), F-20 (indirekta effekter).
 
 ## Källor (Harvard, alfabetisk ordning, hämtade 2026-11-12)
 
 - Internationella energiorganet (IEA) (2025) *Energy and AI*, sammanfattning. https://www.iea.org/reports/energy-and-ai/executive-summary *(Datacentrens elanvändning i världen. Läst i originalet.)*
-- Shehabi, A. m.fl. (2024) *2024 United States Data Center Energy Usage Report*, LBNL-2001637, Lawrence Berkeley National Laboratory. https://eta-publications.lbl.gov/sites/default/files/2024-12/us_data_center_energy_usage_report_lbnl-2001637.pdf *(Direkt och indirekt vatten. Kopian är märkt som embargo, kontrollera mot officiell version.)*
-- UNEP (2024) *Artificial intelligence (AI) end-to-end: the environmental impact of the full AI lifecycle needs to be comprehensively assessed*. https://www.unep.org/resources/report/artificial-intelligence-ai-end-end-environmental-impact-full-ai-lifecycle-needs-be *(FN:s miljöprogram om AI:s livscykelpåverkan. Sidan gick inte att läsa fullt ut. Innehållet är hämtat ur sökresultat.)*
+- Shehabi, A. m.fl. (2024) *2024 United States Data Center Energy Usage Report*, LBNL-2001637, Lawrence Berkeley National Laboratory. https://eta-publications.lbl.gov/sites/default/files/2024-12/us_data_center_energy_usage_report_lbnl-2001637.pdf *(Direkt och indirekt vatten. Utgiven 2024-12-19, DOI 10.71468/P1WC7Q.)*
+- UNEP (2024) *Artificial intelligence (AI) end-to-end: the environmental impact of the full AI lifecycle needs to be comprehensively assessed*. https://www.unep.org/resources/report/artificial-intelligence-ai-end-end-environmental-impact-full-ai-lifecycle-needs-be *(FN:s miljöprogram om AI:s livscykelpåverkan. Abstract kontrollerat på UNEP:s dokumentsida. Uppgiften om kritiska mineral i tabell 1 är hämtad ur ett sökresultat och bör kontrolleras mot hela rapporten.)*
 - Wang, P. m.fl. (2024) 'E-waste challenges of generative artificial intelligence', *Nature Computational Science*, november 2024. https://www.nature.com/articles/s43588-024-00712-6 *(Scenario för elektroniskt avfall från generativ AI. Sammanfattningen läst i originalet.)*
 
 ## Repo
