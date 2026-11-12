@@ -1991,6 +1991,376 @@
    "kommentar": "Ur abstract.",
    "spann": null,
    "formel": null
+  },
+  {
+   "id": "IPSOS_LANDER",
+   "namn": "Antal länder i Ipsos What Worries the World",
+   "varde": 30,
+   "enhet": "länder",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "ipsos_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Juli 2026, Wave 223.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "IPSOS_N",
+   "namn": "Antal intervjuade i Ipsos juli 2026",
+   "varde": 25540,
+   "enhet": "personer",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "ipsos_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Åldern 16–74. Var och en väljer tre frågor.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "IPSOS_BROTT",
+   "namn": "Brott och våld: andel som väljer frågan bland sina tre",
+   "varde": 32,
+   "enhet": "%",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "ipsos_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-53"
+   ],
+   "kommentar": "Global landsmedelsvärde, juli 2026. Plats 1.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "IPSOS_INFLATION",
+   "namn": "Inflation: andel som väljer frågan",
+   "varde": 30,
+   "enhet": "%",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "ipsos_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-53"
+   ],
+   "kommentar": "Plats 2.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "IPSOS_ARBETSLOSHET",
+   "namn": "Arbetslöshet: andel som väljer frågan",
+   "varde": 29,
+   "enhet": "%",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "ipsos_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-53"
+   ],
+   "kommentar": "Plats 3.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "IPSOS_FATTIGDOM",
+   "namn": "Fattigdom och social ojämlikhet: andel som väljer frågan",
+   "varde": 29,
+   "enhet": "%",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "ipsos_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-53"
+   ],
+   "kommentar": "Plats 4.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "IPSOS_KORRUPTION",
+   "namn": "Ekonomisk och politisk korruption: andel som väljer frågan",
+   "varde": 28,
+   "enhet": "%",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "ipsos_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-53"
+   ],
+   "kommentar": "Plats 5.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "FATTIGDOM_MILJONER",
+   "namn": "Människor i extrem fattigdom 2024 (under 3 USD per dag)",
+   "varde": 824,
+   "enhet": "miljoner",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "worldbank_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Mer än 824 miljoner, cirka 10,1 procent. Prognosen för 2026 är 811 miljoner enligt Världsbankens översiktssida.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "HUNGER_MILJONER",
+   "namn": "Människor som drabbades av hunger 2025",
+   "varde": 645,
+   "enhet": "miljoner",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "fao_sofi_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "7,8 procent av världens befolkning.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "MATOSAKER_MILJARDER",
+   "namn": "Människor med måttlig eller allvarlig matosäkerhet 2025",
+   "varde": 2.1,
+   "enhet": "miljarder",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "fao_sofi_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "25,8 procent av världens befolkning.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "VATTEN_MILJARDER",
+   "namn": "Människor utan säkert hanterat dricksvatten",
+   "varde": 2.1,
+   "enhet": "miljarder",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "who_jmp_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "En av fyra. Uppgiften gäller 2024.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "FLYKT_EN_AV",
+   "namn": "Forcerat fördrivna: en av så många människor",
+   "varde": 70,
+   "enhet": "",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "unhcr_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Cirka 1,4 procent av världens befolkning, slutet av 2025.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "FLYKTINGAR_MILJONER",
+   "namn": "Flyktingar i världen, slutet av 2025",
+   "varde": 41.6,
+   "enhet": "miljoner",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "unhcr_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Inkluderar bland andra Palestinaflyktingar under UNRWA.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "IDP_MILJONER",
+   "namn": "Människor på flykt i det egna landet på grund av konflikt eller våld, slutet av 2025",
+   "varde": 68.7,
+   "enhet": "miljoner",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "unhcr_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "EL_UTAN_MILJONER",
+   "namn": "Människor utan tillgång till elektricitet 2024",
+   "varde": 730,
+   "enhet": "miljoner",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "iea_el_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Andra beräkningar inom Tracking SDG7 ger 655–666 miljoner. Ej kontrollerat här.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "NATUR_PROCENT",
+   "namn": "Genomsnittlig minskning av övervakade djurpopulationer 1970–2020",
+   "varde": 73,
+   "enhet": "%",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "wwf_lpi_2024",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Medelvärde över nästan 35 000 populationer av 5 495 arter.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "UPPVARMNING",
+   "namn": "Global medeltemperatur över 1850–1900, januari–september 2026",
+   "varde": 1.47,
+   "enhet": "°C",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "wmo_klimat_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "±0,13 °C. Rekordåret 2024 var 1,55 °C.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "ELNINO_MIN",
+   "namn": "El Niños tillskott till årets globala medeltemperatur, nedre",
+   "varde": 0.1,
+   "enhet": "°C",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "wmo_klimat_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "WMO: vanligen 0,1–0,2 °C, störst året efter att El Niño bildats.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "ELNINO_MAX",
+   "namn": "El Niños tillskott till årets globala medeltemperatur, övre",
+   "varde": 0.2,
+   "enhet": "°C",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "wmo_klimat_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "WEF_AI_2AR",
+   "namn": "Negativa följder av AI: plats på två års sikt (WEF 2026)",
+   "varde": 30,
+   "enhet": "",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "wef_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Plats i expertenkätens rangordning.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "WEF_AI_10AR",
+   "namn": "Negativa följder av AI: plats på tio års sikt (WEF 2026)",
+   "varde": 5,
+   "enhet": "",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "wef_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Största uppgången i rangordningen över tid.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "WEF_GEOEKONOMI",
+   "namn": "Geoekonomisk konfrontation: andel experter som väljer den som största risk för global kris 2026",
+   "varde": 18,
+   "enhet": "%",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "wef_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "WEF_KONFLIKT",
+   "namn": "Väpnad konflikt mellan stater: andel experter som väljer den som största risk för global kris 2026",
+   "varde": 14,
+   "enhet": "%",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "wef_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "WEF_DESINFO_2AR",
+   "namn": "Desinformation: plats på två års sikt (WEF 2026)",
+   "varde": 2,
+   "enhet": "",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "wef_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
   }
  ],
  "antaganden": [
@@ -2172,8 +2542,8 @@
   },
   {
    "id": "iea_2025",
-   "kort": "IEA (2025)",
-   "harvard": "Internationella energiorganet (IEA) (2025) 'Energy and AI', sammanfattning.",
+   "kort": "IEA (2025a)",
+   "harvard": "Internationella energiorganet (IEA) (2025a) 'Energy and AI', sammanfattning.",
    "url": "https://www.iea.org/reports/energy-and-ai/executive-summary",
    "doi": null,
    "hamtad": "2026-11-12",
@@ -2388,6 +2758,106 @@
    "doi": null,
    "hamtad": "2026-11-12",
    "not": "Läget hösten 2026, nederbörd och torka, att Sverige påverkas indirekt, att El Niño är naturligt och att effekterna tenderar att bli starkare i ett varmare klimat. Sidan läst.",
+   "nyckel": null
+  },
+  {
+   "id": "fao_sofi_2026",
+   "kort": "FAO (2026)",
+   "harvard": "FAO (2026) 'UN report: Global hunger levels ease for third consecutive year as regional disparities persist', pressmeddelande, 21 juli 2026. Om The State of Food Security and Nutrition in the World 2026.",
+   "url": "https://www.fao.org/newsroom/detail/un-report--global-hunger-levels-ease-for-third-consecutive-year-as-regional-disparities-persist/en",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "Hunger 645 miljoner (7,8 %) och matosäkerhet 2,1 miljarder 2025. Pressmeddelandet läst, själva rapporten inte.",
+   "nyckel": null
+  },
+  {
+   "id": "ipsos_2026",
+   "kort": "Ipsos (2026)",
+   "harvard": "Ipsos (2026) 'What Worries the World, July 2026', Wave 223, Ipsos Global Advisor, 31 juli 2026.",
+   "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-08/What-Worries-the-World-July-2026.pdf",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "Månatlig undersökning i 30 länder (25 540 personer, 16–74 år): vilka tre frågor oroar mest. Rapporten (PDF) läst. Länderna är inte världens fattigaste.",
+   "nyckel": null
+  },
+  {
+   "id": "iea_el_2025",
+   "kort": "IEA (2025b)",
+   "harvard": "IEA (2025b) 'Access to electricity stagnates, leaving globally 730 million in the dark', kommentar, 9 oktober 2025.",
+   "url": "https://iea.org/commentaries/access-to-electricity-stagnates-leaving-globally-730-million-in-the-dark",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "730 miljoner saknade elektricitet 2024. Kommentaren läst.",
+   "nyckel": null
+  },
+  {
+   "id": "unhcr_2026",
+   "kort": "UNHCR (2026)",
+   "harvard": "UNHCR (2026) 'Global Trends', 11 juni 2026.",
+   "url": "https://www.unhcr.org/global-trends",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "Forcerat fördrivna: en av 70, 41,6 miljoner flyktingar och 68,7 miljoner på flykt i det egna landet, slutet av 2025. Sidan läst i webbläsare, rapporten inte.",
+   "nyckel": null
+  },
+  {
+   "id": "who_jmp_2025",
+   "kort": "WHO och Unicef (2025)",
+   "harvard": "WHO & Unicef (2025) '1 in 4 people globally still lack access to safe drinking water', 26 augusti 2025. Om Progress on Household Drinking Water and Sanitation 2000–2024.",
+   "url": "https://www.who.int/news/item/26-08-2025-1-in-4-people-globally-still-lack-access-to-safe-drinking-water---who--unicef",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "2,1 miljarder saknar säkert hanterat dricksvatten. Uppdateringen läst, själva rapporten inte.",
+   "nyckel": null
+  },
+  {
+   "id": "wef_2026",
+   "kort": "World Economic Forum (2026)",
+   "harvard": "World Economic Forum (2026) 'Global Risks Report 2026: Key Findings'.",
+   "url": "https://www.weforum.org/publications/global-risks-report-2026/global-risks-report-2026-key-findings",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "Enkät bland över 1 300 experter om risker på två och tio års sikt, bland annat negativa följder av AI (plats 30 mot plats 5). Sammanfattningen läst i webbläsare, hela rapporten inte.",
+   "nyckel": null
+  },
+  {
+   "id": "wmo_elnino_2026",
+   "kort": "WMO (2026a)",
+   "harvard": "WMO (2026a) 'El Niño set to become very strong, raising risks of extreme weather into 2027', pressmeddelande, 3 september 2026.",
+   "url": "https://www.wmo.int/news/media-centre/el-nino-set-become-very-strong-raising-risks-of-extreme-weather-2027",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "El Niño är naturlig och orsakas inte av klimatförändringen. Läget hösten 2026. Pressmeddelandet läst.",
+   "nyckel": null
+  },
+  {
+   "id": "wmo_klimat_2026",
+   "kort": "WMO (2026b)",
+   "harvard": "WMO (2026b) 'State of the climate in 2026 gives new meaning to phrase “off the charts”', pressmeddelande, 9 november 2026.",
+   "url": "https://wmo.int/node/39188",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "Global temperatur 1,47 °C över 1850–1900 (januari–september 2026) och att El Niño vanligen ger 0,1–0,2 °C. Pressmeddelandet läst.",
+   "nyckel": null
+  },
+  {
+   "id": "worldbank_2026",
+   "kort": "Världsbanken (2026)",
+   "harvard": "World Bank (2026) 'September 2026 Global Poverty Update from the World Bank: One in ten worldwide live in extreme poverty', Data Blog, 22 september 2026.",
+   "url": "https://blogs.worldbank.org/en/opendata/september-2026-global-poverty-update-from-the-world-bank--one-in",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "Mer än 824 miljoner i extrem fattigdom 2024 (under 3 USD per dag). Bloggen läst.",
+   "nyckel": null
+  },
+  {
+   "id": "wwf_lpi_2024",
+   "kort": "WWF (2024)",
+   "harvard": "WWF (2024) 'Catastrophic 73% decline in the average size of global wildlife populations in just 50 years reveals a ‘system in peril’', pressmeddelande, 9 oktober 2024. Om Living Planet Report 2024.",
+   "url": "https://www.worldwildlife.org/news/press-releases/catastrophic-73-decline-in-the-average-size-of-global-wildlife-populations-in-just-50-years-reveals-a-system-in-peril/",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "Genomsnittlig minskning på 73 procent för övervakade populationer 1970–2020. Pressmeddelandet läst i webbläsare, själva rapporten inte.",
    "nyckel": null
   }
  ],
@@ -2727,6 +3197,34 @@
    "rubrik": "Provtrycka affisch 3 på en riktig skrivare (A4, och A3 om det behövs) och kontrollera marginaler, läsbarhet och bläckåtgång. PDF-filerna skapas av PyMuPDF med standardtypsnittet Helvetica (inte inbäddat) och är inte provtryckta",
    "malversion": "1.x",
    "syns": true
+  },
+  {
+   "id": "F-50",
+   "omrade": "Proportion",
+   "rubrik": "Koppla rangordningen till Supabase: skapa eller återanvänd ett projekt, kör databas/supabase_rangordning.sql, sätt adminkod och fyll i rangordning_config.js. Idag visar sidan bara läsarens egen ordning",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-51",
+   "omrade": "Proportion",
+   "rubrik": "Lägg in utfallsmått för dyrtid och jobb och för korruption (till exempel arbetslöshet och ett korruptionsindex). Idag finns bara Ipsos mått på oro",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-52",
+   "omrade": "Proportion",
+   "rubrik": "De tio frågorna är ett urval. Hälsa, utbildning och diskriminering saknas. Låt läsare föreslå frågor eller byt ut någon",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-53",
+   "omrade": "Proportion",
+   "rubrik": "Läs Ipsos fullständiga lista (klimat, krig och AI ligger utanför de fem största) och lägg in deras andelar",
+   "malversion": "1.x",
+   "syns": true
   }
  ],
  "verifieringar": [
@@ -2991,9 +3489,104 @@
    "paastaende": "WMO: El Niño pågår med nära 100 procents sannolikhet till februari 2027, kulmen vid årsskiftet. Naturligt fenomen. Medeltemperaturen högre under El Niño. Effekterna tenderar att bli starkare i ett varmare klimat. Svag koppling till svenskt väder, indirekt via livsmedelspriser. Nederbörd och torka per region",
    "kontroll": "Sidan hämtad och läst",
    "resultat": "Stämmer. Beskrivningen mycket kraftig El Niño är SMHI:s professors (Erik Kjellström), inte WMO:s"
+  },
+  {
+   "kalla": "Ipsos (2026)",
+   "ids": [
+    "ipsos_2026"
+   ],
+   "paastaende": "Globala topplistan juli 2026: brott och våld 32 %, inflation 30 %, arbetslöshet 29 %, fattigdom och ojämlikhet 29 %, korruption 28 %. 30 länder, 25 540 personer, var och en väljer tre frågor",
+   "kontroll": "Rapporten (PDF, 17 sidor) hämtad och läst, sidorna 6 till 8",
+   "resultat": "Stämmer. Klimat, krig och AI ligger utanför de fem största och deras andelar är inte lästa (F-53)"
+  },
+  {
+   "kalla": "FAO (2026)",
+   "ids": [
+    "fao_sofi_2026"
+   ],
+   "paastaende": "Hunger 645 miljoner (7,8 %) 2025, matosäkerhet 2,1 miljarder (25,8 %), Afrika 309 miljoner",
+   "kontroll": "Pressmeddelandet hämtat och läst",
+   "resultat": "Stämmer. Själva SOFI-rapporten inte läst"
+  },
+  {
+   "kalla": "WHO och Unicef (2025)",
+   "ids": [
+    "who_jmp_2025"
+   ],
+   "paastaende": "2,1 miljarder (1 av 4) saknar säkert hanterat dricksvatten, 106 miljoner dricker ytvatten",
+   "kontroll": "Uppdateringen hämtad och läst",
+   "resultat": "Stämmer. Rapporten inte läst"
+  },
+  {
+   "kalla": "UNHCR (2026)",
+   "ids": [
+    "unhcr_2026"
+   ],
+   "paastaende": "En av 70 (1,4 %) forcerat fördriven, 41,6 miljoner flyktingar, 68,7 miljoner på flykt i det egna landet, slutet av 2025",
+   "kontroll": "Sidan läst i webbläsare (direkt hämtning gav 403)",
+   "resultat": "Stämmer. Totalsumman 117,8 miljoner kommer från ett sökresultat och används inte"
+  },
+  {
+   "kalla": "IEA (2025b)",
+   "ids": [
+    "iea_el_2025"
+   ],
+   "paastaende": "730 miljoner utan elektricitet 2024, ner 11 miljoner från 2023",
+   "kontroll": "Kommentaren hämtad och läst",
+   "resultat": "Stämmer"
+  },
+  {
+   "kalla": "WWF (2024)",
+   "ids": [
+    "wwf_lpi_2024"
+   ],
+   "paastaende": "73 % genomsnittlig minskning 1970–2020, nästan 35 000 populationer av 5 495 arter, sötvatten 85 %, land 69 %, hav 56 %",
+   "kontroll": "Pressmeddelandet läst i webbläsare (direkt hämtning gav 403)",
+   "resultat": "Stämmer. Rapporten inte läst"
+  },
+  {
+   "kalla": "World Economic Forum (2026)",
+   "ids": [
+    "wef_2026"
+   ],
+   "paastaende": "Över 1 300 experter. Geoekonomisk konfrontation 18 %, väpnad konflikt 14 %, desinformation plats 2, negativa följder av AI plats 30 på två års sikt och plats 5 på tio års sikt, extremväder största risken på tio års sikt, ojämlikhet mest sammankopplad",
+   "kontroll": "Sammanfattningen (Key findings) läst i webbläsare (direkt hämtning gav 403)",
+   "resultat": "Stämmer. Placeringarna för AI (plats 30 och plats 5) är avlästa ur sammanfattningen. Hela rapporten inte läst"
+  },
+  {
+   "kalla": "WMO (2026a)",
+   "ids": [
+    "wmo_elnino_2026"
+   ],
+   "paastaende": "El Niño är naturlig och inte orsakad av klimatförändringen. Mycket stark El Niño, nära 100 procents sannolikhet till februari 2027",
+   "kontroll": "Pressmeddelandet hämtat och läst",
+   "resultat": "Stämmer"
+  },
+  {
+   "kalla": "WMO (2026b)",
+   "ids": [
+    "wmo_klimat_2026"
+   ],
+   "paastaende": "Januari–september 2026 1,47 ± 0,13 °C över 1850–1900. El Niño ger vanligen 0,1–0,2 °C, störst året efter. 2024 rekord 1,55 °C",
+   "kontroll": "Pressmeddelandet hämtat och läst",
+   "resultat": "Stämmer"
+  },
+  {
+   "kalla": "Världsbanken (2026)",
+   "ids": [
+    "worldbank_2026"
+   ],
+   "paastaende": "Mer än 824 miljoner i extrem fattigdom 2024 (10,1 %), under 3 USD per dag (2021 års köpkraft). Översiktssidan anger 811 miljoner för 2026",
+   "kontroll": "Bloggen och översiktssidan hämtade och lästa",
+   "resultat": "Stämmer"
   }
  ],
  "versionslogg": [
+  {
+   "version": "1.17",
+   "datum": "2026-11-12",
+   "text": "Ny sida AI i proportion: var AI ligger bland de frågor som människor oroar sig för och lider av, med mått från Ipsos, FN-organ, Världsbanken, WMO och WEF, och en rangordning av tio frågor som läsaren kan göra själv (rangordning.js). Rangordningen kan kopplas till Supabase (databas/). Tio nya källor, 26 nya poster och fyra nya förbättringsposter (F-50 till F-53)."
+  },
   {
    "version": "1.16",
    "datum": "2026-11-12",

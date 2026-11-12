@@ -1,6 +1,7 @@
 # SPEC: sidan om AI i en miljöorganisation (datamodell, beräkningar, struktur)
 
-**Version:** 0.14 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.15 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Ändringar i 0.15:** rangordning.js, rangordning.css och rangordning_config.js (dra och släpp, pilknappar, frivilligt namn, medelplats, slumpad startordning, läge utan databas), databas/supabase_rangordning.sql (flera omröstningar, fem funktioner, låsta tabeller) och sidan proportion.html.
 **Ändringar i 0.14:** startsidan: avsnittet Två frågor, två korta svar (.svarsrutor) med siffror ur datafilen, liten bild av affisch 3, knappen Gå direkt till bilderna i introt, markerat kort (li.markerat) och ny delningsbeskrivning.
 **Ändringar i 0.13:** gor_pdf.py (PDF i A4 och A3 med PyMuPDF), affisch 3 i A4 med enfärgade ytor och ritade pilspetsar, och djuplänkar till bilderna: #bildN visar bilden, #bildN-stor öppnar den förstorad, adressen följer valet (history.replaceState) och knappen Kopiera länk.
 **Ändringar i 0.12:** forstora.js och forstora.css (förstoring i ett fönster med hela bilden, bredd, 100 %, zoom, rullning och Esc), gen_affisch.py (affisch 3 som SVG, text bruten efter uppmätt bredd) och tre nya källor.

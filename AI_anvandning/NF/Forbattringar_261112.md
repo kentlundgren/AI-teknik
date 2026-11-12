@@ -1,6 +1,6 @@
 # Förbättringsregister och verifieringslogg
 
-**Version:** 0.14 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.15 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** arbetsdokument. Samlar allt som ska analyseras och beskrivas bättre i kommande versioner, och vad som är kontrollerat mot originalkällor. Hör ihop med [PRD_ai_riktlinjer_261112.md](PRD_ai_riktlinjer_261112.md).
 
 ## 1. Hur vi skriver upp och minns
@@ -69,6 +69,10 @@ Tabell 1. Kvarvarande förbättringar
 | F-47 | Bilder | Det finns inget underlag om hur gräll, ungdomlig eller seriös en AI-layout upplevs jämfört med en traditionell, vilket var den andra halvan av den ursprungliga frågan. Leta studier om layout och formspråk, eller redovisa det som en smakfråga | Saknas | 1.x | Ja |
 | F-48 | Bilder | Låt en sakkunnig granska fakta i affisch 3 (egen genomgång mot NOAA och SMHI, inte expertgranskning) innan den används utanför sidan, och ta ställning till om en AI-ritad affisch passar i föreningens kanaler | Öppen | 1.x | Ja |
 | F-49 | Bilder | Provtrycka affisch 3 på en riktig skrivare (A4, och A3 om det behövs) och kontrollera marginaler, läsbarhet och bläckåtgång. PDF-filerna skapas av PyMuPDF med standardtypsnittet Helvetica (inte inbäddat) och är inte provtryckta | Öppen | 1.x | Ja |
+| F-50 | Proportion | Koppla rangordningen till Supabase: skapa eller återanvänd ett projekt, kör databas/supabase_rangordning.sql, sätt adminkod och fyll i rangordning_config.js. Idag visar sidan bara läsarens egen ordning | Förberett, ej kopplat | 1.x | Ja |
+| F-51 | Proportion | Lägg in utfallsmått för dyrtid och jobb och för korruption (till exempel arbetslöshet och ett korruptionsindex). Idag finns bara Ipsos mått på oro | Saknas | 1.x | Ja |
+| F-52 | Proportion | De tio frågorna är ett urval. Hälsa, utbildning och diskriminering saknas. Låt läsare föreslå frågor eller byt ut någon | Öppen | 1.x | Ja |
+| F-53 | Proportion | Läs Ipsos fullständiga lista (klimat, krig och AI ligger utanför de fem största) och lägg in deras andelar | Saknas | 1.x | Ja |
 
 ## 3. Mikrovågsugnens effekt (F-06)
 
@@ -96,6 +100,7 @@ Tabell 1. Kvarvarande förbättringar
 | K-10 | Rapporten Artificial Authenticity läst i original (PDF, 28 sidor), bildsidan omarbetad efter den, rapporten markerad som nyckelkälla | 2026-11-12 | Sidan version 1.11 |
 | K-11 | Affisch 3 om El Niño ritad som vektorgrafik med fakta från NOAA och SMHI (genomgång mot källorna) | 2026-11-12 | Sidan version 1.14 |
 | K-12 | Affisch 3 omritad i A4-format (1:1,414) med ljusa färger, PDF i A4 och A3 med exakt sidstorlek, och länkar till varje bild | 2026-11-12 | Sidan version 1.15 |
+| K-13 | Originalkällor lästa till AI i proportion (Ipsos, FAO, WHO och Unicef, UNHCR, IEA, WWF, WEF, WMO, Världsbanken), med AI:s placering i WEF:s rangordning avläst i originalet | 2026-11-12 | Sidan version 1.17 |
 
 ## 5. Verifieringslogg 2026-11-12
 
