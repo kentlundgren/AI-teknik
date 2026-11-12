@@ -4,9 +4,10 @@ Planering av ett förhållningssätt och riktlinjer för generativ AI i en ideel
 
 | Fil | Innehåll |
 |---|---|
-| [PRD_ai_riktlinjer_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/PRD_ai_riktlinjer_261112.md) | PRD v0.4 (2026-11-12): bakgrund, mål, målgrupper, innehåll, faser, öppna frågor |
+| [PRD_ai_riktlinjer_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/PRD_ai_riktlinjer_261112.md) | PRD v0.5 (2026-11-12): bakgrund, mål, målgrupper, innehåll, faser, öppna frågor |
 | [Analys_resurser_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_resurser_261112.md) | Analys v0.2 (2026-11-12): energi, vatten och bilder, med källor |
-| [Analys_vatten_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_vatten_261112.md) | Analys v0.1 (2026-11-12): vatten i moderna AI-anläggningar, direkt och indirekt |
+| [Analys_vatten_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_vatten_261112.md) | Analys v0.2 (2026-11-12): vatten i moderna AI-anläggningar, kort version och fullständig analys |
+| [Analys_miljofaktorer_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_miljofaktorer_261112.md) | Analys v0.1 (2026-11-12): miljöfaktorer utöver energi och vatten, och en graderingsram |
 
 Underlaget (en privat e-posttråd) finns inte i repot.
 

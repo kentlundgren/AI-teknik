@@ -1,7 +1,8 @@
 # PRD: förhållningssätt och riktlinjer för generativ AI i en ideell miljöorganisation
 
-**Version:** 0.4 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.5 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** Kents egen undersökning, på eget initiativ och utan samordning. Inte beslutat av Lunds Naturskyddsförening eller av Naturskyddsföreningen.
+**Ändringar i 0.5:** vattenavsnittet (uttag, förbrukning, temperatur, kärnkraftsjämförelse) och en ny miljöfaktoranalys ([Analys_miljofaktorer_261112.md](Analys_miljofaktorer_261112.md)) med graderingsram. Presentationsmodell i två steg införd (avsnitt 7). Hubb-och-sidor-struktur föreslagen.
 **Ändringar i 0.4:** ny vattenanalys ([Analys_vatten_261112.md](Analys_vatten_261112.md)): direkt och indirekt vatten, slutna kylsystem, per fråga och per arbetspass. Mikrovågsugnen fastställd till 1 000 W.
 **Ändringar i 0.3:** besvarade frågor och liknelser (mikrovågsugn, vatten) samt Sverige/världen inarbetade. Kvarstående frågor uppdaterade.
 **Ändringar i 0.2:** Kents svar inarbetade (öppen publicering på GitHub, resursanalys som eget underlag, format md först och sedan html/css/js, databasidé, anonymisering). Se [Analys_resurser_261112.md](Analys_resurser_261112.md).
@@ -108,6 +109,12 @@ Beslut av Kent: först en struktur i `.md` som visar vad vi vill säga, sedan, n
 | 4 | Siffror i en datafil (JSON) som sidan läser, med version och datum per värde (se Analys_resurser, avsnitt 6). Databas först om uppdateringen ska automatiseras |
 
 Sidan följer Kents sidregler: version och datum synligt, `index.html` som startsida, hörnlänkarna `{ } GitHub` och `</> teknik`, README med Live-länk överst.
+
+**Presentation i två steg (beslutad princip).** Svåra frågor, som vattnet, presenteras först kort och faktamässigt korrekt och sedan i en fullständig analys som läsaren klickar vidare till. Varje svår fråga får därför en kort ruta (3–5 meningar, en liten tabell) och en länk till en egen fördjupningssida. Samma modell gäller miljöfaktorerna: en kort tabell med graderad säkerhet, och fördjupning bakom.
+
+**Struktur på GitHub Pages (förslag).** `index.html` är en kort hubb med status, version, datum och länkar. Den gällande huvudtexten ligger på en sida med stabilt namn. Fördjupningar och alternativa versioner är egna sidor, och äldre versioner läggs i `old/` med version och datum i filnamnet. Namnet är fortfarande öppet.
+
+**Källkrav.** Varje väsentligt påstående och varje siffra får en källa med länk och hämtdatum, och en markering av hur väl den är belagd (läst i originalet, läst via sekundärkälla eller bolagets egen uppgift).
 
 ## 8. Faktaunderlag som behöver samlas in och verifieras
 

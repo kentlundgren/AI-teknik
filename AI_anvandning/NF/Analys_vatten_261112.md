@@ -1,13 +1,20 @@
 # Analys: vatten i moderna AI-anläggningar
 
-**Version:** 0.1 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.2 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Ändringar i 0.2:** kort version överst (steg 1), nytt avsnitt 4 om uttag, förbrukning och temperatur med kärnkraftsjämförelse och kylmetoder. Övriga avsnitt flyttade till 5–7. Se även [Analys_miljofaktorer_261112.md](Analys_miljofaktorer_261112.md).
 **Status:** arbetsunderlag. Siffrorna är hämtade ur angivna källor och inte kvalitetssäkrade. Läsaren ska kontrollera mot källan. Hämtdatum för alla webbkällor: 2026-11-12. Hör ihop med [Analys_resurser_261112.md](Analys_resurser_261112.md).
 
 ## 1. Frågan
 
 Går det åt vatten när man ställer en fråga till en AI-tjänst? Cirkulerar vattnet bara i en sluten krets (och kostar då el för pumpar och kylning), eller försvinner det? Och vad blir det per fråga och per arbetspass? Frågan är viktig för många i miljörörelsen, och svaret beror på vad man räknar med.
 
-## 2. Kort svar
+## Kort version (steg 1 på sidan)
+
+*Vatten och AI, kort och faktamässigt:* Vatten kan förbrukas vid ett datacenter, men hur mycket beror på hur anläggningen kyls. Med avdunstningskylning försvinner vattnet ut i luften. Med slutna kretsar cirkulerar det, mot lite mer el. En vanlig textfråga motsvarar bråkdelar av en milliliter vid datacentret (cirka 0,06–0,3 ml enligt Microsoft, Google och OpenAI), och cirka 1 ml om man räknar med vattnet som förbrukas när elen produceras (USA:s elmix). Per arbetspass med 200 frågor blir det mellan ungefär en matsked och ett vattenglas. Totalt växer vattenanvändningen: USA:s datacenter förbrukade cirka 66 miljarder liter direkt 2023. Siffrorna är bolagens egna eller beräkningar, och är osäkra. Svenska siffror för elens vatten saknas. Fullständig analys: avsnitt 3–7 nedan.
+
+Avsnitt 3–7 är steg 2: den fullständiga analysen, dit läsaren klickar vidare på sidan.
+
+## 2. Kort svar (arbetsversion)
 
 1. **Ja, vatten kan förbrukas, men det beror på kylmetoden.** I en anläggning med förångningskylning (avdunstning) försvinner vattnet ut i luften. I en sluten krets, som Microsoft säger att alla nya anläggningar byggs med sedan augusti 2024, cirkulerar vattnet och fylls på en gång vid bygget. Då behövs el till kylmaskiner och pumpar. Microsoft anger själva att detta ger en "nominell" ökning av årlig energianvändning, utan siffra.
 2. **Det finns två vattenmängder som ofta blandas ihop:** vattnet *vid datacentret* (direkt) och vattnet som förbrukas *för att göra elen* (indirekt). I USA är den indirekta mängden cirka tolv gånger större än den direkta, enligt en rapport till den amerikanska kongressen.
@@ -49,7 +56,36 @@ Enligt Microsoft (2024, 2026), som jag läst via en genomgång av de två sidorn
 
 Google: enligt sökresultat byggs Googles första egenutvecklade datacenter i Sverige (Horndal) för luftkylning. Det är en uppgift ur en sekundärkälla som inte är kontrollerad mot Googles rapport. Googles egen sida bekräftar bara att bolaget återställer (replenish) cirka 78 % av det färskvatten de förbrukade 2025. Återställning är inte samma sak som att inte förbruka.
 
-## 4. Per fråga och per arbetspass
+## 4. Uttag, förbrukning och temperatur: att jämföra med kärnkraft
+
+Tre begrepp måste hållas isär, annars blir frågan "går det åt vatten?" omöjlig att besvara:
+
+- **Uttag** (withdrawal): hur mycket vatten som pumpas in från en sjö, ett hav eller en ledning.
+- **Förbrukning** (consumption): den del som inte kommer tillbaka till samma vattendrag, i praktiken det som avdunstar. LBNL definierar förbrukning som vatten som "permanent tas bort från den omedelbara vattencykeln" genom avdunstning eller andra irreversibla processer (Shehabi m.fl., 2024, s. 56).
+- **Temperaturpåverkan:** vattnet kan komma tillbaka i mängd men varmare.
+
+**Kärnkraftsverket som exempel.** Svenska kärnkraftverk ligger vid kusten och kyls med havsvatten som pumpas in, passerar anläggningen en gång och släpps ut varmare (genomströmningskylning). USGS beskriver att sådana system tar ut stora mängder vatten men förbrukar lite, i genomsnitt cirka 1 % av det uttagna (sökresultat som återger USGS, se källor). Din tanke stämmer alltså på volymen: vattnet "går inte åt" i den meningen att det kommer tillbaka.
+
+Men "det har bara värmts upp" är inte hela bilden:
+- Uppvärmt vatten påverkar ekosystemet. Vid Forsmark gynnas vissa arter och strömmingen leker mer i det uppvärmda området, enligt SLU:s recipientkontroll (sökresultat, ej öppnad).
+- Intaget av havsvatten drar med sig organismer. Energiforsk anger fiskförluster vid silstationerna, och enligt ett sökresultat omkommer över tusen exemplar av den rödlistade europeiska ålen per år vid silstationerna (inte kontrollerat mot originalrapporten).
+- Vattnets *kvalitet* i betydelsen renhet försämras inte av värmen i sig, men syrehalt, arter och biologi kan påverkas.
+
+**Samma fysik i ett datacenter, men olika teknik.** Värmen måste ut ur anläggningen, och det finns i grunden tre vägar:
+
+Tabell 3. Kylmetoder och vattnets öde
+
+| Nr | Kylmetod | Vad händer med vattnet | Vad kostar det | Säkerhet i underlaget |
+|---|---|---|---|---|
+| 1 | Genomströmning (som kustkärnkraft) | Tas ut och släpps tillbaka varmare, liten förbrukning | Temperatur- och intagspåverkan på vattendraget | Etablerat för kraftverk (USGS). För datacenter har jag inget belägg i det här underlaget |
+| 2 | Kyltorn med avdunstning | Avdunstar. Förbrukning, enligt USGS ofta över 70 % av uttaget för kraftverk | Lite el. Förbrukar vatten lokalt | Etablerat för kraftverk, och för datacenter enligt Google och LBNL |
+| 3 | Slutna kretsar (chipkylning, luftkylare) | Cirkulerar. Fylls en gång | Mer el till kylmaskiner och pumpar, enligt Microsoft "nominellt" mer | Tillverkarens egen uppgift (Microsoft) |
+
+Jämförelsen med kärnkraft stämmer alltså för rad 1 (men det är inte hur de flesta datacenter kyls, så vitt jag hittat) och för rad 2 (där kraftverk med kyltorn förbrukar vatten på samma sätt). Googles 0,26 ml per fråga avser vatten som förbrukas, alltså rad 2.
+
+**Slutsats för sidan:** tala inte om vatten som "går åt" eller inte. Skriv i stället att det beror på kylmetoden, och skilj på *uttag*, *förbrukning* (avdunstning) och *temperaturpåverkan*.
+
+## 5. Per fråga och per arbetspass
 
 Per arbetspass finns ingen mätning. Räkna antal frågor × vatten per fråga. Räknat med en vanlig fråga och två olika systemgränser:
 
@@ -63,7 +99,7 @@ Tabell 2. Vatten per arbetspass (egen räkning, illustration)
 
 Jämförelse: ett vattenglas är 2 dl. Rad 3 för 200 frågor motsvarar alltså ungefär ett vattenglas, men siffran bygger på amerikansk elmix och bör inte överföras till Sverige. De tunga passen (2 000 frågor) är ett scenario, inte en mätning.
 
-## 5. Vad som är rimligt att säga på sidan
+## 6. Vad som är rimligt att säga på sidan
 
 **Rimligt:**
 - Vatten kan förbrukas vid ett datacenter, men hur mycket beror starkt på kylmetod och plats.
@@ -76,7 +112,7 @@ Jämförelse: ett vattenglas är 2 dl. Rad 3 för 200 frågor motsvarar alltså 
 - Att en fråga "förbrukar en flaska vatten". Vår genomgång visar bråkdelar av en milliliter direkt (cirka 0,06–0,3 ml) och cirka 1 ml med indirekt vatten, inte 500 ml.
 - Att siffrorna är mätta och granskade. Bolagens uppgifter är egna och Altmans saknar metod.
 
-## 6. Det som återstår att verifiera
+## 7. Det som återstår att verifiera
 
 - Microsofts uppgifter är lästa via en genomgång av sidorna (inte läst av mig direkt i original). Diagrammet över vattenanvändning per kylteknik går inte att läsa i text.
 - LBNL-rapporten: min kopia är märkt "EMBARGOED REPORT: DO NOT DISTRIBUTE". Kontrollera att siffrorna stämmer mot den officiella versionen på LBNL och DOE innan sidan publiceras.
@@ -89,10 +125,12 @@ Jämförelse: ett vattenglas är 2 dl. Rad 3 för 200 frågor motsvarar alltså 
 ## Källor (Harvard, alfabetisk ordning, hämtade 2026-11-12)
 
 - Altman, S. (2025) 'The gentle singularity'. https://blog.samaltman.com/the-gentle-singularity *(OpenAI-chefens uppgift om 0,34 Wh och 0,000085 gallon per genomsnittlig fråga. Läst i originalet. Metod redovisas inte.)*
+- Energiforsk (2012) *Fiskförluster i svenska kärnkraftverk: en sammanställning av kunskapsläget*, Elforsk rapport 2012:50. https://energiforsk.se/media/19882/fiskforluster-i-svenska-karnkraftverk-en-sammanstallning-av-kunskapslaget-elforskrapporter-2012-50.pdf *(Intag av organismer vid kärnkraftverkens silstationer. Hittad i sökresultat, inte öppnad.)*
 - Jegham, N. m.fl. (2025) 'How hungry is AI? Benchmarking energy, water, and carbon footprint of LLM inference'. arXiv:2505.09598. https://arxiv.org/abs/2505.09598 *(Jämförande mätning av 30 modeller. Endast sammanfattningen läst.)*
 - Microsoft (Priest, J. & Solomon, S.) (2026) 'Inside Microsoft's two-decade push to cut water intensity while scaling for growth', 24 juni 2026. https://blogs.microsoft.com/blog/2026/06/24/inside-microsofts-two-decade-push-to-cut-water-intensity-while-scaling-for-growth/ *(Microsofts WUE 0,27 L/kWh 2025 och andel låg- till nollvattenkylning. Läst via genomgång, inte direkt.)*
 - Microsoft (Solomon, S.) (2024) 'Sustainable by design: next-generation datacenters consume zero water for cooling', 9 december 2024. https://www.microsoft.com/en-us/microsoft-cloud/blog/2024/12/09/sustainable-by-design-next-generation-datacenters-consume-zero-water-for-cooling/ *(Beskrivning av den slutna kretsen och energikonsekvensen. Läst via genomgång, inte direkt.)*
 - Shehabi, A. m.fl. (2024) *2024 United States Data Center Energy Usage Report*, LBNL-2001637, Lawrence Berkeley National Laboratory, december 2024. https://eta-publications.lbl.gov/sites/default/files/2024-12/us_data_center_energy_usage_report_lbnl-2001637.pdf *(Direkt och indirekt vattenanvändning i USA:s datacenter. Delar läst. Min kopia är märkt som embargo, kontrollera mot officiell version.)*
+- USGS (u.å.) 'Water withdrawal and consumption trends for thermoelectric power plants in the conterminous United States'. https://www.usgs.gov/publications/water-withdrawal-and-consumption-trends-thermoelectric-power-plants-conterminous *(Skillnaden mellan uttag och förbrukning vid genomströmning och kyltorn. Siffrorna 1 % och över 70 % är hämtade ur ett sökresultat som återger USGS-sidor, och bör kontrolleras mot publikationen.)*
 - Vahdat, A. & Dean, J. (2025) 'How much energy does Google's AI use? We did the math', Google Cloud Blog, 21 augusti 2025. https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference *(Googles uppgift om 0,26 ml vatten per textfråga. Ej verifierad av tredje part.)*
 
 ## Repo
