@@ -9,7 +9,7 @@ description: >
   säkerhets- och integritetsreglerna. Referensimplementation i AI-teknik, mappen AI_anvandning/NF.
 metadata:
   type: process
-  version: "1.1 (2026-11-12)"
+  version: "1.2 (2026-11-13)"
 ---
 
 # Interaktiv rangordning med valfritt namn och databas
@@ -28,6 +28,7 @@ Allt ligger i `C:\Users\kentl\OneDrive\AI\AI-teknik\AI_anvandning\NF\` ([GitHub]
 | [`databas/supabase_rangordning.sql`](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase_rangordning.sql) | Tabeller, regler och fem funktioner för flera omröstningar i samma projekt |
 | [`databas/supabase.md`](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase.md) | Steg för steg för Kent, jämförelse med alternativ, integritet |
 | [`proportion.html`](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/proportion.html) | Exempelsidan: behållaren, tabellen med posterna och kolumnerna |
+| [`agentisk.html`](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/agentisk.html) och [`databas/supabase_agentisk_ai.sql`](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase_agentisk_ai.sql) | Andra listan i samma projekt: en ny sida och en SQL-fil med en enda rad. Utan kolumnen `rg-efter-rost` visas ingen knapp Visa min bedömning. Berättelsen finns i [Uppkoppling_Supabase.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/Uppkoppling_Supabase.md#lista2) |
 
 Förebilden i Samrådsguiden (Codex-repot, `Fritid/NF/Samradsguiden/rangordning/` och `supabase.md`) har skapande av konto och projekt med bilder. Läs den när Kent ska skapa ett Supabase-projekt.
 
@@ -53,7 +54,7 @@ Kent behöver bara skriva det här. Saknas något frågar Claude (högst en frå
 3. **Tabell med posterna.** En rad per post: `<tr data-id="f01" data-titel="Titel">`, en cell med klassen `rg-info` som förklarar posten (siffror och källor som vanligt), och valfritt celler med klassen `rg-efter-rost` (till exempel Kents egen bedömning), som visas först när läsaren har rangordnat. Tabellen har ett id och en numrerad rubrik enligt sidans regler.
 4. **Behållare:** `<div id="rangordning" data-omrostning="OMROSTNINGENS_ID" data-tabell="TABELLENS_ID"></div>`. Placera den **före** tabellen med Kents egen ordning, så att den inte styr läsaren.
 5. **I `<head>`:** `rangordning.css`, `rangordning_config.js` (utan `defer`, före skripten), `rangordning.js` (med `defer`).
-6. **SQL:** lägg en rad i `rang_omrostning` med id, titel och postlistan (kommandot längst ned i SQL-filen). Postlistan i SQL ska vara exakt `data-id` i tabellen. Ingen annan SQL behövs.
+6. **SQL:** skriv en egen liten SQL-fil för listan (mall: `supabase_agentisk_ai.sql`) som lägger en rad i `rang_omrostning` med id, titel och postlistan. Postlistan i SQL ska vara exakt `data-id` i tabellen. Ingen annan SQL behövs.
 7. **Config:** fyll i `supabaseUrl` och `anonKey` när Kent har dem, annars lämna tomma. Sidan visar då bara läsarens egen ordning, med en banner som säger det.
 8. **Testa lokalt** (se nedan), höj version och datum enligt Kents regler för sidor, uppdatera README och registret, och skriv i svaret vad Kent själv måste göra.
 

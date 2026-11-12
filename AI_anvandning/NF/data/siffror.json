@@ -2361,6 +2361,98 @@
    "kommentar": null,
    "spann": null,
    "formel": null
+  },
+  {
+   "id": "AIIMPACTS_N",
+   "namn": "Forskare som svarade på enkäten (AI Impacts 2023)",
+   "varde": 2778,
+   "enhet": "forskare",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "aiimpacts_2024",
+   "sida": null,
+   "hamtdatum": "2026-11-13",
+   "forbattring": [
+    "F-57"
+   ],
+   "kommentar": "Forskare som publicerat vid sex ledande AI-konferenser och tidskrifter.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "AIIMPACTS_FALSK",
+   "namn": "Betydlig eller extrem oro: spridning av falsk information, till exempel deepfakes",
+   "varde": 86,
+   "enhet": "%",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "aiimpacts_2024",
+   "sida": null,
+   "hamtdatum": "2026-11-13",
+   "forbattring": [],
+   "kommentar": "Andel som bedömde scenariot som värt betydlig eller extrem oro, av de som fick frågan. Enkäten kan inte skilja om något oroar för att det är katastrofalt eller för att det är sannolikt.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "AIIMPACTS_OPINION",
+   "namn": "Betydlig eller extrem oro: manipulation av opinionen i stor skala",
+   "varde": 79,
+   "enhet": "%",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "aiimpacts_2024",
+   "sida": null,
+   "hamtdatum": "2026-11-13",
+   "forbattring": [],
+   "kommentar": "Som ovan.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "AIIMPACTS_FARLIGA",
+   "namn": "Betydlig eller extrem oro: farliga grupper får kraftfulla verktyg (till exempel konstruerade virus)",
+   "varde": 73,
+   "enhet": "%",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "aiimpacts_2024",
+   "sida": null,
+   "hamtdatum": "2026-11-13",
+   "forbattring": [],
+   "kommentar": "Som ovan.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "AIIMPACTS_AUTORITARA",
+   "namn": "Betydlig eller extrem oro: auktoritära ledare använder AI för att kontrollera sina befolkningar",
+   "varde": 73,
+   "enhet": "%",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "aiimpacts_2024",
+   "sida": null,
+   "hamtdatum": "2026-11-13",
+   "forbattring": [],
+   "kommentar": "Som ovan.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "AIIMPACTS_OJAMLIKHET",
+   "namn": "Betydlig eller extrem oro: AI förvärrar ekonomisk ojämlikhet",
+   "varde": 71,
+   "enhet": "%",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "aiimpacts_2024",
+   "sida": null,
+   "hamtdatum": "2026-11-13",
+   "forbattring": [],
+   "kommentar": "Som ovan.",
+   "spann": null,
+   "formel": null
   }
  ],
  "antaganden": [
@@ -2859,6 +2951,116 @@
    "hamtad": "2026-11-12",
    "not": "Genomsnittlig minskning på 73 procent för övervakade populationer 1970–2020. Pressmeddelandet läst i webbläsare, själva rapporten inte.",
    "nyckel": null
+  },
+  {
+   "id": "safety_report_2026",
+   "kort": "Bengio m.fl. (2026)",
+   "harvard": "Bengio, Y. m.fl. (2026) 'International AI Safety Report 2026', februari 2026.",
+   "url": "https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026",
+   "doi": null,
+   "hamtad": "2026-11-13",
+   "not": "Internationell rapport om risker från allmänt användbar AI: skadlig användning, funktionsfel och systemrisker. Rapporten (PDF) hämtad och sökt i. Sammanfattning, innehållsförteckning och utdrag ur avsnitten om kapacitet, bedrägerier, manipulation, cyberattacker, biologiska och kemiska risker, kontrollförlust och mänsklig autonomi lästa. Resten inte läst.",
+   "nyckel": null
+  },
+  {
+   "id": "hendrycks_2023",
+   "kort": "Hendrycks m.fl. (2023)",
+   "harvard": "Hendrycks, D., Mazeika, M. & Woodside, T. (2023) 'An Overview of Catastrophic AI Risks', arXiv:2306.12001.",
+   "url": "https://arxiv.org/abs/2306.12001",
+   "doi": "10.48550/arXiv.2306.12001",
+   "hamtad": "2026-11-13",
+   "not": "Fyra riskkällor: skadlig användning, kapplöpning, organisationsolyckor och rogue AIs. Förtryck. Artikeln hämtad (PDF) och sökt i. Sammanfattningen och avsnitten om kapplöpning, rogue AIs och enfeeblement lästa.",
+   "nyckel": null
+  },
+  {
+   "id": "kulveit_2025",
+   "kort": "Kulveit m.fl. (2025)",
+   "harvard": "Kulveit, J., Douglas, R., Ammann, N., Turan, D., Krueger, D. & Duvenaud, D. (2025) 'Gradual Disempowerment: Systemic Existential Risks from Incremental AI Development', arXiv:2501.16946.",
+   "url": "https://arxiv.org/abs/2501.16946",
+   "doi": "10.48550/arXiv.2501.16946",
+   "hamtad": "2026-11-13",
+   "not": "Gradvis maktförlust för människor genom stegvis bättre AI, utan abrupt övertagning. Positionsartikel (ICML 2025). PDF hämtad och sammanfattningen läst. Resten sökt i.",
+   "nyckel": null
+  },
+  {
+   "id": "aiimpacts_2024",
+   "kort": "Grace m.fl. (2024)",
+   "harvard": "Grace, K. m.fl. (2024) 'Thousands of AI Authors on the Future of AI', arXiv:2401.02843.",
+   "url": "https://arxiv.org/abs/2401.02843",
+   "doi": "10.48550/arXiv.2401.02843",
+   "hamtad": "2026-11-13",
+   "not": "Enkät bland 2 778 AI-forskare om framtida AI och om oro för elva scenarier. Förtryck. PDF hämtad och sammanfattningen och avsnitt 4.1 (oro) lästa.",
+   "nyckel": null
+  },
+  {
+   "id": "hawking_2015",
+   "kort": "Hawking (2015)",
+   "harvard": "Hawking, S. (2015) 'Science AMA Series: Stephen Hawking AMA Answers!', Reddit r/science, 8 oktober 2015. Återgiven av Future of Life Institute (2015) 'Hawking Reddit AMA on AI', 11 oktober 2015.",
+   "url": "https://futureoflife.org/2015/10/11/hawking-reddit-ama-on-ai/",
+   "doi": null,
+   "hamtad": "2026-11-13",
+   "not": "Svaret med myrorna och vattenkraftsprojektet. Sidan hämtad och svaret läst.",
+   "nyckel": null
+  },
+  {
+   "id": "mit_risk_2026",
+   "kort": "Slattery m.fl. (2026)",
+   "harvard": "Slattery, P. m.fl. (2026) 'The AI Risk Repository: A Meta-Review, Database, and Taxonomy of Risks From Artificial Intelligence', Patterns (arXiv:2408.12622).",
+   "url": "https://arxiv.org/abs/2408.12622",
+   "doi": "10.1016/j.patter.2026.101517",
+   "hamtad": "2026-11-13",
+   "not": "Förteckning över 1 725 risker ur 74 ramverk, ordnade i sju domäner. Katalogiserar risker utan att bedöma sannolikhet eller allvar. Förtrycket hämtat (PDF) och sökt i: domäner och avgränsning.",
+   "nyckel": null
+  },
+  {
+   "id": "openai_pf_2025",
+   "kort": "OpenAI (2025)",
+   "harvard": "OpenAI (2025) 'Preparedness Framework, Version 2', 15 april 2025.",
+   "url": "https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf",
+   "doi": null,
+   "hamtad": "2026-11-13",
+   "not": "Tre spårade kategorier: biologiska och kemiska förmågor, cybersäkerhet och AI-självförbättring. Dokumentet hämtat och sökt i. Kan ha ersatts av en nyare version.",
+   "nyckel": null
+  },
+  {
+   "id": "deepmind_fsf_2025",
+   "kort": "Google DeepMind (2025)",
+   "harvard": "Google DeepMind (2025) 'Strengthening our Frontier Safety Framework', blogginlägg, 22 september 2025 (uppdaterat 17 april 2026).",
+   "url": "https://deepmind.google/blog/strengthening-our-frontier-safety-framework/",
+   "doi": null,
+   "hamtad": "2026-11-13",
+   "not": "Ny kritisk kapacitetsnivå för skadlig manipulation och skydd mot felriktade modeller. Blogginlägget hämtat och läst. Själva ramverksdokumentet inte läst.",
+   "nyckel": null
+  },
+  {
+   "id": "anthropic_rsp_2026",
+   "kort": "Anthropic (u.å.c)",
+   "harvard": "Anthropic (u.å.c) 'Anthropic's Responsible Scaling Policy', sidan senast uppdaterad 14 augusti 2026.",
+   "url": "https://www.anthropic.com/rsp",
+   "doi": null,
+   "hamtad": "2026-11-13",
+   "not": "Kapacitetsgränser för CBRN-vapen och AI-forskning. Sidan med uppdateringsnoter hämtad och läst. Själva policytexten inte läst.",
+   "nyckel": null
+  },
+  {
+   "id": "nist_600_1_2024",
+   "kort": "NIST (2024)",
+   "harvard": "National Institute of Standards and Technology (NIST) (2024) 'Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile', NIST AI 600-1, juli 2024.",
+   "url": "https://doi.org/10.6028/NIST.AI.600-1",
+   "doi": "10.6028/NIST.AI.600-1",
+   "hamtad": "2026-11-13",
+   "not": "Tolv risker som är unika för eller förvärras av generativ AI, bland annat CBRN, informationsintegritet och informationssäkerhet. Frivillig vägledning. PDF hämtad och sökt i.",
+   "nyckel": null
+  },
+  {
+   "id": "owasp_agentic_2025",
+   "kort": "OWASP (2025)",
+   "harvard": "OWASP GenAI Security Project (2025) 'OWASP Top 10 for Agentic Applications for 2026', 9 december 2025.",
+   "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications/",
+   "doi": null,
+   "hamtad": "2026-11-13",
+   "not": "De tio största säkerhetsriskerna för agentiska system. Startsidan läst. Själva listan (PDF) kräver åtkomst och är inte läst: namnen ASI01 till ASI10 är hämtade ur sökträffar och sammandrag.",
+   "nyckel": null
   }
  ],
  "forbattringar": [
@@ -3225,6 +3427,34 @@
    "rubrik": "Läs Ipsos fullständiga lista (klimat, krig och AI ligger utanför de fem största) och lägg in deras andelar",
    "malversion": "1.x",
    "syns": true
+  },
+  {
+   "id": "F-54",
+   "omrade": "Hot",
+   "rubrik": "Läs OWASP:s lista Top 10 for Agentic Applications i original (PDF:en kräver åtkomst) och kontrollera namnen ASI01–ASI10 och beskrivningarna för hot 9 och 10. Idag bara sammandrag",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-55",
+   "omrade": "Hot",
+   "rubrik": "Läs Russells gorilla problem (Human Compatible, 2019) och Bostrom om likgiltig superintelligens, och bekräfta att hot 5 återger dem rätt. Idag bygger hot 5 på Hawking (2015) och Hendrycks m.fl. (2023)",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-56",
+   "omrade": "Hot",
+   "rubrik": "Lägg till en egen bedömning av de tio hoten som visas efter att läsaren röstat, som på AI i proportion, om Kent vill ge en ordning",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-57",
+   "omrade": "Hot",
+   "rubrik": "Läs vidare där källorna bara är delvis lästa: Safety Report (160 sidor, utdrag lästa), Google DeepMinds ramverksdokument (bara bloggen läst), Anthropics policytext (bara uppdateringssidan) och OpenAI:s nuvarande version. Överväg fler källor för hot 6, 7 och 8 som vilar på få",
+   "malversion": "1.x",
+   "syns": true
   }
  ],
  "verifieringar": [
@@ -3579,9 +3809,113 @@
    "paastaende": "Mer än 824 miljoner i extrem fattigdom 2024 (10,1 %), under 3 USD per dag (2021 års köpkraft). Översiktssidan anger 811 miljoner för 2026",
    "kontroll": "Bloggen och översiktssidan hämtade och lästa",
    "resultat": "Stämmer"
+  },
+  {
+   "kalla": "Bengio m.fl. (2026)",
+   "ids": [
+    "safety_report_2026"
+   ],
+   "paastaende": "Agenter är utformade för att nå mål med verktyg som minne, datorgränssnitt och webbläsare. Fler belägg för AI i verkliga cyberattacker. Modeller kan inte uteslutas hjälpa nybörjare med biologiska vapen. Loss of control: nuvarande system saknar förmågan men förbättras. Bedrägerier med röstkloner och deepfakes dokumenterade, systematiska data begränsade. Automation bias och AI-sällskapsappar med tiotals miljoner användare",
+   "kontroll": "PDF hämtad och sökt i. Sammanfattningen och utdrag ur avsnitt 1.2, 2.1, 2.2 och 2.3 lästa",
+   "resultat": "Stämmer enligt utdragen. Rapporten är 160 sidor och är inte läst i sin helhet (F-57)"
+  },
+  {
+   "kalla": "Hendrycks m.fl. (2023)",
+   "ids": [
+    "hendrycks_2023"
+   ],
+   "paastaende": "Fyra riskkällor: skadlig användning (bioterrorism, propaganda, censur, övervakning), kapplöpning (autonoma vapen, cyberkrig, automatisering av arbete), organisationsolyckor, rogue AIs (proxy gaming, goal drift, maktsökande). Gradvis glidning in i beroende",
+   "kontroll": "PDF hämtad och sökt i. Sammanfattningen och avsnitten om kapplöpning, rogue AIs och enfeeblement lästa",
+   "resultat": "Stämmer. Förtryck från 2023"
+  },
+  {
+   "kalla": "Kulveit m.fl. (2025)",
+   "ids": [
+    "kulveit_2025"
+   ],
+   "paastaende": "Stegvis bättre AI kan urholka människors inflytande över ekonomi, kultur och stat, försvaga röstande och konsumentval, förstärka varandra och bli i praktiken oåterkalleligt",
+   "kontroll": "PDF hämtad och sammanfattningen läst",
+   "resultat": "Stämmer på sammanfattningsnivå. Positionsartikel, inte en mätning"
+  },
+  {
+   "kalla": "Grace m.fl. (2024)",
+   "ids": [
+    "aiimpacts_2024"
+   ],
+   "paastaende": "2 778 forskare. Betydlig eller extrem oro: falsk information 86 %, opinionsmanipulation 79 %, farliga grupper med kraftfulla verktyg 73 %, auktoritär kontroll 73 %, ojämlikhet 71 %. Enkäten kan inte skilja katastrofalt från sannolikt",
+   "kontroll": "PDF hämtad och avsnitt 4.1 läst",
+   "resultat": "Stämmer. Förtryck"
+  },
+  {
+   "kalla": "Hawking (2015)",
+   "ids": [
+    "hawking_2015"
+   ],
+   "paastaende": "Svar i en Reddit-AMA: en superintelligent AI som är mycket bra på att nå sina mål men inte vår riktning, jämförelsen med en anthill som översvämmas av ett vattenkraftsprojekt",
+   "kontroll": "Sidan hämtad och svaret läst",
+   "resultat": "Stämmer. Citatet Let’s not place humanity in the position of those ants återges ordagrant ur svaret"
+  },
+  {
+   "kalla": "Slattery m.fl. (2026)",
+   "ids": [
+    "mit_risk_2026"
+   ],
+   "paastaende": "Sju domäner och 24 underdomäner, 1 725 risker ur 74 ramverk. Förteckningen fångar inte sannolikhet, allvar eller samspel mellan risker",
+   "kontroll": "Förtrycket hämtat (PDF) och sökt i",
+   "resultat": "Stämmer. Antalet risker gäller den version som hämtades"
+  },
+  {
+   "kalla": "OpenAI (2025)",
+   "ids": [
+    "openai_pf_2025"
+   ],
+   "paastaende": "Tre spårade kategorier: biologiska och kemiska förmågor, cybersäkerhet, AI-självförbättring. Version 2, 15 april 2025",
+   "kontroll": "Dokumentet hämtat och sökt i",
+   "resultat": "Stämmer. Kan ha ersatts av en nyare version"
+  },
+  {
+   "kalla": "Google DeepMind (2025)",
+   "ids": [
+    "deepmind_fsf_2025"
+   ],
+   "paastaende": "Kritisk kapacitetsnivå för skadlig manipulation. Skydd mot felriktade modeller som kan hindra att de styrs, ändras eller stängs av",
+   "kontroll": "Blogginlägget hämtat och läst",
+   "resultat": "Stämmer. Själva ramverksdokumentet inte läst, så CBRN och cyber ur ramverket är inte kontrollerat (F-57)"
+  },
+  {
+   "kalla": "Anthropic (u.å.c)",
+   "ids": [
+    "anthropic_rsp_2026"
+   ],
+   "paastaende": "Kapacitetsgräns för CBRN-vapen. AI-forskningsgränser delade i två nivåer. Sidan senast uppdaterad 14 augusti 2026",
+   "kontroll": "Sidan med uppdateringsnoter hämtad och läst",
+   "resultat": "Stämmer. Policytexten inte läst (F-57)"
+  },
+  {
+   "kalla": "NIST (2024)",
+   "ids": [
+    "nist_600_1_2024"
+   ],
+   "paastaende": "Tolv risker, bland annat CBRN, informationsintegritet (storskaliga desinformationskampanjer) och informationssäkerhet (sänkta trösklar för offensiva cyberförmågor)",
+   "kontroll": "PDF hämtad och sökt i",
+   "resultat": "Stämmer. Frivillig vägledning"
+  },
+  {
+   "kalla": "OWASP (2025)",
+   "ids": [
+    "owasp_agentic_2025"
+   ],
+   "paastaende": "Granskad av över 100 experter, de tio största riskerna för agentiska system, publicerad 9 december 2025. Namnen ASI01 till ASI10 enligt sammandrag",
+   "kontroll": "Startsidan hämtad och läst. PDF:en kräver åtkomst",
+   "resultat": "Startsidan stämmer. Själva listan inte läst (F-54)"
   }
  ],
  "versionslogg": [
+  {
+   "version": "1.21",
+   "datum": "2026-11-13",
+   "text": "Ny sida Hot från agentisk AI: tio hot som återkommer i flest av de lästa källorna (säkerhetsrapporter, forskning och utvecklarnas ramverk), med underlag och en rangordning som läsaren kan göra (samma Supabase-projekt, ny lista agentisk_ai_hot10). Elva nya källor, sex nya poster och fyra nya förbättringsposter (F-54 till F-57)."
+  },
   {
    "version": "1.20",
    "datum": "2026-11-12",

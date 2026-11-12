@@ -1,0 +1,105 @@
+<!doctype html>
+<!--
+  AI i en miljöorganisation: Hot från agentisk AI, med en rangordning som läsaren kan göra.
+  Version 1.21 · 2026-11-13 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  UPPDATERING 2026-11-13: första versionen av sidan. Version 1.21.
+-->
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hot från agentisk AI</title>
+  <meta name="description" content="Tio hot från agentisk AI som återkommer i flest källor, från säkerhetsrapporter, forskning och utvecklarnas egna ramverk, och en rangordning som du kan göra själv: vilket är värst?">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sv_SE">
+  <meta property="og:site_name" content="AI i en miljöorganisation">
+  <meta property="og:title" content="Hot från agentisk AI: vilket är värst?">
+  <meta property="og:description" content="Tio hot från agentisk AI som återkommer i flest källor, och en rangordning som du kan göra själv: vilket är värst?">
+  <meta property="og:url" content="https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/agentisk.html">
+  <meta property="og:image" content="https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/og-bild.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mikrovågsdisplay som visar tiden 1 sek för en textfråga, 10 sek för en genererad bild och 33 min för ett helt arbete">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hot från agentisk AI: vilket är värst?">
+  <meta name="twitter:description" content="Tio hot från agentisk AI som återkommer i flest källor, och en rangordning som du kan göra själv: vilket är värst?">
+  <meta name="twitter:image" content="https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/og-bild.jpg">
+  <link rel="stylesheet" href="sida.css">
+  <link rel="stylesheet" href="rangordning.css">
+  <script src="rangordning_config.js"></script>
+  <script src="sida.js" defer></script>
+  <script src="rangordning.js" defer></script>
+<link rel="stylesheet" href="brodsmulor.css">
+</head>
+<body>
+<!-- brodsmulor:start (genereras av brodsmulor.py från dokument.json: ändra dokument.json, inte här) -->
+<nav class="brodsmulor" aria-label="Brödsmulor och dokument i samma mapp">
+<ol><li><a href="index.html">AI i en miljöorganisation</a></li><li aria-current="page">Hot från agentisk AI</li></ol>
+<p class="syskon">Fler dokument i samma mapp: <a href="index.html">Startsida</a><span class="sep">·</span><a href="analys.html">Analysen i korthet</a><span class="sep">·</span><a href="vatten.html">Vatten i detalj</a><span class="sep">·</span><a href="miljofaktorer.html">Övriga miljöfaktorer</a><span class="sep">·</span><a href="bilder.html">Bilder och förtroende</a><span class="sep">·</span><a href="proportion.html">AI i proportion</a><span class="sep">·</span><strong aria-current="page">Hot från agentisk AI</strong><span class="sep">·</span><a href="anvandningssatt.html">Fråga och arbete</a><span class="sep">·</span><a href="forbrukning.html">Min förbrukning</a><span class="sep">·</span><a href="bakgrund.html">Bakgrund och användning</a><span class="sep">·</span><a href="kallor.html">Källor och logg</a></p>
+</nav>
+<!-- brodsmulor:slut -->
+<main>
+  <h1>Hot från agentisk AI: vilket är värst?</h1>
+  <p class="versionsrad"></p>
+  <p class="adminrad">Admin (kräver inloggning, för sidans ägare): <a href="https://supabase.com/dashboard/project/basgvwqqdbkwadfjzaxc" target="_blank" rel="noopener">Supabase-projektet</a><span class="sep">·</span><a href="https://supabase.com/dashboard/project/basgvwqqdbkwadfjzaxc/sql/new" target="_blank" rel="noopener">SQL Editor</a><span class="sep">·</span><a href="https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase_admin.sql" target="_blank" rel="noopener">adminkommandon</a><span class="sep">·</span><a href="https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/Uppkoppling_Supabase.md" target="_blank" rel="noopener">så kopplades databasen</a></p>
+  <p class="notis">Förslag och analys på eget initiativ, inte beslutat av någon förening. Uppgifterna är hämtade ur källorna och inte kvalitetssäkrade. Kontrollera mot källan innan något återges. Urvalet av hot är gjort efter hur ofta de återkommer i källorna, inte efter hur allvarliga de är, och rangordningen är ett underlag för samtal, inget forskningsresultat.</p>
+
+  <h2 id="kort-version">Kort version</h2>
+  <div class="steg1">
+    <p class="etikett">Steg 1: kort version</p>
+    <p>Agentisk AI är AI som får ett mål och verktyg och sedan agerar på egen hand för att nå det. Tio hot återkommer i flest av de källor som har lästs: säkerhetsrapporter, forskningsartiklar och utvecklarnas egna ramverk. Ingen av källorna rangordnar hoten efter hur allvarliga de är, så rangordningen här är din. Plats 1 är det du tycker är värsta hotet. Några hot är väl belagda och sker redan, andra är resonemang och ståndpunkter om framtiden. Det står vid varje hot.</p>
+  </div>
+
+  <h2 id="vad-ar-agentisk-ai">Vad är agentisk AI?</h2>
+  <p>En AI-agent är utformad för att nå mål som oftast anges av en användare. För att klara det får den tillgång till verktyg, till exempel minne, ett datorgränssnitt och webbläsare, och kan då agera självständigt, enligt <span data-kalla="safety_report_2026"></span>. Skillnaden mot en vanlig chatt är att agenten gör saker, inte bara svarar. Därför skiljer sig hoten delvis från de som gäller en fråga och ett svar: mer kan gå fel innan någon hinner ingripa.</p>
+
+  <h2 id="rangordna">Rangordna själv</h2>
+  <p>Gör din egen ordning först och läs underlaget efteråt. Plats 1 är det du tycker är det värsta hotet, plats 2 det näst värsta, och så vidare. Du bestämmer själv vad &quot;värst&quot; betyder: mest sannolikt, störst skada eller svårast att ångra. Håll muspekaren över en rad (eller tryck på den) för att se vad källorna säger.</p>
+  <div id="rangordning" data-omrostning="agentisk_ai_hot10" data-tabell="Tabell1"></div>
+  <p class="rg-teknikrad">Rösterna sparas i en Supabase-databas utan inloggning, i samma projekt som <a href="proportion.html#rangordna">AI i proportion</a>. Hur uppkopplingen gick till, steg för steg med skärmdumpar: <a href="https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/Uppkoppling_Supabase.md" target="_blank" rel="noopener">Uppkoppling_Supabase.md på GitHub</a>.</p>
+
+  <h2 id="de-tio-hoten">De tio hoten, med underlag</h2>
+  <p>Kolumnen <em>Nämns i</em> visar vilka av de lästa källorna som tar upp hotet. Antalet säger hur ofta hotet återkommer, inte hur allvarligt det är. Kolumnen <em>Hur säkert underlaget är</em> är en bedömning av vad källorna visar.</p>
+  <div class="tabellvy">
+    <table id="Tabell1">
+      <caption id="Tabell1-rubrik">Tabell 1. De tio hoten, vad källorna säger och hur säkert underlaget är</caption>
+      <thead><tr><th scope="col">Hot</th><th scope="col">Vad källorna säger</th><th scope="col">Nämns i</th><th scope="col">Hur säkert underlaget är</th></tr></thead>
+      <tbody>
+        <tr data-id="h01" data-titel="Hjälp till biologiska och kemiska vapen"><td>Hjälp till biologiska och kemiska vapen</td><td class="rg-info">AI kan sänka tröskeln för att ta fram biologiska eller kemiska vapen. Flera företag släppte 2025 nya modeller med extra skydd, eftersom testerna inte kunde utesluta att modellerna kunde hjälpa nybörjare, enligt <span data-kalla="safety_report_2026"></span>. Samma rapport anger stor osäkerhet om vad förmågan betyder i praktiken, på grund av materiella hinder och svårigheten att mäta. Av forskarna i <span data-kalla="aiimpacts_2024"></span> uttryckte <span data-post="AIIMPACTS_FARLIGA" data-badge="nej"></span> betydlig eller extrem oro för att farliga grupper får kraftfulla verktyg, till exempel konstruerade virus.</td><td><span data-kalla="safety_report_2026"></span>, <span data-kalla="hendrycks_2023"></span>, <span data-kalla="mit_risk_2026"></span>, <span data-kalla="openai_pf_2025"></span>, <span data-kalla="anthropic_rsp_2026"></span>, <span data-kalla="nist_600_1_2024"></span>, <span data-kalla="aiimpacts_2024"></span></td><td>Medel. Risken tas på allvar av alla lästa ramverk, men hur stor den är i praktiken är osäkert</td></tr>
+        <tr data-id="h02" data-titel="Agenter som kringgår mänsklig kontroll"><td>Agenter som kringgår mänsklig kontroll</td><td class="rg-info">Scenarier där AI-system agerar utanför någons kontroll och det inte finns någon klar väg att återfå den. Nuvarande system saknar förmågan att utgöra sådana risker men förbättras inom relevanta områden, enligt <span data-kalla="safety_report_2026"></span>. OpenAI och Anthropic har trösklar för AI som förbättrar sig själv eller automatiserar AI-forskning (<span data-kalla="openai_pf_2025"></span>, <span data-kalla="anthropic_rsp_2026"></span>), och <span data-kalla="deepmind_fsf_2025"></span> har skydd mot modeller som kan hindra att de styrs, ändras eller stängs av. <span data-kalla="hendrycks_2023"></span> kallar det <em>rogue AIs</em>.</td><td><span data-kalla="safety_report_2026"></span>, <span data-kalla="hendrycks_2023"></span>, <span data-kalla="mit_risk_2026"></span>, <span data-kalla="openai_pf_2025"></span>, <span data-kalla="deepmind_fsf_2025"></span>, <span data-kalla="anthropic_rsp_2026"></span>, <span data-kalla="owasp_agentic_2025"></span></td><td>Låg för hur sannolikt det är. Ingen har uppmätt det, men det finns i alla lästa ramverk</td></tr>
+        <tr data-id="h03" data-titel="Cyberattacker i större skala"><td>Cyberattacker i större skala</td><td class="rg-info">Det finns fler belägg för att AI-system används i verkliga cyberattacker: skadliga aktörer och statskopplade grupper använder AI-verktyg för att stödja cyberoperationer, enligt <span data-kalla="safety_report_2026"></span>. <span data-kalla="openai_pf_2025"></span> har cybersäkerhet som en spårad kategori, eftersom förmågan också kan skapa nya risker för skalade attacker och utnyttjande av sårbarheter. <span data-kalla="nist_600_1_2024"></span> nämner sänkta trösklar för offensiva cyberförmågor.</td><td><span data-kalla="safety_report_2026"></span>, <span data-kalla="mit_risk_2026"></span>, <span data-kalla="openai_pf_2025"></span>, <span data-kalla="nist_600_1_2024"></span></td><td>Hög för att det sker. Hur mycket AI ändrar läget jämfört med vanliga attacker är inte uppmätt här</td></tr>
+        <tr data-id="h04" data-titel="Manipulation, desinformation och bedrägerier"><td>Manipulation, desinformation och bedrägerier</td><td class="rg-info">I experiment kan AI-genererat innehåll påverka människors uppfattningar minst lika effektivt som icke-experter, och bedrägerier med röstkloner och deepfakes är dokumenterade, men systematiska data om hur vanliga och allvarliga skadorna är begränsade, enligt <span data-kalla="safety_report_2026"></span>. <span data-kalla="deepmind_fsf_2025"></span> har en kritisk kapacitetsnivå för skadlig manipulation. Forskarna i <span data-kalla="aiimpacts_2024"></span> uttryckte mest betydlig eller extrem oro för falsk information (<span data-post="AIIMPACTS_FALSK" data-badge="nej"></span>) och manipulation av opinionen (<span data-post="AIIMPACTS_OPINION" data-badge="nej"></span>).</td><td><span data-kalla="safety_report_2026"></span>, <span data-kalla="hendrycks_2023"></span>, <span data-kalla="mit_risk_2026"></span>, <span data-kalla="deepmind_fsf_2025"></span>, <span data-kalla="nist_600_1_2024"></span>, <span data-kalla="aiimpacts_2024"></span></td><td>Medel till hög. Fall och experiment finns, men omfattningen i verkligheten är begränsat belagd</td></tr>
+        <tr data-id="h05" data-titel="Likgiltig superintelligens (myrstacken)"><td>Likgiltig superintelligens (myrstacken)</td><td class="rg-info">En AI som är mycket bra på att nå sina mål, men vars mål inte stämmer med våra, behöver inte vara ond för att vi ska drabbas. <span data-kalla="hawking_2015"></span> jämförde det med ett vattenkraftsprojekt där ett myrsamhälle ligger i vägen: du hatar inte myrorna, men de översvämmas ändå, och han avslutade &quot;Let's not place humanity in the position of those ants&quot;. <span data-kalla="hendrycks_2023"></span> beskriver oron att förlora kontrollen över AI som blir mer intelligent än vi. Källorna beskriver likgiltighet, inte förakt. Att AI skulle se människor som djur eller husdjur är en tolkning som inte har hittats i de lästa källorna.</td><td><span data-kalla="hawking_2015"></span>, <span data-kalla="hendrycks_2023"></span>, <span data-kalla="safety_report_2026"></span></td><td>Låg. Ett tankeexperiment och en ståndpunkt, ingen mätning. Dagens system saknar förmågan enligt <span data-kalla="safety_report_2026"></span></td></tr>
+        <tr data-id="h06" data-titel="Gradvis maktförlust för människor"><td>Gradvis maktförlust för människor</td><td class="rg-info">Även stegvis bättre AI kan urholka människors inflytande över ekonomin, kulturen och staten, eftersom AI ersätter mänskligt arbete och tänkande och försvagar både röstande och konsumentval. Effekterna förstärker varandra och kan bli i praktiken oåterkalleliga, enligt <span data-kalla="kulveit_2025"></span>. <span data-kalla="hendrycks_2023"></span> beskriver en gradvis glidning in i beroende, inte en våldsam övertagning. <span data-kalla="safety_report_2026"></span> tar upp att människor kan lita på AI:s svar utan tillräcklig granskning (<em>automation bias</em>).</td><td><span data-kalla="kulveit_2025"></span>, <span data-kalla="hendrycks_2023"></span>, <span data-kalla="safety_report_2026"></span>, <span data-kalla="mit_risk_2026"></span></td><td>Låg. Ett argument i en positionsartikel, inte en mätning</td></tr>
+        <tr data-id="h07" data-titel="Kapplöpning som lämnar ifrån sig kontroll"><td>Kapplöpning som lämnar ifrån sig kontroll</td><td class="rg-info">Konkurrens kan pressa stater och företag att skynda på utvecklingen av AI och lämna över kontroll till AI-system. Militärer kan pressas att utveckla autonoma vapen och använda AI i cyberkrig där olyckor kan eskalera innan människor hinner ingripa, och företag kan prioritera vinst framför säkerhet, enligt <span data-kalla="hendrycks_2023"></span>. <span data-kalla="mit_risk_2026"></span> räknar konkurrensdynamik som en egen undergrupp.</td><td><span data-kalla="hendrycks_2023"></span>, <span data-kalla="mit_risk_2026"></span></td><td>Låg till medel. Resonemang om incitament, ingen mätning</td></tr>
+        <tr data-id="h08" data-titel="Maktkoncentration och övervakning"><td>Maktkoncentration och övervakning</td><td class="rg-info">Av forskarna i <span data-kalla="aiimpacts_2024"></span> uttryckte <span data-post="AIIMPACTS_AUTORITARA" data-badge="nej"></span> betydlig eller extrem oro för att auktoritära ledare använder AI för att kontrollera sina befolkningar, och <span data-post="AIIMPACTS_OJAMLIKHET" data-badge="nej"></span> för att AI förvärrar den ekonomiska ojämlikheten. <span data-kalla="hendrycks_2023"></span> nämner propaganda, censur och övervakning, och <span data-kalla="mit_risk_2026"></span> maktcentralisering.</td><td><span data-kalla="aiimpacts_2024"></span>, <span data-kalla="hendrycks_2023"></span>, <span data-kalla="mit_risk_2026"></span></td><td>Medel. Mäter forskarnas oro, inte skador. Enkäten kan inte skilja om något oroar för att det är katastrofalt eller för att det är sannolikt</td></tr>
+        <tr data-id="h09" data-titel="Kapade agenter"><td>Kapade agenter</td><td class="rg-info">Säkerhetsorganisationen OWASP:s lista över de tio största riskerna för agentiska system (december 2025) tar upp bland annat kapad målstyrning, missbruk av verktyg, missbruk av identitet och behörighet och förgiftat minne och sammanhang, enligt <span data-kalla="owasp_agentic_2025"></span>. Det innebär att någon annan än användaren lyckas styra vad agenten gör, till exempel med dolda instruktioner i text som agenten läser. Namnen på riskerna är hämtade ur sammandrag, eftersom själva listan kräver åtkomst.</td><td><span data-kalla="owasp_agentic_2025"></span></td><td>Medel, men originallistan är inte läst (F-54)</td></tr>
+        <tr data-id="h10" data-titel="Kaskadfel mellan agenter"><td>Kaskadfel mellan agenter</td><td class="rg-info">Fel i en agent kan sprida sig genom sammankopplade arbetsflöden (kaskadfel, enligt sammandrag av <span data-kalla="owasp_agentic_2025"></span>). <span data-kalla="safety_report_2026"></span> framhåller möjligheten till mänskligt ingripande, särskilt för agenter i strategiska eller säkerhetskritiska miljöer som finansiella tjänster och energihantering. <span data-kalla="hendrycks_2023"></span> beskriver automatiserad krigföring där olyckor kan spåra ur innan människor hinner ingripa, och <span data-kalla="mit_risk_2026"></span> nämner risker med flera samverkande agenter.</td><td><span data-kalla="owasp_agentic_2025"></span>, <span data-kalla="safety_report_2026"></span>, <span data-kalla="hendrycks_2023"></span>, <span data-kalla="mit_risk_2026"></span></td><td>Medel. Fel i enskilda system är väl belagda, samspelet mellan många agenter mindre</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="urvalet">Så gjordes urvalet</h2>
+  <p>Hoten är valda efter hur många av de lästa källorna som tar upp dem. Källorna är tre säkerhetsrapporter och förteckningar (<span data-kalla="safety_report_2026"></span>, <span data-kalla="mit_risk_2026"></span>, <span data-kalla="nist_600_1_2024"></span>), tre utvecklares ramverk (<span data-kalla="openai_pf_2025"></span>, <span data-kalla="deepmind_fsf_2025"></span>, <span data-kalla="anthropic_rsp_2026"></span>), två forskningsartiklar (<span data-kalla="hendrycks_2023"></span>, <span data-kalla="kulveit_2025"></span>), en enkät bland <span data-post="AIIMPACTS_N" data-badge="nej" data-utanenhet="1"></span> forskare (<span data-kalla="aiimpacts_2024"></span>), en säkerhetsförteckning för agenter (<span data-kalla="owasp_agentic_2025"></span>) och ett svar av Hawking (<span data-kalla="hawking_2015"></span>).</p>
+  <p><strong>Ingen av källorna rangordnar hoten efter hur allvarliga de är.</strong> <span data-kalla="mit_risk_2026"></span> skriver att förteckningen inte fångar sannolikhet, allvar eller samspel mellan risker, och att fältet skulle ha nytta av att bedöma det. Därför är rangordningen på den här sidan din egen, och ordningen i Tabell 1 är bara en lista.</p>
+  <p><strong>Nära utanför listan:</strong> förgiftade leverantörskedjor, oväntad kodkörning, osäker kommunikation mellan agenter och utnyttjat förtroende mellan människa och agent (alla från sammandrag av OWASP-listan), arbetsmarknad och beroende (<span data-kalla="safety_report_2026"></span> tar upp båda som systemrisker), diskriminering, integritet och miljöskador. De är inte sämre, bara mindre återkommande i de lästa källorna.</p>
+
+  <h2 id="begransningar">Vad jag inte vet</h2>
+  <ul>
+    <li><strong>Urvalet är inte objektivt.</strong> Hur ofta ett hot nämns beror på vilka källor som valts, och källorna kommer mest från USA och Storbritannien och från utvecklarna själva.</li>
+    <li><strong>Några hot är framtidsscenarier.</strong> Hot 2, 5, 6 och 7 bygger på resonemang och ståndpunkter, inte på uppmätta skador. Hot 1, 3 och 4 är mer belagda.</li>
+    <li><strong>OWASP-listan är inte läst i original</strong> (<a href="kallor.html#F-54">F-54</a>), och flera källor är bara delvis lästa (<a href="kallor.html#F-57">F-57</a>).</li>
+    <li><strong>Rangordningen är ingen undersökning.</strong> Den som öppnar länken väljer själv att rangordna, och urvalet är inte representativt. Den som rensar webbläsaren kan rösta igen.</li>
+    <li><strong>Ingen egen bedömning visas.</strong> Jag har inte lagt in min egen ordning (<a href="kallor.html#F-56">F-56</a>).</li>
+  </ul>
+
+  <h2 id="aterstar">Det som återstår</h2>
+  <p>Det här ska göras bättre i kommande versioner:</p>
+  <div data-lista="forbattringar" data-ids="F-54,F-55,F-56,F-57"></div>
+
+  <h2 id="kallor">Källor</h2>
+  <p>Källorna som den här sidan hänvisar till, i Harvardformat. Hela förteckningen och hur varje källa kontrollerats finns på sidan <a href="kallor.html">Källor och logg</a>.</p>
+  <div data-lista="sidkallor"></div>
+</main>
+</body>
+</html>

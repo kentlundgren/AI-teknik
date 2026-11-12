@@ -220,6 +220,7 @@
     it.info = it.rad.querySelector(".rg-info");
   });
   tabell.classList.add("rg-dold-min");
+  var harEgen = !!tabell.querySelector(".rg-efter-rost");   // saknas kolumnen visas ingen knapp Visa min bedömning
 
   function announce(msg) { live.textContent = ""; setTimeout(function () { live.textContent = msg; }, 30); }
 
@@ -261,7 +262,7 @@
     });
     nameInput.disabled = closed; slumpBtn.disabled = closed;
     removeBtn.hidden = !harRostat || closed;
-    minBtn.hidden = harRostat || visaMin;
+    minBtn.hidden = harRostat || visaMin || !harEgen;
 
     // Min bedömning visas efter första flytten, eller när man ber om den
     var visa = harRostat || visaMin || !!status.stangd;

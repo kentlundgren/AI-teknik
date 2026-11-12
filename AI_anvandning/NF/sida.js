@@ -4,6 +4,7 @@
  * (data-post, data-formel, data-kalla, data-lista), visar markering av hur väl en siffra är belagd,
  * förklaringar vid hovring/fokus/tryck, tekniknivån i hörnet och versionsraden.
  *
+ * UPPDATERING 2026-11-13: versionen följer den nya sidan Hot från agentisk AI (agentisk.html). Version 1.21.
  * UPPDATERING 2026-11-12: versionen följer sidan AI i proportion (länk till Uppkoppling_Supabase.md vid rangordningen och i adminraden). Version 1.20.
  * UPPDATERING 2026-11-12: versionen följer sidan AI i proportion (diskret adminrad med länkar till Supabase). Version 1.19.
  * UPPDATERING 2026-11-12: versionen följer rangordningen (tål att databasen inte svarar). Version 1.18.
@@ -29,8 +30,8 @@
  * Testläge: lägg ?test=1 efter adressen för att köra validering och testfall (SPEC avsnitt 3, 4 och 8).
  * Obs: fetch fungerar inte på file://. Testa via en lokal server (python -m http.server).
  */
-const VERSION = "1.20";
-const VERSIONSDATUM = "2026-11-12";
+const VERSION = "1.21";
+const VERSIONSDATUM = "2026-11-13";
 const AVSANDARE = "Kent Lundgren";
 const GITHUB_MAPP = "https://github.com/kentlundgren/AI-teknik/tree/main/AI_anvandning/NF";
 

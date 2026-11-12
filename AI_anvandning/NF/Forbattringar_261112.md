@@ -1,6 +1,6 @@
 # Förbättringsregister och verifieringslogg
 
-**Version:** 0.18 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.19 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** arbetsdokument. Samlar allt som ska analyseras och beskrivas bättre i kommande versioner, och vad som är kontrollerat mot originalkällor. Hör ihop med [PRD_ai_riktlinjer_261112.md](PRD_ai_riktlinjer_261112.md).
 
 ## 1. Hur vi skriver upp och minns
@@ -73,6 +73,10 @@ Tabell 1. Kvarvarande förbättringar
 | F-51 | Proportion | Lägg in utfallsmått för dyrtid och jobb och för korruption (till exempel arbetslöshet och ett korruptionsindex). Idag finns bara Ipsos mått på oro | Saknas | 1.x | Ja |
 | F-52 | Proportion | De tio frågorna är ett urval. Hälsa, utbildning och diskriminering saknas. Låt läsare föreslå frågor eller byt ut någon | Öppen | 1.x | Ja |
 | F-53 | Proportion | Läs Ipsos fullständiga lista (klimat, krig och AI ligger utanför de fem största) och lägg in deras andelar | Saknas | 1.x | Ja |
+| F-54 | Hot | Läs OWASP:s lista Top 10 for Agentic Applications i original (PDF:en kräver åtkomst) och kontrollera namnen ASI01–ASI10 och beskrivningarna för hot 9 och 10. Idag bara sammandrag | Saknas | 1.x | Ja |
+| F-55 | Hot | Läs Russells gorilla problem (Human Compatible, 2019) och Bostrom om likgiltig superintelligens, och bekräfta att hot 5 återger dem rätt. Idag bygger hot 5 på Hawking (2015) och Hendrycks m.fl. (2023) | Saknas | 1.x | Ja |
+| F-56 | Hot | Lägg till en egen bedömning av de tio hoten som visas efter att läsaren röstat, som på AI i proportion, om Kent vill ge en ordning | Öppen | 1.x | Ja |
+| F-57 | Hot | Läs vidare där källorna bara är delvis lästa: Safety Report (160 sidor, utdrag lästa), Google DeepMinds ramverksdokument (bara bloggen läst), Anthropics policytext (bara uppdateringssidan) och OpenAI:s nuvarande version. Överväg fler källor för hot 6, 7 och 8 som vilar på få | Öppen | 1.x | Ja |
 
 ## 3. Mikrovågsugnens effekt (F-06)
 

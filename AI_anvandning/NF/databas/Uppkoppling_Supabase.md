@@ -1,7 +1,7 @@
 # Så kopplades rangordningen till Supabase: steg för steg med bilder
 
-**Version:** 1.2 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
-**Status:** berättelse om hur uppkopplingen gick till, med skärmdumpar. Tekniken och reglerna står i [supabase.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase.md). Sidan som använder databasen är [AI i proportion](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/proportion.html).
+**Version:** 1.4 · **Datum:** 2026-11-13 · **Avsändare:** Kent Lundgren
+**Status:** berättelse om hur uppkopplingen gick till, med skärmdumpar. **Se också:** [supabase.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase.md) för tekniken, reglerna och hur projektet återanvänds (avsnitt 7 beskriver hur en ny lista läggs till). Sidan som använder databasen är [AI i proportion](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/proportion.html).
 
 ## Kort version <a id="kort-version"></a>
 
@@ -24,6 +24,29 @@ Samrådsguidens egna tabeller och funktioner skapades med en annan SQL-fil, i et
 - [rangordning/](https://github.com/kentlundgren/Codex/tree/main/Fritid/NF/Samradsguiden/rangordning): sidans kod (`rangordning.js`, `rangordning.css`, `rangordning_config.js`).
 
 Tabellerna själva ligger i projektet och syns i dashboarden under **Table Editor** (tabellikonen i vänstermenyn). Där visas både Samrådsguidens tabeller och mina `rang_`-tabeller. Funktionerna syns under **Database > Functions**. De två SQL-filerna blandas inte ihop, eftersom mina namn börjar på `rang_`.
+
+### Samma röstlogik, olika upplägg: jämförelse med Samrådsguiden <a id="jamforelse"></a>
+
+I Supabase-dashboardens Schema Visualizer ser de två upplägg olika ut, trots att röstningen fungerar likadant. Ordet **omröstning** betyder här **en lista som läsare rangordnar**, alltså en fråga med sina egna poster. Det är inte en enskild persons röst. En **röst** är en läsares ordning på en lista.
+
+**Likadant i båda:**
+- Läsaren ordnar en lista från viktigast till minst viktigt och sparar sin ordning.
+- Webbläsaren har en hemlig nyckel, och databasen sparar bara dess kontrollsumma (`token_hash`). Samma nyckel ger samma rad, så en ny röst från samma webbläsare ersätter den förra. Att rösta igen kräver en annan webbläsare eller rensad webbläsardata, så spärren gäller per webbläsare, inte per dator eller person.
+- Två tabeller (inställningar och röster), låsta med radskydd, och funktioner som kontrollerar indatan. Namn högst 40 tecken, adminkod som kontrollsumma.
+
+**Olika:**
+
+| | Samrådsguiden | AI i proportion |
+|---|---|---|
+| Antal listor att rangordna | **En** (frågorna i Tabell 6) | **Flera** samtidigt, var och en med egna poster |
+| Inställningstabell | `rangordning_installning`: en enda rad (`id = 1`) med sista dag, stängd och adminkod | `rang_omrostning`: en rad per lista, med id, titel, postlista, sista dag, stängd, `max_roster` och adminkod |
+| Rösttabell | `rangordning_roster`, nyckel `token_hash` | `rang_rost`, nyckel (`omrostning`, `token_hash`) |
+| Koppling mellan tabellerna | Ingen, eftersom det bara finns en lista | Främmande nyckel `omrostning` till `rang_omrostning(id)`, `on delete cascade` |
+| Giltiga poster | Korta id (bokstäver, siffror, `-` eller `_`) | Exakt de poster som listan har i `poster`, var och en en gång |
+| Funktioner | `hamta_roster()`, `hamta_status()`, `spara_rost()`, `radera_min_rost()`, `nollstall_roster()` | `rang_hamta_roster`, `rang_hamta_status`, `rang_spara_rost`, `rang_radera_min_rost`, `rang_nollstall`, alla med listans id som första argument |
+| Röstgräns | 500, fast i koden | `max_roster` per lista (1000 som standard) |
+
+**Varför skillnaden:** jag ville kunna använda samma Supabase-projekt för fler rangordningar. Med Samrådsguidens upplägg skulle alla listor dela röster och sista dag. Min version sparar listans id i varje röst, så de hålls isär: en läsare kan rösta en gång på varje lista, och rösterna blandas inte. Samrådsguiden fungerar som förut och är inte ändrad. Källa för jämförelsen: [Samrådsguidens supabase_setup.sql](https://github.com/kentlundgren/Codex/blob/main/Fritid/NF/Samradsguiden/supabase_setup.sql) och [supabase_rangordning.sql](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase_rangordning.sql).
 
 ## Steg 1. Väck projektet <a id="steg1"></a>
 
@@ -105,6 +128,18 @@ Med adminkoden kan jag nollställa rösterna från sidan. Databasen sparar bara 
 
 På sidan flyttade jag raderna i rangordningen och skrev ett provnamn. Därefter svarade `rang_hamta_status` `antal: 1`, och `rang_hamta_roster` gav en röst med alla tio frågorna (f01 till f10) exakt en gång. Det visar att hela vägen fungerar: sidan, funktionen och tabellen. Provrösten ligger kvar tills jag raderar den med raden under rubrik 4 i adminfrågan.
 
+## Lista 2: Hot från agentisk AI, i samma projekt <a id="lista2"></a>
+
+När den första listan fungerade lades en andra till i samma Supabase-projekt (2026-11-13): [Hot från agentisk AI](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/agentisk.html), där läsaren rangordnar tio hot och plats 1 är värsta hotet. Det krävdes ingen ny tabell och ingen ny funktion, eftersom varje lista är en rad i `rang_omrostning`. Så gick det till:
+
+1. **Listan togs fram ur källorna.** Tio hot valdes efter hur ofta de återkommer ur elva källor (säkerhetsrapporter, forskning, utvecklarnas ramverk, en enkät och ett svar av Hawking), och källorna hämtades som originaltext så långt det gick (OWASP-listan kräver åtkomst). Ingen av dem rangordnar hoten efter allvar, så urvalet bygger på hur ofta hoten nämns, och rangordningen lämnas till läsaren. Källorna, vad som är läst och vad som återstår står på sidan och i förbättringsregistret (F-54 till F-57).
+2. **Sidan byggdes som AI i proportion**: tabell med rader (`data-id` `h01` till `h10`), en behållare med `data-omrostning="agentisk_ai_hot10"` och samma tre filer (`rangordning.css`, `rangordning_config.js`, `rangordning.js`). Eftersom sidan inte har någon egen bedömning (kolumnen `rg-efter-rost`) visas ingen knapp *Visa min bedömning*.
+3. **En SQL-fil med en rad:** [supabase_agentisk_ai.sql](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase_agentisk_ai.sql) lägger omröstningen `agentisk_ai_hot10` med postlistan `h01` till `h10`. Du öppnar SQL Editor, klistrar in filen och klickar **Run**, precis som i steg 3 till 5 ovan. Supabase kan visa varningen "Potential issue detected" även här: klicka **Run query** om du har läst filen. Den innehåller en `insert` och en `select`, och den går att köra om utan att röster raderas.
+4. **Test.** Sidan testades lokalt med en låtsasdatabas: ett drag i listan skickade `rang_spara_rost` med omröstningen `agentisk_ai_hot10`, tio unika post-id och en nyckel på 36 tecken. Mot den riktiga databasen svarade sidan som väntat med tom lista ("Ingen har röstat än"), eftersom omröstningen inte fanns förrän SQL-filen var körd.
+5. **Dokumentationen** delades så här: tekniken och reglerna i [supabase.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase.md) (avsnitt 7 och tabellen *Vart informationen hör*), den här berättelsen i det här dokumentet, och arbetsgången i skillen `kent-interaktiv-rangordning`.
+
+**Efter att SQL-filen körts** ska `rang_hamta_status` för `agentisk_ai_hot10` svara `antal: 0`. Prova sedan sidan och radera provrösten med `delete from public.rang_rost where omrostning = 'agentisk_ai_hot10';`. De två listorna blandas inte ihop: en läsare kan rösta en gång på varje, och varje lista har sin egen sista dag, sin egen röstgräns och (om du vill) sin egen adminkod.
+
 ## Vad som inte visas på bilderna <a id="inte-pa-bilderna"></a>
 
 - Skapandet av Supabase-kontot, organisationen och projektet `samradsquiden`. De gjordes för Samrådsguiden. Stegen finns i [Samrådsguidens supabase.md](https://github.com/kentlundgren/Codex/blob/main/Fritid/NF/Samradsguiden/supabase.md).
@@ -141,7 +176,7 @@ Sidan AI i proportion har en liten adminrad med länkar till projektet, SQL Edit
 - Supabase (u.å.) *Pricing & Fees*. Tillgänglig på: <https://supabase.com/pricing> (Hämtad: 12 november 2026). *(Gratisnivåns gränser och pausen efter en veckas inaktivitet.)*
 - Supabase (u.å.) *Row Level Security*. Tillgänglig på: <https://supabase.com/docs/guides/database/postgres/row-level-security> (Hämtad: 12 november 2026). *(Varför radskyddet ska vara på.)*
 
-Skärmdumparna och uppgifterna om projektet är från min egen dashboard 2026-11-12. Kontrollera mot Supabases dokumentation innan något återges, eftersom tjänstens gränser och knappar kan ändras.
+Skärmdumparna och uppgifterna om projektet är från min egen dashboard 2026-11-12. Avsnittet om lista 2 bygger på filerna i repot och på tester av sidan. Kontrollera mot Supabases dokumentation innan något återges, eftersom tjänstens gränser och knappar kan ändras.
 
 **Tillbaka till sidan:** [AI i proportion](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/proportion.html#rangordna), där rangordningen och länken till det här dokumentet finns.
 

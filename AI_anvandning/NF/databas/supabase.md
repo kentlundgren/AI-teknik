@@ -1,6 +1,7 @@
 # Rangordning med databas: Supabase i AI-teknik
 
-**Version:** 1.3 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 1.4 · **Datum:** 2026-11-13 · **Avsändare:** Kent Lundgren
+**Se också:** [Uppkoppling_Supabase.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/Uppkoppling_Supabase.md) berättar hur uppkopplingen gick till, steg för steg med skärmdumpar, och hur en andra lista lades till. Det här dokumentet beskriver tekniken, reglerna och hur projektet återanvänds.
 
 Beskriver hur sidan [AI i proportion](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/proportion.html) kan kopplas till en databas så att läsare kan rangordna tio frågor, välja att skriva sitt namn och se gruppens gemensamma rangordning. Tekniken är den som användes i Samrådsguiden ([supabase.md](https://github.com/kentlundgren/Codex/blob/main/Fritid/NF/Samradsguiden/supabase.md)), men gjord för flera omröstningar i samma projekt. Uppgifter om Supabase är hämtade ur deras prissida och dokumentation 2026-11-12. Kontrollera mot [supabase.com/docs](https://supabase.com/docs) innan något beslut bygger på dem.
 
@@ -143,9 +144,29 @@ Kör bara en rad i taget i SQL Editor: markera raden och klicka Run, annars kör
 - **Publik nyckel.** Den ligger i `rangordning_config.js` och syns för alla. Det är avsett. Hemliga nycklar och adminkoden ska aldrig ligga i repot.
 - **Rösterna är offentliga** på sidan så länge omröstningen är öppen. Stäng den med kommandot i SQL-filen om du vill frysa resultatet.
 
-## 7. Så lägger du till en ny omröstning
+## 7. Så lägger du till en ny omröstning (en lista att rangordna) <a id="ny-omrostning"></a>
 
-Lägg en rad i `rang_omrostning` med ett nytt id och postlistan (kommandot längst ned i SQL-filen), gör en sida med en tabell vars rader har `data-id` och `data-titel`, och en behållare `<div id="rangordning" data-omrostning="mitt_id" data-tabell="TabellN">`. Ingen ny SQL-kod behövs. Hela mönstret är beskrivet i skillen `kent-interaktiv-rangordning`.
+Exempel: sidan [Hot från agentisk AI](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/agentisk.html) lades till 2026-11-13 som andra lista i samma projekt, utan någon ny tabell eller funktion. Så gör du:
+
+1. **Välj ett id** för omröstningen (små bokstäver, siffror och understreck, 3 till 40 tecken), till exempel `agentisk_ai_hot10`, och ett id för varje post, till exempel `h01` till `h10`.
+2. **Gör sidan.** En tabell vars rader har `data-id` och `data-titel`, en cell med klassen `rg-info` som förklarar posten, och en behållare `<div id="rangordning" data-omrostning="agentisk_ai_hot10" data-tabell="Tabell1">`. Lägg in `rangordning.css`, `rangordning_config.js` och `rangordning.js` som på [proportion.html](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/proportion.html). Saknar tabellen en kolumn med klassen `rg-efter-rost` visas ingen knapp *Visa min bedömning*.
+3. **Skriv en liten SQL-fil** som lägger en rad i `rang_omrostning` med id, titel och postlistan. Exempel: [supabase_agentisk_ai.sql](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase_agentisk_ai.sql). Filen skapar inga tabeller, rör inga röster och går att köra om. Postlistan ska vara exakt `data-id` i tabellen. Kör den en gång i SQL Editor, som i [Uppkoppling_Supabase.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/Uppkoppling_Supabase.md#lista2).
+4. **Kontrollera** att `rang_hamta_status` för det nya id:t svarar `antal: 0`, och prova att rösta en gång. Radera provrösten med `delete from public.rang_rost where omrostning = 'det_nya_idt';`.
+
+Hela mönstret, med beställningsmall och arbetsgång, finns i skillen `kent-interaktiv-rangordning`.
+
+### Vart informationen hör <a id="vart-informationen-hor"></a>
+
+| Vad | Var det skrivs |
+|---|---|
+| Teknik, regler, återbruk, gränser | Det här dokumentet (supabase.md) |
+| Berättelsen om vad som gjordes, med skärmdumpar | [Uppkoppling_Supabase.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/Uppkoppling_Supabase.md) |
+| SQL som skapar tabellerna (en gång per projekt) | [supabase_rangordning.sql](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase_rangordning.sql) |
+| SQL som lägger en ny lista | En egen fil per lista, till exempel `supabase_agentisk_ai.sql` |
+| Adminkommandon (nollställa, stänga, sätta kod) | [supabase_admin.sql](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase_admin.sql) |
+| Arbetsgång och beställningsmall för Claude | Skillen `kent-interaktiv-rangordning` |
+| Sidans innehåll och källor | Sidan själv, med uppgifterna i `data/siffror.json` (genereras av `gen_siffror.py`) |
+| Det som återstår | Förbättringsregistret, `Forbattringar_261112.md` |
 
 ## Källor
 
