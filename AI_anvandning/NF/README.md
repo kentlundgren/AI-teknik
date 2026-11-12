@@ -4,14 +4,14 @@ Planering av ett förhållningssätt och riktlinjer för generativ AI i en ideel
 
 | Fil | Innehåll |
 |---|---|
-| [PRD_ai_riktlinjer_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/PRD_ai_riktlinjer_261112.md) | PRD v0.9 (2026-11-12): bakgrund, mål, målgrupper, innehåll, faser, öppna frågor |
-| [Analys_resurser_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_resurser_261112.md) | Analys v0.3 (2026-11-12): energi, vatten och bilder, med källor |
+| [PRD_ai_riktlinjer_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/PRD_ai_riktlinjer_261112.md) | PRD v0.11 (2026-11-12): bakgrund, mål, målgrupper, innehåll, faser, öppna frågor |
+| [Analys_resurser_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_resurser_261112.md) | Analys v0.4 (2026-11-12): energi, vatten och bilder, med källor |
 | [Analys_vatten_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_vatten_261112.md) | Analys v0.3 (2026-11-12): vatten i moderna AI-anläggningar, kort version och fullständig analys |
 | [Analys_miljofaktorer_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_miljofaktorer_261112.md) | Analys v0.2 (2026-11-12): miljöfaktorer utöver energi och vatten, och en graderingsram |
-| [Forbattringar_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Forbattringar_261112.md) | Förbättringsregister, verifieringslogg och antagandelogg v0.3 (2026-11-12) |
+| [Forbattringar_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Forbattringar_261112.md) | Förbättringsregister, verifieringslogg och antagandelogg v0.4 (2026-11-12) |
 | [Analys_anvandningssatt_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_anvandningssatt_261112.md) | Analys v0.2 (2026-11-12): vad en fråga är (X), sessionens tokens (Y) och Z = Y ÷ X, sätt att använda AI |
 | [summera_tokens.py](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/summera_tokens.py) | Skript som summerar tokens i en Claude Code-session |
-| [SPEC_sida_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/SPEC_sida_261112.md) | SPEC v0.1 (2026-11-12): datamodell, beräkningar, sidstruktur och krav inför bygget |
+| [SPEC_sida_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/SPEC_sida_261112.md) | SPEC v0.2 (2026-11-12): datamodell, beräkningar, sidstruktur och krav inför bygget |
 
 Underlaget (en privat e-posttråd) finns inte i repot.
 

@@ -1,8 +1,10 @@
 # PRD: förhållningssätt och riktlinjer för generativ AI i en ideell miljöorganisation
 
-**Version:** 0.9 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.11 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** Kents egen undersökning, på eget initiativ och utan samordning. Inte beslutat av Lunds Naturskyddsförening eller av Naturskyddsföreningen.
-**Ändringar i 0.9:** SPEC skriven: [SPEC_sida_261112.md](SPEC_sida_261112.md) (datamodell, beräkningar, filstruktur, krav för att kalla bygget klart). SPEC-checkpointen (avsnitt 10) är uppfylld.
+**Ändringar i 0.11:** avsnitt 10 anger att SPEC:en är skriven men har öppna punkter (SPEC avsnitt 10) som avgörs före bygget, så checkpointen är besvarad men inte avslutad.
+**Ändringar i 0.10:** genomläsning med fräscha ögon: avsnitt 8 och 9 uppdaterade med läget (vad som är gjort och inte), avsnitt 10 rättat (SPEC:en är kort men exakt, inte en till två sidor), trafikljusets mellannivå visas i orange. Det som saknas är texten till avsnitt 5 (F-32).
+**Ändringar i 0.9:** SPEC skriven: [SPEC_sida_261112.md](SPEC_sida_261112.md) (datamodell, beräkningar, filstruktur, krav för att kalla bygget klart). SPEC-checkpointen (avsnitt 10) är besvarad (ja). SPEC:en har öppna punkter som avgörs före bygget (SPEC avsnitt 10).
 **Ändringar i 0.8:** nyckeltalen X (normal fråga och svar, 600 tokens), Y (sessionens tokens, uppmätt) och Z = Y ÷ X definierade som versionerade antaganden i [Analys_anvandningssatt_261112.md](Analys_anvandningssatt_261112.md), med antagandelogg i registret och skriptet [summera_tokens.py](summera_tokens.py). I första mätningen är Z_ny cirka 950.
 **Ändringar i 0.7:** ny analys av vad en "fråga" är och av olika sätt att använda AI ([Analys_anvandningssatt_261112.md](Analys_anvandningssatt_261112.md)), med räkneexempel för den här sessionen. SPEC-checkpointen (avsnitt 10) omprövad: ja, en kort SPEC för sidans datamodell och struktur.
 **Ändringar i 0.6:** förbättringsregister och verifieringslogg ([Forbattringar_261112.md](Forbattringar_261112.md)) införda. Mikrovågsugnen är fast 1 000 W utan parameter, med källa att hitta (F-06). Namnet "analys" diskuterat. Flera källor kontrollerade mot originalen.
@@ -79,7 +81,7 @@ Gemensamt för hela dokumentet: kort, konkret, och med både skälen *för* och 
 2. **Principer** (ett förslag, att diskutera): ansvar, sanning, öppenhet, försiktighet med bilder och människor, miljömedvetenhet, integritet, frivillighet.
 3. **Trafikljusmodell** för användning:
    - **Grönt:** stöd i arbetet där människan granskar, till exempel språkgranskning, översättningsutkast, sammanfattning av eget material, brainstorming.
-   - **Gult:** kräver beslut eller extra kontroll, till exempel faktatexter som publiceras, layout och illustrationer, sociala medier.
+   - **Gult** (visas på sidan i orange, eftersom gult är reserverat för inmatningsfält): kräver beslut eller extra kontroll, till exempel faktatexter som publiceras, layout och illustrationer, sociala medier.
    - **Rött:** görs inte, till exempel AI-genererade bilder som kan uppfattas som fotografier eller som föreställer verkliga människor, påhittade citat, att lägga in medlemsregister eller personuppgifter i en extern tjänst.
    (Var gränserna dras är ett av de viktigaste öppna besluten, se avsnitt 12.)
 4. **Bilder och video** (eget avsnitt, mot bakgrund av vad rikskansliet sagt): varför bilder är känsligare än text, vad som skiljer en illustration från ett realistiskt "foto", hur man märker upp, alternativ (egna foton, ideella bildbanker med fria licenser, handritat).
@@ -122,17 +124,18 @@ Sidan följer Kents sidregler: version och datum synligt, `index.html` som start
 
 ## 8. Faktaunderlag som behöver samlas in och verifieras
 
-Allt nedan är *uppgifter att hitta*, inget är ännu kontrollerat:
+Delvis gjort (se [Forbattringar_261112.md](Forbattringar_261112.md), avsnitt 5): energi, vatten och miljöfaktorer är sökta och till stor del kontrollerade mot originalen. Kvar att hitta och kontrollera:
 
 - Naturskyddsföreningens egna offentliga uttalanden om AI, och rikskansliets riktlinjer när de finns.
 - Andra ideella organisationers publicerade AI-policyer (för jämförelse).
-- Forskning och rapporter om generativ AI:s energi- och vattenanvändning (med osäkerhetsintervall).
 - Dataskydd: Integritetsskyddsmyndighetens vägledning om AI och personuppgifter.
 - EU:s AI-förordning (märkning av AI-genererat innehåll, i den mån den gäller en förening).
 - Upphovsrättsläget för AI-genererade bilder.
 - Forskning om hur publik reagerar på AI-bilder och märkning.
 
 ## 9. Faser
+
+*Läge 2026-11-12:* fas 0 och 1 pågår (faktaunderlag och analyser av resurser). Fas 2 och 3, texten till avsnitt 5 (principer, trafikljus, bilder, checklista, vanliga frågor), är inte påbörjad (F-32). SPEC för sidan är skriven.
 
 | Fas | Innehåll | Leverans |
 |---|---|---|
@@ -150,11 +153,11 @@ Allt nedan är *uppgifter att hitta*, inget är ännu kontrollerat:
 
 - **Datafilen (JSON):** fält för varje värde (id, värde, enhet, källa med länk, hämtdatum, hur väl belagt, nummer i förbättringsregistret) och hur sidan visar markeringen.
 - **X, Y och Z:** poster med värde, enhet, källa, datum och antagandeversion. Z räknas av sidan ur X och Y.
-- **Beräkningarna:** formeln för mikrovågsugnen (sekunder = Wh × 3 600 ÷ 1 000 W), vatten i vardagsmått och scenarierna per session, så att siffrorna på sidan alltid kommer från datafilen.
+- **Beräkningarna:** formeln för mikrovågsugnen (sekunder = Wh × 3 600 ÷ effekten i W, där effekten är antagandet 1 000 W), vatten i vardagsmått och scenarierna per session, så att siffrorna på sidan alltid kommer från datafilen.
 - **Sidstruktur:** `index.html` som hubb, huvudsidan med stabilt namn, fördjupningssidor, `old/` för äldre versioner, version och datum i konstanter, brödsmulor, hörnlänkarna.
 - **Tvåstegsmodellen:** kort ruta och länk till fördjupning, och rutan "förbättras i kommande versioner".
 
-SPEC:en ska vara kort (en till två sidor) och skrivas före bygget. Den minskar också antalet varv i bygget och därmed resursanvändningen.
+SPEC:en är skriven ([SPEC_sida_261112.md](SPEC_sida_261112.md), v0.2) och är kort men exakt. Den har fem öppna punkter (sidnamn, källa för mikrovågsugnens effekt, vilka fördjupningssidor, delningsbild och att texten till avsnitt 5 saknas) som avgörs före bygget. Checkpointen är därmed besvarad men inte avslutad. SPEC:en minskar också antalet varv i bygget och därmed resursanvändningen.
 
 ## 11. Risker
 

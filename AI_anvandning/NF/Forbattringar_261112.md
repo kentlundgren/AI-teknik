@@ -1,6 +1,6 @@
 # Förbättringsregister och verifieringslogg
 
-**Version:** 0.3 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.4 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** arbetsdokument. Samlar allt som ska analyseras och beskrivas bättre i kommande versioner, och vad som är kontrollerat mot originalkällor. Hör ihop med [PRD_ai_riktlinjer_261112.md](PRD_ai_riktlinjer_261112.md).
 
 ## 1. Hur vi skriver upp och minns
@@ -50,6 +50,8 @@ Tabell 1. Kvarvarande förbättringar
 | F-28 | Nytta | Jämförelse med människans resursanvändning för motsvarande arbete (källa saknas) | Saknas | 2.0 | Ja |
 | F-29 | Resurser | Kontrollera om fältet för producerade tokens (output) också räknar modellens interna resonemang. Påverkar Y_ut och Z_ut | Okänt | 1.0 | Ja |
 | F-30 | Resurser | Fler mätpunkter för Y: kör skriptet på fler sessioner och projekt och redovisa ett genomsnitt eller spann i stället för en enskild session | En session | 1.x | Ja |
+| F-31 | Teknik | Databas eller schemalagt skript som kontrollerar om källorna ändrats och uppdaterar siffrorna. Version 1.0 läser en JSON-fil | JSON-fil | 2.0 | Nej |
+| F-32 | Innehåll | Skriv texten till PRD avsnitt 5: principer, trafikljus, bilder och video, checklista, vanliga frågor. Saknas som text idag | Saknas | 1.0 | Nej |
 
 ## 3. Mikrovågsugnens effekt (F-06)
 
@@ -71,7 +73,7 @@ Tabell 1. Kvarvarande förbättringar
 | K-04 | LBNL: officiell referens (utgiven 2024-12-19, DOI) funnen | 2026-11-12 | Analys_vatten v0.3 |
 | K-05 | Li m.fl.: 500 ml per 10–50 svar och 16,9 ml per svar kontrollerade i artikeln | 2026-11-12 | Analys_vatten v0.3 |
 | K-06 | UNEP:s abstract kontrollerat på UNEP:s dokumentsida | 2026-11-12 | Analys_miljofaktorer v0.2 |
-| K-07 | Antalet modellanrop och tokens i sessionen uppmätta ur transkriptet (tidigare F-27, uppskattning) | 2026-11-12 | Analys_anvandningssatt v0.2 |
+| K-07 | Antalet modellanrop och tokens i sessionen uppmätta ur transkriptet (modellanrop, producerade och återlästa tokens) | 2026-11-12 | Analys_anvandningssatt v0.2 |
 
 ## 5. Verifieringslogg 2026-11-12
 

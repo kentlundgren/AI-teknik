@@ -1,6 +1,7 @@
 # Analys: energi, vatten och bilder (underlag till sidan)
 
-**Version:** 0.3 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.4 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Ändringar i 0.4:** avsnitt 6 pekar på den uppmätta sessionen i [Analys_anvandningssatt_261112.md](Analys_anvandningssatt_261112.md) (avsnitt 5 och 6) i stället för en uppskattning.
 **Ändringar i 0.3:** bildsiffran (Luccioni m.fl.) och Embers siffra kontrollerade mot originalen. Mikrovågsugnens effekt är fast 1 000 W (ingen parameter). Avsnitt 9 ersatt av hänvisning till [Forbattringar_261112.md](Forbattringar_261112.md).
 **Ändringar i 0.2:** nytt avsnitt 6 (komprimerad version med liknelser) och 7 (Sverige och världen). Databasidén är nu avsnitt 8 och det som återstår är avsnitt 9.
 **Status:** arbetsunderlag. Siffrorna är hämtade ur angivna källor och inte kvalitetssäkrade. Läsaren ska kontrollera mot källan. Hämtdatum för alla webbkällor: 2026-11-12.
@@ -71,7 +72,7 @@ Tabell 2. Energi uttryckt som tid i mikrovågsugn (1 000 W)
 | 4 | Ett arbetspass med 200 textfrågor (scenario) | 200 × 0,24 = 48 Wh | cirka 3 minuter | Illustration, inte mätning |
 | 5 | Samma pass om varje fråga kostar tio gånger mer (långa samtal, många verktygsanrop) | 480 Wh | cirka 29 minuter | Illustration, inte mätning |
 
-**En produkt som den här sidan.** Hur mycket energi det går åt att ta fram en sådan produkt tillsammans med AI går inte att svara på med en verifierad siffra. Ingen leverantör redovisar energin per arbetspass, och arbete där AI läser filer, söker och skriver i många steg använder mer än en enkel chattfråga. Det ärliga svaret på sidan är ett spann med uttalade antaganden: rad 4 och 5 ovan, med antalet frågor som en inställbar siffra. Med antagandena hamnar det mellan några minuter och en halvtimme i en mikrovågsugn. Det är en storleksordning, inte ett mätvärde.
+**En produkt som den här sidan.** Hur mycket energi det går åt att ta fram en sådan produkt tillsammans med AI går inte att svara på med en verifierad siffra. Ingen leverantör redovisar energin per arbetspass, och arbete där AI läser filer, söker och skriver i många steg använder mer än en enkel chattfråga. Det ärliga svaret på sidan är ett spann med uttalade antaganden. Sessionens tokenanvändning är uppmätt och redovisas i Analys_anvandningssatt (avsnitt 5), med energin som ett spann mellan cirka 14–17 minuter och cirka 8–10 timmar i en mikrovågsugn (avsnitt 6). Det är en storleksordning, inte ett mätvärde. Rad 4 och 5 ovan är enklare illustrationer.
 
 Tabell 3. Vatten i vardagsmått (Googles uppgift, 0,26 ml per textfråga)
 

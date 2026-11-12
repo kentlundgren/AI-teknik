@@ -1,6 +1,7 @@
 # SPEC: sidan om AI i en miljöorganisation (datamodell, beräkningar, struktur)
 
-**Version:** 0.1 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.2 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Ändringar i 0.2:** genomläsning med fräscha ögon: typ och belagd skiljs åt, beräknade poster har formel i stället för värde, platshållare i texten (`data-post`) så att inga siffror skrivs för hand, kontroll av att datafilen och registret stämmer överens, hänsyn till att `fetch` inte fungerar på `file://`, trafikljusets mellannivå visas i orange (inte gult), och två nya öppna punkter (innehållet i PRD avsnitt 5 saknas som text, databasen är en egen förbättringsrad).
 **Status:** teknisk specifikation inför bygget av HTML-sidan. Hör ihop med [PRD_ai_riktlinjer_261112.md](PRD_ai_riktlinjer_261112.md) (vad och varför). Den här filen säger *exakt hur*. Inte beslutad av Lunds Naturskyddsförening eller Naturskyddsföreningen.
 
 ## 1. Syfte och avgränsning
@@ -59,15 +60,17 @@ Ett objekt med fyra listor. Fält utan värde utelämnas inte, de sätts till `n
 
 **Fält i en post.**
 - `id`: versaler och understreck, unikt, ändras aldrig efter publicering.
-- `typ`: `uppmatt`, `beraknad`, `antagen` eller `bolagets_uppgift`.
+- `typ`: vad värdet är: `uppmatt`, `beraknad` eller `antagen`.
 - `belagd`: `original` (läst i originalet), `sekundar` (via sekundärkälla), `bolagets_egen` eller `antagande`.
-- `kalla`: id i listan `kallor`. Krävs för alla poster utom `antagen`. En post av typen `beraknad` har i stället `formel` (avsnitt 4).
+- `kalla`: id i listan `kallor`. Krävs för poster av typen `uppmatt`. En post av typen `antagen` har `kalla` om det finns stöd för antagandet, annars `null`. En post av typen `beraknad` har `formel` (avsnitt 4) och saknar `varde` i filen.
 - `hamtdatum`: ISO-datum. Krävs när `kalla` finns.
 - `forbattring`: lista med nummer i förbättringsregistret, tom lista om inget återstår.
 
-**Poster som måste finnas i 1.0** (värden och källor hämtas ur analyserna, se `Forbattringar_261112.md` avsnitt 5): `X_IN` (100), `X_UT` (500), `X`, `Y_UT`, `Y_NY`, `Y_ATER`, `Z_NY`, `Z_UT`, `Z_ALLA`, `MW_EFFEKT` (1 000 W, typ `antagen` tills F-06 är löst), `GOOGLE_WH_FRAGA`, `GOOGLE_ML_FRAGA`, `EPOCH_WH_FRAGA`, `EPOCH_TOKENS_SVAR`, `BILD_WH`, `WUE_MICROSOFT_2025`, `WUE_USA_2023`, `INDIREKT_VATTEN_USA`, `DATACENTER_TWH_VARLD_2024`, `DATACENTER_ANDEL_VARLD_2024`, `ELMIX_NORDEN_G_KWH`, `ELMIX_VARLD_G_KWH`, `DATACENTER_TWH_SVERIGE_2022`, `USGS_KARNKRAFT_GENOMSTROMNING` och `USGS_KARNKRAFT_KYLTORN`.
+**Poster som måste finnas i 1.0** (värden och källor hämtas ur analyserna, se `Forbattringar_261112.md` avsnitt 5): `X_IN` (100), `X_UT` (500), `X`, `Y_UT`, `Y_NY`, `Y_ATER` (mätta med `summera_tokens.py`, som är en egen post i `kallor` med mättidpunkt), `Z_NY`, `Z_UT`, `Z_ALLA`, `MW_EFFEKT` (1 000 W, typ `antagen` tills F-06 är löst), `GOOGLE_WH_FRAGA`, `GOOGLE_ML_FRAGA`, `EPOCH_WH_FRAGA`, `EPOCH_TOKENS_SVAR`, `BILD_WH`, `WUE_MICROSOFT_2025`, `WUE_USA_2023`, `INDIREKT_VATTEN_USA`, `DATACENTER_TWH_VARLD_2024`, `DATACENTER_ANDEL_VARLD_2024`, `ELMIX_NORDEN_G_KWH`, `ELMIX_VARLD_G_KWH`, `DATACENTER_TWH_SVERIGE_2022`, `USGS_KARNKRAFT_GENOMSTROMNING` och `USGS_KARNKRAFT_KYLTORN`.
 
-**Valideringsregler** (se avsnitt 8): varje post har `id`, `varde`, `enhet`, `typ`, `belagd`. Varje `kalla` hittas i `kallor`. Varje nummer i `forbattring` hittas i `forbattringar`. Inga dubbla `id`. Beräknade poster saknar `varde` i filen och räknas av sidan.
+**Valideringsregler** (se avsnitt 8): varje post har `id`, `enhet`, `typ`, `belagd`, och `varde` om den inte är `beraknad`. Varje `kalla` hittas i `kallor`. Varje nummer i `forbattring` hittas i `forbattringar`. Inga dubbla `id`. Beräknade poster har `formel` och räknas av sidan.
+
+**Enda källa till sanning.** Siffror, källor, antaganden och förbättringsrader som sidan visar kommer från `data/siffror.json`. Markdown-filerna är arbetskopior. Förbättringsregistret i [Forbattringar_261112.md](Forbattringar_261112.md) är mästare för raderna F-nummer och rubrik, och valideringen kontrollerar att varje F-nummer i JSON-filen finns i registret (och tvärtom för rader med `syns: ja`).
 
 ## 4. Beräkningar (görs i `sida.js`, aldrig för hand i HTML)
 
@@ -78,18 +81,22 @@ Ett objekt med fyra listor. Fält utan värde utelämnas inte, de sätts till `n
 | 3 | Z_UT | `Y_UT ÷ X_UT` | "cirka 290" |
 | 4 | Z_ALLA | `(Y_NY + Y_ATER) ÷ X` | "cirka 34 000" |
 | 5 | Tid i mikrovågsugn | `sekunder = Wh × 3 600 ÷ MW_EFFEKT` | se nedan |
-| 6 | Vatten per kWh till ml | `ml = (liter per kWh) × Wh` (liter per kWh × kWh = liter, gånger 1 000 = ml, och Wh ÷ 1 000 = kWh, så faktorerna tar ut varandra) | se nedan |
-| 7 | Energi för en session | `Z_NY × (0,24 till 0,3 Wh)` (undre) och `Z_ALLA × (0,24 till 0,3 Wh)` (övre) | spann, aldrig ett enda tal |
+| 6 | Vatten per kWh till ml | `ml = (liter per kWh) × Wh` (faktorerna 1 000 för liter till ml och Wh till kWh tar ut varandra) | ml, en värdesiffra eller två |
+| 7 | Energi för en session | undre gräns `Z_NY × GOOGLE_WH_FRAGA` till `Z_NY × EPOCH_WH_FRAGA`, övre gräns `Z_ALLA × GOOGLE_WH_FRAGA` till `Z_ALLA × EPOCH_WH_FRAGA` | spann, aldrig ett enda tal |
 
 **Visning av tid:** under 90 sekunder visas sekunder ("cirka 0,9 sekunder", en decimal under 10 sekunder, annars heltal). Från 90 sekunder till 90 minuter visas minuter. Därefter timmar med en decimal. Alltid "cirka" i framför beräknade värden.
 
 **Talformat:** svensk standard: decimalkomma, tusentalsavgränsare med tunt mellanrum (`Intl.NumberFormat('sv-SE')`).
 
-**Testfall (måste klara):** 0,24 Wh vid 1 000 W blir 0,864 s och visas "cirka 0,9 sekunder". 0,3 Wh blir 1,08 s, "cirka 1 sekund". 2,9 Wh blir 10,44 s, "cirka 10 sekunder". 569 298 ÷ 600 blir 948,8 och visas "cirka 950". 145 705 ÷ 500 blir 291,4, "cirka 290".
+**Testfall (måste klara):** 0,24 Wh vid 1 000 W blir 0,864 s och visas "cirka 0,9 sekunder". 0,3 Wh blir 1,08 s, "cirka 1 sekund". 2,907 Wh (`BILD_WH`) blir 10,47 s, "cirka 10 sekunder". 569 298 ÷ 600 blir 948,8 och visas "cirka 950". 145 705 ÷ 500 blir 291,4, "cirka 290".
 
 Ändras `X_IN`, `X_UT`, `Y_NY`, `Y_ATER` eller `MW_EFFEKT` i datafilen ska alla visade värden uppdateras utan att något annat ändras. `Y_NY` och `Y_ATER` kommer från skriptet `summera_tokens.py` (ögonblicksbild med tidpunkt, F-30).
 
 ## 5. Sidans innehåll och komponenter
+
+**Platshållare i texten.** Inga siffror som finns i datafilen skrivs för hand i HTML. Texten använder platshållare som `sida.js` fyller i: `<span data-post="GOOGLE_WH_FRAGA"></span>` skriver värde och enhet, `<span data-berakna="mikro" data-post="GOOGLE_WH_FRAGA"></span>` skriver tiden i mikrovågsugn, och `<span data-berakna="z_ny"></span>` skriver Z. Text som skapas av JavaScript ska också få källlänkar och tabellhänvisningar som länkar, på samma sätt som text som står i HTML.
+
+**Om datafilen inte kan läsas.** `fetch` fungerar inte på `file://`, så sidan testas via en lokal server (till exempel `python -m http.server` i mappen). Kan datafilen ändå inte läsas visar sidan en tydlig rad ("Siffrorna kunde inte läsas, kontrollera sidan på GitHub Pages") i stället för tomma platshållare eller gamla siffror.
 
 **Tvåstegsmodell.** Varje svår fråga (vatten, miljöfaktorer, vad en fråga är) har
 1. en **kort ruta** på `analys.html` (3–5 meningar och en liten numrerad tabell) som är faktamässigt korrekt, med spann och osäkerhet, och
@@ -98,6 +105,8 @@ Ett objekt med fyra listor. Fält utan värde utelämnas inte, de sätts till `n
 **Markering av hur väl en siffra är belagd.** Varje siffra som kommer ur datafilen får en liten markering bredvid sig (färg och ord, inte bara färg): `original`, `sekundär`, `bolagets egen uppgift` eller `antagande`. Färger: grön, blå, orange och grå. **Aldrig gult**, eftersom gult är reserverat för inmatning. Markeringen länkar till källan (`#ref-<id>`) och, om `forbattring` inte är tom, till raden i förbättringsregistret.
 
 **Förklaringar.** Förkortningar och facktermer (WUE, PUE, TWh, token, CO2e, uttag, förbrukning och liknande) förklaras vid första användning i löptext och med hovring, fokus och tryck, inte bara `title`. Förklaringen hämtas ur källan, aldrig gissad. En liten ordlista i `sida.js` lägger en `abbr`-liknande komponent med tangentbords- och pekstöd.
+
+**Trafikljusets färger.** Den mellersta nivån i trafikljusmodellen (PRD avsnitt 5) visas i **orange** och heter "Kräver kontroll", inte "gult", eftersom gult är reserverat för inmatning. (Att bekräfta med Kent.)
 
 **Ruta "Det här förbättras i kommande versioner".** Visar raderna i `forbattringar` där `syns` är sant, med nummer, rubrik och målversion.
 
@@ -137,7 +146,7 @@ Ett objekt med fyra listor. Fält utan värde utelämnas inte, de sätts till `n
 
 ## 9. Databas, senare
 
-Version 1.0 läser en JSON-fil. En databas eller ett schemalagt skript som kontrollerar om källorna ändrats är ett senare steg (förbättringsregistret, F-30 och framåt). Datamodellen i avsnitt 3 är avsedd att kunna flyttas till en databas utan att sidorna ändras.
+Version 1.0 läser en JSON-fil. En databas eller ett schemalagt skript som kontrollerar om källorna ändrats är ett senare steg (F-31 i förbättringsregistret). Datamodellen i avsnitt 3 är avsedd att kunna flyttas till en databas utan att sidorna ändras.
 
 ## 10. Öppna punkter före bygget
 
@@ -145,6 +154,7 @@ Version 1.0 läser en JSON-fil. En databas eller ett schemalagt skript som kontr
 2. **Källa för mikrovågsugnens effekt** (F-06): tills den finns är `MW_EFFEKT` en `antagen` post med markering "antagande".
 3. **Vilka fördjupningssidor** som ska vara med i 1.0. Förslaget i avsnitt 2 innehåller fem sidor utöver `index.html`.
 4. **Delningsbild** (Open Graph): påminnelse när sidan närmar sig slutet. Bild och text anpassas till projektet.
+5. **Innehållet i PRD avsnitt 5** (principer, trafikljus, bilder och video, checklista, vanliga frågor) finns ännu inte som text (F-32). Den här SPEC:en täcker resursdelen: vatten, miljöfaktorer, vad en fråga är och sessionen. Bygget kan börja med resursdelen och lägga till förhållningssättet i en senare version, eller vänta tills texten finns. Beslut av Kent.
 
 ## Repo
 
