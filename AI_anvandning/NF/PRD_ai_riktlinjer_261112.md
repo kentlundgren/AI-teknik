@@ -1,7 +1,8 @@
 # PRD: förhållningssätt och riktlinjer för generativ AI i en ideell miljöorganisation
 
-**Version:** 0.2 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.3 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** Kents egen undersökning, på eget initiativ och utan samordning. Inte beslutat av Lunds Naturskyddsförening eller av Naturskyddsföreningen.
+**Ändringar i 0.3:** besvarade frågor och liknelser (mikrovågsugn, vatten) samt Sverige/världen inarbetade. Kvarstående frågor uppdaterade.
 **Ändringar i 0.2:** Kents svar inarbetade (öppen publicering på GitHub, resursanalys som eget underlag, format md först och sedan html/css/js, databasidé, anonymisering). Se [Analys_resurser_261112.md](Analys_resurser_261112.md).
 
 > **Utgångspunkter (bekräftade av Kent 2026-11-12):**
@@ -163,13 +164,21 @@ Besvarade av Kent 2026-11-12:
 | Anonymisering | Inga namn. Roller eller generell framställan |
 | Namn på dokumentet | Öppet, avgörs senare |
 
+Besvarade senare samma dag (Kent):
+
+| Fråga | Svar |
+|---|---|
+| Svar till föreningen | Väntar tills sidan är färdig. Inget mejl dessförinnan |
+| Trafikljusets gränser | Enligt förslaget i avsnitt 5 |
+| Resursavsnittet utåt | Komprimerad version med liknelser: en fråga i sekunder i en vanlig mikrovågsugn, en hel produkt (som den här sidan) i motsvarande tid, och vatten i vardagsmått. Se Analys_resurser, avsnitt 6 |
+| Svenska och globala förhållanden | Fakta för båda, där de skiljer sig. Se Analys_resurser, avsnitt 7 |
+
 Kvarstår:
 
-1. **Svar till föreningen idag:** vad ska svaret vara, en kort text med länk till GitHub-mappen, eller vänta tills HTML-sidan finns? (Förslag: en kort text i dag med länk till analysen, och en uppdatering när sidan finns.)
-2. **Trafikljusets gränser:** var går gul och röd för text och bild? (Förslag finns i avsnitt 5.)
-3. **Namnet:** förslag kan samlas under arbetet ("riktlinjer", "förhållningssätt", "vägledning", "kompass", med mera).
-4. **Resursavsnittets djup i första versionen:** räcker tabell 1 i analysen, eller ska jämförelser med vardagsvanor med (kräver fler verifierade källor)?
-5. **Måste siffror finnas för svenska förhållanden** (elmix, vattenanvändning i datacenter), eller räcker globala källor med en tydlig reservation?
+1. **Namnet:** förslag samlas under arbetet ("förhållningssätt" kan heta *approach*, *stance* eller *position* på engelska; "riktlinjer" heter *guidelines*, "policy" heter *policy*).
+2. **Mikrovågsugnens effekt:** 1 000 W är ett antagande. Ska den vara en inställbar parameter på sidan?
+3. **Vattnet:** hur ska sidan beskriva att vattnet *cirkulerar* i vissa anläggningar men förångas i andra, utan att påstå mer än källorna visar?
+4. **Verifieringar före publicering:** Luccioni (bildsiffran), Li (vattenmetoden), Ember, total svensk elanvändning och slutna kylsystem. Se Analys_resurser, avsnitt 9.
 
 ## Repo
 
