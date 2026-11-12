@@ -1,7 +1,8 @@
 # PRD: förhållningssätt och riktlinjer för generativ AI i en ideell miljöorganisation
 
-**Version:** 0.3 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.4 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** Kents egen undersökning, på eget initiativ och utan samordning. Inte beslutat av Lunds Naturskyddsförening eller av Naturskyddsföreningen.
+**Ändringar i 0.4:** ny vattenanalys ([Analys_vatten_261112.md](Analys_vatten_261112.md)): direkt och indirekt vatten, slutna kylsystem, per fråga och per arbetspass. Mikrovågsugnen fastställd till 1 000 W.
 **Ändringar i 0.3:** besvarade frågor och liknelser (mikrovågsugn, vatten) samt Sverige/världen inarbetade. Kvarstående frågor uppdaterade.
 **Ändringar i 0.2:** Kents svar inarbetade (öppen publicering på GitHub, resursanalys som eget underlag, format md först och sedan html/css/js, databasidé, anonymisering). Se [Analys_resurser_261112.md](Analys_resurser_261112.md).
 
@@ -176,7 +177,7 @@ Besvarade senare samma dag (Kent):
 Kvarstår:
 
 1. **Namnet:** förslag samlas under arbetet ("förhållningssätt" kan heta *approach*, *stance* eller *position* på engelska; "riktlinjer" heter *guidelines*, "policy" heter *policy*).
-2. **Mikrovågsugnens effekt:** 1 000 W är ett antagande. Ska den vara en inställbar parameter på sidan?
+2. **Mikrovågsugnens effekt:** 1 000 W (beslutat). Ska den ändå vara en inställbar parameter på sidan?
 3. **Vattnet:** hur ska sidan beskriva att vattnet *cirkulerar* i vissa anläggningar men förångas i andra, utan att påstå mer än källorna visar?
 4. **Verifieringar före publicering:** Luccioni (bildsiffran), Li (vattenmetoden), Ember, total svensk elanvändning och slutna kylsystem. Se Analys_resurser, avsnitt 9.
 
