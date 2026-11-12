@@ -4,6 +4,7 @@
  * (data-post, data-formel, data-kalla, data-lista), visar markering av hur väl en siffra är belagd,
  * förklaringar vid hovring/fokus/tryck, tekniknivån i hörnet och versionsraden.
  *
+ * UPPDATERING 2026-11-12: versionen följer sidan Bilder och förtroende (växlande bilder i bildvaxel.js). Version 1.12.
  * UPPDATERING 2026-11-12: nyckelkällor markeras och förklaras i källförteckningen (harvardPost, fältet nyckel). Version 1.11.
  * UPPDATERING 2026-11-12: termerna fältexperiment, promptografi, medelbudskap och fotorealism för sidan Bilder och förtroende. Version 1.10.
  * UPPDATERING 2026-11-12: introt startar vid varje laddning av startsidan. Version 1.9.
@@ -20,7 +21,7 @@
  * Testläge: lägg ?test=1 efter adressen för att köra validering och testfall (SPEC avsnitt 3, 4 och 8).
  * Obs: fetch fungerar inte på file://. Testa via en lokal server (python -m http.server).
  */
-const VERSION = "1.11";
+const VERSION = "1.12";
 const VERSIONSDATUM = "2026-11-12";
 const AVSANDARE = "Kent Lundgren";
 const GITHUB_MAPP = "https://github.com/kentlundgren/AI-teknik/tree/main/AI_anvandning/NF";

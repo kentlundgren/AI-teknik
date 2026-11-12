@@ -2631,7 +2631,7 @@
   {
    "id": "F-40",
    "omrade": "Bilder",
-   "rubrik": "Hitta Naturskyddsföreningens och riksorganisationens egen publika rekommendation om AI-bilder och jämför den med underlaget. Sökningen 2026-11-12 gav ingen träff",
+   "rubrik": "Hitta Naturskyddsföreningens och riksorganisationens egen publika rekommendation om AI-bilder och jämför den med underlaget. Sökningen 2026-11-12 gav ingen träff. Fråga riksorganisationen om dess rekommendation är publik eller får återges anonymiserat",
    "malversion": "1.x",
    "syns": true
   },
@@ -2667,6 +2667,20 @@
    "id": "F-45",
    "omrade": "Bakgrund",
    "rubrik": "Förs loggen på bakgrundssidan vidare när något händer, och ska föreningens namn stå på alla sidor (notisen nämner Lunds Naturskyddsförening) eller bara generiskt som på bakgrundssidan? Kent avgör",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-46",
+   "omrade": "Bilder",
+   "rubrik": "Be skaparna av de två affischerna om tillstånd att visa dem publikt (den traditionella innehåller fotografier och föreningens logotyp) och om bilder i högre upplösning. Idag visas två små bilder ur en vidarebefordrad PDF",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-47",
+   "omrade": "Bilder",
+   "rubrik": "Det finns inget underlag om hur gräll, ungdomlig eller seriös en AI-layout upplevs jämfört med en traditionell, vilket var den andra halvan av den ursprungliga frågan. Leta studier om layout och formspråk, eller redovisa det som en smakfråga",
    "malversion": "1.x",
    "syns": true
   }
@@ -2909,6 +2923,11 @@
   }
  ],
  "versionslogg": [
+  {
+   "version": "1.12",
+   "datum": "2026-11-12",
+   "text": "De två affischerna som frågan började med visas växelvis på sidan Bilder och förtroende (låg upplösning), med ett avsnitt om att frågan också gällde form. Två nya förbättringsposter (F-46 och F-47)."
+  },
   {
    "version": "1.11",
    "datum": "2026-11-12",

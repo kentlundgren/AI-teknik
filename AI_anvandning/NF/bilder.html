@@ -1,7 +1,8 @@
 <!doctype html>
 <!--
   AI i en miljöorganisation: bilder framtagna med AI, förtroende och märkning (steg 2).
-  Version 1.11 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  Version 1.12 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  UPPDATERING 2026-11-12: de två affischerna som frågan började med visas växelvis (bildvaxel.js, bildvaxel.css) och ett avsnitt om frågan om form. Version 1.12.
   UPPDATERING 2026-11-12: bygger på själva rapporten Artificial Authenticity (läst i original): 472 kommentarer, tonfördelning, WWF Danmark enligt rapporten och författarnas begränsningar. Version 1.11.
   UPPDATERING 2026-11-12: första versionen av sidan. Version 1.10.
 -->
@@ -26,7 +27,9 @@
   <meta name="twitter:description" content="Vad underlaget säger om reaktioner på AI-bilder hos ideella organisationer: förtroende, äkthet, märkning och naturbilders riktighet, med en bedömning av hur väl varje skäl är belagt och vad som inte är undersökt.">
   <meta name="twitter:image" content="https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/og-bild.jpg">
   <link rel="stylesheet" href="sida.css">
+  <link rel="stylesheet" href="bildvaxel.css">
   <script src="sida.js" defer></script>
+  <script src="bildvaxel.js" defer></script>
 <link rel="stylesheet" href="brodsmulor.css">
 </head>
 <body>
@@ -49,6 +52,29 @@
 
   <h2 id="fragan">Frågan</h2>
   <p>Är bilder som AI har tagit fram extra känsliga för en miljöorganisation, och vad handlar reaktionerna i så fall om? Frågan kom ur samma styrelsediskussion som energifrågan (se <a href="bakgrund.html">Bakgrund och användning</a>), men energin per bild är liten: en bild motsvarar i mätningen <span data-formel="BILD_WH*3600/MW_EFFEKT" data-visa="tid"></span> i en mikrovågsugn på 1 000 W (<a href="analys.html#Tabell1">Tabell 1 i analysen</a>). Om reaktionerna ändå är starka måste de bero på något annat.</p>
+
+  <h2 id="bilderna">De två bilderna som frågan gällde</h2>
+  <p>Frågan började med två förslag till en affisch om El Niño, till ett bord på en adventsmässa. Det ena förslaget togs fram med AI och det andra med traditionella metoder i ett dataprogram. Bilderna växlar av sig själva, och du kan välja vilken som visas.</p>
+  <div class="bildvaxel" id="bildvaxel">
+    <div class="kontroller">
+      <button type="button" data-visa="0" aria-pressed="true">Förslag 1: gjort med AI</button>
+      <button type="button" data-visa="1" aria-pressed="false">Förslag 2: traditionellt</button>
+      <button type="button" data-spel aria-pressed="true">Pausa växlingen</button>
+    </div>
+    <div class="ram">
+      <figure class="aktiv">
+        <img src="media/el_nino_ai.jpg" width="337" height="472" alt="Affisch om El Niño i färgstark, illustrerad stil: rubriken El Niño, en jordglob med varmt vatten i Stilla havet, tre numrerade rutor och en ruta med rubriken Att ta med sig. Framtagen med AI.">
+        <figcaption>Förslag 1: gjort med AI.</figcaption>
+      </figure>
+      <figure>
+        <img src="media/el_nino_traditionell.jpg" width="319" height="478" alt="Affisch om El Niño på vit bakgrund: rubriken El Niño, en karta, fyra fotografier och löptext i kolumner. Framtagen med traditionella metoder i ett dataprogram.">
+        <figcaption>Förslag 2: gjort med traditionella metoder.</figcaption>
+      </figure>
+    </div>
+  </div>
+  <p>Frågan till riksorganisationen hade två delar. Den ena gällde om man bör avstå från AI på grund av elen och vattnet. Den andra gällde formen: om AI-förslaget är mer ungdomligt och slagkraftigt, eller för grällt och oseriöst. Det är alltså inte bara förtroende och energi som frågan gällde utan också smak (<a href="kallor.html#F-47">F-47</a>).</p>
+  <p>Hur den AI-gjorda bilden togs fram (verktyg och antal försök) är inte känt här, så dess energi går inte att ange. En genererad bild motsvarar i genomsnitt <span data-formel="BILD_WH*3600/MW_EFFEKT" data-visa="tid"></span> i en mikrovågsugn på 1 000 W, i en mätning av äldre modeller (<a href="analys.html#Tabell1">Tabell 1 i analysen</a>).</p>
+  <p class="notis">Bilderna är av låg upplösning, utdragna ur en vidarebefordrad PDF, och visas för att visa vad frågan gällde. Bättre bilder och tillstånd att visa dem är en förbättringspost (<a href="kallor.html#F-46">F-46</a>).</p>
 
   <h2 id="skal">Vilka skäl finns, och hur väl är de belagda?</h2>
   <p>Analysen i korthet nämner fem skäl som en hypotes (<a href="analys.html#bilder">Bilder: fler skäl än energi</a>). Här prövas de mot underlaget, med tre skäl till. Graderingen i den sista kolumnen är en egen bedömning av hur väl underlaget bär skälet, inte av hur viktigt det är.</p>
@@ -108,6 +134,7 @@
   <h2 id="inte-visar">Vad underlaget inte visar</h2>
   <ul>
     <li>Ingen studie av naturorganisationer eller av hur svenska medlemmar och givare reagerar har hittats.</li>
+    <li>Frågan om form, om en AI-layout upplevs som ungdomlig och slagkraftig eller som för grällt och oseriös, är en smakfråga som underlaget inte mäter (<a href="kallor.html#F-47">F-47</a>).</li>
     <li>De flesta bilderna i rapporten gäller bistånd: fattigdom var tema i <span data-post="UEA_FATTIGDOM" data-utanenhet="1" data-badge="nej"></span> av <span data-post="UEA_BILDER" data-utanenhet="1" data-badge="nej"></span> bilder, medan <span data-post="UEA_MILJO" data-utanenhet="1" data-badge="nej"></span> hade miljö som tema (alla illustrerade och märkta), enligt <span data-kalla="adesina_2026"></span>.</li>
     <li>Rapporten är en kvalitativ analys av kommentarer, inte ett experiment. Den visar vad som sägs, inte hur förtroendet eller givandet påverkas. Författarna anger själva att reaktionerna påverkas av inläggets text, plattformen, kontotypen och algoritmens sortering, att ett inlägg om WWF Danmark fick över 7 000 kommentarer som mest gällde förfrågningar om mallar, och att de inte vet hur eller när märkningen gjordes.</li>
     <li>Rapportens siffror är inte helt konsekventa (till exempel andelen kodade kommentarer och antalet kommentarer om kvalitet), se <a href="kallor.html#F-41">F-41</a>.</li>
@@ -118,7 +145,7 @@
 
   <h2 id="aterstar">Det som återstår</h2>
   <p>Det här ska undersökas bättre i kommande versioner:</p>
-  <div data-lista="forbattringar" data-ids="F-21,F-24,F-32,F-40,F-41,F-42,F-43,F-44"></div>
+  <div data-lista="forbattringar" data-ids="F-21,F-24,F-32,F-40,F-41,F-42,F-43,F-44,F-46,F-47"></div>
 
   <h2 id="kallor">Källor</h2>
   <p>Källorna som den här sidan hänvisar till, i Harvardformat. Hela förteckningen och hur varje källa kontrollerats finns på sidan <a href="kallor.html">Källor och logg</a>.</p>

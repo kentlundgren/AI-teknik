@@ -1,6 +1,6 @@
 # Förbättringsregister och verifieringslogg
 
-**Version:** 0.11 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.12 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** arbetsdokument. Samlar allt som ska analyseras och beskrivas bättre i kommande versioner, och vad som är kontrollerat mot originalkällor. Hör ihop med [PRD_ai_riktlinjer_261112.md](PRD_ai_riktlinjer_261112.md).
 
 ## 1. Hur vi skriver upp och minns
@@ -59,12 +59,14 @@ Tabell 1. Kvarvarande förbättringar
 | F-37 | Pengar | Hur abonnemangets gränser (5 timmar, vecka) räknar tokens: väger cachade och nya tokens lika? Idag redovisas bara mätarens procent, inte hur de beräknas | Saknas | 1.x | Ja |
 | F-38 | Pengar | Kontrollera kostnadsberäkningen mot en faktisk faktura eller användningsrapport, vilken modell underagenterna körs på, hur resonerande tokens räknas och om cachen skrivs med 5 minuters eller 1 timmes livslängd. Idag en uppskattning ur prislistan | Uppskattning | 1.x | Ja |
 | F-39 | Delning | Uppdatera delningsbilden (og-bild.jpg) när ögonblicksbilden för arbetet ändras. Bilden genereras av gen_og_bild.py ur datafilen, och tiderna på bilden (0:01, 0:10 och 33:00) hör till ögonblicksbild A3 | Aktuell | 1.x | Nej |
-| F-40 | Bilder | Hitta Naturskyddsföreningens och riksorganisationens egen publika rekommendation om AI-bilder och jämför den med underlaget. Sökningen 2026-11-12 gav ingen träff | Saknas | 1.x | Ja |
+| F-40 | Bilder | Hitta Naturskyddsföreningens och riksorganisationens egen publika rekommendation om AI-bilder och jämför den med underlaget. Sökningen 2026-11-12 gav ingen träff. Fråga riksorganisationen om dess rekommendation är publik eller får återges anonymiserat | Saknas | 1.x | Ja |
 | F-41 | Bilder | Rapportens siffror (Adesina & Girling, 2026) är inte helt konsekventa: 472 kommentarer i tonläget mot 541 i temaanalysen, 122 mot 124 kommentarer om kvalitet, och minst 20 % mot minst 50 % av kommentarerna kodade vid hög aktivitet. Fråga författarna eller redovisa vilka siffror sidan använder | Rapport läst | 1.x | Ja |
 | F-42 | Bilder | Läs Zhao m.fl. (2026) i fulltext och Arango m.fl. (2023, Journal of Advertising, bara metadata läst): gäller resultaten bilder eller AI-användning i annonser i allmänhet? | Abstract läst | 1.x | Ja |
 | F-43 | Bilder | Kontrollera studier som nämnts i sökresultat men inte öppnats: tre experiment om realistiska AI-bilder av klimatkatastrofer (Eppler, 2026) och en uppgift om en studie i Nature. De används inte på sidan | Ej verifierat | 1.x | Ja |
 | F-44 | Bilder | Läs Heinz Sielmann Stiftungs egen text om AI-djurbilder och leta forskning om hur AI-bilder av arter avviker från verkligheten. Idag bara en nyhetstext läst | Nyhetstext läst | 1.x | Ja |
 | F-45 | Bakgrund | Förs loggen på bakgrundssidan vidare när något händer, och ska föreningens namn stå på alla sidor (notisen nämner Lunds Naturskyddsförening) eller bara generiskt som på bakgrundssidan? Kent avgör | Öppen | 1.x | Ja |
+| F-46 | Bilder | Be skaparna av de två affischerna om tillstånd att visa dem publikt (den traditionella innehåller fotografier och föreningens logotyp) och om bilder i högre upplösning. Idag visas två små bilder ur en vidarebefordrad PDF | Öppen | 1.x | Ja |
+| F-47 | Bilder | Det finns inget underlag om hur gräll, ungdomlig eller seriös en AI-layout upplevs jämfört med en traditionell, vilket var den andra halvan av den ursprungliga frågan. Leta studier om layout och formspråk, eller redovisa det som en smakfråga | Saknas | 1.x | Ja |
 
 ## 3. Mikrovågsugnens effekt (F-06)
 

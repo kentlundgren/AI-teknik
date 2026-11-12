@@ -1,0 +1,29 @@
+/* bildvaxel.css: stil för den växlande bildvisningen på sidan Bilder och förtroende.
+ * UPPDATERING 2026-11-12: första versionen. Version 1.12.
+ * Gult används inte här: det är reserverat för inmatningsfält.
+ */
+.bildvaxel { max-width: 380px; margin: 1rem 0 1.4rem; }
+.bildvaxel figure { margin: 0 0 1rem; }
+.bildvaxel img { display: block; width: 100%; height: auto; border: 1px solid var(--hair); border-radius: 6px; background: #fff; }
+.bildvaxel figcaption { margin-top: 0.4rem; font-size: 0.92rem; color: var(--muted); }
+.bildvaxel .kontroller { display: none; }
+
+/* med JavaScript: bilderna ligger i samma ruta och tonas in och ut */
+.bildvaxel.js .kontroller { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.7rem; }
+.bildvaxel.js .kontroller button {
+  font: inherit; font-size: 0.92rem; padding: 0.35rem 0.8rem; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--accent); background: var(--bg); color: var(--accent-ink);
+}
+.bildvaxel.js .kontroller button[aria-pressed="true"] { background: var(--accent); color: var(--bg); }
+.bildvaxel.js .kontroller button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.bildvaxel.js .ram { display: grid; }
+.bildvaxel.js figure { grid-area: 1 / 1; margin: 0; opacity: 0; visibility: hidden; transition: opacity 0.6s ease, visibility 0.6s; }
+.bildvaxel.js figure.aktiv { opacity: 1; visibility: visible; }
+@media (prefers-reduced-motion: reduce) {
+  .bildvaxel.js figure { transition: none; }
+}
+@media print {
+  .bildvaxel .kontroller { display: none !important; }
+  .bildvaxel.js .ram { display: block; }
+  .bildvaxel.js figure { opacity: 1; visibility: visible; margin: 0 0 1rem; }
+}
