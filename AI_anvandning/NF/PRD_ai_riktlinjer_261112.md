@@ -1,7 +1,9 @@
 # PRD: förhållningssätt och riktlinjer för generativ AI i en ideell miljöorganisation
 
-**Version:** 0.22 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.24 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** Kents egen undersökning, på eget initiativ och utan samordning. Inte beslutat av Lunds Naturskyddsförening eller av Naturskyddsföreningen.
+**Ändringar i 0.24:** sidan är version 1.14: en tredje affisch (AI-ritad vektorgrafik med källor) på bildsidan och förstoring av alla bilderna.
+**Ändringar i 0.23:** sidan är version 1.13: förbehållsrutorna överst på sidorna är ihopfällda som standard.
 **Ändringar i 0.22:** sidan är version 1.12: de två affischerna som frågan började med visas växelvis på bildsidan, och frågan om form (ungdomlig mot gräll) är tillagd som egen punkt (F-47).
 **Ändringar i 0.21:** sidan är version 1.11: bildsidan bygger på rapporten Artificial Authenticity (läst i original) och rapporten är markerad som nyckelkälla i källförteckningen.
 **Ändringar i 0.20:** sidan är version 1.10: ny sida Bilder och förtroende (underlag om reaktioner på AI-bilder, delvis F-21) och ny sida Bakgrund och användning (anonymiserad, med en logg). Förbättringsposterna F-40 till F-45 är nya.

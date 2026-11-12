@@ -1,4 +1,5 @@
 /* sida.css: gemensam stil för sidorna om AI i en miljöorganisation.
+ * UPPDATERING 2026-11-12: ihopfällda förbehållsrutor (details.notis-dold). Version 1.13.
  * UPPDATERING 2026-11-12: nyckelkälla i källförteckningen (li.nyckelkalla, .nyckelmarke, .nyckeltext). Version 1.11.
  * UPPDATERING 2026-11-12: summarad (tfoot). Version 1.6.
  * UPPDATERING 2026-11-12: bedömningsrad (tr.bedomning). Version 1.5.
@@ -208,3 +209,13 @@ details.hopfall > summary:hover { text-decoration: underline; }
   .hash { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .corner, .hash { transition: none; } }
+
+/* förbehållsrutor: en liten rad som öppnar rutan */
+details.notis-dold { margin: 0.3rem 0 1rem; }
+details.notis-dold > summary { cursor: pointer; list-style: none; font-size: 0.85rem; color: var(--muted); }
+details.notis-dold > summary::-webkit-details-marker { display: none; }
+details.notis-dold > summary::before { content: "▸ "; }
+details.notis-dold[open] > summary::before { content: "▾ "; }
+details.notis-dold > summary:hover { text-decoration: underline; }
+details.notis-dold > summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+details.notis-dold > .notis { margin-top: 0.5rem; }

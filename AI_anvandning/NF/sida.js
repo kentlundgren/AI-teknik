@@ -4,6 +4,8 @@
  * (data-post, data-formel, data-kalla, data-lista), visar markering av hur väl en siffra är belagd,
  * förklaringar vid hovring/fokus/tryck, tekniknivån i hörnet och versionsraden.
  *
+ * UPPDATERING 2026-11-12: versionen följer sidan Bilder och förtroende (tredje bilden och förstoring i forstora.js). Version 1.14.
+ * UPPDATERING 2026-11-12: förbehållsrutorna (.notis) är ihopfällda som standard och öppnas med ett klick eller vid utskrift (doljNotiser). Version 1.13.
  * UPPDATERING 2026-11-12: versionen följer sidan Bilder och förtroende (växlande bilder i bildvaxel.js). Version 1.12.
  * UPPDATERING 2026-11-12: nyckelkällor markeras och förklaras i källförteckningen (harvardPost, fältet nyckel). Version 1.11.
  * UPPDATERING 2026-11-12: termerna fältexperiment, promptografi, medelbudskap och fotorealism för sidan Bilder och förtroende. Version 1.10.
@@ -21,7 +23,7 @@
  * Testläge: lägg ?test=1 efter adressen för att köra validering och testfall (SPEC avsnitt 3, 4 och 8).
  * Obs: fetch fungerar inte på file://. Testa via en lokal server (python -m http.server).
  */
-const VERSION = "1.12";
+const VERSION = "1.14";
 const VERSIONSDATUM = "2026-11-12";
 const AVSANDARE = "Kent Lundgren";
 const GITHUB_MAPP = "https://github.com/kentlundgren/AI-teknik/tree/main/AI_anvandning/NF";
@@ -387,10 +389,19 @@ function oppnaForAnkare() {
   while (d) { d.open = true; d = d.parentElement && d.parentElement.closest("details"); }
   t.scrollIntoView();
 }
+/* Förbehållsrutor (.notis) är ihopfällda som standard: en liten rad med rubriken öppnar rutan. Utan JavaScript syns rutan. */
+function doljNotiser() {
+  document.querySelectorAll(".notis").forEach((p) => {
+    const d = document.createElement("details"); d.className = "notis-dold";
+    const sm = document.createElement("summary"); sm.textContent = p.dataset.rubrik || "Förbehåll om sidan";
+    p.parentNode.insertBefore(d, p);
+    d.append(sm, p);
+  });
+}
 let oppnadeForUtskrift = [];
 window.addEventListener("beforeprint", () => {
   oppnadeForUtskrift = [];
-  document.querySelectorAll("details.hopfall:not([open])").forEach((d) => { d.open = true; oppnadeForUtskrift.push(d); });
+  document.querySelectorAll("details.hopfall:not([open]), details.notis-dold:not([open])").forEach((d) => { d.open = true; oppnadeForUtskrift.push(d); });
 });
 window.addEventListener("afterprint", () => { oppnadeForUtskrift.forEach((d) => { d.open = false; }); });
 window.addEventListener("hashchange", oppnaForAnkare);
@@ -570,6 +581,7 @@ function testpanel() {
 /* ---------- start ---------- */
 async function start() {
   versionsrad();
+  doljNotiser();
   ankare();
   hornpar();
   initTermer();

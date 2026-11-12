@@ -1,6 +1,8 @@
 # SPEC: sidan om AI i en miljöorganisation (datamodell, beräkningar, struktur)
 
-**Version:** 0.10 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.12 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Ändringar i 0.12:** forstora.js och forstora.css (förstoring i ett fönster med hela bilden, bredd, 100 %, zoom, rullning och Esc), gen_affisch.py (affisch 3 som SVG, text bruten efter uppmätt bredd) och tre nya källor.
+**Ändringar i 0.11:** förbehållsrutor (.notis) fälls ihop av sida.js (doljNotiser) till en rad som öppnar rutan, med valfri rubrik i data-rubrik, och öppnas vid utskrift. Utan JavaScript syns rutan.
 **Ändringar i 0.10:** bildvaxel.js och bildvaxel.css (växlande bildvisning med paus, val av bild och stöd för minskad rörelse) och mappen media med två bilder.
 **Ändringar i 0.9:** källor kan ha fältet nyckel (förklaring till varför källan är extra intressant), som visas som en markering i källförteckningen. Poster för bildrapporten uppdaterade (472 kommentarer, tonläge).
 **Ändringar i 0.8:** nya sidor bilder.html och bakgrund.html (version 1.10), elva nya poster (UEA_*, ZHAO_*), sju nya källor och fyra nya termer i sida.js.

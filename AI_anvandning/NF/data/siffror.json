@@ -2359,6 +2359,36 @@
    "hamtad": "2026-11-12",
    "not": "Fältexperiment och fyra kontrollerade experiment om AI-märkta välgörenhetsannonser och givande. Abstract läst, fulltexten kräver prenumeration (F-42).",
    "nyckel": null
+  },
+  {
+   "id": "noaa_climate_2026",
+   "kort": "NOAA Climate.gov (u.å.)",
+   "harvard": "NOAA Climate.gov (u.å.) 'What is the El Niño–Southern Oscillation (ENSO) in a nutshell?'",
+   "url": "https://www.climate.gov/news-features/blogs/enso/what-el-ni%C3%B1o%E2%80%93southern-oscillation-enso-nutshell",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "Definition av El Niño (varmare ytvatten i centrala och östra tropiska Stilla havet), vindar som försvagas eller byter riktning och namnets ursprung. Sidan läst.",
+   "nyckel": null
+  },
+  {
+   "id": "noaa_ocean_2026",
+   "kort": "NOAA Ocean Service (u.å.)",
+   "harvard": "NOAA National Ocean Service (u.å.) 'What are El Niño and La Niña?'",
+   "url": "https://oceanservice.noaa.gov/facts/ninonina.html",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "Normala förhållanden med passadvindar och uppvällning, hur El Niño bryter dem, två till sju år i genomsnitt, 9 till 12 månader och namnet El Niño de Navidad. Sidan läst.",
+   "nyckel": null
+  },
+  {
+   "id": "smhi_2026",
+   "kort": "SMHI (2026)",
+   "harvard": "SMHI (2026) 'WMO: Exceptionellt varmt hav intensifierar El Niño', publicerad 3 september 2026, uppdaterad 29 september 2026.",
+   "url": "https://www.smhi.se/nyheter/nyheter/2026-09-03-wmo-exceptionellt-varmt-hav-intensifierar-el-nino",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "Läget hösten 2026, nederbörd och torka, att Sverige påverkas indirekt, att El Niño är naturligt och att effekterna tenderar att bli starkare i ett varmare klimat. Sidan läst.",
+   "nyckel": null
   }
  ],
  "forbattringar": [
@@ -2683,6 +2713,13 @@
    "rubrik": "Det finns inget underlag om hur gräll, ungdomlig eller seriös en AI-layout upplevs jämfört med en traditionell, vilket var den andra halvan av den ursprungliga frågan. Leta studier om layout och formspråk, eller redovisa det som en smakfråga",
    "malversion": "1.x",
    "syns": true
+  },
+  {
+   "id": "F-48",
+   "omrade": "Bilder",
+   "rubrik": "Låt en sakkunnig granska fakta i affisch 3 (egen genomgång mot NOAA och SMHI, inte expertgranskning) innan den används utanför sidan, och ta ställning till om en AI-ritad affisch passar i föreningens kanaler",
+   "malversion": "1.x",
+   "syns": true
   }
  ],
  "verifieringar": [
@@ -2920,9 +2957,46 @@
    "paastaende": "Hälsoorganisationer rapporteras använda AI-bilder av extrem fattigdom, forskare varnar för stereotyper, enligt The Guardian",
    "kontroll": "Artikeln hämtad och läst. Guardian-originalet inte läst",
    "resultat": "Stämmer enligt ORF"
+  },
+  {
+   "kalla": "NOAA National Ocean Service (u.å.)",
+   "ids": [
+    "noaa_ocean_2026"
+   ],
+   "paastaende": "Normalt blåser passadvindarna västerut och för varmt vatten från Sydamerika mot Asien, kallt vatten stiger. El Niño: vindarna försvagas, varmt vatten trycks österut, uppvällningen försvagas eller upphör. Två till sju år i genomsnitt, 9 till 12 månader, El Niño de Navidad, toppar kring december",
+   "kontroll": "Sidan hämtad och läst",
+   "resultat": "Stämmer"
+  },
+  {
+   "kalla": "NOAA Climate.gov (u.å.)",
+   "ids": [
+    "noaa_climate_2026"
+   ],
+   "paastaende": "El Niño är varmare ytvatten i centrala och östra tropiska Stilla havet. Vindar som normalt blåser från öster försvagas eller byter riktning. Fiskare såg varmt vatten kring jul",
+   "kontroll": "Sidan hämtad och läst",
+   "resultat": "Stämmer"
+  },
+  {
+   "kalla": "SMHI (2026)",
+   "ids": [
+    "smhi_2026"
+   ],
+   "paastaende": "WMO: El Niño pågår med nära 100 procents sannolikhet till februari 2027, kulmen vid årsskiftet. Naturligt fenomen. Medeltemperaturen högre under El Niño. Effekterna tenderar att bli starkare i ett varmare klimat. Svag koppling till svenskt väder, indirekt via livsmedelspriser. Nederbörd och torka per region",
+   "kontroll": "Sidan hämtad och läst",
+   "resultat": "Stämmer. Beskrivningen mycket kraftig El Niño är SMHI:s professors (Erik Kjellström), inte WMO:s"
   }
  ],
  "versionslogg": [
+  {
+   "version": "1.14",
+   "datum": "2026-11-12",
+   "text": "Tredje bilden på sidan Bilder och förtroende: en affisch om El Niño som AI ritat som vektorgrafik, med källor (NOAA, SMHI) och läsbar text. Alla bilderna kan förstoras och zoomas. Tre nya källor och en ny förbättringspost (F-48)."
+  },
+  {
+   "version": "1.13",
+   "datum": "2026-11-12",
+   "text": "Förbehållsrutorna överst på sidorna (och rutan om bildernas kvalitet) är ihopfällda som standard och öppnas med en liten rad. De öppnas vid utskrift."
+  },
   {
    "version": "1.12",
    "datum": "2026-11-12",
