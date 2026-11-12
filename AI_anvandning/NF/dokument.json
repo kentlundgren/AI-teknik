@@ -5,8 +5,10 @@
     {"fil": "analys.html", "namn": "Analysen i korthet", "roll": "sida"},
     {"fil": "vatten.html", "namn": "Vatten i detalj", "roll": "sida"},
     {"fil": "miljofaktorer.html", "namn": "Övriga miljöfaktorer", "roll": "sida"},
+    {"fil": "bilder.html", "namn": "Bilder och förtroende", "roll": "sida"},
     {"fil": "anvandningssatt.html", "namn": "Fråga och arbete", "roll": "sida"},
     {"fil": "forbrukning.html", "namn": "Min förbrukning", "roll": "sida"},
+    {"fil": "bakgrund.html", "namn": "Bakgrund och användning", "roll": "sida"},
     {"fil": "kallor.html", "namn": "Källor och logg", "roll": "sida"}
   ]
 }

@@ -1,6 +1,6 @@
 # Förbättringsregister och verifieringslogg
 
-**Version:** 0.9 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.10 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** arbetsdokument. Samlar allt som ska analyseras och beskrivas bättre i kommande versioner, och vad som är kontrollerat mot originalkällor. Hör ihop med [PRD_ai_riktlinjer_261112.md](PRD_ai_riktlinjer_261112.md).
 
 ## 1. Hur vi skriver upp och minns
@@ -41,7 +41,7 @@ Tabell 1. Kvarvarande förbättringar
 | F-18 | Bilder | Nyare mätningar av energi per bild (Luccioni m.fl. gäller äldre modeller) | En studie | 1.x | Ja |
 | F-19 | Dokument | Namn på sidan och dokumentet | Öppet | 1.0 | Nej |
 | F-20 | Miljöfaktorer | Indirekta effekter (rebound, nytta i andra sektorer). Går åt båda hållen, inte kvantifierat | Saknas | 2.0 | Ja |
-| F-21 | Bilder | Forskning om hur publik reagerar på AI-bilder och märkning (stöd för att reaktionerna handlar om mer än energi, till exempel trovärdighet och äkthet) | Saknas, bara organisationens egen erfarenhet | 1.x | Ja |
+| F-21 | Bilder | Forskning om hur publik reagerar på AI-bilder och märkning (stöd för att reaktionerna handlar om mer än energi, till exempel trovärdighet och äkthet) | Delvis genomförd: se bilder.html (version 1.10). Inget om naturorganisationer eller svenska medlemmar | 1.x | Ja |
 | F-22 | Vatten | Kontrollera kylmetod för ett svenskt datacenter genom att läsa respektive bolags miljöredovisning | Saknas | 1.x | Ja |
 | F-23 | Vatten | Kyltornens och genomströmningskylningens relevans för datacenter (hur vanligt är vad?). Idag bygger jämförelsen på kraftverk | Kraftverk (USGS) | 1.x | Ja |
 | F-24 | Nytta | Belägg för hur mycket AI-stöd faktiskt sparar eller ger i arbete (forskningen om nyttan är inte genomgången, inga källor är hämtade). Sidan påstår ingen siffra för nyttan | Saknas | 1.0 | Ja |
@@ -59,6 +59,12 @@ Tabell 1. Kvarvarande förbättringar
 | F-37 | Pengar | Hur abonnemangets gränser (5 timmar, vecka) räknar tokens: väger cachade och nya tokens lika? Idag redovisas bara mätarens procent, inte hur de beräknas | Saknas | 1.x | Ja |
 | F-38 | Pengar | Kontrollera kostnadsberäkningen mot en faktisk faktura eller användningsrapport, vilken modell underagenterna körs på, hur resonerande tokens räknas och om cachen skrivs med 5 minuters eller 1 timmes livslängd. Idag en uppskattning ur prislistan | Uppskattning | 1.x | Ja |
 | F-39 | Delning | Uppdatera delningsbilden (og-bild.jpg) när ögonblicksbilden för arbetet ändras. Bilden genereras av gen_og_bild.py ur datafilen, och tiderna på bilden (0:01, 0:10 och 33:00) hör till ögonblicksbild A3 | Aktuell | 1.x | Nej |
+| F-40 | Bilder | Hitta Naturskyddsföreningens och riksorganisationens egen publika rekommendation om AI-bilder och jämför den med underlaget. Sökningen 2026-11-12 gav ingen träff | Saknas | 1.x | Ja |
+| F-41 | Bilder | Läs rapporten Artificial Authenticity (UEA) i original, webbplatsen charity-advertising.co.uk gav 403 vid hämtning, och kontrollera siffrorna och fallet WWF Danmark mot en primärkälla. Idag bara pressmeddelandet läst | Pressmeddelande läst | 1.x | Ja |
+| F-42 | Bilder | Läs Zhao m.fl. (2026) i fulltext och Arango m.fl. (2023, Journal of Advertising, bara metadata läst): gäller resultaten bilder eller AI-användning i annonser i allmänhet? | Abstract läst | 1.x | Ja |
+| F-43 | Bilder | Kontrollera studier som nämnts i sökresultat men inte öppnats: tre experiment om realistiska AI-bilder av klimatkatastrofer (Eppler, 2026) och en uppgift om en studie i Nature. De används inte på sidan | Ej verifierat | 1.x | Ja |
+| F-44 | Bilder | Läs Heinz Sielmann Stiftungs egen text om AI-djurbilder och leta forskning om hur AI-bilder av arter avviker från verkligheten. Idag bara en nyhetstext läst | Nyhetstext läst | 1.x | Ja |
+| F-45 | Bakgrund | Förs loggen på bakgrundssidan vidare när något händer, och ska föreningens namn stå på alla sidor (notisen nämner Lunds Naturskyddsförening) eller bara generiskt som på bakgrundssidan? Kent avgör | Öppen | 1.x | Ja |
 
 ## 3. Mikrovågsugnens effekt (F-06)
 
@@ -82,6 +88,7 @@ Tabell 1. Kvarvarande förbättringar
 | K-06 | UNEP:s abstract kontrollerat på UNEP:s dokumentsida | 2026-11-12 | Analys_miljofaktorer v0.2 |
 | K-07 | Antalet modellanrop och tokens i sessionen uppmätta ur transkriptet (modellanrop, producerade och återlästa tokens) | 2026-11-12 | Analys_anvandningssatt v0.2 |
 | K-08 | Hur återlästa tokens räknas och vad de kostar i energi: cachning hos Anthropic, OpenAI och Google, och KV-cachen (Cavagna m.fl.) | 2026-11-12 | Analys_anvandningssatt v0.3, sidan version 1.1 |
+| K-09 | Underlag om AI-bilder: förtroende, märkning och naturbilder (UEA, Bond, Zhao m.fl., Amnesty, Sielmann), se bilder.html | 2026-11-12 | Sidan version 1.10 |
 
 ## 5. Verifieringslogg 2026-11-12
 
@@ -103,6 +110,13 @@ Tabell 2. Vad som kontrollerats och hur
 | Energimyndigheten (2023), RISE | 2,8–3,2 TWh 2022 m.m. | PDF hämtad och lästa avsnitt | Stämmer |
 | Naturvårdsverket (2026) | 59 g CO2e/kWh | PDF hämtad och lästa avsnitt | Stämmer |
 | Wang m.fl. (2024), Nature Computational Science | 1,2–5,0 miljoner ton e-avfall 2020–2030, 16–86 % minskning med cirkulära åtgärder | Abstract hämtat | Stämmer på abstractnivå |
+| University of East Anglia (u.å.), pressmeddelande om *Artificial Authenticity* | 171 AI-bilder från 17 organisationer, över 400 kommentarer, färre än en femtedel om sakfrågan, 85 % märkta, nära 70 % fotorealistiska, WWF Danmark kritiserat | Pressmeddelandet hämtat och läst i sin helhet. Rapportens webbplats gav 403 | Stämmer enligt pressmeddelandet. WWF Danmark-fallet inte kontrollerat mot primärkälla (F-41) |
+| Bond (2026) | Samma analys, märkning hjälpte inte, fem råd | Artikeln hämtad och läst | Stämmer |
+| PetaPixel (2023) | Amnesty tog bort AI-bilderna efter kritik, skydd av demonstranter som motiv, ingen policy vid tidpunkten | Artikeln hämtad och läst | Stämmer. Nyhetsreferat av Amnestys svar |
+| Zhao m.fl. (2026), *Journal of Business Ethics* 208, s. 123–140 | Fältexperiment N = 118 927, AI-märkta annonser lägre klickfrekvens. Studie 5: ideella organisationer större negativa effekter än företag | Abstract läst på förlagets sida | Stämmer på abstractnivå (F-42) |
+| Jönsson & Jonsved (2025), Mediemyndigheten | Fotografiet som sann avbild, promptografier utmanar det | Lärarmanuset hämtat, inledningen läst | Stämmer |
+| Yahoo News (2025) om Heinz Sielmann Stiftung | AI-djurbilder ofta felaktiga, lekmän ser det inte, rekommendationer | Artikeln hämtad och läst | Stämmer enligt nyhetstexten (F-44) |
+| ORF (2025) efter The Guardian | Hälsoorganisationer och AI-bilder av fattigdom | Artikeln hämtad och läst | Stämmer enligt ORF |
 
 ## 6. Antagandelogg (X, Y och Z)
 

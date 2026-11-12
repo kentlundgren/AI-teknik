@@ -4,6 +4,7 @@
  * (data-post, data-formel, data-kalla, data-lista), visar markering av hur väl en siffra är belagd,
  * förklaringar vid hovring/fokus/tryck, tekniknivån i hörnet och versionsraden.
  *
+ * UPPDATERING 2026-11-12: termerna fältexperiment, promptografi, medelbudskap och fotorealism för sidan Bilder och förtroende. Version 1.10.
  * UPPDATERING 2026-11-12: introt startar vid varje laddning av startsidan. Version 1.9.
  * UPPDATERING 2026-11-12: ändrad rubrik i introt (Energiåtgång för AI) och på delningsbilden. Version 1.8.
  * UPPDATERING 2026-11-12: händelsen "siffror-laddade" för introt på startsidan. Version 1.7.
@@ -18,7 +19,7 @@
  * Testläge: lägg ?test=1 efter adressen för att köra validering och testfall (SPEC avsnitt 3, 4 och 8).
  * Obs: fetch fungerar inte på file://. Testa via en lokal server (python -m http.server).
  */
-const VERSION = "1.9";
+const VERSION = "1.10";
 const VERSIONSDATUM = "2026-11-12";
 const AVSANDARE = "Kent Lundgren";
 const GITHUB_MAPP = "https://github.com/kentlundgren/AI-teknik/tree/main/AI_anvandning/NF";
@@ -43,7 +44,11 @@ const TERMER = {
   anrop: "En omgång där modellen får all kontext och skriver ett svar eller ett verktygsanrop. Ett arbete med verktyg består av många anrop, och varje anrop läser om hela kontexten.",
   utdata: "Det modellen skriver (tokens ut). Det är dyrast per token.",
   prefill: "Att bearbeta indatan innan modellen börjar skriva svaret (Cavagna m.fl., 2026). Skiljs från avkodningen, som skriver svaret token för token.",
-  mikro: "Tid i en mikrovågsugn på 1 000 W (märkeffekt). Se antagandet MW_EFFEKT och förbättringsrad F-06."
+  mikro: "Tid i en mikrovågsugn på 1 000 W (märkeffekt). Se antagandet MW_EFFEKT och förbättringsrad F-06.",
+  "fältexperiment": "Ett experiment som görs i en verklig miljö, här annonser på Facebook, i stället för i ett laboratorium eller en enkät. Resultatet visar vad människor gör (till exempel klickar), inte bara vad de säger.",
+  promptografi: "Ordet Mediemyndigheten använder för en AI-genererad bild som liknar ett fotografi: gjord utan kamera, lins och verkligt motiv, med en textbeskrivning (prompt) som underlag.",
+  medelbudskap: "Att sättet man kommunicerar på strider mot det man säger sig stå för, till exempel att en hållbarhetskampanj görs med energikrävande verktyg. Engelska: message-medium misalignment (UEA, pressmeddelande).",
+  fotorealism: "Bilder som är gjorda för att se ut som fotografier. Bond rekommenderar att gå bort från det, eftersom sådana bilder väcker mest granskning."
 };
 
 /* Värde och enhet för en post, för förklaringar som hämtar siffror ur datafilen. */

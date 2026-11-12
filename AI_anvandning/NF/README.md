@@ -1,10 +1,10 @@
 # AI i en miljöorganisation (NF)
 
-- **Live:** [https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/) (adressen gäller när sidan är pushad och GitHub Pages har byggt den; sidan är byggd och testad lokalt, version 1.9)
+- **Live:** [https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/) (adressen gäller när sidan är pushad och GitHub Pages har byggt den; sidan är byggd och testad lokalt, version 1.10)
 
 En analys av generativ AI:s resursanvändning (energi, vatten och övriga miljöfaktorer) för både dem som gillar AI och dem som är skeptiska, med Naturskyddsföreningen och Lunds Naturskyddsförening som exempel. Förslag på eget initiativ, inte beslutat av någon förening. Ett förslag till förhållningssätt (principer, trafikljus, bilder, checklista, vanliga frågor) kommer i en senare version (F-32).
 
-## Sidan (version 1.9, 2026-11-12)
+## Sidan (version 1.10, 2026-11-12)
 
 | Fil | Innehåll |
 |---|---|
@@ -14,6 +14,8 @@ En analys av generativ AI:s resursanvändning (energi, vatten och övriga miljö
 | [miljofaktorer.html](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/miljofaktorer.html) | Övriga miljöfaktorer och gradering (steg 2) |
 | [anvandningssatt.html](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/anvandningssatt.html) | Vad en fråga är (X), ett arbete (Y) och Z (steg 2) |
 | [forbrukning.html](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/forbrukning.html) | Min förbrukning: kontext, tokens, energi och pengar (abonnemang och API) |
+| [bilder.html](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/bilder.html) | Bilder och förtroende: vad underlaget säger om reaktioner på AI-bilder (steg 2) |
+| [bakgrund.html](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/bakgrund.html) | Bakgrund och användning: varför sidan finns, anonymiserad, med en daterad logg |
 | [kallor.html](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/kallor.html) | Källor, verifieringslogg, alla siffror, förbättringsregister och logg |
 | [data/siffror.json](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/data/siffror.json) | Alla siffror, källor, antaganden och förbättringsrader |
 | [sida.js](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/sida.js) | Gemensamt skript (version och datum står här) |
@@ -27,8 +29,8 @@ En analys av generativ AI:s resursanvändning (energi, vatten och övriga miljö
 
 | Fil | Innehåll |
 |---|---|
-| [PRD_ai_riktlinjer_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/PRD_ai_riktlinjer_261112.md) | PRD v0.17: bakgrund, mål, målgrupper, innehåll, faser |
-| [SPEC_sida_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/SPEC_sida_261112.md) | SPEC v0.7: datamodell, beräkningar, sidstruktur och krav |
+| [PRD_ai_riktlinjer_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/PRD_ai_riktlinjer_261112.md) | PRD v0.20: bakgrund, mål, målgrupper, innehåll, faser |
+| [SPEC_sida_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/SPEC_sida_261112.md) | SPEC v0.8: datamodell, beräkningar, sidstruktur och krav |
 | [Analys_resurser_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_resurser_261112.md) | Analys v0.4: energi, vatten och bilder |
 | [Analys_vatten_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_vatten_261112.md) | Analys v0.3: vatten i moderna AI-anläggningar |
 | [Analys_miljofaktorer_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_miljofaktorer_261112.md) | Analys v0.2: miljöfaktorer och graderingsram |

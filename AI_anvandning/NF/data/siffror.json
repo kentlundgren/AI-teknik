@@ -1758,6 +1758,193 @@
    "kommentar": null,
    "spann": null,
    "formel": null
+  },
+  {
+   "id": "UEA_BILDER",
+   "namn": "Antal AI-genererade bilder i UEA:s analys",
+   "varde": 171,
+   "enhet": "bilder",
+   "typ": "uppmatt",
+   "belagd": "sekundar",
+   "kalla": "uea_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-41"
+   ],
+   "kommentar": "Enligt pressmeddelandet. Själva rapporten är inte läst.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "UEA_ORGANISATIONER",
+   "namn": "Antal organisationer i UEA:s analys",
+   "varde": 17,
+   "enhet": "organisationer",
+   "typ": "uppmatt",
+   "belagd": "sekundar",
+   "kalla": "uea_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-41"
+   ],
+   "kommentar": "Bland andra Amnesty International, Plan International, WHO och WWF.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "UEA_KOMMENTARER",
+   "namn": "Antal offentliga kommentarer i UEA:s analys",
+   "varde": 400,
+   "enhet": "kommentarer",
+   "typ": "uppmatt",
+   "belagd": "sekundar",
+   "kalla": "uea_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-41"
+   ],
+   "kommentar": "Pressmeddelandet anger mer än 400 kommentarer.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "UEA_ENGAGERADE",
+   "namn": "Kommentarer som handlade om själva sakfrågan",
+   "varde": 80,
+   "enhet": "kommentarer",
+   "typ": "uppmatt",
+   "belagd": "sekundar",
+   "kalla": "uea_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-41"
+   ],
+   "kommentar": "Pressmeddelandet: färre än en femtedel av kommentarerna.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "UEA_ETIK",
+   "namn": "Kommentarer som handlade om AI-etik och äkthet",
+   "varde": 141,
+   "enhet": "kommentarer",
+   "typ": "uppmatt",
+   "belagd": "sekundar",
+   "kalla": "uea_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-41"
+   ],
+   "kommentar": "Kategorierna redovisas i pressmeddelandet utan att summan förklaras.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "UEA_UTFORANDE",
+   "namn": "Kommentarer som kritiserade bildernas tekniska utförande och kvalitet",
+   "varde": 122,
+   "enhet": "kommentarer",
+   "typ": "uppmatt",
+   "belagd": "sekundar",
+   "kalla": "uea_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-41"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "UEA_MARKTA",
+   "namn": "Andel bilder som var märkta som AI-genererade",
+   "varde": 85,
+   "enhet": "%",
+   "typ": "uppmatt",
+   "belagd": "sekundar",
+   "kalla": "uea_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-41"
+   ],
+   "kommentar": "Pressmeddelandet: 85 procent korrekt märkta.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "UEA_FATTIGDOM",
+   "namn": "Bilder med fattigdom som tema",
+   "varde": 51,
+   "enhet": "bilder",
+   "typ": "uppmatt",
+   "belagd": "sekundar",
+   "kalla": "uea_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-41"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "UEA_MILJO",
+   "namn": "Bilder med miljö som tema",
+   "varde": 35,
+   "enhet": "bilder",
+   "typ": "uppmatt",
+   "belagd": "sekundar",
+   "kalla": "uea_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-41"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "ZHAO_N_FALT",
+   "namn": "Antal i fältexperimentet på Facebook (N)",
+   "varde": 118927,
+   "enhet": "",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "zhao_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-42"
+   ],
+   "kommentar": "Ur abstract. Om N räknar personer eller visningar är inte kontrollerat.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "ZHAO_N_STUDIE5",
+   "namn": "Antal i studie 5 (ideella organisationer mot företag, N)",
+   "varde": 995,
+   "enhet": "",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "zhao_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-42"
+   ],
+   "kommentar": "Ur abstract.",
+   "spann": null,
+   "formel": null
   }
  ],
  "antaganden": [
@@ -2030,6 +2217,69 @@
    "doi": "10.1038/s43588-024-00712-6",
    "hamtad": "2026-11-12",
    "not": "Scenario för elektroniskt avfall: 1,2–5,0 miljoner ton 2020–2030. Abstract läst."
+  },
+  {
+   "id": "bond_2026",
+   "kort": "Bond (2026)",
+   "harvard": "Bond (2026) 'Artificial authenticity: are NGOs risking their reputation when using AI-generated imagery?', Bond, mars 2026.",
+   "url": "https://www.bond.org.uk/news/2026/03/artificial-authenticity-are-ngos-risking-their-reputation-when-using-ai-generated-imagery/",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "Brittiskt nätverk för biståndsorganisationer sammanfattar UEA-analysen och ger fem råd. Artikeln läst. Månaden är hämtad ur adressen."
+  },
+  {
+   "id": "mediemyndigheten_2025",
+   "kort": "Jönsson & Jonsved (2025)",
+   "harvard": "Jönsson, E. & Jonsved, E. (2025) 'AI-bilder och fotografiets sanningsanspråk', lärarmanus. Mediemyndigheten.",
+   "url": "https://mediemyndigheten.se/globalassets/barn-och-unga-2/for-vuxna/bilders-makt--ai-och-visuell-paverkan/ai-bilder-och-fotografiets-sanningsansprak/lararmanus---ai-bilderoch-fotografiets-sanningsansprak.pdf",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "Undervisningsmaterial om hur AI-bilder som liknar fotografier utmanar fotografiets sanningsanspråk. Inledningen läst."
+  },
+  {
+   "id": "orf_2025",
+   "kort": "ORF (2025)",
+   "harvard": "ORF (2025) 'NGOs wegen Nutzung von KI-Bildern in der Kritik', news.ORF.at, 20 oktober 2025.",
+   "url": "https://orf.at/stories/3409001/",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "Referat av The Guardian om hälsoorganisationers AI-bilder av fattigdom och forskares varning för stereotyper. Artikeln läst, Guardian-originalet inte."
+  },
+  {
+   "id": "petapixel_2023",
+   "kort": "PetaPixel (2023)",
+   "harvard": "PetaPixel (2023) '‘It Devalues Photographers’: Amnesty Deletes AI Images After Backlash', 2 maj 2023.",
+   "url": "https://petapixel.com/2023/05/02/it-devalues-photographers-amnesty-deletes-ai-images-after-backlash",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "Nyhetsreferat om Amnestys AI-bilder från Colombia 2023, kritiken och organisationens svar. Artikeln läst. Återger Amnestys svar per e-post 2023, inte en aktuell policy."
+  },
+  {
+   "id": "uea_2026",
+   "kort": "UEA (u.å.)",
+   "harvard": "University of East Anglia (u.å.) 'New research warns charities against ‘AI shortcut’ to empathy', UEA News. Om rapporten Artificial Authenticity: The Rise of Images Generated by Artificial Intelligence in Charity and Development Communications.",
+   "url": "https://www.uea.ac.uk/about/news/article/new-research-warns-charities-against-ai-shortcut-to-empathy",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "Pressmeddelande om en analys av 171 AI-bilder från 17 organisationer och över 400 kommentarer. Pressmeddelandet läst i sin helhet, själva rapporten inte (F-41)."
+  },
+  {
+   "id": "yahoo_2025",
+   "kort": "Yahoo News (2025)",
+   "harvard": "Yahoo News (2025) 'Why scientists are worried about AI-generated photos of animals'.",
+   "url": "https://www.yahoo.com/news/articles/why-scientists-worried-ai-generated-133131403.html",
+   "doi": null,
+   "hamtad": "2026-11-12",
+   "not": "Nyhetstext om Heinz Sielmann Stiftungs varning för AI-djurbilder. Artikeln läst. Stiftelsens eget pressmeddelande är inte hittat (F-44). Sidan visar också en AI-genererad sammanfattning från Yahoo, som inte använts."
+  },
+  {
+   "id": "zhao_2026",
+   "kort": "Zhao m.fl. (2026)",
+   "harvard": "Zhao, Y., Zhou, P. P. & Chen, Z. (2026) 'AI’s Hidden Price: AI Tools Reduce Donor Engagement Through Extrinsic Motivation Inferences', Journal of Business Ethics, 208, s. 123–140.",
+   "url": "https://link.springer.com/article/10.1007/s10551-026-06247-2",
+   "doi": "10.1007/s10551-026-06247-2",
+   "hamtad": "2026-11-12",
+   "not": "Fältexperiment och fyra kontrollerade experiment om AI-märkta välgörenhetsannonser och givande. Abstract läst, fulltexten kräver prenumeration (F-42)."
   }
  ],
  "forbattringar": [
@@ -2298,6 +2548,48 @@
    "rubrik": "Uppdatera delningsbilden (og-bild.jpg) när ögonblicksbilden för arbetet ändras. Bilden genereras av gen_og_bild.py ur datafilen, och tiderna på bilden (0:01, 0:10 och 33:00) hör till ögonblicksbild A3",
    "malversion": "1.x",
    "syns": false
+  },
+  {
+   "id": "F-40",
+   "omrade": "Bilder",
+   "rubrik": "Hitta Naturskyddsföreningens och riksorganisationens egen publika rekommendation om AI-bilder och jämför den med underlaget. Sökningen 2026-11-12 gav ingen träff",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-41",
+   "omrade": "Bilder",
+   "rubrik": "Läs rapporten Artificial Authenticity (UEA) i original, webbplatsen charity-advertising.co.uk gav 403 vid hämtning, och kontrollera siffrorna och fallet WWF Danmark mot en primärkälla. Idag bara pressmeddelandet läst",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-42",
+   "omrade": "Bilder",
+   "rubrik": "Läs Zhao m.fl. (2026) i fulltext och Arango m.fl. (2023, Journal of Advertising, bara metadata läst): gäller resultaten bilder eller AI-användning i annonser i allmänhet?",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-43",
+   "omrade": "Bilder",
+   "rubrik": "Kontrollera studier som nämnts i sökresultat men inte öppnats: tre experiment om realistiska AI-bilder av klimatkatastrofer (Eppler, 2026) och en uppgift om en studie i Nature. De används inte på sidan",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-44",
+   "omrade": "Bilder",
+   "rubrik": "Läs Heinz Sielmann Stiftungs egen text om AI-djurbilder och leta forskning om hur AI-bilder av arter avviker från verkligheten. Idag bara en nyhetstext läst",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-45",
+   "omrade": "Bakgrund",
+   "rubrik": "Förs loggen på bakgrundssidan vidare när något händer, och ska föreningens namn stå på alla sidor (notisen nämner Lunds Naturskyddsförening) eller bara generiskt som på bakgrundssidan? Kent avgör",
+   "malversion": "1.x",
+   "syns": true
   }
  ],
  "verifieringar": [
@@ -2472,9 +2764,77 @@
    "paastaende": "1,2–5,0 miljoner ton e-avfall 2020–2030, 16–86 % minskning",
    "kontroll": "Abstract hämtat",
    "resultat": "Stämmer på abstractnivå"
+  },
+  {
+   "kalla": "University of East Anglia (u.å.)",
+   "ids": [
+    "uea_2026"
+   ],
+   "paastaende": "Analys av 171 AI-bilder från 17 organisationer och över 400 kommentarer. Färre än en femtedel av kommentarerna gällde sakfrågan. 85 % av bilderna märkta, nära 70 % fotorealistiska. WWF Danmark kritiserat för energikrävande AI-verktyg",
+   "kontroll": "Pressmeddelandet hämtat och läst i sin helhet. Rapportens webbplats gav 403 och är inte läst",
+   "resultat": "Stämmer enligt pressmeddelandet. WWF Danmark-fallet är inte kontrollerat mot en primärkälla (F-41)"
+  },
+  {
+   "kalla": "Bond (2026)",
+   "ids": [
+    "bond_2026"
+   ],
+   "paastaende": "Samma analys sammanfattad, 85 % märkta men märkningen hjälpte inte, fem råd (policy, utbildning, bort från fotorealism, med de avbildade, bredare berättelser)",
+   "kontroll": "Artikeln hämtad och läst",
+   "resultat": "Stämmer"
+  },
+  {
+   "kalla": "PetaPixel (2023)",
+   "ids": [
+    "petapixel_2023"
+   ],
+   "paastaende": "Amnesty tog bort AI-bilder från Colombia efter kritik. Skydd av demonstranter som motiv. Ingen policy för eller emot vid tidpunkten. Kritik av Roland Meyer och WITNESS",
+   "kontroll": "Artikeln hämtad och läst",
+   "resultat": "Stämmer. Nyhetsreferat av Amnestys svar, inte Amnestys eget uttalande"
+  },
+  {
+   "kalla": "Zhao m.fl. (2026)",
+   "ids": [
+    "zhao_2026"
+   ],
+   "paastaende": "Fältexperiment (N = 118 927): lägre klickfrekvens för AI-märkta välgörenhetsannonser. Studie 5 (N = 995): ideella organisationer får större negativa effekter än företag",
+   "kontroll": "Abstract läst på förlagets sida, fulltexten kräver prenumeration",
+   "resultat": "Stämmer på abstractnivå. Om resultaten gäller bilder särskilt är inte kontrollerat (F-42)"
+  },
+  {
+   "kalla": "Jönsson & Jonsved (2025)",
+   "ids": [
+    "mediemyndigheten_2025"
+   ],
+   "paastaende": "Fotografiet har setts som en sann avbild, AI-bilder som liknar foton (promptografier) utmanar det",
+   "kontroll": "Lärarmanuset hämtat, inledningen läst",
+   "resultat": "Stämmer. Allmän beskrivning, inte en studie av organisationer"
+  },
+  {
+   "kalla": "Yahoo News (2025)",
+   "ids": [
+    "yahoo_2025"
+   ],
+   "paastaende": "Heinz Sielmann Stiftung: AI-djurbilder saknar ofta artspecifika drag, lekmän ser inte felen, märkning och expertgranskning, yrkesfotografer för kunskapsförmedling",
+   "kontroll": "Artikeln hämtad och läst. Stiftelsens eget pressmeddelande hittades inte",
+   "resultat": "Stämmer enligt nyhetstexten (F-44)"
+  },
+  {
+   "kalla": "ORF (2025)",
+   "ids": [
+    "orf_2025"
+   ],
+   "paastaende": "Hälsoorganisationer rapporteras använda AI-bilder av extrem fattigdom, forskare varnar för stereotyper, enligt The Guardian",
+   "kontroll": "Artikeln hämtad och läst. Guardian-originalet inte läst",
+   "resultat": "Stämmer enligt ORF"
   }
  ],
  "versionslogg": [
+  {
+   "version": "1.10",
+   "datum": "2026-11-12",
+   "text": "Ny sida Bilder och förtroende: vad underlaget säger om reaktioner på AI-bilder, med gradering av åtta skäl och en tabell över vad några organisationer har sagt. Ny sida Bakgrund och användning (anonymiserad, med en daterad logg). Sju nya källor och sex nya förbättringsposter (F-40 till F-45)."
+  },
   {
    "version": "1.9",
    "datum": "2026-11-12",
