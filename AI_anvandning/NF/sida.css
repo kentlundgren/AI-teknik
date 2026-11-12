@@ -84,6 +84,7 @@ h2:hover .hash, h3:hover .hash, .hash:focus { opacity: 1; }
 .versionsrad { color: var(--muted); font-size: 0.9rem; margin: 0 0 1rem; }
 .adminrad { color: var(--muted); font-size: 0.8rem; margin: -0.6rem 0 1rem; opacity: 0.8; }
 .adminrad a { color: var(--muted); }
+.rg-teknikrad { color: var(--muted); font-size: 0.85rem; margin: 0.4rem 0 1rem; }
 @media print { .adminrad { display: none; } }
 .ingress { font-size: 1.1rem; color: var(--ink); }
 

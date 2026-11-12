@@ -3583,6 +3583,11 @@
  ],
  "versionslogg": [
   {
+   "version": "1.20",
+   "datum": "2026-11-12",
+   "text": "Korskoppling mellan sidan AI i proportion och dokumentet databas/Uppkoppling_Supabase.md: länk vid rangordningen och i adminraden, och tillbaka-länk i dokumentet."
+  },
+  {
    "version": "1.19",
    "datum": "2026-11-12",
    "text": "Sidan AI i proportion har en diskret adminrad med länkar till Supabase-projektet, SQL Editor och adminkommandona (databas/supabase_admin.sql)."

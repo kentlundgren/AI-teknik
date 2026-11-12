@@ -38,6 +38,14 @@ Projektet är under uppbyggnad och kommer att växa över tid med fler tekniker,
   **Bloggtext:**
   - [Vad mäter AI-testerna egentligen?](https://klel.wordpress.com/2026/09/25/vad-mater-ai-testerna-egentligen/)
 
+- **[AI-användning – AI i en miljöorganisation](./AI_anvandning/NF/)**
+  Analys av generativ AI:s resursanvändning (energi, vatten och övriga miljöfaktorer) för både dem som gillar AI och dem som är skeptiska. Sidor om hur AI-bilder tas emot (Bilder och förtroende), om hur AI förhåller sig till världens största problem (AI i proportion, med en rangordning där läsare kan rösta via en Supabase-databas) och om bakgrunden. Förslag på eget initiativ, inte beslutat av någon förening. Siffrorna är hämtade ur källorna och inte kvalitetssäkrade.
+  Se [`AI_anvandning/NF/README.md`](./AI_anvandning/NF/README.md). Hur databasen kopplades finns i [Uppkoppling_Supabase.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/Uppkoppling_Supabase.md).
+  **Live-sidor (GitHub Pages):**
+  - Startsida: [https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/)
+  - Bilder och förtroende: [https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/bilder.html](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/bilder.html)
+  - AI i proportion: [https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/proportion.html](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/proportion.html)
+
 - **[Solutions](./Solutions/)**
   Datumstämplade lösningar och fallbeskrivningar.
   Se [`Solutions/README.md`](./Solutions/README.md).
@@ -61,3 +69,8 @@ Agentminne för hela repot: [`AGENTS.md`](./AGENTS.md).
 ---
 
 *Detta projekt är under aktiv uppbyggnad och uppdateras löpande.*
+
+## Repo
+
+- GitHub: https://github.com/kentlundgren/AI-teknik
+- Lokal sökväg: `C:\Users\kentl\OneDrive\AI\AI-teknik`

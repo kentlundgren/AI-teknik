@@ -121,6 +121,8 @@ Sidan AI i proportion har en liten adminrad med länkar till projektet, SQL Edit
 
 Skärmdumparna och uppgifterna om projektet är från min egen dashboard 2026-11-12. Kontrollera mot Supabases dokumentation innan något återges, eftersom tjänstens gränser och knappar kan ändras.
 
+**Tillbaka till sidan:** [AI i proportion](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/proportion.html#rangordna), där rangordningen och länken till det här dokumentet finns.
+
 ## Repo
 
 - GitHub: https://github.com/kentlundgren/AI-teknik/tree/main/AI_anvandning/NF/databas

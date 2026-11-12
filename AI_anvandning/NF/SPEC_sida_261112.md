@@ -1,6 +1,7 @@
 # SPEC: sidan om AI i en miljöorganisation (datamodell, beräkningar, struktur)
 
-**Version:** 0.17 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.18 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Ändringar i 0.18:** proportion.html har p.rg-teknikrad under rangordningen och en länk i p.adminrad till databas/Uppkoppling_Supabase.md. Dokumentet länkar tillbaka till sidan.
 **Ändringar i 0.17:** proportion.html har p.adminrad (länkar till Supabase-dashboard, SQL Editor och databas/supabase_admin.sql, dold vid utskrift). databas/supabase_admin.sql innehåller adminkommandon och comment on table med tillbakaadressen.
 **Ändringar i 0.16:** rangordning.js: om databasen inte nås eller saknar funktionerna sparas ordningen lokalt (saveState lokal, behovSynk) och skickas när databasen svarar. Bannern säger det. databas/supabase.md har avsnitt 2b om återbruk av projektet.
 **Ändringar i 0.15:** rangordning.js, rangordning.css och rangordning_config.js (dra och släpp, pilknappar, frivilligt namn, medelplats, slumpad startordning, läge utan databas), databas/supabase_rangordning.sql (flera omröstningar, fem funktioner, låsta tabeller) och sidan proportion.html.
