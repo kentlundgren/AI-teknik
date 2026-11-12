@@ -1,0 +1,151 @@
+<!doctype html>
+<!--
+  AI i en miljöorganisation: vad är en fråga, och vad är ett arbete? (steg 2).
+  Version 1.0 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  UPPDATERING 2026-11-12: första versionen. Version 1.0.
+-->
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fråga och arbete</title>
+  <meta name="description" content="Vad en normal fråga och ett normalt svar är i tokens (X), hur många tokens ett arbete använder (Y) och förhållandet mellan dem (Z), med en uppmätt session och energi som ett spann.">
+  <link rel="stylesheet" href="sida.css">
+  <script src="sida.js" defer></script>
+<link rel="stylesheet" href="brodsmulor.css">
+</head>
+<body>
+<!-- brodsmulor:start (genereras av brodsmulor.py från dokument.json: ändra dokument.json, inte här) -->
+<nav class="brodsmulor" aria-label="Brödsmulor och dokument i samma mapp">
+<ol><li><a href="index.html">AI i en miljöorganisation</a></li><li aria-current="page">Fråga och arbete</li></ol>
+<p class="syskon">Fler dokument i samma mapp: <a href="index.html">Startsida</a><span class="sep">·</span><a href="analys.html">Analysen i korthet</a><span class="sep">·</span><a href="vatten.html">Vatten i detalj</a><span class="sep">·</span><a href="miljofaktorer.html">Övriga miljöfaktorer</a><span class="sep">·</span><strong aria-current="page">Fråga och arbete</strong><span class="sep">·</span><a href="kallor.html">Källor och logg</a></p>
+</nav>
+<!-- brodsmulor:slut -->
+<main>
+  <h1>Vad är en fråga, och vad är ett arbete?</h1>
+  <p class="versionsrad"></p>
+  <p class="notis">Förslag och analys på eget initiativ, inte beslutat av Lunds Naturskyddsförening eller Naturskyddsföreningen. Siffrorna är hämtade ur källorna eller uppmätta och inte kvalitetssäkrade. Kontrollera mot källan innan något återges. <a href="analys.html#fraga-och-arbete">Tillbaka till den korta versionen.</a></p>
+
+  <h2 id="kort-version">Kort version</h2>
+  <div class="steg1">
+    <p class="etikett">Steg 1: kort version</p>
+    <p>Energin «per fråga» gäller en <em>normal fråga och ett normalt svar</em>: en kort, manuellt skriven fråga (<span data-post="X_IN" data-badge="nej"></span>) och ett svar på ungefär en sida text (<span data-post="X_UT" data-badge="nej"></span>), tillsammans X = <span data-post="X" data-badge="nej"></span>. Arbetet med den här analysen använde <span data-post="Y_NY" data-badge="nej" data-utanenhet="ja"></span> nya tokens (Y). Det är Z = Y ÷ X, alltså <span data-formel="Y_NY/X" data-sig="2" data-enhet="gånger"></span> fler nya tokens än en normal fråga. Antagandena är versionerade och kan ändras när det finns nya källor, nya vanor eller nya modeller.</p>
+  </div>
+
+  <h2 id="fragan">Frågan</h2>
+  <p>Nyckeltalet «energi per fråga» används överallt, men vad är en genomsnittlig fråga och ett genomsnittligt svar? Och är «en fråga, ett svar» ens det bästa sättet att använda generativ AI? Här definieras begreppen, en session mäts och energin redovisas som ett spann.</p>
+
+  <h2 id="vad-en-fraga-ar">Vad en «fråga» är i källorna</h2>
+  <div class="tabellvy">
+    <table id="Tabell1">
+      <caption id="Tabell1-rubrik">Tabell 1. Hur källorna definierar en fråga</caption>
+      <thead><tr><th scope="col">Källa</th><th scope="col">Vad som mäts</th><th scope="col">Vad som anges om längd</th></tr></thead>
+      <tbody>
+        <tr><td><span data-kalla="epoch_2025"></span></td><td>En typisk ChatGPT-fråga (GPT-4o), beräknad</td><td>Svar på cirka <span data-post="EPOCH_TOKENS_SVAR" data-badge="nej"></span> (cirka 400 ord, ungefär en maskinskriven sida). Epoch kallar det något pessimistiskt: en annan studie fann <span data-post="EPOCH_TOKENS_ANNAN_STUDIE" data-badge="nej"></span> i snitt. Kort inmatad fråga. Bilder och röstläge ingår inte</td></tr>
+        <tr><td><span data-kalla="vahdat_dean_2025"></span></td><td>Median-textfråga till Gemini Apps, mätt i drift</td><td>Längden i tokens anges inte i artikelns abstract. Hela artikeln är inte läst (<a href="kallor.html#F-26">F-26</a>)</td></tr>
+        <tr><td><span data-kalla="altman_2025"></span></td><td>«Genomsnittlig fråga»</td><td>Ingen definition</td></tr>
+        <tr><td><span data-kalla="luccioni_2024"></span></td><td>1 000 användningar per uppgift och modell på en referensdatamängd</td><td>Uppgiftstyp snarare än fråga (till exempel textgenerering, bildgenerering)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>I praktiken är en «fråga» alltså <strong>en kort, manuellt skriven fråga och ett svar på ungefär en sida text</strong>, inget mer. Det är det som menas med energin per fråga på resten av sidorna. Längre indata kostar mer: <span data-kalla="epoch_2025"></span> uppskattar cirka <span data-post="EPOCH_WH_10K" data-badge="nej"></span> för en fråga med 10 000 tokens indata (en kort artikel) och cirka <span data-post="EPOCH_WH_100K" data-badge="nej"></span> med 100 000 tokens indata (cirka 200 sidor). Det är beräkningar för GPT-4o, och verkliga siffror beror på hur systemen cachar, men riktningen är tydlig.</p>
+  <p>En <span class="term" data-term="token">token</span> är den enhet en språkmodell räknar text i. För OpenAI motsvarar en token i genomsnitt cirka <span data-post="EPOCH_ORD_PER_TOKEN" data-badge="nej"></span> per token. Olika modeller räknar olika.</p>
+
+  <h2 id="nivaer">Olika sätt att använda AI</h2>
+  <div class="tabellvy">
+    <table id="Tabell2">
+      <caption id="Tabell2-rubrik">Tabell 2. Tre nivåer av användning</caption>
+      <thead><tr><th scope="col">Nivå</th><th scope="col">Exempel</th><th scope="col">Storleksordning på användningen</th></tr></thead>
+      <tbody>
+        <tr><td>1. Enkel fråga och svar</td><td>«Vad är El Niño?»</td><td>En fråga enligt Tabell 1</td></tr>
+        <tr><td>2. Längre samtal</td><td>Ett utkast som förbättras i tio rundor</td><td>Tiotals frågor, och längre indata efterhand som samtalet växer</td></tr>
+        <tr><td>3. Arbete med många steg</td><td>En hel analys: sökning, läsning av källor, filer som skrivs och granskas, kontroller</td><td>Många modellanrop med stor mängd indata i varje, se <a href="#sessionen">sessionen</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Nivå 3 använder mycket mer resurser än nivå 1, men den ersätter inte en fråga. Den ersätter ett arbete som annars tar en människa timmar eller dagar.</p>
+
+  <h2 id="definitioner">Definitioner: X, Y och Z</h2>
+  <p>För att kunna jämföra och följa förändringar över tid definieras tre tal. De är <strong>antaganden</strong>, med version och källa, och ska kunna ändras när det finns nya källor, nya vanor eller nya modeller.</p>
+  <div class="tabellvy">
+    <table id="Tabell3">
+      <caption id="Tabell3-rubrik">Tabell 3. Definitioner och antaganden (antagandeversion A1)</caption>
+      <thead><tr><th scope="col">Beteckning</th><th scope="col">Definition</th><th scope="col">Värde</th></tr></thead>
+      <tbody>
+        <tr><td>X_IN</td><td>Indata i en normal fråga: en kort, manuellt skriven fråga på cirka 75 ord</td><td><span data-post="X_IN"></span></td></tr>
+        <tr><td>X_UT</td><td>Utdata i ett normalt svar: ungefär en sida text, cirka 400 ord</td><td><span data-post="X_UT"></span></td></tr>
+        <tr><td><strong>X</strong></td><td>En normal fråga och ett normalt svar, utan tidigare samtal: X = X_IN + X_UT</td><td><span data-post="X"></span></td></tr>
+        <tr><td>Y_NY</td><td>Nya tokens i ett arbete: producerad text, ny indata och nya cachade tokens</td><td>uppmätt, se Tabell 4</td></tr>
+        <tr><td>Y_ATER</td><td>Återlästa tokens: den tidigare kontexten som modellen läser om vid varje steg, ur <span class="term" data-term="cachade">cachen</span></td><td>uppmätt, se Tabell 4</td></tr>
+        <tr><td><strong>Z_NY</strong></td><td>Hur många gånger fler nya tokens än en normal fråga: Z_NY = Y_NY ÷ X</td><td><span data-post="Z_NY"></span></td></tr>
+        <tr><td>Z_UT</td><td>Samma för bara producerad text: Y_UT ÷ X_UT</td><td><span data-post="Z_UT"></span></td></tr>
+        <tr><td>Z_ALLA</td><td>Samma för alla bearbetade tokens, även återlästa. Ger ett högre tal, men återlästa tokens kostar mindre per styck än nya</td><td><span data-post="Z_ALLA"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Varför flera Z? En enda «mängd tokens» blandar saker som kostar olika mycket. Nya tokens (Z_NY) är det som faktiskt skrivs och läses första gången, och det är det som lyfts fram. Återlästa tokens är samma kontext som läses om i varje steg. En token är inte samma sak i alla modeller, så Z är en storleksordning.</p>
+
+  <h2 id="sessionen">Arbetet med analysen: uppmätt</h2>
+  <p>Tokenanvändningen för arbetet med den här analysen är summerad ur arbetspassets egen loggfil med skriptet <span data-kalla="summera_tokens"></span>. Det är mätningar, inte uppskattningar, men en ögonblicksbild (2026-11-12, cirka kl. 13:14) som ökar medan arbetet fortsätter. Siffrorna omfattar huvudsessionen och fyra delegerade underagenter.</p>
+  <div class="tabellvy">
+    <table id="Tabell4">
+      <caption id="Tabell4-rubrik">Tabell 4. Uppmätt tokenanvändning</caption>
+      <thead><tr><th scope="col">Uppgift</th><th scope="col">Värde</th></tr></thead>
+      <tbody>
+        <tr><td>Modellanrop</td><td><span data-post="Y_ANROP"></span></td></tr>
+        <tr><td>Producerade tokens (utdata)</td><td><span data-post="Y_UT"></span></td></tr>
+        <tr><td><strong>Y_NY</strong>: nya tokens (producerade, ny indata och nya cachade)</td><td><span data-post="Y_NY"></span></td></tr>
+        <tr><td><strong>Y_ATER</strong>: återlästa ur cache</td><td><span data-post="Y_ATER"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tabellvy">
+    <table id="Tabell5">
+      <caption id="Tabell5-rubrik">Tabell 5. Z: hur många gånger mer än en normal fråga och ett normalt svar (X enligt Tabell 3)</caption>
+      <thead><tr><th scope="col">Mått</th><th scope="col">Beräkning</th><th scope="col">Z</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Z_NY</strong></td><td>Y_NY ÷ X</td><td><span data-post="Z_NY"></span></td></tr>
+        <tr><td>Z_UT</td><td>Y_UT ÷ X_UT</td><td><span data-post="Z_UT"></span></td></tr>
+        <tr><td>Z_ALLA</td><td>(Y_NY + Y_ATER) ÷ X</td><td><span data-post="Z_ALLA"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Arbetet använder alltså cirka <span data-post="Z_NY" data-badge="nej" data-utanenhet="ja"></span> gånger fler nya tokens än en normal fråga och ett normalt svar, och cirka <span data-post="Z_UT" data-badge="nej" data-utanenhet="ja"></span> gånger mer producerad text. Med all återläsning av kontexten blir talet <span data-post="Z_ALLA" data-badge="nej" data-utanenhet="ja"></span>, men det överdriver kostnaden. Förbehåll: det är oklart om fältet för producerade tokens också räknar modellens interna resonemang (<a href="kallor.html#F-29">F-29</a>), och arbetet är inte slut.</p>
+
+  <h2 id="energi-scenarier">Vad det betyder i energi: scenarier, inte mätningar</h2>
+  <p>Energin per token är inte offentlig för den modell som användes. Två gränser går att räkna på, med Googles och Epoch AI:s uppskattningar per normal fråga som proxy:</p>
+  <div class="tabellvy">
+    <table id="Tabell6">
+      <caption id="Tabell6-rubrik">Tabell 6. Arbetet i energi, mikrovågsugn (1 000 W) och direkt vatten (grov proxy)</caption>
+      <thead><tr><th scope="col">Antagande</th><th scope="col">Energi</th><th scope="col">I mikrovågsugn</th><th scope="col">Direkt vatten</th></tr></thead>
+      <tbody>
+        <tr><td>Undre gräns: energin följer nya tokens, återläsningen kostar inget (Z_NY × energi per fråga)</td><td><span data-formel="Z_NY*GOOGLE_WH_FRAGA" data-formel2="Z_NY*EPOCH_WH_FRAGA" data-visa="energi"></span></td><td><span data-formel="Z_NY*GOOGLE_WH_FRAGA*3600/MW_EFFEKT" data-formel2="Z_NY*EPOCH_WH_FRAGA*3600/MW_EFFEKT" data-visa="tid"></span></td><td><span data-formel="Z_NY*GOOGLE_WH_FRAGA*WUE_MICROSOFT_2025" data-formel2="Z_NY*EPOCH_WH_FRAGA*GOOGLE_L_KWH" data-visa="vatten"></span></td></tr>
+        <tr><td>Övre gräns: varje återläst token kostar lika mycket som en ny (Z_ALLA × energi per fråga)</td><td><span data-formel="Z_ALLA*GOOGLE_WH_FRAGA" data-formel2="Z_ALLA*EPOCH_WH_FRAGA" data-visa="energi"></span></td><td><span data-formel="Z_ALLA*GOOGLE_WH_FRAGA*3600/MW_EFFEKT" data-formel2="Z_ALLA*EPOCH_WH_FRAGA*3600/MW_EFFEKT" data-visa="tid"></span></td><td><span data-formel="Z_ALLA*GOOGLE_WH_FRAGA*WUE_MICROSOFT_2025" data-formel2="Z_ALLA*EPOCH_WH_FRAGA*GOOGLE_L_KWH" data-visa="vatten"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Det sanna värdet ligger troligen närmare den undre gränsen eftersom cachad indata inte beräknas om, men det går inte att säga hur nära. Att läsa lång kontext kostar mer än att läsa kort (se Tabell 1). Spannet är brett, och det är poängen: det är inte känt, och det ska inte låtsas vara känt.</p>
+
+  <h2 id="antagandelogg">Hur antagandena följs över tid</h2>
+  <p>Varje ändring av ett antagande får en rad med version, datum, vilka poster det gäller och skäl. Z räknas alltid av sidan ur X och Y. Skriptet för mätningen kan köras på fler arbeten, så att Y blir ett genomsnitt över flera i stället för ett enskilt arbete (<a href="kallor.html#F-30">F-30</a>).</p>
+  <div data-lista="antaganden"></div>
+
+  <h2 id="utforliga-arbeten">Är det bättre att göra mer utförliga produkter?</h2>
+  <ol>
+    <li><strong>Resursanvändningen mäts bäst mot vad den ger.</strong> Att jämföra en hel produkt med en enskild fråga är som att jämföra en bilresa med ett steg. Frågan är vad produkten ersätter och vad den åstadkommer.</li>
+    <li><strong>Utförligt arbete gör sådant möjligt som en enkel fråga inte kan.</strong> Det som tar flera källor, kontroller och versioner går inte att göra i ett enda svar. Det är en beskrivning av arbetet, inte en uppmätt nytta.</li>
+    <li><strong>Det är inte automatiskt bra att använda mer.</strong> Där användningen är som störst samlas också resursanvändningen, vilket är skeptikernas poäng. Argumentet håller bara om arbetet ger nytta som motsvarar kostnaden.</li>
+    <li><strong>Planering sparar resurser.</strong> En kort specifikation i förväg minskar antalet varv och därmed antalet anrop.</li>
+    <li><strong>Belägg för nyttan saknas.</strong> Det finns inga källor här för hur mycket AI-stöd faktiskt sparar (<a href="kallor.html#F-24">F-24</a>) eller för en jämförelse med människans resursanvändning för motsvarande arbete (<a href="kallor.html#F-28">F-28</a>). Därför påstås ingen siffra för nyttan.</li>
+  </ol>
+  <p>Slutsats: enkla frågor är den billigaste användningen, och utförliga arbeten kan vara mer värda trots att de kostar mer. Det är en värdering som ska göras i varje fall, med resurserna redovisade öppet och osäkerheten med.</p>
+
+  <h2 id="aterstar">Det som återstår</h2>
+  <p>Det här ska analyseras och beskrivas bättre i kommande versioner:</p>
+  <div data-lista="forbattringar" data-ids="F-24,F-25,F-26,F-28,F-29,F-30"></div>
+
+  <h2 id="kallor">Källor</h2>
+  <p>Se <a href="kallor.html">Källor och logg</a>.</p>
+</main>
+</body>
+</html>

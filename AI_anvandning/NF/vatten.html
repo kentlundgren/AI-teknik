@@ -1,0 +1,126 @@
+<!doctype html>
+<!--
+  AI i en miljöorganisation: vatten i detalj (steg 2).
+  Version 1.0 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  UPPDATERING 2026-11-12: första versionen. Version 1.0.
+-->
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vatten i detalj</title>
+  <meta name="description" content="Går det åt vatten när man använder AI? Skillnaden mellan uttag, förbrukning och temperaturpåverkan, kylmetoder, en jämförelse med kärnkraft och vatten per fråga och per arbetspass.">
+  <link rel="stylesheet" href="sida.css">
+  <script src="sida.js" defer></script>
+<link rel="stylesheet" href="brodsmulor.css">
+</head>
+<body>
+<!-- brodsmulor:start (genereras av brodsmulor.py från dokument.json: ändra dokument.json, inte här) -->
+<nav class="brodsmulor" aria-label="Brödsmulor och dokument i samma mapp">
+<ol><li><a href="index.html">AI i en miljöorganisation</a></li><li aria-current="page">Vatten i detalj</li></ol>
+<p class="syskon">Fler dokument i samma mapp: <a href="index.html">Startsida</a><span class="sep">·</span><a href="analys.html">Analysen i korthet</a><span class="sep">·</span><strong aria-current="page">Vatten i detalj</strong><span class="sep">·</span><a href="miljofaktorer.html">Övriga miljöfaktorer</a><span class="sep">·</span><a href="anvandningssatt.html">Fråga och arbete</a><span class="sep">·</span><a href="kallor.html">Källor och logg</a></p>
+</nav>
+<!-- brodsmulor:slut -->
+<main>
+  <h1>Vatten i detalj</h1>
+  <p class="versionsrad"></p>
+  <p class="notis">Förslag och analys på eget initiativ, inte beslutat av Lunds Naturskyddsförening eller Naturskyddsföreningen. Siffrorna är hämtade ur källorna och inte kvalitetssäkrade. Kontrollera mot källan innan något återges. <a href="analys.html#vatten">Tillbaka till den korta versionen.</a></p>
+
+  <h2 id="kort-version">Kort version</h2>
+  <div class="steg1">
+    <p class="etikett">Steg 1: kort version</p>
+    <p>Vatten kan förbrukas vid ett datacenter, men hur mycket beror på hur anläggningen kyls. Med avdunstningskylning försvinner vattnet ut i luften. Med slutna kretsar cirkulerar det, mot lite mer el. En vanlig textfråga motsvarar bråkdelar av en milliliter vid datacentret (<span data-formel="WUE_MICROSOFT_2025*GOOGLE_WH_FRAGA" data-formel2="ALTMAN_ML" data-visa="vatten" data-cirka="nej"></span>), och omkring <span data-formel="INDIREKT_VATTEN_USA*GOOGLE_WH_FRAGA" data-visa="vatten" data-cirka="nej"></span> om man räknar med vattnet som förbrukas när elen produceras (USA:s elmix). Totalt växer vattenanvändningen: USA:s datacenter förbrukade cirka <span data-post="LBNL_DIREKT_MILJARDER_L" data-badge="nej"></span> direkt 2023. Siffrorna är bolagens egna eller beräkningar och är osäkra. För Sverige saknas verifierade siffror för elens vatten.</p>
+  </div>
+
+  <h2 id="fragan">Frågan</h2>
+  <p>Går det åt vatten när man ställer en fråga till en AI-tjänst? Cirkulerar vattnet bara i en sluten krets (och kostar då el för pumpar och kylmaskiner), eller försvinner det? Och vad blir det per fråga och per arbetspass? Svaret beror på vad man räknar med.</p>
+
+  <h2 id="direkt-och-indirekt">Direkt och indirekt vatten</h2>
+  <p>Två vattenmängder blandas ofta ihop: vattnet <em>vid datacentret</em> (direkt) och vattnet som förbrukas <em>där elen produceras</em> (<span class="term" data-term="indirekt">indirekt</span>).</p>
+  <div class="tabellvy">
+    <table id="Tabell1">
+      <caption id="Tabell1-rubrik">Tabell 1. Vatten vid datacentret och per kWh, med uppgifter från olika källor</caption>
+      <thead><tr><th scope="col">Uppgift</th><th scope="col">Värde</th><th scope="col">Per textfråga (Googles median-fråga)</th></tr></thead>
+      <tbody>
+        <tr><td>Genomsnittlig <span class="term" data-term="WUE">WUE</span> i USA:s datacenter 2023 (Shehabi m.fl.)</td><td><span data-post="WUE_USA_2023"></span></td><td><span data-formel="WUE_USA_2023*GOOGLE_WH_FRAGA" data-visa="vatten"></span></td></tr>
+        <tr><td>Microsofts genomsnittliga WUE, räkenskapsår 2024</td><td><span data-post="WUE_MICROSOFT_2024"></span></td><td><span data-formel="WUE_MICROSOFT_2024*GOOGLE_WH_FRAGA" data-visa="vatten"></span></td></tr>
+        <tr><td>Microsofts genomsnittliga WUE 2025</td><td><span data-post="WUE_MICROSOFT_2025"></span></td><td><span data-formel="WUE_MICROSOFT_2025*GOOGLE_WH_FRAGA" data-visa="vatten"></span></td></tr>
+        <tr><td>Googles uppgift per median-textfråga</td><td><span data-post="GOOGLE_ML_FRAGA"></span></td><td><span data-post="GOOGLE_ML_FRAGA" data-badge="nej"></span></td></tr>
+        <tr><td>OpenAI:s uppgift per genomsnittlig fråga</td><td><span data-post="ALTMAN_ML"></span></td><td><span data-post="ALTMAN_ML" data-badge="nej"></span></td></tr>
+        <tr><td>Indirekt vatten per kWh, USA:s datacenter 2023</td><td><span data-post="INDIREKT_VATTEN_USA"></span></td><td><span data-formel="INDIREKT_VATTEN_USA*GOOGLE_WH_FRAGA" data-visa="vatten"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Kolumnen längst till höger är enkel räkning: liter per kWh × energin per fråga. Skillnaden mellan raderna beror på vilka anläggningar, vilken kylmetod och vilken fråga som räknas, och på vilka vattenmängder som ingår.</p>
+  <p>Hela USA: datacentren förbrukade direkt cirka <span data-post="LBNL_DIREKT_MILJARDER_L" data-badge="nej"></span> vatten 2023 enligt <span data-kalla="shehabi_2024"></span>, och <span class="term" data-term="indirekt">indirekt</span> nära <span data-post="LBNL_INDIREKT_MILJARDER_L" data-badge="nej"></span>, med datacentrens elanvändning på <span data-post="LBNL_DC_TWH_USA" data-badge="nej"></span>. Indirekt vatten är alltså i USA <span data-formel="LBNL_INDIREKT_MILJARDER_L/LBNL_DIREKT_MILJARDER_L" data-enhet="gånger större" data-sig="2"></span> än det direkta. Prognosen för storskaliga datacenters direkta vattenförbrukning 2028 är <span data-post="LBNL_2028_DIREKT" data-badge="nej"></span>. Siffrorna gäller USA. Rapporten antar att varje datacenter får elen från regionens genomsnittliga elmix och räknar inte med egna elavtal eller egen elproduktion.</p>
+
+  <h2 id="uttag-forbrukning-temperatur">Uttag, förbrukning och temperaturpåverkan</h2>
+  <p>Tre begrepp måste hållas isär, annars blir frågan «går det åt vatten?» omöjlig att besvara:</p>
+  <ul>
+    <li><strong><span class="term" data-term="uttag">Uttag</span></strong>: hur mycket vatten som pumpas in från en sjö, ett hav eller en ledning.</li>
+    <li><strong><span class="term" data-term="förbrukning">Förbrukning</span></strong>: den del som inte kommer tillbaka till samma vattendrag, i praktiken det som avdunstar.</li>
+    <li><strong>Temperaturpåverkan</strong>: vattnet kan komma tillbaka i mängd men varmare. Den ingår inte i volymsiffrorna och är inte undersökt här (<a href="kallor.html#F-23">F-23</a>).</li>
+  </ul>
+
+  <h3 id="karnkraft">Jämförelsen med kärnkraft</h3>
+  <p>Vid <span class="term" data-term="genomströmning">genomströmningskylning</span> pumpas vatten in, passerar anläggningen en gång och släpps ut igen, varmare. <span data-kalla="usgs_2019"></span> har modellerat det för amerikanska kraftverk 2015. För kärnkraft med genomströmning i sötvatten blev uttaget <span data-post="USGS_UTTAG_GENOMSTR" data-badge="nej"></span> och förbrukningen <span data-post="USGS_FORBR_GENOMSTR" data-badge="nej"></span>, alltså <span data-post="ANDEL_FORBR_GENOMSTR" data-badge="nej"></span> av uttaget. Det stämmer med tanken att vattnet «inte går åt» i volym. Men förbrukning är inte modellerad för genomströmning med saltvatten, vilket är det som gäller för kustkärnkraft, så siffran är en indikation och inget svenskt värde.</p>
+  <p>Med <span class="term" data-term="kyltorn">kyltorn</span> är bilden en annan: kärnkraft med kyltorn hade ett uttag på <span data-post="USGS_UTTAG_KYLTORN" data-badge="nej"></span> och en förbrukning på <span data-post="USGS_FORBR_KYLTORN" data-badge="nej"></span>, alltså <span data-post="ANDEL_FORBR_KYLTORN" data-badge="nej"></span> av uttaget. Googles uppgift om <span data-post="GOOGLE_ML_FRAGA" data-badge="nej"></span> per fråga avser vatten som förbrukas för kylning, alltså den sortens avdunstning.</p>
+
+  <h3 id="kylmetoder">Tre kylmetoder för samma värme</h3>
+  <p>Värmen måste ut ur anläggningen. Fysiken är densamma i ett kraftverk och ett datacenter. Skillnaden är tekniken:</p>
+  <div class="tabellvy">
+    <table id="Tabell2">
+      <caption id="Tabell2-rubrik">Tabell 2. Kylmetoder och vattnets öde</caption>
+      <thead><tr><th scope="col">Kylmetod</th><th scope="col">Vad händer med vattnet</th><th scope="col">Vad kostar det</th><th scope="col">Hur väl belagt</th></tr></thead>
+      <tbody>
+        <tr><td>Genomströmning (som kustkärnkraft)</td><td>Tas ut och släpps tillbaka varmare. Liten förbrukning</td><td>Påverkan på temperaturen i vattendraget</td><td>Kontrollerat för kraftverk (USGS). För datacenter finns inget belägg här</td></tr>
+        <tr><td>Kyltorn med avdunstning</td><td>Avdunstar. Stor förbrukning (cirka <span data-post="ANDEL_FORBR_KYLTORN" data-badge="nej"></span> av uttaget för kärnkraft med kyltorn)</td><td>Lite el. Förbrukar vatten lokalt</td><td>Kontrollerat för kraftverk (USGS). För datacenter enligt Google och Lawrence Berkeley National Laboratory</td></tr>
+        <tr><td>Slutna kretsar (chipkylning, luftkylare)</td><td>Cirkulerar. Fylls en gång vid bygget</td><td>Mer el till kylmaskiner och pumpar. Microsoft anger en «nominell» ökning av årlig energianvändning, utan siffra</td><td>Tillverkarens egen uppgift enligt <span data-kalla="microsoft_2024"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Enligt Microsoft använder alla nya Microsoft-datacenter sedan augusti 2024 chipkylning med slutna vattenkretsar utan avdunstning. Vatten används fortfarande för administrativa behov. Microsoft anger inte hur anläggningen beter sig vid mycket varmt väder, och den nuvarande flottan är en blandning. Microsofts genomsnittliga WUE sjönk till <span data-post="WUE_MICROSOFT_2025" data-badge="nej"></span> 2025. Uppgifterna är bolagets egna och lästa via en genomgång av sidorna: <span data-kalla="microsoft_2026"></span> och <span data-kalla="microsoft_2024"></span>, se <a href="kallor.html#F-16">F-16</a>. Ytterligare el för pumpar och kylmaskiner syns i <span class="term" data-term="PUE">PUE</span>.</p>
+  <p>Slutsats: tala inte om vatten som något som «går åt» eller inte. Det beror på kylmetoden, och det är skillnad på uttag, förbrukning och temperaturpåverkan.</p>
+
+  <h2 id="per-arbetspass">Per fråga och per arbetspass</h2>
+  <p>Per arbetspass finns ingen mätning. Räkna antal frågor × vatten per fråga. Tabellen visar vatten för 200 frågor och för ett arbete som i <a href="anvandningssatt.html#sessionen">den uppmätta sessionen</a>, med tre systemgränser.</p>
+  <div class="tabellvy">
+    <table id="Tabell3">
+      <caption id="Tabell3-rubrik">Tabell 3. Vatten per fråga och per arbetspass (egen räkning, illustration)</caption>
+      <thead><tr><th scope="col">Systemgräns</th><th scope="col">Per fråga</th><th scope="col">200 frågor</th><th scope="col">Arbetet i den uppmätta sessionen, undre gräns</th></tr></thead>
+      <tbody>
+        <tr><td>Bara datacentret, lägre värde (Microsofts WUE 2025)</td><td><span data-formel="WUE_MICROSOFT_2025*GOOGLE_WH_FRAGA" data-visa="vatten"></span></td><td><span data-formel="WUE_MICROSOFT_2025*GOOGLE_WH_FRAGA*200" data-visa="vatten"></span></td><td><span data-formel="Z_NY*GOOGLE_WH_FRAGA*WUE_MICROSOFT_2025" data-visa="vatten"></span></td></tr>
+        <tr><td>Bara datacentret, Googles uppgift</td><td><span data-post="GOOGLE_ML_FRAGA" data-badge="nej"></span></td><td><span data-formel="GOOGLE_ML_FRAGA*200" data-visa="vatten"></span></td><td><span data-formel="Z_NY*EPOCH_WH_FRAGA*GOOGLE_L_KWH" data-visa="vatten"></span></td></tr>
+        <tr><td>Datacentret plus elens vatten (USA:s elmix)</td><td><span data-formel="(INDIREKT_VATTEN_USA+WUE_USA_2023)*GOOGLE_WH_FRAGA" data-visa="vatten"></span></td><td><span data-formel="(INDIREKT_VATTEN_USA+WUE_USA_2023)*GOOGLE_WH_FRAGA*200" data-visa="vatten"></span></td><td><span data-formel="Z_NY*(INDIREKT_VATTEN_USA+WUE_USA_2023)*EPOCH_WH_FRAGA" data-visa="vatten"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Ett vattenglas är 2 dl. Raden längst ned för 200 frågor motsvarar ungefär ett vattenglas, men den bygger på amerikansk elmix och bör inte överföras till Sverige. Kolumnen längst till höger är den undre gränsen för energin (nya tokens), se <a href="anvandningssatt.html#energi-scenarier">energiscenarierna</a>. Den övre gränsen, där varje återläst token räknas som ny, ger mycket högre värden, <span data-formel="Z_ALLA*GOOGLE_WH_FRAGA*WUE_MICROSOFT_2025" data-formel2="Z_ALLA*EPOCH_WH_FRAGA*GOOGLE_L_KWH" data-visa="vatten"></span> direkt.</p>
+
+  <h3 id="li">Varför ger Li m.fl. mycket högre värden än Google?</h3>
+  <p><span data-kalla="li_2025"></span> beräknar för GPT-3, en äldre modell, i amerikanska anläggningar, och räknar både vattnet på plats och vattnet vid elproduktionen: i en tabellrad <span data-post="LI_ML_PER_SVAR" data-badge="nej"></span> per svar, varav <span data-post="LI_ML_PLATS" data-badge="nej"></span> på plats och <span data-post="LI_ML_ELPROD" data-badge="nej"></span> vid elproduktionen, och en 500 ml-flaska räcker till <span data-post="LI_FLASKA_SVAR" data-badge="nej" data-utanenhet="ja"></span> medelstora svar. Googles uppgift gäller en modern median-fråga och bara vatten som förbrukas för kylning. Siffrorna motsäger alltså inte varandra utan mäter olika modeller och olika systemgränser. Li m.fl. projicerar också att global AI-efterfrågan kan stå för <span data-post="LI_UTTAG_2027" data-badge="nej"></span> vattenuttag 2027. Det är <em>uttag</em>, inte förbrukning, och deras egen uppskattning.</p>
+
+  <h2 id="rimligt">Vad som är rimligt att säga</h2>
+  <p><strong>Rimligt:</strong></p>
+  <ul>
+    <li>Vatten kan förbrukas vid ett datacenter, men hur mycket beror starkt på kylmetod och plats.</li>
+    <li>Moderna anläggningar går mot slutna system som inte förångar vatten, på bekostnad av lite mer el (enligt tillverkarens egen redovisning).</li>
+    <li>Per fråga är vattnet litet, men totalen växer.</li>
+    <li>Den största delen av vattnet kan finnas utanför datacentret, i elproduktionen. Då spelar elmixen roll.</li>
+  </ul>
+  <p><strong>Inte rimligt:</strong></p>
+  <ul>
+    <li>Att AI «inte använder något vatten»: slutna system finns men är inte hela flottan, och elen har ett eget vattenavtryck.</li>
+    <li>Att en fråga «förbrukar en flaska vatten»: genomgången ger bråkdelar av en milliliter direkt och cirka en milliliter med indirekt vatten, inte 500 ml.</li>
+    <li>Att siffrorna är mätta och granskade: bolagens uppgifter är egna, och OpenAI redovisar ingen metod.</li>
+  </ul>
+
+  <h2 id="aterstar">Det som återstår</h2>
+  <p>Det här ska analyseras och beskrivas bättre i kommande versioner:</p>
+  <div data-lista="forbattringar" data-ids="F-03,F-04,F-08,F-09,F-10,F-16,F-22,F-23"></div>
+
+  <h2 id="kallor">Källor</h2>
+  <p>Se <a href="kallor.html">Källor och logg</a>.</p>
+</main>
+</body>
+</html>

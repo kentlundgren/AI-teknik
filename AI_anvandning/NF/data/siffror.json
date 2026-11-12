@@ -1,0 +1,1376 @@
+{
+ "datamodell": "1",
+ "datum": "2026-11-12",
+ "poster": [
+  {
+   "id": "X_IN",
+   "namn": "Indata i en normal fråga",
+   "varde": 100,
+   "enhet": "tokens",
+   "typ": "antagen",
+   "belagd": "antagande",
+   "kalla": "epoch_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Antagande: en kort, manuellt skriven fråga på cirka 75 ord, med cirka 0,75 ord per token (Epoch AI, 2025).",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "X_UT",
+   "namn": "Utdata i ett normalt svar",
+   "varde": 500,
+   "enhet": "tokens",
+   "typ": "antagen",
+   "belagd": "antagande",
+   "kalla": "epoch_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Antagande enligt Epoch AI (2025): cirka 500 tokens, ungefär en sida text.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "X",
+   "namn": "En normal fråga och ett normalt svar",
+   "varde": null,
+   "enhet": "tokens",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [],
+   "kommentar": "X = X_IN + X_UT.",
+   "spann": null,
+   "formel": "X_IN+X_UT"
+  },
+  {
+   "id": "EPOCH_TOKENS_SVAR",
+   "namn": "Typiskt svar enligt Epoch AI",
+   "varde": 500,
+   "enhet": "tokens",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "epoch_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Epoch AI kallar det något pessimistiskt.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "EPOCH_TOKENS_ANNAN_STUDIE",
+   "namn": "Genomsnittligt svar i en annan studie, återgiven av Epoch AI",
+   "varde": 261,
+   "enhet": "tokens",
+   "typ": "uppskattad",
+   "belagd": "sekundar",
+   "kalla": "epoch_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Studien (Chiang m.fl.) är inte läst, bara återgiven av Epoch AI.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "EPOCH_ORD_PER_TOKEN",
+   "namn": "Ord per token (OpenAI)",
+   "varde": 0.75,
+   "enhet": "ord",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "epoch_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Gäller OpenAI:s modeller i genomsnitt.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "Y_UT",
+   "namn": "Producerade tokens i sessionen",
+   "varde": 145705,
+   "enhet": "tokens",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "summera_tokens",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-29",
+    "F-30"
+   ],
+   "kommentar": "Mätt ur sessionens transkript 2026-11-12 kl. 13:14, huvudsession och fyra delegerade underagenter. Oklart om modellens interna resonemang räknas med.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "Y_NY",
+   "namn": "Nya tokens i sessionen (producerade, ny indata och nya cachade)",
+   "varde": 569298,
+   "enhet": "tokens",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "summera_tokens",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-30"
+   ],
+   "kommentar": "Ögonblicksbild 2026-11-12 kl. 13:14.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "Y_ATER",
+   "namn": "Återlästa tokens i sessionen (ur cache)",
+   "varde": 19648137,
+   "enhet": "tokens",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "summera_tokens",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-30"
+   ],
+   "kommentar": "Ögonblicksbild 2026-11-12 kl. 13:14.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "Y_ANROP",
+   "namn": "Modellanrop i sessionen",
+   "varde": 93,
+   "enhet": "anrop",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "summera_tokens",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-30"
+   ],
+   "kommentar": "Huvudsession 82 och underagenter 11.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "Z_NY",
+   "namn": "Hur många gånger fler nya tokens än en normal fråga",
+   "varde": null,
+   "enhet": "gånger",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [
+    "F-30"
+   ],
+   "kommentar": "Z_NY = Y_NY ÷ X.",
+   "spann": null,
+   "formel": "Y_NY/X"
+  },
+  {
+   "id": "Z_UT",
+   "namn": "Hur många gånger mer producerad text än en normal fråga",
+   "varde": null,
+   "enhet": "gånger",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [
+    "F-29"
+   ],
+   "kommentar": "Z_UT = Y_UT ÷ X_UT.",
+   "spann": null,
+   "formel": "Y_UT/X_UT"
+  },
+  {
+   "id": "Z_ALLA",
+   "namn": "Hur många gånger fler bearbetade tokens än en normal fråga, med återläsning",
+   "varde": null,
+   "enhet": "gånger",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [
+    "F-25"
+   ],
+   "kommentar": "Överdriver kostnaden eftersom cachade tokens inte beräknas om från början.",
+   "spann": null,
+   "formel": "(Y_NY+Y_ATER)/X"
+  },
+  {
+   "id": "MW_EFFEKT",
+   "namn": "Effekt för en mikrovågsugn (märkeffekt)",
+   "varde": 1000,
+   "enhet": "W",
+   "typ": "antagen",
+   "belagd": "antagande",
+   "kalla": "bast_i_test",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-06"
+   ],
+   "kommentar": "Antagande. Märkeffekten för vanliga ugnar anges till 500–1 000 W. Effekten som tas ur eluttaget är okänd.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "GOOGLE_WH_FRAGA",
+   "namn": "Energi per median-textfråga (Google)",
+   "varde": 0.24,
+   "enhet": "Wh",
+   "typ": "uppmatt",
+   "belagd": "bolagets_egen",
+   "kalla": "vahdat_dean_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-26"
+   ],
+   "kommentar": "Googles egen mätning i drift. Inte verifierad av tredje part.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "GOOGLE_G_CO2E",
+   "namn": "Utsläpp per median-textfråga (Google)",
+   "varde": 0.03,
+   "enhet": "g CO2e",
+   "typ": "uppmatt",
+   "belagd": "bolagets_egen",
+   "kalla": "vahdat_dean_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Googles egen redovisning av sin elmix.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "GOOGLE_ML_FRAGA",
+   "namn": "Vatten per median-textfråga (Google)",
+   "varde": 0.26,
+   "enhet": "ml",
+   "typ": "uppmatt",
+   "belagd": "bolagets_egen",
+   "kalla": "vahdat_dean_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Vatten som förbrukas för kylning. Ungefär fem droppar enligt Google.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "GOOGLE_L_KWH",
+   "namn": "Googles vattenuppgift omräknad per kWh",
+   "varde": null,
+   "enhet": "L/kWh",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [],
+   "kommentar": "Ml per Wh är samma tal som liter per kWh.",
+   "spann": null,
+   "formel": "GOOGLE_ML_FRAGA/GOOGLE_WH_FRAGA"
+  },
+  {
+   "id": "EPOCH_WH_FRAGA",
+   "namn": "Energi per typisk ChatGPT-fråga (Epoch AI)",
+   "varde": 0.3,
+   "enhet": "Wh",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "epoch_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Beräkning för GPT-4o med tydliga antaganden, ingen mätning.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "EPOCH_WH_10K",
+   "namn": "Energi per fråga med 10 000 tokens indata (Epoch AI)",
+   "varde": 2.5,
+   "enhet": "Wh",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "epoch_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-25"
+   ],
+   "kommentar": "Beräkning för GPT-4o.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "EPOCH_WH_100K",
+   "namn": "Energi per fråga med 100 000 tokens indata (Epoch AI)",
+   "varde": 40,
+   "enhet": "Wh",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "epoch_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-25"
+   ],
+   "kommentar": "Beräkning för GPT-4o.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "ALTMAN_WH",
+   "namn": "Energi per genomsnittlig ChatGPT-fråga (OpenAI)",
+   "varde": 0.34,
+   "enhet": "Wh",
+   "typ": "uppskattad",
+   "belagd": "bolagets_egen",
+   "kalla": "altman_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Ingen metod redovisas.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "ALTMAN_ML",
+   "namn": "Vatten per genomsnittlig ChatGPT-fråga (OpenAI)",
+   "varde": 0.32,
+   "enhet": "ml",
+   "typ": "uppskattad",
+   "belagd": "bolagets_egen",
+   "kalla": "altman_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "0,000085 gallon. Ingen metod redovisas.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "BILD_WH",
+   "namn": "Energi per genererad bild, genomsnitt",
+   "varde": 2.907,
+   "enhet": "Wh",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "luccioni_2024",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-18"
+   ],
+   "kommentar": "2,907 kWh per 1 000 bilder. Stor spridning mellan modeller och inställningar. Äldre modeller.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "BILD_WH_MAX",
+   "namn": "Energi per bild, minst effektiva modellen",
+   "varde": 11.49,
+   "enhet": "Wh",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "luccioni_2024",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-18"
+   ],
+   "kommentar": "11,49 kWh per 1 000 bilder.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "TEXT_WH_LUCCIONI",
+   "namn": "Energi per textgenerering, genomsnitt (Luccioni)",
+   "varde": 0.047,
+   "enhet": "Wh",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "luccioni_2024",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "0,047 kWh per 1 000 användningar.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "WUE_MICROSOFT_2024",
+   "namn": "Microsofts genomsnittliga WUE, räkenskapsår 2024",
+   "varde": 0.3,
+   "enhet": "L/kWh",
+   "typ": "uppmatt",
+   "belagd": "bolagets_egen",
+   "kalla": "microsoft_2024",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-16"
+   ],
+   "kommentar": "Läst via en genomgång av sidan.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "WUE_MICROSOFT_2025",
+   "namn": "Microsofts genomsnittliga WUE 2025",
+   "varde": 0.27,
+   "enhet": "L/kWh",
+   "typ": "uppmatt",
+   "belagd": "bolagets_egen",
+   "kalla": "microsoft_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-16"
+   ],
+   "kommentar": "Läst via en genomgång av sidan.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "WUE_USA_2023",
+   "namn": "Genomsnittlig WUE i USA:s datacenter 2023",
+   "varde": 0.36,
+   "enhet": "L/kWh",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "shehabi_2024",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Uppskattning av Lawrence Berkeley National Laboratory.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "INDIREKT_VATTEN_USA",
+   "namn": "Indirekt vatten per kWh, USA:s datacenter 2023",
+   "varde": 4.52,
+   "enhet": "L/kWh",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "shehabi_2024",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-08"
+   ],
+   "kommentar": "Vatten som förbrukas där elen produceras, med regionens elmix. Gäller USA.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "LBNL_DIREKT_MILJARDER_L",
+   "namn": "Direkt vattenförbrukning, USA:s datacenter 2023",
+   "varde": 66,
+   "enhet": "miljarder liter",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "shehabi_2024",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "84 % i storskaliga och uthyrda datacenter.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "LBNL_INDIREKT_MILJARDER_L",
+   "namn": "Indirekt vattenförbrukning, USA:s datacenter 2023",
+   "varde": 800,
+   "enhet": "miljarder liter",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "shehabi_2024",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-08"
+   ],
+   "kommentar": "Nära 800 miljarder liter.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "LBNL_DC_TWH_USA",
+   "namn": "USA:s datacenters elanvändning 2023",
+   "varde": 178,
+   "enhet": "TWh",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "shehabi_2024",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "LBNL_2028_DIREKT",
+   "namn": "Storskaliga datacenters direkta vattenförbrukning 2028 (prognos)",
+   "varde": 92,
+   "enhet": "miljarder liter",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "shehabi_2024",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Prognosspann.",
+   "spann": [
+    60,
+    124
+   ],
+   "formel": null
+  },
+  {
+   "id": "LI_ML_PER_SVAR",
+   "namn": "Vatten per svar, GPT-3 i amerikanska anläggningar (Li m.fl.)",
+   "varde": 16.9,
+   "enhet": "ml",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "li_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-10"
+   ],
+   "kommentar": "2,2 ml på plats och 14,7 ml vid elproduktionen, i en tabellrad. Gäller en äldre modell.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "LI_ML_PLATS",
+   "namn": "Varav på plats (Li m.fl.)",
+   "varde": 2.2,
+   "enhet": "ml",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "li_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "LI_ML_ELPROD",
+   "namn": "Varav vid elproduktionen (Li m.fl.)",
+   "varde": 14.7,
+   "enhet": "ml",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "li_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "LI_FLASKA_SVAR",
+   "namn": "Antal medelstora svar per 500 ml vatten (Li m.fl.)",
+   "varde": 30,
+   "enhet": "svar",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "li_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Artikeln anger cirka 10–50 svar.",
+   "spann": [
+    10,
+    50
+   ],
+   "formel": null
+  },
+  {
+   "id": "LI_UTTAG_2027",
+   "namn": "Global AI-efterfrågan på vattenuttag 2027 (Li m.fl.)",
+   "varde": 5.4,
+   "enhet": "miljarder kubikmeter",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "li_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Uttag, inte förbrukning. Egen uppskattning i artikelns abstract.",
+   "spann": [
+    4.2,
+    6.6
+   ],
+   "formel": null
+  },
+  {
+   "id": "USGS_UTTAG_GENOMSTR",
+   "namn": "Uttag, kärnkraft med genomströmning i sötvatten (2015)",
+   "varde": 39,
+   "enhet": "gallon/kWh",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "usgs_2019",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-23"
+   ],
+   "kommentar": "USGS:s modellering av amerikanska kraftverk.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "USGS_FORBR_GENOMSTR",
+   "namn": "Förbrukning, kärnkraft med genomströmning i sötvatten (2015)",
+   "varde": 0.41,
+   "enhet": "gallon/kWh",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "usgs_2019",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-23"
+   ],
+   "kommentar": "Förbrukning är inte modellerad för genomströmning med saltvatten.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "USGS_UTTAG_KYLTORN",
+   "namn": "Uttag, kärnkraft med kyltorn (2015)",
+   "varde": 0.7,
+   "enhet": "gallon/kWh",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "usgs_2019",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-23"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "USGS_FORBR_KYLTORN",
+   "namn": "Förbrukning, kärnkraft med kyltorn (2015)",
+   "varde": 0.5,
+   "enhet": "gallon/kWh",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "usgs_2019",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-23"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "ANDEL_FORBR_GENOMSTR",
+   "namn": "Förbrukning som andel av uttaget, genomströmning",
+   "varde": null,
+   "enhet": "%",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [
+    "F-23"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": "USGS_FORBR_GENOMSTR/USGS_UTTAG_GENOMSTR*100"
+  },
+  {
+   "id": "ANDEL_FORBR_KYLTORN",
+   "namn": "Förbrukning som andel av uttaget, kyltorn",
+   "varde": null,
+   "enhet": "%",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [
+    "F-23"
+   ],
+   "kommentar": null,
+   "spann": null,
+   "formel": "USGS_FORBR_KYLTORN/USGS_UTTAG_KYLTORN*100"
+  },
+  {
+   "id": "DATACENTER_TWH_VARLD_2024",
+   "namn": "Datacentrens elanvändning i världen 2024",
+   "varde": 415,
+   "enhet": "TWh",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "iea_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "DATACENTER_ANDEL_VARLD_2024",
+   "namn": "Datacentrens andel av världens elanvändning 2024",
+   "varde": 1.5,
+   "enhet": "%",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "iea_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "IEA_TILLVAXT_PER_AR",
+   "namn": "Årlig ökning av datacentrens elanvändning, senaste fem åren",
+   "varde": 12,
+   "enhet": "%",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "iea_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": null,
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "ELMIX_NORDEN_G_KWH",
+   "namn": "Klimatpåverkan per kWh, nordisk elmix 2021–2023",
+   "varde": 59,
+   "enhet": "g CO2e/kWh",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "naturvardsverket_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Med direkta och indirekta utsläpp, import och export.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "ELMIX_VARLD_G_KWH",
+   "namn": "Klimatpåverkan per kWh, global elmix 2024",
+   "varde": 473,
+   "enhet": "g CO2/kWh",
+   "typ": "uppmatt",
+   "belagd": "original",
+   "kalla": "ember_2025",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Ned från 484 år 2023.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "DATACENTER_TWH_SVERIGE_2022",
+   "namn": "Svenska datacenters elanvändning 2022",
+   "varde": 3.0,
+   "enhet": "TWh",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "energimyndigheten_2023",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-02"
+   ],
+   "kommentar": "Uppskattning av RISE för Energimyndigheten.",
+   "spann": [
+    2.8,
+    3.2
+   ],
+   "formel": null
+  },
+  {
+   "id": "DATACENTER_TWH_SVERIGE_2025",
+   "namn": "Svenska datacenters elanvändning 2025 (prognos)",
+   "varde": 4.2,
+   "enhet": "TWh",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "energimyndigheten_2023",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Prognos.",
+   "spann": [
+    4.0,
+    4.4
+   ],
+   "formel": null
+  },
+  {
+   "id": "DATACENTER_TWH_SVERIGE_2030",
+   "namn": "Svenska datacenters elanvändning 2030 (prognos)",
+   "varde": 4.8,
+   "enhet": "TWh",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "energimyndigheten_2023",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [],
+   "kommentar": "Försiktig uppskattning. Rapporten räknar även en mycket högre variant (22 TWh).",
+   "spann": [
+    4.4,
+    5.2
+   ],
+   "formel": null
+  },
+  {
+   "id": "ELANV_SVERIGE_2024_TWH",
+   "namn": "Sveriges totala elanvändning 2024",
+   "varde": 135,
+   "enhet": "TWh",
+   "typ": "uppskattad",
+   "belagd": "sekundar",
+   "kalla": "ekonomifakta_2026",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-02"
+   ],
+   "kommentar": "Cirka 135–136 TWh enligt Ekonomifakta och Energiföretagen. Inte kontrollerad mot Energimyndigheten.",
+   "spann": null,
+   "formel": null
+  },
+  {
+   "id": "ANDEL_DC_SVERIGE",
+   "namn": "Svenska datacenters andel av elanvändningen (grov jämförelse mellan olika år)",
+   "varde": null,
+   "enhet": "%",
+   "typ": "beraknad",
+   "belagd": "antagande",
+   "kalla": null,
+   "sida": null,
+   "hamtdatum": null,
+   "forbattring": [
+    "F-02"
+   ],
+   "kommentar": "Egen räkning.",
+   "spann": null,
+   "formel": "DATACENTER_TWH_SVERIGE_2022/ELANV_SVERIGE_2024_TWH*100"
+  },
+  {
+   "id": "WANG_EAVFALL_MILJONER_TON",
+   "namn": "Ackumulerat elektroniskt avfall från generativ AI 2020–2030",
+   "varde": 3.1,
+   "enhet": "miljoner ton",
+   "typ": "uppskattad",
+   "belagd": "original",
+   "kalla": "wang_2024",
+   "sida": null,
+   "hamtdatum": "2026-11-12",
+   "forbattring": [
+    "F-13"
+   ],
+   "kommentar": "Scenariospann. Cirkulära åtgärder kan minska avfallet med 16–86 %.",
+   "spann": [
+    1.2,
+    5.0
+   ],
+   "formel": null
+  }
+ ],
+ "antaganden": [
+  {
+   "id": "A1",
+   "datum": "2026-11-12",
+   "poster": [
+    "X_IN",
+    "X_UT",
+    "MW_EFFEKT"
+   ],
+   "skal": "X ur Epoch AI (2025) och en antagen fråga på 75 ord. Y mätt med summera_tokens.py (ögonblicksbild kl. 13:14). Mikrovågsugnen antas vara 1 000 W (märkeffekt)."
+  }
+ ],
+ "kallor": [
+  {
+   "id": "altman_2025",
+   "kort": "Altman (2025)",
+   "harvard": "Altman, S. (2025) 'The gentle singularity'.",
+   "url": "https://blog.samaltman.com/the-gentle-singularity",
+   "not": "OpenAI-chefens uppgift om 0,34 Wh och 0,000085 gallon vatten per genomsnittlig fråga. Ingen metod redovisas."
+  },
+  {
+   "id": "bast_i_test",
+   "kort": "Bäst i test",
+   "harvard": "Bäst i test (u.å.) 'Mikrovågsugn: bäst i test'.",
+   "url": "https://www.bast-i-test.se/tester_pa_basta/mikrovagsugn.html",
+   "not": "Jämförelsesajt: vanligaste märkeffekt 500–900 W, testade modeller 800 W och 900–1 000 W. Ingen auktoritativ källa (F-06)."
+  },
+  {
+   "id": "ember_2025",
+   "kort": "Ember (2025)",
+   "harvard": "Ember (2025) 'Global Electricity Review 2025'.",
+   "url": "https://ember-energy.org/latest-insights/global-electricity-review-2025/global-electricity-trends/",
+   "not": "Global elmix 2024: 473 g CO2/kWh."
+  },
+  {
+   "id": "energimyndigheten_2023",
+   "kort": "Energimyndigheten (2023)",
+   "harvard": "Energimyndigheten (2023) 'Energianvändning i datacenter och digitala system' (rapport av RISE).",
+   "url": "https://www.energimyndigheten.se/492f27/contentassets/054d98cfdcd54cb5a802e24b53779452/energianvandning-i-datacenter-och-digitala-system.pdf",
+   "not": "Svenska datacenters elanvändning 2022 och prognos till 2030."
+  },
+  {
+   "id": "ekonomifakta_2026",
+   "kort": "Ekonomifakta",
+   "harvard": "Ekonomifakta (u.å.) 'Elfakta'.",
+   "url": "https://www.ekonomifakta.se/sakomraden/elfakta/",
+   "not": "Sveriges totala elanvändning 2024, cirka 136 TWh. Hämtad ur sökresultat, inte öppnad (F-02)."
+  },
+  {
+   "id": "epoch_2025",
+   "kort": "Epoch AI (You, 2025)",
+   "harvard": "You, J. (2025) 'How much energy does ChatGPT use?', Epoch AI, Gradient Updates, 7 februari 2025.",
+   "url": "https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use",
+   "not": "Definition av en typisk fråga (500 tokens), 0,3 Wh per fråga och uppskattningar för långa indata. Beräkningar för GPT-4o."
+  },
+  {
+   "id": "iea_2025",
+   "kort": "IEA (2025)",
+   "harvard": "Internationella energiorganet (IEA) (2025) 'Energy and AI', sammanfattning.",
+   "url": "https://www.iea.org/reports/energy-and-ai/executive-summary",
+   "not": "Datacentrens elanvändning i världen, 415 TWh år 2024."
+  },
+  {
+   "id": "li_2025",
+   "kort": "Li m.fl. (2025)",
+   "harvard": "Li, P., Yang, J., Islam, M. A. & Ren, S. (2025) 'Making AI less thirsty: uncovering and addressing the secret water footprint of AI models'. arXiv:2304.03271.",
+   "url": "https://arxiv.org/abs/2304.03271",
+   "not": "Metod och siffror för vattenavtryck, GPT-3 i amerikanska anläggningar."
+  },
+  {
+   "id": "luccioni_2024",
+   "kort": "Luccioni m.fl. (2024)",
+   "harvard": "Luccioni, A. S., Jernite, Y. & Strubell, E. (2024) 'Power hungry processing: watts driving the cost of AI deployment?'. arXiv:2311.16863.",
+   "url": "https://arxiv.org/abs/2311.16863",
+   "not": "Mätning av energi per 1 000 användningar och uppgiftstyp. Bildgenerering dyrast."
+  },
+  {
+   "id": "microsoft_2024",
+   "kort": "Microsoft (2024)",
+   "harvard": "Microsoft (Solomon, S.) (2024) 'Sustainable by design: next-generation datacenters consume zero water for cooling', 9 december 2024.",
+   "url": "https://www.microsoft.com/en-us/microsoft-cloud/blog/2024/12/09/sustainable-by-design-next-generation-datacenters-consume-zero-water-for-cooling/",
+   "not": "Slutna kretsar utan avdunstning och energikonsekvensen. Läst via en genomgång av sidan (F-16)."
+  },
+  {
+   "id": "microsoft_2026",
+   "kort": "Microsoft (2026)",
+   "harvard": "Microsoft (Priest, J. & Solomon, S.) (2026) 'Inside Microsoft's two-decade push to cut water intensity while scaling for growth', 24 juni 2026.",
+   "url": "https://blogs.microsoft.com/blog/2026/06/24/inside-microsofts-two-decade-push-to-cut-water-intensity-while-scaling-for-growth/",
+   "not": "Microsofts WUE 0,27 L/kWh 2025. Läst via en genomgång av sidan (F-16)."
+  },
+  {
+   "id": "naturvardsverket_2026",
+   "kort": "Naturvårdsverket (2026)",
+   "harvard": "Naturvårdsverket (2026) 'Klimatklivet: värden för att beräkna utsläppsminskning', 2026-03-25.",
+   "url": "https://www.naturvardsverket.se/495f5e/globalassets/amnen/klimatomstallning/klimatklivet/dokument/klimatklivet-varden-for-att-berakna-utslappsminskning.pdf",
+   "not": "Utsläppsfaktor 59 g CO2e/kWh för el, nordisk elmix 2021–2023."
+  },
+  {
+   "id": "shehabi_2024",
+   "kort": "Shehabi m.fl. (2024)",
+   "harvard": "Shehabi, A. m.fl. (2024) '2024 United States Data Center Energy Usage Report', LBNL-2001637, Lawrence Berkeley National Laboratory, utgiven 2024-12-19.",
+   "url": "https://escholarship.org/uc/item/32d6m0d1",
+   "not": "Direkt och indirekt vattenanvändning i USA:s datacenter (DOI 10.71468/P1WC7Q). PDF-kopian som lästes är märkt som embargo, men utgivningen är bekräftad."
+  },
+  {
+   "id": "summera_tokens",
+   "kort": "summera_tokens.py",
+   "harvard": "Lundgren, K. (2026) summera_tokens.py, skript som summerar tokens i en Claude Code-session.",
+   "url": "https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/summera_tokens.py",
+   "not": "Skriptet som gav sessionens uppmätta tokens, se Analys om användningssätt. Mättidpunkt 2026-11-12 kl. 13:14."
+  },
+  {
+   "id": "unep_2024",
+   "kort": "UNEP (2024)",
+   "harvard": "UNEP (2024) 'Artificial intelligence (AI) end-to-end: the environmental impact of the full AI lifecycle needs to be comprehensively assessed' (issue note).",
+   "url": "https://wedocs.unep.org/handle/20.500.11822/46288",
+   "not": "Livscykelperspektiv med energi, vatten, mineral, utsläpp och e-avfall. Abstract läst, hela rapporten inte (F-11)."
+  },
+  {
+   "id": "usgs_2019",
+   "kort": "USGS (2019)",
+   "harvard": "USGS (2019) 'Withdrawal and consumption of water by thermoelectric power plants in the United States, 2015', Scientific Investigations Report 2019-5103.",
+   "url": "https://pubs.usgs.gov/sir/2019/5103/sir20195103.pdf",
+   "not": "Uttag och förbrukning vid genomströmning och kyltorn, koefficienter för 2015."
+  },
+  {
+   "id": "vahdat_dean_2025",
+   "kort": "Google (Vahdat & Dean, 2025)",
+   "harvard": "Vahdat, A. & Dean, J. (2025) 'How much energy does Google's AI use? We did the math', Google Cloud Blog, 21 augusti 2025.",
+   "url": "https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference",
+   "not": "Googles uppgift om 0,24 Wh, 0,03 g CO2e och 0,26 ml vatten per median-textfråga. Ej verifierad av tredje part."
+  },
+  {
+   "id": "wang_2024",
+   "kort": "Wang m.fl. (2024)",
+   "harvard": "Wang, P. m.fl. (2024) 'E-waste challenges of generative artificial intelligence', Nature Computational Science, november 2024.",
+   "url": "https://www.nature.com/articles/s43588-024-00712-6",
+   "not": "Scenario för elektroniskt avfall: 1,2–5,0 miljoner ton 2020–2030. Abstract läst."
+  }
+ ],
+ "forbattringar": [
+  {
+   "id": "F-01",
+   "omrade": "Resurser",
+   "rubrik": "Jämförelser med fler vardagsvanor (strömning, bilkörning, andra apparater)",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-02",
+   "omrade": "Sverige",
+   "rubrik": "Total svensk elanvändning kontrollerad mot Energimyndigheten (nu cirka 135–136 TWh via Energiföretagen/Ekonomifakta)",
+   "malversion": "1.0",
+   "syns": false
+  },
+  {
+   "id": "F-03",
+   "omrade": "Vatten, Sverige",
+   "rubrik": "Datacenters vattenanvändning och kylmetoder i Sverige. Ingen siffra funnen",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-04",
+   "omrade": "Vatten",
+   "rubrik": "Oberoende källa (inte tillverkare) om energiskillnaden mellan avdunstningskylning och slutna system",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-05",
+   "omrade": "Sverige",
+   "rubrik": "Energimyndighetens scenariostudie om elanvändning till 2030 (datacenter som tillkommande användare). Öppna originalet",
+   "malversion": "1.x",
+   "syns": false
+  },
+  {
+   "id": "F-06",
+   "omrade": "Resurser",
+   "rubrik": "Källa för att en vanlig mikrovågsugn har märkeffekt omkring 1 000 W, och för vad den drar ur uttaget",
+   "malversion": "1.0",
+   "syns": true
+  },
+  {
+   "id": "F-07",
+   "omrade": "Förening",
+   "rubrik": "Naturskyddsföreningens egna uttalanden om AI (en första sökning hittade inget). Kontrollera deras webbplats",
+   "malversion": "1.0",
+   "syns": false
+  },
+  {
+   "id": "F-08",
+   "omrade": "Vatten, Sverige",
+   "rubrik": "Indirekt vatten för svensk el (vattenkraftens avdunstning, kärnkraftens kylning, vindkraft)",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-09",
+   "omrade": "Vatten",
+   "rubrik": "Googles totala vattenförbrukning (10,9 miljarder gallon 2025 enligt sökresultat) och Horndal-uppgiften. Öppna Googles rapport",
+   "malversion": "1.x",
+   "syns": false
+  },
+  {
+   "id": "F-10",
+   "omrade": "Vatten",
+   "rubrik": "Jegham m.fl. (2025): per-frågesiffran 1,2 ml. Öppna artikeln",
+   "malversion": "1.x",
+   "syns": false
+  },
+  {
+   "id": "F-11",
+   "omrade": "Miljöfaktorer",
+   "rubrik": "UNEP:s hela rapport (PDF, 1,64 MB): mineral, e-avfall, vatten. Abstract är kontrollerat",
+   "malversion": "1.0",
+   "syns": false
+  },
+  {
+   "id": "F-12",
+   "omrade": "Miljöfaktorer",
+   "rubrik": "Tillverkningens andel av hårdvarans livscykelutsläpp. Sök en studie",
+   "malversion": "2.0",
+   "syns": true
+  },
+  {
+   "id": "F-13",
+   "omrade": "Miljöfaktorer",
+   "rubrik": "Proportioner: global e-avfallsmängd, för att sätta Wang m.fl. i relation",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-14",
+   "omrade": "Miljöfaktorer",
+   "rubrik": "Mark, ljud och natur. Ej undersökt",
+   "malversion": "2.0",
+   "syns": true
+  },
+  {
+   "id": "F-15",
+   "omrade": "Resurser",
+   "rubrik": "Träning kontra användning (användningens andel av energin). Äldre uppskattning 35–60 %, nyare högre, men källorna är en sammanställning i en förtryckt artikel",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-16",
+   "omrade": "Vatten",
+   "rubrik": "Microsofts uppgifter: läs originalsidorna själv (nu lästa via en delegerad genomgång). Diagrammet över vatten per kylteknik är en bild",
+   "malversion": "1.0",
+   "syns": false
+  },
+  {
+   "id": "F-17",
+   "omrade": "Resurser",
+   "rubrik": "Per arbetspass: ingen mätning finns. Följ upp om leverantörer börjar redovisa energi per session",
+   "malversion": "2.0",
+   "syns": true
+  },
+  {
+   "id": "F-18",
+   "omrade": "Bilder",
+   "rubrik": "Nyare mätningar av energi per bild (Luccioni m.fl. gäller äldre modeller)",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-19",
+   "omrade": "Dokument",
+   "rubrik": "Namn på sidan och dokumentet",
+   "malversion": "1.0",
+   "syns": false
+  },
+  {
+   "id": "F-20",
+   "omrade": "Miljöfaktorer",
+   "rubrik": "Indirekta effekter (rebound, nytta i andra sektorer). Går åt båda hållen, inte kvantifierat",
+   "malversion": "2.0",
+   "syns": true
+  },
+  {
+   "id": "F-21",
+   "omrade": "Bilder",
+   "rubrik": "Forskning om hur publik reagerar på AI-bilder och märkning (stöd för att reaktionerna handlar om mer än energi, till exempel trovärdighet och äkthet)",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-22",
+   "omrade": "Vatten",
+   "rubrik": "Kontrollera kylmetod för ett svenskt datacenter genom att läsa respektive bolags miljöredovisning",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-23",
+   "omrade": "Vatten",
+   "rubrik": "Kyltornens och genomströmningskylningens relevans för datacenter (hur vanligt är vad?). Idag bygger jämförelsen på kraftverk",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-24",
+   "omrade": "Nytta",
+   "rubrik": "Belägg för hur mycket AI-stöd faktiskt sparar eller ger i arbete (forskningen om nyttan är inte genomgången, inga källor är hämtade). Sidan påstår ingen siffra för nyttan",
+   "malversion": "1.0",
+   "syns": true
+  },
+  {
+   "id": "F-25",
+   "omrade": "Resurser",
+   "rubrik": "Energi per token och per modellanrop för arbete med många steg, och hur cachning av återläst kontext påverkar. Idag bara en proxy ur Epoch AI för GPT-4o",
+   "malversion": "2.0",
+   "syns": true
+  },
+  {
+   "id": "F-26",
+   "omrade": "Resurser",
+   "rubrik": "Googles definition av median-prompten i hela artikeln (arXiv:2508.15734): längd i tokens. Idag bara abstract läst",
+   "malversion": "1.0",
+   "syns": false
+  },
+  {
+   "id": "F-28",
+   "omrade": "Nytta",
+   "rubrik": "Jämförelse med människans resursanvändning för motsvarande arbete (källa saknas)",
+   "malversion": "2.0",
+   "syns": true
+  },
+  {
+   "id": "F-29",
+   "omrade": "Resurser",
+   "rubrik": "Kontrollera om fältet för producerade tokens (output) också räknar modellens interna resonemang. Påverkar Y_ut och Z_ut",
+   "malversion": "1.0",
+   "syns": true
+  },
+  {
+   "id": "F-30",
+   "omrade": "Resurser",
+   "rubrik": "Fler mätpunkter för Y: kör skriptet på fler sessioner och projekt och redovisa ett genomsnitt eller spann i stället för en enskild session",
+   "malversion": "1.x",
+   "syns": true
+  },
+  {
+   "id": "F-31",
+   "omrade": "Teknik",
+   "rubrik": "Databas eller schemalagt skript som kontrollerar om källorna ändrats och uppdaterar siffrorna. Version 1.0 läser en JSON-fil",
+   "malversion": "2.0",
+   "syns": false
+  },
+  {
+   "id": "F-32",
+   "omrade": "Innehåll",
+   "rubrik": "Skriv texten till PRD avsnitt 5: principer, trafikljus, bilder och video, checklista, vanliga frågor. Saknas som text idag",
+   "malversion": "1.0",
+   "syns": false
+  }
+ ],
+ "verifieringar": [
+  {
+   "kalla": "Ember (2025)",
+   "paastaende": "Global elmix 2024: 473 g CO2/kWh",
+   "kontroll": "Sidtexten hämtad och läst",
+   "resultat": "Stämmer"
+  },
+  {
+   "kalla": "Luccioni m.fl. (2024)",
+   "paastaende": "Bildgenerering 2,907 kWh per 1 000 användningar, text 0,047 kWh, minst effektiva bildmodell 11,49 kWh",
+   "kontroll": "Hela artikeln hämtad och sökt i",
+   "resultat": "Stämmer. Värdet beror på bildstorlek och inställningar"
+  },
+  {
+   "kalla": "Li m.fl. (2025)",
+   "paastaende": "500 ml per 10–50 svar. 16,9 ml per svar (2,2 plus 14,7 ml). 4,2–6,6 miljarder kubikmeter vattenuttag 2027",
+   "kontroll": "Hela artikeln hämtad och sökt i",
+   "resultat": "Stämmer. Gäller GPT-3 i USA"
+  },
+  {
+   "kalla": "USGS (2019)",
+   "paastaende": "Kärnkraft: genomströmning uttag 39 och förbrukning 0,41 gallon/kWh. Kyltorn 0,70 och 0,50",
+   "kontroll": "Hela rapporten hämtad, tabell 8 och 9 lästa",
+   "resultat": "Stämmer. Förbrukning är inte modellerad för saltvatten"
+  },
+  {
+   "kalla": "Shehabi m.fl. (2024), LBNL",
+   "paastaende": "66 miljarder liter direkt, cirka 800 miljarder liter indirekt, 4,52 L/kWh, 178 TWh",
+   "kontroll": "PDF hämtad och relevanta avsnitt lästa. Utgivning bekräftad på LBNL:s publikationssida",
+   "resultat": "Stämmer"
+  },
+  {
+   "kalla": "UNEP (2024)",
+   "paastaende": "Livscykelperspektiv med energi, vatten, mineral, utsläpp, e-avfall och indirekta effekter",
+   "kontroll": "Dokumentsidans abstract läst i webbläsare",
+   "resultat": "Stämmer på abstractnivå. Hela rapporten inte läst"
+  },
+  {
+   "kalla": "Microsoft (2024, 2026)",
+   "paastaende": "Slutna kretsar, WUE 0,30 respektive 0,27 L/kWh, nominell energiökning",
+   "kontroll": "Båda sidorna lästa via en genomgång",
+   "resultat": "Stämmer enligt genomgången. Egen läsning kvar"
+  },
+  {
+   "kalla": "Altman (2025)",
+   "paastaende": "0,34 Wh och 0,000085 gallon per genomsnittlig fråga",
+   "kontroll": "Sidtexten hämtad",
+   "resultat": "Stämmer. Metod saknas"
+  },
+  {
+   "kalla": "Google (Vahdat & Dean, 2025)",
+   "paastaende": "0,24 Wh, 0,03 g CO2e, 0,26 ml. Inte verifierade av tredje part",
+   "kontroll": "Sidtexten hämtad",
+   "resultat": "Stämmer"
+  },
+  {
+   "kalla": "Epoch AI (2025)",
+   "paastaende": "0,3 Wh per fråga, 500 tokens, 2,5 och 40 Wh för långa indata, 0,75 ord per token",
+   "kontroll": "Sidtexten hämtad",
+   "resultat": "Stämmer"
+  },
+  {
+   "kalla": "IEA (2025)",
+   "paastaende": "415 TWh, cirka 1,5 %, cirka 12 % per år",
+   "kontroll": "Sidtexten hämtad",
+   "resultat": "Stämmer"
+  },
+  {
+   "kalla": "Energimyndigheten (2023)",
+   "paastaende": "Svenska datacenter 2,8–3,2 TWh 2022 och prognos",
+   "kontroll": "PDF hämtad och relevanta avsnitt lästa",
+   "resultat": "Stämmer"
+  },
+  {
+   "kalla": "Naturvårdsverket (2026)",
+   "paastaende": "59 g CO2e/kWh",
+   "kontroll": "PDF hämtad och relevanta avsnitt lästa",
+   "resultat": "Stämmer"
+  },
+  {
+   "kalla": "Wang m.fl. (2024)",
+   "paastaende": "1,2–5,0 miljoner ton e-avfall 2020–2030, 16–86 % minskning",
+   "kontroll": "Abstract hämtat",
+   "resultat": "Stämmer på abstractnivå"
+  }
+ ],
+ "versionslogg": [
+  {
+   "version": "1.0",
+   "datum": "2026-11-12",
+   "text": "Första versionen: analys av resursanvändning (energi, vatten, övriga miljöfaktorer) och av vad en fråga och ett arbete är. Förhållningssättet i sig (principer, trafikljus, bilder, checklista) kommer i en senare version."
+  }
+ ]
+}

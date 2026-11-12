@@ -1,0 +1,180 @@
+/* sida.css: gemensam stil för sidorna om AI i en miljöorganisation.
+ * UPPDATERING 2026-11-12: första versionen. Version 1.0.
+ * Gult används aldrig här: det är reserverat för inmatningsfält (det finns inga i den här versionen).
+ */
+:root {
+  --bg: #ffffff;
+  --ink: #1d2623;
+  --muted: #58665f;
+  --accent: #1f6f54;
+  --accent-ink: #14513c;
+  --panel: #f1f5f2;
+  --hair: #d6ded9;
+  --notis-bg: #e8f1fb;
+  --notis-kant: #8fb6de;
+  --ok-bg: #e3f3e8;
+  --ok-ink: #17623a;
+  --bolag-bg: #fde9d6;
+  --bolag-ink: #8a4a0c;
+  --sek-bg: #e3edf9;
+  --sek-ink: #214f86;
+  --ant-bg: #eceeef;
+  --ant-ink: #44504b;
+  --fel-bg: #fbe3e1;
+  --fel-ink: #8a1f1a;
+  --rad: 10px;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14191a;
+    --ink: #e6ece9;
+    --muted: #a1afa8;
+    --accent: #5cc29a;
+    --accent-ink: #8ad9b9;
+    --panel: #1c2324;
+    --hair: #2f3a38;
+    --notis-bg: #162636;
+    --notis-kant: #335a82;
+    --ok-bg: #173a29;
+    --ok-ink: #8fdcb0;
+    --bolag-bg: #3d2a14;
+    --bolag-ink: #f0c08a;
+    --sek-bg: #182f4b;
+    --sek-ink: #9cc4f0;
+    --ant-bg: #262d2b;
+    --ant-ink: #b6c3bd;
+    --fel-bg: #421b19;
+    --fel-ink: #f3b3ad;
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 0 16px 5rem;
+}
+main { max-width: 46rem; margin: 0 auto; padding-top: 1rem; }
+h1, h2, h3 { line-height: 1.25; color: var(--ink); }
+h1 { font-size: 1.9rem; margin: 0.6rem 0 0.4rem; }
+h2 { font-size: 1.35rem; margin: 2.2rem 0 0.6rem; padding-top: 0.4rem; border-top: 1px solid var(--hair); }
+h3 { font-size: 1.08rem; margin: 1.5rem 0 0.4rem; }
+p, li { max-width: 68ch; }
+a { color: var(--accent-ink); }
+a:focus-visible, button:focus-visible, .term:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+.hash {
+  margin-left: 0.4rem; font-weight: 400; text-decoration: none; color: var(--muted);
+  opacity: 0; transition: opacity 0.15s;
+}
+h2:hover .hash, h3:hover .hash, .hash:focus { opacity: 1; }
+.versionsrad { color: var(--muted); font-size: 0.9rem; margin: 0 0 1rem; }
+.ingress { font-size: 1.1rem; color: var(--ink); }
+
+.notis {
+  background: var(--notis-bg); border: 1px solid var(--notis-kant); border-radius: var(--rad);
+  padding: 0.7rem 1rem; margin: 1rem 0; font-size: 0.95rem;
+}
+.steg1 {
+  background: var(--panel); border: 1px solid var(--hair); border-left: 5px solid var(--accent);
+  border-radius: var(--rad); padding: 0.9rem 1.1rem; margin: 1rem 0;
+}
+.steg1 > :first-child { margin-top: 0; }
+.steg1 > :last-child { margin-bottom: 0; }
+.steg1 .etikett { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.3rem; }
+.fortsatt { font-weight: 600; }
+.fel {
+  background: var(--fel-bg); color: var(--fel-ink); border: 1px solid var(--fel-ink); border-radius: var(--rad);
+  padding: 0.7rem 1rem; margin: 1rem 0;
+}
+
+.tabellvy { overflow-x: auto; margin: 0.5rem 0 1.2rem; -webkit-overflow-scrolling: touch; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; min-width: 30rem; }
+caption { text-align: left; font-weight: 600; padding: 0.3rem 0 0.5rem; color: var(--ink); caption-side: top; }
+th, td { border: 1px solid var(--hair); padding: 0.4rem 0.55rem; text-align: left; vertical-align: top; }
+th { background: var(--panel); }
+td.kod, .kod { font-family: ui-monospace, "Courier New", monospace; font-size: 0.85em; word-break: break-word; }
+table.poster { min-width: 46rem; }
+code { background: var(--panel); border-radius: 4px; padding: 0.05rem 0.3rem; font-size: 0.88em; }
+
+/* markering av hur väl en siffra är belagd */
+.belagd {
+  display: inline-block; font-size: 0.68rem; line-height: 1.3; padding: 0 0.4rem; border-radius: 999px;
+  vertical-align: middle; text-decoration: none; border: 1px solid transparent; white-space: nowrap;
+  font-weight: 600; letter-spacing: 0.01em;
+}
+.belagd-original { background: var(--ok-bg); color: var(--ok-ink); }
+.belagd-sekundar { background: var(--sek-bg); color: var(--sek-ink); }
+.belagd-bolagets_egen { background: var(--bolag-bg); color: var(--bolag-ink); }
+.belagd-antagande, .belagd-beraknad { background: var(--ant-bg); color: var(--ant-ink); }
+.belagd-beraknad { border-color: var(--hair); background: transparent; }
+a.belagd:hover { border-color: currentColor; }
+.forklaring-markering { margin: 0.5rem 0 1rem; font-size: 0.9rem; }
+.forklaring-markering .belagd { margin-right: 0.3rem; }
+
+.kalla-lank { text-decoration-style: dotted; }
+.term {
+  border-bottom: 1px dotted var(--muted); cursor: help; text-decoration: none;
+}
+#termpop {
+  position: absolute; z-index: 30; background: var(--bg); color: var(--ink); border: 1px solid var(--accent);
+  border-radius: var(--rad); padding: 0.6rem 0.8rem; font-size: 0.88rem; line-height: 1.45;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+#termpop[hidden] { display: none; }
+
+.kallista li { margin-bottom: 0.7rem; }
+.forblista li { margin-bottom: 0.35rem; }
+.linkkort { list-style: none; padding: 0; display: grid; gap: 0.7rem; }
+.linkkort li { margin: 0; }
+.linkkort a {
+  display: block; padding: 0.7rem 1rem; border: 1px solid var(--hair); border-radius: var(--rad);
+  text-decoration: none; background: var(--panel);
+}
+.linkkort a:hover { border-color: var(--accent); }
+.linkkort strong { display: block; color: var(--accent-ink); }
+.linkkort span { color: var(--muted); font-size: 0.92rem; }
+
+.testpanel { background: var(--panel); border: 2px solid var(--accent); border-radius: var(--rad); padding: 0.6rem 1rem; margin: 1rem auto; max-width: 46rem; font-size: 0.9rem; }
+.testpanel h2 { margin: 0.2rem 0; border: none; padding: 0; font-size: 1.05rem; }
+
+/* hörnpar och teknikmodal */
+.corner {
+  position: fixed; bottom: 14px; font-family: "Courier New", Courier, monospace; font-size: 0.78rem;
+  color: var(--muted); background: var(--bg); border: 1px solid var(--hair); border-radius: 999px;
+  padding: 0.3rem 0.7rem; text-decoration: none; cursor: pointer; opacity: 0.55; transition: opacity 0.2s ease, color 0.2s ease; z-index: 10;
+}
+.corner:hover, .corner:focus-visible { opacity: 1; color: var(--accent-ink); }
+.corner-left { left: 14px; }
+.corner-right { right: 14px; }
+.modal-overlay {
+  display: none; position: fixed; inset: 0; background: rgba(10, 16, 14, 0.6);
+  align-items: center; justify-content: center; z-index: 40; padding: 1rem;
+}
+.modal-overlay.show { display: flex; }
+.modal {
+  position: relative; background: var(--bg); color: var(--ink); border-radius: 16px; max-width: 640px; width: 100%;
+  max-height: 85vh; overflow-y: auto; padding: 2rem;
+}
+.modal h2 { margin: 0 0 0.5rem; border: none; padding: 0; font-size: 1.4rem; }
+.modal > p { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.4rem; }
+.modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.4rem; line-height: 1; color: var(--muted); cursor: pointer; }
+.tech-section-title { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 1.4rem 0 0.7rem; }
+.tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.tech-card h3 { font-size: 0.95rem; margin: 0 0 0.3rem; color: var(--accent-ink); }
+.tech-card p { font-size: 0.85rem; line-height: 1.5; margin: 0; }
+@media (max-width: 640px) {
+  h1 { font-size: 1.55rem; }
+  .tech-grid { grid-template-columns: 1fr; }
+  .modal { padding: 1.4rem; }
+}
+@media print {
+  .corner, .modal-overlay, #termpop, .brodsmulor { display: none !important; }
+  .hash { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .corner, .hash { transition: none; } }

@@ -1,7 +1,8 @@
 # PRD: förhållningssätt och riktlinjer för generativ AI i en ideell miljöorganisation
 
-**Version:** 0.11 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.12 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** Kents egen undersökning, på eget initiativ och utan samordning. Inte beslutat av Lunds Naturskyddsförening eller av Naturskyddsföreningen.
+**Ändringar i 0.12:** resursdelen är byggd som en sida, version 1.0, testad lokalt (se [README.md](README.md)): hubb, huvudsida, tre fördjupningssidor och en sida för källor och logg, med alla siffror i `data/siffror.json`. Texten till avsnitt 5 återstår (F-32).
 **Ändringar i 0.11:** avsnitt 10 anger att SPEC:en är skriven men har öppna punkter (SPEC avsnitt 10) som avgörs före bygget, så checkpointen är besvarad men inte avslutad.
 **Ändringar i 0.10:** genomläsning med fräscha ögon: avsnitt 8 och 9 uppdaterade med läget (vad som är gjort och inte), avsnitt 10 rättat (SPEC:en är kort men exakt, inte en till två sidor), trafikljusets mellannivå visas i orange. Det som saknas är texten till avsnitt 5 (F-32).
 **Ändringar i 0.9:** SPEC skriven: [SPEC_sida_261112.md](SPEC_sida_261112.md) (datamodell, beräkningar, filstruktur, krav för att kalla bygget klart). SPEC-checkpointen (avsnitt 10) är besvarad (ja). SPEC:en har öppna punkter som avgörs före bygget (SPEC avsnitt 10).
@@ -135,7 +136,7 @@ Delvis gjort (se [Forbattringar_261112.md](Forbattringar_261112.md), avsnitt 5):
 
 ## 9. Faser
 
-*Läge 2026-11-12:* fas 0 och 1 pågår (faktaunderlag och analyser av resurser). Fas 2 och 3, texten till avsnitt 5 (principer, trafikljus, bilder, checklista, vanliga frågor), är inte påbörjad (F-32). SPEC för sidan är skriven.
+*Läge 2026-11-12:* fas 0 och 1 pågår (faktaunderlag och analyser av resurser). Resursdelen är byggd som sida, version 1.0 (lokalt testad, inte publicerad). Fas 2 och 3, texten till avsnitt 5 (principer, trafikljus, bilder, checklista, vanliga frågor), är inte påbörjad (F-32).
 
 | Fas | Innehåll | Leverans |
 |---|---|---|

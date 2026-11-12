@@ -1,6 +1,7 @@
 # SPEC: sidan om AI i en miljöorganisation (datamodell, beräkningar, struktur)
 
-**Version:** 0.2 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.3 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Ändringar i 0.3:** SPEC:en följer det som byggdes i sidans version 1.0: posttypen `uppskattad` (källans egen beräkning) och fältet `spann`, USGS-posterna som fyra poster plus två beräknade, platshållarnas attribut dokumenterade (avsnitt 5), testfallet för 0,3 Wh ändrat till "cirka 1,1 sekunder" (en decimal under 10 sekunder), öppna punkter uppdaterade (avsnitt 10).
 **Ändringar i 0.2:** genomläsning med fräscha ögon: typ och belagd skiljs åt, beräknade poster har formel i stället för värde, platshållare i texten (`data-post`) så att inga siffror skrivs för hand, kontroll av att datafilen och registret stämmer överens, hänsyn till att `fetch` inte fungerar på `file://`, trafikljusets mellannivå visas i orange (inte gult), och två nya öppna punkter (innehållet i PRD avsnitt 5 saknas som text, databasen är en egen förbättringsrad).
 **Status:** teknisk specifikation inför bygget av HTML-sidan. Hör ihop med [PRD_ai_riktlinjer_261112.md](PRD_ai_riktlinjer_261112.md) (vad och varför). Den här filen säger *exakt hur*. Inte beslutad av Lunds Naturskyddsförening eller Naturskyddsföreningen.
 
@@ -60,13 +61,14 @@ Ett objekt med fyra listor. Fält utan värde utelämnas inte, de sätts till `n
 
 **Fält i en post.**
 - `id`: versaler och understreck, unikt, ändras aldrig efter publicering.
-- `typ`: vad värdet är: `uppmatt`, `beraknad` eller `antagen`.
+- `typ`: vad värdet är: `uppmatt` (mätvärde), `uppskattad` (källans egen beräkning eller uppskattning), `antagen` (ett antagande i analysen) eller `beraknad` (räknas av sidan ur andra poster).
 - `belagd`: `original` (läst i originalet), `sekundar` (via sekundärkälla), `bolagets_egen` eller `antagande`.
 - `kalla`: id i listan `kallor`. Krävs för poster av typen `uppmatt`. En post av typen `antagen` har `kalla` om det finns stöd för antagandet, annars `null`. En post av typen `beraknad` har `formel` (avsnitt 4) och saknar `varde` i filen.
 - `hamtdatum`: ISO-datum. Krävs när `kalla` finns.
 - `forbattring`: lista med nummer i förbättringsregistret, tom lista om inget återstår.
+- `spann`: valfritt, `[min, max]` när källan anger ett spann. `varde` är då mittvärdet och används i beräkningar.
 
-**Poster som måste finnas i 1.0** (värden och källor hämtas ur analyserna, se `Forbattringar_261112.md` avsnitt 5): `X_IN` (100), `X_UT` (500), `X`, `Y_UT`, `Y_NY`, `Y_ATER` (mätta med `summera_tokens.py`, som är en egen post i `kallor` med mättidpunkt), `Z_NY`, `Z_UT`, `Z_ALLA`, `MW_EFFEKT` (1 000 W, typ `antagen` tills F-06 är löst), `GOOGLE_WH_FRAGA`, `GOOGLE_ML_FRAGA`, `EPOCH_WH_FRAGA`, `EPOCH_TOKENS_SVAR`, `BILD_WH`, `WUE_MICROSOFT_2025`, `WUE_USA_2023`, `INDIREKT_VATTEN_USA`, `DATACENTER_TWH_VARLD_2024`, `DATACENTER_ANDEL_VARLD_2024`, `ELMIX_NORDEN_G_KWH`, `ELMIX_VARLD_G_KWH`, `DATACENTER_TWH_SVERIGE_2022`, `USGS_KARNKRAFT_GENOMSTROMNING` och `USGS_KARNKRAFT_KYLTORN`.
+**Poster som måste finnas i 1.0** (värden och källor hämtas ur analyserna, se `Forbattringar_261112.md` avsnitt 5): `X_IN` (100), `X_UT` (500), `X`, `Y_UT`, `Y_NY`, `Y_ATER` (mätta med `summera_tokens.py`, som är en egen post i `kallor` med mättidpunkt), `Z_NY`, `Z_UT`, `Z_ALLA`, `MW_EFFEKT` (1 000 W, typ `antagen` tills F-06 är löst), `GOOGLE_WH_FRAGA`, `GOOGLE_ML_FRAGA`, `EPOCH_WH_FRAGA`, `EPOCH_TOKENS_SVAR`, `BILD_WH`, `WUE_MICROSOFT_2025`, `WUE_USA_2023`, `INDIREKT_VATTEN_USA`, `DATACENTER_TWH_VARLD_2024`, `DATACENTER_ANDEL_VARLD_2024`, `ELMIX_NORDEN_G_KWH`, `ELMIX_VARLD_G_KWH`, `DATACENTER_TWH_SVERIGE_2022`, `USGS_UTTAG_GENOMSTR`, `USGS_FORBR_GENOMSTR`, `USGS_UTTAG_KYLTORN` och `USGS_FORBR_KYLTORN` (med de beräknade `ANDEL_FORBR_GENOMSTR` och `ANDEL_FORBR_KYLTORN`). Fler poster finns i `data/siffror.json` (56 i version 1.0).
 
 **Valideringsregler** (se avsnitt 8): varje post har `id`, `enhet`, `typ`, `belagd`, och `varde` om den inte är `beraknad`. Varje `kalla` hittas i `kallor`. Varje nummer i `forbattring` hittas i `forbattringar`. Inga dubbla `id`. Beräknade poster har `formel` och räknas av sidan.
 
@@ -88,13 +90,19 @@ Ett objekt med fyra listor. Fält utan värde utelämnas inte, de sätts till `n
 
 **Talformat:** svensk standard: decimalkomma, tusentalsavgränsare med tunt mellanrum (`Intl.NumberFormat('sv-SE')`).
 
-**Testfall (måste klara):** 0,24 Wh vid 1 000 W blir 0,864 s och visas "cirka 0,9 sekunder". 0,3 Wh blir 1,08 s, "cirka 1 sekund". 2,907 Wh (`BILD_WH`) blir 10,47 s, "cirka 10 sekunder". 569 298 ÷ 600 blir 948,8 och visas "cirka 950". 145 705 ÷ 500 blir 291,4, "cirka 290".
+**Testfall (måste klara):** 0,24 Wh vid 1 000 W blir 0,864 s och visas "cirka 0,9 sekunder". 0,3 Wh blir 1,08 s, "cirka 1,1 sekunder". 2,907 Wh (`BILD_WH`) blir 10,47 s, "cirka 10 sekunder". 569 298 ÷ 600 blir 948,8 och visas "cirka 950". 145 705 ÷ 500 blir 291,4, "cirka 290".
 
 Ändras `X_IN`, `X_UT`, `Y_NY`, `Y_ATER` eller `MW_EFFEKT` i datafilen ska alla visade värden uppdateras utan att något annat ändras. `Y_NY` och `Y_ATER` kommer från skriptet `summera_tokens.py` (ögonblicksbild med tidpunkt, F-30).
 
 ## 5. Sidans innehåll och komponenter
 
 **Platshållare i texten.** Inga siffror som finns i datafilen skrivs för hand i HTML. Texten använder platshållare som `sida.js` fyller i: `<span data-post="GOOGLE_WH_FRAGA"></span>` skriver värde och enhet, `<span data-berakna="mikro" data-post="GOOGLE_WH_FRAGA"></span>` skriver tiden i mikrovågsugn, och `<span data-berakna="z_ny"></span>` skriver Z. Text som skapas av JavaScript ska också få källlänkar och tabellhänvisningar som länkar, på samma sätt som text som står i HTML.
+
+**Platshållarnas attribut** (implementerade i `sida.js`):
+- `data-post="ID"` skriver värde och enhet med en markering. `data-badge="nej"` utelämnar markeringen och `data-utanenhet="ja"` utelämnar enheten.
+- `data-formel="UTTRYCK"` räknar ett uttryck av post-id, tal och `+ - * / ( )`, och `data-formel2` anger övre gräns för ett spann. `data-visa` är `tid` (värdet är sekunder), `energi` (Wh, visas även som kWh), `vatten` (ml, visas även som liter) eller `tal`. `data-enhet`, `data-sig` (värdesiffror, standard 2) och `data-cirka="nej"` styr visningen.
+- `data-kalla="ID"` skriver källans korta namn som en länk till originalet.
+- `data-lista="kallor|forbattringar|forbattringar-alla|poster|antaganden|verifieringar|versionslogg"` skriver en lista eller tabell ur datafilen (`data-ids` och `data-filter="syns"` filtrerar förbättringsrader).
 
 **Om datafilen inte kan läsas.** `fetch` fungerar inte på `file://`, så sidan testas via en lokal server (till exempel `python -m http.server` i mappen). Kan datafilen ändå inte läsas visar sidan en tydlig rad ("Siffrorna kunde inte läsas, kontrollera sidan på GitHub Pages") i stället för tomma platshållare eller gamla siffror.
 
@@ -143,6 +151,22 @@ Ett objekt med fyra listor. Fält utan värde utelämnas inte, de sätts till `n
 6. **Test lokalt i förhandsvisning** (skärmdump och genomklickning, även på 375 px) innan något kallas klart.
 7. **Ingen publicering och ingen git-åtgärd** utan att Kent ber om det. Kent committar och pushar själv.
 8. **README** med Live-länk överst och `## Repo` sist.
+
+## 9. Databas, senare
+
+Version 1.0 läser en JSON-fil. En databas eller ett schemalagt skript som kontrollerar om källorna ändrats är ett senare steg (F-31 i förbättringsregistret). Datamodellen i avsnitt 3 är avsedd att kunna flyttas till en databas utan att sidorna ändras.
+
+## 10. Öppna punkter
+
+Byggd som sidans version 1.0 (lokalt testad 2026-11-12). Kvar:
+
+1. **Sidnamn** (F-19): `analys.html` används och är lätt att byta (filnamn och `dokument.json`).
+2. **Källa för mikrovågsugnens effekt** (F-06): `MW_EFFEKT` är en `antagen` post med markering "antagande".
+3. **Fördjupningssidor:** fyra sidor ingår i 1.0 (`vatten.html`, `miljofaktorer.html`, `anvandningssatt.html`, `kallor.html`).
+4. **Delningsbild** (Open Graph): påminnelse när sidan närmar sig publicering. Bild och text anpassas till projektet.
+5. **Texten till PRD avsnitt 5** (principer, trafikljus, bilder och video, checklista, vanliga frågor) saknas (F-32) och kommer i en senare version.
+
+## Repo` sist.
 
 ## 9. Databas, senare
 

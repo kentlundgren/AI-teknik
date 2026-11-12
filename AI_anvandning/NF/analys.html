@@ -1,0 +1,138 @@
+<!doctype html>
+<!--
+  AI i en miljöorganisation: en analys (huvudsidan, stabilt namn).
+  Version 1.0 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  UPPDATERING 2026-11-12: första versionen. Version 1.0.
+  Alla siffror kommer ur data/siffror.json via platshållare (data-post, data-formel).
+-->
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analysen i korthet</title>
+  <meta name="description" content="Analys av generativ AI:s resursanvändning i korthet: energi, vatten, övriga miljöfaktorer och vad ett arbete är. Med källor och osäkerhet redovisad.">
+  <link rel="stylesheet" href="sida.css">
+  <script src="sida.js" defer></script>
+<link rel="stylesheet" href="brodsmulor.css">
+</head>
+<body>
+<!-- brodsmulor:start (genereras av brodsmulor.py från dokument.json: ändra dokument.json, inte här) -->
+<nav class="brodsmulor" aria-label="Brödsmulor och dokument i samma mapp">
+<ol><li><a href="index.html">AI i en miljöorganisation</a></li><li aria-current="page">Analysen i korthet</li></ol>
+<p class="syskon">Fler dokument i samma mapp: <a href="index.html">Startsida</a><span class="sep">·</span><strong aria-current="page">Analysen i korthet</strong><span class="sep">·</span><a href="vatten.html">Vatten i detalj</a><span class="sep">·</span><a href="miljofaktorer.html">Övriga miljöfaktorer</a><span class="sep">·</span><a href="anvandningssatt.html">Fråga och arbete</a><span class="sep">·</span><a href="kallor.html">Källor och logg</a></p>
+</nav>
+<!-- brodsmulor:slut -->
+<main>
+  <h1>AI i en miljöorganisation: en analys</h1>
+  <p class="versionsrad"></p>
+
+  <p class="notis">Förslag och analys på eget initiativ, inte beslutat av Lunds Naturskyddsförening eller Naturskyddsföreningen. Siffrorna är hämtade ur källorna längst ned och är inte kvalitetssäkrade. Kontrollera mot källan innan något återges.</p>
+
+  <p class="forklaring-markering" id="markeringar">Markeringarna vid siffrorna visar hur väl de är belagda:
+    <span class="belagd belagd-original">original</span> läst i originalkällan,
+    <span class="belagd belagd-sekundar">sekundär</span> via en sekundärkälla,
+    <span class="belagd belagd-bolagets_egen">bolagets egen uppgift</span> inte granskad av tredje part,
+    <span class="belagd belagd-antagande">antagande</span> ett antagande i analysen och
+    <span class="belagd belagd-beraknad">beräknad</span> uträknad av sidan ur andra tal. Klicka på en markering för att se källan.</p>
+
+  <h2 id="sammanfattning">Kort sammanfattning</h2>
+  <ul>
+    <li><strong>Energi.</strong> En vanlig textfråga till en AI-tjänst använder omkring <span data-formel="GOOGLE_WH_FRAGA" data-formel2="EPOCH_WH_FRAGA" data-visa="energi" data-cirka="nej"></span> enligt <span data-kalla="vahdat_dean_2025"></span> och <span data-kalla="epoch_2025"></span>. Det motsvarar <span data-formel="GOOGLE_WH_FRAGA*3600/MW_EFFEKT" data-formel2="EPOCH_WH_FRAGA*3600/MW_EFFEKT" data-visa="tid"></span> i en mikrovågsugn på <span class="term" data-term="mikro">1 000 W</span>.</li>
+    <li><strong>Bilder.</strong> En bild kräver betydligt mer: i en mätning i genomsnitt <span data-post="BILD_WH" data-badge="nej"></span> (<span data-formel="BILD_WH*3600/MW_EFFEKT" data-visa="tid"></span> i mikrovågsugnen), med mycket stor spridning mellan modeller enligt <span data-kalla="luccioni_2024"></span>. Det gäller äldre modeller.</li>
+    <li><strong>Vatten.</strong> Vid datacentret handlar det om bråkdelar av en milliliter per textfråga, <span data-formel="WUE_MICROSOFT_2025*GOOGLE_WH_FRAGA" data-formel2="ALTMAN_ML" data-visa="vatten" data-cirka="nej"></span> enligt <span data-kalla="microsoft_2026"></span>, <span data-kalla="vahdat_dean_2025"></span> och <span data-kalla="altman_2025"></span>. Räknar man med vattnet som förbrukas där elen produceras blir det omkring <span data-formel="INDIREKT_VATTEN_USA*GOOGLE_WH_FRAGA" data-visa="vatten" data-cirka="nej"></span> med amerikansk elmix enligt <span data-kalla="shehabi_2024"></span>. Hur mycket som förbrukas beror på hur anläggningen kyls.</li>
+    <li><strong>Totalt.</strong> Datacentren använde cirka <span data-post="DATACENTER_TWH_VARLD_2024" data-badge="nej"></span> år 2024, <span data-post="DATACENTER_ANDEL_VARLD_2024" data-badge="nej"></span> av världens elanvändning, och ökningen är cirka <span data-post="IEA_TILLVAXT_PER_AR" data-badge="nej"></span> per år enligt <span data-kalla="iea_2025"></span>. Per fråga är det litet. Sammanlagt är det inte det.</li>
+    <li><strong>Arbete jämfört med fråga.</strong> Ett utförligt arbete, som analysen på den här sidan, använder cirka <span data-post="Z_NY" data-badge="nej" data-utanenhet="ja"></span> gånger fler nya tokens än en normal fråga och ett normalt svar. Energin är ett spann, <span data-formel="Z_NY*GOOGLE_WH_FRAGA*3600/MW_EFFEKT" data-formel2="Z_NY*EPOCH_WH_FRAGA*3600/MW_EFFEKT" data-visa="tid"></span> i mikrovågsugnen i den undre gränsen, och en bra bit mer i den övre. Se <a href="anvandningssatt.html">Vad är en fråga, och vad är ett arbete?</a></li>
+    <li><strong>Osäkerhet.</strong> Många siffror är bolagens egna uppgifter eller beräkningar, inte oberoende mätningar. Energin per arbetspass mäts inte av någon. Det som saknas står i <a href="#forbattras">listan över förbättringar</a>.</li>
+  </ul>
+
+  <h2 id="energi">Energi i vardagsmått</h2>
+  <div class="tabellvy">
+    <table id="Tabell1">
+      <caption id="Tabell1-rubrik">Tabell 1. Energi per fråga, bild och arbete, uttryckt som tid i en mikrovågsugn på 1 000 W</caption>
+      <thead><tr><th scope="col">Vad</th><th scope="col">Energi</th><th scope="col">I mikrovågsugn</th><th scope="col">Hur säker är siffran</th></tr></thead>
+      <tbody>
+        <tr><td>Textfråga, median (Google)</td><td><span data-post="GOOGLE_WH_FRAGA"></span></td><td><span data-formel="GOOGLE_WH_FRAGA*3600/MW_EFFEKT" data-visa="tid"></span></td><td>Googles egen mätning i drift, ej tredjepartsgranskad</td></tr>
+        <tr><td>Textfråga, typisk (Epoch AI, ChatGPT)</td><td><span data-post="EPOCH_WH_FRAGA"></span></td><td><span data-formel="EPOCH_WH_FRAGA*3600/MW_EFFEKT" data-visa="tid"></span></td><td>Beräkning med tydliga antaganden, ingen mätning</td></tr>
+        <tr><td>Genomsnittlig fråga (OpenAI)</td><td><span data-post="ALTMAN_WH"></span></td><td><span data-formel="ALTMAN_WH*3600/MW_EFFEKT" data-visa="tid"></span></td><td>Bolagets egen uppgift, ingen metod redovisas</td></tr>
+        <tr><td>En genererad bild (genomsnitt)</td><td><span data-post="BILD_WH"></span></td><td><span data-formel="BILD_WH*3600/MW_EFFEKT" data-visa="tid"></span></td><td>Mätning av äldre modeller, stor spridning</td></tr>
+        <tr><td>Ett utförligt arbete som detta, undre gräns</td><td><span data-formel="Z_NY*GOOGLE_WH_FRAGA" data-formel2="Z_NY*EPOCH_WH_FRAGA" data-visa="energi"></span></td><td><span data-formel="Z_NY*GOOGLE_WH_FRAGA*3600/MW_EFFEKT" data-formel2="Z_NY*EPOCH_WH_FRAGA*3600/MW_EFFEKT" data-visa="tid"></span></td><td>Scenario: energin följer nya tokens, återläsning kostar inget</td></tr>
+        <tr><td>Samma arbete, övre gräns</td><td><span data-formel="Z_ALLA*GOOGLE_WH_FRAGA" data-formel2="Z_ALLA*EPOCH_WH_FRAGA" data-visa="energi"></span></td><td><span data-formel="Z_ALLA*GOOGLE_WH_FRAGA*3600/MW_EFFEKT" data-formel2="Z_ALLA*EPOCH_WH_FRAGA*3600/MW_EFFEKT" data-visa="tid"></span></td><td>Scenario: varje återläst token kostar lika mycket som en ny</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Mikrovågsugnen är ett vardagsmått: tiden är energin delad med <span class="term" data-term="mikro">effekten 1 000 W</span> (tid i sekunder = Wh × 3 600 ÷ watt). Effekten är ett antagande: 1 000 W är en vanlig märkeffekt, men vad en ugn drar ur eluttaget är inte belagt (<a href="kallor.html#F-06">F-06</a>). Det verkliga värdet för arbetet ligger troligen närmare den undre gränsen, men det går inte att säga hur nära.</p>
+
+  <h2 id="bilder">Bilder: fler skäl än energi</h2>
+  <p>En bild kostar mycket mer energi än en textfråga: i den mätningen cirka <span data-formel="BILD_WH/TEXT_WH_LUCCIONI" data-sig="2" data-enhet="gånger"></span> mer än textgenerering i genomsnitt enligt <span data-kalla="luccioni_2024"></span> (äldre modeller, stor spridning). Men skeptiska reaktioner på AI-bilder handlar sällan bara om energi. Följande fem skäl är en <em>hypotes</em> som inte är kontrollerad mot forskning (<a href="kallor.html#F-21">F-21</a>):</p>
+  <ol>
+    <li><strong>Resurser:</strong> bilder är dyrare än text.</li>
+    <li><strong>Trovärdighet och äkthet:</strong> i en organisation som ska stå för verkligheten kan en bild som ser verklig ut men inte är det underminera förtroendet.</li>
+    <li><strong>Konstnärer och fotografer:</strong> frågan om vems bilder modellerna tränats på.</li>
+    <li><strong>Utseende:</strong> AI-bilder känns ofta igen, och det väcker negativa reaktioner av sig självt.</li>
+    <li><strong>Misstag:</strong> misstron finns redan och kan drabba även bilder som inte är AI-genererade.</li>
+  </ol>
+  <p>Skillnaden mellan det första skälet och de övriga är viktig: även om energin per bild vore mycket liten skulle skälen 2–5 finnas kvar. En riktlinje bör därför skilja <em>resursfrågan</em> från <em>förtroendefrågan</em>.</p>
+
+  <h2 id="vatten">Vatten, kort version</h2>
+  <div class="steg1">
+    <p class="etikett">Steg 1: kort version</p>
+    <p>Vatten kan förbrukas vid ett datacenter, men hur mycket beror på hur anläggningen kyls. Med avdunstningskylning försvinner vattnet ut i luften. Med slutna kretsar cirkulerar det, mot lite mer el (enligt tillverkarens egen redovisning, utan siffra). Vid datacentret handlar det om bråkdelar av en milliliter per fråga. Det största vattnet kan ligga i elproduktionen och inte vid datacentret. För Sverige saknas verifierade siffror för elens vatten.</p>
+    <div class="tabellvy">
+      <table id="Tabell2">
+        <caption id="Tabell2-rubrik">Tabell 2. Vatten per textfråga och för 200 frågor</caption>
+        <thead><tr><th scope="col">Vad</th><th scope="col">Vatten</th><th scope="col">Märkning</th></tr></thead>
+        <tbody>
+          <tr><td>Direkt per fråga (Microsofts <span class="term" data-term="WUE">WUE</span> 2025 × Googles energi per fråga)</td><td><span data-formel="WUE_MICROSOFT_2025*GOOGLE_WH_FRAGA" data-visa="vatten"></span></td><td>Beräknad ur två bolagsuppgifter</td></tr>
+          <tr><td>Direkt per fråga (Google)</td><td><span data-post="GOOGLE_ML_FRAGA"></span></td><td></td></tr>
+          <tr><td>Direkt per fråga (OpenAI)</td><td><span data-post="ALTMAN_ML"></span></td><td></td></tr>
+          <tr><td>Indirekt per fråga (vattnet vid elproduktionen, USA:s elmix)</td><td><span data-formel="INDIREKT_VATTEN_USA*GOOGLE_WH_FRAGA" data-visa="vatten"></span></td><td>Beräknad. Gäller USA</td></tr>
+          <tr><td>200 frågor, direkt (Microsoft–Google)</td><td><span data-formel="WUE_MICROSOFT_2025*GOOGLE_WH_FRAGA*200" data-formel2="GOOGLE_ML_FRAGA*200" data-visa="vatten"></span></td><td>Beräknad</td></tr>
+          <tr><td>200 frågor, indirekt (USA:s elmix)</td><td><span data-formel="INDIREKT_VATTEN_USA*GOOGLE_WH_FRAGA*200" data-visa="vatten"></span></td><td>Beräknad. Gäller USA</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fortsatt"><a href="vatten.html">Läs hela vattenanalysen: uttag, förbrukning, kylmetoder och kärnkraftsjämförelsen →</a></p>
+  </div>
+
+  <h2 id="miljofaktorer">Övriga miljöfaktorer, kort version</h2>
+  <div class="steg1">
+    <p class="etikett">Steg 1: kort version</p>
+    <p>Energi och vatten är de mest diskuterade faktorerna, men inte de enda. FN:s miljöprogram beskriver AI:s påverkan över hela livscykeln: energi, vatten och mineral, utsläpp och elektroniskt avfall, och indirekta effekter av ändrat beteende enligt <span data-kalla="unep_2024"></span>. Ett scenario för generativ AI ger <span data-post="WANG_EAVFALL_MILJONER_TON" data-utanenhet="ja" data-badge="nej"></span> miljoner ton elektroniskt avfall 2020–2030 enligt <span data-kalla="wang_2024"></span>.</p>
+    <p>Det finns ingen vedertagen rangordning av faktorerna. Bland det som är bäst mätt är elen störst. Det största vattnet ligger i elproduktionen, så en stor del av vattenfrågan hör ihop med energifrågan. Hårdvaran, mineralerna och avfallet är sämre mätta, vilket inte betyder att de är små.</p>
+    <p class="fortsatt"><a href="miljofaktorer.html">Läs hela genomgången och graderingen →</a></p>
+  </div>
+
+  <h2 id="fraga-och-arbete">Vad en fråga är, och vad ett arbete är, kort version</h2>
+  <div class="steg1">
+    <p class="etikett">Steg 1: kort version</p>
+    <p>Siffrorna per fråga gäller en <em>normal fråga och ett normalt svar</em>: en kort, manuellt skriven fråga och ett svar på ungefär en sida text. Vi antar <span data-post="X" data-badge="nej"></span> för en sådan fråga och ett svar (X). Arbetet med den här analysen är uppmätt till <span data-post="Y_NY" data-badge="nej" data-utanenhet="ja"></span> nya tokens (Y). Det ger Z = Y ÷ X, alltså <span data-formel="Y_NY/X" data-sig="2" data-enhet="gånger"></span> fler nya tokens än en normal fråga.</p>
+    <div class="tabellvy">
+      <table id="Tabell3">
+        <caption id="Tabell3-rubrik">Tabell 3. X, Y och Z</caption>
+        <thead><tr><th scope="col">Beteckning</th><th scope="col">Vad det är</th><th scope="col">Värde</th></tr></thead>
+        <tbody>
+          <tr><td>X</td><td>En normal fråga och ett normalt svar</td><td><span data-post="X"></span></td></tr>
+          <tr><td>Y_NY</td><td>Nya <span class="term" data-term="token">tokens</span> i arbetet med analysen</td><td><span data-post="Y_NY"></span></td></tr>
+          <tr><td>Z_NY</td><td>Y_NY ÷ X</td><td><span data-post="Z_NY"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fortsatt"><a href="anvandningssatt.html">Läs hela genomgången: definitioner, mätning och antaganden →</a></p>
+  </div>
+
+  <h2 id="utforliga-arbeten">Är utförliga arbeten bättre än enkla frågor?</h2>
+  <p>Enkla frågor är den billigaste användningen. Ett utförligt arbete, med sökning, läsning av källor, kontroller och flera versioner, använder mycket mer. Det betyder inte att det är sämre: ett sådant arbete ersätter ofta något som annars tar en människa timmar eller dagar och går inte att göra i ett enda svar. Men det är en <em>värdering</em>, inte ett mätt resultat. Det finns inga belägg här för hur stor nyttan är (<a href="kallor.html#F-24">F-24</a>), och resursanvändningen samlas just där användningen är som störst, vilket är skeptikernas poäng. Det rimliga är att väga nyttan mot kostnaden i varje fall, planera arbetet skriftligt i förväg så att det inte görs om i onödan, och redovisa resurserna öppet.</p>
+
+  <h2 id="forbattras">Det här förbättras i kommande versioner</h2>
+  <p>Analysen är inte färdig. Det här ska analyseras och beskrivas bättre i kommande versioner (nummer från förbättringsregistret, med målversion):</p>
+  <div data-lista="forbattringar" data-filter="syns"></div>
+  <p>Hela registret finns på sidan <a href="kallor.html#forbattringsregister">Källor och logg</a>.</p>
+
+  <h2 id="versionslogg">Versionslogg</h2>
+  <div data-lista="versionslogg"></div>
+
+  <h2 id="kallor">Källor</h2>
+  <p>Alla källor, hur de kontrollerats och alla siffror med källa finns på sidan <a href="kallor.html">Källor och logg</a>.</p>
+</main>
+</body>
+</html>

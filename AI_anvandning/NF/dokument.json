@@ -1,0 +1,11 @@
+{
+  "titel": "AI i en miljöorganisation",
+  "dokument": [
+    {"fil": "index.html", "namn": "Startsida", "roll": "huvud"},
+    {"fil": "analys.html", "namn": "Analysen i korthet", "roll": "sida"},
+    {"fil": "vatten.html", "namn": "Vatten i detalj", "roll": "sida"},
+    {"fil": "miljofaktorer.html", "namn": "Övriga miljöfaktorer", "roll": "sida"},
+    {"fil": "anvandningssatt.html", "namn": "Fråga och arbete", "roll": "sida"},
+    {"fil": "kallor.html", "namn": "Källor och logg", "roll": "sida"}
+  ]
+}

@@ -1,0 +1,108 @@
+<!doctype html>
+<!--
+  AI i en miljöorganisation: övriga miljöfaktorer och gradering (steg 2).
+  Version 1.0 · 2026-11-12 · Kent Lundgren (versionen står i sida.js: VERSION och VERSIONSDATUM).
+  UPPDATERING 2026-11-12: första versionen. Version 1.0.
+-->
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Övriga miljöfaktorer</title>
+  <meta name="description" content="Miljöpåverkan från generativ AI utöver energi och vatten: hårdvara, mineral, elektroniskt avfall, elnät och indirekta effekter, med en graderingsram och en redovisning av vad som är dåligt mätt.">
+  <link rel="stylesheet" href="sida.css">
+  <script src="sida.js" defer></script>
+<link rel="stylesheet" href="brodsmulor.css">
+</head>
+<body>
+<!-- brodsmulor:start (genereras av brodsmulor.py från dokument.json: ändra dokument.json, inte här) -->
+<nav class="brodsmulor" aria-label="Brödsmulor och dokument i samma mapp">
+<ol><li><a href="index.html">AI i en miljöorganisation</a></li><li aria-current="page">Övriga miljöfaktorer</li></ol>
+<p class="syskon">Fler dokument i samma mapp: <a href="index.html">Startsida</a><span class="sep">·</span><a href="analys.html">Analysen i korthet</a><span class="sep">·</span><a href="vatten.html">Vatten i detalj</a><span class="sep">·</span><strong aria-current="page">Övriga miljöfaktorer</strong><span class="sep">·</span><a href="anvandningssatt.html">Fråga och arbete</a><span class="sep">·</span><a href="kallor.html">Källor och logg</a></p>
+</nav>
+<!-- brodsmulor:slut -->
+<main>
+  <h1>Övriga miljöfaktorer och gradering</h1>
+  <p class="versionsrad"></p>
+  <p class="notis">Förslag och analys på eget initiativ, inte beslutat av Lunds Naturskyddsförening eller Naturskyddsföreningen. Siffrorna är hämtade ur källorna och inte kvalitetssäkrade. Kontrollera mot källan innan något återges. Graderingen på den här sidan är en egen bedömning och inget forskningsresultat. <a href="analys.html#miljofaktorer">Tillbaka till den korta versionen.</a></p>
+
+  <h2 id="kort-version">Kort version</h2>
+  <div class="steg1">
+    <p class="etikett">Steg 1: kort version</p>
+    <p>Energi och vatten är de mest diskuterade faktorerna, men inte de enda. Det finns ingen vedertagen rangordning. Bland det som är bäst mätt är elen störst, och det största vattnet ligger i elproduktionen, så en stor del av vattenfrågan hör ihop med energifrågan. Hårdvaran, mineralerna och det elektroniska avfallet är sämre mätta. Att något inte är mätt betyder inte att det är litet.</p>
+  </div>
+
+  <h2 id="fragan">Frågan</h2>
+  <p>Vad mer än energi och vatten påverkar miljön när generativ AI används, och är energin störst och vattnet näst störst?</p>
+
+  <h2 id="faktorer">Vilka faktorer finns</h2>
+  <p>FN:s miljöprogram beskriver AI:s miljöpåverkan över hela livscykeln, från datainsamling och modellutveckling till drift och infrastruktur. Som direkta effekter nämns energi, vatten och mineralanvändning, utsläpp och elektroniskt avfall, och som indirekta effekter förändringar i ekonomi och beteende Källa: <span data-kalla="unep_2024"></span>, där abstract är läst men inte hela rapporten (<a href="kallor.html#F-11">F-11</a>).</p>
+  <div class="tabellvy">
+    <table id="Tabell1">
+      <caption id="Tabell1-rubrik">Tabell 1. Miljöfaktorer i livscykeln</caption>
+      <thead><tr><th scope="col">Faktor</th><th scope="col">Vad det är</th><th scope="col">Vad källorna säger</th></tr></thead>
+      <tbody>
+        <tr><td>1. Elanvändning och klimat</td><td>El till datacenter, för träning och användning. Klimatpåverkan beror på elens ursprung</td><td>Datacenter cirka <span data-post="DATACENTER_TWH_VARLD_2024"></span>, <span data-post="DATACENTER_ANDEL_VARLD_2024"></span> av världens el 2024, ökning cirka <span data-post="IEA_TILLVAXT_PER_AR"></span> per år</td></tr>
+        <tr><td>2. Vatten, direkt</td><td>Kylvatten vid datacentret</td><td>Bråkdelar av en milliliter per textfråga. Se <a href="vatten.html">Vatten i detalj</a></td></tr>
+        <tr><td>3. Vatten, indirekt</td><td>Vatten som förbrukas där elen produceras</td><td>I USA cirka <span data-formel="LBNL_INDIREKT_MILJARDER_L/LBNL_DIREKT_MILJARDER_L" data-enhet="gånger större" data-sig="2"></span> än det direkta enligt <span data-kalla="shehabi_2024"></span></td></tr>
+        <tr><td>4. Hårdvara: tillverkning och mineral</td><td>Chip och servrar, och utvinning av metaller och mineral</td><td>UNEP nämner mineralanvändning som en direkt effekt. En mätning av tillverkningens andel av livscykelns utsläpp har inte hittats i det här underlaget (<a href="kallor.html#F-12">F-12</a>)</td></tr>
+        <tr><td>5. Elektroniskt avfall</td><td>Utrangerade servrar och chip</td><td>Ett scenario för generativ AI ger <span data-post="WANG_EAVFALL_MILJONER_TON"></span> ackumulerat avfall 2020–2030. Cirkulära åtgärder kan minska det med 16–86 % enligt <span data-kalla="wang_2024"></span></td></tr>
+        <tr><td>6. Lokal påverkan på elnät och elpriser</td><td>Datacenter som tillkommande elanvändare</td><td>Energimyndighetens scenariostudie nämner enligt ett sökresultat nya datacenter bland de största tillkommande elanvändarna om elektrifieringen går snabbt. Studien är inte öppnad (<a href="kallor.html#F-05">F-05</a>)</td></tr>
+        <tr><td>7. Mark, ljud och natur</td><td>Byggnader, kraftledningar, buller</td><td>Inte undersökt (<a href="kallor.html#F-14">F-14</a>)</td></tr>
+        <tr><td>8. Indirekta effekter</td><td>Vad AI används till: kan minska eller öka utsläpp i andra sektorer</td><td>UNEP nämner indirekta effekter. Går åt båda hållen och är inte kvantifierat här (<a href="kallor.html#F-20">F-20</a>)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="gradering">Går det att gradera?</h2>
+  <p>Inte med en enda rangordning som källorna stödjer. Vad som är «störst» beror på tre saker:</p>
+  <ul>
+    <li><strong>Perspektiv.</strong> Globalt klimat, lokal vattenbrist, material och avfall och lokala nät ger olika svar.</li>
+    <li><strong>Systemgräns.</strong> Räknas bara datacentret med, eller också elens vatten och tillverkningen av hårdvaran?</li>
+    <li><strong>Mätbarhet.</strong> Elanvändningen är bäst mätt. Hårdvarans och avfallets andel är illa mätt, vilket gör att de lätt hamnar långt ned i en rangordning utan att nödvändigtvis vara små.</li>
+  </ul>
+
+  <h3 id="kriterier">Kriterier för graderingen</h3>
+  <ol>
+    <li><strong>Storlek:</strong> hur stort är det i absoluta tal och som andel av en jämförbar helhet?</li>
+    <li><strong>Växtakt:</strong> hur snabbt ökar det?</li>
+    <li><strong>Lokalitet:</strong> kan det slå hårt på en plats, även om det är litet globalt?</li>
+    <li><strong>Reversibilitet:</strong> går skadan att återställa? (Inte bedömt i tabellen nedan.)</li>
+    <li><strong>Säkerhet i underlaget:</strong> hur väl känner vi siffrorna?</li>
+  </ol>
+
+  <div class="tabellvy">
+    <table id="Tabell2">
+      <caption id="Tabell2-rubrik">Tabell 2. Preliminär gradering (egen bedömning, inte ett forskningsresultat)</caption>
+      <thead><tr><th scope="col">Faktor</th><th scope="col">Storlek</th><th scope="col">Växtakt</th><th scope="col">Lokalt slagkraftig</th><th scope="col">Säkerhet i underlaget</th><th scope="col">Kommentar</th></tr></thead>
+      <tbody>
+        <tr><td>1. Elanvändning och klimat</td><td>Störst av det som är mätt</td><td>Hög</td><td>Ja, vid nätet</td><td>Hög</td><td>Klimatpåverkan följer elens ursprung</td></tr>
+        <tr><td>3. Indirekt vatten (elens vatten)</td><td>Större än direkt vatten i USA</td><td>Följer elen</td><td>Ja</td><td>Medel</td><td>Räknas ofta in under elen</td></tr>
+        <tr><td>2. Direkt vatten</td><td>Litet per fråga, växer totalt</td><td>Hög</td><td>Ja, i torra områden</td><td>Medel</td><td>Slutna system minskar det, mot lite mer el</td></tr>
+        <tr><td>4–5. Hårdvara, mineral, e-avfall</td><td>Okänd andel, sannolikt betydande</td><td>Hög</td><td>Ja, på utvinningsorterna</td><td>Låg</td><td>Det saknas en bra mätning, risk att underskattas</td></tr>
+        <tr><td>6. Elnät och elpriser</td><td>Beror på plats</td><td>Hög</td><td>Ja</td><td>Medel</td><td>Mer en fördelningsfråga än en total belastning</td></tr>
+        <tr><td>7. Mark, ljud, natur</td><td>Okänt</td><td>Okänd</td><td>Ja</td><td>Mycket låg</td><td>Ej undersökt</td></tr>
+        <tr><td>8. Indirekta effekter</td><td>Okänt, båda riktningar</td><td>Okänd</td><td>Nej</td><td>Låg</td><td>Kan väga tyngre än allt det andra, men går inte att säga idag</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="energi-storst">Är energin störst och vattnet näst störst?</h3>
+  <p>Bland det som är bäst mätt är elen störst. Vattnet kommer sedan, och det största vattnet ligger i elproduktionen, så i praktiken hör en stor del av «vattenfrågan» ihop med energifrågan. Men det går inte att säga att vattnet är näst störst: hårdvaran, mineralerna och avfallet är sämre mätta, och det finns inte källor här som visar om de ligger över eller under vattnet. Rangordningen beror på perspektiv, och den lägsta säkerheten finns hos faktorer som troligen är större än de ser ut.</p>
+
+  <h2 id="konsekvenser">Konsekvenser för hur man redovisar</h2>
+  <ul>
+    <li>Visa en kort tabell med faktorerna och graden av säkerhet, och länka vidare till detaljerna.</li>
+    <li>Skriv inte en enda rangordning som om den vore fakta. Det finns ingen vedertagen rangordning, kriterierna står ovan och graderingen är en bedömning.</li>
+    <li>Framhäv det som är dåligt mätt: att något inte är mätt betyder inte att det är litet.</li>
+  </ul>
+
+  <h2 id="aterstar">Det som återstår</h2>
+  <p>Det här ska analyseras och beskrivas bättre i kommande versioner:</p>
+  <div data-lista="forbattringar" data-ids="F-05,F-11,F-12,F-13,F-14,F-15,F-20"></div>
+
+  <h2 id="kallor">Källor</h2>
+  <p>Se <a href="kallor.html">Källor och logg</a>.</p>
+</main>
+</body>
+</html>

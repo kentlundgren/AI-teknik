@@ -1,6 +1,6 @@
 # Förbättringsregister och verifieringslogg
 
-**Version:** 0.4 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.5 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** arbetsdokument. Samlar allt som ska analyseras och beskrivas bättre i kommande versioner, och vad som är kontrollerat mot originalkällor. Hör ihop med [PRD_ai_riktlinjer_261112.md](PRD_ai_riktlinjer_261112.md).
 
 ## 1. Hur vi skriver upp och minns
@@ -28,7 +28,7 @@ Tabell 1. Kvarvarande förbättringar
 | F-05 | Sverige | Energimyndighetens scenariostudie om elanvändning till 2030 (datacenter som tillkommande användare). Öppna originalet | Sökresultat | 1.x | Nej |
 | F-06 | Resurser | Källa för att en vanlig mikrovågsugn har märkeffekt omkring 1 000 W, och för vad den drar ur uttaget | Se avsnitt 3 | 1.0 | Ja |
 | F-07 | Förening | Naturskyddsföreningens egna uttalanden om AI (en första sökning hittade inget). Kontrollera deras webbplats | Saknas | 1.0 | Nej |
-| F-08 | Vatten, Sverige | Indirekt vatten för **svensk** el (vattenkraftens avdunstning, kärnkraftens kylning, vindkraft) | Saknas | 1.x | Ja |
+| F-08 | Vatten, Sverige | Indirekt vatten för svensk el (vattenkraftens avdunstning, kärnkraftens kylning, vindkraft) | Saknas | 1.x | Ja |
 | F-09 | Vatten | Googles totala vattenförbrukning (10,9 miljarder gallon 2025 enligt sökresultat) och Horndal-uppgiften. Öppna Googles rapport | Sekundär | 1.x | Nej |
 | F-10 | Vatten | Jegham m.fl. (2025): per-frågesiffran 1,2 ml. Öppna artikeln | Endast sammanfattning | 1.x | Nej |
 | F-11 | Miljöfaktorer | UNEP:s hela rapport (PDF, 1,64 MB): mineral, e-avfall, vatten. Abstract är kontrollerat | Abstract | 1.0 | Nej |
@@ -41,10 +41,10 @@ Tabell 1. Kvarvarande förbättringar
 | F-18 | Bilder | Nyare mätningar av energi per bild (Luccioni m.fl. gäller äldre modeller) | En studie | 1.x | Ja |
 | F-19 | Dokument | Namn på sidan och dokumentet | Öppet | 1.0 | Nej |
 | F-20 | Miljöfaktorer | Indirekta effekter (rebound, nytta i andra sektorer). Går åt båda hållen, inte kvantifierat | Saknas | 2.0 | Ja |
-| F-21 | Bilder | Forskning om hur publik reagerar på AI-bilder och märkning (stöd för skälen 2–5 i Analys_resurser avsnitt 4) | Saknas, bara organisationens egen erfarenhet | 1.x | Ja |
+| F-21 | Bilder | Forskning om hur publik reagerar på AI-bilder och märkning (stöd för att reaktionerna handlar om mer än energi, till exempel trovärdighet och äkthet) | Saknas, bara organisationens egen erfarenhet | 1.x | Ja |
 | F-22 | Vatten | Kontrollera kylmetod för ett svenskt datacenter genom att läsa respektive bolags miljöredovisning | Saknas | 1.x | Ja |
 | F-23 | Vatten | Kyltornens och genomströmningskylningens relevans för datacenter (hur vanligt är vad?). Idag bygger jämförelsen på kraftverk | Kraftverk (USGS) | 1.x | Ja |
-| F-24 | Nytta | Belägg för hur mycket AI-stöd faktiskt sparar eller ger i arbete (forskningen är, så vitt jag vet, blandad, men inga källor är hämtade). Sidan påstår ingen siffra för nyttan | Saknas | 1.0 | Ja |
+| F-24 | Nytta | Belägg för hur mycket AI-stöd faktiskt sparar eller ger i arbete (forskningen om nyttan är inte genomgången, inga källor är hämtade). Sidan påstår ingen siffra för nyttan | Saknas | 1.0 | Ja |
 | F-25 | Resurser | Energi per token och per modellanrop för arbete med många steg, och hur cachning av återläst kontext påverkar. Idag bara en proxy ur Epoch AI för GPT-4o | Proxy | 2.0 | Ja |
 | F-26 | Resurser | Googles definition av median-prompten i hela artikeln (arXiv:2508.15734): längd i tokens. Idag bara abstract läst | Abstract | 1.0 | Nej |
 | F-28 | Nytta | Jämförelse med människans resursanvändning för motsvarande arbete (källa saknas) | Saknas | 2.0 | Ja |
