@@ -1,6 +1,6 @@
 # Förbättringsregister och verifieringslogg
 
-**Version:** 0.19 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.20 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** arbetsdokument. Samlar allt som ska analyseras och beskrivas bättre i kommande versioner, och vad som är kontrollerat mot originalkällor. Hör ihop med [PRD_ai_riktlinjer_261112.md](PRD_ai_riktlinjer_261112.md).
 
 ## 1. Hur vi skriver upp och minns

@@ -117,3 +117,91 @@ d.text((70, 562), 'kentlundgren.github.io/AI-teknik', font=f_url, fill=(150, 175
 out = os.path.join(NF, 'og-bild.jpg')
 img.save(out, 'JPEG', quality=88, optimize=True)
 print('sparad', out, os.path.getsize(out) // 1024, 'kB')
+
+
+# ---------- egna delningsbilder för två sidor ----------
+GRA = (190, 205, 198)
+DIM = (150, 175, 165)
+
+
+def ny_bakgrund():
+    im = Image.new('RGB', (W, H), BG)
+    dd = ImageDraw.Draw(im)
+    for yy in range(H):
+        t = yy / H
+        dd.line([(0, yy), (W, yy)], fill=(int(14 + 10 * t), int(38 + 12 * t), int(31 + 8 * t)))
+    return im, dd
+
+
+def centrerad(dd, mitt, text, fnt, fill):
+    bb = dd.textbbox((0, 0), text, font=fnt)
+    dd.text((mitt[0] - (bb[0] + bb[2]) / 2, mitt[1] - (bb[1] + bb[3]) / 2), text, font=fnt, fill=fill)
+
+
+def fot(dd):
+    dd.text((70, 488), 'Förslag på eget initiativ,', font=f_url, fill=DIM)
+    dd.text((70, 518), 'inte beslutat av någon förening', font=f_url, fill=DIM)
+    dd.text((70, 562), 'kentlundgren.github.io/AI-teknik', font=f_url, fill=DIM)
+
+
+def spara_bild(im, namn):
+    sokv = os.path.join(NF, namn)
+    im.save(sokv, 'JPEG', quality=88, optimize=True)
+    print('sparad', sokv, os.path.getsize(sokv) // 1024, 'kB')
+
+
+# Hot från agentisk AI: tio tomma platser som väntar på en rangordning
+img2, d2 = ny_bakgrund()
+d2.text((70, 52), 'Vilket hot', font=f_titel, fill=VIT)
+d2.text((70, 128), 'är värst?', font=f_titel, fill=GRON)
+d2.text((70, 226), 'Hot från agentisk AI', font=f_sub, fill=GRA)
+d2.text((70, 380), 'Tio hot ur källorna.', font=f_sub, fill=VIT)
+d2.text((70, 420), 'Rangordna själv.', font=f_sub, fill=GRON)
+fot(d2)
+cell, gap, gx0, gy0 = 100, 14, 594, 170
+f_nr = font('consolab.ttf', 46)
+for i in range(10):
+    kol, rad = i % 5, i // 5
+    x0 = gx0 + kol * (cell + gap)
+    y0 = gy0 + rad * (cell + gap)
+    forst = (i == 0)
+    d2.rounded_rectangle((x0, y0, x0 + cell, y0 + cell), radius=18,
+                         fill=(56, 38, 20) if forst else (20, 52, 43), outline=ORANGE if forst else GRON, width=4 if forst else 3)
+    centrerad(d2, (x0 + cell / 2, y0 + cell / 2 - 2), str(i + 1), f_nr, ORANGE if forst else (150, 215, 185))
+d2.text((gx0, gy0 + 2 * (cell + gap) + 12), 'Plats 1 är det värsta hotet', font=f_liten, fill=(255, 190, 120))
+d2.text((gx0, gy0 + 2 * (cell + gap) + 52), 'Underlag från elva källor', font=f_liten, fill=DIM)
+spara_bild(img2, 'og-agentisk.jpg')
+
+# AI i proportion: AI:s plats i WEF:s riskrangordning, plats 30 till plats 5
+plats2, plats10 = int(v('WEF_AI_2AR')), int(v('WEF_AI_10AR'))
+img3, d3 = ny_bakgrund()
+d3.text((70, 52), 'AI i', font=f_titel, fill=VIT)
+d3.text((70, 128), 'proportion', font=f_titel, fill=GRON)
+d3.text((70, 226), 'Vad oroar och drabbar', font=f_sub, fill=GRA)
+d3.text((70, 264), 'världens människor?', font=f_sub, fill=GRA)
+d3.text((70, 380), 'En fråga bland många.', font=f_sub, fill=VIT)
+d3.text((70, 420), 'Rangordna själv.', font=f_sub, fill=GRON)
+fot(d3)
+bx0, by0, bx1, by1 = 540, 50, 1150, 548
+mask = Image.new('L', (W, H), 0)
+ImageDraw.Draw(mask).rounded_rectangle((bx0 - 4, by0 - 4, bx1 + 4, by1 + 4), radius=34, outline=255, width=14)
+mask = mask.filter(ImageFilter.GaussianBlur(16)).point(lambda p: int(p * 0.8))
+img3.paste(Image.new('RGB', (W, H), ORANGE), (0, 0), mask)
+d3 = ImageDraw.Draw(img3)
+d3.rounded_rectangle((bx0, by0, bx1, by1), radius=30, fill=SVART, outline=ORANGE, width=4)
+f_stor = font('consolab.ttf', 120)
+f_pl = font('consolab.ttf', 44)
+f_lbl = font('calibrib.ttf', 32)
+d3.text((bx0 + 40, by0 + 16), 'AI:s plats bland världens risker (WEF 2026)', font=f_liten, fill=(255, 190, 120))
+for i, (tal, lbl) in enumerate([(plats2, 'på två års sikt'), (plats10, 'på tio års sikt')]):
+    yy = by0 + 78 + i * 190
+    s = str(tal)
+    d3.text((bx0 + 40, yy), s, font=f_stor, fill=ORANGE)
+    xx = bx0 + 40 + int(d3.textlength(s, font=f_stor)) + 14
+    d3.text((xx, yy + 78), 'plats', font=f_pl, fill=ORANGE)
+    d3.text((xx + int(d3.textlength('plats', font=f_pl)) + 24, yy + 82), lbl, font=f_lbl, fill=VIT)
+# pil ned mellan raderna
+ax, ay = bx0 + 100, by0 + 78 + 150
+d3.polygon([(ax - 22, ay), (ax + 22, ay), (ax, ay + 30)], fill=(255, 190, 120))
+d3.text((bx0 + 40, by1 - 46), 'Största uppgången i rangordningen', font=f_liten, fill=(190, 150, 110))
+spara_bild(img3, 'og-proportion.jpg')

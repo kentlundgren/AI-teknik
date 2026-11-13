@@ -1,10 +1,10 @@
 # AI i en miljöorganisation (NF)
 
-- **Live:** [https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/) (adressen gäller när sidan är pushad och GitHub Pages har byggt den; sidan är byggd och testad lokalt, version 1.21)
+- **Live:** [https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/) (adressen gäller när sidan är pushad och GitHub Pages har byggt den; sidan är byggd och testad lokalt, version 1.22)
 
 En analys av generativ AI:s resursanvändning (energi, vatten och övriga miljöfaktorer) för både dem som gillar AI och dem som är skeptiska, med Naturskyddsföreningen och Lunds Naturskyddsförening som exempel. Förslag på eget initiativ, inte beslutat av någon förening. Ett förslag till förhållningssätt (principer, trafikljus, bilder, checklista, vanliga frågor) kommer i en senare version (F-32).
 
-## Sidan (version 1.21, 2026-11-13)
+## Sidan (version 1.22, 2026-11-13)
 
 | Fil | Innehåll |
 |---|---|
@@ -38,8 +38,8 @@ En analys av generativ AI:s resursanvändning (energi, vatten och övriga miljö
 
 | Fil | Innehåll |
 |---|---|
-| [PRD_ai_riktlinjer_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/PRD_ai_riktlinjer_261112.md) | PRD v0.31: bakgrund, mål, målgrupper, innehåll, faser |
-| [SPEC_sida_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/SPEC_sida_261112.md) | SPEC v0.19: datamodell, beräkningar, sidstruktur och krav |
+| [PRD_ai_riktlinjer_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/PRD_ai_riktlinjer_261112.md) | PRD v0.32: bakgrund, mål, målgrupper, innehåll, faser |
+| [SPEC_sida_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/SPEC_sida_261112.md) | SPEC v0.20: datamodell, beräkningar, sidstruktur och krav |
 | [Analys_resurser_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_resurser_261112.md) | Analys v0.4: energi, vatten och bilder |
 | [Analys_vatten_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_vatten_261112.md) | Analys v0.3: vatten i moderna AI-anläggningar |
 | [Analys_miljofaktorer_261112.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/Analys_miljofaktorer_261112.md) | Analys v0.2: miljöfaktorer och graderingsram |

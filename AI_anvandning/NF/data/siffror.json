@@ -3912,6 +3912,11 @@
  ],
  "versionslogg": [
   {
+   "version": "1.22",
+   "datum": "2026-11-13",
+   "text": "Egna delningsbilder för sidorna Hot från agentisk AI (og-agentisk.jpg: tio platser som väntar på en rangordning) och AI i proportion (og-proportion.jpg: AI:s plats 30 och 5 i WEF:s riskrangordning, hämtade ur datafilen). Övriga sidor behåller mikrovågsbilden. Bilderna genereras av gen_og_bild.py."
+  },
+  {
    "version": "1.21",
    "datum": "2026-11-13",
    "text": "Ny sida Hot från agentisk AI: tio hot som återkommer i flest av de lästa källorna (säkerhetsrapporter, forskning och utvecklarnas ramverk), med underlag och en rangordning som läsaren kan göra (samma Supabase-projekt, ny lista agentisk_ai_hot10). Elva nya källor, sex nya poster och fyra nya förbättringsposter (F-54 till F-57)."

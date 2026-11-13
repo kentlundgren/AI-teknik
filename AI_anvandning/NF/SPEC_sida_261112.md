@@ -1,6 +1,7 @@
 # SPEC: sidan om AI i en miljöorganisation (datamodell, beräkningar, struktur)
 
-**Version:** 0.19 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.20 · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Ändringar i 0.20:** gen_og_bild.py skriver även og-agentisk.jpg och og-proportion.jpg (1200×630, JPEG), och agentisk.html och proportion.html har egna og:image, og:image:alt och twitter:image. AI:s platser i og-proportion.jpg hämtas ur posterna WEF_AI_2AR och WEF_AI_10AR.
 **Ändringar i 0.19:** agentisk.html (ny sida, ingen datadriven tabell, uppgifter via data-post och data-kalla ur siffror.json), databas/supabase_agentisk_ai.sql (en rad i rang_omrostning), rangordning.js: knappen Visa min bedömning visas bara om tabellen har celler med klassen rg-efter-rost (variabeln harEgen).
 **Ändringar i 0.18:** proportion.html har p.rg-teknikrad under rangordningen och en länk i p.adminrad till databas/Uppkoppling_Supabase.md. Dokumentet länkar tillbaka till sidan.
 **Ändringar i 0.17:** proportion.html har p.adminrad (länkar till Supabase-dashboard, SQL Editor och databas/supabase_admin.sql, dold vid utskrift). databas/supabase_admin.sql innehåller adminkommandon och comment on table med tillbakaadressen.
