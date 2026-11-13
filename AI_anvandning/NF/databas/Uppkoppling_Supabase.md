@@ -1,6 +1,6 @@
 # Så kopplades rangordningen till Supabase: steg för steg med bilder
 
-**Version:** 1.5 · **Datum:** 2026-11-13 · **Avsändare:** Kent Lundgren
+**Version:** 1.6 · **Datum:** 2026-11-13 · **Avsändare:** Kent Lundgren
 **Status:** berättelse om hur uppkopplingen gick till, med skärmdumpar. **Se också:** [supabase.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase.md) för tekniken, reglerna och hur projektet återanvänds (avsnitt 7 beskriver hur en ny lista läggs till). Sidan som använder databasen är [AI i proportion](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/proportion.html).
 
 ## Kort version <a id="kort-version"></a>
@@ -134,9 +134,21 @@ När den första listan fungerade lades en andra till i samma Supabase-projekt (
 
 1. **Listan togs fram ur källorna.** Tio hot valdes efter hur ofta de återkommer ur elva källor (säkerhetsrapporter, forskning, utvecklarnas ramverk, en enkät och ett svar av Hawking), och källorna hämtades som originaltext så långt det gick (OWASP-listan kräver åtkomst). Ingen av dem rangordnar hoten efter allvar, så urvalet bygger på hur ofta hoten nämns, och rangordningen lämnas till läsaren. Källorna, vad som är läst och vad som återstår står på sidan och i förbättringsregistret (F-54 till F-57).
 2. **Sidan byggdes som AI i proportion**: tabell med rader (`data-id` `h01` till `h10`), en behållare med `data-omrostning="agentisk_ai_hot10"` och samma tre filer (`rangordning.css`, `rangordning_config.js`, `rangordning.js`). Eftersom sidan inte har någon egen bedömning (kolumnen `rg-efter-rost`) visas ingen knapp *Visa min bedömning*.
-3. **En SQL-fil med en rad:** [supabase_agentisk_ai.sql](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase_agentisk_ai.sql) lägger omröstningen `agentisk_ai_hot10` med postlistan `h01` till `h10`. Du öppnar SQL Editor, klistrar in filen och klickar **Run**, precis som i steg 3 till 5 ovan. Därefter sparas frågan med **Save** och döps om (högerklicka eller klicka på de tre prickarna vid frågan under **Private** och välj **Rename**), till exempel `AI i proportion: ny lista, agentisk AI`. Körningen kommer före namnbytet, och körningen ska ske **före pushen**. Supabase kan visa varningen "Potential issue detected" även här: klicka **Run query** om du har läst filen. Den innehåller en `insert` och en `select`, och den går att köra om utan att röster raderas.
+3. **En SQL-fil med en rad:** [supabase_agentisk_ai.sql](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase_agentisk_ai.sql) lägger omröstningen `agentisk_ai_hot10` med postlistan `h01` till `h10`. Du öppnar SQL Editor, klistrar in filen och klickar **Run**, precis som i steg 3 till 5 ovan. Därefter sparas frågan med **Save** och döps om (högerklicka eller klicka på de tre prickarna vid frågan under **Private** och välj **Rename**), till exempel `AI i proportion: ny lista, agentisk AI`. Körningen kommer före namnbytet, och körningen ska ske **före pushen**. Bild 9 till Bild 11 visar stegen. Supabase kan visa varningen "Potential issue detected" även här: klicka **Run query** om du har läst filen. Den innehåller en `insert` och en `select`, och den går att köra om utan att röster raderas.
 4. **Test.** Sidan testades lokalt med en låtsasdatabas: ett drag i listan skickade `rang_spara_rost` med omröstningen `agentisk_ai_hot10`, tio unika post-id och en nyckel på 36 tecken. Mot den riktiga databasen svarade sidan som väntat med tom lista ("Ingen har röstat än"), eftersom omröstningen inte fanns förrän SQL-filen var körd.
 5. **Dokumentationen** delades så här: tekniken och reglerna i [supabase.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase.md) (avsnitt 7 och tabellen *Vart informationen hör*), den här berättelsen i det här dokumentet, och arbetsgången i skillen `kent-interaktiv-rangordning`.
+
+![Bild 9. Den nya SQL-filen inklistrad, före körning](bilder/bild9_ny_lista_inklistrad.jpg)
+
+*<a id="bild9"></a>Bild 9. Filen `supabase_agentisk_ai.sql` inklistrad i en ny fråga ("Untitled query", ännu osparad). Raden `insert into public.rang_omrostning` med omröstningen `agentisk_ai_hot10` och postlistan `h01` till `h10` är synlig. Pilarna är mina frågor innan körningen: i vilken ordning ska jag köra, spara och byta namn? Svaret är körning först (Run), sedan Save, sedan namnbyte.*
+
+![Bild 10. Resultatet efter Run: två omröstningar](bilder/bild10_run_resultat.jpg)
+
+*<a id="bild10"></a>Bild 10. Efter **Run** visar Results två rader (2 rows): `agentisk_ai_hot10` och `ai_proportion_hot10`, båda med tio poster, öppna (`stangd` false), utan sista dag (`frist` NULL) och med röstgränsen 1000. Det är filens avslutande `select` som visar detta, och det betyder att den nya listan finns i databasen och den första är orörd.*
+
+![Bild 11. Frågan sparad och omdöpt](bilder/bild11_sparad_och_omdopt.jpg)
+
+*<a id="bild11"></a>Bild 11. Efter **Save** står det "Saved", och frågan ligger under **Private (2)** med det nya namnet "AI i proportion: ny lista, agentis…" (namnet är avskuret i listan) bredvid den första frågan "AI i proportion". Namnbytet gjordes sist och påverkar inte databasen, bara etiketten.*
 
 **Ordningen är databasen först, sedan sidan.** En push publicerar sidan inom några minuter, och läsare kan då öppna en lista som databasen ännu inte känner till. Läget om sidan ändå publiceras först, och varför inget behöver backas, står i [supabase.md, Ordningen vid publicering](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase.md#ordning): databasen svarar tomt, en röst som inte kan sparas hålls kvar i läsarens webbläsare och skickas när listan finns, och åtgärden är att köra SQL-filen.
 
