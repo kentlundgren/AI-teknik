@@ -4,6 +4,7 @@
  * (data-post, data-formel, data-kalla, data-lista), visar markering av hur väl en siffra är belagd,
  * förklaringar vid hovring/fokus/tryck, tekniknivån i hörnet och versionsraden.
  *
+ * UPPDATERING 2026-11-13: förklaring av termen antagandelogg (TERMER.antagandelogg) och ihopfälld antagandelogg på kallor.html. Version 1.25.
  * UPPDATERING 2026-11-13: versionen följer rensade källnoter (kallor.html, data/siffror.json): inga uppgifter om vad som är läst. Version 1.24.
  * UPPDATERING 2026-11-13: versionen följer länken till LinkedIn-artikeln om AI i proportion (proportion.html och bakgrund.html). Version 1.23.
  * UPPDATERING 2026-11-13: versionen följer egna delningsbilder för sidorna Hot från agentisk AI och AI i proportion. Version 1.22.
@@ -33,13 +34,14 @@
  * Testläge: lägg ?test=1 efter adressen för att köra validering och testfall (SPEC avsnitt 3, 4 och 8).
  * Obs: fetch fungerar inte på file://. Testa via en lokal server (python -m http.server).
  */
-const VERSION = "1.24";
+const VERSION = "1.25";
 const VERSIONSDATUM = "2026-11-13";
 const AVSANDARE = "Kent Lundgren";
 const GITHUB_MAPP = "https://github.com/kentlundgren/AI-teknik/tree/main/AI_anvandning/NF";
 
 /* ---------- ordlista: förklaringar vid hovring, fokus och tryck ---------- */
 const TERMER = {
+  antagandelogg: "En lista över de antaganden som siffrorna vilar på, där varje ändring får en rad: vilken version (A1, A2 …), när det ändrades, vilka siffror (poster) som berördes och varför. Antaganden är sådant som inte är mätt eller hämtat ur en källa, till exempel hur lång en normal fråga är (X) eller vilken effekt en mikrovågsugn har. Loggen visar varför ett tal har ändrats.",
   token: "Enhet som en språkmodell räknar text i. För OpenAI motsvarar en token i genomsnitt cirka 0,75 ord (Epoch AI, 2025). Olika modeller räknar olika, så talen är ungefärliga.",
   Wh: "Wattimme: energin när en effekt på 1 watt pågår i en timme. 1 kWh är 1 000 Wh.",
   kWh: "Kilowattimme: 1 000 wattimmar. Den enhet elräkningen använder.",

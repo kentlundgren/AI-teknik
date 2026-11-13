@@ -3912,6 +3912,11 @@
  ],
  "versionslogg": [
   {
+   "version": "1.25",
+   "datum": "2026-11-13",
+   "text": "Antagandeloggen på sidan Källor och logg är ihopfälld som standard, och rubriken har en förklaring vid hovring, fokus och tryck av vad en antagandelogg är."
+  },
+  {
    "version": "1.24",
    "datum": "2026-11-13",
    "text": "Källnoterna i källförteckningen beskriver bara vad källan innehåller och varför den är med. Uppgifter om vad som är läst (abstract läst, sidan läst, hela artikeln inte och liknande) är borttagna. Förbehåll om själva källan, till exempel förtryck eller att metod saknas, står kvar."
