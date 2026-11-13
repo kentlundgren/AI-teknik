@@ -46,6 +46,8 @@ Projektet är under uppbyggnad och kommer att växa över tid med fler tekniker,
   - Bilder och förtroende: [https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/bilder.html](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/bilder.html)
   - AI i proportion: [https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/proportion.html](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/proportion.html)
   - Hot från agentisk AI: [https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/agentisk.html](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/agentisk.html)
+  **LinkedIn:**
+  - [AI i proportion](https://www.linkedin.com/pulse/ai-i-proportion-kent-lundgren-iibje/)
 
 - **[Solutions](./Solutions/)**
   Datumstämplade lösningar och fallbeskrivningar.

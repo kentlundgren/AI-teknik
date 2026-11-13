@@ -3912,6 +3912,11 @@
  ],
  "versionslogg": [
   {
+   "version": "1.23",
+   "datum": "2026-11-13",
+   "text": "Länk till LinkedIn-artikeln om AI i proportion: ett avsnitt Samma ämne på LinkedIn på sidan AI i proportion, en rad i loggen och en länk under Mer att läsa på Bakgrund och användning. Artikeln är en egen text om sidan och står inte i källförteckningen."
+  },
+  {
    "version": "1.22",
    "datum": "2026-11-13",
    "text": "Egna delningsbilder för sidorna Hot från agentisk AI (og-agentisk.jpg: tio platser som väntar på en rangordning) och AI i proportion (og-proportion.jpg: AI:s plats 30 och 5 i WEF:s riskrangordning, hämtade ur datafilen). Övriga sidor behåller mikrovågsbilden. Bilderna genereras av gen_og_bild.py."

@@ -1,7 +1,8 @@
 # PRD: förhållningssätt och riktlinjer för generativ AI i en ideell miljöorganisation
 
-**Version:** 0.32 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
+**Version:** 0.33 (utkast) · **Datum:** 2026-11-12 · **Avsändare:** Kent Lundgren
 **Status:** Kents egen undersökning, på eget initiativ och utan samordning. Inte beslutat av Lunds Naturskyddsförening eller av Naturskyddsföreningen.
+**Ändringar i 0.33:** sidan är version 1.23: länk till LinkedIn-artikeln om AI i proportion (egen text, inte en källa).
 **Ändringar i 0.32:** sidan är version 1.22: egna delningsbilder för Hot från agentisk AI och AI i proportion.
 **Ändringar i 0.31:** sidan är version 1.21: ny sida Hot från agentisk AI (agentisk.html) med tio hot som återkommer i flest av elva källor, en rangordning (samma Supabase-projekt, lista agentisk_ai_hot10) och förbättringsposterna F-54 till F-57. Databasdokumenten korslänkade.
 **Ändringar i 0.30:** sidan är version 1.20: AI i proportion och databas/Uppkoppling_Supabase.md länkar till varandra.
