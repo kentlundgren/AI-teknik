@@ -9,7 +9,7 @@ description: >
   säkerhets- och integritetsreglerna. Referensimplementation i AI-teknik, mappen AI_anvandning/NF.
 metadata:
   type: process
-  version: "1.2 (2026-11-13)"
+  version: "1.3 (2026-11-13)"
 ---
 
 # Interaktiv rangordning med valfritt namn och databas
@@ -81,6 +81,7 @@ Väcka projektet om det är pausat, köra SQL-filen i SQL Editor, välja och sä
 
 ## Regler som alltid gäller
 
+- **Databasen före sidan.** Kör SQL-filen för listan och kontrollera att `rang_hamta_status` svarar `antal: 0` innan sidan pushas, eftersom en push publicerar. Säg det i svaret med SQL-körningen som första steg för Kent. Publiceras sidan ändå först behöver inget backas: sidan visar en tom lista och sparar röster i webbläsaren tills listan finns (se `databas/supabase.md`, Ordningen vid publicering). Att backa en push är bara motiverat när något hemligt har publicerats.
 - **Publik nyckel i repot är avsedd** (`sb_publishable_…` eller `anon`). Hemliga nycklar och adminkoden ligger aldrig i en fil, i chatten eller i en bild.
 - **Tabellerna är låsta.** Row Level Security på, `revoke` för anonyma, och all åtkomst via funktioner som kontrollerar indata i databasen. Supabases dokumentation säger att en tabell utan RLS i ett öppet schema kan läsas och skrivas av vem som helst.
 - **Namn är personuppgifter.** Sidan säger vid fältet att namnet visas öppet och sparas i en databas (EU-region), och läsaren kan ta bort sin röst. Samla inga e-postadresser. Ett namn visas som ren text, aldrig som HTML.

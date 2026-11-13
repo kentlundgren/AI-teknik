@@ -1,6 +1,6 @@
 # Rangordning med databas: Supabase i AI-teknik
 
-**Version:** 1.4 · **Datum:** 2026-11-13 · **Avsändare:** Kent Lundgren
+**Version:** 1.5 · **Datum:** 2026-11-13 · **Avsändare:** Kent Lundgren
 **Se också:** [Uppkoppling_Supabase.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/Uppkoppling_Supabase.md) berättar hur uppkopplingen gick till, steg för steg med skärmdumpar, och hur en andra lista lades till. Det här dokumentet beskriver tekniken, reglerna och hur projektet återanvänds.
 
 Beskriver hur sidan [AI i proportion](https://kentlundgren.github.io/AI-teknik/AI_anvandning/NF/proportion.html) kan kopplas till en databas så att läsare kan rangordna tio frågor, välja att skriva sitt namn och se gruppens gemensamma rangordning. Tekniken är den som användes i Samrådsguiden ([supabase.md](https://github.com/kentlundgren/Codex/blob/main/Fritid/NF/Samradsguiden/supabase.md)), men gjord för flera omröstningar i samma projekt. Uppgifter om Supabase är hämtade ur deras prissida och dokumentation 2026-11-12. Kontrollera mot [supabase.com/docs](https://supabase.com/docs) innan något beslut bygger på dem.
@@ -150,10 +150,25 @@ Exempel: sidan [Hot från agentisk AI](https://kentlundgren.github.io/AI-teknik/
 
 1. **Välj ett id** för omröstningen (små bokstäver, siffror och understreck, 3 till 40 tecken), till exempel `agentisk_ai_hot10`, och ett id för varje post, till exempel `h01` till `h10`.
 2. **Gör sidan.** En tabell vars rader har `data-id` och `data-titel`, en cell med klassen `rg-info` som förklarar posten, och en behållare `<div id="rangordning" data-omrostning="agentisk_ai_hot10" data-tabell="Tabell1">`. Lägg in `rangordning.css`, `rangordning_config.js` och `rangordning.js` som på [proportion.html](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/proportion.html). Saknar tabellen en kolumn med klassen `rg-efter-rost` visas ingen knapp *Visa min bedömning*.
-3. **Skriv en liten SQL-fil** som lägger en rad i `rang_omrostning` med id, titel och postlistan. Exempel: [supabase_agentisk_ai.sql](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase_agentisk_ai.sql). Filen skapar inga tabeller, rör inga röster och går att köra om. Postlistan ska vara exakt `data-id` i tabellen. Kör den en gång i SQL Editor, som i [Uppkoppling_Supabase.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/Uppkoppling_Supabase.md#lista2).
+3. **Skriv en liten SQL-fil** som lägger en rad i `rang_omrostning` med id, titel och postlistan. Exempel: [supabase_agentisk_ai.sql](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/supabase_agentisk_ai.sql). Filen skapar inga tabeller, rör inga röster och går att köra om. Postlistan ska vara exakt `data-id` i tabellen. Kör den en gång i SQL Editor, som i [Uppkoppling_Supabase.md](https://github.com/kentlundgren/AI-teknik/blob/main/AI_anvandning/NF/databas/Uppkoppling_Supabase.md#lista2), **innan sidan pushas** (se [Ordningen vid publicering](#ordning)).
 4. **Kontrollera** att `rang_hamta_status` för det nya id:t svarar `antal: 0`, och prova att rösta en gång. Radera provrösten med `delete from public.rang_rost where omrostning = 'det_nya_idt';`.
 
 Hela mönstret, med beställningsmall och arbetsgång, finns i skillen `kent-interaktiv-rangordning`.
+
+### Ordningen vid publicering: databasen först, sedan sidan <a id="ordning"></a>
+
+En sida som använder databasen hänger ihop med databasens tillstånd, och en push publicerar: GitHub Pages bygger sidan på någon minut och den blir publik. Därför gäller samma ordning som alltid när två delar måste passa ihop:
+
+1. **Databasen.** Kör SQL-filen i SQL Editor, och kontrollera att `rang_hamta_status` för det nya id:t svarar `antal: 0` (kontrollen i Uppkoppling_Supabase.md, steg 6).
+2. **Test.** Prova sidan lokalt, med en låtsasdatabas eller mot den riktiga.
+3. **Sidan.** Committa och pusha. Git-regeln är att Kent committar och pushar själv i Cursor, och att Claude bara gör det på uttrycklig begäran.
+
+**Om sidan publiceras före SQL-filen körs:** inget behöver backas, eftersom skadan är liten och går att åtgärda genom att köra SQL-filen. Läget är då så här:
+- Databasen svarar `[]` på `rang_hamta_status` för en lista som saknas, så sidan visar "Ingen har röstat än" utan felmeddelande.
+- En röst kan inte sparas, eftersom `rang_spara_rost` ger felet *Okänd omröstning*. Sidan behandlar det som att databasen inte är färdig: den visar bannern om det, behåller ordningen i läsarens webbläsare och skickar den automatiskt när listan finns (koden i `rangordning.js`, funktionerna `spara` och `load`, och variabeln `behovSynk`).
+- Åtgärden är att köra SQL-filen. Läsare som hunnit rösta behöver inte göra om något så länge de har sidan öppen eller kommer tillbaka.
+
+**Att backa en push** (`git revert`, eller `reset` med `force push`) är en ändring av det publika arkivet och motiveras bara när något publicerats som inte får vara publikt, till exempel en hemlig nyckel eller adminkoden. Då byts nyckeln eller koden först, eftersom den som hunnit hämta arkivet redan har den, och sedan rättas arkivet. En sida som bara väntar på sin databas kräver ingen backning.
 
 ### Vart informationen hör <a id="vart-informationen-hor"></a>
 
