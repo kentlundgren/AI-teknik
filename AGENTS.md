@@ -52,7 +52,7 @@ Skriver Kent nyckelordet **månadsrapport** (eventuellt med månad), eller fråg
 ## Källor
 
 Harvardstil enligt Grok-skill:et `kent-referens` och Regel 3 i `RAG/WORKFLOW.md`.
-Synlig hel URL är standard. **Den utskrivna URL:en ska vara klickbar** — i HTML `<a href="URL">URL</a>`, i Markdown `[URL](URL)`. En adress som bara står som text är fel. Kontrollera att länken fungerar innan den publiceras. Relevansnot i kursiv parentes efter varje post.
+Synlig hel URL är standard. **Den utskrivna URL:en ska vara klickbar** — i HTML `<a href="URL">URL</a>`, i Markdown `[URL](URL)`. En adress som bara står som text är fel. Kontrollera att länken fungerar innan den publiceras. Relevansnot i kursiv parentes efter varje post. Noten säger vad källan innehåller och varför den är med, aldrig vad som är läst ("abstract läst", "sidan läst", "hela artikeln inte"); förbehåll om själva källan (förtryck, ingen metod redovisad) står kvar. Detaljer: punkt 15 i skillen `kent-referens-skill`.
 
 ## Ton
 

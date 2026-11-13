@@ -2499,7 +2499,7 @@
    "url": "https://platform.claude.com/docs/en/about-claude/pricing",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Priser per miljon tokens för Claude Sonnet 5.5 och Opus 5.5 (indata, cacheskrivning, cacheläsning, utdata). Läst via en genomgång av sidan (F-38).",
+   "not": "Priser per miljon tokens för Claude Sonnet 5.5 och Opus 5.5 (indata, cacheskrivning, cacheläsning, utdata).",
    "nyckel": null
   },
   {
@@ -2529,7 +2529,7 @@
    "url": "https://arxiv.org/abs/2505.09598",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Jämförande mätning av energi, vatten och koldioxid för 30 modeller i kommersiella datacenter. Abstract läst, hela artikeln inte.",
+   "not": "Jämförande mätning av energi, vatten och koldioxid för 30 modeller i kommersiella datacenter.",
    "nyckel": null
   },
   {
@@ -2539,7 +2539,7 @@
    "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Hur cachning av prompt-prefix fungerar, priset för cachade läsningar och skrivningar (0,1 respektive 1,25 gånger vanligt pris) och minsta längd. Priset säger inget om energin. Läst delvis via en genomgång (F-33).",
+   "not": "Hur cachning av prompt-prefix fungerar, priset för cachade läsningar och skrivningar (0,1 respektive 1,25 gånger vanligt pris) och minsta längd. Priset säger inget om energin.",
    "nyckel": null
   },
   {
@@ -2549,7 +2549,7 @@
    "url": "https://arxiv.org/abs/2611.03330",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Förtryck. Modell för energin per token som skiljer indata (prefill) från avkodning och minnet av tidigare tokens (KV-cachen). Mätt på 13 öppna modeller. Abstract läst, hela artikeln inte (F-34).",
+   "not": "Förtryck. Modell för energin per token som skiljer indata (prefill) från avkodning och minnet av tidigare tokens (KV-cachen). Mätt på 13 öppna modeller.",
    "nyckel": null
   },
   {
@@ -2559,7 +2559,7 @@
    "url": "https://aistudio.google.com/docs/caching?generate-content=true",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Implicit och explicit cachning av indata, sänkt pris utan angivet belopp. Läst via en genomgång (F-33).",
+   "not": "Implicit och explicit cachning av indata, sänkt pris utan angivet belopp.",
    "nyckel": null
   },
   {
@@ -2569,7 +2569,7 @@
    "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Cachning återanvänder redan beräknade tillstånd för ett gemensamt prefix, rabatt på cachad indata upp till 95 procent. Delvis läst.",
+   "not": "Cachning återanvänder redan beräknade tillstånd för ett gemensamt prefix, rabatt på cachad indata upp till 95 procent.",
    "nyckel": null
   },
   {
@@ -2619,7 +2619,7 @@
    "url": "https://www.ekonomifakta.se/sakomraden/elfakta/",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Sveriges totala elanvändning 2024, cirka 136 TWh. Hämtad ur sökresultat, inte öppnad (F-02).",
+   "not": "Sveriges totala elanvändning 2024, cirka 136 TWh.",
    "nyckel": null
   },
   {
@@ -2669,7 +2669,7 @@
    "url": "https://www.microsoft.com/en-us/microsoft-cloud/blog/2024/12/09/sustainable-by-design-next-generation-datacenters-consume-zero-water-for-cooling/",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Slutna kretsar utan avdunstning och energikonsekvensen. Läst via en genomgång av sidan (F-16).",
+   "not": "Slutna kretsar utan avdunstning och energikonsekvensen.",
    "nyckel": null
   },
   {
@@ -2679,7 +2679,7 @@
    "url": "https://blogs.microsoft.com/blog/2026/06/24/inside-microsofts-two-decade-push-to-cut-water-intensity-while-scaling-for-growth/",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Microsofts WUE 0,27 L/kWh 2025. Läst via en genomgång av sidan (F-16).",
+   "not": "Microsofts WUE 0,27 L/kWh 2025.",
    "nyckel": null
   },
   {
@@ -2699,7 +2699,7 @@
    "url": "https://escholarship.org/uc/item/32d6m0d1",
    "doi": "10.71468/P1WC7Q",
    "hamtad": "2026-11-12",
-   "not": "Direkt och indirekt vattenanvändning i USA:s datacenter (DOI 10.71468/P1WC7Q). PDF-kopian som lästes är märkt som embargo, men utgivningen är bekräftad.",
+   "not": "Direkt och indirekt vattenanvändning i USA:s datacenter (DOI 10.71468/P1WC7Q). PDF-kopian är märkt som embargo, men utgivningen är bekräftad.",
    "nyckel": null
   },
   {
@@ -2719,7 +2719,7 @@
    "url": "https://wedocs.unep.org/handle/20.500.11822/46288",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Livscykelperspektiv med energi, vatten, mineral, utsläpp och e-avfall. Abstract läst, hela rapporten inte (F-11).",
+   "not": "Livscykelperspektiv med energi, vatten, mineral, utsläpp och e-avfall.",
    "nyckel": null
   },
   {
@@ -2749,7 +2749,7 @@
    "url": "https://www.nature.com/articles/s43588-024-00712-6",
    "doi": "10.1038/s43588-024-00712-6",
    "hamtad": "2026-11-12",
-   "not": "Scenario för elektroniskt avfall: 1,2–5,0 miljoner ton 2020–2030. Abstract läst.",
+   "not": "Scenario för elektroniskt avfall: 1,2–5,0 miljoner ton 2020–2030.",
    "nyckel": null
   },
   {
@@ -2759,7 +2759,7 @@
    "url": "https://www.bond.org.uk/news/2026/03/artificial-authenticity-are-ngos-risking-their-reputation-when-using-ai-generated-imagery/",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Brittiskt nätverk för biståndsorganisationer sammanfattar UEA-analysen och ger fem råd. Artikeln läst. Månaden är hämtad ur adressen.",
+   "not": "Brittiskt nätverk för biståndsorganisationer sammanfattar UEA-analysen och ger fem råd. Månaden är hämtad ur adressen.",
    "nyckel": null
   },
   {
@@ -2769,7 +2769,7 @@
    "url": "https://mediemyndigheten.se/globalassets/barn-och-unga-2/for-vuxna/bilders-makt--ai-och-visuell-paverkan/ai-bilder-och-fotografiets-sanningsansprak/lararmanus---ai-bilderoch-fotografiets-sanningsansprak.pdf",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Undervisningsmaterial om hur AI-bilder som liknar fotografier utmanar fotografiets sanningsanspråk. Inledningen läst.",
+   "not": "Undervisningsmaterial om hur AI-bilder som liknar fotografier utmanar fotografiets sanningsanspråk.",
    "nyckel": null
   },
   {
@@ -2779,7 +2779,7 @@
    "url": "https://orf.at/stories/3409001/",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Referat av The Guardian om hälsoorganisationers AI-bilder av fattigdom och forskares varning för stereotyper. Artikeln läst, Guardian-originalet inte.",
+   "not": "Referat av The Guardian om hälsoorganisationers AI-bilder av fattigdom och forskares varning för stereotyper.",
    "nyckel": null
   },
   {
@@ -2789,7 +2789,7 @@
    "url": "https://petapixel.com/2023/05/02/it-devalues-photographers-amnesty-deletes-ai-images-after-backlash",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Nyhetsreferat om Amnestys AI-bilder från Colombia 2023, kritiken och organisationens svar. Artikeln läst. Återger Amnestys svar per e-post 2023, inte en aktuell policy.",
+   "not": "Nyhetsreferat om Amnestys AI-bilder från Colombia 2023, kritiken och organisationens svar. Återger Amnestys svar per e-post 2023, inte en aktuell policy.",
    "nyckel": null
   },
   {
@@ -2799,7 +2799,7 @@
    "url": "https://charity-advertising.co.uk/uploads/charity-and-ai-report-2026.pdf",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Rapport (28 sidor) om 171 AI-bilder från 17 organisationer och 472 kommentarer. Hämtad som PDF och läst i relevanta delar: metod, ämnen, tonläge, diskursanalys och slutsatser. Rapportens siffror är inte helt konsekventa (F-41).",
+   "not": "Rapport (28 sidor) om 171 AI-bilder från 17 organisationer och 472 kommentarer: metod, ämnen, tonläge, diskursanalys och slutsatser. Rapportens siffror är inte helt konsekventa (F-41).",
    "nyckel": "Den mest direkta studie jag hittat av hur publiken reagerar på AI-bilder från verkliga organisationer: 171 bilder från 17 organisationer och 472 kommentarer. Den visar att samtalet flyttas från saken till AI:n, att märkning är nödvändig men sällan tillräcklig, och innehåller fallet WWF Danmark. Det är en kvalitativ analys av kommentarer, inte ett experiment, och den gäller mest bistånd. Sidan Bilder och förtroende bygger på den."
   },
   {
@@ -2809,7 +2809,7 @@
    "url": "https://www.yahoo.com/news/articles/why-scientists-worried-ai-generated-133131403.html",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Nyhetstext om Heinz Sielmann Stiftungs varning för AI-djurbilder. Artikeln läst. Stiftelsens eget pressmeddelande är inte hittat (F-44). Sidan visar också en AI-genererad sammanfattning från Yahoo, som inte använts.",
+   "not": "Nyhetstext om Heinz Sielmann Stiftungs varning för AI-djurbilder. Stiftelsens eget pressmeddelande är inte hittat (F-44).",
    "nyckel": null
   },
   {
@@ -2819,7 +2819,7 @@
    "url": "https://link.springer.com/article/10.1007/s10551-026-06247-2",
    "doi": "10.1007/s10551-026-06247-2",
    "hamtad": "2026-11-12",
-   "not": "Fältexperiment och fyra kontrollerade experiment om AI-märkta välgörenhetsannonser och givande. Abstract läst, fulltexten kräver prenumeration (F-42).",
+   "not": "Fältexperiment och fyra kontrollerade experiment om AI-märkta välgörenhetsannonser och givande.",
    "nyckel": null
   },
   {
@@ -2829,7 +2829,7 @@
    "url": "https://www.climate.gov/news-features/blogs/enso/what-el-ni%C3%B1o%E2%80%93southern-oscillation-enso-nutshell",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Definition av El Niño (varmare ytvatten i centrala och östra tropiska Stilla havet), vindar som försvagas eller byter riktning och namnets ursprung. Sidan läst.",
+   "not": "Definition av El Niño (varmare ytvatten i centrala och östra tropiska Stilla havet), vindar som försvagas eller byter riktning och namnets ursprung.",
    "nyckel": null
   },
   {
@@ -2839,7 +2839,7 @@
    "url": "https://oceanservice.noaa.gov/facts/ninonina.html",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Normala förhållanden med passadvindar och uppvällning, hur El Niño bryter dem, två till sju år i genomsnitt, 9 till 12 månader och namnet El Niño de Navidad. Sidan läst.",
+   "not": "Normala förhållanden med passadvindar och uppvällning, hur El Niño bryter dem, två till sju år i genomsnitt, 9 till 12 månader och namnet El Niño de Navidad.",
    "nyckel": null
   },
   {
@@ -2849,7 +2849,7 @@
    "url": "https://www.smhi.se/nyheter/nyheter/2026-09-03-wmo-exceptionellt-varmt-hav-intensifierar-el-nino",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Läget hösten 2026, nederbörd och torka, att Sverige påverkas indirekt, att El Niño är naturligt och att effekterna tenderar att bli starkare i ett varmare klimat. Sidan läst.",
+   "not": "Läget hösten 2026, nederbörd och torka, att Sverige påverkas indirekt, att El Niño är naturligt och att effekterna tenderar att bli starkare i ett varmare klimat.",
    "nyckel": null
   },
   {
@@ -2859,7 +2859,7 @@
    "url": "https://www.fao.org/newsroom/detail/un-report--global-hunger-levels-ease-for-third-consecutive-year-as-regional-disparities-persist/en",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Hunger 645 miljoner (7,8 %) och matosäkerhet 2,1 miljarder 2025. Pressmeddelandet läst, själva rapporten inte.",
+   "not": "Hunger 645 miljoner (7,8 %) och matosäkerhet 2,1 miljarder 2025.",
    "nyckel": null
   },
   {
@@ -2869,7 +2869,7 @@
    "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-08/What-Worries-the-World-July-2026.pdf",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Månatlig undersökning i 30 länder (25 540 personer, 16–74 år): vilka tre frågor oroar mest. Rapporten (PDF) läst. Länderna är inte världens fattigaste.",
+   "not": "Månatlig undersökning i 30 länder (25 540 personer, 16–74 år): vilka tre frågor oroar mest. Länderna är inte världens fattigaste.",
    "nyckel": null
   },
   {
@@ -2879,7 +2879,7 @@
    "url": "https://iea.org/commentaries/access-to-electricity-stagnates-leaving-globally-730-million-in-the-dark",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "730 miljoner saknade elektricitet 2024. Kommentaren läst.",
+   "not": "730 miljoner saknade elektricitet 2024.",
    "nyckel": null
   },
   {
@@ -2889,7 +2889,7 @@
    "url": "https://www.unhcr.org/global-trends",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Forcerat fördrivna: en av 70, 41,6 miljoner flyktingar och 68,7 miljoner på flykt i det egna landet, slutet av 2025. Sidan läst i webbläsare, rapporten inte.",
+   "not": "Forcerat fördrivna: en av 70, 41,6 miljoner flyktingar och 68,7 miljoner på flykt i det egna landet, slutet av 2025.",
    "nyckel": null
   },
   {
@@ -2899,7 +2899,7 @@
    "url": "https://www.who.int/news/item/26-08-2025-1-in-4-people-globally-still-lack-access-to-safe-drinking-water---who--unicef",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "2,1 miljarder saknar säkert hanterat dricksvatten. Uppdateringen läst, själva rapporten inte.",
+   "not": "2,1 miljarder saknar säkert hanterat dricksvatten.",
    "nyckel": null
   },
   {
@@ -2909,7 +2909,7 @@
    "url": "https://www.weforum.org/publications/global-risks-report-2026/global-risks-report-2026-key-findings",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Enkät bland över 1 300 experter om risker på två och tio års sikt, bland annat negativa följder av AI (plats 30 mot plats 5). Sammanfattningen läst i webbläsare, hela rapporten inte.",
+   "not": "Enkät bland över 1 300 experter om risker på två och tio års sikt, bland annat negativa följder av AI (plats 30 mot plats 5).",
    "nyckel": null
   },
   {
@@ -2919,7 +2919,7 @@
    "url": "https://www.wmo.int/news/media-centre/el-nino-set-become-very-strong-raising-risks-of-extreme-weather-2027",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "El Niño är naturlig och orsakas inte av klimatförändringen. Läget hösten 2026. Pressmeddelandet läst.",
+   "not": "El Niño är naturlig och orsakas inte av klimatförändringen. Läget hösten 2026.",
    "nyckel": null
   },
   {
@@ -2929,7 +2929,7 @@
    "url": "https://wmo.int/node/39188",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Global temperatur 1,47 °C över 1850–1900 (januari–september 2026) och att El Niño vanligen ger 0,1–0,2 °C. Pressmeddelandet läst.",
+   "not": "Global temperatur 1,47 °C över 1850–1900 (januari–september 2026) och att El Niño vanligen ger 0,1–0,2 °C.",
    "nyckel": null
   },
   {
@@ -2939,7 +2939,7 @@
    "url": "https://blogs.worldbank.org/en/opendata/september-2026-global-poverty-update-from-the-world-bank--one-in",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Mer än 824 miljoner i extrem fattigdom 2024 (under 3 USD per dag). Bloggen läst.",
+   "not": "Mer än 824 miljoner i extrem fattigdom 2024 (under 3 USD per dag).",
    "nyckel": null
   },
   {
@@ -2949,7 +2949,7 @@
    "url": "https://www.worldwildlife.org/news/press-releases/catastrophic-73-decline-in-the-average-size-of-global-wildlife-populations-in-just-50-years-reveals-a-system-in-peril/",
    "doi": null,
    "hamtad": "2026-11-12",
-   "not": "Genomsnittlig minskning på 73 procent för övervakade populationer 1970–2020. Pressmeddelandet läst i webbläsare, själva rapporten inte.",
+   "not": "Genomsnittlig minskning på 73 procent för övervakade populationer 1970–2020.",
    "nyckel": null
   },
   {
@@ -2959,7 +2959,7 @@
    "url": "https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026",
    "doi": null,
    "hamtad": "2026-11-13",
-   "not": "Internationell rapport om risker från allmänt användbar AI: skadlig användning, funktionsfel och systemrisker. Rapporten (PDF) hämtad och sökt i. Sammanfattning, innehållsförteckning och utdrag ur avsnitten om kapacitet, bedrägerier, manipulation, cyberattacker, biologiska och kemiska risker, kontrollförlust och mänsklig autonomi lästa. Resten inte läst.",
+   "not": "Internationell rapport om risker från allmänt användbar AI: skadlig användning, funktionsfel och systemrisker, med avsnitt om kapacitet, bedrägerier, manipulation, cyberattacker, biologiska och kemiska risker, kontrollförlust och mänsklig autonomi.",
    "nyckel": null
   },
   {
@@ -2969,7 +2969,7 @@
    "url": "https://arxiv.org/abs/2306.12001",
    "doi": "10.48550/arXiv.2306.12001",
    "hamtad": "2026-11-13",
-   "not": "Fyra riskkällor: skadlig användning, kapplöpning, organisationsolyckor och rogue AIs. Förtryck. Artikeln hämtad (PDF) och sökt i. Sammanfattningen och avsnitten om kapplöpning, rogue AIs och enfeeblement lästa.",
+   "not": "Fyra riskkällor: skadlig användning, kapplöpning, organisationsolyckor och rogue AIs. Förtryck.",
    "nyckel": null
   },
   {
@@ -2979,7 +2979,7 @@
    "url": "https://arxiv.org/abs/2501.16946",
    "doi": "10.48550/arXiv.2501.16946",
    "hamtad": "2026-11-13",
-   "not": "Gradvis maktförlust för människor genom stegvis bättre AI, utan abrupt övertagning. Positionsartikel (ICML 2025). PDF hämtad och sammanfattningen läst. Resten sökt i.",
+   "not": "Gradvis maktförlust för människor genom stegvis bättre AI, utan abrupt övertagning. Positionsartikel (ICML 2025).",
    "nyckel": null
   },
   {
@@ -2989,7 +2989,7 @@
    "url": "https://arxiv.org/abs/2401.02843",
    "doi": "10.48550/arXiv.2401.02843",
    "hamtad": "2026-11-13",
-   "not": "Enkät bland 2 778 AI-forskare om framtida AI och om oro för elva scenarier. Förtryck. PDF hämtad och sammanfattningen och avsnitt 4.1 (oro) lästa.",
+   "not": "Enkät bland 2 778 AI-forskare om framtida AI och om oro för elva scenarier. Förtryck.",
    "nyckel": null
   },
   {
@@ -2999,7 +2999,7 @@
    "url": "https://futureoflife.org/2015/10/11/hawking-reddit-ama-on-ai/",
    "doi": null,
    "hamtad": "2026-11-13",
-   "not": "Svaret med myrorna och vattenkraftsprojektet. Sidan hämtad och svaret läst.",
+   "not": "Svaret med myrorna och vattenkraftsprojektet.",
    "nyckel": null
   },
   {
@@ -3009,7 +3009,7 @@
    "url": "https://arxiv.org/abs/2408.12622",
    "doi": "10.1016/j.patter.2026.101517",
    "hamtad": "2026-11-13",
-   "not": "Förteckning över 1 725 risker ur 74 ramverk, ordnade i sju domäner. Katalogiserar risker utan att bedöma sannolikhet eller allvar. Förtrycket hämtat (PDF) och sökt i: domäner och avgränsning.",
+   "not": "Förteckning över 1 725 risker ur 74 ramverk, ordnade i sju domäner. Katalogiserar risker utan att bedöma sannolikhet eller allvar. Förtryck.",
    "nyckel": null
   },
   {
@@ -3019,7 +3019,7 @@
    "url": "https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf",
    "doi": null,
    "hamtad": "2026-11-13",
-   "not": "Tre spårade kategorier: biologiska och kemiska förmågor, cybersäkerhet och AI-självförbättring. Dokumentet hämtat och sökt i. Kan ha ersatts av en nyare version.",
+   "not": "Tre spårade kategorier: biologiska och kemiska förmågor, cybersäkerhet och AI-självförbättring. Kan ha ersatts av en nyare version.",
    "nyckel": null
   },
   {
@@ -3029,7 +3029,7 @@
    "url": "https://deepmind.google/blog/strengthening-our-frontier-safety-framework/",
    "doi": null,
    "hamtad": "2026-11-13",
-   "not": "Ny kritisk kapacitetsnivå för skadlig manipulation och skydd mot felriktade modeller. Blogginlägget hämtat och läst. Själva ramverksdokumentet inte läst.",
+   "not": "Ny kritisk kapacitetsnivå för skadlig manipulation och skydd mot felriktade modeller.",
    "nyckel": null
   },
   {
@@ -3039,7 +3039,7 @@
    "url": "https://www.anthropic.com/rsp",
    "doi": null,
    "hamtad": "2026-11-13",
-   "not": "Kapacitetsgränser för CBRN-vapen och AI-forskning. Sidan med uppdateringsnoter hämtad och läst. Själva policytexten inte läst.",
+   "not": "Kapacitetsgränser för CBRN-vapen och AI-forskning.",
    "nyckel": null
   },
   {
@@ -3049,7 +3049,7 @@
    "url": "https://doi.org/10.6028/NIST.AI.600-1",
    "doi": "10.6028/NIST.AI.600-1",
    "hamtad": "2026-11-13",
-   "not": "Tolv risker som är unika för eller förvärras av generativ AI, bland annat CBRN, informationsintegritet och informationssäkerhet. Frivillig vägledning. PDF hämtad och sökt i.",
+   "not": "Tolv risker som är unika för eller förvärras av generativ AI, bland annat CBRN, informationsintegritet och informationssäkerhet. Frivillig vägledning.",
    "nyckel": null
   },
   {
@@ -3059,7 +3059,7 @@
    "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications/",
    "doi": null,
    "hamtad": "2026-11-13",
-   "not": "De tio största säkerhetsriskerna för agentiska system. Startsidan läst. Själva listan (PDF) kräver åtkomst och är inte läst: namnen ASI01 till ASI10 är hämtade ur sökträffar och sammandrag.",
+   "not": "De tio största säkerhetsriskerna för agentiska system, ASI01 till ASI10.",
    "nyckel": null
   }
  ],
@@ -3911,6 +3911,11 @@
   }
  ],
  "versionslogg": [
+  {
+   "version": "1.24",
+   "datum": "2026-11-13",
+   "text": "Källnoterna i källförteckningen beskriver bara vad källan innehåller och varför den är med. Uppgifter om vad som är läst (abstract läst, sidan läst, hela artikeln inte och liknande) är borttagna. Förbehåll om själva källan, till exempel förtryck eller att metod saknas, står kvar."
+  },
   {
    "version": "1.23",
    "datum": "2026-11-13",
