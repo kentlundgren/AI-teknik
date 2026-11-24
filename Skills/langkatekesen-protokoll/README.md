@@ -9,6 +9,11 @@ Samfällighetsförening. Skillen har två lägen:
 - **Läge B – Granska protokoll:** kontroll av ett ifyllt protokoll före justering
   (belopp, närvaro, luckor, nästa möte).
 
+Från v6 finns en tabell över risk, ångra och reservplan för varje åtgärd, en påminnelse
+dagen före mötet om mejlutkastet inte är skickat, och tre utfall för den schemalagda
+uppgiften: tyst när inget finns att göra, kort besked när något är klart och FEL-besked
+när något går fel.
+
 Skillen körs av en schemalagd uppgift varje dag kl. 17:00 och är det genomarbetade
 exemplet i [kent-agentiska-arbetsfloden](../kent-agentiska-arbetsfloden/).
 

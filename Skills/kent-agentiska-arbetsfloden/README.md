@@ -8,6 +8,10 @@ schemalagda uppgifter.
 ## Innehåll
 
 - Coachläge: steg för steg, med alternativen vid varje val.
+- Typlära: arbetsflöde eller agent, och fem vanliga typer av arbetsflöden.
+- Riskklassning av åtgärder (låg, mellan, hög), möjlighet att ångra, reservplan om ingen agerar, nödstopp och nivåer av mänsklig granskning (in-the-loop, on-the-loop, kontrollpunkter).
+- Tre utfall för schemalagda uppgifter: inget att göra, klart och fel.
+- Lärt av andra: principer från Anthropic, AWS, OpenAI, DZone och Arize jämförda med Kents egna, med källor i Harvardstil.
 - Ordlista: trigger, polling, connector, human-in-the-loop, idempotens, least privilege med flera.
 - Tio faser från mål och manuell körning till påminnelser, lärdomar och uppföljning.
 - Valpunkter med alternativ, fallgropar och en mall för nya uppgiftsskills.

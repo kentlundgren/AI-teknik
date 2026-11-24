@@ -3,7 +3,7 @@ name: langkatekesen-protokoll
 description: Skapa protokollembryo (utkast) för styrelsemöten i Långkatekesen Samfällighetsförening när ordföranden Anders Eriksson skickar en kallelse, och granska ett ifyllt protokoll före justering. Använd när Kent nämner Långkatekesen, samfälligheten, styrelsemöte, kallelse från Anders, protokollembryo, "gör protokollembryo", "granska protokollet", eller när en schemalagd uppgift letar efter nya kallelser.
 ---
 
-# Långkatekesen – protokollembryo och granskning (v5)
+# Långkatekesen – protokollembryo och granskning (v6)
 
 Skillen har två lägen:
 
@@ -21,7 +21,7 @@ Berätta alltid för Kent vad som görs, vad som har gjorts och vad nästa steg 
 | Protokollförare | Kent Lundgren (justeras av Anders Eriksson) |
 | Ledamöter (sex) | Anders Eriksson, Jonas Cremon, Kent Lundgren, Johan Lambreus Mattsson, Veronica Eklund, Daniel Fransson |
 | Ledamöternas e-post | Finns i kontoversionen av skillen (tas inte med i det publika repot) |
-| Schemalagd uppgift | Varje dag kl. 17:00 (Stockholm) söker efter nya kallelser och kör läge A |
+| Schemalagd uppgift | Varje dag kl. 17:00 (Stockholm) söker efter nya kallelser och kör läge A. Tre utfall: tyst när inget finns att göra, kort besked när något är klart, FEL-besked när något går fel. Dagen före mötet påminner den om mejlutkastet inte är skickat. |
 | Påminnelser | Pushnotis när utkasten är klara + kalenderhändelse med påminnelse 1 dag och 1 timme före. SMS går inte. |
 | Styrelselogg | Google-kalkylark "Styrelselogg Långkatekesen" i målmappen, ID `1VScOKcPm10tMwKzebFVK0TPwS0qGOd53UasxPeZkgDI`. Flikar: Händelser och Ärenden. Delas inte. |
 | Delning av embryot | Alla med länken kan redigera (samma som tidigare protokoll; Kents beslut 2026-11-24, kan skärpas senare) |
@@ -57,11 +57,39 @@ Den schemalagda uppgiften "Långkatekesen – protokollembryo vid kallelse" kör
 - Skriv aldrig i protokollet att det är framtaget med AI eller liknande.
 - Flaggor och avvikelser rapporteras till Kent, de skrivs inte in i protokollet.
 
+## Risk, ångra och reservplan
+
+Riskklassningen följer metaskillen kent-agentiska-arbetsfloden (Fas 5b). Syftet är att flödet ska få göra det som är ofarligt utan att fråga, och att allt som går ut till andra eller inte går att ångra ligger hos Kent.
+
+| Åtgärd | Steg | Risk | Granskning | Så ångras den |
+|---|---|---|---|---|
+| Läsa mejl, bilaga, mapp och protokoll | A1–A4 | Låg | Claude gör själv | Behövs inte |
+| Kopiera protokollet till embryo | A5 | Låg | Claude gör själv | Lägg kopian i papperskorgen |
+| Ändra texten i embryot | A6–A7 | Låg | Claude gör själv, verifierar efteråt | Versionshistoriken i Google Docs |
+| Länkdela embryot (alla med länken kan redigera) | A9 | Mellan | Claude gör och meddelar (on-the-loop) | Ändra delningen till Begränsad |
+| Skapa mejlutkast | A10 | Låg | Claude gör själv | Ta bort utkastet |
+| Skicka mejlet till styrelsen | – | Hög | Bara Kent (in-the-loop) | Går inte att ångra |
+| Skapa kalenderhändelse | A11 | Låg | Claude gör själv | Ta bort händelsen |
+| Skriva rader i styrelseloggen | A13, B9 | Låg | Claude gör själv | Ta bort raderna |
+| Språkförslag i protokollet | B8 | Låg | Kent godkänner varje förslag | Avvisa förslaget |
+| Radera, ändra tidigare protokoll, dela med namngivna personer | – | Hög | Görs aldrig av flödet | – |
+
+**Om ingen agerar:**
+- *Mejlutkastet skickas inte:* kalenderhändelsen påminner en dag och en timme före. Dessutom kontrollerar körningen kl. 17:00 dagen före mötet om utkastet fortfarande ligger kvar oskickat, och skickar då en påminnelse som pushnotis (se A3). Flödet skickar aldrig mejlet självt; det säkra valet är att inget går ut.
+- *Protokollet granskas inte efter mötet:* inget händer automatiskt. Rapporten påminner om "granska protokollet ÅÅMMDD".
+- *Kallelsen kommer inte:* inget embryo skapas. Det är rätt, eftersom underlaget saknas.
+
+**Nödstopp:** stäng av den schemalagda uppgiften "Långkatekesen – protokollembryo vid kallelse" (be Claude göra det eller gör det på sidan för schemalagda uppgifter). Skillen fungerar då fortfarande manuellt.
+
 ## Läge A – Skapa embryo
 
 1. **Hitta kallelsen.** Sök i Gmail: `from:[e-post] subject:kallelse has:attachment newer_than:14d`. Läs tråden och ladda ned bilagan (Word-fil "Kallelse styrelsemöte ÅÅMMDD.docx") och extrahera texten.
 2. **Bestäm mötesdatum.** Ta datumet från mejltexten och filnamnet. Jämför med datumet i kallelsens rubrik; Anders återanvänder ofta en gammal kallelse, så rubriken kan vara fel. Vid avvikelse: använd mejl/filnamn och flagga.
-3. **Kontrollera dubbletter (idempotens).** Lista målmappen. Finns redan en fil som börjar med mötets ÅÅMMDD: gör ingenting mer, rapportera bara att embryot redan finns.
+3. **Kontrollera dubbletter (idempotens).** Lista målmappen. Finns redan en fil som börjar med mötets ÅÅMMDD: skapa inget nytt. Gör sedan bara reservplanskontrollen:
+   - Är det **dagen före mötet** (svensk tid)? Kontrollera i Anders kallelsetråd om det finns ett mejlutkast från Kent som inte är skickat, och inget skickat svar från lundgren.kent@gmail.com i tråden efter kallelsen.
+   - Om ja: avsluta med påminnelsen "Påminnelse Långkatekesen [datum]: mejlutkastet till styrelsen är inte skickat. Ta bort LinkedIn-raden och skicka det." med länk till utkastet och embryot.
+   - Annars: inget att göra, avsluta tyst.
+   - Påminnelsen skickar aldrig mejlet, den påminner bara Kent. Kents val 2026-11-24.
 4. **Hitta senaste protokollet.** Senaste Google-dokumentet i målmappen med namnet `ÅÅMMDD_Protokoll_styrelsemöte Långkatekesen` (inte PDF-filerna "med underskrift"). Läs det.
 5. **Kopiera.** Kopiera senaste protokollet till målmappen med det nya filnamnet. Kontrollera att kopian fick rätt mapp och att innehållet följde med.
 6. **Gör om kopian till embryo** med Google Docs-connectorn. Ändra bara det som behövs så att format, typsnitt och sidnumrering behålls (använd helst `replaceAllText`; läs dokumentet igen före varje ändring som bygger på positioner):
@@ -97,7 +125,7 @@ Den schemalagda uppgiften "Långkatekesen – protokollembryo vid kallelse" kör
     - Länka till **det nya embryot**, inte till förra protokollet. Skicka aldrig, bara utkast.
     - Påminn Kent om att **ta bort LinkedIn-raden** i signaturen innan han skickar (han tar bort den i föreningsmejl; länken till kentlundgren.se får vara kvar tills vidare).
 11. **Kalenderhändelse** i Kents kalender (lundgren.kent@gmail.com): "Styrelsemöte Långkatekesen", mötets datum och tid, plats "Hos Johan" (eller enligt kallelsen). Påminnelser: popup 1 dag och 1 timme före. I beskrivningen: kallelsens fokus, länk till embryot, länk till förra protokollet, länk till sammanställningen av offerter, samt "Kom ihåg: skicka mejlutkastet till styrelsen". Kontrollera först att händelsen inte redan finns.
-12. **Pushnotis** till Kents mobil, kort: "Långkatekesen [datum]: protokollutkast och mejlutkast klara. Ta bort LinkedIn-raden och skicka mejlet."
+12. **Pushnotis** till Kents mobil (den schemalagda uppgiftens sammanfattning blir notisen), kort: "Långkatekesen [datum]: protokollutkast och mejlutkast klara. Ta bort LinkedIn-raden och skicka mejlet."
 13. **Logga** i styrelseloggen, fliken Händelser, en rad per händelse: kallelse mottagen, embryo skapat och delat, kalenderhändelse skapad, planerat möte. Kolumner: Datum, Händelse, Möte, Av, Länk, Kommentar. Kräver Google Sheets-connectorn; saknas den, skriv i rapporten vilka rader Kent behöver lägga in.
 14. **Rapportera** till Kent: länk till embryot, länk till mejlutkastet, kalenderhändelsen, vad som ändrades, eventuella flaggor och nästa steg (granska embryot, skicka mejlet).
 
@@ -124,6 +152,16 @@ Rapportera resultatet som en kort lista: OK eller flagga per punkt, med förslag
 - Loggen är ett register med länkar, inte en kopia av mejl och protokoll.
 
 ## Om något går fel
+
+Håll isär tre utfall, så att Kent bara störs när det behövs och så att ett fel aldrig ser ut som "ingen kallelse":
+
+| Utfall | När | Besked |
+|---|---|---|
+| Inget att göra | Ingen ny kallelse, mötet har passerat, embryot finns redan (och ingen påminnelse behövs) | En enda rad, t.ex. "Långkatekesen: ingen ny kallelse." Ingen sammanfattning i övrigt. |
+| Klart | Embryo, utkast, kalender och logg är klara, eller påminnelsen dagen före | Kort besked enligt A12 eller A3, med länkar |
+| Fel | En connector saknas, en behörighet nekas, ett verktyg svarar med fel, verifieringen visar att något blev fel, eller ett steg hoppades över | Börja med "FEL: Långkatekesen [datum]". Säg vilket steg som misslyckades och felet i klartext, vad som redan hann göras (med länkar, så att det går att ångra), och vad Kent behöver göra. Försök inte gå runt felet på annat sätt, och fortsätt bara med steg som inte bygger på det som misslyckades. |
+
+Kända fel och åtgärder:
 
 - **Mappen syns inte eller kan inte skrivas till:** delningen till lundgren.kent kan ha tagits bort. Be Kent dela Protokoll-mappen som Redigerare igen.
 - **Flera mejlutkast i samma tråd:** Gmail visar bara ett utkast per tråd i trådvyn. Skapa bara ett, och ta bort gamla (med Kents ja).
