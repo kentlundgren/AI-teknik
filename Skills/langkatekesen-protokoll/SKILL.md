@@ -3,7 +3,7 @@ name: langkatekesen-protokoll
 description: Skapa protokollembryo (utkast) för styrelsemöten i Långkatekesen Samfällighetsförening när ordföranden Anders Eriksson skickar en kallelse, och granska ett ifyllt protokoll före justering. Använd när Kent nämner Långkatekesen, samfälligheten, styrelsemöte, kallelse från Anders, protokollembryo, "gör protokollembryo", "granska protokollet", eller när en schemalagd uppgift letar efter nya kallelser.
 ---
 
-# Långkatekesen – protokollembryo och granskning (v3)
+# Långkatekesen – protokollembryo och granskning (v4)
 
 Skillen har två lägen:
 
@@ -23,6 +23,7 @@ Berätta alltid för Kent vad som görs, vad som har gjorts och vad nästa steg 
 | Ledamöternas e-post | Finns i kontoversionen av skillen (tas inte med i det publika repot) |
 | Schemalagd uppgift | Varje dag kl. 17:00 (Stockholm) söker efter nya kallelser och kör läge A |
 | Påminnelser | Pushnotis när utkasten är klara + kalenderhändelse med påminnelse 1 dag och 1 timme före. SMS går inte. |
+| Styrelselogg | Google-kalkylark "Styrelselogg Långkatekesen" i målmappen, ID `1VScOKcPm10tMwKzebFVK0TPwS0qGOd53UasxPeZkgDI`. Flikar: Händelser och Ärenden. Delas inte. |
 | Delning av embryot | Alla med länken kan redigera (samma som tidigare protokoll; Kents beslut 2026-11-24, kan skärpas senare) |
 | Målmapp | lottakent-driven: bostad / Långkatekesen / Styrelsearbete / Protokoll |
 | Målmappens ID | `1nH03Os8epnMzfNL0JtyxWscIng0zAZHF` |
@@ -82,7 +83,8 @@ Ledamotslistan och normalvärdena kan ändras (t.ex. efter årsmöte). Om kallel
     - Påminn Kent om att **ta bort LinkedIn-raden** i signaturen innan han skickar (han tar bort den i föreningsmejl; länken till kentlundgren.se får vara kvar tills vidare).
 11. **Kalenderhändelse** i Kents kalender (lundgren.kent@gmail.com): "Styrelsemöte Långkatekesen", mötets datum och tid, plats "Hos Johan" (eller enligt kallelsen). Påminnelser: popup 1 dag och 1 timme före. I beskrivningen: kallelsens fokus, länk till embryot, länk till förra protokollet, länk till sammanställningen av offerter, samt "Kom ihåg: skicka mejlutkastet till styrelsen". Kontrollera först att händelsen inte redan finns.
 12. **Pushnotis** till Kents mobil, kort: "Långkatekesen [datum]: protokollutkast och mejlutkast klara. Ta bort LinkedIn-raden och skicka mejlet."
-13. **Rapportera** till Kent: länk till embryot, länk till mejlutkastet, kalenderhändelsen, vad som ändrades, eventuella flaggor och nästa steg (granska embryot, skicka mejlet).
+13. **Logga** i styrelseloggen, fliken Händelser, en rad per händelse: kallelse mottagen, embryo skapat och delat, kalenderhändelse skapad, planerat möte. Kolumner: Datum, Händelse, Möte, Av, Länk, Kommentar. Kräver Google Sheets-connectorn; saknas den, skriv i rapporten vilka rader Kent behöver lägga in.
+14. **Rapportera** till Kent: länk till embryot, länk till mejlutkastet, kalenderhändelsen, vad som ändrades, eventuella flaggor och nästa steg (granska embryot, skicka mejlet).
 
 ## Läge B – Granska protokoll
 
@@ -95,11 +97,20 @@ Kent säger t.ex. "granska protokollet 261201". Läs dokumentet (ändra ingentin
 5. **Rubriken:** datumet stämmer med filnamnet.
 6. **Länkar:** länken under Föregående protokoll går till rätt protokoll.
 7. **Från förra mötet:** påminn om att avgöra om den repeterade texten ska vara kvar i det justerade protokollet.
+8. **Språk:** stavning, meningsbyggnad, tydlighet och konsekvent stil (t.ex. "X antal" ska bli ett riktigt antal, förkortningar och belopp skrivs likadant). Lägg ändringarna som **förslag** i dokumentet (Docs-läget SUGGEST) så att Kent godkänner eller avvisar dem; ändra aldrig texten direkt. Går förslagsläget inte, lista ändringarna i rapporten.
+9. **Logga** granskningen i styrelseloggen, och uppdatera fliken Ärenden med beslut och öppna frågor från protokollet.
 
 Rapportera resultatet som en kort lista: OK eller flagga per punkt, med förslag på åtgärd.
+
+## Loggning i övrigt
+
+- När Kent har skickat mejlet om utkastet, skickat det justerade protokollet, eller fått svar på ett utskick: lägg in en rad i Händelser (datum, länk till mejlet).
+- Fliken **Ärenden** följer frågorna, inte personerna: alternativ, beslut, öppna frågor, vem som gör vad, och länkar till underlag. Logga inte hur enskilda ledamöter uttrycker sig eller vad de tycker.
+- Loggen är ett register med länkar, inte en kopia av mejl och protokoll.
 
 ## Om något går fel
 
 - **Mappen syns inte eller kan inte skrivas till:** delningen till lundgren.kent kan ha tagits bort. Be Kent dela Protokoll-mappen som Redigerare igen.
+- **Flera mejlutkast i samma tråd:** Gmail visar bara ett utkast per tråd i trådvyn. Skapa bara ett, och ta bort gamla (med Kents ja).
 - **Docs-connectorn saknas:** be Kent koppla Google Docs (med kontot lundgren.kent@gmail.com). Skapa inte ett nytt dokument som ersättning.
 - **Ingen bilaga i mejlet:** använd mejltexten och dagordningen från förra protokollet, och flagga att kallelsen saknas.

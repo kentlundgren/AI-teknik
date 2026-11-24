@@ -3,7 +3,7 @@ name: kent-agentiska-arbetsfloden
 description: Kents playbook (metaskill) för att designa och bygga agentiska arbetsflöden tillsammans med Claude – återkommande uppgifter som Claude utför i flera steg med connectorer, skills och schemalagda uppgifter. Aktivera när Kent vill automatisera något som återkommer ("varje gång jag får…", "känna av när…", "gör det här automatiskt", "skapa en rutin", "schemalagd uppgift"), när han vill bygga en ny uppgiftsskill för ett flöde, eller när han frågar om hur man tänker kring agentiska uppgifter på metanivå. Långkatekesen-protokollen är det genomarbetade exemplet.
 ---
 
-# Agentiska arbetsflöden – Kents playbook (v3)
+# Agentiska arbetsflöden – Kents playbook (v4)
 
 Den här skillen utför inget jobb själv. Den styr **hur** Kent och Claude tar fram ett nytt arbetsflöde, och den är ett stöd för att Kent ska lära sig mönstret.
 
@@ -48,6 +48,18 @@ Skillen kompletterar:
 - Vilka connectorer behövs (läsa, skapa, redigera)? Vilket konto ska de vara kopplade som?
 - Välj den smalaste åtkomsten som räcker (least privilege).
 - Skilj på **plats** (var en fil ligger) och **ägare** (vem som skapade den) i Google Drive.
+
+#### Koppla en ny connector – steg för steg
+Så gick det till med Google Docs och Google Sheets:
+1. Claude letar i connector-registret och lägger fram ett kopplingskort i chatten.
+2. Kent klickar på **Koppla** på kortet.
+3. Kent väljer **samma Google-konto** som de andra connectorerna (lundgren.kent@gmail.com). Annat konto ger andra filer och bredare åtkomst än nödvändigt.
+4. Kent godkänner behörigheterna på Googles sida.
+5. Sidan "Slutför i skrivbordsappen" kan dyka upp. Knappen "Öppna skrivbordsapp" verkar ibland inte göra något, men kopplingen kan ändå vara klar.
+6. Kent skriver "klart". Claude kontrollerar att connectorn är kopplad och att de nya verktygen syns, och provar med en läsning innan något skrivs.
+7. Schemalagda uppgifter får tillgång till nya connectorer; kontrollera ändå i uppgiftens inställningar.
+
+Tumregel: koppla en connector först när ett konkret steg kräver den (Drive för filer, Docs för att redigera dokument, Sheets för att lägga till rader i en logg).
 
 ### Fas 4 – Skriv ner konventionerna
 - Filnamn, mappar med fasta ID:n, mallar, vilka uppgifter som återanvänds, vilka luckor som lämnas till människan.
@@ -110,13 +122,15 @@ Använd mallen nedan. Leverera som .skill-fil (Kents önskemål), med versionsnu
 | Besked och påminnelser | Pushnotis · Kalenderhändelse med påminnelser · Mejl till sig själv · Bara i chatten | Välj efter hur personen läser sina kanaler. Kent: push + kalender. SMS finns inte som kanal. |
 | Signatur i mejlutkast | Gmail-signaturen (`includeSignature`) i samma anrop · Egenbyggd signatur i HTML | Gmail-signaturen behåller bilden; en egenbyggd eller i efterhand ändrad signatur tappar externa bilder. Rader som ska bort (t.ex. LinkedIn) tar Kent bort själv. |
 | Tidpunkt för schemalagd uppgift | Jämn tid (t.ex. 17:00) · "Ojämn" tid (t.ex. 16:47) | Många uppgifter startar på hel timme, så en ojämn minut kan gå snabbare. Det är en teknisk optimering; följ Kents val och förklara skälet. |
+| Loggning | Kalkylark med flikar för händelser och ärenden · Claudes minne · Logg i ett repo · Ingen logg (sök i Gmail) | Ett register med länkar räcker. Följ frågorna, inte personerna. Publika repon passar inte för föreningens interna diskussioner. Automatisk loggning i ett Google-kalkylark kräver Google Sheets-connectorn. |
+| Språkgranskning | Förslag i dokumentet (suggestion mode) · Lista i chatten · Direkta ändringar | Förslag låter Kent godkänna varje ändring; direkta ändringar bara om han ber om det |
 | Utskick till andra | Utkast som Kent skickar själv · Claude skickar direkt · Inget utskick | Utkast är standard: Claude skickar aldrig i Kents namn utan uttryckligt ja varje gång, och en schemalagd körning har ingen som kan säga ja |
 
 ## Fallgropar (upplevda)
 
 - **Mappen var inte delad**, bara enskilda filer: connectorn såg filerna men kunde inte skapa i mappen. Lösning: dela mappen som Redigerare.
 - **Kopian hade hamnat i fel mapp** om den gjorts innan mappen var delad (Drive lägger den då i kontots rot). Kontrollera skrivrätt först.
-- **Drive-connectorn kan inte redigera innehåll** i ett Google-dokument. Det kräver Google Docs-connectorn.
+- **Drive-connectorn kan inte redigera innehåll** i ett Google-dokument. Det kräver Google Docs-connectorn. Samma sak för kalkylark: Drive kan skapa ett genom uppladdning, men att lägga till rader kräver Google Sheets-connectorn.
 - **Källor kan motsäga varandra**: kallelsens rubrik hade ett gammalt datum medan mejl och filnamn var rätt. Bestäm vilken källa som gäller och flagga avvikelsen.
 - **Ägare kontra plats**: en fil som kopieras via Kents konto ägs av Kent även om den ligger i Lottas mapp.
 - **En kopia ärver inte länkdelningen**: förra protokollet var delat med "alla med länken", men kopian var bara delad med Kent och Lotta. Ett mejl med länken hade gett mottagarna "Behörighet krävs". Kontrollera alltid delningen innan en länk skickas till andra.
@@ -125,6 +139,7 @@ Använd mallen nedan. Leverera som .skill-fil (Kents önskemål), med versionsnu
 - **Bilden i signaturen försvann** när utkastet uppdaterades i efterhand (Gmail rensar externa bilder). Skapa utkastet rätt i ett enda anrop.
 - **Länk i ren text blev en lång omdirigeringsadress.** Använd HTML med en klickbar länktext.
 - **Ändrad ämnesrad** kan göra att svaret hamnar i en egen tråd hos mottagarna.
+- **Gmail visar bara ett utkast per tråd** i trådvyn, även om flera finns; listan visar "Utkast, Utkast…". Därför ska flödet bara skapa ett.
 - **Flera utkast i samma tråd** när man provar sig fram: ta bort de gamla (med Kents ja) så att fel utkast inte skickas.
 
 ## Mall för en ny uppgiftsskill
@@ -152,4 +167,5 @@ Lägg gärna till ett granskningsläge om resultatet fylls i av en människa.
 | 7 Trigger | Schemalagd uppgift kl. 17:00 varje dag som söker efter nya kallelser |
 | 8 Besked | Pushnotis när utkasten är klara; kalenderhändelse med påminnelse 1 dag och 1 timme före |
 | 9 Lärdomar | v3: datum i ämnesraden, signaturen med bild i samma anrop, ingen egen hälsningsfras, klickbar länk, LinkedIn tas bort manuellt |
+| 9b Logg | v4: Styrelselogg (kalkylark) med flikarna Händelser och Ärenden; språkgranskning som förslag i läge B |
 | 10 Uppföljning | Justera detaljer i embryot efter de första mötena |
