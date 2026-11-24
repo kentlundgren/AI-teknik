@@ -2,12 +2,14 @@
   script.js
   Interaktivitet för Skills-sidan (index.html).
 
-  Tre saker hanteras här:
+  Två saker hanteras här:
     1. Växling mellan Del A (var skills bor), Del B (skapa en skill) och
        Del C (agentiska arbetsflöden), så att delarna hålls tydligt åtskilda.
     2. Rutan (modal) om sidans teknik och metod, som öppnas från hörnknappen
        "</> teknik" nere till höger.
-    3. Sätter aktuellt årtal i sidfoten automatiskt.
+
+  Versionsraden i sidfoten är statisk text i index.html, så att den syns även
+  om JavaScript inte körs.
 
   Koden körs efter att DOM:en laddats. Skriptet ligger sist i <body>, och
   händelser kopplas med addEventListener (inte inline onclick), enligt
@@ -94,11 +96,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  /* -------------------------------------------------------------
-     3) Sätt aktuellt årtal i sidfoten
-     ------------------------------------------------------------- */
-  const yearSpan = document.getElementById("year");
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
 });

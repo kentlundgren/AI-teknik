@@ -30,8 +30,9 @@ Live-sidan är uppdelad i tre tydligt åtskilda delar (växlare högst upp):
   blev regler och källorna i Harvardstil. Skillsen ligger i `.claude/skills/`; sidan
   beskriver och länkar dit men innehåller inga kopior.
 
-Nere i hörnen finns `{ } GitHub` (länk till mappen) och `</> teknik` (en ruta om
-sidans teknik och metod).
+Sidan har en fast sidram: brödsmulor uppe till vänster, `{ } GitHub` nere till
+vänster (länk till mappen), versionsraden i mitten av sidfoten och `</> teknik` nere
+till höger (en ruta om sidans teknik och metod).
 
 ## Filer i mappen
 
@@ -39,7 +40,7 @@ sidans teknik och metod).
 | --- | --- |
 | `index.html` | Struktur/innehåll för live-sidan (Del A, B och C, hörn-länkar och teknikruta) |
 | `styles.css` | Utseende (matchar RAG-sidornas mörka tema) |
-| `script.js` | Interaktivitet (växlare mellan Del A, B och C, teknikrutan, årtal i sidfoten) |
+| `script.js` | Interaktivitet (växlare mellan Del A, B och C, teknikrutan) |
 | `README.md` | Denna fil |
 
 ## Kort sammanfattning

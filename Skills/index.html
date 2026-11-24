@@ -19,6 +19,8 @@
     2026-07-15  Del A och Del B skapades.
     2026-11-24  Del C (agentiska arbetsflöden) lades till, och hörn-länkarna
                 { } GitHub och </> teknik ersatte den tidigare GitHub-badgen.
+                Sidramen kom på plats: brödsmulor uppe till vänster och
+                versionsraden i mitten av sidfoten (version 1.0).
 -->
 <html lang="sv">
 <head>
@@ -32,6 +34,20 @@
 </head>
 <body>
 
+  <!--
+    Brödsmulor uppe till vänster (sidram, kent-bygg-sidor Regel 6 och 17):
+    vägen tillbaka till repots startsida. Sista ledet är den aktuella sidan och
+    är därför ingen länk (aria-current="page"). Mappen har bara en sida, så
+    raden "Fler dokument i samma mapp" behövs inte; brödsmulan är skriven för
+    hand i samma struktur som brodsmulor.py ger.
+  -->
+  <nav class="brodsmulor" aria-label="Brödsmulor">
+    <ol>
+      <li><a href="../index.html">AI-teknik: start</a></li>
+      <li aria-current="page">Skills</li>
+    </ol>
+  </nav>
+
   <!-- Sidhuvud med rubrik och kort ingress -->
   <header class="site-header">
     <div class="container">
@@ -39,7 +55,7 @@
       <h1>Skills – hur de skapas, var de bor och hur de läses</h1>
       <p class="lead">
         En <strong>skill</strong> är en liten, återanvändbar instruktionsmodul som en
-        AI-agent kan plocka upp när den behövs. Den här sidan förklarar två saker,
+        AI-agent kan plocka upp när den behövs. Den här sidan förklarar tre saker,
         tydligt åtskilda: <strong>Del A</strong> – var skills bor på olika "nivåer"
         och hur de nås, <strong>Del B</strong> – vad en skill är och hur man skapar en,
         och <strong>Del C</strong> – hur skills används för agentiska arbetsflöden.
@@ -81,6 +97,10 @@
           samtidigt</strong>, och ett verktyg som Cursor läser från fler än en av dem.
           Nyckelinsikten: <strong><code>SKILL.md</code>-formatet är gemensamt</strong>,
           så samma skill kan läsas av olika verktyg (Cursor, Claude Code, Cowork).
+        </p>
+        <p class="related">
+          Relaterat: <a href="../RAG/">RAG-översikten</a> – en AI-teknik där agenten
+          hämtar fakta ur egna dokument, medan den här sidan handlar om verktyget skills.
         </p>
       </section>
 
@@ -551,18 +571,14 @@ eventuella länkar till andra filer i skill-mappen.</pre>
 
   </main>
 
-  <!-- Sidfot -->
+  <!--
+    Sidfot (sidram): bara versionsraden, centrerad. Navigering tillbaka finns i
+    brödsmulan uppe till vänster och länken till GitHub i hörnet nere till vänster.
+    Text om teknik och metod hör hemma i rutan bakom </> teknik, inte här.
+    Höj versionsnumret och datumet vid varje ändring av sidan.
+  -->
   <footer class="site-footer">
-    <div class="container">
-      <p>
-        Projekt: <strong>AI-teknik</strong> ·
-        <a href="../index.html">Tillbaka till start</a> ·
-        <a href="../RAG/">RAG-översikten</a> ·
-        <a href="https://github.com/kentlundgren/AI-teknik" target="_blank" rel="noopener">GitHub-repo</a>
-      </p>
-      <!-- Årtalet sätts dynamiskt i script.js -->
-      <p>&copy; <span id="year"></span> Kent Lundgren · Lärosida om AI-skills.</p>
-    </div>
+    <p class="versionsrad">Version 1.0 · 2026-11-24 · Kent Lundgren</p>
   </footer>
 
   <!--

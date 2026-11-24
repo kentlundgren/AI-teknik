@@ -563,3 +563,63 @@ main a {
 body {
   padding-bottom: 3.5rem;
 }
+
+/* ---- Brödsmulor uppe till vänster (sidram) ---- */
+/* Samma struktur som brodsmulor.css i kent-bygg-sidor, men i sidans mörka tema */
+.brodsmulor {
+  padding: 0.5rem 1rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.875rem;
+}
+
+.brodsmulor ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.5rem;
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+/* Avgränsaren › sätts före varje led utom det första */
+.brodsmulor li + li::before {
+  content: "\203A";
+  margin-right: 0.5rem;
+  color: var(--muted);
+}
+
+.brodsmulor a {
+  color: var(--accent);
+}
+
+.brodsmulor a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Den aktuella sidan: fetstil, ingen länk */
+.brodsmulor [aria-current="page"] {
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Relaterad länk i introkortet till Del A */
+.related {
+  margin-top: 0.75rem;
+  color: var(--muted);
+}
+
+/* ---- Versionsraden i mitten av sidfoten (sidram) ---- */
+.versionsrad {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+@media print {
+  .brodsmulor,
+  .corner {
+    display: none;
+  }
+}
