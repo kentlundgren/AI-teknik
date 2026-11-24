@@ -7,15 +7,18 @@
     * DEL A: var skills bor (på olika "nivåer"/mappar) och hur de nås/läses.
     * DEL B: vad en skill egentligen är, hur en SKILL.md är uppbyggd,
              och hur man skapar en ny.
+    * DEL C: agentiska arbetsflöden – kort sammanfattning av Kents metaskill
+             kent-agentiska-arbetsfloden (v6), med länkar till originalet.
 
   Enligt projektets regler är koden uppdelad i separata filer:
     - index.html  (struktur/innehåll)
     - styles.css  (utseende)
     - script.js   (interaktivitet)
 
-  Not: detta är en NY fil (skapad 2026-07-15) som sammanfattar det vi
-  pratade om i chatten kring var skills ligger och hur de skapas.
-  TEST
+  Historik:
+    2026-07-15  Del A och Del B skapades.
+    2026-11-24  Del C (agentiska arbetsflöden) lades till, och hörn-länkarna
+                { } GitHub och </> teknik ersatte den tidigare GitHub-badgen.
 -->
 <html lang="sv">
 <head>
@@ -23,7 +26,7 @@
   <!-- Responsiv design: sidan ska fungera på både mobil och desktop -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skills – hur de skapas, var de bor och hur de läses</title>
-  <meta name="description" content="En pedagogisk genomgång av AI-skills: var de ligger (nivåer/mappar), hur de nås, samt vad en SKILL.md är och hur man skapar en." />
+  <meta name="description" content="En pedagogisk genomgång av AI-skills: var de ligger (nivåer/mappar), hur de nås, vad en SKILL.md är och hur man skapar en, samt hur skills används för agentiska arbetsflöden." />
   <!-- Extern länkning till CSS enligt projektets regler -->
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -38,7 +41,8 @@
         En <strong>skill</strong> är en liten, återanvändbar instruktionsmodul som en
         AI-agent kan plocka upp när den behövs. Den här sidan förklarar två saker,
         tydligt åtskilda: <strong>Del A</strong> – var skills bor på olika "nivåer"
-        och hur de nås, och <strong>Del B</strong> – vad en skill är och hur man skapar en.
+        och hur de nås, <strong>Del B</strong> – vad en skill är och hur man skapar en,
+        och <strong>Del C</strong> – hur skills används för agentiska arbetsflöden.
       </p>
     </div>
   </header>
@@ -46,7 +50,7 @@
   <main class="container">
 
     <!--
-      Växlare mellan Del A och Del B.
+      Växlare mellan Del A, Del B och Del C.
       Interaktiviteten (visa/dölj) hanteras i script.js.
       Syftet är att hålla de två delarna tydligt åtskilda, enligt önskemål.
     -->
@@ -58,6 +62,10 @@
       <button class="toggle-btn" id="btn-b"
               role="tab" aria-selected="false" aria-controls="part-b">
         Del B · Skapa en skill
+      </button>
+      <button class="toggle-btn" id="btn-c"
+              role="tab" aria-selected="false" aria-controls="part-c">
+        Del C · Agentiska arbetsflöden
       </button>
     </div>
 
@@ -239,6 +247,308 @@ eventuella länkar till andra filer i skill-mappen.</pre>
 
     </section>
 
+    <!-- =====================================================================
+         DEL C – AGENTISKA ARBETSFLÖDEN
+         Pedagogisk beskrivning av Kents metaskill kent-agentiska-arbetsfloden
+         och det genomarbetade exemplet langkatekesen-protokoll.
+         Skillsen själva ligger på en enda plats i repot, .claude/skills/,
+         och sidan länkar dit i stället för att kopiera dem.
+         ===================================================================== -->
+    <section id="part-c" class="part is-hidden" role="tabpanel" aria-labelledby="btn-c">
+
+      <!-- Intro till Del C, med en liten innehållsförteckning -->
+      <section aria-labelledby="c-intro-rubrik" class="card highlight">
+        <h2 id="c-intro-rubrik">Del C · Agentiska arbetsflöden</h2>
+        <p>
+          Ett <strong>agentiskt arbetsflöde</strong> är en uppgift som en AI-agent utför i
+          flera steg med verktyg, ofta återkommande: läsa ett mejl, kopiera ett dokument,
+          skriva ett utkast, lägga in en kalenderhändelse. Den här delen beskriver hur Kent
+          bygger sådana flöden med två skills: en <strong>metaskill</strong> som säger hur
+          ett nytt flöde tas fram och görs säkert, och en <strong>uppgiftsskill</strong>
+          som är ett verkligt flöde i drift – styrelseprotokollen i en samfällighetsförening.
+        </p>
+        <nav class="mini-nav" aria-label="Innehåll i Del C">
+          <a href="#c-tva-rubrik">Två skills</a>
+          <a href="#c-typ-rubrik">Arbetsflöde eller agent</a>
+          <a href="#c-faser-rubrik">Tio faser</a>
+          <a href="#c-risk-rubrik">Risk</a>
+          <a href="#c-utfall-rubrik">Tre utfall</a>
+          <a href="#c-exempel-rubrik">Exemplet steg för steg</a>
+          <a href="#c-versioner-rubrik">Versioner</a>
+          <a href="#c-lardomar-rubrik">Lärdomar</a>
+          <a href="#c-kallor-rubrik">Källor</a>
+        </nav>
+      </section>
+
+      <!-- C1. Hur de två skillsen och den schemalagda uppgiften hör ihop -->
+      <section aria-labelledby="c-tva-rubrik">
+        <h2 id="c-tva-rubrik">Två skills och ett schema</h2>
+        <div class="file-grid">
+          <article class="card file-card">
+            <h3><a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/SKILL.md" target="_blank" rel="noopener"><code>kent-agentiska-arbetsfloden</code></a></h3>
+            <p class="tag">Metaskill · v6.1</p>
+            <p>
+              Gör inget jobb själv. Den styr <em>hur</em> ett nytt flöde byggs: steg för
+              steg, med alternativen vid varje val, typlära, tio faser, riskklassning,
+              valpunkter, upplevda fallgropar och lärdomar från andra.
+            </p>
+          </article>
+          <article class="card file-card">
+            <h3><a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/langkatekesen-protokoll/SKILL.md" target="_blank" rel="noopener"><code>langkatekesen-protokoll</code></a></h3>
+            <p class="tag">Uppgiftsskill · v6</p>
+            <p>
+              Gör jobbet: skapar ett protokollutkast när kallelsen kommer (läge A) och
+              granskar protokollet före justering (läge B). Byggd med metaskillen.
+            </p>
+          </article>
+          <article class="card file-card">
+            <h3>Schemalagd uppgift</h3>
+            <p class="tag">Trigger · kl. 17:00</p>
+            <p>
+              Körs varje dag och letar efter en ny kallelse. Varje körning börjar utan minne,
+              så instruktionen är fristående och läser uppgiftsskillen.
+            </p>
+          </article>
+        </div>
+        <p class="formula">Schemat bestämmer <em>när</em>, uppgiftsskillen <em>hur jobbet görs</em>, metaskillen <em>hur ett nytt flöde byggs</em>.</p>
+      </section>
+
+      <!-- C2. Typlära -->
+      <section aria-labelledby="c-typ-rubrik">
+        <h2 id="c-typ-rubrik">Arbetsflöde eller agent?</h2>
+        <p>
+          Båda kallas <strong>agentiska system</strong>. Skillnaden är vem som bestämmer
+          stegen.
+        </p>
+        <!-- Tabellerna ligger i en rullbar behållare så att de fungerar på mobil -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th></th><th>Arbetsflöde</th><th>Agent</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Vem styr stegen</th><td>Bestämda i förväg, i skillen</td><td>Modellen väljer själv steg och verktyg</td></tr>
+              <tr><th scope="row">Passar när</th><td>Uppgiften går att dela upp i kända steg</td><td>Antalet steg går inte att förutse</td></tr>
+              <tr><th scope="row">Fördel</th><td>Förutsägbart, lätt att kontrollera och felsöka</td><td>Flexibelt, klarar oväntade fall</td></tr>
+              <tr><th scope="row">Nackdel</th><td>Klarar dåligt det som inte är beskrivet</td><td>Dyrare, fel kan förstärka varandra, svårare att granska</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="formula">Börja med det enklaste som fungerar – ofta räcker ett arbetsflöde.</p>
+
+        <h3 class="sub">Fem vanliga typer av arbetsflöden</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Typ</th><th>Så fungerar det</th><th>Exempel</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Kedja med kontrollpunkter</strong></td><td>Fasta steg i ordning, med kontroller som kan stoppa flödet</td><td>Kallelse → kopia → utkast → verifiering → mejlutkast</td></tr>
+              <tr><td><strong>Routing</strong></td><td>Indata klassas och skickas till rätt delflöde</td><td>Sortera mejl i brådskande, åtgärd, för kännedom</td></tr>
+              <tr><td><strong>Parallellisering</strong></td><td>Delar körs samtidigt och vägs ihop</td><td>Söka tariffer hos flera nätägare samtidigt</td></tr>
+              <tr><td><strong>Orkestrerare och arbetare</strong></td><td>En styrande del delar upp deluppgifter som inte är kända i förväg</td><td>Research över ett okänt antal källor</td></tr>
+              <tr><td><strong>Utvärderare och förbättrare</strong></td><td>En del skriver, en annan bedömer, i en loop</td><td>Text som skrivs om tills den klarar en stilguide</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          <strong>Långkatekesen</strong> är en <em>kedja med kontrollpunkter</em> som startas
+          av en schemalagd uppgift som tittar efter kallelser (polling). Valet mellan läge A
+          och läge B gör Kent själv, och granskningen i läge B är en grind där Kent
+          bestämmer – inte en loop där agenten förbättrar på egen hand. Inom vissa steg
+          agerar agenten friare, till exempel när det senaste protokollet ska hittas. Flödet
+          som helhet är ändå ett arbetsflöde, inte en agent.
+        </p>
+      </section>
+
+      <!-- C3. De tio faserna -->
+      <section aria-labelledby="c-faser-rubrik" class="card">
+        <h2 id="c-faser-rubrik">Tio faser – från idé till rutin</h2>
+        <p>
+          Metaskillen arbetar i <strong>coachläge</strong>: vid varje steg sägs vad som görs,
+          vad som har gjorts och vad som är nästa steg, och vid varje val beskrivs
+          alternativen och varför ett av dem väljs.
+        </p>
+        <ol class="phases">
+          <li><strong>Mål och startpunkt.</strong> Vad ska komma ut, var ska det ligga, vad startar flödet? Visa ett riktigt exempel.</li>
+          <li><strong>Kör manuellt en gång.</strong> Gör uppgiften tillsammans på ett riktigt fall. Det är här konventioner och fallgropar upptäcks.</li>
+          <li><strong>Behörigheter.</strong> Vilka connectorer behövs, med vilket konto? Den smalaste åtkomsten som räcker.</li>
+          <li><strong>Konventioner.</strong> Filnamn, mappar, mallar och vad som lämnas till människan. Utgå från det vanligaste fallet.</li>
+          <li><strong>Kontroller.</strong> Finns resultatet redan? Stämmer källorna? Läs tillbaka efter varje ändring.</li>
+          <li class="nytt"><strong>5b Riskklassa åtgärderna.</strong> Låg, mellan eller hög – och för varje åtgärd: hur den ångras och vad som händer om ingen agerar.</li>
+          <li value="6"><strong>Skriv uppgiftsskillen.</strong> Efter en mall i nio delar, med skälen bakom reglerna.</li>
+          <li><strong>Lägg på triggern.</strong> Först när skillen har körts manuellt. Håll isär tre utfall och provkör efter varje ändring.</li>
+          <li><strong>Besked och påminnelser.</strong> Efter hur personen faktiskt läser sina kanaler – för Kent pushnotis och kalender.</li>
+          <li><strong>Lärdomar.</strong> Titta på första riktiga körningen tillsammans och skriv in varje justering.</li>
+          <li><strong>Följ upp.</strong> Vad behövde rättas efter några körningar? Strama upp eller lätta på kontrollen.</li>
+        </ol>
+      </section>
+
+      <!-- C4. Riskklassning -->
+      <section aria-labelledby="c-risk-rubrik">
+        <h2 id="c-risk-rubrik">Riskklassa åtgärderna</h2>
+        <p>
+          Risken sitter i <strong>åtgärden</strong>, inte i modellen. Varje åtgärd får en
+          nivå, och nivån avgör hur mycket människan behöver vara med. Lika granskning av
+          allt blir antingen en flaskhals för rutinsteg eller ett för svagt skydd för de
+          farliga.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Nivå</th><th>Kännetecken</th><th>Mänsklig granskning</th><th>Exempel</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="risk risk-lag">Låg</span></td><td>Intern, går lätt att ångra</td><td>Agenten gör det själv</td><td>Skapa kopia, utkast, kalenderhändelse</td></tr>
+              <tr><td><span class="risk risk-mellan">Mellan</span></td><td>Syns för andra men går att ångra</td><td>Agenten gör och meddelar (<em>human-on-the-loop</em>)</td><td>Länkdela ett dokument</td></tr>
+              <tr><td><span class="risk risk-hog">Hög</span></td><td>Går inte att ångra eller går ut till andra</td><td>Bara efter människans ja (<em>human-in-the-loop</em>)</td><td>Skicka mejl, radera</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul>
+          <li><strong>Ångra:</strong> varje åtgärd ska kunna tas tillbaka, och rapporten ger länkarna som behövs.</li>
+          <li><strong>Om ingen agerar:</strong> en tidsgräns och en reservplan. Det säkra valet är att inget går ut till andra av sig självt; flödet får däremot påminna igen.</li>
+          <li><strong>Kontrollpunkt:</strong> granskningen läggs precis före det steg som inte går att ångra.</li>
+          <li><strong>Nödstopp:</strong> för en schemalagd uppgift är det att stänga av den – och någon gång prova att det fungerar.</li>
+          <li><strong>Gradvis mer självständighet:</strong> börja försiktigt och lätta på kontrollen när flödet har visat att det fungerar.</li>
+        </ul>
+      </section>
+
+      <!-- C5. Tre utfall -->
+      <section aria-labelledby="c-utfall-rubrik">
+        <h2 id="c-utfall-rubrik">Tre utfall för en schemalagd uppgift</h2>
+        <div class="file-grid">
+          <article class="card file-card">
+            <h3>Inget att göra</h3>
+            <p class="tag">Tyst</p>
+            <p>Ingen ny kallelse, eller utkastet finns redan. En enda rad, ingen störning.</p>
+          </article>
+          <article class="card file-card">
+            <h3>Klart</h3>
+            <p class="tag">Kort besked</p>
+            <p>Utkast, mejlutkast, kalender och logg är klara. Kort pushnotis med länkar.</p>
+          </article>
+          <article class="card file-card">
+            <h3>Något gick fel</h3>
+            <p class="tag">Alltid besked</p>
+            <p>Börjar med "FEL:", säger vilket steg, vad som hann göras (med länkar för att ångra) och vad Kent behöver göra.</p>
+          </article>
+        </div>
+        <p class="formula">Tyst när inget händer – alltid besked när något går fel.</p>
+        <p>
+          Utan den uppdelningen kan ett fel se ut som "ingen kallelse", och då märks det inte
+          att flödet har slutat fungera. Därför rättades Långkatekesens schemalagda uppgift i v6.
+        </p>
+      </section>
+
+      <!-- C6. Exemplet steg för steg, med risknivå per steg -->
+      <section aria-labelledby="c-exempel-rubrik" class="card">
+        <h2 id="c-exempel-rubrik">Exemplet: Långkatekesen steg för steg</h2>
+        <p>
+          Ordföranden i samfällighetsföreningen skickar en kallelse med dagordningen som
+          bilaga. Kent för protokoll. Så här går flödet från kallelse till justerat protokoll.
+          Etiketten visar risknivån för varje steg.
+        </p>
+        <ol class="flow">
+          <li><span class="risk risk-trigger">Trigger</span> <strong>Kl. 17:00 varje dag</strong> startar den schemalagda uppgiften och söker efter en ny kallelse i Gmail.</li>
+          <li><span class="risk risk-kontroll">Kontroll</span> <strong>Mötesdatum bestäms</strong> från mejlet och bilagans filnamn. Kallelsens rubrik kan ha ett gammalt datum; avvikelser flaggas.</li>
+          <li><span class="risk risk-kontroll">Kontroll</span> <strong>Finns utkastet redan?</strong> Då skapas inget nytt (idempotens). Dagen före mötet kontrolleras om mejlutkastet fortfarande är oskickat – då kommer en påminnelse (reservplan).</li>
+          <li><span class="risk risk-lag">Låg</span> <strong>Förra protokollet kopieras</strong> till ett nytt utkast i föreningens Drive-mapp, så att format och typsnitt följer med.</li>
+          <li><span class="risk risk-lag">Låg</span> <strong>Utkastet fylls i:</strong> datum, alla ledamöter som närvarande, dagordningen som rubriker, förra mötets text i kursiv under pågående frågor, luckor för belopp och nästa möte. Dokumentet läses tillbaka och kontrolleras.</li>
+          <li><span class="risk risk-mellan">Mellan</span> <strong>Utkastet länkdelas</strong> så att styrelsen kan öppna det. En kopia ärver inte originalets delning, så det görs uttryckligen och kontrolleras.</li>
+          <li><span class="risk risk-lag">Låg</span> <strong>Ett mejlutkast</strong> skapas som svar i ordförandens tråd, med länk till utkastet och Kents signatur. Det skickas inte.</li>
+          <li><span class="risk risk-lag">Låg</span> <strong>En kalenderhändelse</strong> läggs in med påminnelse en dag och en timme före, och med "skicka mejlutkastet" i beskrivningen.</li>
+          <li><span class="risk risk-lag">Låg</span> <strong>Styrelseloggen</strong> (ett kalkylark) får rader för kallelse, utkast, kalender och planerat möte.</li>
+          <li><span class="risk risk-trigger">Besked</span> <strong>Pushnotis till Kent:</strong> klart med länkar – eller FEL med vad som behöver göras.</li>
+          <li><span class="risk risk-hog">Hög · Kent</span> <strong>Kent läser och skickar mejlet</strong> till styrelsen. Det är det enda steget som inte går att ångra, och det görs aldrig av flödet.</li>
+          <li><span class="risk risk-kontroll">Läge B</span> <strong>Efter mötet</strong> säger Kent "granska protokollet". Agenten kontrollerar belopp (normalt intervall), närvaro, luckor och nästa möte, och lägger språkrättelser som <em>förslag</em> i dokumentet som Kent godkänner eller avvisar.</li>
+        </ol>
+        <p class="note">
+          Connectorer som flödet använder: Gmail, Google Drive, Google Docs, Google Sheets och
+          Google Kalender, alla kopplade med samma konto. Gränser: flödet skapar och ändrar
+          bara i föreningens protokollmapp och i loggen, ändrar aldrig tidigare protokoll,
+          raderar aldrig och skickar aldrig mejl.
+        </p>
+      </section>
+
+      <!-- C7. Hur exemplet växte -->
+      <section aria-labelledby="c-versioner-rubrik">
+        <h2 id="c-versioner-rubrik">Hur exemplet växte – version för version</h2>
+        <p>
+          Skillen skrevs först efter en manuell körning, och har sedan justerats efter varje
+          riktig körning (fas 9 och 10). Versionsnumret står i rubriken i varje SKILL.md, och
+          Git-historiken visar ändringarna.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Version</th><th>Vad som tillkom</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>v1</strong></td><td>Två lägen: skapa protokollutkast när kallelsen kommer, och granska före justering.</td></tr>
+              <tr><td><strong>v2</strong></td><td>Länkdelning av utkastet och ett mejlutkast som svar i ordförandens tråd.</td></tr>
+              <tr><td><strong>v3</strong></td><td>Datum i ämnesraden, signaturen med bild i samma anrop, ingen dubbel hälsningsfras, klickbar länk.</td></tr>
+              <tr><td><strong>v4</strong></td><td>Styrelselogg i ett kalkylark med flikarna Händelser och Ärenden; språkgranskning som förslag.</td></tr>
+              <tr><td><strong>v5</strong></td><td>Tabell över vilka connectorer som används till vad och i vilka steg.</td></tr>
+              <tr><td><strong>v6</strong></td><td>Risk, ångra och reservplan per åtgärd; påminnelse dagen före mötet; tre utfall i den schemalagda uppgiften.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- C8. Lärdomar som blev regler -->
+      <section aria-labelledby="c-lardomar-rubrik" class="card">
+        <h2 id="c-lardomar-rubrik">Lärdomar som blev regler</h2>
+        <p>Några av de upplevda fallgroparna som nu står i metaskillen:</p>
+        <ul>
+          <li><strong>En kopia ärver inte länkdelningen.</strong> Ett mejl med länken hade gett mottagarna "Behörighet krävs". Kontrollera delningen innan en länk skickas till andra.</li>
+          <li><strong>Bilden i signaturen försvann</strong> när mejlutkastet ändrades i efterhand. Skapa utkastet rätt i ett enda anrop.</li>
+          <li><strong>En schemalagd uppgift får bara de connectorer som fanns när den skapades.</strong> Koppla alla connectorer innan uppgiften skapas.</li>
+          <li><strong>Drive-connectorn kan inte redigera ett dokuments innehåll.</strong> Det kräver Google Docs-connectorn.</li>
+          <li><strong>"Avsluta tyst" utan felväg</strong> gjorde att ett fel kunde se ut som "ingen kallelse". Rättat med tre utfall.</li>
+          <li><strong>Två kopior i repot</strong> kan glida isär. Skillsen ligger nu bara i <code>.claude/skills/</code>, och den här sidan länkar dit.</li>
+        </ul>
+      </section>
+
+      <!-- C9. Var skillsen finns -->
+      <section aria-labelledby="c-plats-rubrik">
+        <h2 id="c-plats-rubrik">Var skillsen finns</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Plats</th><th>Roll</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Claude-kontot</td><td>Versionen som körs i Claude, sparad från en .skill-fil. Uppgiftsskillen har här ledamöternas mejladresser.</td></tr>
+              <tr><td><a href="https://github.com/kentlundgren/AI-teknik/tree/main/.claude/skills" target="_blank" rel="noopener"><code>.claude/skills/</code></a> i repot</td><td>Den enda kopian i repot, läses av Claude Code och Cursor. Varje skillmapp har en README. Mejladresserna är borttagna.</td></tr>
+              <tr><td>Den schemalagda uppgiften</td><td>En fristående instruktion som körs kl. 17:00 och läser uppgiftsskillen.</td></tr>
+              <tr><td>Den här sidan</td><td>Beskriver skillsen och länkar till dem. Innehåller inga kopior.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- C10. Källor -->
+      <section aria-labelledby="c-kallor-rubrik" class="card">
+        <h2 id="c-kallor-rubrik">Källor</h2>
+        <p class="note">
+          Typläran, riskklassningen och nivåerna av mänsklig granskning bygger på källorna
+          nedan, jämförda med Kents egna principer. Uppgifterna kommer från de angivna
+          källorna, är inte kvalitetssäkrade och bör kontrolleras mot källan innan de
+          återanvänds. Hela jämförelsen finns i metaskillens avsnitt Lärt av andra.
+        </p>
+        <ul class="sources">
+          <li>Amazon Web Services (u.å.) <em>AGENTREL02-BP05 Establish tiered human oversight and approval workflows</em>. Agentic AI Lens. Tillgänglig på: <a href="https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentrel02-bp05.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentrel02-bp05.html</a> (Hämtad: 24 november 2026). <em>(Bästa praxis för granskning i nivåer – självständigt, meddela, godkänna – med tidsgränser och säkra standardval; underlag för riskklassningen.)</em></li>
+          <li>Anthropic (u.å.) <em>anthropics/skills</em> [GitHub-repo]. Tillgänglig på: <a href="https://github.com/anthropics/skills" target="_blank" rel="noopener">https://github.com/anthropics/skills</a> (Hämtad: 24 november 2026). <em>(Anthropics exempelskills, bland annat skill-creator och template; underlag för hur en skill skrivs, hålls kort och testas.)</em></li>
+          <li>Arize AI (2026) <em>What is human-on-the-loop?</em> Tillgänglig på: <a href="https://arize.com/glossary/human-on-the-loop/" target="_blank" rel="noopener">https://arize.com/glossary/human-on-the-loop/</a> (Hämtad: 24 november 2026). <em>(Ordlisteartikel om skillnaden mellan blockerande in-the-loop och icke-blockerande on-the-loop, och om nödstopp.)</em></li>
+          <li>OpenAI (u.å.) <em>A practical guide to building agents</em> [PDF]. Tillgänglig på: <a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf" target="_blank" rel="noopener">https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf</a> (Hämtad: 24 november 2026). <em>(Guide om när en agent behövs, riskklassning av verktyg och när människan ska kopplas in.)</em></li>
+          <li>Praveen VR (2026) 'Designing Human-in-the-Loop Approval Gates for Enterprise AI Agents', <em>DZone</em>, 18 september. Tillgänglig på: <a href="https://dzone.com/articles/human-in-the-loop-approval-enterprise-ai-agents" target="_blank" rel="noopener">https://dzone.com/articles/human-in-the-loop-approval-enterprise-ai-agents</a> (Hämtad: 24 november 2026). <em>(Artikel om godkännandegrindar, risknivåer per åtgärd och hur åtgärder görs möjliga att ångra.)</em></li>
+          <li>Schluntz, E. och Zhang, B. (2024) <em>Building effective agents</em>. Anthropic, 19 december. Tillgänglig på: <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">https://www.anthropic.com/engineering/building-effective-agents</a> (Hämtad: 24 november 2026). <em>(Grundtexten om skillnaden mellan arbetsflöde och agent och de fem typerna av arbetsflöden.)</em></li>
+        </ul>
+      </section>
+
+    </section>
+
   </main>
 
   <!-- Sidfot -->
@@ -256,13 +566,67 @@ eventuella länkar till andra filer i skill-mappen.</pre>
   </footer>
 
   <!--
-    GitHub-länk nere till vänster (projektregel: alla live-sidor ska ha denna).
-    Pekar på Skills-mappens källkod på GitHub.
+    Hörn-länkar enligt projektregeln (.cursor/rules/horn-lankar-github-teknik.mdc):
+      * Nedre vänster: { } GitHub – länk till mappens filer på GitHub.
+      * Nedre höger:   </> teknik – knapp som öppnar en ruta (modal) om sidans
+                       teknik och metod. Öppna/stäng hanteras i script.js.
   -->
-  <a class="github-badge" href="https://github.com/kentlundgren/AI-teknik/tree/main/Skills"
-     target="_blank" rel="noopener" aria-label="Visa källkoden på GitHub">
-    &lt;/&gt; GitHub
-  </a>
+  <a class="corner corner-left" href="https://github.com/kentlundgren/AI-teknik/tree/main/Skills"
+     target="_blank" rel="noopener" aria-label="Visa källkoden på GitHub">{ } GitHub</a>
+  <button type="button" class="corner corner-right" id="techBtn" aria-label="Teknik och metod">&lt;/&gt; teknik</button>
+
+  <!-- Rutan (modal) om teknik och metod. Visas när klassen "show" sätts av script.js. -->
+  <div class="modal-overlay" id="techModal" role="dialog" aria-modal="true" aria-labelledby="techTitle">
+    <div class="modal">
+      <button type="button" class="modal-close" id="techClose" aria-label="Stäng">&times;</button>
+      <h2 id="techTitle">Hur den här sidan är byggd</h2>
+      <p>Två delar: tekniken i sidan och metoden bakom innehållet.</p>
+
+      <h3 class="tech-section-title">Tekniken</h3>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>Tre filer, inga ramverk</h3>
+          <p>Ren HTML, CSS och JavaScript i <code>index.html</code>, <code>styles.css</code> och <code>script.js</code>. Inga bibliotek och inget byggsteg.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Flikar med klass och aria</h3>
+          <p>Del A, B och C växlas genom att klassen <code>is-hidden</code> sätts och tas bort. <code>aria-selected</code> uppdateras så att skärmläsare vet vilken flik som är vald.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Rullbara tabeller</h3>
+          <p>Tabellerna i Del C ligger i en behållare med vågrät rullning, så att de går att läsa på mobil.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Numrerat flöde med CSS-räknare</h3>
+          <p>Stegen i exemplet numreras med en CSS-räknare (<code>counter-increment</code>), och risketiketterna har samma färg i tabellen och i flödet.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Ingen data skickas</h3>
+          <p>Sidan pratar inte med någon server. Den publiceras som statiska filer via GitHub Pages.</p>
+        </div>
+      </div>
+
+      <h3 class="tech-section-title">Metoden</h3>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>Del A och B</h3>
+          <p>Skapade 2026-07-15 som en sammanfattning av var skills ligger på disken och hur en <code>SKILL.md</code> är uppbyggd.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Del C sammanfattar en skill</h3>
+          <p>Del C (2026-11-24) beskriver metaskillen och exemplet pedagogiskt. Skillsen ligger på en enda plats i repot, <code>.claude/skills/</code>; sidan länkar dit i stället för att kopiera dem, så att de inte glider isär.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Källor lästa och länkar kontrollerade</h3>
+          <p>Källorna lästes och länkarna kontrollerades 2026-11-24. Principerna jämfördes med Kents egna; inga andras skills kopierades.</p>
+        </div>
+        <div class="tech-card">
+          <h3>Alternativ före kodning</h3>
+          <p>Ändringen lades fram med alternativ (ny flik eller egen undersida, sammanfattning eller hela skillen, granskning före publicering). Kent valde, och sidan förhandsvisades innan den publicerades.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Extern länkning till JavaScript enligt projektets regler -->
   <script src="script.js"></script>

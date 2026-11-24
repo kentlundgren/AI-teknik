@@ -141,7 +141,7 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
-/* ---- Växlare (Del A / Del B) ---- */
+/* ---- Växlare (Del A / Del B / Del C) ---- */
 .toggle {
   display: inline-flex;
   gap: 0.25rem;
@@ -239,32 +239,175 @@ code {
   color: var(--accent);
 }
 
-/* ---- GitHub-badge (fast nere till vänster på alla live-sidor) ---- */
-.github-badge {
+/* ---- Tabeller i Del C ---- */
+/* Behållaren rullar vågrätt så att breda tabeller fungerar på mobil */
+.table-wrap {
+  overflow-x: auto;
+  margin: 1rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+}
+
+thead th {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+/* Radrubriker (första kolumnen i jämförelsetabellen) */
+tbody th {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+tbody tr:last-child th,
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ---- Länkar i innehållet ---- */
+main a {
+  color: var(--accent);
+}
+
+/* ---- Not och källförteckning ---- */
+.note {
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.sources li {
+  margin-bottom: 0.6rem;
+  word-break: break-word;   /* långa URL:er radbryts i stället för att spräcka layouten */
+}
+
+/* ---- Hörn-länkar (projektregel: { } GitHub nere till vänster, </> teknik nere till höger) ---- */
+.corner {
   position: fixed;
-  left: 1rem;
   bottom: 1rem;
   z-index: 50;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
   font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
   font-size: 0.8rem;
   font-weight: 600;
   text-decoration: none;
-  color: var(--text);
+  color: var(--muted);
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 999px;
   padding: 0.4rem 0.85rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-  transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
 }
 
-.github-badge:hover {
+.corner:hover,
+.corner:focus-visible {
+  opacity: 1;
   color: var(--accent);
   border-color: var(--accent);
-  transform: translateY(-1px);
+}
+
+.corner-left {
+  left: 1rem;
+}
+
+.corner-right {
+  right: 1rem;
+}
+
+/* ---- Rutan (modal) om teknik och metod ---- */
+/* Dold tills script.js sätter klassen "show" */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(2, 6, 23, 0.7);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-overlay.show {
+  display: flex;
+}
+
+.modal {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  max-width: 680px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 2rem;
+}
+
+.modal h2 {
+  border-bottom: none;
+  margin-bottom: 0.4rem;
+}
+
+.modal > p {
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: var(--accent);
+}
+
+.tech-section-title {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 1.4rem 0 0.7rem;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.tech-card h3 {
+  font-size: 0.95rem;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+
+.tech-card p {
+  font-size: 0.88rem;
+  color: var(--text);
 }
 
 /* ---- Responsivt: mindre padding på små skärmar ---- */
@@ -275,4 +418,148 @@ code {
   .card {
     padding: 1.15rem;
   }
+  /* Rutan om teknik: en kolumn och mindre luft på smala skärmar */
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+  .modal {
+    padding: 1.4rem;
+  }
+  /* Växlaren får radbryta när tre knappar inte får plats */
+  .toggle {
+    flex-wrap: wrap;
+    border-radius: var(--radius);
+  }
+}
+
+/* ---- Del C: innehållsförteckning, faser, flöde och risketiketter ---- */
+
+/* Liten innehållsförteckning i introkortet till Del C */
+.mini-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.mini-nav a {
+  font-size: 0.82rem;
+  text-decoration: none;
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+}
+
+.mini-nav a:hover {
+  border-color: var(--accent);
+}
+
+/* Underrubrik inne i en sektion (t.ex. "Fem vanliga typer") */
+.sub {
+  font-size: 1.1rem;
+  margin: 1.75rem 0 0.25rem;
+}
+
+/* Hoppa till en rubrik utan att den hamnar under kanten */
+#part-c h2 {
+  scroll-margin-top: 1rem;
+}
+
+/* De tio faserna: numrerad lista, fas 5b markeras som ny */
+.phases {
+  margin: 0.75rem 0 0 1.4rem;
+}
+
+.phases li {
+  margin-bottom: 0.55rem;
+}
+
+.phases li.nytt {
+  list-style: none;
+  margin-left: -1.4rem;
+  padding: 0.5rem 0.75rem;
+  border-left: 3px solid var(--accent);
+  background: rgba(56, 189, 248, 0.08);
+  border-radius: 6px;
+}
+
+/* Flödet i exemplet: varje steg är en rad med etikett först */
+.flow {
+  list-style: none;
+  margin-top: 1rem;
+  counter-reset: steg;
+}
+
+.flow li {
+  counter-increment: steg;
+  position: relative;
+  padding: 0.65rem 0 0.65rem 2.4rem;
+  border-bottom: 1px dashed var(--border);
+}
+
+.flow li:last-child {
+  border-bottom: none;
+}
+
+/* Stegnummer i en cirkel till vänster */
+.flow li::before {
+  content: counter(steg);
+  position: absolute;
+  left: 0;
+  top: 0.7rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Risketiketter: samma färg betyder samma nivå i tabellen och i flödet */
+.risk {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+  margin-right: 0.35rem;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.risk-lag {
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+  border-color: rgba(74, 222, 128, 0.35);
+}
+
+.risk-mellan {
+  color: #facc15;
+  background: rgba(250, 204, 21, 0.1);
+  border-color: rgba(250, 204, 21, 0.35);
+}
+
+.risk-hog {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.1);
+  border-color: rgba(248, 113, 113, 0.35);
+}
+
+.risk-trigger,
+.risk-kontroll {
+  color: var(--accent);
+  background: rgba(56, 189, 248, 0.1);
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+/* Luft längst ned så att de fasta hörnknapparna inte täcker sidfoten */
+body {
+  padding-bottom: 3.5rem;
 }

@@ -18,7 +18,7 @@ Projektet är under uppbyggnad och kommer att växa över tid med fler tekniker,
   - Frans G. Bengtsson-exemplet: https://kentlundgren.github.io/AI-teknik/RAG/Frans-G-Bengtsson/
 
 - **[Skills – hur AI-skills fungerar](./Skills/)**
-  En pedagogisk lärosida om själva skill-systemet.
+  En pedagogisk lärosida om själva skill-systemet, och (Del C) om agentiska arbetsflöden.
   **Live-sida (GitHub Pages):**
   - Skills-översikt: https://kentlundgren.github.io/AI-teknik/Skills/
 
