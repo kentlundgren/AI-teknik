@@ -3,7 +3,7 @@ name: kent-agentiska-arbetsfloden
 description: Kents playbook (metaskill) för att designa och bygga agentiska arbetsflöden tillsammans med Claude – återkommande uppgifter som Claude utför i flera steg med connectorer, skills och schemalagda uppgifter. Aktivera när Kent vill automatisera något som återkommer ("varje gång jag får…", "känna av när…", "gör det här automatiskt", "skapa en rutin", "schemalagd uppgift"), när han vill bygga en ny uppgiftsskill för ett flöde, eller när han frågar om hur man tänker kring agentiska uppgifter på metanivå. Långkatekesen-protokollen är det genomarbetade exemplet.
 ---
 
-# Agentiska arbetsflöden – Kents playbook (v4)
+# Agentiska arbetsflöden – Kents playbook (v5)
 
 Den här skillen utför inget jobb själv. Den styr **hur** Kent och Claude tar fram ett nytt arbetsflöde, och den är ett stöd för att Kent ska lära sig mönstret.
 
@@ -57,7 +57,7 @@ Så gick det till med Google Docs och Google Sheets:
 4. Kent godkänner behörigheterna på Googles sida.
 5. Sidan "Slutför i skrivbordsappen" kan dyka upp. Knappen "Öppna skrivbordsapp" verkar ibland inte göra något, men kopplingen kan ändå vara klar.
 6. Kent skriver "klart". Claude kontrollerar att connectorn är kopplad och att de nya verktygen syns, och provar med en läsning innan något skrivs.
-7. Schemalagda uppgifter får tillgång till nya connectorer; kontrollera ändå i uppgiftens inställningar.
+7. **En schemalagd uppgift får de connectorer som fanns när den skapades.** Kopplas en ny connector senare kan uppgiften inte använda den; skapa då en ny uppgift och ta bort den gamla (Kents ja). Koppla därför alla connectorer innan uppgiften skapas.
 
 Tumregel: koppla en connector först när ett konkret steg kräver den (Drive för filer, Docs för att redigera dokument, Sheets för att lägga till rader i en logg).
 
@@ -139,6 +139,8 @@ Använd mallen nedan. Leverera som .skill-fil (Kents önskemål), med versionsnu
 - **Bilden i signaturen försvann** när utkastet uppdaterades i efterhand (Gmail rensar externa bilder). Skapa utkastet rätt i ett enda anrop.
 - **Länk i ren text blev en lång omdirigeringsadress.** Använd HTML med en klickbar länktext.
 - **Ändrad ämnesrad** kan göra att svaret hamnar i en egen tråd hos mottagarna.
+- **Den schemalagda uppgiften saknade Google Sheets**, eftersom Sheets kopplades efter att uppgiften skapats. Uppgiften fick skapas om.
+- **Lista connectorerna i uppgiftsskillen** (tabell: connector, vad den används till, vilka steg), så att det syns vilka kopplingar flödet behöver.
 - **Gmail visar bara ett utkast per tråd** i trådvyn, även om flera finns; listan visar "Utkast, Utkast…". Därför ska flödet bara skapa ett.
 - **Flera utkast i samma tråd** när man provar sig fram: ta bort de gamla (med Kents ja) så att fel utkast inte skickas.
 
@@ -149,8 +151,9 @@ Använd mallen nedan. Leverera som .skill-fil (Kents önskemål), med versionsnu
 3. **Mål** – mapp med fast ID, filnamnsmönster, konto.
 4. **Steg** – i ordning, inklusive kontroll före och verifiering efter.
 5. **Kontroller** – idempotens, rimlighet, avvikelser att flagga.
-6. **Gränser** – vad som aldrig får göras (radera, dela, skicka, skriva utanför mappen).
-7. **Rapport** – hur Kent får besked och vad som ska flaggas.
+6. **Connectorer** – tabell över vilka connectorer som används till vad och i vilka steg.
+7. **Gränser** – vad som aldrig får göras (radera, dela, skicka, skriva utanför mappen).
+8. **Rapport** – hur Kent får besked och vad som ska flaggas.
 
 Lägg gärna till ett granskningsläge om resultatet fylls i av en människa.
 

@@ -3,7 +3,7 @@ name: langkatekesen-protokoll
 description: Skapa protokollembryo (utkast) för styrelsemöten i Långkatekesen Samfällighetsförening när ordföranden Anders Eriksson skickar en kallelse, och granska ett ifyllt protokoll före justering. Använd när Kent nämner Långkatekesen, samfälligheten, styrelsemöte, kallelse från Anders, protokollembryo, "gör protokollembryo", "granska protokollet", eller när en schemalagd uppgift letar efter nya kallelser.
 ---
 
-# Långkatekesen – protokollembryo och granskning (v4)
+# Långkatekesen – protokollembryo och granskning (v5)
 
 Skillen har två lägen:
 
@@ -33,6 +33,21 @@ Berätta alltid för Kent vad som görs, vad som har gjorts och vad nästa steg 
 | Konton | Drive- och Docs-connectorerna är kopplade som lundgren.kent@gmail.com. Mappen är delad med det kontot som Redigerare. |
 
 Ledamotslistan och normalvärdena kan ändras (t.ex. efter årsmöte). Om kallelsen nämner andra namn än listan ovan: använd kallelsens namn och flagga skillnaden.
+
+## Connectorer och verktyg
+
+Alla Google-connectorer är kopplade med kontot lundgren.kent@gmail.com.
+
+| Connector | Används till | Steg |
+| --- | --- | --- |
+| Gmail | Hitta kallelsen och ladda ned bilagan; skapa mejlutkast (aldrig skicka) | A1, A10 |
+| Google Drive | Lista målmappen, kopiera senaste protokollet, dela embryot | A3–A5, A9 |
+| Google Docs | Läsa och ändra texten i embryot; språkförslag i läge B | A6–A7, B |
+| Google Sheets | Skriva rader i styrelseloggen | A13, B9 |
+| Google Kalender | Skapa mötet med påminnelser | A11 |
+| Pushnotis | Skickas av den schemalagda uppgiften när den är klar (ingen connector) | A12 |
+
+Den schemalagda uppgiften "Långkatekesen – protokollembryo vid kallelse" körs varje dag kl. 17:00. En schemalagd uppgift får de connectorer som fanns när den skapades; kopplas en ny connector senare måste uppgiften skapas om.
 
 ## Gränser
 
