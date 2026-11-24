@@ -3,7 +3,7 @@ name: kent-agentiska-arbetsfloden
 description: Kents playbook (metaskill) för att designa och bygga agentiska arbetsflöden tillsammans med Claude – återkommande uppgifter som Claude utför i flera steg med connectorer, skills och schemalagda uppgifter. Aktivera när Kent vill automatisera något som återkommer ("varje gång jag får…", "känna av när…", "gör det här automatiskt", "skapa en rutin", "schemalagd uppgift"), när han vill bygga en ny uppgiftsskill för ett flöde, när han frågar om skillnaden mellan arbetsflöde och agent, riskklassning, human-in-the-loop eller vad som händer om ingen agerar, eller när han frågar om hur man tänker kring agentiska uppgifter på metanivå. Långkatekesen-protokollen är det genomarbetade exemplet.
 ---
 
-# Agentiska arbetsflöden – Kents playbook (v6)
+# Agentiska arbetsflöden – Kents playbook (v6.1)
 
 Den här skillen utför inget jobb själv. Den styr **hur** Kent och Claude tar fram ett nytt arbetsflöde, och den är ett stöd för att Kent ska lära sig mönstret.
 
@@ -177,11 +177,10 @@ Använd mallen nedan. Leverera som .skill-fil (Kents önskemål), med versionsnu
 ## Var skillsen finns
 
 - **Kontolänkade skills** (sparade från .skill-filer) gäller i alla konversationer men syns bara på skill-sidan i Claude. De är lätta att tappa bort.
-- **I GitHub-repot AI-teknik (publikt):**
-  - Primärt i [`.claude/skills/`](https://github.com/kentlundgren/AI-teknik/tree/main/.claude/skills), enligt repots AGENTS.md. Där läses de av Claude Code och Cursor när Kent arbetar i repot.
-  - Läsbara kopior i [`Skills/`](https://github.com/kentlundgren/AI-teknik/tree/main/Skills), med en README per skill. Git-historiken visar hur skillsen har ändrats version för version.
-  - Uppgiftsskillen `langkatekesen-protokoll` ligger bredvid metaskillen på båda ställena. I det publika repot är ledamöternas mejladresser borttagna; de finns bara i kontoversionen.
-- **Vid ny version:** spara .skill-filen på kontot och uppdatera båda platserna i repot i samma commit, så att de inte glider isär.
+- **I GitHub-repot AI-teknik (publikt), på en enda plats:** [`.claude/skills/<namn>/`](https://github.com/kentlundgren/AI-teknik/tree/main/.claude/skills), enligt repots AGENTS.md. Där läses skillsen av Claude Code och Cursor, och varje skillmapp har en README för den som läser på GitHub. Git-historiken visar hur skillsen har ändrats version för version.
+  - Uppgiftsskillen `langkatekesen-protokoll` ligger bredvid metaskillen. I det publika repot är ledamöternas mejladresser borttagna; de finns bara i kontoversionen.
+  - Lärosidan [`Skills/`](https://kentlundgren.github.io/AI-teknik/Skills/) (Del C) beskriver skillsen pedagogiskt och länkar till dem. Den innehåller inga kopior.
+- **Vid ny version:** spara .skill-filen på kontot, uppdatera `.claude/skills/<namn>/` i repot, och se efter om lärosidans Del C behöver ändras.
 - **Den schemalagda uppgiftens prompt** är en tredje plats. Ändras flödet i skillen, kontrollera om prompten också måste ändras, och visa hela den nya prompten för Kent innan den sparas.
 
 ## Valpunkter med alternativ
@@ -224,6 +223,7 @@ Använd mallen nedan. Leverera som .skill-fil (Kents önskemål), med versionsnu
 - **Lista connectorerna i uppgiftsskillen** (tabell: connector, vad den används till, vilka steg), så att det syns vilka kopplingar flödet behöver.
 - **Gmail visar bara ett utkast per tråd** i trådvyn, även om flera finns; listan visar "Utkast, Utkast…". Därför ska flödet bara skapa ett.
 - **Flera utkast i samma tråd** när man provar sig fram: ta bort de gamla (med Kents ja) så att fel utkast inte skickas.
+- **Två kopior i repot**: till och med v6 låg skillsen både i `.claude/skills/` och som läsbara kopior i `Skills/`. Regeln "uppdatera båda i samma commit" skulle hålla dem i takt, men två kopior är otydligt och kan glida isär. Från v6.1 finns en enda kopia i repot, och lärosidan länkar dit. En källa är enklare än en regel som håller två källor i synk.
 - **"Avsluta tyst" utan felväg**: den första prompten för Långkatekesen sa bara när den skulle avsluta tyst, inte vad den skulle göra om något gick fel. Ett fel hade då kunnat se ut som "ingen kallelse". Rättat i v6 med tre utfall.
 
 ## Mall för en ny uppgiftsskill
@@ -288,14 +288,14 @@ Principerna nedan kommer från de angivna källorna, jämförda med det Kent red
 
 ### Källor
 
-Amazon Web Services (u.å.) *AGENTREL02-BP05 Establish tiered human oversight and approval workflows*. Agentic AI Lens, AWS Well-Architected Framework. Tillgänglig på: [https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentrel02-bp05.html](https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentrel02-bp05.html) (Hämtad: 24 november 2026).
+Amazon Web Services (u.å.) *AGENTREL02-BP05 Establish tiered human oversight and approval workflows*. Agentic AI Lens, AWS Well-Architected Framework. Tillgänglig på: [https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentrel02-bp05.html](https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentrel02-bp05.html) (Hämtad: 24 november 2026). *(Bästa praxis för granskning i nivåer – självständigt, meddela, godkänna – med tidsgränser och säkra standardval; underlag för Fas 5b.)*
 
-Anthropic (u.å.) *anthropics/skills* [GitHub-repo], särskilt [skills/skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) och [template](https://github.com/anthropics/skills/tree/main/template). Tillgänglig på: [https://github.com/anthropics/skills](https://github.com/anthropics/skills) (Hämtad: 24 november 2026).
+Anthropic (u.å.) *anthropics/skills* [GitHub-repo], särskilt [skills/skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) och [template](https://github.com/anthropics/skills/tree/main/template). Tillgänglig på: [https://github.com/anthropics/skills](https://github.com/anthropics/skills) (Hämtad: 24 november 2026). *(Anthropics exempelskills, bland annat skill-creator och template; underlag för hur en skill skrivs, hålls kort och testas.)*
 
-Arize AI (2026) *What is human-on-the-loop?* Senast ändrad 14 augusti 2026. Tillgänglig på: [https://arize.com/glossary/human-on-the-loop/](https://arize.com/glossary/human-on-the-loop/) (Hämtad: 24 november 2026).
+Arize AI (2026) *What is human-on-the-loop?* Senast ändrad 14 augusti 2026. Tillgänglig på: [https://arize.com/glossary/human-on-the-loop/](https://arize.com/glossary/human-on-the-loop/) (Hämtad: 24 november 2026). *(Ordlisteartikel om skillnaden mellan blockerande in-the-loop och icke-blockerande on-the-loop, och om nödstopp.)*
 
-OpenAI (u.å.) *A practical guide to building agents* [PDF]. Tillgänglig på: [https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) (Hämtad: 24 november 2026).
+OpenAI (u.å.) *A practical guide to building agents* [PDF]. Tillgänglig på: [https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) (Hämtad: 24 november 2026). *(Guide om när en agent behövs, riskklassning av verktyg och när människan ska kopplas in.)*
 
-Praveen VR (2026) 'Designing Human-in-the-Loop Approval Gates for Enterprise AI Agents', *DZone*, 18 september. Tillgänglig på: [https://dzone.com/articles/human-in-the-loop-approval-enterprise-ai-agents](https://dzone.com/articles/human-in-the-loop-approval-enterprise-ai-agents) (Hämtad: 24 november 2026).
+Praveen VR (2026) 'Designing Human-in-the-Loop Approval Gates for Enterprise AI Agents', *DZone*, 18 september. Tillgänglig på: [https://dzone.com/articles/human-in-the-loop-approval-enterprise-ai-agents](https://dzone.com/articles/human-in-the-loop-approval-enterprise-ai-agents) (Hämtad: 24 november 2026). *(Artikel om godkännandegrindar, risknivåer per åtgärd och hur åtgärder görs möjliga att ångra.)*
 
-Schluntz, E. och Zhang, B. (2024) *Building effective agents*. Anthropic, 19 december. Tillgänglig på: [https://www.anthropic.com/engineering/building-effective-agents](https://www.anthropic.com/engineering/building-effective-agents) (Hämtad: 24 november 2026).
+Schluntz, E. och Zhang, B. (2024) *Building effective agents*. Anthropic, 19 december. Tillgänglig på: [https://www.anthropic.com/engineering/building-effective-agents](https://www.anthropic.com/engineering/building-effective-agents) (Hämtad: 24 november 2026). *(Grundtexten om skillnaden mellan arbetsflöde och agent och de fem typerna av arbetsflöden; underlag för typläran.)*
