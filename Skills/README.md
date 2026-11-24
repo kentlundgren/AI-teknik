@@ -41,7 +41,22 @@ Live-sidan är uppdelad i två tydligt åtskilda delar (växlare högst upp):
 - Skills kan ligga **globalt** (i användarmappen, gäller alla projekt) eller
   **per projekt** (i en `.cursor\skills\`-mapp inne i projektet).
 
+## Kopior av Kents egna skills
+
+Läsbara kopior av skills som Kent använder. Den primära platsen i repot är
+[`../.claude/skills/`](../.claude/skills/).
+
+| Mapp | Vad skillen gör |
+| --- | --- |
+| [`kent-agentiska-arbetsfloden/`](./kent-agentiska-arbetsfloden/) | Playbook för att designa agentiska arbetsflöden (metaskill) |
+| [`langkatekesen-protokoll/`](./langkatekesen-protokoll/) | Protokollembryo och granskning för Långkatekesens styrelsemöten |
+
 ## Relaterat
 
 - Projektets startsida: [`../README.md`](../README.md)
 - RAG-delen: [`../RAG/`](../RAG/)
+
+## Repo
+
+- GitHub: https://github.com/kentlundgren/AI-teknik/tree/main/Skills
+- Lokal sökväg: `C:\Users\kentl\OneDrive\AI\AI-teknik\Skills`
