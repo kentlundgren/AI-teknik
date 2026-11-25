@@ -9,11 +9,12 @@ inte om en enskild AI-teknik, utan om **verktyget** (skills) som agenter använd
 
 ## Vad sidan tar upp
 
-Live-sidan är uppdelad i tre tydligt åtskilda delar (växlare högst upp). Varje del
+Live-sidan är uppdelad i fyra tydligt åtskilda delar (växlare högst upp). Varje del
 går att länka till direkt:
 [#delA](https://kentlundgren.github.io/AI-teknik/Skills/#delA),
 [#delB](https://kentlundgren.github.io/AI-teknik/Skills/#delB) och
-[#delC](https://kentlundgren.github.io/AI-teknik/Skills/#delC).
+[#delC](https://kentlundgren.github.io/AI-teknik/Skills/#delC) och
+[#delD](https://kentlundgren.github.io/AI-teknik/Skills/#delD).
 
 - **Del A – Var skills bor och hur de nås.** De fyra platserna på disken
   (`.cursor\skills-cursor\`, `.cursor\skills\`, `.claude\skills\` och
@@ -33,6 +34,13 @@ går att länka till direkt:
   steg med risknivå per steg, hur exemplet växte version för version, lärdomar som
   blev regler och källorna i Harvardstil. Skillsen ligger i `.claude/skills/`; sidan
   beskriver och länkar dit men innehåller inga kopior.
+- **Del D – Samma förmåga, olika ställen.** Varför Claude Code och Cowork läser
+  skills från olika ställen (det avgörande är om sessionen körs på datorn eller i
+  molnet), vilken session som läser vad, en tumregel för var man arbetar och var en
+  ny skill ska sparas, och förslag till Anthropic som kan läsas fristående på svenska
+  eller engelska:
+  [#delD-forslag](https://kentlundgren.github.io/AI-teknik/Skills/#delD-forslag) och
+  [#delD-forslag-en](https://kentlundgren.github.io/AI-teknik/Skills/#delD-forslag-en).
 
 Sidan har en fast sidram: brödsmulor uppe till vänster, `{ } GitHub` nere till
 vänster (länk till mappen), versionsraden i mitten av sidfoten och `</> teknik` nere

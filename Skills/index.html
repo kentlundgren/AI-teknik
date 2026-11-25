@@ -9,6 +9,9 @@
              och hur man skapar en ny.
     * DEL C: agentiska arbetsflöden – kort sammanfattning av Kents metaskill
              kent-agentiska-arbetsfloden (v6), med länkar till originalet.
+    * DEL D: samma förmåga, olika ställen – varför Claude Code och Cowork läser
+             skills från olika ställen, tumregel, och förslag till Anthropic
+             på svenska och engelska.
 
   Enligt projektets regler är koden uppdelad i separata filer:
     - index.html  (struktur/innehåll)
@@ -23,6 +26,8 @@
                 versionsraden i mitten av sidfoten (version 1.0).
     2026-11-25  Version 1.1: länkar direkt till delarna (#delA, #delB, #delC)
                 och avsnittet "Tre hem för dina egna skills" i Del A.
+                Version 1.2: Del D (samma förmåga, olika ställen, och kopplingen till datorn) med förslag
+                till Anthropic på svenska och engelska (#delD-forslag).
 -->
 <html lang="sv">
 <head>
@@ -57,10 +62,11 @@
       <h1>Skills – hur de skapas, var de bor och hur de läses</h1>
       <p class="lead">
         En <strong>skill</strong> är en liten, återanvändbar instruktionsmodul som en
-        AI-agent kan plocka upp när den behövs. Den här sidan förklarar tre saker,
+        AI-agent kan plocka upp när den behövs. Den här sidan förklarar fyra saker,
         tydligt åtskilda: <strong>Del A</strong> – var skills bor på olika "nivåer"
         och hur de nås, <strong>Del B</strong> – vad en skill är och hur man skapar en,
-        och <strong>Del C</strong> – hur skills används för agentiska arbetsflöden.
+        <strong>Del C</strong> – hur skills används för agentiska arbetsflöden, och
+        <strong>Del D</strong> – varför samma förmåga kan behöva finnas på olika ställen.
       </p>
     </div>
   </header>
@@ -68,7 +74,7 @@
   <main class="container">
 
     <!--
-      Växlare mellan Del A, Del B och Del C.
+      Växlare mellan Del A, Del B, Del C och Del D.
       Interaktiviteten (visa/dölj) hanteras i script.js.
       Syftet är att hålla de två delarna tydligt åtskilda, enligt önskemål.
     -->
@@ -84,6 +90,10 @@
       <button class="toggle-btn" id="btn-c"
               role="tab" aria-selected="false" aria-controls="part-c">
         Del C · Agentiska arbetsflöden
+      </button>
+      <button class="toggle-btn" id="btn-d"
+              role="tab" aria-selected="false" aria-controls="part-d">
+        Del D · Samma förmåga, olika ställen
       </button>
     </div>
 
@@ -150,6 +160,10 @@
           fil där sparas det inte på kontot, och nästa synkning kan skriva över ändringen.
           Ändra därför en kontoskill genom att ladda upp en ny .skill-fil, och ändra en
           personlig skill direkt i dess mapp.
+        </p>
+        <p class="related">
+          Varför det är så, och hur du väljer var en ny skill ska ligga: se
+          <a href="#delD">Del D · Samma förmåga, olika ställen</a>.
         </p>
 
         <h3 class="sub">Så hittar du en personlig Claude Code-skill</h3>
@@ -636,6 +650,304 @@ eventuella länkar till andra filer i skill-mappen.</pre>
 
     </section>
 
+    <!-- =====================================================================
+         DEL D – SAMMA FÖRMÅGA, OLIKA STÄLLEN
+         Varför Claude Code och Cowork läser skills från olika ställen, hur man
+         väljer i vardagen, och förslag till Anthropic. Avsnittet med förslagen
+         (#delD-forslag) är skrivet så att det kan läsas fristående, på svenska
+         eller engelska (#delD-forslag-en).
+         ===================================================================== -->
+    <section id="part-d" class="part is-hidden" role="tabpanel" aria-labelledby="btn-d">
+
+      <section aria-labelledby="d-intro-rubrik" class="card highlight">
+        <h2 id="d-intro-rubrik">Del D · Samma förmåga, olika ställen</h2>
+        <p>
+          Del A beskriver <em>var</em> skills bor. Den här delen handlar om <em>varför</em>
+          de bor på olika ställen, hur man väljer var man arbetar och var en ny skill ska
+          sparas, och vad som skulle göra det enklare för användaren.
+        </p>
+        <nav class="mini-nav" aria-label="Innehåll i Del D">
+          <a href="#d-bakgrund-rubrik">Bakgrund</a>
+          <a href="#d-lasare-rubrik">Vem läser vad</a>
+          <a href="#d-varfor-rubrik">Varför olika</a>
+          <a href="#d-koppling-rubrik">Kopplingen till datorn</a>
+          <a href="#d-tumregel-rubrik">Tumregel</a>
+          <a href="#delD-forslag">Förslag till Anthropic</a>
+        </nav>
+      </section>
+
+      <!-- D1. Bakgrund: ett verkligt exempel -->
+      <section aria-labelledby="d-bakgrund-rubrik">
+        <h2 id="d-bakgrund-rubrik">Bakgrund: samma regel, skriven tre gånger</h2>
+        <p>
+          Kent har en regel för hur hans webbsidor ska se ut: brödsmulor uppe till
+          vänster, en länk till GitHub nere till vänster, en versionsrad i mitten och en
+          knapp om tekniken nere till höger. Hösten 2026 kom samma regel att finnas på
+          tre ställen, i tre former:
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Form</th><th>Var den ligger</th><th>Vem som läser den</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Regel 6 i skillen <code>kent-bygg-sidor</code></td><td>På datorn, <code>C:\Users\kentl\.claude\skills\</code></td><td>Claude Code i alla repon på datorn</td></tr>
+              <tr><td>En Cursor-regel</td><td>I repot AI-teknik, <code>.cursor\rules\</code></td><td>Cursor och Claude Code, bara i det repot</td></tr>
+              <tr><td>En inställning i Claudes minne</td><td>På Claude-kontot</td><td>Chatten och Cowork</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Ingen av de tre är fel. Regeln skrevs tre gånger för att tre olika läsare bara
+          når var sitt ställe. Det är kärnan i hela frågan:
+        </p>
+        <p class="formula">Var en skill ska ligga avgörs av vem som ska kunna läsa den.</p>
+      </section>
+
+      <!-- D2. Vilken session läser vad -->
+      <section aria-labelledby="d-lasare-rubrik" class="card">
+        <h2 id="d-lasare-rubrik">Vem läser vad?</h2>
+        <p>
+          Det avgörande är inte om du är i Claude Code eller Cowork, utan om sessionen
+          körs <strong>på din dator</strong> eller <strong>i molnet</strong>. En session
+          på din dator når dina mappar; en session i molnet körs i en egen, isolerad miljö
+          och når bara det som ligger på kontot eller i ett repo som klonas dit.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Där du arbetar</th><th>Körs</th><th>Personliga skills på datorn</th><th>Repots <code>.claude/skills</code></th><th>Kontots skills</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Code-fliken i appen, lokal session</td><td>Din dator</td><td>Ja</td><td>Ja</td><td>Ja, när du är inloggad</td></tr>
+              <tr><td>Claude Code i Cursor eller terminalen</td><td>Din dator</td><td>Ja</td><td>Ja</td><td>Ja, när du är inloggad</td></tr>
+              <tr><td>Schemalagd uppgift i skrivbordsappen</td><td>Din dator</td><td>Ja</td><td>Inte angivet</td><td>Inte angivet</td></tr>
+              <tr><td>Code-fliken, molnsession</td><td>Molnet</td><td>Nej</td><td>Ja, i det klonade repot</td><td>Ja</td></tr>
+              <tr><td>Cowork, även schemalagda</td><td>Molnet</td><td>Nej</td><td>Inte angivet</td><td>Ja, synkade vid start</td></tr>
+              <tr><td>Schemalagd uppgift i molnet</td><td>Molnet</td><td>Nej</td><td>Ja, om repot klonas</td><td>Ja</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Därför syns <code>kent-bygg-sidor</code> inte i appens inställningar och kan inte
+          användas i Cowork: den ligger på datorn, och Cowork läser bara kontot.
+          Kontots skills går däremot åt andra hållet – de laddas ned till Claude Code när du
+          är inloggad, men bara åt det hållet.
+        </p>
+      </section>
+
+      <!-- D3. Varför det är bra, och vad det kostar -->
+      <section aria-labelledby="d-varfor-rubrik">
+        <h2 id="d-varfor-rubrik">Varför det är bra att de skiljer sig – och vad det kostar</h2>
+        <p class="note">
+          Anthropic ger ingen samlad motivering. Skälen nedan är slutsatser från hur
+          dokumentationen beskriver de olika sessionerna.
+        </p>
+        <div class="file-grid">
+          <article class="card file-card">
+            <h3>Skillen ligger där läsaren är</h3>
+            <p class="tag">Åtkomst</p>
+            <p>En session på datorn kan läsa filer direkt. En molnsession körs isolerat och har ingen väg in på din disk; kontot är det enda som följer med dit.</p>
+          </article>
+          <article class="card file-card">
+            <h3>Molnet läser inte din disk</h3>
+            <p class="tag">Säkerhet</p>
+            <p>Det som ligger lokalt stannar lokalt tills du själv laddar upp det. Inget i dina mappar lämnar datorn av sig självt.</p>
+          </article>
+          <article class="card file-card">
+            <h3>Projektskills följer koden</h3>
+            <p class="tag">Delning och historik</p>
+            <p>En skill i repots <code>.claude/skills/</code> följer med i Git: andra som arbetar i repot får den, och varje ändring syns i historiken.</p>
+          </article>
+          <article class="card file-card">
+            <h3>Kontoskills följer dig</h3>
+            <p class="tag">Flera enheter</p>
+            <p>En skill på kontot finns i chatten, i Cowork och i Claude Code, på alla datorer där du loggar in.</p>
+          </article>
+        </div>
+        <h3 class="sub">Vad det kostar användaren</h3>
+        <ul>
+          <li><strong>Samma regel på flera ställen</strong> – som sidramen ovan – och de kan glida isär.</li>
+          <li><strong>Svårt att se vad som gäller:</strong> appens inställningar visar bara kontots skills, inte de som ligger på datorn eller i repot.</li>
+          <li><strong>Synkningen går åt ett håll:</strong> från kontot till datorn, aldrig tillbaka. En ändring i den nedladdade kopian sparas inte.</li>
+          <li><strong>Lätt att hamna fel:</strong> flikarna för Cowork och Code ligger tätt intill varandra, och sessionen visar inte tydligt vilka skills den har tillgång till.</li>
+        </ul>
+      </section>
+
+      <!-- D3b. Lärdom 25 november 2026: molnsessionen arbetar i en kopia och når
+           datorn bara genom en koppling i skrivbordsappen. -->
+      <section aria-labelledby="d-koppling-rubrik" class="card">
+        <h2 id="d-koppling-rubrik">Samma orsak syns i arbetet: kopian i molnet och kopplingen till datorn</h2>
+        <p>
+          Skillnaden mellan dator och moln gäller inte bara skills. Den märks också när man
+          arbetar med filer. En session i molnet, som Cowork, arbetar i en egen
+          <strong>kopia</strong> av repot. Ändringarna når din mapp först när de förs över,
+          och det sker genom en <strong>koppling till datorn</strong> via skrivbordsappen.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th></th><th>Claude Code, lokalt</th><th>Cowork, i molnet</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Var ändringen görs</th><td>Direkt i din mapp</td><td>I en kopia i molnet, som sedan förs över</td></tr>
+              <tr><th scope="row">Syns i Cursor under Changes</th><td>Direkt</td><td>Först när filerna har förts över</td></tr>
+              <tr><th scope="row">Om kopplingen bryts</th><td>Påverkas inte</td><td>Inget når mappen, fast arbetet ser klart ut</td></tr>
+              <tr><th scope="row">Mappar som heter <code>.claude</code></th><td>Kan skrivas</td><td>Spärrade för skrivning via kopplingen</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="sub">Så ser du om Cowork är anslutet till datorn</h3>
+        <p>
+          Bredvid konversationens rubrik i skrivbordsappen finns en ikon för datorn med en
+          liten prick. <strong>Grön prick:</strong> Cowork är anslutet till datorn och kan
+          läsa och skriva i de mappar du har gett åtkomst till. <strong>Orange prick:</strong>
+          kopplingen är bruten, trots att internet fungerar. Det kan bero på viloläge eller att
+          appen har startats om. Titta på pricken innan du räknar med att ändringar finns i
+          din mapp.
+        </p>
+        <p class="note">
+          Upplevt 24–25 november 2026: ändringar för Skills-sidan var klara i molnkopian men
+          syntes inte i Cursor, eftersom kopplingen hade brutits. Tre skillfiler kunde inte
+          skrivas till <code>.claude\skills\</code> via kopplingen och fick föras dit på
+          annat sätt. Lärdom: för arbete i ett repo passar Claude Code lokalt bäst; Cowork
+          passar för mejl, kalender, dokument och research.
+        </p>
+      </section>
+
+      <!-- D4. Tumregel -->
+      <section aria-labelledby="d-tumregel-rubrik" class="card">
+        <h2 id="d-tumregel-rubrik">Tumregel för vardagen</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Om du ska …</th><th>Arbeta i</th><th>Skills som gäller</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Bygga eller ändra filer och sidor i ett repo, med Git och Cursor</td><td>Code-fliken (lokal) eller Claude Code i Cursor</td><td>Datorns, repots och kontots</td></tr>
+              <tr><td>Arbeta med mejl, kalender, Drive, dokument, research</td><td>Cowork eller chatten</td><td>Kontots</td></tr>
+              <tr><td>Köra något automatiskt när datorn är avstängd</td><td>Schemalagd uppgift i molnet</td><td>Kontots, och repots om repot klonas</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="sub">Var ska en ny skill sparas?</h3>
+        <ol class="phases">
+          <li><strong>Gäller den bara ett repo?</strong> Lägg den i repots <code>.claude/skills/</code>. Exempel: <code>langkatekesen-protokoll</code>.</li>
+          <li><strong>Ska den gälla överallt, även i Cowork?</strong> Ladda upp den till kontot som .skill-fil. Den laddas då också ned till Claude Code när du är inloggad. Exempel: <code>kent-agentiska-arbetsfloden</code>.</li>
+          <li><strong>Behövs den bara i Claude Code på den här datorn,</strong> och vill du kunna ändra den direkt som fil? Lägg den i <code>%USERPROFILE%\.claude\skills\</code>. Exempel: <code>kent-bygg-sidor</code>.</li>
+          <li><strong>Kontrollera:</strong> kör <code>/skills</code> i Claude Code för att se vilka skills sessionen har laddat.</li>
+        </ol>
+        <p class="note">
+          Följd för <code>kent-bygg-sidor</code>: ska den även fungera i Cowork behöver den
+          laddas upp till kontot. Den ligger då på två ställen, och ändringar behöver göras
+          på båda – eller så flyttas den helt till kontot och ändras genom ny uppladdning.
+        </p>
+      </section>
+
+      <!-- D5. Förslag till Anthropic – fristående, svenska och engelska -->
+      <section id="delD-forslag" aria-labelledby="d-forslag-rubrik">
+        <div class="lang-bar">
+          <h2 id="d-forslag-rubrik">Förslag till Anthropic</h2>
+          <div class="lang-toggle" role="group" aria-label="Språk för förslagen">
+            <button type="button" class="lang-btn is-active" data-lang="sv" aria-pressed="true">Svenska</button>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">English</button>
+          </div>
+        </div>
+
+        <!-- Svensk version -->
+        <div class="lang-block" lang="sv" data-lang="sv">
+          <p>
+            Från en användare som arbetar i både Cowork och Claude Code i skrivbordsappen,
+            och med Git och Cursor. Varje förslag har ett problem, ett önskat beteende och
+            ett exempel. Avsnittet kan läsas fristående.
+          </p>
+          <ol class="proposals">
+            <li><strong>Visa alla skills en session ser, med ursprung.</strong>
+              <br><em>Problem:</em> Inställningarna i appen visar bara kontots skills. Skills i <code>~/.claude/skills/</code> och i repon syns inte där.
+              <br><em>Önskat:</em> En vy, också i appen, som listar skills från konto, dator, repo och plugin, med en etikett för varje ursprung.
+              <br><em>Exempel:</em> <code>kent-bygg-sidor</code> fungerar i Claude Code men saknas i appens lista, så användaren tror att den inte finns.</li>
+            <li><strong>Låt en personlig skill laddas upp till kontot med ett klick.</strong>
+              <br><em>Problem:</em> Synkningen går bara från kontot till datorn. En skill i <code>~/.claude/skills/</code> når aldrig Cowork.
+              <br><em>Önskat:</em> Ett kommando eller en knapp, till exempel "Ladda upp till kontot", som gör en personlig skill till en kontoskill och tar bort den lokala dubbletten.</li>
+            <li><strong>Visa i varje session var den körs och vilka källor den läser.</strong>
+              <br><em>Problem:</em> Flikarna för Cowork och Code ligger tätt intill varandra, och det syns inte vilka skills sessionen har tillgång till.
+              <br><em>Önskat:</em> En tydlig etikett i sessionen, till exempel "Lokal · läser konto + dator + repo" eller "Moln · läser konto".</li>
+            <li><strong>Varna för dubbletter.</strong>
+              <br><em>Problem:</em> Samma regel kan ligga på flera ställen och glida isär utan att någon märker det.
+              <br><em>Önskat:</em> En varning när en skill med samma namn eller nästan samma innehåll finns i flera källor, och vilken som används.</li>
+            <li><strong>Låt Cowork läsa personliga skills när det körs på användarens dator, om användaren tillåter det.</strong>
+              <br><em>Problem:</em> Samma användare, samma dator, samma app – men olika skills beroende på flik.
+              <br><em>Önskat:</em> En inställning som låter lokala Cowork-sessioner läsa <code>~/.claude/skills/</code>.</li>
+            <li><strong>Samla dokumentationen i en tabell.</strong>
+              <br><em>Problem:</em> Vilken session som läser vad står på flera sidor, och flikarna i skrivbordsappen nämns inte i dokumentationen om skills.
+              <br><em>Önskat:</em> En tabell med alla ytor – chatten, Cowork, Code-fliken lokalt och i molnet, terminalen, Cursor, schemalagda uppgifter – och vilka skillkällor var och en läser.</li>
+            <li><strong>Säg till när kopplingen till datorn bryts.</strong>
+              <br><em>Problem:</em> En Cowork-session kan göra klart arbetet i sin molnkopia medan kopplingen till datorn är bruten. Det enda tecknet är en liten orange prick, och användaren ser inga ändringar i sin mapp.
+              <br><em>Önskat:</em> Ett tydligt meddelande i konversationen när kopplingen bryts och när den är tillbaka, och en lista över ändringar som väntar på att föras över.</li>
+          </ol>
+          <p class="note">
+            Liknande önskemål finns redan som ärenden hos Anthropic, bland annat #12119
+            (synka personliga skills till kontot) och #50644 (samla lagringen av personliga
+            skills mellan skrivbordsappen och terminalen). Se källorna nedan.
+          </p>
+        </div>
+
+        <!-- English version -->
+        <div class="lang-block is-hidden" lang="en" data-lang="en" id="delD-forslag-en">
+          <p>
+            From a user who works in both Cowork and Claude Code in the desktop app, and
+            with Git and Cursor. Each proposal states a problem, the desired behaviour and
+            an example. This section can be read on its own.
+          </p>
+          <ol class="proposals">
+            <li><strong>Show every skill a session can see, with its origin.</strong>
+              <br><em>Problem:</em> The app's settings list only account skills. Skills in <code>~/.claude/skills/</code> and in repositories don't appear there.
+              <br><em>Desired:</em> One view, also in the app, listing skills from the account, the computer, the repository and plugins, each labelled with its origin.
+              <br><em>Example:</em> <code>kent-bygg-sidor</code> works in Claude Code but is missing from the app's list, so the user assumes it doesn't exist.</li>
+            <li><strong>Let a personal skill be uploaded to the account in one step.</strong>
+              <br><em>Problem:</em> Sync only runs from the account to the computer. A skill in <code>~/.claude/skills/</code> never reaches Cowork.
+              <br><em>Desired:</em> A command or button, for example "Upload to account", that turns a personal skill into an account skill and removes the local duplicate.</li>
+            <li><strong>Show in every session where it runs and which sources it reads.</strong>
+              <br><em>Problem:</em> The Cowork and Code buttons sit right next to each other, and nothing shows which skills the session has access to.
+              <br><em>Desired:</em> A clear label in the session, for example "Local · reads account + computer + repo" or "Cloud · reads account".</li>
+            <li><strong>Warn about duplicates.</strong>
+              <br><em>Problem:</em> The same rule can live in several places and drift apart without anyone noticing.
+              <br><em>Desired:</em> A warning when a skill with the same name or nearly the same content exists in several sources, and which one is used.</li>
+            <li><strong>Let Cowork read personal skills when it runs on the user's computer, if the user allows it.</strong>
+              <br><em>Problem:</em> Same user, same computer, same app – but different skills depending on the tab.
+              <br><em>Desired:</em> A setting that lets local Cowork sessions read <code>~/.claude/skills/</code>.</li>
+            <li><strong>Gather the documentation in one table.</strong>
+              <br><em>Problem:</em> Which session reads what is spread over several pages, and the desktop app's tabs aren't mentioned in the skills documentation.
+              <br><em>Desired:</em> One table covering every surface – chat, Cowork, the Code tab locally and in the cloud, the terminal, Cursor, scheduled tasks – and which skill sources each one reads.</li>
+            <li><strong>Tell the user when the link to the computer drops.</strong>
+              <br><em>Problem:</em> A Cowork session can finish its work in its cloud copy while the link to the computer is down. The only sign is a small orange dot, and the user sees no changes in their folder.
+              <br><em>Desired:</em> A clear message in the conversation when the link drops and when it returns, and a list of changes waiting to be transferred.</li>
+          </ol>
+          <p class="note">
+            Similar requests already exist as issues, among them #12119 (sync personal
+            skills to the account) and #50644 (unify personal skill storage between the
+            desktop app and the CLI). See the sources below.
+          </p>
+        </div>
+      </section>
+
+      <!-- D6. Källor -->
+      <section aria-labelledby="d-kallor-rubrik" class="card">
+        <h2 id="d-kallor-rubrik">Källor</h2>
+        <p class="note">
+          Uppgifterna kommer från de angivna källorna, är inte kvalitetssäkrade och bör
+          kontrolleras mot källan innan de återanvänds. Produkterna ändras ofta.
+        </p>
+        <ul class="sources">
+          <li>Anthropic (u.å.a) <em>Desktop application</em>. Claude Code Docs. Tillgänglig på: <a href="https://code.claude.com/docs/en/desktop" target="_blank" rel="noopener">https://code.claude.com/docs/en/desktop</a> (Hämtad: 25 november 2026). <em>(Att Code-fliken kör lokala sessioner med åtkomst till filerna och molnsessioner som läser kontots skills i stället för datorns.)</em></li>
+          <li>Anthropic (u.å.b) <em>Extend Claude with skills</em>. Claude Code Docs. Tillgänglig på: <a href="https://code.claude.com/docs/en/skills" target="_blank" rel="noopener">https://code.claude.com/docs/en/skills</a> (Hämtad: 25 november 2026). <em>(Var skills ligger, att Cowork och molnsessioner bara läser kontots skills, att synkningen går åt ett håll och att schemalagda uppgifter på datorn läser datorns skills.)</em></li>
+          <li>anthropics/claude-code (u.å.a) <em>[FEATURE] Account-Level Skill Synchronization Between CLI and Web</em>. Issue #12119, GitHub. Tillgänglig på: <a href="https://github.com/anthropics/claude-code/issues/12119" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/issues/12119</a> (Hämtad: 25 november 2026). <em>(Användarförslag om att synka personliga skills till kontot.)</em></li>
+          <li>anthropics/claude-code (u.å.b) <em>Unify personal skills storage between Claude desktop and Claude Code CLI</em>. Issue #50644, GitHub. Tillgänglig på: <a href="https://github.com/anthropics/claude-code/issues/50644" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/issues/50644</a> (Hämtad: 25 november 2026). <em>(Användarförslag om en gemensam plats för personliga skills i skrivbordsappen och terminalen.)</em></li>
+        </ul>
+      </section>
+
+    </section>
+
   </main>
 
   <!--
@@ -645,7 +957,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
     Höj versionsnumret och datumet vid varje ändring av sidan.
   -->
   <footer class="site-footer">
-    <p class="versionsrad">Version 1.1 · 2026-11-25 · Kent Lundgren</p>
+    <p class="versionsrad">Version 1.2 · 2026-11-25 · Kent Lundgren</p>
   </footer>
 
   <!--
@@ -673,7 +985,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         </div>
         <div class="tech-card">
           <h3>Flikar med klass och aria</h3>
-          <p>Del A, B och C växlas genom att klassen <code>is-hidden</code> sätts och tas bort. <code>aria-selected</code> uppdateras så att skärmläsare vet vilken flik som är vald. Varje del har en egen adress (<code>#delA</code>, <code>#delB</code>, <code>#delC</code>) som går att länka till.</p>
+          <p>Del A, B och C växlas genom att klassen <code>is-hidden</code> sätts och tas bort. <code>aria-selected</code> uppdateras så att skärmläsare vet vilken flik som är vald. Varje del har en egen adress (<code>#delA</code> till <code>#delD</code>) som går att länka till. Förslagen i Del D växlar mellan svenska och engelska med samma teknik.</p>
         </div>
         <div class="tech-card">
           <h3>Rullbara tabeller</h3>

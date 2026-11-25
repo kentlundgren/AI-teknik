@@ -2,14 +2,17 @@
   script.js
   Interaktivitet för Skills-sidan (index.html).
 
-  Två saker hanteras här:
-    1. Växling mellan Del A (var skills bor), Del B (skapa en skill) och
-       Del C (agentiska arbetsflöden), så att delarna hålls tydligt åtskilda.
-       Varje del går att länka till direkt: index.html#delA, #delB och #delC.
+  Tre saker hanteras här:
+    1. Växling mellan Del A (var skills bor), Del B (skapa en skill),
+       Del C (agentiska arbetsflöden) och Del D (samma förmåga, olika ställen),
+       så att delarna hålls tydligt åtskilda.
+       Varje del går att länka till direkt: index.html#delA, #delB, #delC och #delD.
        En länk till en rubrik inne i en del (t.ex. #c-risk-rubrik) öppnar den
        delen och rullar till rubriken.
     2. Rutan (modal) om sidans teknik och metod, som öppnas från hörnknappen
        "</> teknik" nere till höger.
+    3. Språkväxlaren för förslagen i Del D (svenska/engelska). Länken
+       #delD-forslag-en öppnar förslagen direkt på engelska.
 
   Versionsraden i sidfoten är statisk text i index.html, så att den syns även
   om JavaScript inte körs.
@@ -33,7 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const flikar = [
     { knapp: document.getElementById("btn-a"), del: document.getElementById("part-a"), hash: "delA" },
     { knapp: document.getElementById("btn-b"), del: document.getElementById("part-b"), hash: "delB" },
-    { knapp: document.getElementById("btn-c"), del: document.getElementById("part-c"), hash: "delC" }
+    { knapp: document.getElementById("btn-c"), del: document.getElementById("part-c"), hash: "delC" },
+    { knapp: document.getElementById("btn-d"), del: document.getElementById("part-d"), hash: "delD" }
   ];
 
   /**
@@ -88,7 +92,11 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // Fall 2: länk till en rubrik inne i en del
+    // Fall 2: länk till en rubrik inne i en del.
+    // Den engelska versionen av förslagen är dold tills språket väljs, så den visas först.
+    if (hash === "delD-forslag-en") {
+      visaSprak("en");
+    }
     const mal = document.getElementById(hash);
     const delIndex = mal
       ? flikar.findIndex(function (flik) { return flik.del.contains(mal); })
@@ -100,6 +108,36 @@ document.addEventListener("DOMContentLoaded", function () {
       visaDel(0);
     }
   }
+
+  /* -------------------------------------------------------------
+     Språkväxlare för förslagen i Del D
+     ------------------------------------------------------------- */
+  const sprakKnappar = document.querySelectorAll(".lang-btn");
+  const sprakBlock = document.querySelectorAll(".lang-block");
+
+  /**
+   * Visar förslagen på valt språk och döljer det andra.
+   * @param {string} sprak - "sv" eller "en"
+   */
+  function visaSprak(sprak) {
+    sprakBlock.forEach(function (block) {
+      block.classList.toggle("is-hidden", block.dataset.lang !== sprak);
+    });
+    sprakKnappar.forEach(function (knapp) {
+      const vald = knapp.dataset.lang === sprak;
+      knapp.classList.toggle("is-active", vald);
+      knapp.setAttribute("aria-pressed", String(vald));
+    });
+  }
+
+  // Klick på Svenska/English. Adressen blir #delD-forslag eller #delD-forslag-en,
+  // så att den som får länken ser förslagen på samma språk.
+  sprakKnappar.forEach(function (knapp) {
+    knapp.addEventListener("click", function () {
+      visaSprak(knapp.dataset.lang);
+      history.replaceState(null, "", knapp.dataset.lang === "en" ? "#delD-forslag-en" : "#delD-forslag");
+    });
+  });
 
   // Visa rätt del när sidan öppnas, och när #-delen ändras
   // (t.ex. när man klickar i innehållsförteckningen i Del C eller går bakåt).
