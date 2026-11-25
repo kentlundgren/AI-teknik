@@ -19,15 +19,15 @@ går fel.
 Beskrivs pedagogiskt på live-sidan, Del C:
 [https://kentlundgren.github.io/AI-teknik/Skills/](https://kentlundgren.github.io/AI-teknik/Skills/)
 
-I den här publika kopian är ledamöternas mejladresser borttagna. De finns bara i
-kontoversionen av skillen.
+I den här publika kopian är mejladresserna borttagna, andra ledamöter än Kent står med
+initialer, och ID-nummer och kontonamn är ersatta med platshållare. De riktiga värdena finns bara i kontoversionen av skillen.
 
 ## Var skillen finns
 
 | Plats | Roll |
 | --- | --- |
-| Claude-kontot (sparad från .skill-fil) | Den version som körs, med mejladresser |
-| [`SKILL.md`](./SKILL.md) i den här mappen | Den enda kopian i repot, utan mejladresser |
+| Claude-kontot (sparad från .skill-fil) | Den version som körs, med riktiga värden |
+| [`SKILL.md`](./SKILL.md) i den här mappen | Den enda kopian i repot, med initialer och platshållare |
 | Den schemalagda uppgiften "Långkatekesen – protokollembryo vid kallelse" | Egen prompt som läser skillen på kontot |
 
 ## Repo
