@@ -25,7 +25,7 @@ går att länka till direkt:
   i en `SKILL.md` (frontmatter med `name`/`description` + brödtext) och en
   steg-för-steg-guide för att skapa en egen skill.
 - **Del C – Agentiska arbetsflöden.** En pedagogisk beskrivning av metaskillen
-  [`kent-agentiska-arbetsfloden`](../.claude/skills/kent-agentiska-arbetsfloden/) (v6.2)
+  [`kent-agentiska-arbetsfloden`](../.claude/skills/kent-agentiska-arbetsfloden/) (v6.3)
   och det genomarbetade exemplet
   [`langkatekesen-protokoll`](../.claude/skills/langkatekesen-protokoll/) (v6):
   hur två skills och en schemalagd uppgift hör ihop, skillnaden mellan arbetsflöde och
@@ -33,7 +33,8 @@ går att länka till direkt:
   med ångra och reservplan, tre utfall för schemalagda uppgifter, exemplet steg för
   steg med risknivå per steg, hur exemplet växte version för version, lärdomar som
   blev regler, hur ett flöde delas upp mellan moln och dator (med en jobbsökaragent
-  som exempel) och källorna i Harvardstil. Skillsen ligger i `.claude/skills/`; sidan
+  som exempel), hur en publik process och ett privat underlag samarbetar
+  ([#c-publik-rubrik](https://kentlundgren.github.io/AI-teknik/Skills/#c-publik-rubrik)) och källorna i Harvardstil. Skillsen ligger i `.claude/skills/`; sidan
   beskriver och länkar dit men innehåller inga kopior.
 - **Del D – Samma förmåga, olika ställen.** Varför Claude Code och Cowork läser
   skills från olika ställen (det avgörande är om sessionen körs på datorn eller i
@@ -74,7 +75,7 @@ läsbara kopior här i `Skills/`; de togs bort 2026-11-24 så att det bara finns
 
 | Skill | Version | Vad skillen gör |
 | --- | --- | --- |
-| [`kent-agentiska-arbetsfloden`](../.claude/skills/kent-agentiska-arbetsfloden/) | v6.2 | Playbook för att designa agentiska arbetsflöden (metaskill): typlära, tio faser, riskklassning, valpunkter, fallgropar och Lärt av andra |
+| [`kent-agentiska-arbetsfloden`](../.claude/skills/kent-agentiska-arbetsfloden/) | v6.3 | Playbook för att designa agentiska arbetsflöden (metaskill): typlära, tio faser, riskklassning, publik process och privat underlag, valpunkter, fallgropar och Lärt av andra |
 | [`langkatekesen-protokoll`](../.claude/skills/langkatekesen-protokoll/) | v6 | Protokollutkast och granskning för Långkatekesens styrelsemöten, med risk, ångra och reservplan per åtgärd. Mejladresserna är borttagna i repot |
 
 Versionen står i rubriken i varje `SKILL.md`, och Git-historiken visar ändringarna

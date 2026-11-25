@@ -15,6 +15,8 @@ Beskrivs pedagogiskt på live-sidan, Del C:
 - Ordlista: trigger, polling, connector, human-in-the-loop, human-on-the-loop, kontrollpunkt, riskklass, reservplan, nödstopp, idempotens med flera.
 - Tio faser från mål och manuell körning till påminnelser, lärdomar och uppföljning, med Fas 5b om riskklassning, ångra och reservplan.
 - Tre utfall för schemalagda uppgifter: inget att göra, klart och fel.
+- Publik process, privat underlag: fyra lager, hur den publika och den privata delen samarbetar, tre zoner och säkerhetskopia av det privata.
+- Fasläge och fasavstämning, baslinje, facit som körs om, tysta fel, tillstånd mellan körningar och uppdelning i flera flöden.
 - Valpunkter med alternativ, upplevda fallgropar och en mall i nio delar för nya uppgiftsskills.
 - Lärt av andra: principer från Anthropic, AWS, OpenAI, DZone och Arize jämförda med Kents egna, med källor i Harvardstil.
 - Genomarbetat exempel: [langkatekesen-protokoll](../langkatekesen-protokoll/).

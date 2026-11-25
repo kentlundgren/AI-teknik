@@ -31,6 +31,9 @@
                 Version 1.3: korsreferenser till Claude-kompassen, metaskillen v6.2.
                 Version 1.4: avsnittet "Dela upp ett flöde mellan moln och dator"
                 i Del C, med en jobbsökaragent som exempel (#c-moln-rubrik).
+                Version 1.5: avsnittet "Publik process, privat underlag"
+                (#c-publik-rubrik) och "Lärdomar från ett andra flöde"
+                (#c-andra-rubrik) i Del C, metaskillen v6.3.
 -->
 <html lang="sv">
 <head>
@@ -388,6 +391,8 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           <a href="#c-versioner-rubrik">Versioner</a>
           <a href="#c-lardomar-rubrik">Lärdomar</a>
           <a href="#c-moln-rubrik">Moln och dator</a>
+          <a href="#c-publik-rubrik">Publikt och privat</a>
+          <a href="#c-andra-rubrik">Andra flödet</a>
           <a href="#c-kallor-rubrik">Källor</a>
         </nav>
       </section>
@@ -398,7 +403,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         <div class="file-grid">
           <article class="card file-card">
             <h3><a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/SKILL.md" target="_blank" rel="noopener"><code>kent-agentiska-arbetsfloden</code></a></h3>
-            <p class="tag">Metaskill · v6.2</p>
+            <p class="tag">Metaskill · v6.3</p>
             <p>
               Gör inget jobb själv. Den styr <em>hur</em> ett nytt flöde byggs: steg för
               steg, med alternativen vid varje val, typlära, tio faser, riskklassning,
@@ -700,6 +705,84 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           Varför molnet och datorn når olika saker:
           <a href="#delD">Del D · Samma förmåga, olika ställen</a>.
         </p>
+      </section>
+
+      <!-- C8c. Publik process och privat underlag: hur delarna samarbetar. -->
+      <section aria-labelledby="c-publik-rubrik">
+        <h2 id="c-publik-rubrik">Publik process, privat underlag</h2>
+        <p>
+          Mycket publikt ger insyn, tydlighet, versionshistorik och en kopia utanför datorn.
+          Samtidigt ska uppgifter om en person, en grupp eller en organisation inte publiceras.
+          Lösningen är att dela flödet i lager och låta delarna <strong>samarbeta utan att
+          kopieras in i varandra</strong>. I jobbsökaragenten kan metoden vara publik, medan
+          profilen, valen och historiken är privata.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Lager</th><th>Innehåll</th><th>Var</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Metod</th><td>Skill, skript, kontroller, format</td><td>Publikt</td></tr>
+              <tr><th scope="row">Inställningar</th><td>Kriterier, profil, urval</td><td>Mall med påhittade värden publikt, den ifyllda filen privat</td></tr>
+              <tr><th scope="row">Data och tillstånd</th><td>Underlag, namn, historik, det som redan hanterats, testfall</td><td>Privat</td></tr>
+              <tr><th scope="row">Lärande</th><td>Utvecklingslogg och testresultat</td><td>Generella iakttagelser och summor publikt, enskilda fall privat</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="sub">Så samarbetar delarna</h3>
+        <ul>
+          <li><strong>Gränssnittet är publikt:</strong> skillen beskriver vilka privata filer den läser och skriver, med fält, format och en påhittad exempelfil.</li>
+          <li><strong>En källa för varje sak:</strong> den privata delen pekar på skillen och kopierar den inte.</li>
+          <li><strong>Version på gränssnittet:</strong> stämmer inte den privata filens formatversion med skillens blir utfallet FEL.</li>
+          <li><strong>Riktningen avgör risken:</strong> att det privata läser det publika är låg risk. Att något går från privat till publikt är hög risk, och en människa granskar det före commit.</li>
+        </ul>
+
+        <h3 class="sub">Tre zoner, inte två</h3>
+        <div class="file-grid">
+          <article class="card file-card">
+            <h3>Publik</h3>
+            <p class="tag">Alla kan läsa</p>
+            <p>Det som ligger i ett publikt repo. Det som en gång har pushats kan finnas kvar i historiken.</p>
+          </article>
+          <article class="card file-card">
+            <h3>Privat men behandlad</h3>
+            <p class="tag">Publiceras inte</p>
+            <p>Läses av en AI-modell eller connector, eller lagras hos en leverantör, till exempel i molnlagring eller ett privat repo.</p>
+          </article>
+          <article class="card file-card">
+            <h3>Lämnar aldrig datorn</h3>
+            <p class="tag">Ingen molntjänst</p>
+            <p>Läses inte av en AI-tjänst i molnet och synkas inte.</p>
+          </article>
+        </div>
+        <p>
+          Att en fil ligger på datorn betyder alltså inte att den stannar där. Zonen bestäms
+          för varje slags uppgift, och en organisations regler avgör vad som får hamna i
+          mellanzonen. Vill man ha versioner och säkerhetskopia också för det privata är ett
+          <strong>eget privat repo</strong> ett alternativ till ett enbart lokalt git-repo.
+        </p>
+      </section>
+
+      <!-- C8d. Lärdomar från arbetet med ett andra flöde (jobbsökaragenten). -->
+      <section aria-labelledby="c-andra-rubrik" class="card">
+        <h2 id="c-andra-rubrik">Lärdomar från ett andra flöde</h2>
+        <p>
+          Metaskillen prövas nu på jobbsökaragenten, som är under uppbyggnad. De här
+          lärdomarna står i metaskillen; de som bara bygger på det flödet är märkta som
+          prövade i ett flöde.
+        </p>
+        <ul>
+          <li><strong>Börja med baslinjen.</strong> Finns redan en automation: läs körloggen, inte bara rapporten.</li>
+          <li><strong>Facit.</strong> Människans bedömning av en manuell körning sparas och körs om efter ändringar. Historiken visar förändring, facit visar förbättring.</li>
+          <li><strong>Tysta fel.</strong> En tom träfflista kan komma från en felaktig adress, fast sidan svarar att allt gick bra.</li>
+          <li><strong>Minne mellan körningar.</strong> Utan en sparad lista kan flödet inte veta vad som är nytt.</li>
+          <li><strong>Dubbletter på innehåll.</strong> Samma sak kan ha flera länkar.</li>
+          <li><strong>Skript eller modell.</strong> Regelstyrda steg i skript, omdömet hos modellen.</li>
+          <li><strong>Fler flöden.</strong> När målet växer kan det bli flera flöden med människans val som grind.</li>
+          <li><strong>Fasläge och fasavstämning.</strong> Visa var i faserna arbetet står, och fråga efter varje fas vad metaskillen behöver lära sig.</li>
+        </ul>
       </section>
 
       <!-- C9. Var skillsen finns -->
@@ -1050,7 +1133,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
     Höj versionsnumret och datumet vid varje ändring av sidan.
   -->
   <footer class="site-footer">
-    <p class="versionsrad">Version 1.4 · 2026-11-25 · Kent Lundgren</p>
+    <p class="versionsrad">Version 1.5 · 2026-11-25 · Kent Lundgren</p>
   </footer>
 
   <!--
