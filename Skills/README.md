@@ -25,7 +25,7 @@ går att länka till direkt:
   i en `SKILL.md` (frontmatter med `name`/`description` + brödtext) och en
   steg-för-steg-guide för att skapa en egen skill.
 - **Del C – Agentiska arbetsflöden.** En pedagogisk beskrivning av metaskillen
-  [`kent-agentiska-arbetsfloden`](../.claude/skills/kent-agentiska-arbetsfloden/) (v6.3)
+  [`kent-agentiska-arbetsfloden`](../.claude/skills/kent-agentiska-arbetsfloden/) (v6.4)
   och det genomarbetade exemplet
   [`langkatekesen-protokoll`](../.claude/skills/langkatekesen-protokoll/) (v6):
   hur två skills och en schemalagd uppgift hör ihop, skillnaden mellan arbetsflöde och
@@ -75,7 +75,7 @@ läsbara kopior här i `Skills/`; de togs bort 2026-11-24 så att det bara finns
 
 | Skill | Version | Vad skillen gör |
 | --- | --- | --- |
-| [`kent-agentiska-arbetsfloden`](../.claude/skills/kent-agentiska-arbetsfloden/) | v6.3 | Playbook för att designa agentiska arbetsflöden (metaskill): typlära, tio faser, riskklassning, publik process och privat underlag, valpunkter, fallgropar och Lärt av andra |
+| [`kent-agentiska-arbetsfloden`](../.claude/skills/kent-agentiska-arbetsfloden/) | v6.4 | Playbook för att designa agentiska arbetsflöden (metaskill): typlära, tio faser, riskklassning, publik process och privat underlag, valpunkter, fallgropar och Lärt av andra |
 | [`langkatekesen-protokoll`](../.claude/skills/langkatekesen-protokoll/) | v6 | Protokollutkast och granskning för Långkatekesens styrelsemöten, med risk, ångra och reservplan per åtgärd. Mejladresserna är borttagna i repot |
 | [`kent-jobbsok-sortering`](../.claude/skills/kent-jobbsok-sortering/) | 0.1, under uppbyggnad | Söka och sortera lediga tjänster: skript, exempel och utvecklingslogg. `SKILL.md` skrivs i fas 6. Profil och data är privata |
 

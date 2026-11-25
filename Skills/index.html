@@ -37,6 +37,7 @@
                 Version 1.6: länk till mappen jobbsokaragent i #c-andra-rubrik.
                 Version 1.7: länken i #c-andra-rubrik går till mappen
                 kent-jobbsok-sortering.
+                Version 1.8: fyra nya lärdomar i #c-andra-rubrik, metaskillen v6.4.
 -->
 <html lang="sv">
 <head>
@@ -406,7 +407,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         <div class="file-grid">
           <article class="card file-card">
             <h3><a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/SKILL.md" target="_blank" rel="noopener"><code>kent-agentiska-arbetsfloden</code></a></h3>
-            <p class="tag">Metaskill · v6.3</p>
+            <p class="tag">Metaskill · v6.4</p>
             <p>
               Gör inget jobb själv. Den styr <em>hur</em> ett nytt flöde byggs: steg för
               steg, med alternativen vid varje val, typlära, tio faser, riskklassning,
@@ -787,6 +788,10 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           <li><strong>Skript eller modell.</strong> Regelstyrda steg i skript, omdömet hos modellen.</li>
           <li><strong>Fler flöden.</strong> När målet växer kan det bli flera flöden med människans val som grind.</li>
           <li><strong>Fasläge och fasavstämning.</strong> Visa var i faserna arbetet står, och fråga efter varje fas vad metaskillen behöver lära sig.</li>
+          <li><strong>Spara testfallens indata.</strong> Källor försvinner, och då går testet inte att köra om. Innehåller de personuppgifter hör de till den privata delen.</li>
+          <li><strong>Spärrar i koden.</strong> Ett skript som vägrar skriva privata resultat i det publika repot skyddar även om en instruktion missas. En spärr täcker bara det den är byggd för.</li>
+          <li><strong>Underlagen före frågan.</strong> Agenten söker i det den har tillgång till innan den frågar människan, och frågar sedan om det som saknas eller är oklart.</li>
+          <li><strong>Skilda namn och tydlig märkning.</strong> Den publika och den privata delen får olika namn, "privat" syns i det privata, och det märks var arbetet sker.</li>
         </ul>
       </section>
 
@@ -1138,7 +1143,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
     Höj versionsnumret och datumet vid varje ändring av sidan.
   -->
   <footer class="site-footer">
-    <p class="versionsrad">Version 1.7 · 2026-11-25 · Kent Lundgren</p>
+    <p class="versionsrad">Version 1.8 · 2026-11-25 · Kent Lundgren</p>
   </footer>
 
   <!--

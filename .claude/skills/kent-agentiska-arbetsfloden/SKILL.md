@@ -3,7 +3,7 @@ name: kent-agentiska-arbetsfloden
 description: Kents playbook (metaskill) för att designa och bygga agentiska arbetsflöden tillsammans med Claude – återkommande uppgifter som Claude utför i flera steg med connectorer, skills och schemalagda uppgifter. Aktivera när Kent vill automatisera något som återkommer ("varje gång jag får…", "känna av när…", "gör det här automatiskt", "skapa en rutin", "schemalagd uppgift"), när han vill bygga en ny uppgiftsskill för ett flöde, när han frågar om skillnaden mellan arbetsflöde och agent, riskklassning, human-in-the-loop eller vad som händer om ingen agerar, eller när han frågar om hur man tänker kring agentiska uppgifter på metanivå. Långkatekesen-protokollen är det genomarbetade exemplet.
 ---
 
-# Agentiska arbetsflöden – Kents playbook (v6.3)
+# Agentiska arbetsflöden – Kents playbook (v6.4)
 
 Den här skillen utför inget jobb själv. Den styr **hur** Kent och Claude tar fram ett nytt arbetsflöde, och den är ett stöd för att Kent ska lära sig mönstret.
 
@@ -13,6 +13,7 @@ Den här skillen utför inget jobb själv. Den styr **hur** Kent och Claude tar 
 - Säg vad saker heter på metanivå (se typläran och ordlistan) när de dyker upp.
 - Vid varje valpunkt: beskriv alternativen, vilket som väljs och varför. Kent vill påminnas om att det alltid finns flera vägar.
 - Fråga Kent när ett val är hans att göra (t.ex. vilket konto, vilken mapp, hur utkastet ska se ut). Gissa inte.
+- **Sök i underlagen före frågan:** gå igenom de filer och källor flödet har tillgång till innan en uppgift behandlas som okänd och innan något bedöms utifrån att den saknas. Visa vad underlaget säger, och fråga sedan om det som saknas, är gammalt eller oklart. Människan slipper upprepa sig, och bedömningen byggs inte på en lucka som inte finns. *(prövad i ett flöde)*
 - Förklara *varför* en regel finns, inte bara att den finns. En regel med skäl går att tillämpa på nya fall; en regel utan skäl följs bokstavligt eller inte alls.
 - **Visa fasläget:** en tabell med varje fas och om den är klar, påbörjad eller kvar, med vad som är gjort och vad som återstår. Visa den när Kent frågar var arbetet står, när ett arbete återupptas och när målet ändras.
 - **Fasavstämning** efter varje fas: *Vad överraskade? Gäller det fler flöden? Var hör lärdomen hemma* (uppgiftsskillen eller metaskillen)? Föreslå ändringar av metaskillen löpande och skriv in dem efter Kents ja. En lärdom som bara är prövad i ett flöde märks *(prövad i ett flöde)* tills ett andra flöde bekräftar den, så att enstaka erfarenheter inte läses som allmänna regler.
@@ -99,6 +100,7 @@ Växer målet under arbetet ("hitta jobb" blir "hitta jobb och skriv ansökan"),
 - Det är här konventioner, behörighetsproblem och fallgropar upptäcks. Skriv inte skillen före det här steget.
 - Pröva källorna tekniskt innan du bygger på dem: hur de är sorterade, hur de är indelade i sidor och vad de svarar på en felaktig sökning.
 - **Avsluta med ett facit:** människan bedömer resultatet och säger varför det som är fel är fel. Skälen blir regler, och bedömningarna sparas som testfall. *(prövad i ett flöde)*
+- **Spara testfallens indata, inte bara länkar till dem.** Källor ändras och försvinner (en annons tas ned, ett dokument skrivs om), och då går testet inte att köra om. Spara det som bedömdes tillsammans med bedömningen, och anteckna för varje fall hur mycket av underlaget som lästes. Indata kan innehålla personuppgifter: lägg dem i den privata delen. *(prövad i ett flöde)*
 - Spara hjälpskript som ska återanvändas på en varaktig plats. En sessions tillfälliga mapp kan tömmas.
 - Starta en **utvecklingslogg** för flödet, med en rad per ändring: *iakttagelse → ändring → effekt*. *(prövad i ett flöde)*
 
@@ -135,6 +137,7 @@ Tumregel: koppla en connector först när ett konkret steg kräver den (Drive f�
 - **Tysta fel:** ett lyckat tekniskt svar (till exempel HTTP 200) säger inte att innehållet är rätt. Kontrollera att en källa gav det väntade innehållet. Noll träffar från en källa är en avvikelse att kontrollera innan flödet säger "inget att göra". *(prövad i ett flöde)*
 - **Dubbletter på innehåll:** samma sak kan komma tillbaka med ny länk, ligga ute två gånger eller förmedlas av flera. Jämför innehållet, inte bara id eller adress. *(prövad i ett flöde)*
 - **Läs källan innan något väljs bort:** rubriker och listfält kan vara ofullständiga eller missvisande (en ort i listan, flera orter i texten). Säg vad som bara har bedömts på utdrag eller rubrik. *(prövad i ett flöde)*
+- **Bygg spärren i koden när det går.** En regel i en instruktion följs oftast, men en kontroll i ett skript eller en hook stoppar även när instruktionen missas eller missförstås. Exempel: ett publikt skript vägrar skriva resultat inuti sitt eget repo och avslutar med FEL om formatversionen inte stämmer. Prova att spärren verkligen stoppar, och säg vad den inte täcker. *(prövad i ett flöde)*
 
 ### Fas 5b – Riskklassa åtgärderna
 Risken sitter i **åtgärden**, inte i modellen. Gå igenom varje åtgärd flödet gör och ge den en nivå. Det gör att granskningen hamnar där den behövs: lika granskning av allt blir antingen en flaskhals för rutinsteg eller ett för svagt skydd för de farliga.
@@ -219,6 +222,15 @@ Kent vill ha så mycket som möjligt publikt, för insynens, tydlighetens, versi
 - **En källa för varje sak:** den privata delen pekar på skillen och kopierar den inte. Skillen får sökvägen till det privata underlaget som inställning och har inga privata värden inskrivna.
 - **Version på gränssnittet:** den privata inställningsfilen anger vilken formatversion den följer. Stämmer den inte med skillens är utfallet FEL, så att delarna inte glider isär obemärkt.
 - **Riktningen avgör risken:** att den privata delen läser den publika är låg risk. Att något går från privat till publikt (en lärdom, ett exempel, ett testresultat) är hög risk: skriv om det generellt och låt människan granska innan commit. En schemalagd körning skriver aldrig till det publika.
+
+### Namn och märkning *(prövad i ett flöde)*
+
+- **Olika namn på den publika och den privata delen.** Med samma eller nästan samma namn går det inte att se i en länk eller en mening vilken mapp som menas, och en privat fil kan lätt hamna fel.
+- **"Privat" syns i det privata namnet**, så att det står i varje sökväg. Den publika delen följer namnmönstret i sitt repo.
+- Delar flera flöden samma privata underlag ska det privata namnet inte knytas till ett av dem.
+- **En rad överst i båda README-filerna** säger PUBLIKT eller PRIVAT och vad det innebär. Den publika nämner motparten bara allmänt.
+- **Märk var arbetet sker** när det rör båda: PUBLIKT eller PRIVAT före arbetssteg, i uppgiftslistan och i filredovisningen (orden, inte bara en symbol). Redovisa läget per repo: vad som är ändrat och vad som får pushas.
+- Ett repo kan ha en privat arbetsgren och en publik gren med samma reponamn. Ange då vilken gren "privat" gäller, så att reponamnet inte ger falsk trygghet.
 
 ### Tre zoner, inte två
 
