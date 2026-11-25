@@ -682,3 +682,8 @@ body {
 #part-d h2 {
   scroll-margin-top: 1rem;
 }
+
+/* Luft mellan ett kortrutnät och stycket direkt efter */
+.file-grid + p {
+  margin-top: 1rem;
+}

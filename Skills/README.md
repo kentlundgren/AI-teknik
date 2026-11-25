@@ -32,7 +32,8 @@ går att länka till direkt:
   agent, fem typer av arbetsflöden, de tio faserna, riskklassning (låg, mellan, hög)
   med ångra och reservplan, tre utfall för schemalagda uppgifter, exemplet steg för
   steg med risknivå per steg, hur exemplet växte version för version, lärdomar som
-  blev regler och källorna i Harvardstil. Skillsen ligger i `.claude/skills/`; sidan
+  blev regler, hur ett flöde delas upp mellan moln och dator (med en jobbsökaragent
+  som exempel) och källorna i Harvardstil. Skillsen ligger i `.claude/skills/`; sidan
   beskriver och länkar dit men innehåller inga kopior.
 - **Del D – Samma förmåga, olika ställen.** Varför Claude Code och Cowork läser
   skills från olika ställen (det avgörande är om sessionen körs på datorn eller i

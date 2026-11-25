@@ -29,6 +29,8 @@
                 Version 1.2: Del D (samma förmåga, olika ställen, och kopplingen till datorn) med förslag
                 till Anthropic på svenska och engelska (#delD-forslag).
                 Version 1.3: korsreferenser till Claude-kompassen, metaskillen v6.2.
+                Version 1.4: avsnittet "Dela upp ett flöde mellan moln och dator"
+                i Del C, med en jobbsökaragent som exempel (#c-moln-rubrik).
 -->
 <html lang="sv">
 <head>
@@ -385,6 +387,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           <a href="#c-exempel-rubrik">Exemplet steg för steg</a>
           <a href="#c-versioner-rubrik">Versioner</a>
           <a href="#c-lardomar-rubrik">Lärdomar</a>
+          <a href="#c-moln-rubrik">Moln och dator</a>
           <a href="#c-kallor-rubrik">Källor</a>
         </nav>
       </section>
@@ -617,6 +620,86 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           <li><strong>"Avsluta tyst" utan felväg</strong> gjorde att ett fel kunde se ut som "ingen kallelse". Rättat med tre utfall.</li>
           <li><strong>Två kopior i repot</strong> kan glida isär. Skillsen ligger nu bara i <code>.claude/skills/</code>, och den här sidan länkar dit.</li>
         </ul>
+      </section>
+
+      <!-- C8b. Dela upp ett flöde mellan moln och dator (tillagt 2026-11-25).
+           Långkatekesen körs helt i molnet; många flöden behöver både internet
+           och filer på datorn. Exemplet är en jobbsökaragent. -->
+      <section aria-labelledby="c-moln-rubrik">
+        <h2 id="c-moln-rubrik">Dela upp ett flöde mellan moln och dator</h2>
+        <p>
+          Långkatekesen körs helt i molnet: allt underlag finns i Gmail och Google Drive.
+          Många flöden behöver däremot både internet och filer på datorn. Ett exempel är en
+          <strong>jobbsökaragent</strong> som ska hitta lediga tjänster som ekonom eller
+          controller, bedöma dem mot en profil som ligger på datorn, och skriva utkast till
+          CV och ansökan.
+        </p>
+        <p class="formula">Internet når agenten både lokalt och i molnet. Det som skiljer är var filerna finns och om datorn behöver vara på.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th></th><th>Lokalt (Claude Code på datorn)</th><th>I molnet (schemalagd uppgift hos Anthropic)</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Kan söka på internet</th><td>Ja</td><td>Ja</td></tr>
+              <tr><th scope="row">Når profil, CV och ansökningar på datorn</th><td>Ja</td><td>Nej, bara det som finns på kontot eller i ett repo</td></tr>
+              <tr><th scope="row">Kan köras när datorn är avstängd</th><td>Nej</td><td>Ja</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="sub">Tre sätt att bygga det</h3>
+        <div class="file-grid">
+          <article class="card file-card">
+            <h3>1. Allt lokalt</h3>
+            <p class="tag">Enklast</p>
+            <p>En schemalagd uppgift på datorn söker, läser profilen, bedömer annonserna och skriver utkast. Datorn måste vara på när den körs.</p>
+          </article>
+          <article class="card file-card">
+            <h3>2. Delat, med en överlämning</h3>
+            <p class="tag">Vanligast</p>
+            <p>Molnet söker varje dag och skriver en lista över nya annonser till en överenskommen plats. Claude Code på datorn läser listan, jämför med profilen och skriver CV och ansökan.</p>
+          </article>
+          <article class="card file-card">
+            <h3>3. Allt i molnet</h3>
+            <p class="tag">Kräver att profilen flyttar</p>
+            <p>En sammanfattning av profilen, utan känsliga uppgifter, läggs på kontot eller i ett repo. Molnet gör allt, och utkasten hamnar till exempel i Google Drive.</p>
+          </article>
+        </div>
+        <p>
+          I sätt 2 är <strong>överlämningsplatsen</strong> det som binder ihop molnet och
+          datorn: en fil i ett repo, ett mejl eller ett dokument i Drive. Den behöver ett fast
+          namn och format, så att den lokala delen vet var den ska läsa – precis som
+          konventionerna i fas 4.
+        </p>
+
+        <h3 class="sub">Arbetsflöde eller agent?</h3>
+        <p>
+          En jobbsökare är ett bra exempel på <em>fasta steg med agentiska steg inuti</em>:
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Del</th><th>Typ</th><th>Risk</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Söka kända sidor varje dag och ta bort dubbletter</td><td>Fast steg</td><td><span class="risk risk-lag">Låg</span></td></tr>
+              <tr><td>Söka fritt efter fler källor och liknande sökord, med ett tak för antalet sökningar</td><td>Agentiskt steg</td><td><span class="risk risk-lag">Låg</span></td></tr>
+              <tr><td>Bedöma varje annons mot profilen: passar, kanske, passar inte</td><td>Agentiskt steg</td><td><span class="risk risk-lag">Låg</span></td></tr>
+              <tr><td>Skriva utkast till CV och ansökan</td><td>Fast steg</td><td><span class="risk risk-lag">Låg</span> (utkast)</td></tr>
+              <tr><td>Skicka ansökan eller fylla i formulär med personuppgifter</td><td>Görs aldrig av flödet</td><td><span class="risk risk-hog">Hög · människan</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          En helt fri agent är svårare att granska; ett rent arbetsflöde missar annonser
+          utanför de kända sidorna. Blandningen ger flexibilitet där den behövs – i sökningen
+          – och fasta steg där resultatet ska granskas.
+        </p>
+        <p class="related">
+          Varför molnet och datorn når olika saker:
+          <a href="#delD">Del D · Samma förmåga, olika ställen</a>.
+        </p>
       </section>
 
       <!-- C9. Var skillsen finns -->
@@ -967,7 +1050,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
     Höj versionsnumret och datumet vid varje ändring av sidan.
   -->
   <footer class="site-footer">
-    <p class="versionsrad">Version 1.3 · 2026-11-25 · Kent Lundgren</p>
+    <p class="versionsrad">Version 1.4 · 2026-11-25 · Kent Lundgren</p>
   </footer>
 
   <!--
