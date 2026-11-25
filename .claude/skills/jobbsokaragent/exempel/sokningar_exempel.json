@@ -1,0 +1,11 @@
+{
+  "formatversion": 1,
+  "dagar_bakat": 14,
+  "max_sidor": 25,
+  "paus_sekunder": 0.4,
+  "sokvagar": [
+    "alla/controllerjobb/i/uppsala",
+    "tagg/controller+uppsala",
+    "tagg/ekonom+uppsala"
+  ]
+}
