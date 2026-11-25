@@ -1,11 +1,11 @@
-# kent-jobbsok-sortering – dagens jobb (version 0.1)
+# kent-jobbsok-sortering – dagens jobb (version 0.2)
 
 **PUBLIKT:** här finns inga personuppgifter, bara metod och påhittade exempel. Användarens riktiga uppgifter ligger i en privat mapp utanför repot.
 
 En agent som byggs fas för fas med metaskillen
 [`kent-agentiska-arbetsfloden`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/SKILL.md).
 
-**Status:** version 0.1. [`SKILL.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/SKILL.md)
+**Status:** version 0.2. [`SKILL.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/SKILL.md)
 beskriver flödet, som startas för hand. Ingen schemalagd körning finns. Behörigheter,
 risk och kontroller är bara delvis prövade.
 
@@ -57,7 +57,8 @@ modellen. Det kräver Python 3.9 eller senare och inga extra paket.
 python skript\hamta.py --installningar <privat>\sokningar.json --tillstand <privat>\visade_jobb.json --ut <privat>\resultat\<datum>
 ```
 
-Med `--markera-visade` läggs träffarna i tillståndet. Slutkod 0 betyder klart,
+Med `--markera-visade` läggs träffarna i tillståndet. Med `--kontrollera <adress>` hämtas
+annonssidan på nytt och märks ÖPPEN, STÄNGD eller KUNDE INTE KONTROLLERAS. Slutkod 0 betyder klart,
 2 betyder FEL. Avvikelser, till exempel en källa utan rader, skrivs ut och
 sparas även när körningen är klar. Skriptet vägrar att skriva inuti repot.
 

@@ -8,6 +8,9 @@ sammanräknade resultat. Enskilda annonser och bedömningar ligger privat.
 
 | Datum | Version | Fas | Iakttagelse | Ändring | Effekt |
 |---|---|---|---|---|---|
+| 2026-11-25 | 0.2 | 7 | En körning utan nya annonser visade samma tre jobb som förslag och försökte skicka notis | Nytt och visat tidigare hålls isär. KLART kräver något nytt eller en första påminnelse inom tre dagar. Ej presenterade bra jobb förs till kandidatlistan innan de markeras sedda | Reglerna inte provkörda |
+| 2026-11-25 | 0.2 | 7 | Förslag byggde på sparade annonstexter utan att annonsen öppnades på nytt | Skriptet fick `--kontrollera` (ÖPPEN, STÄNGD, KUNDE INTE KONTROLLERAS) och skillen kräver kontroll före förslag | Se testraden |
+| 2026-11-25 | 0.1 | 7 | Den obevakade körningen valde själv att inte följa en startregel | Skriftligt, snävt undantag i samma fil som regeln, beslutat av människan. Andra regler som kräver svar ger FEL. Exempel i mallen | Inte provkört än |
 | 2026-11-25 | 0.1 | 7 | Uppgiften skapades utan schema och kördes för hand i en ny session | Publik mall för uppgiften tillagd | Tre förslag levererades. Notis och startregel återstår |
 | 2026-11-25 | 0.1 | 7 | Skriptet måste köras en andra gång för att markera visade träffar, och allt hämtat markeras, även det som inte visats | Inte ändrat än | Att rätta i nästa version |
 | 2026-11-25 | 0.1 | 6 | Första rundan för hand: förslag, val och ansökan | `SKILL.md` skriven, startas för hand. Profilen får formatversion 2 (ansökningsinstruktion och ansökningslogg) | Inte testad som skill än |
@@ -37,6 +40,7 @@ sammanräknade resultat. Enskilda annonser och bedömningar ligger privat.
 | 2026-11-25 | prov | Engelska sökord för finansiell planering på den första källan, alla sidor i perioden | Få träffar i området, en av dem relevant att läsa |
 | 2026-11-25 | prov | Platsbankens öppna API (fritext och yrkesgrupp) jämfört på rubrik med facit | 10 av 27 hittades. Fritext gav få träffar för vanliga yrkesord och många orelaterade för engelska uttryck |
 | 2026-11-25 | 0.1 | Uppgift utan schema, startad för hand i ny session | Klar på några minuter med tre förslag. Mobilnotisen skickades inte. En startregel i projektet följdes inte, vilket körningen redovisade |
+| 2026-11-25 | 0.2 | `--kontrollera` mot öppen, passerad, borttagen och ej stödd adress, samt samma öppna annons med ett senare datum | Alla gav väntat utfall. Hämtningen fungerade oförändrat efteråt |
 
 Bedömningen (modellens steg) har ännu inte körts om mot testfallen.
 

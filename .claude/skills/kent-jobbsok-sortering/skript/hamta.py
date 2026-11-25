@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""hamta.py (prototyp 0.1): fasta, regelstyrda steg i en jobbsökaragent.
+"""hamta.py (prototyp 0.2): fasta, regelstyrda steg i en jobbsökaragent.
 
 Skriptet hämtar annonslistor från vakanser.se, behåller annonser från de
 senaste dagarna, markerar det som redan har visats, möjliga dubbletter och
@@ -18,6 +18,9 @@ Utfall (slutkod):
 Exempel:
   python hamta.py --installningar sokningar.json --tillstand visade_jobb.json --ut resultat/2026-01-15
   python hamta.py ... --markera-visade   (lägger träffarna i tillståndet)
+  python hamta.py --kontrollera <adress> [<adress> ...]
+      Hämtar annonssidorna på nytt och säger om de går att söka. Skriver inga filer.
+      Utfall per adress: ÖPPEN, STÄNGD eller KUNDE INTE KONTROLLERAS.
 """
 import argparse
 import datetime
@@ -27,6 +30,7 @@ import pathlib
 import re
 import sys
 import time
+import urllib.error
 import urllib.request
 
 FORMATVERSION = 1
@@ -80,6 +84,32 @@ def sista_dag(sida):
     return min(traff) if traff else None
 
 
+def annonsstatus(url, idag):
+    """Går annonsen att söka enligt sidan just nu? Gissar inte: oklart blir KUNDE INTE KONTROLLERAS.
+
+    Kontrollen gäller annonssidan på vakanser.se. En arbetsgivare med löpande urval kan ha
+    tillsatt tjänsten fast sidan ser öppen ut.
+    """
+    if not url.startswith(BAS + "/jobb/"):
+        return "KUNDE INTE KONTROLLERAS", None, "bara annonssidor på vakanser.se stöds"
+    try:
+        sida = hamta(url)
+    except urllib.error.HTTPError as fel:
+        if fel.code in (404, 410):
+            return "STÄNGD", None, f"sidan finns inte längre (HTTP {fel.code})"
+        return "KUNDE INTE KONTROLLERAS", None, f"HTTP {fel.code}"
+    except OSError as fel:
+        return "KUNDE INTE KONTROLLERAS", None, f"{type(fel).__name__}: {fel}"
+    dag = sista_dag(sida)
+    if "sista ansökningsdag har passerat" in html.unescape(sida).lower():
+        return "STÄNGD", dag, "sidan säger att sista ansökningsdag har passerat"
+    if dag is None:
+        return "KUNDE INTE KONTROLLERAS", None, "ingen sista ansökningsdag på sidan"
+    if dag < idag:
+        return "STÄNGD", dag, "sista ansökningsdag har passerat"
+    return "ÖPPEN", dag, "sidan svarar och sista ansökningsdag har inte passerat"
+
+
 def nyckel(annons):
     """Innehållsnyckel: arbetsgivare och titel utan skiljetecken och versaler."""
     return re.sub(r"\W+", "", (annons["arbetsgivare"] + annons["titel"]).lower())
@@ -124,12 +154,22 @@ def main():
     for strom in (sys.stdout, sys.stderr):
         strom.reconfigure(encoding="utf-8")
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    p.add_argument("--installningar", required=True)
-    p.add_argument("--tillstand", required=True)
-    p.add_argument("--ut", required=True)
+    p.add_argument("--installningar")
+    p.add_argument("--tillstand")
+    p.add_argument("--ut")
+    p.add_argument("--kontrollera", nargs="+", metavar="ADRESS")
     p.add_argument("--idag", default=datetime.date.today().isoformat())
     p.add_argument("--markera-visade", action="store_true")
     a = p.parse_args()
+
+    if a.kontrollera:
+        for url in a.kontrollera:
+            status, dag, skal = annonsstatus(url, a.idag)
+            print(f"{status} | sista dag {dag or 'okänd'} | {skal} | {url}")
+            time.sleep(0.4)
+        return 0
+    if not (a.installningar and a.tillstand and a.ut):
+        raise Fel("--installningar, --tillstand och --ut krävs för en hämtning")
 
     ut = pathlib.Path(a.ut).resolve()
     skriptrepo = next((m for m in pathlib.Path(__file__).resolve().parents if (m / ".git").exists()), None)
