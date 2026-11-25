@@ -1,4 +1,6 @@
-# jobbsokaragent – sök och sortera lediga tjänster (under uppbyggnad)
+# kent-jobbsok-sortering – sök och sortera lediga tjänster (under uppbyggnad)
+
+**PUBLIKT:** här finns inga personuppgifter, bara metod och påhittade exempel. Användarens riktiga uppgifter ligger i en privat mapp utanför repot.
 
 En agent som byggs fas för fas med metaskillen
 [`kent-agentiska-arbetsfloden`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/SKILL.md).
@@ -29,13 +31,13 @@ bara påhittade uppgifter:
 
 | Privat fil | Läses av | Exempel |
 |---|---|---|
-| `profil.md` | Modellen, vid bedömningen | [`profil_exempel.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/jobbsokaragent/exempel/profil_exempel.md) |
-| `sokningar.json` | Skriptet | [`sokningar_exempel.json`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/jobbsokaragent/exempel/sokningar_exempel.json) |
-| `visade_jobb.json` | Skriptet, som också kan skriva i den | [`visade_jobb_exempel.json`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/jobbsokaragent/exempel/visade_jobb_exempel.json) |
+| `profil.md` | Modellen, vid bedömningen | [`profil_exempel.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/exempel/profil_exempel.md) |
+| `sokningar.json` | Skriptet | [`sokningar_exempel.json`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/exempel/sokningar_exempel.json) |
+| `visade_jobb.json` | Skriptet, som också kan skriva i den | [`visade_jobb_exempel.json`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/exempel/visade_jobb_exempel.json) |
 
 ## Skriptet
 
-[`skript/hamta.py`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/jobbsokaragent/skript/hamta.py)
+[`skript/hamta.py`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/skript/hamta.py)
 är en prototyp. Det gör de regelstyrda stegen och lämnar bedömningen till
 modellen. Det kräver Python 3.9 eller senare och inga extra paket.
 
@@ -49,13 +51,13 @@ sparas även när körningen är klar. Skriptet vägrar att skriva inuti repot.
 
 ## Utvecklingen
 
-[`UTVECKLING.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/jobbsokaragent/UTVECKLING.md)
+[`UTVECKLING.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/UTVECKLING.md)
 visar iakttagelse, ändring och effekt, testresultat och kända brister.
-[Historiken för mappen](https://github.com/kentlundgren/AI-teknik/commits/main/.claude/skills/jobbsokaragent)
+[Historiken för mappen](https://github.com/kentlundgren/AI-teknik/commits/main/.claude/skills/kent-jobbsok-sortering)
 visar varje ändring. Mer om upplägget finns på lärosidan:
 [Publik process, privat underlag](https://kentlundgren.github.io/AI-teknik/Skills/#c-publik-rubrik).
 
 ## Repo
 
-- GitHub: https://github.com/kentlundgren/AI-teknik/tree/main/.claude/skills/jobbsokaragent
-- Lokal sökväg: `C:\Users\kentl\OneDrive\AI\AI-teknik\.claude\skills\jobbsokaragent`
+- GitHub: https://github.com/kentlundgren/AI-teknik/tree/main/.claude/skills/kent-jobbsok-sortering
+- Lokal sökväg: `C:\Users\kentl\OneDrive\AI\AI-teknik\.claude\skills\kent-jobbsok-sortering`

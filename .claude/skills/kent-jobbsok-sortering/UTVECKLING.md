@@ -1,4 +1,4 @@
-# Utvecklingslogg för jobbsökaragenten
+# Utvecklingslogg för jobbsökaragenten (kent-jobbsok-sortering)
 
 Nyast överst. Varje rad säger vad som iakttogs, vad som ändrades och vilken
 effekt det fick. Loggen är publik och innehåller bara generella iakttagelser och
@@ -8,6 +8,7 @@ sammanräknade resultat. Enskilda annonser och bedömningar ligger privat.
 
 | Datum | Version | Fas | Iakttagelse | Ändring | Effekt |
 |---|---|---|---|---|---|
+| 2026-11-25 | 0.1 | 2 | Den publika och den privata mappen hade nästan samma namn, så det gick inte att se vilken som menades. Namnet följde inte heller repots vanligaste mönster, och ordet "agent" passade inte ett fast arbetsflöde | Skilda namn: den publika mappen heter `kent-jobbsok-sortering` och den privata har "privat" i namnet. Båda README-filerna anger överst vilken del det är | Hämtningen testkörd från de nya platserna, se testresultat |
 | 2026-11-25 | 0.1 | 2 | En fråga till människan hade delvis svar i det befintliga underlaget, och sorteringen gjordes utan det | Underlagen söks igenom innan en uppgift behandlas som okänd | Gäller bedömningen; inte omtestat |
 | 2026-11-25 | 0.1 | 2 | Provskripten låg i en tillfällig mapp och hade sökningarna inskrivna i koden | `skript/hamta.py` byggt: sökningar och tillstånd i privata filer, felutfall med slutkod 2, spärr mot att skriva i det publika repot | Se testraderna nedan |
 | 2026-11-25 | 0.1 | 2 | En söksida utan träffar svarade som om allt gick bra | Noll rader redovisas som avvikelse per källa | Se testraderna nedan |
@@ -25,6 +26,7 @@ sammanräknade resultat. Enskilda annonser och bedömningar ligger privat.
 | 2026-11-25 | 0.1 | Dubbletter och passerad sista dag | 2 möjliga dubbletter och flera passerade datum märktes |
 | 2026-11-25 | 0.1 | Felvägar: fel formatversion, resultat i publikt repo, enbart felaktig sökväg | Alla tre gav FEL och slutkod 2 |
 | 2026-11-25 | 0.1 | Enstaka sökvägar utan rader bland fungerande | Redovisades som avvikelse, körningen blev klar |
+| 2026-11-25 | 0.1 | Efter namnbytet: körning från de nya platserna | Hämtningen blev klar, 0 annonser rapporterade som nya |
 
 Bedömningen (modellens steg) har ännu inte körts om mot testfallen.
 
