@@ -21,6 +21,8 @@
                 { } GitHub och </> teknik ersatte den tidigare GitHub-badgen.
                 Sidramen kom på plats: brödsmulor uppe till vänster och
                 versionsraden i mitten av sidfoten (version 1.0).
+    2026-11-25  Version 1.1: länkar direkt till delarna (#delA, #delB, #delC)
+                och avsnittet "Tre hem för dina egna skills" i Del A.
 -->
 <html lang="sv">
 <head>
@@ -104,6 +106,72 @@
         </p>
       </section>
 
+      <!-- Var dina egna skills bor och var du ser dem. Svarar på frågan
+           "varför syns inte skillen X i inställningarna?". -->
+      <section aria-labelledby="a-hem-rubrik" class="card">
+        <h2 id="a-hem-rubrik">Tre hem för dina egna skills – och var du ser dem</h2>
+        <p>
+          En skill syns bara där den bor. Därför kan en skill finnas och fungera i
+          Claude Code utan att synas i inställningarna i Claude-appen.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Hem</th><th>Var den ligger</th><th>Var du ser den</th><th>Var den används</th><th>Exempel</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Claude-kontot</strong></td>
+                <td>Hos Anthropic, uppladdad som .skill- eller ZIP-fil</td>
+                <td>Appen: Inställningar → Plugin → Skills (på webben Customize → Skills)</td>
+                <td>Chatt, Cowork, molnsessioner och Claude Code när du är inloggad med kontot</td>
+                <td><code>kent-agentiska-arbetsfloden</code></td>
+              </tr>
+              <tr>
+                <td><strong>Personlig Claude Code-skill</strong></td>
+                <td><code>C:\Users\&lt;du&gt;\.claude\skills\&lt;namn&gt;\SKILL.md</code></td>
+                <td>Utforskaren eller Cursor – <em>inte</em> i appens inställningar</td>
+                <td>Claude Code i alla projekt på datorn, men inte i Cowork eller molnsessioner</td>
+                <td><code>kent-bygg-sidor</code></td>
+              </tr>
+              <tr>
+                <td><strong>Projektskill</strong></td>
+                <td><code>&lt;repo&gt;\.claude\skills\&lt;namn&gt;\SKILL.md</code></td>
+                <td>I repot, i Cursor och på GitHub</td>
+                <td>Claude Code och Cursor när du arbetar i just det repot</td>
+                <td><code>langkatekesen-protokoll</code> i AI-teknik</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Kontoskillsen laddas ned till Claude Code i mappen
+          <code>.claude\skills\synced\</code>. Den vägen går bara åt ett håll: ändrar du en
+          fil där sparas det inte på kontot, och nästa synkning kan skriva över ändringen.
+          Ändra därför en kontoskill genom att ladda upp en ny .skill-fil, och ändra en
+          personlig skill direkt i dess mapp.
+        </p>
+
+        <h3 class="sub">Så hittar du en personlig Claude Code-skill</h3>
+        <ol class="phases">
+          <li><strong>I Utforskaren:</strong> skriv <code>%USERPROFILE%\.claude\skills</code> i adressfältet och tryck Enter. Varje undermapp är en skill med en <code>SKILL.md</code>.</li>
+          <li><strong>I Cursor:</strong> Arkiv → Öppna fil (File → Open File) och klistra in samma sökväg, till exempel <code>%USERPROFILE%\.claude\skills\kent-bygg-sidor\SKILL.md</code>.</li>
+          <li><strong>I Claude Code:</strong> kör kommandot <code>/skills</code>. Det listar de skills som Claude Code har laddat, och kontoskillsen visas under <em>claude.ai sync</em>.</li>
+          <li><strong>Fråga:</strong> skriv till Claude Code "Var ligger skillen kent-bygg-sidor?". Den kan läsa mappen och svara med sökvägen.</li>
+        </ol>
+
+        <p class="note">
+          Källor: Anthropic (u.å.) <em>Extend Claude with skills</em>. Claude Code Docs.
+          Tillgänglig på: <a href="https://code.claude.com/docs/en/skills" target="_blank" rel="noopener">https://code.claude.com/docs/en/skills</a>
+          (Hämtad: 25 november 2026). <em>(Var skills ligger, vilka sessioner som läser
+          vilka platser, synkningen av kontoskills och kommandot /skills.)</em> –
+          Anthropic (u.å.) <em>Use skills in Claude</em>. Claude Help Center. Tillgänglig på:
+          <a href="https://support.claude.com/en/articles/12512180-use-skills-in-claude" target="_blank" rel="noopener">https://support.claude.com/en/articles/12512180-use-skills-in-claude</a>
+          (Hämtad: 25 november 2026). <em>(Hur egna skills laddas upp till kontot.)</em>
+          Uppgifterna är inte kvalitetssäkrade och bör kontrolleras mot källan.
+        </p>
+      </section>
+
       <!-- De fyra platserna på disken -->
       <section aria-labelledby="a-platser-rubrik">
         <h2 id="a-platser-rubrik">De fyra platserna (på Windows, under <code>C:\Users\&lt;du&gt;\</code>)</h2>
@@ -132,12 +200,11 @@
 
           <article class="card file-card">
             <h3>3. <code>.claude\skills\</code></h3>
-            <p class="tag">Dina egna (Claude)</p>
+            <p class="tag">Dina egna (Claude Code)</p>
             <p>
-              Egna skills som ursprungligen skapats för <strong>Claude</strong>
-              (claude.ai / Claude Code / Cowork), t.ex. <code>kent-skrivstil</code>,
-              <code>kent-respons</code>, <code>skills-meta-guide</code>.
-              <strong>Cursor läser även denna mapp.</strong>
+              Dina personliga Claude Code-skills, t.ex. <code>kent-bygg-sidor</code>.
+              Undermappen <code>synced\</code> innehåller nedladdade kopior av
+              kontoskillsen – ändra inte där. <strong>Cursor läser även denna mapp.</strong>
             </p>
           </article>
 
@@ -578,7 +645,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
     Höj versionsnumret och datumet vid varje ändring av sidan.
   -->
   <footer class="site-footer">
-    <p class="versionsrad">Version 1.0 · 2026-11-24 · Kent Lundgren</p>
+    <p class="versionsrad">Version 1.1 · 2026-11-25 · Kent Lundgren</p>
   </footer>
 
   <!--
@@ -606,7 +673,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         </div>
         <div class="tech-card">
           <h3>Flikar med klass och aria</h3>
-          <p>Del A, B och C växlas genom att klassen <code>is-hidden</code> sätts och tas bort. <code>aria-selected</code> uppdateras så att skärmläsare vet vilken flik som är vald.</p>
+          <p>Del A, B och C växlas genom att klassen <code>is-hidden</code> sätts och tas bort. <code>aria-selected</code> uppdateras så att skärmläsare vet vilken flik som är vald. Varje del har en egen adress (<code>#delA</code>, <code>#delB</code>, <code>#delC</code>) som går att länka till.</p>
         </div>
         <div class="tech-card">
           <h3>Rullbara tabeller</h3>

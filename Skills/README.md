@@ -9,7 +9,11 @@ inte om en enskild AI-teknik, utan om **verktyget** (skills) som agenter använd
 
 ## Vad sidan tar upp
 
-Live-sidan är uppdelad i tre tydligt åtskilda delar (växlare högst upp):
+Live-sidan är uppdelad i tre tydligt åtskilda delar (växlare högst upp). Varje del
+går att länka till direkt:
+[#delA](https://kentlundgren.github.io/AI-teknik/Skills/#delA),
+[#delB](https://kentlundgren.github.io/AI-teknik/Skills/#delB) och
+[#delC](https://kentlundgren.github.io/AI-teknik/Skills/#delC).
 
 - **Del A – Var skills bor och hur de nås.** De fyra platserna på disken
   (`.cursor\skills-cursor\`, `.cursor\skills\`, `.claude\skills\` och
