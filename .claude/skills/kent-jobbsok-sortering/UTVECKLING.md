@@ -8,6 +8,7 @@ sammanräknade resultat. Enskilda annonser och bedömningar ligger privat.
 
 | Datum | Version | Fas | Iakttagelse | Ändring | Effekt |
 |---|---|---|---|---|---|
+| 2026-11-25 | 0.3 | 7 | Reglerna i 0.2 kunde ge en dag utan förslag, men människans mål är att söka ett jobb per arbetsdag och välja bland tre | Varje körning visar de tre lämpligaste öppna jobben, nya och tidigare visade på lika villkor, med rangordning, märkta reserver, antal visningar, lägestabell och svarskommandon. Utfallet INGET NYTT ersatt av KLART MED FÄRRE. Urvalsreglerna står bara i skillen, och uppgiftens instruktion är kortare | Inte provkört |
 | 2026-11-25 | 0.2 | 7 | En körning utan nya annonser visade samma tre jobb som förslag och försökte skicka notis | Nytt och visat tidigare hålls isär. KLART kräver något nytt eller en första påminnelse inom tre dagar. Ej presenterade bra jobb förs till kandidatlistan innan de markeras sedda | Reglerna inte provkörda |
 | 2026-11-25 | 0.2 | 7 | Förslag byggde på sparade annonstexter utan att annonsen öppnades på nytt | Skriptet fick `--kontrollera` (ÖPPEN, STÄNGD, KUNDE INTE KONTROLLERAS) och skillen kräver kontroll före förslag | Se testraden |
 | 2026-11-25 | 0.1 | 7 | Den obevakade körningen valde själv att inte följa en startregel | Skriftligt, snävt undantag i samma fil som regeln, beslutat av människan. Andra regler som kräver svar ger FEL. Exempel i mallen | Inte provkört än |

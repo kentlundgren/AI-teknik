@@ -1,18 +1,18 @@
-# kent-jobbsok-sortering – dagens jobb (version 0.2)
+# kent-jobbsok-sortering – dagens jobb (version 0.3)
 
 **PUBLIKT:** här finns inga personuppgifter, bara metod och påhittade exempel. Användarens riktiga uppgifter ligger i en privat mapp utanför repot.
 
 En agent som byggs fas för fas med metaskillen
 [`kent-agentiska-arbetsfloden`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/SKILL.md).
 
-**Status:** version 0.2. [`SKILL.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/SKILL.md)
-beskriver flödet, som startas för hand. Ingen schemalagd körning finns. Behörigheter,
-risk och kontroller är bara delvis prövade.
+**Status:** version 0.3. [`SKILL.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/SKILL.md)
+beskriver flödet. Det startas av en schemalagd uppgift på användarens dator eller för hand.
+En tidsstartad körning har inte prövats än. Behörigheter, risk och kontroller är bara delvis prövade.
 
 ## Vad agenten gör
 
-Söker lediga ekonom- och controllertjänster, presenterar **tre** att söka med kort
-motivering, och skriver efter användarens val underlag till ansökan och CV enligt en
+Söker lediga ekonom- och controllertjänster, presenterar varje gång de **tre lämpligaste** öppna
+jobben med kort motivering (målet är att söka ett per arbetsdag), och skriver efter användarens val underlag till ansökan och CV enligt en
 privat ansökningsinstruktion. Människan granskar och skickar in. Agenten skickar
 ingenting. Typ: fast arbetsflöde med agentiska steg och människans val som grind.
 
