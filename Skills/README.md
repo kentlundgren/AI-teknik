@@ -25,7 +25,7 @@ går att länka till direkt:
   i en `SKILL.md` (frontmatter med `name`/`description` + brödtext) och en
   steg-för-steg-guide för att skapa en egen skill.
 - **Del C – Agentiska arbetsflöden.** En pedagogisk beskrivning av metaskillen
-  [`kent-agentiska-arbetsfloden`](../.claude/skills/kent-agentiska-arbetsfloden/) (v6.1)
+  [`kent-agentiska-arbetsfloden`](../.claude/skills/kent-agentiska-arbetsfloden/) (v6.2)
   och det genomarbetade exemplet
   [`langkatekesen-protokoll`](../.claude/skills/langkatekesen-protokoll/) (v6):
   hur två skills och en schemalagd uppgift hör ihop, skillnaden mellan arbetsflöde och
@@ -73,7 +73,7 @@ läsbara kopior här i `Skills/`; de togs bort 2026-11-24 så att det bara finns
 
 | Skill | Version | Vad skillen gör |
 | --- | --- | --- |
-| [`kent-agentiska-arbetsfloden`](../.claude/skills/kent-agentiska-arbetsfloden/) | v6.1 | Playbook för att designa agentiska arbetsflöden (metaskill): typlära, tio faser, riskklassning, valpunkter, fallgropar och Lärt av andra |
+| [`kent-agentiska-arbetsfloden`](../.claude/skills/kent-agentiska-arbetsfloden/) | v6.2 | Playbook för att designa agentiska arbetsflöden (metaskill): typlära, tio faser, riskklassning, valpunkter, fallgropar och Lärt av andra |
 | [`langkatekesen-protokoll`](../.claude/skills/langkatekesen-protokoll/) | v6 | Protokollutkast och granskning för Långkatekesens styrelsemöten, med risk, ångra och reservplan per åtgärd. Mejladresserna är borttagna i repot |
 
 Versionen står i rubriken i varje `SKILL.md`, och Git-historiken visar ändringarna
@@ -81,6 +81,7 @@ version för version.
 
 ## Relaterat
 
+- Systersida: [Claude-kompassen](https://kentlundgren.github.io/AI-teknik/AI_modeller/Claude/olika_Claude_modeller/) beskriver arbetssättet (ytor, Cursor, Git och GitHub); den här sidan beskriver verktyget skills.
 - Projektets startsida: [`../README.md`](../README.md)
 - RAG-delen: [`../RAG/`](../RAG/)
 
