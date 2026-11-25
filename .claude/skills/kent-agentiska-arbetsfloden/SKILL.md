@@ -3,7 +3,7 @@ name: kent-agentiska-arbetsfloden
 description: Kents playbook (metaskill) för att designa och bygga agentiska arbetsflöden tillsammans med Claude – återkommande uppgifter som Claude utför i flera steg med connectorer, skills och schemalagda uppgifter. Aktivera när Kent vill automatisera något som återkommer ("varje gång jag får…", "känna av när…", "gör det här automatiskt", "skapa en rutin", "schemalagd uppgift"), när han vill bygga en ny uppgiftsskill för ett flöde, när han frågar om skillnaden mellan arbetsflöde och agent, riskklassning, human-in-the-loop eller vad som händer om ingen agerar, eller när han frågar om hur man tänker kring agentiska uppgifter på metanivå. Långkatekesen-protokollen är det genomarbetade exemplet.
 ---
 
-# Agentiska arbetsflöden – Kents playbook (v6.1)
+# Agentiska arbetsflöden – Kents playbook (v6.2)
 
 Den här skillen utför inget jobb själv. Den styr **hur** Kent och Claude tar fram ett nytt arbetsflöde, och den är ett stöd för att Kent ska lära sig mönstret.
 
@@ -188,6 +188,7 @@ Använd mallen nedan. Leverera som .skill-fil (Kents önskemål), med versionsnu
 | Valpunkt | Alternativ | Att tänka på |
 |---|---|---|
 | Arbetsflöde eller agent | Fasta steg i skillen · Agent som väljer själv · Blandning: fasta steg med agentiska steg inuti | Fasta steg är lättare att granska; agent bara när stegen inte går att förutse |
+| Var sessionen körs | Claude Code lokalt (Code-fliken, Cursor, terminal) · Cowork eller chatt i molnet · Schemalagd uppgift på datorn · Schemalagd uppgift i molnet | Lokalt når datorns filer och skills; molnet når bara kontot och kopior. Välj efter var underlaget och resultatet ska ligga |
 | Granskningsnivå per åtgärd | Claude gör själv · Claude gör och meddelar (on-the-loop) · Claude väntar på ja (in-the-loop) · Görs aldrig automatiskt | Utgå från riskklassen i Fas 5b |
 | Om ingen agerar | Inget händer · Ny påminnelse före tidsgränsen · Eskalera till annan person · Flödet gör det självt | Det säkra valet är påminnelse; att göra det självt bara för låg risk |
 | Trigger | Schemalagd uppgift som söker (polling) · Kent startar själv · Gmail-filter med etikett + schemalagd sökning efter etiketten | Schema är automatiskt; manuell start är enklast; etikett tål att ämnesraden ändras |
@@ -224,6 +225,8 @@ Använd mallen nedan. Leverera som .skill-fil (Kents önskemål), med versionsnu
 - **Gmail visar bara ett utkast per tråd** i trådvyn, även om flera finns; listan visar "Utkast, Utkast…". Därför ska flödet bara skapa ett.
 - **Flera utkast i samma tråd** när man provar sig fram: ta bort de gamla (med Kents ja) så att fel utkast inte skickas.
 - **Två kopior i repot**: till och med v6 låg skillsen både i `.claude/skills/` och som läsbara kopior i `Skills/`. Regeln "uppdatera båda i samma commit" skulle hålla dem i takt, men två kopior är otydligt och kan glida isär. Från v6.1 finns en enda kopia i repot, och lärosidan länkar dit. En källa är enklare än en regel som håller två källor i synk.
+- **Fel yta för uppgiften**: en konversation som började med skills och schemalagda uppgifter i Cowork gled över i arbete i ett repo. Cowork arbetar i molnet i en kopia av repot, så ändringarna nådde inte Kents mapp förrän de fördes över, och mappar som heter `.claude` gick inte att skriva via kopplingen. Välj yta efter uppgiften innan du börjar: arbete i filer och repon på datorn görs i Claude Code lokalt (Code-fliken med mappen öppen, eller Cursor); mejl, kalender, dokument och research i Cowork. Byter uppgiften karaktär under arbetet, säg det och föreslå att fortsätta i rätt yta.
+- **Kopplingen till datorn bröts utan att det märktes**: en Cowork-session når datorn bara genom en koppling via skrivbordsappen. Ikonen för datorn bredvid konversationens rubrik har en prick: grön när Cowork är anslutet till datorn, orange när kopplingen är bruten, trots att internet fungerar (viloläge, omstart av appen). Arbetet kan se klart ut i molnkopian medan inget har nått mappen. Titta på pricken innan du räknar med att ändringar finns i mappen. Claude säger till direkt när kopplingen bryts, inte först när en skrivning misslyckas.
 - **"Avsluta tyst" utan felväg**: den första prompten för Långkatekesen sa bara när den skulle avsluta tyst, inte vad den skulle göra om något gick fel. Ett fel hade då kunnat se ut som "ingen kallelse". Rättat i v6 med tre utfall.
 
 ## Mall för en ny uppgiftsskill
