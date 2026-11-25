@@ -1,6 +1,6 @@
 # Profil för jobbsökaragenten (exempel med påhittade uppgifter)
 
-formatversion: 1
+formatversion: 2
 
 Den riktiga filen är privat och heter `profil.md`. Rubrikerna nedan är det
 gränssnitt som agenten räknar med.
@@ -32,6 +32,15 @@ ekonomichef, redovisningstung, deltid, vikariat, konsultuppdrag
 ## Öppna frågor
 Frågor som påverkar sorteringen och som människan inte har svarat på. Så länge
 en fråga är öppen märks berörda annonser "beror på dig".
+
+## Ansökningsinstruktion
+Sökväg till den instruktion som styr ansökan och CV, till exempel `../mina-instruktioner/ansokan.md`.
+
+## Ansökningslogg
+Sökväg till listan över sökta jobb, till exempel `../sokta_jobb.md`.
+
+## Begränsningar
+Sådant som aldrig ska föreslås, till exempel: inga jobb som kräver flytt.
 
 ## Källor till uppgifterna
 Sökvägar till de filer som gäller för uppgifterna om personen. Uppgifterna

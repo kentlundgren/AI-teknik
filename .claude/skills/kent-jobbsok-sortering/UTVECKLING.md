@@ -8,6 +8,10 @@ sammanräknade resultat. Enskilda annonser och bedömningar ligger privat.
 
 | Datum | Version | Fas | Iakttagelse | Ändring | Effekt |
 |---|---|---|---|---|---|
+| 2026-11-25 | 0.1 | 6 | Första rundan för hand: förslag, val och ansökan | `SKILL.md` skriven, startas för hand. Profilen får formatversion 2 (ansökningsinstruktion och ansökningslogg) | Inte testad som skill än |
+| 2026-11-25 | 0.1 | 2 | Målet ändrades: en sorterad lista räckte inte, och att välja ett enda jobb åt människan var för snävt | Tre förslag, människan väljer, sedan ansökan och CV | Ett val gjort i första rundan |
+| 2026-11-25 | 0.1 | 2 | Ett kort tidsfönster och minnet över visade jobb dolde öppna jobb, och ett förslag bröt mot en gräns som inte var nedskriven | Längre tidsfönster, privat kandidatlista och begränsningar som går före all bedömning | Inte omtestat |
+| 2026-11-25 | 0.1 | 2 | Ansökningssättet var ett annat än väntat (inget brev, frågor i formulär) | Ansökningssättet kontrolleras innan något skrivs | Gäller från nästa runda |
 | 2026-11-25 | 0.1 | 2 | En andra källa fann en del av samma annonser och några egna. Ett ortsfilter i källan dolde en tjänst med flera placeringsorter, och samma uppdrag kunde ligga ute på två språk med olika titlar | Fler källor och dubblettkontroll på innehåll blir krav. Fas 2 avslutad | Inte byggt än |
 | 2026-11-25 | 0.1 | 2 | Den publika och den privata mappen hade nästan samma namn, så det gick inte att se vilken som menades. Namnet följde inte heller repots vanligaste mönster, och ordet "agent" passade inte ett fast arbetsflöde | Skilda namn: den publika mappen heter `kent-jobbsok-sortering` och den privata har "privat" i namnet. Båda README-filerna anger överst vilken del det är | Hämtningen testkörd från de nya platserna, se testresultat |
 | 2026-11-25 | 0.1 | 2 | En fråga till människan hade delvis svar i det befintliga underlaget, och sorteringen gjordes utan det | Underlagen söks igenom innan en uppgift behandlas som okänd | Gäller bedömningen; inte omtestat |

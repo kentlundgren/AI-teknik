@@ -1,32 +1,33 @@
-# kent-jobbsok-sortering – sök och sortera lediga tjänster (under uppbyggnad)
+# kent-jobbsok-sortering – dagens jobb (version 0.1)
 
 **PUBLIKT:** här finns inga personuppgifter, bara metod och påhittade exempel. Användarens riktiga uppgifter ligger i en privat mapp utanför repot.
 
 En agent som byggs fas för fas med metaskillen
 [`kent-agentiska-arbetsfloden`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/SKILL.md).
-**Status:** version 0.1. Fas 2 (manuell körning) är avslutad, fas 3 (behörigheter) står på tur. Någon `SKILL.md`
-finns inte än; den skrivs i fas 6. Mappen är därför ingen skill som kan köras.
 
-## Vad agenten ska göra
+**Status:** version 0.1. [`SKILL.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/SKILL.md)
+beskriver flödet, som startas för hand. Ingen schemalagd körning finns. Behörigheter,
+risk och kontroller är bara delvis prövade.
 
-Hitta nya ekonom- och controllertjänster, sortera dem mot en profil i
-**Stark match**, **Möjlig** och **Bortvald** med skäl, och lämna listan till en
-människa. Agenten söker inga jobb och skickar ingenting. Typ: ett fast
-arbetsflöde med ett agentiskt steg (bedömningen).
+## Vad agenten gör
 
-Ansökan och CV hör till ett eget flöde, som startas när människan har valt ett jobb.
+Söker lediga ekonom- och controllertjänster, presenterar **tre** att söka med kort
+motivering, och skriver efter användarens val underlag till ansökan och CV enligt en
+privat ansökningsinstruktion. Människan granskar och skickar in. Agenten skickar
+ingenting. Typ: fast arbetsflöde med agentiska steg och människans val som grind.
 
 ## Publik process, privat underlag
 
 | Del | Var | Innehåll |
 |---|---|---|
-| Metod | Den här mappen (publik) | Skript, format, exempel, utvecklingslogg, senare `SKILL.md` |
+| Metod | Den här mappen (publik) | Skript, format, exempel, utvecklingslogg, `SKILL.md` |
 | Inställningar, data och tillstånd | En privat mapp utanför repot | Profil, sökningar, visade jobb, testfall och resultat |
 
 Det privata läser det publika. Inget privat kopieras hit. Lärdomar förs över
 bara omskrivna till generella och granskade av en människa.
 
-**Gränssnittet** (formatversion 1) är tre privata filer. Exemplen innehåller
+**Gränssnittet** är privata filer: `profil.md` (formatversion 2), de två JSON-filerna
+(formatversion 1) och en kandidatlista, `kandidater.md`, utan fast format. Exemplen innehåller
 bara påhittade uppgifter:
 
 | Privat fil | Läses av | Exempel |
