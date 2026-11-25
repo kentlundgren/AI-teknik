@@ -24,8 +24,9 @@ går att länka till direkt:
 - **Del B – Vad en skill är och hur man skapar en.** Progressiv laddning, anatomin
   i en `SKILL.md` (frontmatter med `name`/`description` + brödtext) och en
   steg-för-steg-guide för att skapa en egen skill.
-- **Del C – Agentiska arbetsflöden.** En pedagogisk beskrivning av metaskillen
-  [`kent-agentiska-arbetsfloden`](../.claude/skills/kent-agentiska-arbetsfloden/) (v7.0)
+- **Del C – Agentiska arbetsflöden.** Tar bland annat upp agentens tre delar, start, metod och underlag
+  ([#c-delar-rubrik](https://kentlundgren.github.io/AI-teknik/Skills/#c-delar-rubrik)). En pedagogisk beskrivning av metaskillen
+  [`kent-agentiska-arbetsfloden`](../.claude/skills/kent-agentiska-arbetsfloden/) (v7.1)
   och det genomarbetade exemplet
   [`langkatekesen-protokoll`](../.claude/skills/langkatekesen-protokoll/) (v6):
   hur två skills och en schemalagd uppgift hör ihop, skillnaden mellan arbetsflöde och
@@ -75,7 +76,7 @@ läsbara kopior här i `Skills/`; de togs bort 2026-11-24 så att det bara finns
 
 | Skill | Version | Vad skillen gör |
 | --- | --- | --- |
-| [`kent-agentiska-arbetsfloden`](../.claude/skills/kent-agentiska-arbetsfloden/) | v7.0 | Playbook för att designa agentiska arbetsflöden (metaskill): en kärnfil med coachläge, typlära, tio faser, riskklassning och mall, och referensfiler med bland annat valpunkter, fallgropar, publik process och privat underlag och Lärt av andra |
+| [`kent-agentiska-arbetsfloden`](../.claude/skills/kent-agentiska-arbetsfloden/) | v7.1 | Playbook för att designa agentiska arbetsflöden (metaskill): en kärnfil med coachläge, typlära, tio faser, riskklassning och mall, och referensfiler med bland annat valpunkter, fallgropar, publik process och privat underlag och Lärt av andra |
 | [`langkatekesen-protokoll`](../.claude/skills/langkatekesen-protokoll/) | v6 | Protokollutkast och granskning för Långkatekesens styrelsemöten, med risk, ångra och reservplan per åtgärd. Mejladresserna är borttagna i repot |
 | [`kent-jobbsok-sortering`](../.claude/skills/kent-jobbsok-sortering/) | 0.1, startas för hand | Tre förslag på jobb att söka, människans val och överlämning till en ansökningsinstruktion. Skript, exempel och utvecklingslogg. Profil och data är privata |
 

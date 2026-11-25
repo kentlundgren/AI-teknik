@@ -43,6 +43,8 @@
                 länkar till referensfilerna i #c-tva-rubrik, #c-lardomar-rubrik
                 och #c-kallor-rubrik.
                 Version 1.11: jobbsökaragenten har en uppgiftsskill (v0.1).
+                Version 1.12: avsnittet "Agentens tre delar" (#c-delar-rubrik) med
+                länkar till delarna och källor; metaskillen v7.1.
 -->
 <html lang="sv">
 <head>
@@ -392,6 +394,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         </p>
         <nav class="mini-nav" aria-label="Innehåll i Del C">
           <a href="#c-tva-rubrik">Två skills</a>
+          <a href="#c-delar-rubrik">Tre delar</a>
           <a href="#c-typ-rubrik">Arbetsflöde eller agent</a>
           <a href="#c-faser-rubrik">Tio faser</a>
           <a href="#c-risk-rubrik">Risk</a>
@@ -412,7 +415,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         <div class="file-grid">
           <article class="card file-card">
             <h3><a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/SKILL.md" target="_blank" rel="noopener"><code>kent-agentiska-arbetsfloden</code></a></h3>
-            <p class="tag">Metaskill · v7.0</p>
+            <p class="tag">Metaskill · v7.1</p>
             <p>
               Gör inget jobb själv. Den styr <em>hur</em> ett nytt flöde byggs: steg för
               steg, med typlära, tio faser, riskklassning och mall i en kärnfil. Valpunkter,
@@ -439,6 +442,75 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           </article>
         </div>
         <p class="formula">Schemat bestämmer <em>när</em>, uppgiftsskillen <em>hur jobbet görs</em>, metaskillen <em>hur ett nytt flöde byggs</em>.</p>
+      </section>
+
+      <!-- C1b. Agentens tre delar: start, metod och underlag, med jobbflödet som exempel. -->
+      <section aria-labelledby="c-delar-rubrik" class="card highlight">
+        <h2 id="c-delar-rubrik">Agentens tre delar: start, metod och underlag</h2>
+        <p>
+          Ett sätt att förstå hur en enkel agent är uppbyggd är att ställa tre frågor.
+          Delarna kan ligga på <strong>olika ställen</strong>. Exemplet är jobbsökaragenten,
+          som enligt <a href="#c-typ-rubrik">typläran</a> närmare bestämt är ett agentiskt
+          arbetsflöde.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Del</th><th>Frågan den svarar på</th><th>I jobbflödet</th><th>Länkar till delen</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Start</th><td><strong>När</strong> och hur börjar jobbet?</td><td>Uppgiften i appen, nu startad för hand och senare till exempel kl. 9</td><td><a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/exempel/uppgift_mall.md" target="_blank" rel="noopener"><code>uppgift_mall.md</code></a> (publik mall). Den riktiga uppgiften ligger på datorn och är inte publicerad.</td></tr>
+              <tr><th scope="row">Metod</th><td><strong>Hur</strong> ska jobbet göras?</td><td>Skillen och skriptet</td><td><a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/SKILL.md" target="_blank" rel="noopener"><code>SKILL.md</code></a> och <a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/skript/hamta.py" target="_blank" rel="noopener"><code>hamta.py</code></a></td></tr>
+              <tr><th scope="row">Underlag</th><td><strong>Vad</strong> arbetar den med och behöver minnas?</td><td>Profil, annonser, tidigare val och kandidatlista</td><td>Privat och inte länkat. Påhittade exempel: <a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/exempel/profil_exempel.md" target="_blank" rel="noopener"><code>profil_exempel.md</code></a>, <a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/exempel/sokningar_exempel.json" target="_blank" rel="noopener"><code>sokningar_exempel.json</code></a> och <a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/exempel/visade_jobb_exempel.json" target="_blank" rel="noopener"><code>visade_jobb_exempel.json</code></a></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="formula">Starten säger <em>kör nu</em>, metoden säger <em>så här</em>, underlaget säger <em>vad det gäller och vad som redan har hänt</em>.</p>
+
+        <h3 class="sub">Så hänger delarna ihop</h3>
+        <p>
+          Uppgiften pekar på skillen. Skillen säger vilka privata filer den behöver. Det
+          privata underlaget kopieras aldrig till det publika
+          (<a href="#c-publik-rubrik">Publik process, privat underlag</a>). Privat betyder här
+          att det inte publiceras. AI-modellen läser det den behöver när jobbet körs.
+        </p>
+
+        <h3 class="sub">Två saker runt delarna</h3>
+        <ul>
+          <li><strong>Behörigheter:</strong> vad får agenten göra? En körning kan få med sig tillåtelser som redan finns i projektet.</li>
+          <li><strong>Resultat:</strong> hur når svaret människan, och var väljer människan nästa steg?</li>
+        </ul>
+        <p>
+          Vid den första körningen, startad för hand, levererades tre förslag. Mobilnotisen
+          kom däremot inte iväg, och en startregel i projektet följdes inte, vilket körningen
+          redovisade. De tre delarna fanns alltså, men det runt dem behöver mer arbete.
+        </p>
+
+        <h3 class="sub">Vad källorna säger – och inte säger</h3>
+        <p>
+          Indelningen i start, metod och underlag är <strong>en sammanfattning som växte fram
+          i arbetet med jobbflödet</strong>. I de delar av källorna nedan som har lästs
+          delas en agent inte upp på just det sättet. De beskriver delarna med andra ord.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Källa</th><th>Vad den beskriver</th><th>Närmast delen</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><a href="https://code.claude.com/docs/en/desktop-scheduled-tasks" target="_blank" rel="noopener">Anthropic (u.å.c)</a></td><td>En lokal schemalagd uppgift körs på datorn och startar bara när appen är öppen och datorn vaken. Man anger bland annat instruktion, mapp, tid och behörighetsläge.</td><td>Start</td></tr>
+              <tr><td><a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">Schluntz och Zhang (2024)</a></td><td>Grundbyggstenen är en språkmodell utökad med informationshämtning, verktyg och minne. En agent börjar med en uppmaning från, eller ett samtal med, en människa.</td><td>Underlag och start</td></tr>
+              <tr><td><a href="https://code.claude.com/docs/en/skills" target="_blank" rel="noopener">Anthropic (u.å.b)</a></td><td>En skill skapas som en <code>SKILL.md</code> med instruktioner. Hela innehållet läses in när den används.</td><td>Metod</td></tr>
+              <tr><td><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener">Rajasekaran m.fl. (2025)</a></td><td>Det modellen har att arbeta med omfattar bland annat instruktioner, verktyg, externa data och tidigare meddelanden. Anteckningar sparade utanför samtalet kan hämtas in senare.</td><td>Metod och underlag</td></tr>
+              <tr><td><a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf" target="_blank" rel="noopener">OpenAI (u.å.)</a></td><td><strong>En annan indelning i tre:</strong> modell, verktyg och instruktioner.</td><td>Instruktionerna ligger nära metoden. Start och underlag är inte egna delar.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">
+          Kolumnen ”Närmast delen” är en tolkning. Indelningarna svarar på olika frågor:
+          OpenAI beskriver vad agenten består av, medan start, metod och underlag hjälper en
+          människa att se var delarna ligger. Indelningen är hittills prövad i ett flöde.
+        </p>
       </section>
 
       <!-- C2. Typlära -->
@@ -831,7 +903,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
       <section aria-labelledby="c-kallor-rubrik" class="card">
         <h2 id="c-kallor-rubrik">Källor</h2>
         <p class="note">
-          Typläran, riskklassningen och nivåerna av mänsklig granskning bygger på källorna
+          Avsnittet om tre delar, typläran, riskklassningen och nivåerna av mänsklig granskning har källorna
           nedan, jämförda med Kents egna principer. Uppgifterna kommer från de angivna
           källorna, är inte kvalitetssäkrade och bör kontrolleras mot källan innan de
           återanvänds. Hela jämförelsen finns i metaskillens
@@ -839,10 +911,13 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         </p>
         <ul class="sources">
           <li>Amazon Web Services (u.å.) <em>AGENTREL02-BP05 Establish tiered human oversight and approval workflows</em>. Agentic AI Lens. Tillgänglig på: <a href="https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentrel02-bp05.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentrel02-bp05.html</a> (Hämtad: 24 november 2026). <em>(Bästa praxis för granskning i nivåer – självständigt, meddela, godkänna – med tidsgränser och säkra standardval; underlag för riskklassningen.)</em></li>
-          <li>Anthropic (u.å.) <em>anthropics/skills</em> [GitHub-repo]. Tillgänglig på: <a href="https://github.com/anthropics/skills" target="_blank" rel="noopener">https://github.com/anthropics/skills</a> (Hämtad: 24 november 2026). <em>(Anthropics exempelskills, bland annat skill-creator och template; underlag för hur en skill skrivs, hålls kort och testas.)</em></li>
+          <li>Anthropic (u.å.a) <em>anthropics/skills</em> [GitHub-repo]. Tillgänglig på: <a href="https://github.com/anthropics/skills" target="_blank" rel="noopener">https://github.com/anthropics/skills</a> (Hämtad: 24 november 2026). <em>(Anthropics exempelskills, bland annat skill-creator och template; underlag för hur en skill skrivs, hålls kort och testas.)</em></li>
+          <li>Anthropic (u.å.b) <em>Extend Claude with skills</em>. Claude Code Docs. Tillgänglig på: <a href="https://code.claude.com/docs/en/skills" target="_blank" rel="noopener">https://code.claude.com/docs/en/skills</a> (Hämtad: 25 november 2026). <em>(Hur en skill byggs och läses in; hör till metoden bland de tre delarna.)</em></li>
+          <li>Anthropic (u.å.c) <em>Schedule recurring tasks in Claude Code Desktop</em>. Claude Code Docs. Tillgänglig på: <a href="https://code.claude.com/docs/en/desktop-scheduled-tasks" target="_blank" rel="noopener">https://code.claude.com/docs/en/desktop-scheduled-tasks</a> (Hämtad: 25 november 2026). <em>(Lokala schemalagda uppgifter och deras inställningar; hör till starten.)</em></li>
           <li>Arize AI (2026) <em>What is human-on-the-loop?</em> Tillgänglig på: <a href="https://arize.com/glossary/human-on-the-loop/" target="_blank" rel="noopener">https://arize.com/glossary/human-on-the-loop/</a> (Hämtad: 24 november 2026). <em>(Ordlisteartikel om skillnaden mellan blockerande in-the-loop och icke-blockerande on-the-loop, och om nödstopp.)</em></li>
           <li>OpenAI (u.å.) <em>A practical guide to building agents</em> [PDF]. Tillgänglig på: <a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf" target="_blank" rel="noopener">https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf</a> (Hämtad: 24 november 2026). <em>(Guide om när en agent behövs, riskklassning av verktyg och när människan ska kopplas in.)</em></li>
           <li>Praveen VR (2026) 'Designing Human-in-the-Loop Approval Gates for Enterprise AI Agents', <em>DZone</em>, 18 september. Tillgänglig på: <a href="https://dzone.com/articles/human-in-the-loop-approval-enterprise-ai-agents" target="_blank" rel="noopener">https://dzone.com/articles/human-in-the-loop-approval-enterprise-ai-agents</a> (Hämtad: 24 november 2026). <em>(Artikel om godkännandegrindar, risknivåer per åtgärd och hur åtgärder görs möjliga att ångra.)</em></li>
+          <li>Rajasekaran, P., Dixon, E., Ryan, C. och Hadfield, J. (2025) <em>Effective context engineering for AI agents</em>. Anthropic, 29 september. Tillgänglig på: <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener">https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents</a> (Hämtad: 25 november 2026). <em>(Vad en agent har att arbeta med och hur den kan spara anteckningar; hör till underlaget.)</em></li>
           <li>Schluntz, E. och Zhang, B. (2024) <em>Building effective agents</em>. Anthropic, 19 december. Tillgänglig på: <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">https://www.anthropic.com/engineering/building-effective-agents</a> (Hämtad: 24 november 2026). <em>(Grundtexten om skillnaden mellan arbetsflöde och agent och de fem typerna av arbetsflöden.)</em></li>
         </ul>
       </section>
@@ -1158,7 +1233,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
     Höj versionsnumret och datumet vid varje ändring av sidan.
   -->
   <footer class="site-footer">
-    <p class="versionsrad">Version 1.11 · 2026-11-25 · Kent Lundgren</p>
+    <p class="versionsrad">Version 1.12 · 2026-11-25 · Kent Lundgren</p>
   </footer>
 
   <!--

@@ -8,6 +8,8 @@ sammanräknade resultat. Enskilda annonser och bedömningar ligger privat.
 
 | Datum | Version | Fas | Iakttagelse | Ändring | Effekt |
 |---|---|---|---|---|---|
+| 2026-11-25 | 0.1 | 7 | Uppgiften skapades utan schema och kördes för hand i en ny session | Publik mall för uppgiften tillagd | Tre förslag levererades. Notis och startregel återstår |
+| 2026-11-25 | 0.1 | 7 | Skriptet måste köras en andra gång för att markera visade träffar, och allt hämtat markeras, även det som inte visats | Inte ändrat än | Att rätta i nästa version |
 | 2026-11-25 | 0.1 | 6 | Första rundan för hand: förslag, val och ansökan | `SKILL.md` skriven, startas för hand. Profilen får formatversion 2 (ansökningsinstruktion och ansökningslogg) | Inte testad som skill än |
 | 2026-11-25 | 0.1 | 2 | Målet ändrades: en sorterad lista räckte inte, och att välja ett enda jobb åt människan var för snävt | Tre förslag, människan väljer, sedan ansökan och CV | Ett val gjort i första rundan |
 | 2026-11-25 | 0.1 | 2 | Ett kort tidsfönster och minnet över visade jobb dolde öppna jobb, och ett förslag bröt mot en gräns som inte var nedskriven | Längre tidsfönster, privat kandidatlista och begränsningar som går före all bedömning | Inte omtestat |
@@ -34,6 +36,7 @@ sammanräknade resultat. Enskilda annonser och bedömningar ligger privat.
 | 2026-11-25 | 0.1 | Efter namnbytet: körning från de nya platserna | Hämtningen blev klar, 0 annonser rapporterade som nya |
 | 2026-11-25 | prov | Engelska sökord för finansiell planering på den första källan, alla sidor i perioden | Få träffar i området, en av dem relevant att läsa |
 | 2026-11-25 | prov | Platsbankens öppna API (fritext och yrkesgrupp) jämfört på rubrik med facit | 10 av 27 hittades. Fritext gav få träffar för vanliga yrkesord och många orelaterade för engelska uttryck |
+| 2026-11-25 | 0.1 | Uppgift utan schema, startad för hand i ny session | Klar på några minuter med tre förslag. Mobilnotisen skickades inte. En startregel i projektet följdes inte, vilket körningen redovisade |
 
 Bedömningen (modellens steg) har ännu inte körts om mot testfallen.
 

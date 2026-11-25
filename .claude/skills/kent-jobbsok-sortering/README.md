@@ -16,6 +16,17 @@ motivering, och skriver efter användarens val underlag till ansökan och CV enl
 privat ansökningsinstruktion. Människan granskar och skickar in. Agenten skickar
 ingenting. Typ: fast arbetsflöde med agentiska steg och människans val som grind.
 
+## Agentens tre delar
+
+| Del | Frågan den svarar på | Här |
+|---|---|---|
+| **Start** | När och hur börjar jobbet? | Uppgiften i användarens app. Publik mall: [`uppgift_mall.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/exempel/uppgift_mall.md) |
+| **Metod** | Hur ska jobbet göras? | [`SKILL.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/SKILL.md) och [`hamta.py`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/skript/hamta.py) |
+| **Underlag** | Vad arbetar den med och behöver minnas? | Privat. Påhittade exempel finns nedan |
+
+Förklaring med källor:
+[Agentens tre delar](https://kentlundgren.github.io/AI-teknik/Skills/#c-delar-rubrik).
+
 ## Publik process, privat underlag
 
 | Del | Var | Innehåll |
