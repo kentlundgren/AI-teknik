@@ -8,6 +8,7 @@ sammanräknade resultat. Enskilda annonser och bedömningar ligger privat.
 
 | Datum | Version | Fas | Iakttagelse | Ändring | Effekt |
 |---|---|---|---|---|---|
+| 2026-11-25 | 0.1 | 2 | En andra källa fann en del av samma annonser och några egna. Ett ortsfilter i källan dolde en tjänst med flera placeringsorter, och samma uppdrag kunde ligga ute på två språk med olika titlar | Fler källor och dubblettkontroll på innehåll blir krav. Fas 2 avslutad | Inte byggt än |
 | 2026-11-25 | 0.1 | 2 | Den publika och den privata mappen hade nästan samma namn, så det gick inte att se vilken som menades. Namnet följde inte heller repots vanligaste mönster, och ordet "agent" passade inte ett fast arbetsflöde | Skilda namn: den publika mappen heter `kent-jobbsok-sortering` och den privata har "privat" i namnet. Båda README-filerna anger överst vilken del det är | Hämtningen testkörd från de nya platserna, se testresultat |
 | 2026-11-25 | 0.1 | 2 | En fråga till människan hade delvis svar i det befintliga underlaget, och sorteringen gjordes utan det | Underlagen söks igenom innan en uppgift behandlas som okänd | Gäller bedömningen; inte omtestat |
 | 2026-11-25 | 0.1 | 2 | Provskripten låg i en tillfällig mapp och hade sökningarna inskrivna i koden | `skript/hamta.py` byggt: sökningar och tillstånd i privata filer, felutfall med slutkod 2, spärr mot att skriva i det publika repot | Se testraderna nedan |
@@ -27,12 +28,14 @@ sammanräknade resultat. Enskilda annonser och bedömningar ligger privat.
 | 2026-11-25 | 0.1 | Felvägar: fel formatversion, resultat i publikt repo, enbart felaktig sökväg | Alla tre gav FEL och slutkod 2 |
 | 2026-11-25 | 0.1 | Enstaka sökvägar utan rader bland fungerande | Redovisades som avvikelse, körningen blev klar |
 | 2026-11-25 | 0.1 | Efter namnbytet: körning från de nya platserna | Hämtningen blev klar, 0 annonser rapporterade som nya |
+| 2026-11-25 | prov | Engelska sökord för finansiell planering på den första källan, alla sidor i perioden | Få träffar i området, en av dem relevant att läsa |
+| 2026-11-25 | prov | Platsbankens öppna API (fritext och yrkesgrupp) jämfört på rubrik med facit | 10 av 27 hittades. Fritext gav få träffar för vanliga yrkesord och många orelaterade för engelska uttryck |
 
 Bedömningen (modellens steg) har ännu inte körts om mot testfallen.
 
 ## Kända brister
 
-- Bara en källa (vakanser.se) är prövad.
-- Alla sökord för de roller som ska bevakas är inte prövade.
+- Skriptet hämtar bara från en källa (vakanser.se). Platsbanken är prövad för hand men inte byggd in.
+- Företagens och kommunernas egna rekryteringssidor är inte prövade.
 - Orten i listan kan vara fel eller ofullständig. Skriptet filtrerar därför inte på ort.
 - Samma uppdrag via flera förmedlare upptäcks inte av skriptet.

@@ -4,7 +4,7 @@
 
 En agent som byggs fas för fas med metaskillen
 [`kent-agentiska-arbetsfloden`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/SKILL.md).
-**Status:** version 0.1, slutet av fas 2 (manuell körning). Någon `SKILL.md`
+**Status:** version 0.1. Fas 2 (manuell körning) är avslutad, fas 3 (behörigheter) står på tur. Någon `SKILL.md`
 finns inte än; den skrivs i fas 6. Mappen är därför ingen skill som kan köras.
 
 ## Vad agenten ska göra

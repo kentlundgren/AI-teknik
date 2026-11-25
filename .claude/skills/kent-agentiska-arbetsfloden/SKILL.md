@@ -3,7 +3,7 @@ name: kent-agentiska-arbetsfloden
 description: Kents playbook (metaskill) för att designa och bygga agentiska arbetsflöden tillsammans med Claude – återkommande uppgifter som Claude utför i flera steg med connectorer, skills och schemalagda uppgifter. Aktivera när Kent vill automatisera något som återkommer ("varje gång jag får…", "känna av när…", "gör det här automatiskt", "skapa en rutin", "schemalagd uppgift"), när han vill bygga en ny uppgiftsskill för ett flöde, när han frågar om skillnaden mellan arbetsflöde och agent, riskklassning, human-in-the-loop eller vad som händer om ingen agerar, eller när han frågar om hur man tänker kring agentiska uppgifter på metanivå. Långkatekesen-protokollen är det genomarbetade exemplet.
 ---
 
-# Agentiska arbetsflöden – Kents playbook (v6.4)
+# Agentiska arbetsflöden – Kents playbook (v6.5)
 
 Den här skillen utför inget jobb själv. Den styr **hur** Kent och Claude tar fram ett nytt arbetsflöde, och den är ett stöd för att Kent ska lära sig mönstret.
 
@@ -15,7 +15,7 @@ Den här skillen utför inget jobb själv. Den styr **hur** Kent och Claude tar 
 - Fråga Kent när ett val är hans att göra (t.ex. vilket konto, vilken mapp, hur utkastet ska se ut). Gissa inte.
 - **Sök i underlagen före frågan:** gå igenom de filer och källor flödet har tillgång till innan en uppgift behandlas som okänd och innan något bedöms utifrån att den saknas. Visa vad underlaget säger, och fråga sedan om det som saknas, är gammalt eller oklart. Människan slipper upprepa sig, och bedömningen byggs inte på en lucka som inte finns. *(prövad i ett flöde)*
 - Förklara *varför* en regel finns, inte bara att den finns. En regel med skäl går att tillämpa på nya fall; en regel utan skäl följs bokstavligt eller inte alls.
-- **Visa fasläget:** en tabell med varje fas och om den är klar, påbörjad eller kvar, med vad som är gjort och vad som återstår. Visa den när Kent frågar var arbetet står, när ett arbete återupptas och när målet ändras.
+- **Visa fasläget** med tabellen under Faserna, så att den som bygger flödet påminns om var arbetet står.
 - **Fasavstämning** efter varje fas: *Vad överraskade? Gäller det fler flöden? Var hör lärdomen hemma* (uppgiftsskillen eller metaskillen)? Föreslå ändringar av metaskillen löpande och skriv in dem efter Kents ja. En lärdom som bara är prövad i ett flöde märks *(prövad i ett flöde)* tills ett andra flöde bekräftar den, så att enstaka erfarenheter inte läses som allmänna regler.
 
 Skillen kompletterar:
@@ -87,6 +87,18 @@ Växer målet under arbetet ("hitta jobb" blir "hitta jobb och skriv ansökan"),
 | Gränssnitt mellan publikt och privat | Det överenskomna formatet för de privata filer som en publik skill läser. |
 
 ## Faserna
+
+### Fasläget – visa var arbetet står
+
+**När:** när ett arbete återupptas, när en fas avslutas, när målet ändras, efter ett längre sidospår och när Kent frågar. Inte i varje svar, för då slutar den att läsas.
+
+**Så:** säg vilket flöde tabellen gäller, ta med alla faser (även 5b) och märk tydligt var arbetet står. Läget skrivs alltid med ord, symbolen är bara ett stöd (✅ klar, 🟡 här är vi, ⬜ kvar). "Gjort och kvar" fylls med det som gäller just det här flödet. Förarbete till en senare fas får synas utan att fasen räknas som påbörjad. Avsluta med nästa steg.
+
+| Fas | Vad den handlar om | Läge | Gjort och kvar |
+|---|---|---|---|
+| 1 | Mål och startpunkt | ✅ Klar | Vad som bestämts |
+| 2 | Kör flödet manuellt en gång | 🟡 **Här är vi** | Vad som är provat, vad som återstår |
+| 3, 4, 5, 5b, 6–10 | En rad per fas | ⬜ Inte börjad, förarbete finns eller delvis bestämt | Viktigaste kvarstående |
 
 ### Fas 1 – Beskriv målet och startpunkten
 - Vad ska komma ut? Var ska det ligga? Vem läser det?
