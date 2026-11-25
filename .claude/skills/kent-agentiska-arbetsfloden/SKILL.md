@@ -3,24 +3,42 @@ name: kent-agentiska-arbetsfloden
 description: Kents playbook (metaskill) för att designa och bygga agentiska arbetsflöden tillsammans med Claude – återkommande uppgifter som Claude utför i flera steg med connectorer, skills och schemalagda uppgifter. Aktivera när Kent vill automatisera något som återkommer ("varje gång jag får…", "känna av när…", "gör det här automatiskt", "skapa en rutin", "schemalagd uppgift"), när han vill bygga en ny uppgiftsskill för ett flöde, när han frågar om skillnaden mellan arbetsflöde och agent, riskklassning, human-in-the-loop eller vad som händer om ingen agerar, eller när han frågar om hur man tänker kring agentiska uppgifter på metanivå. Långkatekesen-protokollen är det genomarbetade exemplet.
 ---
 
-# Agentiska arbetsflöden – Kents playbook (v6.5)
+# Agentiska arbetsflöden – Kents playbook (v7.0)
 
-Den här skillen utför inget jobb själv. Den styr **hur** Kent och Claude tar fram ett nytt arbetsflöde, och den är ett stöd för att Kent ska lära sig mönstret.
+Den här skillen utför inget jobb själv. Den styr **hur** Kent och Claude tar fram ett nytt arbetsflöde, och den är ett stöd för att Kent ska lära sig mönstret. Den kompletterar **kent-meta-regler** (Kents generella arbetsregler: frågor före start, källor, ingen AI-märkning, versionsnummer i skills) och **skills-meta-guide** (tekniken bakom skills, agenter och CLAUDE.md).
+
+## Läsguide: referensfilerna
+
+Läs filen när dess tillfälle kommer. Kan den inte läsas, säg det i stället för att gissa innehållet.
+
+| Fil | Läs när |
+|---|---|
+| [ordlista.md](references/ordlista.md) | Ett begrepp dyker upp första gången, eller Kent frågar vad något heter eller betyder |
+| [valpunkter.md](references/valpunkter.md) | Ett val ska göras i fas 1, 3, 5b, 7 eller 8 |
+| [fallgropar.md](references/fallgropar.md) | Före fas 2 och 3, innan flödet rör Google Drive, Docs eller Gmail, vid ny connector och när något går fel |
+| [publik-privat.md](references/publik-privat.md) | Flödet har privat underlag eller sparat tillstånd (fas 1), innan något förs från privat till publikt och före första publika commit |
+| [exempel-langkatekesen.md](references/exempel-langkatekesen.md) | Kent vill se ett exempel, eller en förlaga behövs för en fas |
+| [lart-av-andra.md](references/lart-av-andra.md) | Kent frågar vad en regel bygger på, eller en källbaserad regel eller källa ska ändras eller återanvändas |
+| [kandidater.md](references/kandidater.md) | Vid varje fasavstämning |
 
 ## Coachläge (gäller alltid när skillen används)
 
-- Gå igenom flödet **steg för steg**. Säg vid varje steg: vad som görs, vad som har gjorts och vad som är nästa steg.
+- Gå igenom flödet **steg för steg**. Säg vid varje steg: vad som görs, vad som har gjorts och vad som är nästa steg, så att det går att följa och granska.
 - Säg vad saker heter på metanivå (se typläran och ordlistan) när de dyker upp.
 - Vid varje valpunkt: beskriv alternativen, vilket som väljs och varför. Kent vill påminnas om att det alltid finns flera vägar.
-- Fråga Kent när ett val är hans att göra (t.ex. vilket konto, vilken mapp, hur utkastet ska se ut). Gissa inte.
+- Fråga Kent när ett val är hans att göra (t.ex. vilket konto, vilken mapp, hur utkastet ska se ut). Gissa inte. Det gäller även tider och kanaler: fråga i stället för att anta dem, och förklara varför ett förslag ser ut som det gör.
 - **Sök i underlagen före frågan:** gå igenom de filer och källor flödet har tillgång till innan en uppgift behandlas som okänd och innan något bedöms utifrån att den saknas. Visa vad underlaget säger, och fråga sedan om det som saknas, är gammalt eller oklart. Människan slipper upprepa sig, och bedömningen byggs inte på en lucka som inte finns. *(prövad i ett flöde)*
-- Förklara *varför* en regel finns, inte bara att den finns. En regel med skäl går att tillämpa på nya fall; en regel utan skäl följs bokstavligt eller inte alls.
-- **Visa fasläget** med tabellen under Faserna, så att den som bygger flödet påminns om var arbetet står.
-- **Fasavstämning** efter varje fas: *Vad överraskade? Gäller det fler flöden? Var hör lärdomen hemma* (uppgiftsskillen eller metaskillen)? Föreslå ändringar av metaskillen löpande och skriv in dem efter Kents ja. En lärdom som bara är prövad i ett flöde märks *(prövad i ett flöde)* tills ett andra flöde bekräftar den, så att enstaka erfarenheter inte läses som allmänna regler.
+- Förklara *varför* en regel finns, inte bara att den finns, både för Kent och i uppgiftsskillen. En regel med skäl går att tillämpa på nya fall; en regel utan skäl följs bokstavligt eller inte alls.
+- **Visa fasläget** (se Faserna), så att den som bygger flödet påminns om var arbetet står.
+- **Fasavstämning** efter varje fas: *Vad överraskade? Gäller det fler flöden? Bekräftar flödet någon kandidat? Var hör lärdomen hemma?* En lärdom om det här flödet skrivs i uppgiftsskillen. En generell lärdom följer tillväxtregeln.
 
-Skillen kompletterar:
-- **kent-meta-regler** – Kents generella arbetsregler (frågor före start, källor, ingen AI-märkning, versionsnummer i skills).
-- **skills-meta-guide** – tekniken bakom skills, agenter och CLAUDE.md.
+### Tillväxtregeln
+
+1. En ny generell lärdom från ett flöde skrivs i [kandidater.md](references/kandidater.md).
+2. Den flyttas hit eller till en referensfil först när ett andra flöde har bekräftat den och Kent säger ja.
+3. En säkerhetsregel (skydd mot något oåterkalleligt eller mot att privata uppgifter sprids) får skrivas in direkt efter Kents ja.
+4. Regler märkta *(prövad i ett flöde)* står kvar med märkningen tills ett andra flöde bekräftar dem, så att enstaka erfarenheter inte läses som allmänna regler.
+5. **Den här filen är högst 22 000 tecken.** Blir den längre ska något slås ihop eller flyttas till en referensfil i samma ändring.
 
 ## Typlära: arbetsflöde eller agent
 
@@ -33,7 +51,7 @@ Båda kallas **agentiska system**. Skillnaden är vem som bestämmer stegen.
 | Fördel | Förutsägbart, lätt att kontrollera och felsöka | Flexibelt, klarar oväntade fall |
 | Nackdel | Klarar dåligt det som inte är beskrivet | Dyrare, fel kan förstärka varandra, svårare att granska |
 
-**Tumregel:** börja med det enklaste som fungerar. Ofta räcker ett arbetsflöde, ibland en enda välskriven prompt. Välj en agent först när stegen verkligen inte går att bestämma i förväg, och ge den då ett avbrottsvillkor (t.ex. högst ett visst antal försök) och en plats där den stannar och frågar.
+**Tumregel:** börja med det enklaste som fungerar. Ofta räcker ett arbetsflöde, ibland en enda välskriven prompt. Välj en agent först när stegen verkligen inte går att bestämma i förväg, och ge den då ett avbrottsvillkor (t.ex. högst ett visst antal försök) och en plats där den stannar och frågar. Blandningen går också: fasta steg med agentiska steg inuti.
 
 ### Vanliga typer av arbetsflöden
 
@@ -50,41 +68,6 @@ Den gemensamma byggstenen är **modellen med verktyg**: modell + connectorer + m
 ### Ett eller flera flöden *(prövad i ett flöde)*
 
 Växer målet under arbetet ("hitta jobb" blir "hitta jobb och skriv ansökan"), pröva om det är flera flöden. Dela när delarna har olika startpunkt, olika riskklass eller olika takt, och lägg människans val som grind mellan dem. Varje flöde går då att bygga, prova och stänga av för sig. Se också efter om ett av flödena redan finns som skill.
-
-### Långkatekesen i typläran
-
-- **Typ:** kedja med kontrollpunkter. Stegen i läge A är bestämda och mellan dem finns kontroller (dubblett, datum, verifiering efter ändring).
-- **Trigger:** polling via schemalagd uppgift.
-- **Routing:** finns mellan läge A och läge B, men Kent gör den själv ("granska protokollet ÅÅMMDD").
-- **Läge B** är en granskningsgrind, inte en förbättringsloop: Claude föreslår, Kent bestämmer.
-- **Agentiska steg i ett arbetsflöde:** inom vissa steg agerar Claude friare, t.ex. när det senaste protokollet ska hittas eller kallelsens punkter tolkas. Flödet som helhet är ändå ett arbetsflöde, inte en agent.
-
-## Ordlista
-
-| Begrepp | Betydelse |
-|---|---|
-| Agentiskt arbetsflöde | En uppgift som Claude utför i flera steg med verktyg, ofta återkommande. Kallas också automation eller rutin. |
-| Agent | Ett system där modellen själv bestämmer stegen och verktygen (se typläran). |
-| Trigger | Det som startar flödet, t.ex. "nytt mejl med kallelse". |
-| Polling | Att titta efter en händelse med jämna mellanrum, eftersom Claude inte kan väckas av ett mejl. |
-| Schemalagd uppgift | En uppgift som körs automatiskt på en tid, t.ex. varje dag kl. 07:40. Varje körning startar en ny session. |
-| Connector (MCP) | Kopplingen till en app, t.ex. Gmail, Google Drive eller Google Docs. Ser det som det kopplade kontot ser. |
-| Skill | Instruktionen för hur jobbet görs. Schemat bestämmer när, skillen bestämmer hur. |
-| Human-in-the-loop | Flödet **väntar** på att en människa godkänner innan det går vidare (blockerande). |
-| Human-on-the-loop | Flödet går vidare, människan **får besked** och kan ingripa (inte blockerande). |
-| Kontrollpunkt (gate) | En bestämd plats i flödet där kontroll eller godkännande sker, helst precis före steget som inte går att ångra. |
-| Riskklass | Låg, mellan eller hög, beroende på om åtgärden går att ångra och om den syns för andra. |
-| Reservplan (fallback) | Vad som händer om ingen agerar eller om ett steg misslyckas. Ska vara det säkra valet. |
-| Nödstopp | Ett sätt att stoppa flödet direkt, t.ex. att stänga av den schemalagda uppgiften. |
-| Idempotens | Att flödet inte skapar dubbletter om det körs två gånger. |
-| Least privilege | Att ge agenten bara den åtkomst uppgiften kräver. |
-| Validering / guardrail | Rimlighetskontroller och skyddsräcken, t.ex. att ett belopp ligger inom ett intervall. |
-| Verifiering | Att läsa tillbaka resultatet efter en ändring i stället för att lita på att verktyget sa "ok". |
-| Baslinje | Hur uppgiften löses i dag, att jämföra det nya flödet mot. |
-| Facit (testfall) | Sparade indata med människans bedömning av rätt resultat, som körs om efter ändringar. |
-| Tillstånd (state) | Det flödet måste minnas mellan körningar, till exempel vad som redan har visats. |
-| Tyst fel | Ett fel som ser ut som ett lyckat resultat, till exempel en tom träfflista från en felaktig adress. |
-| Gränssnitt mellan publikt och privat | Det överenskomna formatet för de privata filer som en publik skill läser. |
 
 ## Faserna
 
@@ -105,7 +88,9 @@ Växer målet under arbetet ("hitta jobb" blir "hitta jobb och skriv ansökan"),
 - Vad är startpunkten (ett mejl, en fil, en tidpunkt)? Visa ett riktigt exempel.
 - Placera flödet i typläran: arbetsflöde eller agent, och vilken typ. Det avgör hur mycket som ska bestämmas i förväg.
 - **Finns redan en automation eller ett manuellt arbetssätt?** Läs dess prompt och körloggar, inte bara rapporterna, och jämför resultatet med underlag som visar hur det borde ha blivit. Det är baslinjen, och avvikelserna blir krav på det nya flödet. En rapport kan se rimlig ut medan loggen visar att ett underlag aldrig lästes. *(prövad i ett flöde)*
-- Dela upp underlaget i publikt och privat redan här (se Publik process, privat underlag). Det styr var filerna läggs och var flödet kan köras.
+- **Dela upp underlaget i publikt och privat redan här.** Det styr var filerna läggs och var flödet kan köras. Så mycket av metoden som går får vara publik, uppgifter om personer och val hålls utanför (se [publik-privat.md](references/publik-privat.md)).
+  - **Från privat till publikt är hög risk** (en lärdom, ett exempel, ett testresultat): skriv om det generellt och låt människan granska innan commit. En schemalagd körning skriver aldrig till det publika.
+  - **Före första commit till ett publikt repo:** sök efter namn, adresser, kontaktuppgifter, arbetsgivare och personliga val. Det som en gång har pushats kan finnas kvar i historiken.
 
 ### Fas 2 – Kör flödet manuellt en gång
 - Gör uppgiften tillsammans, steg för steg, på ett riktigt fall.
@@ -118,31 +103,21 @@ Växer målet under arbetet ("hitta jobb" blir "hitta jobb och skriv ansökan"),
 
 ### Fas 3 – Ordna behörigheter
 - Vilka connectorer behövs (läsa, skapa, redigera)? Vilket konto ska de vara kopplade som?
-- Välj den smalaste åtkomsten som räcker (least privilege).
+- Välj den smalaste åtkomsten som räcker (least privilege). Det gäller en befintlig automation också: jämför dess connectorer med vad stegen faktiskt använder.
+- Koppla en connector först när ett konkret steg kräver den (Drive för filer, Docs för att redigera dokument, Sheets för att lägga till rader i en logg). Stegen står i [fallgropar.md](references/fallgropar.md).
+- **En schemalagd uppgift får de connectorer som fanns när den skapades.** Koppla därför alla connectorer innan uppgiften skapas.
 - Skilj på **plats** (var en fil ligger) och **ägare** (vem som skapade den) i Google Drive.
 - **Vad når körmiljön?** Internet nås både lokalt och i molnet. Det som skiljer är vilka filer och skills sessionen kommer åt och om datorn behöver vara på. Tre sätt: **allt lokalt** (datorn måste vara på), **delat med överlämning** (molnet gör det publika och lämnar ett resultat med fast namn och format, datorn läser det och gör det privata) och **allt i molnet** (det privata underlaget måste då finnas på kontot eller i ett privat repo).
-- Gäller least privilege för en befintlig automation också: jämför dess connectorer med vad stegen faktiskt använder.
-
-#### Koppla en ny connector – steg för steg
-Så gick det till med Google Docs och Google Sheets:
-1. Claude letar i connector-registret och lägger fram ett kopplingskort i chatten.
-2. Kent klickar på **Koppla** på kortet.
-3. Kent väljer **samma Google-konto** som de andra connectorerna (lundgren.kent@gmail.com). Annat konto ger andra filer och bredare åtkomst än nödvändigt.
-4. Kent godkänner behörigheterna på Googles sida.
-5. Sidan "Slutför i skrivbordsappen" kan dyka upp. Knappen "Öppna skrivbordsapp" verkar ibland inte göra något, men kopplingen kan ändå vara klar.
-6. Kent skriver "klart". Claude kontrollerar att connectorn är kopplad och att de nya verktygen syns, och provar med en läsning innan något skrivs.
-7. **En schemalagd uppgift får de connectorer som fanns när den skapades.** Kopplas en ny connector senare kan uppgiften inte använda den; skapa då en ny uppgift och ta bort den gamla (Kents ja). Koppla därför alla connectorer innan uppgiften skapas.
-
-Tumregel: koppla en connector först när ett konkret steg kräver den (Drive för filer, Docs för att redigera dokument, Sheets för att lägga till rader i en logg).
 
 ### Fas 4 – Skriv ner konventionerna
 - Filnamn, mappar med fasta ID:n, mallar, vilka uppgifter som återanvänds, vilka luckor som lämnas till människan.
-- Utgå från det vanligaste fallet (t.ex. alla närvarande) så att människan har så lite som möjligt att ändra.
+- **Datum i namn och ämne:** allt som skapas (filnamn, ämnesrad, kalenderhändelse) bär datumet för det som avses, så att det går att hitta senare.
+- Utgå från det vanligaste fallet (t.ex. alla närvarande), så att människan har så lite som möjligt att ändra.
 - **Tillstånd mellan körningar:** en körning börjar utan minne. Ska flödet bara rapportera nytt behövs en sparad lista över vad som redan har hanterats, med fast plats och format. "Nytt sedan förra körningen" i en prompt räcker inte. *(prövad i ett flöde)*
 - **Skript eller modell:** lägg regelstyrda steg (hämta, sortera, jämföra datum, slå upp i listan) i skript och omdömet (läsa och bedöma) hos modellen. Skript går att testa och ger samma svar varje gång. *(prövad i ett flöde)*
 
 ### Fas 5 – Lägg in kontroller
-- **Före ändring:** finns resultatet redan (idempotens)? Stämmer källorna med varandra?
+- **Före ändring:** finns resultatet redan (idempotens)? Stämmer källorna med varandra? Bestäm vilken källa som gäller och flagga avvikelsen.
 - **Efter ändring:** läs tillbaka och verifiera.
 - **Rimlighet:** intervall, normalvärden, avvikelser att flagga. Bestäm *när* kontrollen kan göras: vissa kan göras först när människan har fyllt i (eget granskningsläge).
 - Flaggor rapporteras till Kent; de skrivs inte in i dokumentet.
@@ -160,9 +135,13 @@ Risken sitter i **åtgärden**, inte i modellen. Gå igenom varje åtgärd flöd
 | **Mellan** | Syns för andra eller ändrar något delat, men går att ångra | Claude gör det och meddelar (on-the-loop) | Länkdela ett dokument, uppdatera en delad fil |
 | **Hög** | Går inte att ångra, går ut till andra eller kostar pengar | Bara efter Kents uttryckliga ja (in-the-loop); i en schemalagd körning aldrig | Skicka mejl, radera, ändra tidigare dokument, dela med namngivna personer, betala |
 
+- Vissa åtgärder ska aldrig göras automatiskt. Skriv in dem som gränser i uppgiftsskillen.
+- **Utkast, inte utskick,** när något går till andra människor. Claude skickar aldrig i Kents namn utan uttryckligt ja varje gång, och en schemalagd körning har ingen som kan säga ja.
+- **Delning kräver alltid Kents uttryckliga ja första gången;** beslutet skrivs sedan in i uppgiftsskillen.
+
 För varje åtgärd, svara på tre frågor och skriv in svaren i uppgiftsskillen:
 
-1. **Hur ångras den?** T.ex. lägga kopian i papperskorgen, ta bort utkastet, ta bort kalenderhändelsen, ta bort loggraden, ändra delningen till begränsad. Därför ska rapporten alltid innehålla länkar till allt som skapats: utan länk är det svårt att ångra.
+1. **Hur ångras den?** Allt ska gå att ångra, t.ex. lägga kopian i papperskorgen, ta bort utkastet, kalenderhändelsen eller loggraden, eller ändra delningen till begränsad. Därför ska rapporten alltid innehålla länkar till allt som skapats: utan länk är det svårt att ångra.
 2. **Vad händer om ingen agerar?** Varje gång flödet lämnar något till Kent (ett utkast att skicka, ett protokoll att granska) behövs en tidsgräns och en reservplan. Reservplanen ska vara det **säkra** valet: ingenting går ut till andra av sig självt. Däremot får flödet påminna igen.
 3. **Var sitter kontrollpunkten?** Lägg granskningen precis före det steg som inte går att ångra, efter att underlaget är samlat och kontrollerat. Då har Kent allt framför sig när han bestämmer.
 
@@ -171,8 +150,7 @@ För varje åtgärd, svara på tre frågor och skriv in svaren i uppgiftsskillen
 **Gradvis mer självständighet:** börja försiktigt och lätta på kontrollen när flödet har visat att det fungerar (t.ex. delning med länk nu, som kan skärpas eller lättas senare). Skriv in varje sådant beslut med datum i uppgiftsskillen.
 
 ### Fas 6 – Skriv uppgiftsskillen
-Använd mallen nedan. Leverera som .skill-fil (Kents önskemål), med versionsnummer i rubriken.
-- Förklara skälen bakom reglerna i skillen, så att Claude kan tillämpa dem på fall som inte är beskrivna.
+- Använd mallen nedan. Leverera som .skill-fil (Kents önskemål), med versionsnummer i rubriken. Har skillen referensfiler ska hela mappen ingå.
 - Håll SKILL.md under ungefär 500 rader. Blir den längre: flytta detaljer till en referensfil och peka dit.
 
 ### Fas 7 – Lägg på triggern
@@ -182,7 +160,9 @@ Använd mallen nedan. Leverera som .skill-fil (Kents önskemål), med versionsnu
   - **Inget att göra** (ingen ny händelse, redan gjort): avsluta tyst med en enda rad.
   - **Klart:** kort besked med länkar.
   - **Något gick fel** (connector saknas, behörighet nekad, ett steg misslyckades, även delvis): skicka alltid besked som börjar med "FEL:", med vilket steg som misslyckades, vad som redan hann göras (med länkar för att ångra) och vad Kent behöver göra.
+
   Utan den uppdelningen kan ett fel se ut som "inget att göra", och då märks det inte att flödet har slutat fungera.
+- Prova skillen på två–tre realistiska testfall.
 - **Provkör** uppgiften en gång efter varje ändring av prompten, helst i ett läge där inget nytt ska hända, så att den tysta vägen och idempotensen prövas utan risk.
 
 ### Fas 8 – Ordna besked och påminnelser
@@ -192,134 +172,13 @@ Använd mallen nedan. Leverera som .skill-fil (Kents önskemål), med versionsnu
 
 ### Fas 9 – Lärdomar efter första riktiga körningen
 - Titta på resultatet tillsammans (skärmbilder hjälper) och justera detaljer: ämnesrad, signatur, formuleringar, påminnelser.
-- Skriv in varje justering i uppgiftsskillen, och de generella lärdomarna här i metaskillen. Höj versionsnumret.
+- Skriv in varje justering i uppgiftsskillen och höj versionsnumret. Generella lärdomar följer tillväxtregeln.
 - Uppdatera kopian i GitHub-repot (se Var skillsen finns).
 
 ### Fas 10 – Följ upp och förbättra löpande
 - Efter några körningar: vad behövde Kent rätta? Lägg in det i skillen och höj versionsnumret.
 - **Förändring är inte samma sak som förbättring.** Versionshistoriken visar vad som ändrats. Kör om facit efter större ändringar och skriv resultatet i utvecklingsloggen, till exempel antal rätt av antal testfall. *(prövad i ett flöde)*
 - Följ hur ofta Kent ändrar i det flödet lämnar till honom. Ändrar han nästan aldrig något kan kontrollen lättas; ändrar han ofta behöver flödet stramas upp.
-
-## Principer
-
-- **Börja enkelt:** ett arbetsflöde före en agent, och en agent bara när stegen inte går att förutse.
-- **Datum i namn och ämne:** allt som skapas (filnamn, ämnesrad, kalenderhändelse) bär datumet för det som avses, så att det går att hitta senare.
-- **Utgå från det vanligaste fallet**, så att människan har minst möjligt att ändra.
-- **Kontrollera före och verifiera efter** varje ändring.
-- **Utkast, inte utskick**, när något går till andra människor.
-- **Risken sitter i åtgärden:** granska efter riskklass, inte allt lika.
-- **Allt ska gå att ångra**, och rapporten ger länkarna som behövs för det.
-- **Det säkra är standardvalet** när ingen agerar.
-- **Tyst när inget händer, alltid besked när något går fel.**
-- **Visa stegen:** berätta vad som görs, så att det går att följa och granska.
-- **Fråga om tider och kanaler** i stället för att anta dem, och förklara varför ett förslag ser ut som det gör.
-- **Publik process, privat underlag:** publicera så mycket av metoden som går, och håll uppgifterna om personer och val utanför.
-
-## Publik process, privat underlag
-
-Kent vill ha så mycket som möjligt publikt, för insynens, tydlighetens, versionshanteringens och säkerhetskopians skull, och samtidigt ha privata uppgifter privata. Det gäller även en grupp eller organisation: processen kan delas, underlaget stannar. Utforma flödet så att de två delarna **samarbetar utan att kopieras in i varandra**.
-
-### Fyra lager
-
-| Lager | Innehåll | Var |
-|---|---|---|
-| **Metod** | Skillen, skripten, kontrollerna, formaten | Publikt |
-| **Inställningar** | Kriterier, profil, urval, mappar och konton | En mall med påhittade värden publikt, den ifyllda filen privat |
-| **Data och tillstånd** | Underlag, namn, historik, det som redan hanterats, facit | Privat |
-| **Lärande** | Utvecklingslogg och testresultat | Generella iakttagelser och sammanräknade resultat publikt, enskilda fall privat |
-
-### Så samarbetar delarna
-
-- **Gränssnittet är publikt:** skillen beskriver vilka privata filer den läser och skriver, med fält och format, och har en exempelfil med påhittade uppgifter. Då går metoden att förstå och testa utan de riktiga uppgifterna.
-- **En källa för varje sak:** den privata delen pekar på skillen och kopierar den inte. Skillen får sökvägen till det privata underlaget som inställning och har inga privata värden inskrivna.
-- **Version på gränssnittet:** den privata inställningsfilen anger vilken formatversion den följer. Stämmer den inte med skillens är utfallet FEL, så att delarna inte glider isär obemärkt.
-- **Riktningen avgör risken:** att den privata delen läser den publika är låg risk. Att något går från privat till publikt (en lärdom, ett exempel, ett testresultat) är hög risk: skriv om det generellt och låt människan granska innan commit. En schemalagd körning skriver aldrig till det publika.
-
-### Namn och märkning *(prövad i ett flöde)*
-
-- **Olika namn på den publika och den privata delen.** Med samma eller nästan samma namn går det inte att se i en länk eller en mening vilken mapp som menas, och en privat fil kan lätt hamna fel.
-- **"Privat" syns i det privata namnet**, så att det står i varje sökväg. Den publika delen följer namnmönstret i sitt repo.
-- Delar flera flöden samma privata underlag ska det privata namnet inte knytas till ett av dem.
-- **En rad överst i båda README-filerna** säger PUBLIKT eller PRIVAT och vad det innebär. Den publika nämner motparten bara allmänt.
-- **Märk var arbetet sker** när det rör båda: PUBLIKT eller PRIVAT före arbetssteg, i uppgiftslistan och i filredovisningen (orden, inte bara en symbol). Redovisa läget per repo: vad som är ändrat och vad som får pushas.
-- Ett repo kan ha en privat arbetsgren och en publik gren med samma reponamn. Ange då vilken gren "privat" gäller, så att reponamnet inte ger falsk trygghet.
-
-### Tre zoner, inte två
-
-| Zon | Betydelse |
-|---|---|
-| **Publik** | Vem som helst kan läsa |
-| **Privat men behandlad av tjänster** | Publiceras inte, men läses av AI-modellen eller en connector, eller lagras hos en leverantör (molnlagring, privat repo) |
-| **Lämnar aldrig datorn** | Får varken läsas av en AI-tjänst i molnet eller synkas |
-
-Bestäm zon för varje slags uppgift. "Ligger bara på min dator" betyder inte "lämnar aldrig datorn" om en modell i molnet läser filen eller mappen synkas. För en organisation avgör dess regler vad som får hamna i mellanzonen. Uppgifter om andra personer hålls till det flödet behöver.
-
-### Säkerhetskopia och versioner för det privata
-
-| Sätt | Ger | Att tänka på |
-|---|---|---|
-| Lokalt git-repo i en synkad mapp | Versioner lokalt, kopia i synktjänsten | Ingen kopia på GitHub; synkning är inte en säker säkerhetskopia av git-historiken |
-| Eget privat repo på GitHub | Versioner, kopia och åtkomst för molnsessioner | Uppgifterna hamnar i mellanzonen; kontrollera att repot är privat före första push |
-| Ignorerad mapp i det publika repot | Allt på en plats | Ingen versionshantering, och ett misstag i `.gitignore` publicerar. Välj hellre skilda repon eller mappar |
-
-Före första commit till ett publikt repo: sök efter namn, adresser, kontaktuppgifter, arbetsgivare och personliga val. Det som en gång har pushats kan finnas kvar i historiken.
-
-## Var skillsen finns
-
-- **Kontolänkade skills** (sparade från .skill-filer) gäller i alla konversationer men syns bara på skill-sidan i Claude. De är lätta att tappa bort.
-- **I GitHub-repot AI-teknik (publikt), på en enda plats:** [`.claude/skills/<namn>/`](https://github.com/kentlundgren/AI-teknik/tree/main/.claude/skills), enligt repots AGENTS.md. Där läses skillsen av Claude Code och Cursor, och varje skillmapp har en README för den som läser på GitHub. Git-historiken visar hur skillsen har ändrats version för version.
-  - Uppgiftsskillen `langkatekesen-protokoll` ligger bredvid metaskillen. I det publika repot är ledamöternas mejladresser borttagna; de finns bara i kontoversionen.
-  - Lärosidan [`Skills/`](https://kentlundgren.github.io/AI-teknik/Skills/) (Del C) beskriver skillsen pedagogiskt och länkar till dem. Den innehåller inga kopior.
-- **Vid ny version:** spara .skill-filen på kontot, uppdatera `.claude/skills/<namn>/` i repot, och se efter om lärosidans Del C behöver ändras.
-- **Den schemalagda uppgiftens prompt** är en tredje plats. Ändras flödet i skillen, kontrollera om prompten också måste ändras, och visa hela den nya prompten för Kent innan den sparas.
-
-## Valpunkter med alternativ
-
-| Valpunkt | Alternativ | Att tänka på |
-|---|---|---|
-| Arbetsflöde eller agent | Fasta steg i skillen · Agent som väljer själv · Blandning: fasta steg med agentiska steg inuti | Fasta steg är lättare att granska; agent bara när stegen inte går att förutse |
-| Var sessionen körs | Claude Code lokalt (Code-fliken, Cursor, terminal) · Cowork eller chatt i molnet · Schemalagd uppgift på datorn · Schemalagd uppgift i molnet | Lokalt når datorns filer och skills; molnet når bara kontot och kopior. Välj efter var underlaget och resultatet ska ligga |
-| Granskningsnivå per åtgärd | Claude gör själv · Claude gör och meddelar (on-the-loop) · Claude väntar på ja (in-the-loop) · Görs aldrig automatiskt | Utgå från riskklassen i Fas 5b |
-| Om ingen agerar | Inget händer · Ny påminnelse före tidsgränsen · Eskalera till annan person · Flödet gör det självt | Det säkra valet är påminnelse; att göra det självt bara för låg risk |
-| Trigger | Schemalagd uppgift som söker (polling) · Kent startar själv · Gmail-filter med etikett + schemalagd sökning efter etiketten | Schema är automatiskt; manuell start är enklast; etikett tål att ämnesraden ändras |
-| Åtkomst till delad Drive | Dela en mapp med det kopplade kontot · Koppla connectorn som det andra kontot · Webbläsaren | Delad mapp ger smalast åtkomst |
-| Redigera ett Google-dokument | Google Docs-connectorn · Skapa ett nytt dokument via Drive · Webbläsaren | Docs-connectorn behåller samma fil och länk |
-| Skapa underlaget | Kopiera förra dokumentet och ändra · Skapa nytt från mall · Skapa från grunden | Kopiering behåller format och typsnitt |
-| Ändra text | `replaceAllText` (inga positioner) · Positionsbaserad insättning | Ersätt bara det som ändras; läs om dokumentet före varje positionsändring |
-| När kontroller görs | När utkastet skapas · I ett granskningsläge efter ifyllnad | Belopp och närvaro kan bara kontrolleras efter ifyllnad |
-| Besked till Kent | Meddelande i chatten · Pushnotis · Mejl · Kalenderhändelse | Mejl bara om Kent har bett om det |
-| Delning av resultatet | Alla med länken (läsa eller redigera) · Namngivna personer via e-post · Kent delar själv | Länkdelning är enklast och fungerar för alla mottagare, men vem som helst med länken kommer åt filen. Namngiven delning är säkrare men har krånglat tidigare och skickar delningsmejl från Google. Delning kräver alltid Kents uttryckliga ja första gången; beslutet skrivs sedan in i uppgiftsskillen. Påminn Kent om att valet kan skärpas senare. |
-| Besked och påminnelser | Pushnotis · Kalenderhändelse med påminnelser · Mejl till sig själv · Bara i chatten | Välj efter hur personen läser sina kanaler. Kent: push + kalender. SMS finns inte som kanal. |
-| Signatur i mejlutkast | Gmail-signaturen (`includeSignature`) i samma anrop · Egenbyggd signatur i HTML | Gmail-signaturen behåller bilden; en egenbyggd eller i efterhand ändrad signatur tappar externa bilder. Rader som ska bort (t.ex. LinkedIn) tar Kent bort själv. |
-| Tidpunkt för schemalagd uppgift | Jämn tid (t.ex. 17:00) · "Ojämn" tid (t.ex. 16:47) | Många uppgifter startar på hel timme, så en ojämn minut kan gå snabbare. Det är en teknisk optimering; följ Kents val och förklara skälet. |
-| Loggning | Kalkylark med flikar för händelser och ärenden · Claudes minne · Logg i ett repo · Ingen logg (sök i Gmail) | Ett register med länkar räcker. Följ frågorna, inte personerna. Publika repon passar inte för föreningens interna diskussioner. Automatisk loggning i ett Google-kalkylark kräver Google Sheets-connectorn. |
-| Språkgranskning | Förslag i dokumentet (suggestion mode) · Lista i chatten · Direkta ändringar | Förslag låter Kent godkänna varje ändring; direkta ändringar bara om han ber om det |
-| Utskick till andra | Utkast som Kent skickar själv · Claude skickar direkt · Inget utskick | Utkast är standard: Claude skickar aldrig i Kents namn utan uttryckligt ja varje gång, och en schemalagd körning har ingen som kan säga ja |
-| Publikt och privat | Publik metod och privat underlag i skilda repon · Allt privat med en publik kopia · Allt i ett privat repo | Skilda repon ger synlig utveckling utan kopior som glider isär; se Publik process, privat underlag |
-| Överlämning mellan molnet och datorn | Fil i ett repo · Dokument i Drive · Mejl | Fast namn och format; välj efter vilken zon uppgifterna får vara i |
-| Var lärdomar och källor ligger | I SKILL.md · I en referensfil bredvid | En fil är lättast att hålla i synk; referensfil när SKILL.md närmar sig 500 rader |
-
-## Fallgropar (upplevda)
-
-- **Mappen var inte delad**, bara enskilda filer: connectorn såg filerna men kunde inte skapa i mappen. Lösning: dela mappen som Redigerare.
-- **Kopian hade hamnat i fel mapp** om den gjorts innan mappen var delad (Drive lägger den då i kontots rot). Kontrollera skrivrätt först.
-- **Drive-connectorn kan inte redigera innehåll** i ett Google-dokument. Det kräver Google Docs-connectorn. Samma sak för kalkylark: Drive kan skapa ett genom uppladdning, men att lägga till rader kräver Google Sheets-connectorn.
-- **Källor kan motsäga varandra**: kallelsens rubrik hade ett gammalt datum medan mejl och filnamn var rätt. Bestäm vilken källa som gäller och flagga avvikelsen.
-- **Ägare kontra plats**: en fil som kopieras via Kents konto ägs av Kent även om den ligger i Lottas mapp.
-- **En kopia ärver inte länkdelningen**: förra protokollet var delat med "alla med länken", men kopian var bara delad med Kent och Lotta. Ett mejl med länken hade gett mottagarna "Behörighet krävs". Kontrollera alltid delningen innan en länk skickas till andra.
-- **Exempeltexter kan innehålla gamla länkar**: Kents exempelmejl länkade till förra protokollet. Fråga vad länken ska peka på.
-- **Dubbel hälsningsfras**: Kents signatur börjar med "Hälsningar". Skriv inte en egen.
-- **Bilden i signaturen försvann** när utkastet uppdaterades i efterhand (Gmail rensar externa bilder). Skapa utkastet rätt i ett enda anrop.
-- **Länk i ren text blev en lång omdirigeringsadress.** Använd HTML med en klickbar länktext.
-- **Ändrad ämnesrad** kan göra att svaret hamnar i en egen tråd hos mottagarna.
-- **Den schemalagda uppgiften saknade Google Sheets**, eftersom Sheets kopplades efter att uppgiften skapats. Uppgiften fick skapas om.
-- **Lista connectorerna i uppgiftsskillen** (tabell: connector, vad den används till, vilka steg), så att det syns vilka kopplingar flödet behöver.
-- **Gmail visar bara ett utkast per tråd** i trådvyn, även om flera finns; listan visar "Utkast, Utkast…". Därför ska flödet bara skapa ett.
-- **Flera utkast i samma tråd** när man provar sig fram: ta bort de gamla (med Kents ja) så att fel utkast inte skickas.
-- **Två kopior i repot**: till och med v6 låg skillsen både i `.claude/skills/` och som läsbara kopior i `Skills/`. Regeln "uppdatera båda i samma commit" skulle hålla dem i takt, men två kopior är otydligt och kan glida isär. Från v6.1 finns en enda kopia i repot, och lärosidan länkar dit. En källa är enklare än en regel som håller två källor i synk.
-- **Fel yta för uppgiften**: en konversation som började med skills och schemalagda uppgifter i Cowork gled över i arbete i ett repo. Cowork arbetar i molnet i en kopia av repot, så ändringarna nådde inte Kents mapp förrän de fördes över, och mappar som heter `.claude` gick inte att skriva via kopplingen. Välj yta efter uppgiften innan du börjar: arbete i filer och repon på datorn görs i Claude Code lokalt (Code-fliken med mappen öppen, eller Cursor); mejl, kalender, dokument och research i Cowork. Byter uppgiften karaktär under arbetet, säg det och föreslå att fortsätta i rätt yta.
-- **Kopplingen till datorn bröts utan att det märktes**: en Cowork-session når datorn bara genom en koppling via skrivbordsappen. Ikonen för datorn bredvid konversationens rubrik har en prick: grön när Cowork är anslutet till datorn, orange när kopplingen är bruten, trots att internet fungerar (viloläge, omstart av appen). Arbetet kan se klart ut i molnkopian medan inget har nått mappen. Titta på pricken innan du räknar med att ändringar finns i mappen. Claude säger till direkt när kopplingen bryts, inte först när en skrivning misslyckas.
-- **"Avsluta tyst" utan felväg**: den första prompten för Långkatekesen sa bara när den skulle avsluta tyst, inte vad den skulle göra om något gick fel. Ett fel hade då kunnat se ut som "ingen kallelse". Rättat i v6 med tre utfall.
 
 ## Mall för en ny uppgiftsskill
 
@@ -328,7 +187,7 @@ Före första commit till ett publikt repo: sök efter namn, adresser, kontaktup
 3. **Mål** – mapp med fast ID, filnamnsmönster, konto.
 4. **Steg** – i ordning, inklusive kontroll före och verifiering efter.
 5. **Kontroller** – idempotens, rimlighet, avvikelser att flagga.
-6. **Connectorer** – tabell över vilka connectorer som används till vad och i vilka steg.
+6. **Connectorer** – tabell över vilka connectorer som används till vad och i vilka steg, så att det syns vilka kopplingar flödet behöver.
 7. **Risk, ångra och reservplan** – tabell per åtgärd: riskklass, granskningsnivå, hur den ångras, och vad som händer om ingen agerar. Ange nödstoppet.
 8. **Gränser** – vad som aldrig får göras (radera, dela, skicka, skriva utanför mappen).
 9. **Rapport** – hur Kent får besked, med de tre utfallen inget att göra, klart och fel, och vad som ska flaggas.
@@ -337,62 +196,9 @@ Har flödet privat underlag eller tillstånd, ange under Källor och Mål vilka 
 
 Lägg gärna till ett granskningsläge om resultatet fylls i av en människa.
 
-## Genomarbetat exempel: Långkatekesen (skillen langkatekesen-protokoll)
+## Var skillsen finns
 
-| Fas | Vad som gjordes |
-|---|---|
-| 1 Mål | Kallelse från Anders Eriksson → protokollembryo i lottakent-driven, Protokoll-mappen. Typ: kedja med kontrollpunkter |
-| 2 Manuell körning | Mejl och bilaga lästes; tidigare protokoll hittades; namnmönstret ÅÅMMDD_Protokoll_styrelsemöte Långkatekesen upptäcktes |
-| 3 Behörigheter | Protokoll-mappen delades med lundgren.kent som Redigerare; Google Docs kopplades med samma konto |
-| 4 Konventioner | Alla närvarande, luckor för belopp och nästa mötesdatum, förra mötets laddboxtext repeteras i kursiv under "Från förra mötet" |
-| 5 Kontroller | Dubblettkoll, datum i mejl mot kallelse, tid och plats mot normalt (19–20 hos Johan), belopp 100 000–200 000 kr i granskningsläget |
-| 5b Risk | v6: skapa, ändra, utkast, kalender och logg är låg risk; länkdelning är mellan (görs och meddelas); skicka, radera och ändra tidigare protokoll är hög och görs aldrig av flödet. Reservplan: körningen dagen före mötet påminner om mejlutkastet fortfarande inte är skickat |
-| 6 Skill | langkatekesen-protokoll med två lägen: skapa embryo och granska protokoll. v2 lade till delning (alla med länken kan redigera) och mejlutkast som svar till alla i Anders tråd |
-| 7 Trigger | Schemalagd uppgift kl. 17:00 varje dag som söker efter nya kallelser. v6: tre utfall (tyst, klart, FEL) och provkörning efter ändring |
-| 8 Besked | Pushnotis när utkasten är klara; kalenderhändelse med påminnelse 1 dag och 1 timme före |
-| 9 Lärdomar | v3: datum i ämnesraden, signaturen med bild i samma anrop, ingen egen hälsningsfras, klickbar länk, LinkedIn tas bort manuellt |
-| 9b Logg | v4: Styrelselogg (kalkylark) med flikarna Händelser och Ärenden; språkgranskning som förslag i läge B |
-| 10 Uppföljning | Justera detaljer i embryot efter de första mötena |
-
-## Lärt av andra
-
-Principerna nedan kommer från de angivna källorna, jämförda med det Kent redan hade. Inget är kopierat från andras skills; det som togs in är skrivet med Kents egna exempel. Källorna bör kontrolleras mot originalen innan de återanvänds.
-
-| Princip | Källa | Fanns redan i v5 | Nytt i v6 |
-|---|---|---|---|
-| Skillnad mellan arbetsflöde och agent; fem typer av arbetsflöden | Schluntz och Zhang (2024) | Nej | Typläran |
-| Börja enkelt, lägg till komplexitet bara när det ger bättre resultat | Schluntz och Zhang (2024); OpenAI (u.å.) | Delvis (manuell körning först) | Tumregel i typläran, princip |
-| Visa planeringsstegen (transparens) | Schluntz och Zhang (2024) | Ja, coachläget | – |
-| Dokumentera verktygen lika noga som ett användargränssnitt | Schluntz och Zhang (2024) | Ja, tabellen över connectorer | – |
-| Hämta "sanningen" från omgivningen i varje steg | Schluntz och Zhang (2024) | Ja, verifiera efter ändring | – |
-| Avbrottsvillkor och ställen där agenten stannar och frågar | Schluntz och Zhang (2024) | Nej | Tumregel i typläran |
-| Riskklassa verktyg och åtgärder: låg, mellan, hög, efter läs/skriv, om det går att ångra och ekonomisk påverkan | OpenAI (u.å.); Praveen VR (2026) | Delvis (gränser) | Fas 5b |
-| Tre nivåer: självständigt, meddela, godkänna | Amazon Web Services (u.å.) | Delvis (utkast, inte utskick) | Granskningskolumnen i Fas 5b |
-| Risken sitter i åtgärden, inte i modellen | Praveen VR (2026) | Nej | Fas 5b, princip |
-| Lägg kontrollpunkten precis före det steg som inte går att ångra | Praveen VR (2026) | Delvis (mejlutkast) | Fas 5b fråga 3 |
-| Bygg åtgärder så att de går att ångra: mjuk radering, versioner, idempotensnycklar | Praveen VR (2026) | Delvis (idempotens) | Fas 5b fråga 1, princip |
-| Tidsgräns och reservplan om ingen svarar; säkert standardval | Amazon Web Services (u.å.) | Nej | Fas 5b fråga 2, Fas 8, valpunkt |
-| Mänsklig inblandning vid upprepade fel och högriskåtgärder | OpenAI (u.å.) | Nej | FEL-utfallet i Fas 7 |
-| In-the-loop blockerar, on-the-loop gör det inte; dela upp efter åtgärd | Arize AI (2026) | Nej (bara human-in-the-loop) | Ordlistan, valpunkt |
-| Ha ett nödstopp och prova det | Arize AI (2026) | Nej | Fas 5b |
-| Logga vem som beslutade, när och varför | Amazon Web Services (u.å.); Praveen VR (2026) | Delvis (styrelseloggen) | – (räcker för Kents flöden) |
-| Följ hur ofta människan ändrar för att strama upp eller lätta på kontrollen | Praveen VR (2026) | Delvis (Fas 10) | Fas 10 |
-| Gradvis mer självständighet när förtroendet växer | Amazon Web Services (u.å.) | Delvis (delningen kan skärpas) | Fas 5b |
-| Förklara varför i stället för ALLTID och ALDRIG | Anthropic (u.å.), skill-creator | Nej | Coachläget, Fas 6 |
-| Håll SKILL.md kort (under cirka 500 rader), detaljer i referensfiler | Anthropic (u.å.), skill-creator | Nej | Fas 6, valpunkt |
-| Prova skillen på två–tre realistiska testfall | Anthropic (u.å.), skill-creator | Delvis (manuell körning) | Provkörning i Fas 7 |
-| Minsta mall: bara namn och beskrivning krävs | Anthropic (u.å.), template-skill | Kents mall är mer utförlig | Medvetet val: de nio delarna behålls |
-
-### Källor
-
-Amazon Web Services (u.å.) *AGENTREL02-BP05 Establish tiered human oversight and approval workflows*. Agentic AI Lens, AWS Well-Architected Framework. Tillgänglig på: [https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentrel02-bp05.html](https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentrel02-bp05.html) (Hämtad: 24 november 2026). *(Bästa praxis för granskning i nivåer – självständigt, meddela, godkänna – med tidsgränser och säkra standardval; underlag för Fas 5b.)*
-
-Anthropic (u.å.) *anthropics/skills* [GitHub-repo], särskilt [skills/skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) och [template](https://github.com/anthropics/skills/tree/main/template). Tillgänglig på: [https://github.com/anthropics/skills](https://github.com/anthropics/skills) (Hämtad: 24 november 2026). *(Anthropics exempelskills, bland annat skill-creator och template; underlag för hur en skill skrivs, hålls kort och testas.)*
-
-Arize AI (2026) *What is human-on-the-loop?* Senast ändrad 14 augusti 2026. Tillgänglig på: [https://arize.com/glossary/human-on-the-loop/](https://arize.com/glossary/human-on-the-loop/) (Hämtad: 24 november 2026). *(Ordlisteartikel om skillnaden mellan blockerande in-the-loop och icke-blockerande on-the-loop, och om nödstopp.)*
-
-OpenAI (u.å.) *A practical guide to building agents* [PDF]. Tillgänglig på: [https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) (Hämtad: 24 november 2026). *(Guide om när en agent behövs, riskklassning av verktyg och när människan ska kopplas in.)*
-
-Praveen VR (2026) 'Designing Human-in-the-Loop Approval Gates for Enterprise AI Agents', *DZone*, 18 september. Tillgänglig på: [https://dzone.com/articles/human-in-the-loop-approval-enterprise-ai-agents](https://dzone.com/articles/human-in-the-loop-approval-enterprise-ai-agents) (Hämtad: 24 november 2026). *(Artikel om godkännandegrindar, risknivåer per åtgärd och hur åtgärder görs möjliga att ångra.)*
-
-Schluntz, E. och Zhang, B. (2024) *Building effective agents*. Anthropic, 19 december. Tillgänglig på: [https://www.anthropic.com/engineering/building-effective-agents](https://www.anthropic.com/engineering/building-effective-agents) (Hämtad: 24 november 2026). *(Grundtexten om skillnaden mellan arbetsflöde och agent och de fem typerna av arbetsflöden; underlag för typläran.)*
+- **Kontolänkade skills** (sparade från .skill-filer) gäller i alla konversationer men syns bara på skill-sidan i Claude. De är lätta att tappa bort.
+- **I GitHub-repot AI-teknik (publikt), på en enda plats:** [`.claude/skills/<namn>/`](https://github.com/kentlundgren/AI-teknik/tree/main/.claude/skills), enligt repots AGENTS.md. Där läses skillsen av Claude Code och Cursor, och varje skillmapp har en README för den som läser på GitHub. Git-historiken visar hur skillsen har ändrats version för version. Lärosidan [`Skills/`](https://kentlundgren.github.io/AI-teknik/Skills/) (Del C) beskriver skillsen pedagogiskt och länkar till dem, utan kopior.
+- **Vid ny version:** spara .skill-filen (hela skillmappen) på kontot, uppdatera `.claude/skills/<namn>/` i repot, och se efter om lärosidans Del C behöver ändras.
+- **Den schemalagda uppgiftens prompt** är en tredje plats. Ändras flödet i skillen, kontrollera om prompten också måste ändras, och visa hela den nya prompten för Kent innan den sparas.

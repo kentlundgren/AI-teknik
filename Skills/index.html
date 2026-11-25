@@ -8,7 +8,7 @@
     * DEL B: vad en skill egentligen är, hur en SKILL.md är uppbyggd,
              och hur man skapar en ny.
     * DEL C: agentiska arbetsflöden – kort sammanfattning av Kents metaskill
-             kent-agentiska-arbetsfloden (v6), med länkar till originalet.
+             kent-agentiska-arbetsfloden (v7), med länkar till originalet.
     * DEL D: samma förmåga, olika ställen – varför Claude Code och Cowork läser
              skills från olika ställen, tumregel, och förslag till Anthropic
              på svenska och engelska.
@@ -39,6 +39,9 @@
                 kent-jobbsok-sortering.
                 Version 1.8: fyra nya lärdomar i #c-andra-rubrik, metaskillen v6.4.
                 Version 1.9: fasläget som tabell i #c-faser-rubrik, metaskillen v6.5.
+                Version 1.10: metaskillen v7.0 med kärnfil och referensfiler;
+                länkar till referensfilerna i #c-tva-rubrik, #c-lardomar-rubrik
+                och #c-kallor-rubrik.
 -->
 <html lang="sv">
 <head>
@@ -408,11 +411,13 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         <div class="file-grid">
           <article class="card file-card">
             <h3><a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/SKILL.md" target="_blank" rel="noopener"><code>kent-agentiska-arbetsfloden</code></a></h3>
-            <p class="tag">Metaskill · v6.5</p>
+            <p class="tag">Metaskill · v7.0</p>
             <p>
               Gör inget jobb själv. Den styr <em>hur</em> ett nytt flöde byggs: steg för
-              steg, med alternativen vid varje val, typlära, tio faser, riskklassning,
-              valpunkter, upplevda fallgropar och lärdomar från andra.
+              steg, med typlära, tio faser, riskklassning och mall i en kärnfil. Valpunkter,
+              fallgropar och lärdomar från andra ligger i <a href="https://github.com/kentlundgren/AI-teknik/tree/main/.claude/skills/kent-agentiska-arbetsfloden/references" target="_blank" rel="noopener">referensfiler</a>
+              som läses vid behov. En ny lärdom flyttas in först när ett andra flöde har
+              bekräftat den; säkerhetsregler kan gå in direkt.
             </p>
           </article>
           <article class="card file-card">
@@ -627,13 +632,14 @@ eventuella länkar till andra filer i skill-mappen.</pre>
       <!-- C8. Lärdomar som blev regler -->
       <section aria-labelledby="c-lardomar-rubrik" class="card">
         <h2 id="c-lardomar-rubrik">Lärdomar som blev regler</h2>
-        <p>Några av de upplevda fallgroparna som nu står i metaskillen:</p>
+        <p>Några upplevelser som har blivit regler. Fallgroparna finns i metaskillens
+          <a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/references/fallgropar.md" target="_blank" rel="noopener">fallgropar</a>, reglerna i <a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/SKILL.md" target="_blank" rel="noopener">kärnfilen</a>:</p>
         <ul>
           <li><strong>En kopia ärver inte länkdelningen.</strong> Ett mejl med länken hade gett mottagarna "Behörighet krävs". Kontrollera delningen innan en länk skickas till andra.</li>
           <li><strong>Bilden i signaturen försvann</strong> när mejlutkastet ändrades i efterhand. Skapa utkastet rätt i ett enda anrop.</li>
           <li><strong>En schemalagd uppgift får bara de connectorer som fanns när den skapades.</strong> Koppla alla connectorer innan uppgiften skapas.</li>
           <li><strong>Drive-connectorn kan inte redigera ett dokuments innehåll.</strong> Det kräver Google Docs-connectorn.</li>
-          <li><strong>"Avsluta tyst" utan felväg</strong> gjorde att ett fel kunde se ut som "ingen kallelse". Rättat med tre utfall.</li>
+          <li><strong>"Avsluta tyst" utan felväg</strong> gjorde att ett fel kunde se ut som "ingen kallelse". Därför har prompten tre utfall.</li>
           <li><strong>Två kopior i repot</strong> kan glida isär. Skillsen ligger nu bara i <code>.claude/skills/</code>, och den här sidan länkar dit.</li>
         </ul>
       </section>
@@ -827,7 +833,8 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           Typläran, riskklassningen och nivåerna av mänsklig granskning bygger på källorna
           nedan, jämförda med Kents egna principer. Uppgifterna kommer från de angivna
           källorna, är inte kvalitetssäkrade och bör kontrolleras mot källan innan de
-          återanvänds. Hela jämförelsen finns i metaskillens avsnitt Lärt av andra.
+          återanvänds. Hela jämförelsen finns i metaskillens
+          <a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/references/lart-av-andra.md" target="_blank" rel="noopener">Lärt av andra</a>.
         </p>
         <ul class="sources">
           <li>Amazon Web Services (u.å.) <em>AGENTREL02-BP05 Establish tiered human oversight and approval workflows</em>. Agentic AI Lens. Tillgänglig på: <a href="https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentrel02-bp05.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentrel02-bp05.html</a> (Hämtad: 24 november 2026). <em>(Bästa praxis för granskning i nivåer – självständigt, meddela, godkänna – med tidsgränser och säkra standardval; underlag för riskklassningen.)</em></li>
@@ -1150,7 +1157,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
     Höj versionsnumret och datumet vid varje ändring av sidan.
   -->
   <footer class="site-footer">
-    <p class="versionsrad">Version 1.9 · 2026-11-25 · Kent Lundgren</p>
+    <p class="versionsrad">Version 1.10 · 2026-11-25 · Kent Lundgren</p>
   </footer>
 
   <!--

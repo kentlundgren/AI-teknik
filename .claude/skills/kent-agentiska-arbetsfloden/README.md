@@ -10,26 +10,38 @@ Beskrivs pedagogiskt på live-sidan, Del C:
 
 ## Innehåll
 
+`SKILL.md` är kärnan och läses varje gång skillen aktiveras:
+
+- Läsguide: när varje referensfil ska läsas.
 - Coachläge: steg för steg, med alternativen vid varje val och skälen bakom reglerna.
+- Tillväxtregel: en ny lärdom flyttas in först när ett andra flöde har bekräftat den, säkerhetsregler får gå in direkt, och kärnan är högst 22 000 tecken.
 - Typlära: arbetsflöde eller agent, och fem vanliga typer av arbetsflöden.
-- Ordlista: trigger, polling, connector, human-in-the-loop, human-on-the-loop, kontrollpunkt, riskklass, reservplan, nödstopp, idempotens med flera.
-- Tio faser från mål och manuell körning till påminnelser, lärdomar och uppföljning, med Fas 5b om riskklassning, ångra och reservplan.
-- Tre utfall för schemalagda uppgifter: inget att göra, klart och fel.
-- Publik process, privat underlag: fyra lager, hur den publika och den privata delen samarbetar, tre zoner och säkerhetskopia av det privata.
-- Fasläge som tabell (när och hur det visas) och fasavstämning, baslinje, facit som körs om, tysta fel, tillstånd mellan körningar och uppdelning i flera flöden.
-- Sparade testindata, spärrar i koden, sökning i underlagen före en fråga, och skilda namn och märkning för en publik och en privat del.
-- Valpunkter med alternativ, upplevda fallgropar och en mall i nio delar för nya uppgiftsskills.
-- Lärt av andra: principer från Anthropic, AWS, OpenAI, DZone och Arize jämförda med Kents egna, med källor i Harvardstil.
-- Genomarbetat exempel: [langkatekesen-protokoll](../langkatekesen-protokoll/).
+- Tio faser från mål och manuell körning till uppföljning, med fasläget som tabell och Fas 5b om riskklassning, ångra och reservplan.
+- Mall i nio delar för nya uppgiftsskills, och var skillsen finns.
+
+Referensfilerna läses vid behov:
+
+| Fil | Innehåll |
+| --- | --- |
+| [`ordlista.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/references/ordlista.md) | Begreppen: trigger, polling, human-in-the-loop, idempotens med flera |
+| [`valpunkter.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/references/valpunkter.md) | Alternativ vid val, och vad man ska tänka på |
+| [`fallgropar.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/references/fallgropar.md) | Koppla en connector steg för steg, och upplevda fallgropar |
+| [`publik-privat.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/references/publik-privat.md) | Fyra lager, gränssnitt, namn och märkning, tre zoner och säkerhetskopia |
+| [`exempel-langkatekesen.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/references/exempel-langkatekesen.md) | Det genomarbetade exemplet, fas för fas |
+| [`lart-av-andra.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/references/lart-av-andra.md) | Principer från Anthropic, AWS, OpenAI, DZone och Arize, med källor i Harvardstil |
+| [`kandidater.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/references/kandidater.md) | Lärdomar från ett enda flöde som väntar på ett andra |
+
+Uppgiftsskillen som exemplet bygger på: [langkatekesen-protokoll](https://github.com/kentlundgren/AI-teknik/tree/main/.claude/skills/langkatekesen-protokoll).
 
 ## Var skillen finns
 
 | Plats | Roll |
 | --- | --- |
 | Claude-kontot (sparad från .skill-fil) | Den version som körs i alla konversationer i Claude |
-| [`SKILL.md`](./SKILL.md) i den här mappen | Den enda kopian i repot; läses av Claude Code och Cursor |
+| [`SKILL.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/SKILL.md) och `references/` i den här mappen | Den enda kopian i repot; läses av Claude Code och Cursor |
 
 Versionen står i rubriken i `SKILL.md`. Git-historiken visar ändringarna version för version.
+När den sparas på kontot ska `.skill`-filen innehålla hela mappen, även `references/`.
 
 Innehållet bygger på arbetsflöden som Kent har gått igenom och godkänt. Uppgifterna
 från externa källor är inte kvalitetssäkrade och bör kontrolleras mot källan.
