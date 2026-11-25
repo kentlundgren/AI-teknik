@@ -89,6 +89,10 @@ version för version.
 - Projektets startsida: [`../README.md`](../README.md)
 - RAG-delen: [`../RAG/`](../RAG/)
 
+## Delningsbild
+
+Bilden [og-skills.jpg](https://kentlundgren.github.io/AI-teknik/Skills/delning/og-skills.jpg) visas när sidan delas, också med länkar till en del av sidan (till exempel `#delC`). Den görs ur [og-skills.html](https://github.com/kentlundgren/AI-teknik/blob/main/Skills/delning/kalla/og-skills.html) med Chrome utan fönster (1200×630, sedan JPEG). LinkedIn och X sparar bilder, så testa med LinkedIn Post Inspector efter publicering.
+
 ## Repo
 
 - GitHub: https://github.com/kentlundgren/AI-teknik/tree/main/Skills

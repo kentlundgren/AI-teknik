@@ -1,0 +1,48 @@
+<!doctype html>
+<!--
+  Källa till delningsbilden för Skills-sidan: ../og-skills.jpg (1200×630).
+  Görs om med Chrome utan fönster och sparas sedan som JPEG.
+  Färgerna är de samma som i ../../styles.css.
+-->
+<html lang="sv"><head><meta charset="utf-8"><title>og-skills</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 1200px; height: 630px; overflow: hidden; background: #0f172a; color: #e2e8f0;
+         font-family: "Segoe UI", Arial, sans-serif; padding: 52px 64px 0; position: relative; }
+  .bar { position: absolute; left: 0; top: 0; bottom: 0; width: 14px; background: #38bdf8; }
+  .over { font-size: 26px; color: #38bdf8; font-weight: 600; }
+  h1 { font-size: 70px; line-height: 1.08; margin-top: 8px; }
+  .delar { display: flex; gap: 22px; margin-top: 38px; }
+  .del { flex: 1; background: #1e293b; border: 2px solid #334155; border-radius: 14px; padding: 18px 24px 20px; }
+  .del b { display: block; font-size: 34px; color: #38bdf8; }
+  .del span { display: block; font-size: 27px; margin-top: 4px; }
+  .flode { display: flex; align-items: stretch; gap: 10px; margin-top: 34px; }
+  .steg { flex: 1; border-radius: 14px; padding: 14px 10px; text-align: center; font-size: 26px; line-height: 1.25;
+          display: flex; flex-direction: column; justify-content: center; min-height: 104px; }
+  .ai { background: #1e293b; border: 2px dashed #38bdf8; }
+  .jag { background: #38bdf8; color: #0f172a; font-weight: 700; }
+  .pil { align-self: center; font-size: 30px; color: #94a3b8; }
+  .fot { position: absolute; left: 64px; right: 64px; bottom: 30px; display: flex; justify-content: space-between;
+         font-size: 24px; color: #94a3b8; }
+  .fot strong { color: #e2e8f0; }
+</style></head>
+<body>
+  <div class="bar"></div>
+  <div class="over">Skills och AI-agenter · Del C</div>
+  <h1>Agentiska arbetsflöden</h1>
+
+  <div class="delar">
+    <div class="del"><b>Start</b><span>När börjar jobbet?</span></div>
+    <div class="del"><b>Metod</b><span>Hur ska det göras?</span></div>
+    <div class="del"><b>Underlag</b><span>Vad ska den veta?</span></div>
+  </div>
+
+  <div class="flode">
+    <div class="steg ai">AI söker och<br>föreslår</div><div class="pil">→</div>
+    <div class="steg jag">Människan<br>väljer</div><div class="pil">→</div>
+    <div class="steg ai">AI skriver<br>utkast</div><div class="pil">→</div>
+    <div class="steg jag">Människan granskar<br>och skickar</div>
+  </div>
+
+  <div class="fot"><strong>Kent Lundgren</strong><span>kentlundgren.github.io/AI-teknik/Skills</span></div>
+</body></html>
