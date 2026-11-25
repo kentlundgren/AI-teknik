@@ -8,6 +8,7 @@ sammanräknade resultat. Enskilda annonser och bedömningar ligger privat.
 
 | Datum | Version | Fas | Iakttagelse | Ändring | Effekt |
 |---|---|---|---|---|---|
+| 2026-11-25 | 0.1 | 2 | En fråga till människan hade delvis svar i det befintliga underlaget, och sorteringen gjordes utan det | Underlagen söks igenom innan en uppgift behandlas som okänd | Gäller bedömningen; inte omtestat |
 | 2026-11-25 | 0.1 | 2 | Provskripten låg i en tillfällig mapp och hade sökningarna inskrivna i koden | `skript/hamta.py` byggt: sökningar och tillstånd i privata filer, felutfall med slutkod 2, spärr mot att skriva i det publika repot | Se testraderna nedan |
 | 2026-11-25 | 0.1 | 2 | En söksida utan träffar svarade som om allt gick bra | Noll rader redovisas som avvikelse per källa | Se testraderna nedan |
 | 2026-11-25 | 0.1 | 2 | Samma tjänst kan ligga ute två gånger eller återpubliceras med ny länk | Jämförelse på arbetsgivare och titel utöver länken | Fångar bara samma arbetsgivare och titel, inte samma uppdrag via olika förmedlare |
