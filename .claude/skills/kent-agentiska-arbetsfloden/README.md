@@ -29,6 +29,7 @@ Referensfilerna läses vid behov:
 | [`publik-privat.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/references/publik-privat.md) | Fyra lager, gränssnitt, namn och märkning, tre zoner och säkerhetskopia |
 | [`exempel-langkatekesen.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/references/exempel-langkatekesen.md) | Det genomarbetade exemplet, fas för fas |
 | [`lart-av-andra.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/references/lart-av-andra.md) | Principer från Anthropic, AWS, OpenAI, DZone och Arize, med källor i Harvardstil |
+| [`behorighetsprov.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/references/behorighetsprov.md) | Pröva vad en ny obevakad uppgift får göra: testfil, sju prov, mall och städning (inte prövad än) |
 | [`kandidater.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/references/kandidater.md) | Lärdomar från ett enda flöde som väntar på ett andra |
 
 Uppgiftsskillen som exemplet bygger på: [langkatekesen-protokoll](https://github.com/kentlundgren/AI-teknik/tree/main/.claude/skills/langkatekesen-protokoll).

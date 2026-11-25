@@ -3,7 +3,7 @@ name: kent-agentiska-arbetsfloden
 description: Kents playbook (metaskill) för att designa och bygga agentiska arbetsflöden tillsammans med Claude – återkommande uppgifter som Claude utför i flera steg med connectorer, skills och schemalagda uppgifter. Aktivera när Kent vill automatisera något som återkommer ("varje gång jag får…", "känna av när…", "gör det här automatiskt", "skapa en rutin", "schemalagd uppgift"), när han vill bygga en ny uppgiftsskill för ett flöde, när han frågar om skillnaden mellan arbetsflöde och agent, riskklassning, human-in-the-loop eller vad som händer om ingen agerar, eller när han frågar om hur man tänker kring agentiska uppgifter på metanivå. Långkatekesen-protokollen är det genomarbetade exemplet.
 ---
 
-# Agentiska arbetsflöden – Kents playbook (v7.1)
+# Agentiska arbetsflöden – Kents playbook (v7.2)
 
 Den här skillen utför inget jobb själv. Den styr **hur** Kent och Claude tar fram ett nytt arbetsflöde, och den är ett stöd för att Kent ska lära sig mönstret. Den kompletterar **kent-meta-regler** (Kents generella arbetsregler: frågor före start, källor, ingen AI-märkning, versionsnummer i skills) och **skills-meta-guide** (tekniken bakom skills, agenter och CLAUDE.md).
 
@@ -19,6 +19,7 @@ Läs filen när dess tillfälle kommer. Kan den inte läsas, säg det i stället
 | [publik-privat.md](references/publik-privat.md) | Flödet har privat underlag eller sparat tillstånd (fas 1), innan något förs från privat till publikt och före första publika commit |
 | [exempel-langkatekesen.md](references/exempel-langkatekesen.md) | Kent vill se ett exempel, eller en förlaga behövs för en fas |
 | [lart-av-andra.md](references/lart-av-andra.md) | Kent frågar vad en regel bygger på, eller en källbaserad regel eller källa ska ändras eller återanvändas |
+| [behorighetsprov.md](references/behorighetsprov.md) | I fas 3, före en ny obevakad uppgift eller när dess åtkomst ändras |
 | [kandidater.md](references/kandidater.md) | Vid varje fasavstämning |
 
 ## Coachläge (gäller alltid när skillen används)
@@ -108,6 +109,7 @@ Växer målet under arbetet ("hitta jobb" blir "hitta jobb och skriv ansökan"),
 - **En schemalagd uppgift får de connectorer som fanns när den skapades.** Koppla därför alla connectorer innan uppgiften skapas.
 - Skilj på **plats** (var en fil ligger) och **ägare** (vem som skapade den) i Google Drive.
 - **Vad når körmiljön?** Internet nås både lokalt och i molnet. Det som skiljer är vilka filer och skills sessionen kommer åt och om datorn behöver vara på. Tre sätt: **allt lokalt** (datorn måste vara på), **delat med överlämning** (molnet gör det publika och lämnar ett resultat med fast namn och format, datorn läser det och gör det privata) och **allt i molnet** (det privata underlaget måste då finnas på kontot eller i ett privat repo).
+- **Behörighetsprov före en ny obevakad uppgift** *(säkerhetsregel, inte prövad än)*: bygg först en tillfällig provuppgift utan schema som inte gör det riktiga jobbet. Den visar vad en körning **kan** göra (mapp, startregler, läsning utanför projektet med en ofarlig testfil, connectorer, besked). Städa bort provet efteråt. Mall: [behorighetsprov.md](references/behorighetsprov.md).
 
 ### Fas 4 – Skriv ner konventionerna
 - Filnamn, mappar med fasta ID:n, mallar, vilka uppgifter som återanvänds, vilka luckor som lämnas till människan.

@@ -45,6 +45,7 @@
                 Version 1.11: jobbsökaragenten har en uppgiftsskill (v0.1).
                 Version 1.12: avsnittet "Agentens tre delar" (#c-delar-rubrik) med
                 länkar till delarna och källor; metaskillen v7.1.
+                Version 1.13: behörighetsprov i fas 3 (#c-faser-rubrik), metaskillen v7.2.
 -->
 <html lang="sv">
 <head>
@@ -415,7 +416,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         <div class="file-grid">
           <article class="card file-card">
             <h3><a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/SKILL.md" target="_blank" rel="noopener"><code>kent-agentiska-arbetsfloden</code></a></h3>
-            <p class="tag">Metaskill · v7.1</p>
+            <p class="tag">Metaskill · v7.2</p>
             <p>
               Gör inget jobb själv. Den styr <em>hur</em> ett nytt flöde byggs: steg för
               steg, med typlära, tio faser, riskklassning och mall i en kärnfil. Valpunkter,
@@ -578,7 +579,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         <ol class="phases">
           <li><strong>Mål och startpunkt.</strong> Vad ska komma ut, var ska det ligga, vad startar flödet? Visa ett riktigt exempel.</li>
           <li><strong>Kör manuellt en gång.</strong> Gör uppgiften tillsammans på ett riktigt fall. Det är här konventioner och fallgropar upptäcks.</li>
-          <li><strong>Behörigheter.</strong> Vilka connectorer behövs, med vilket konto? Den smalaste åtkomsten som räcker.</li>
+          <li><strong>Behörigheter.</strong> Vilka connectorer behövs, med vilket konto? Den smalaste åtkomsten som räcker. Före en ny obevakad uppgift: ett <a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/references/behorighetsprov.md" target="_blank" rel="noopener">behörighetsprov</a> med en ofarlig testfil visar vad körningen faktiskt får göra (metoden är inte prövad än).</li>
           <li><strong>Konventioner.</strong> Filnamn, mappar, mallar och vad som lämnas till människan. Utgå från det vanligaste fallet.</li>
           <li><strong>Kontroller.</strong> Finns resultatet redan? Stämmer källorna? Läs tillbaka efter varje ändring.</li>
           <li class="nytt"><strong>5b Riskklassa åtgärderna.</strong> Låg, mellan eller hög – och för varje åtgärd: hur den ångras och vad som händer om ingen agerar.</li>
@@ -1233,7 +1234,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
     Höj versionsnumret och datumet vid varje ändring av sidan.
   -->
   <footer class="site-footer">
-    <p class="versionsrad">Version 1.12 · 2026-11-25 · Kent Lundgren</p>
+    <p class="versionsrad">Version 1.13 · 2026-11-25 · Kent Lundgren</p>
   </footer>
 
   <!--
