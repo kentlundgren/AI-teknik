@@ -20,6 +20,19 @@ Kent vill ha så mycket som möjligt publikt, för insynens, tydlighetens, versi
 - **Version på gränssnittet:** den privata inställningsfilen anger vilken formatversion den följer. Stämmer den inte med skillens är utfallet FEL, så att delarna inte glider isär obemärkt.
 - **Riktningen avgör risken:** att den privata delen läser den publika är låg risk. Att något går från privat till publikt (en lärdom, ett exempel, ett testresultat) är hög risk: skriv om det generellt och låt människan granska innan commit. En schemalagd körning skriver aldrig till det publika.
 
+### Slussen: från privat till publikt *(prövad i ett flöde)*
+
+Det privata arbetet ger lärdomar som andra kan ha nytta av. De går genom en sluss:
+
+1. **Iakttagelsen skrivs privat** först, med alla detaljer.
+2. **Förslaget skrivs om generellt:** vad som hände i allmänna ord, vilken publik fil som ska ändras och den exakta nya texten.
+3. **Kontroll av texten:** sök efter namn, kontaktuppgifter, arbetsgivare, enskilda ärenden, lokala sökvägar till privata filer och personliga val. Sökningen hittar inte allt, så texten läses också i sin helhet.
+4. **Människan säger ja eller nej** till varje förslag. Förslaget lämnas direkt när iakttagelsen görs.
+5. **Källan ändras först** (skillen eller metodfilen). Sidor och sammanfattningar uppdateras därefter och bygger på källan.
+6. **Före commit** läser människan skillnaden mot förra versionen och kontrollerar att inga oväntade filer följer med.
+
+**En skriven regel räcker inte alltid.** Även den som bara läser eller kör kod från ett publikt repo kan skapa filer där, till exempel cachefiler. Lägg ett tekniskt skydd (ignore-regel, inställning i kommandot eller spärr i skriptet) och titta på repots status efter körningen.
+
 ### Namn och märkning *(prövad i ett flöde)*
 
 - **Olika namn på den publika och den privata delen.** Med samma eller nästan samma namn går det inte att se i en länk eller en mening vilken mapp som menas, och en privat fil kan lätt hamna fel.

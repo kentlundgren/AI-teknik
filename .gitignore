@@ -18,3 +18,7 @@ desktop.ini
 
 # Node.js (t.ex. AI_sakerhet/Nummer1 — Vercel Functions)
 node_modules/
+
+# Pythons cachefiler (skapas när ett skript importeras)
+__pycache__/
+*.pyc

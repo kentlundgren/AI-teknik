@@ -48,6 +48,8 @@
                 Version 1.13: behörighetsprov i fas 3 (#c-faser-rubrik), metaskillen v7.2.
                 Version 1.14: raden Start i #c-delar-rubrik säger hur jobbflödet startas och hur den publika mallen uppdateras.
                 Version 1.15: delningsbild och Open Graph-taggar (mappen delning/).
+                UPPDATERING 2026-11-27: rubriken "Slussen: från privat till publikt" (#c-sluss-rubrik) i
+                #c-publik-rubrik, metaskillen v7.3. Version 1.16.
 -->
 <html lang="sv">
 <head>
@@ -433,7 +435,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         <div class="file-grid">
           <article class="card file-card">
             <h3><a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/SKILL.md" target="_blank" rel="noopener"><code>kent-agentiska-arbetsfloden</code></a></h3>
-            <p class="tag">Metaskill · v7.2</p>
+            <p class="tag">Metaskill · v7.3</p>
             <p>
               Gör inget jobb själv. Den styr <em>hur</em> ett nytt flöde byggs: steg för
               steg, med typlära, tio faser, riskklassning och mall i en kärnfil. Valpunkter,
@@ -871,6 +873,25 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           mellanzonen. Vill man ha versioner och säkerhetskopia också för det privata är ett
           <strong>eget privat repo</strong> ett alternativ till ett enbart lokalt git-repo.
         </p>
+
+        <h3 class="sub" id="c-sluss-rubrik">Slussen: från privat till publikt</h3>
+        <p>
+          Det privata arbetet ger lärdomar som andra kan ha nytta av. De går genom en sluss,
+          prövad i ett flöde:
+        </p>
+        <ol>
+          <li><strong>Skriv iakttagelsen privat</strong> först, med alla detaljer.</li>
+          <li><strong>Skriv ett generellt förslag</strong> med den publika filen och den exakta nya texten.</li>
+          <li><strong>Kontrollera texten.</strong> Sök efter namn och andra privata uppgifter, och läs sedan hela texten.</li>
+          <li><strong>En människa säger ja eller nej</strong> till varje förslag.</li>
+          <li><strong>Ändra källan först</strong>, alltså skillen eller metodfilen. Sidan uppdateras efter den.</li>
+          <li><strong>Läs ändringen före commit</strong> och kontrollera att inga oväntade filer följer med.</li>
+        </ol>
+        <p>
+          En skriven regel räcker inte alltid. Även den som bara kör kod från ett publikt repo
+          kan skapa filer där. Därför behövs också ett tekniskt skydd och en titt på repots
+          status efter körningen.
+        </p>
       </section>
 
       <!-- C8d. Lärdomar från arbetet med ett andra flöde (jobbsökaragenten). -->
@@ -1251,7 +1272,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
     Höj versionsnumret och datumet vid varje ändring av sidan.
   -->
   <footer class="site-footer">
-    <p class="versionsrad">Version 1.15 · 2026-11-25 · Kent Lundgren</p>
+    <p class="versionsrad">Version 1.16 · 2026-11-27 · Kent Lundgren</p>
   </footer>
 
   <!--
