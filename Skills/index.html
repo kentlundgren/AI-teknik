@@ -30,28 +30,28 @@
                 till Anthropic på svenska och engelska (#delD-forslag).
                 Version 1.3: korsreferenser till Claude-kompassen, metaskillen v6.2.
                 Version 1.4: avsnittet "Dela upp ett flöde mellan moln och dator"
-                i Del C, med en jobbsökaragent som exempel (#c-moln-rubrik).
+                i Del C, med ett exempel (#c-moln-rubrik).
                 Version 1.5: avsnittet "Publik process, privat underlag"
                 (#c-publik-rubrik) och "Lärdomar från ett andra flöde"
                 (#c-andra-rubrik) i Del C, metaskillen v6.3.
-                Version 1.6: länk till mappen jobbsokaragent i #c-andra-rubrik.
-                Version 1.7: länken i #c-andra-rubrik går till mappen
-                kent-jobbsok-sortering.
+                Version 1.6 och 1.7: länk i #c-andra-rubrik.
                 Version 1.8: fyra nya lärdomar i #c-andra-rubrik, metaskillen v6.4.
                 Version 1.9: fasläget som tabell i #c-faser-rubrik, metaskillen v6.5.
                 Version 1.10: metaskillen v7.0 med kärnfil och referensfiler;
                 länkar till referensfilerna i #c-tva-rubrik, #c-lardomar-rubrik
                 och #c-kallor-rubrik.
-                Version 1.11: jobbsökaragenten har en uppgiftsskill (v0.1).
+                Version 1.11: det andra flödet har en uppgiftsskill (v0.1).
                 Version 1.12: avsnittet "Agentens tre delar" (#c-delar-rubrik) med
                 länkar till delarna och källor; metaskillen v7.1.
                 Version 1.13: behörighetsprov i fas 3 (#c-faser-rubrik), metaskillen v7.2.
-                Version 1.14: raden Start i #c-delar-rubrik säger hur jobbflödet startas och hur den publika mallen uppdateras.
+                Version 1.14: raden Start i #c-delar-rubrik säger hur flödet startas och hur den publika mallen uppdateras.
                 Version 1.15: delningsbild och Open Graph-taggar (mappen delning/).
                 UPPDATERING 2026-11-27: rubriken "Slussen: från privat till publikt" (#c-sluss-rubrik) i
                 #c-publik-rubrik, metaskillen v7.3. Version 1.16.
                 UPPDATERING 2026-11-27: alla H2 och H3 i Del A-D har id och ett klickbart #, och ett klick
                 på rubriken visar rubrikens adress i adressfältet. Version 1.17.
+                UPPDATERING 2026-11-27: allmän ingång (#c-sa-arbetar-jag-rubrik), och exemplen i Del C
+                beskrivs allmänt. Version 1.18.
 -->
 <html lang="sv">
 <head>
@@ -415,6 +415,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           som är ett verkligt flöde i drift – styrelseprotokollen i en samfällighetsförening.
         </p>
         <nav class="mini-nav" aria-label="Innehåll i Del C">
+          <a href="#c-sa-arbetar-jag-rubrik">Så arbetar jag</a>
           <a href="#c-tva-rubrik">Två skills</a>
           <a href="#c-delar-rubrik">Tre delar</a>
           <a href="#c-typ-rubrik">Arbetsflöde eller agent</a>
@@ -429,6 +430,49 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           <a href="#c-andra-rubrik">Andra flödet</a>
           <a href="#c-kallor-rubrik">Källor</a>
         </nav>
+      </section>
+
+      <!-- C0b. Allmän ingång: privat och publikt. -->
+      <section aria-labelledby="c-sa-arbetar-jag-rubrik" class="card highlight">
+        <h2 id="c-sa-arbetar-jag-rubrik">Så arbetar jag med privat och publikt</h2>
+        <p>
+          När jag bygger ett arbetsflöde tillsammans med en AI-modell vill jag tidigt reda ut
+          vad som kan visas och vad som ska hållas privat. Rutiner, regler och förmågor
+          (skills) visar jag gärna öppet på GitHub. Uppgifter om personer, organisationer och
+          enskilda ärenden hör till det privata.
+        </p>
+        <p>
+          Därför delar jag flödet i två delar. Den publika säger hur arbetet går till: stegen,
+          kontrollerna och vilket format underlaget ska ha, gärna med påhittade exempel. Den
+          privata innehåller det riktiga underlaget, valen och historiken. Den privata delen
+          använder den publika, men det privata kopieras inte in i det publika.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Del av flödet</th><th>Publikt</th><th>Privat</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Metod</th><td>Steg, regler, kontroller och skills</td><td></td></tr>
+              <tr><th scope="row">Inställningar</th><td>En mall med påhittade värden</td><td>Den ifyllda versionen</td></tr>
+              <tr><th scope="row">Underlag och historik</th><td></td><td>Dokument, uppgifter, val och det som redan har gjorts</td></tr>
+              <tr><th scope="row">Lärande</th><td>Allmänt skrivna lärdomar</td><td>Vad som hände i det enskilda fallet</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Privat betyder här att uppgifterna inte publiceras. Det betyder inte att de säkert
+          stannar på min dator: AI-modellen läser det den behöver när arbetet görs, och filer
+          kan synkas till en molntjänst. Därför behöver man för varje slags uppgift bestämma
+          var den får finnas.
+        </p>
+        <p>
+          Lärdomar från det privata arbetet kan bli publika. Först skrivs de om allmänt, texten
+          kontrolleras och jag säger ja eller nej.
+        </p>
+        <p class="related">
+          Läs mer: <a href="#c-publik-rubrik">Publik process, privat underlag</a>.
+        </p>
       </section>
 
       <!-- C1. Hur de två skillsen och den schemalagda uppgiften hör ihop -->
@@ -466,24 +510,24 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         <p class="formula">Schemat bestämmer <em>när</em>, uppgiftsskillen <em>hur jobbet görs</em>, metaskillen <em>hur ett nytt flöde byggs</em>.</p>
       </section>
 
-      <!-- C1b. Agentens tre delar: start, metod och underlag, med jobbflödet som exempel. -->
+      <!-- C1b. Agentens tre delar: start, metod och underlag, med ett flöde som exempel. -->
       <section aria-labelledby="c-delar-rubrik" class="card highlight">
         <h2 id="c-delar-rubrik">Agentens tre delar: start, metod och underlag</h2>
         <p>
           Ett sätt att förstå hur en enkel agent är uppbyggd är att ställa tre frågor.
-          Delarna kan ligga på <strong>olika ställen</strong>. Exemplet är jobbsökaragenten,
+          Delarna kan ligga på <strong>olika ställen</strong>. Exemplet är ett av mina flöden,
           som enligt <a href="#c-typ-rubrik">typläran</a> närmare bestämt är ett agentiskt
           arbetsflöde.
         </p>
         <div class="table-wrap">
           <table>
             <thead>
-              <tr><th>Del</th><th>Frågan den svarar på</th><th>I jobbflödet</th><th>Länkar till delen</th></tr>
+              <tr><th>Del</th><th>Frågan den svarar på</th><th>I exemplet</th><th>Var delen finns</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">Start</th><td><strong>När</strong> och hur börjar jobbet?</td><td>Uppgiften i appen. Den kan startas för hand och är schemalagd att köras automatiskt på vardagar ca kl. 9.</td><td><a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/exempel/uppgift_mall.md" target="_blank" rel="noopener"><code>uppgift_mall.md</code></a> (publik, förkortad mall som uppdateras för hand i takt med skillen). Den riktiga uppgiften ligger på datorn och är inte publicerad.</td></tr>
-              <tr><th scope="row">Metod</th><td><strong>Hur</strong> ska jobbet göras?</td><td>Skillen och skriptet</td><td><a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/SKILL.md" target="_blank" rel="noopener"><code>SKILL.md</code></a> och <a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/skript/hamta.py" target="_blank" rel="noopener"><code>hamta.py</code></a></td></tr>
-              <tr><th scope="row">Underlag</th><td><strong>Vad</strong> arbetar den med och behöver minnas?</td><td>Profil, annonser, tidigare val och kandidatlista</td><td>Privat och inte länkat. Påhittade exempel: <a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/exempel/profil_exempel.md" target="_blank" rel="noopener"><code>profil_exempel.md</code></a>, <a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/exempel/sokningar_exempel.json" target="_blank" rel="noopener"><code>sokningar_exempel.json</code></a> och <a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/exempel/visade_jobb_exempel.json" target="_blank" rel="noopener"><code>visade_jobb_exempel.json</code></a></td></tr>
+              <tr><th scope="row">Start</th><td><strong>När</strong> och hur börjar jobbet?</td><td>En schemalagd uppgift i appen. Den kan också startas för hand.</td><td>På datorn, inte publicerad</td></tr>
+              <tr><th scope="row">Metod</th><td><strong>Hur</strong> ska jobbet göras?</td><td>En skill och ett skript</td><td>Publikt</td></tr>
+              <tr><th scope="row">Underlag</th><td><strong>Vad</strong> arbetar den med och behöver minnas?</td><td>Inställningar, inkommande material, tidigare val och en lista över det som väntar</td><td>Privat. Publikt finns bara påhittade exempel.</td></tr>
             </tbody>
           </table>
         </div>
@@ -503,7 +547,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           <li><strong>Resultat:</strong> hur når svaret människan, och var väljer människan nästa steg?</li>
         </ul>
         <p>
-          Vid den första körningen, startad för hand, levererades tre förslag. Mobilnotisen
+          Vid den första körningen, startad för hand, kom det väntade resultatet. Mobilnotisen
           kom däremot inte iväg, och en startregel i projektet följdes inte, vilket körningen
           redovisade. De tre delarna fanns alltså, men det runt dem behöver mer arbete.
         </p>
@@ -511,7 +555,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         <h3 id="c-vad-kallorna-sager-och-inte-sager-rubrik" class="sub">Vad källorna säger – och inte säger</h3>
         <p>
           Indelningen i start, metod och underlag är <strong>en sammanfattning som växte fram
-          i arbetet med jobbflödet</strong>. I de delar av källorna nedan som har lästs
+          i arbetet med ett av flödena</strong>. I de delar av källorna nedan som har lästs
           delas en agent inte upp på just det sättet. De beskriver delarna med andra ord.
         </p>
         <div class="table-wrap">
@@ -741,15 +785,15 @@ eventuella länkar till andra filer i skill-mappen.</pre>
 
       <!-- C8b. Dela upp ett flöde mellan moln och dator (tillagt 2026-11-25).
            Långkatekesen körs helt i molnet; många flöden behöver både internet
-           och filer på datorn. Exemplet är en jobbsökaragent. -->
+           och filer på datorn. -->
       <section aria-labelledby="c-moln-rubrik">
         <h2 id="c-moln-rubrik">Dela upp ett flöde mellan moln och dator</h2>
         <p>
           Långkatekesen körs helt i molnet: allt underlag finns i Gmail och Google Drive.
-          Många flöden behöver däremot både internet och filer på datorn. Ett exempel är en
-          <strong>jobbsökaragent</strong> som ska hitta lediga tjänster som ekonom eller
-          controller, bedöma dem mot en profil som ligger på datorn, och skriva utkast till
-          CV och ansökan.
+          Många flöden behöver däremot både internet och
+          filer på datorn. Ett exempel är ett flöde som ska <strong>hitta nytt material på
+          webben</strong>, bedöma det mot kriterier som ligger på datorn och skriva utkast till
+          de dokument som behövs.
         </p>
         <p class="formula">Internet når agenten både lokalt och i molnet. Det som skiljer är var filerna finns och om datorn behöver vara på.</p>
         <div class="table-wrap">
@@ -759,7 +803,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
             </thead>
             <tbody>
               <tr><th scope="row">Kan söka på internet</th><td>Ja</td><td>Ja</td></tr>
-              <tr><th scope="row">Når profil, CV och ansökningar på datorn</th><td>Ja</td><td>Nej, bara det som finns på kontot eller i ett repo</td></tr>
+              <tr><th scope="row">Når kriterier, underlag och utkast på datorn</th><td>Ja</td><td>Nej, bara det som finns på kontot eller i ett repo</td></tr>
               <tr><th scope="row">Kan köras när datorn är avstängd</th><td>Nej</td><td>Ja</td></tr>
             </tbody>
           </table>
@@ -770,17 +814,17 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           <article class="card file-card">
             <h3 id="c-allt-lokalt-rubrik">1. Allt lokalt</h3>
             <p class="tag">Enklast</p>
-            <p>En schemalagd uppgift på datorn söker, läser profilen, bedömer annonserna och skriver utkast. Datorn måste vara på när den körs.</p>
+            <p>En schemalagd uppgift på datorn söker, läser kriterierna, bedömer träffarna och skriver utkast. Datorn måste vara på när den körs.</p>
           </article>
           <article class="card file-card">
             <h3 id="c-delat-med-en-overlamning-rubrik">2. Delat, med en överlämning</h3>
             <p class="tag">Vanligast</p>
-            <p>Molnet söker varje dag och skriver en lista över nya annonser till en överenskommen plats. Claude Code på datorn läser listan, jämför med profilen och skriver CV och ansökan.</p>
+            <p>Molnet söker varje dag och skriver en lista över nya träffar till en överenskommen plats. Claude Code på datorn läser listan, jämför med kriterierna och skriver utkasten.</p>
           </article>
           <article class="card file-card">
             <h3 id="c-allt-i-molnet-rubrik">3. Allt i molnet</h3>
-            <p class="tag">Kräver att profilen flyttar</p>
-            <p>En sammanfattning av profilen, utan känsliga uppgifter, läggs på kontot eller i ett repo. Molnet gör allt, och utkasten hamnar till exempel i Google Drive.</p>
+            <p class="tag">Kräver att underlaget flyttar</p>
+            <p>En sammanfattning av kriterierna, utan känsliga uppgifter, läggs på kontot eller i ett repo. Molnet gör allt, och utkasten hamnar till exempel i Google Drive.</p>
           </article>
         </div>
         <p>
@@ -792,7 +836,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
 
         <h3 id="c-arbetsflode-eller-agent-rubrik" class="sub">Arbetsflöde eller agent?</h3>
         <p>
-          En jobbsökare är ett bra exempel på <em>fasta steg med agentiska steg inuti</em>:
+          Ett sådant flöde är ett bra exempel på <em>fasta steg med agentiska steg inuti</em>:
         </p>
         <div class="table-wrap">
           <table>
@@ -802,14 +846,14 @@ eventuella länkar till andra filer i skill-mappen.</pre>
             <tbody>
               <tr><td>Söka kända sidor varje dag och ta bort dubbletter</td><td>Fast steg</td><td><span class="risk risk-lag">Låg</span></td></tr>
               <tr><td>Söka fritt efter fler källor och liknande sökord, med ett tak för antalet sökningar</td><td>Agentiskt steg</td><td><span class="risk risk-lag">Låg</span></td></tr>
-              <tr><td>Bedöma varje annons mot profilen: passar, kanske, passar inte</td><td>Agentiskt steg</td><td><span class="risk risk-lag">Låg</span></td></tr>
-              <tr><td>Skriva utkast till CV och ansökan</td><td>Fast steg</td><td><span class="risk risk-lag">Låg</span> (utkast)</td></tr>
-              <tr><td>Skicka ansökan eller fylla i formulär med personuppgifter</td><td>Görs aldrig av flödet</td><td><span class="risk risk-hog">Hög · människan</span></td></tr>
+              <tr><td>Bedöma varje träff mot kriterierna: passar, kanske, passar inte</td><td>Agentiskt steg</td><td><span class="risk risk-lag">Låg</span></td></tr>
+              <tr><td>Skriva utkast till dokumenten</td><td>Fast steg</td><td><span class="risk risk-lag">Låg</span> (utkast)</td></tr>
+              <tr><td>Skicka något eller fylla i formulär med personuppgifter</td><td>Görs aldrig av flödet</td><td><span class="risk risk-hog">Hög · människan</span></td></tr>
             </tbody>
           </table>
         </div>
         <p>
-          En helt fri agent är svårare att granska; ett rent arbetsflöde missar annonser
+          En helt fri agent är svårare att granska; ett rent arbetsflöde missar material
           utanför de kända sidorna. Blandningen ger flexibilitet där den behövs – i sökningen
           – och fasta steg där resultatet ska granskas.
         </p>
@@ -826,8 +870,8 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           Mycket publikt ger insyn, tydlighet, versionshistorik och en kopia utanför datorn.
           Samtidigt ska uppgifter om en person, en grupp eller en organisation inte publiceras.
           Lösningen är att dela flödet i lager och låta delarna <strong>samarbeta utan att
-          kopieras in i varandra</strong>. I jobbsökaragenten kan metoden vara publik, medan
-          profilen, valen och historiken är privata.
+          kopieras in i varandra</strong>. I ett flöde kan till exempel metoden vara publik, medan
+          underlaget, valen och historiken är privata.
         </p>
         <div class="table-wrap">
           <table>
@@ -836,7 +880,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
             </thead>
             <tbody>
               <tr><th scope="row">Metod</th><td>Skill, skript, kontroller, format</td><td>Publikt</td></tr>
-              <tr><th scope="row">Inställningar</th><td>Kriterier, profil, urval</td><td>Mall med påhittade värden publikt, den ifyllda filen privat</td></tr>
+              <tr><th scope="row">Inställningar</th><td>Kriterier, personliga inställningar, urval</td><td>Mall med påhittade värden publikt, den ifyllda filen privat</td></tr>
               <tr><th scope="row">Data och tillstånd</th><td>Underlag, namn, historik, det som redan hanterats, testfall</td><td>Privat</td></tr>
               <tr><th scope="row">Lärande</th><td>Utvecklingslogg och testresultat</td><td>Generella iakttagelser och summor publikt, enskilda fall privat</td></tr>
             </tbody>
@@ -896,15 +940,13 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         </p>
       </section>
 
-      <!-- C8d. Lärdomar från arbetet med ett andra flöde (jobbsökaragenten). -->
+      <!-- C8d. Lärdomar från arbetet med ett andra flöde. -->
       <section aria-labelledby="c-andra-rubrik" class="card">
         <h2 id="c-andra-rubrik">Lärdomar från ett andra flöde</h2>
         <p>
-          Metaskillen prövas nu på jobbsökaragenten, som har en första version av sin uppgiftsskill och startas för hand. De här
-          lärdomarna står i metaskillen; de som bara bygger på det flödet är märkta som
-          prövade i ett flöde. Hur den förmågan växer fram går att följa i mappen
-          <a href="https://github.com/kentlundgren/AI-teknik/tree/main/.claude/skills/kent-jobbsok-sortering" target="_blank" rel="noopener"><code>kent-jobbsok-sortering</code></a>,
-          med utvecklingslogg och påhittade exempelfiler.
+          Metaskillen prövas nu på ett andra flöde, som har en första version av sin
+          uppgiftsskill. De här lärdomarna står i metaskillen; de som bara bygger på det
+          flödet är märkta som prövade i ett flöde.
         </p>
         <ul>
           <li><strong>Börja med baslinjen.</strong> Finns redan en automation: läs körloggen, inte bara rapporten.</li>
@@ -1274,7 +1316,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
     Höj versionsnumret och datumet vid varje ändring av sidan.
   -->
   <footer class="site-footer">
-    <p class="versionsrad">Version 1.17 · 2026-11-27 · Kent Lundgren</p>
+    <p class="versionsrad">Version 1.18 · 2026-11-27 · Kent Lundgren</p>
   </footer>
 
   <!--

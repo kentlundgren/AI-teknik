@@ -33,8 +33,7 @@ går att länka till direkt:
   agent, fem typer av arbetsflöden, de tio faserna, riskklassning (låg, mellan, hög)
   med ångra och reservplan, tre utfall för schemalagda uppgifter, exemplet steg för
   steg med risknivå per steg, hur exemplet växte version för version, lärdomar som
-  blev regler, hur ett flöde delas upp mellan moln och dator (med en jobbsökaragent
-  som exempel), hur en publik process och ett privat underlag samarbetar
+  blev regler, hur ett flöde delas upp mellan moln och dator (med ett exempel), hur en publik process och ett privat underlag samarbetar
   ([#c-publik-rubrik](https://kentlundgren.github.io/AI-teknik/Skills/#c-publik-rubrik)) och källorna i Harvardstil. Skillsen ligger i `.claude/skills/`; sidan
   beskriver och länkar dit men innehåller inga kopior.
 - **Del D – Samma förmåga, olika ställen.** Varför Claude Code och Cowork läser
@@ -78,7 +77,6 @@ läsbara kopior här i `Skills/`; de togs bort 2026-11-24 så att det bara finns
 | --- | --- | --- |
 | [`kent-agentiska-arbetsfloden`](../.claude/skills/kent-agentiska-arbetsfloden/) | v7.3 | Playbook för att designa agentiska arbetsflöden (metaskill): en kärnfil med coachläge, typlära, tio faser, riskklassning och mall, och referensfiler med bland annat valpunkter, fallgropar, publik process och privat underlag och Lärt av andra |
 | [`langkatekesen-protokoll`](../.claude/skills/langkatekesen-protokoll/) | v6 | Protokollutkast och granskning för Långkatekesens styrelsemöten, med risk, ångra och reservplan per åtgärd. Mejladresserna är borttagna i repot |
-| [`kent-jobbsok-sortering`](../.claude/skills/kent-jobbsok-sortering/) | 0.3, startas för hand eller av en schemalagd uppgift | Tre förslag på jobb att söka, människans val och överlämning till en ansökningsinstruktion. Skript, exempel och utvecklingslogg. Profil och data är privata |
 
 Versionen står i rubriken i varje `SKILL.md`, och Git-historiken visar ändringarna
 version för version.
