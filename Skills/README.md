@@ -78,7 +78,7 @@ läsbara kopior här i `Skills/`; de togs bort 2026-11-24 så att det bara finns
 | --- | --- | --- |
 | [`kent-agentiska-arbetsfloden`](../.claude/skills/kent-agentiska-arbetsfloden/) | v7.3 | Playbook för att designa agentiska arbetsflöden (metaskill): en kärnfil med coachläge, typlära, tio faser, riskklassning och mall, och referensfiler med bland annat valpunkter, fallgropar, publik process och privat underlag och Lärt av andra |
 | [`langkatekesen-protokoll`](../.claude/skills/langkatekesen-protokoll/) | v6 | Protokollutkast och granskning för Långkatekesens styrelsemöten, med risk, ångra och reservplan per åtgärd. Mejladresserna är borttagna i repot |
-| [`kent-jobbsok-sortering`](../.claude/skills/kent-jobbsok-sortering/) | 0.3, startas för hand | Tre förslag på jobb att söka, människans val och överlämning till en ansökningsinstruktion. Skript, exempel och utvecklingslogg. Profil och data är privata |
+| [`kent-jobbsok-sortering`](../.claude/skills/kent-jobbsok-sortering/) | 0.3, startas för hand eller av en schemalagd uppgift | Tre förslag på jobb att söka, människans val och överlämning till en ansökningsinstruktion. Skript, exempel och utvecklingslogg. Profil och data är privata |
 
 Versionen står i rubriken i varje `SKILL.md`, och Git-historiken visar ändringarna
 version för version.
