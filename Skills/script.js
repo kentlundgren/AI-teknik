@@ -2,7 +2,7 @@
   script.js
   Interaktivitet för Skills-sidan (index.html).
 
-  Fyra saker hanteras här:
+  Fem saker hanteras här:
     1. Växling mellan Del A (var skills bor), Del B (skapa en skill),
        Del C (agentiska arbetsflöden) och Del D (samma förmåga, olika ställen),
        så att delarna hålls tydligt åtskilda.
@@ -17,7 +17,10 @@
     4. Rubrikankare: varje H2 och H3 med id i Del A-D får ett klickbart #.
        Klick på # eller på rubriken lägger rubrikens #-adress i adressfältet.
 
+    5. Förklaringsrutan vid exemplen: visas vid hovring, fokus och tryck på "?".
+
   UPPDATERING 2026-11-27: rubrikankare (punkt 4). Sidans version 1.17.
+  UPPDATERING 2026-11-27: förklaringsruta vid exemplen (punkt 5). Sidans version 1.19.
 
   Versionsraden i sidfoten är statisk text i index.html, så att den syns även
   om JavaScript inte körs.
@@ -168,6 +171,73 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
+
+  /* -------------------------------------------------------------
+     Förklaringsruta vid exemplen
+     ------------------------------------------------------------- */
+  // En enda ruta ligger sist i <body> med position: fixed. Då klipps den inte
+  // av den rullbara tabellen, och tabellens rader flyttar sig inte.
+  const ruta = document.createElement("div");
+  ruta.className = "exempel-tip";
+  ruta.setAttribute("aria-hidden", "true"); // skärmläsaren får texten via aria-describedby
+  ruta.hidden = true;
+  document.body.appendChild(ruta);
+
+  let last = null; // knappen vars ruta har låsts öppen med ett tryck
+
+  function visaTip(el) {
+    const text = document.getElementById(el.dataset.tip);
+    ruta.textContent = text.textContent;
+    ruta.hidden = false;
+    const r = el.getBoundingClientRect();
+    const bredd = document.documentElement.clientWidth;
+    const vanster = Math.max(8, Math.min(r.left, bredd - ruta.offsetWidth - 8));
+    // Under elementet om det får plats, annars ovanför
+    let topp = r.bottom + 8;
+    if (topp + ruta.offsetHeight > window.innerHeight - 8) {
+      topp = Math.max(8, r.top - ruta.offsetHeight - 8);
+    }
+    ruta.style.left = vanster + "px";
+    ruta.style.top = topp + "px";
+  }
+
+  function doljTip() {
+    ruta.hidden = true;
+    if (last) {
+      last.setAttribute("aria-expanded", "false");
+      last = null;
+    }
+  }
+
+  document.querySelectorAll("[data-tip]").forEach(function (el) {
+    el.addEventListener("mouseenter", function () { if (!last) { visaTip(el); } });
+    el.addEventListener("focus", function () { if (!last) { visaTip(el); } });
+    el.addEventListener("mouseleave", function () { if (!last) { ruta.hidden = true; } });
+    el.addEventListener("blur", function () { if (!last || last === el) { doljTip(); } });
+  });
+
+  // Tryck eller klick på "?" låser rutan öppen. Ett nytt tryck stänger den.
+  document.querySelectorAll(".tip-knapp").forEach(function (knapp) {
+    knapp.addEventListener("click", function () {
+      if (last === knapp) {
+        doljTip();
+        return;
+      }
+      doljTip();
+      last = knapp;
+      knapp.setAttribute("aria-expanded", "true");
+      visaTip(knapp);
+    });
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".tip-knapp")) { doljTip(); }
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") { doljTip(); }
+  });
+  window.addEventListener("scroll", doljTip, true);
+  window.addEventListener("resize", doljTip);
 
   // Visa rätt del när sidan öppnas, och när #-delen ändras
   // (t.ex. när man klickar i innehållsförteckningen i Del C eller går bakåt).
