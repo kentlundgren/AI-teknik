@@ -7,7 +7,7 @@ En agent som byggs fas för fas med metaskillen
 
 **Status:** version 0.3. [`SKILL.md`](https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-jobbsok-sortering/SKILL.md)
 beskriver flödet. Det startas av en schemalagd uppgift på användarens dator eller för hand.
-En tidsstartad körning har inte prövats än. Behörigheter, risk och kontroller är bara delvis prövade.
+En tidsstartad körning har prövats en gång. Behörigheter, risk och kontroller är bara delvis prövade.
 
 ## Vad agenten gör
 
