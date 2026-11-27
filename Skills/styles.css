@@ -687,3 +687,23 @@ body {
 .file-grid + p {
   margin-top: 1rem;
 }
+
+/* Rubrikankare (UPPDATERING 2026-11-27): det klickbara # som script.js lägger till.
+   Det syns svagt hela tiden, så att det går att använda även på pekskärm. */
+.har-ankare {
+  cursor: pointer;
+  scroll-margin-top: 1rem;
+}
+
+.ankare {
+  margin-left: 0.4em;
+  font-weight: 400;
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.35;
+}
+
+.har-ankare:hover .ankare,
+.ankare:focus-visible {
+  opacity: 1;
+}

@@ -50,6 +50,8 @@
                 Version 1.15: delningsbild och Open Graph-taggar (mappen delning/).
                 UPPDATERING 2026-11-27: rubriken "Slussen: från privat till publikt" (#c-sluss-rubrik) i
                 #c-publik-rubrik, metaskillen v7.3. Version 1.16.
+                UPPDATERING 2026-11-27: alla H2 och H3 i Del A-D har id och ett klickbart #, och ett klick
+                på rubriken visar rubrikens adress i adressfältet. Version 1.17.
 -->
 <html lang="sv">
 <head>
@@ -210,7 +212,7 @@
           <a href="#delD">Del D · Samma förmåga, olika ställen</a>.
         </p>
 
-        <h3 class="sub">Så hittar du en personlig Claude Code-skill</h3>
+        <h3 id="a-sa-hittar-du-en-personlig-claude-code-rubrik" class="sub">Så hittar du en personlig Claude Code-skill</h3>
         <ol class="phases">
           <li><strong>I Utforskaren:</strong> skriv <code>%USERPROFILE%\.claude\skills</code> i adressfältet och tryck Enter. Varje undermapp är en skill med en <code>SKILL.md</code>.</li>
           <li><strong>I Cursor:</strong> Arkiv → Öppna fil (File → Open File) och klistra in samma sökväg, till exempel <code>%USERPROFILE%\.claude\skills\kent-bygg-sidor\SKILL.md</code>.</li>
@@ -236,7 +238,7 @@
         <div class="file-grid">
 
           <article class="card file-card">
-            <h3>1. <code>.cursor\skills-cursor\</code></h3>
+            <h3 id="a-cursor-skills-cursor-rubrik">1. <code>.cursor\skills-cursor\</code></h3>
             <p class="tag">Inbyggt i Cursor</p>
             <p>
               Följer med Cursor-installationen (t.ex. <code>canvas</code>,
@@ -247,7 +249,7 @@
           </article>
 
           <article class="card file-card">
-            <h3>2. <code>.cursor\skills\</code></h3>
+            <h3 id="a-cursor-skills-rubrik">2. <code>.cursor\skills\</code></h3>
             <p class="tag">Dina egna (Cursor)</p>
             <p>
               Den "rätta" hemvisten för <strong>egna</strong> skills gjorda för Cursor.
@@ -257,7 +259,7 @@
           </article>
 
           <article class="card file-card">
-            <h3>3. <code>.claude\skills\</code></h3>
+            <h3 id="a-claude-skills-rubrik">3. <code>.claude\skills\</code></h3>
             <p class="tag">Dina egna (Claude Code)</p>
             <p>
               Dina personliga Claude Code-skills, t.ex. <code>kent-bygg-sidor</code>.
@@ -267,7 +269,7 @@
           </article>
 
           <article class="card file-card">
-            <h3>4. <code>.claude\plugins\marketplaces\…</code></h3>
+            <h3 id="a-claude-plugins-marketplaces-rubrik">4. <code>.claude\plugins\marketplaces\…</code></h3>
             <p class="tag">Plugin-skills</p>
             <p>
               En hög med skills som kommit in via Claudes officiella
@@ -297,7 +299,7 @@
         <h2 id="a-niva-rubrik">Två nivåer: global vs. projekt</h2>
         <div class="file-grid">
           <article class="card file-card">
-            <h3>Global nivå</h3>
+            <h3 id="a-global-niva-rubrik">Global nivå</h3>
             <p class="tag">Gäller alla projekt</p>
             <p>
               Allt som ligger i din användarmapp <code>C:\Users\&lt;du&gt;\.cursor\…</code>
@@ -305,7 +307,7 @@
             </p>
           </article>
           <article class="card file-card">
-            <h3>Projektnivå</h3>
+            <h3 id="a-projektniva-rubrik">Projektnivå</h3>
             <p class="tag">Gäller bara ett projekt</p>
             <p>
               En <code>.cursor\skills\</code>-mapp <em>inne i själva projektet</em>
@@ -434,7 +436,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         <h2 id="c-tva-rubrik">Två skills och ett schema</h2>
         <div class="file-grid">
           <article class="card file-card">
-            <h3><a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/SKILL.md" target="_blank" rel="noopener"><code>kent-agentiska-arbetsfloden</code></a></h3>
+            <h3 id="c-kent-agentiska-arbetsfloden-rubrik"><a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/kent-agentiska-arbetsfloden/SKILL.md" target="_blank" rel="noopener"><code>kent-agentiska-arbetsfloden</code></a></h3>
             <p class="tag">Metaskill · v7.3</p>
             <p>
               Gör inget jobb själv. Den styr <em>hur</em> ett nytt flöde byggs: steg för
@@ -445,7 +447,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
             </p>
           </article>
           <article class="card file-card">
-            <h3><a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/langkatekesen-protokoll/SKILL.md" target="_blank" rel="noopener"><code>langkatekesen-protokoll</code></a></h3>
+            <h3 id="c-langkatekesen-protokoll-rubrik"><a href="https://github.com/kentlundgren/AI-teknik/blob/main/.claude/skills/langkatekesen-protokoll/SKILL.md" target="_blank" rel="noopener"><code>langkatekesen-protokoll</code></a></h3>
             <p class="tag">Uppgiftsskill · v6</p>
             <p>
               Gör jobbet: skapar ett protokollutkast när kallelsen kommer (läge A) och
@@ -453,7 +455,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
             </p>
           </article>
           <article class="card file-card">
-            <h3>Schemalagd uppgift</h3>
+            <h3 id="c-schemalagd-uppgift-rubrik">Schemalagd uppgift</h3>
             <p class="tag">Trigger · kl. 17:00</p>
             <p>
               Körs varje dag och letar efter en ny kallelse. Varje körning börjar utan minne,
@@ -487,7 +489,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         </div>
         <p class="formula">Starten säger <em>kör nu</em>, metoden säger <em>så här</em>, underlaget säger <em>vad det gäller och vad som redan har hänt</em>.</p>
 
-        <h3 class="sub">Så hänger delarna ihop</h3>
+        <h3 id="c-sa-hanger-delarna-ihop-rubrik" class="sub">Så hänger delarna ihop</h3>
         <p>
           Uppgiften pekar på skillen. Skillen säger vilka privata filer den behöver. Det
           privata underlaget kopieras aldrig till det publika
@@ -495,7 +497,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           att det inte publiceras. AI-modellen läser det den behöver när jobbet körs.
         </p>
 
-        <h3 class="sub">Två saker runt delarna</h3>
+        <h3 id="c-tva-saker-runt-delarna-rubrik" class="sub">Två saker runt delarna</h3>
         <ul>
           <li><strong>Behörigheter:</strong> vad får agenten göra? En körning kan få med sig tillåtelser som redan finns i projektet.</li>
           <li><strong>Resultat:</strong> hur når svaret människan, och var väljer människan nästa steg?</li>
@@ -506,7 +508,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           redovisade. De tre delarna fanns alltså, men det runt dem behöver mer arbete.
         </p>
 
-        <h3 class="sub">Vad källorna säger – och inte säger</h3>
+        <h3 id="c-vad-kallorna-sager-och-inte-sager-rubrik" class="sub">Vad källorna säger – och inte säger</h3>
         <p>
           Indelningen i start, metod och underlag är <strong>en sammanfattning som växte fram
           i arbetet med jobbflödet</strong>. I de delar av källorna nedan som har lästs
@@ -556,7 +558,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         </div>
         <p class="formula">Börja med det enklaste som fungerar – ofta räcker ett arbetsflöde.</p>
 
-        <h3 class="sub">Fem vanliga typer av arbetsflöden</h3>
+        <h3 id="c-fem-vanliga-typer-av-arbetsfloden-rubrik" class="sub">Fem vanliga typer av arbetsflöden</h3>
         <div class="table-wrap">
           <table>
             <thead>
@@ -645,17 +647,17 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         <h2 id="c-utfall-rubrik">Tre utfall för en schemalagd uppgift</h2>
         <div class="file-grid">
           <article class="card file-card">
-            <h3>Inget att göra</h3>
+            <h3 id="c-inget-att-gora-rubrik">Inget att göra</h3>
             <p class="tag">Tyst</p>
             <p>Ingen ny kallelse, eller utkastet finns redan. En enda rad, ingen störning.</p>
           </article>
           <article class="card file-card">
-            <h3>Klart</h3>
+            <h3 id="c-klart-rubrik">Klart</h3>
             <p class="tag">Kort besked</p>
             <p>Utkast, mejlutkast, kalender och logg är klara. Kort pushnotis med länkar.</p>
           </article>
           <article class="card file-card">
-            <h3>Något gick fel</h3>
+            <h3 id="c-nagot-gick-fel-rubrik">Något gick fel</h3>
             <p class="tag">Alltid besked</p>
             <p>Börjar med "FEL:", säger vilket steg, vad som hann göras (med länkar för att ångra) och vad Kent behöver göra.</p>
           </article>
@@ -763,20 +765,20 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           </table>
         </div>
 
-        <h3 class="sub">Tre sätt att bygga det</h3>
+        <h3 id="c-tre-satt-att-bygga-det-rubrik" class="sub">Tre sätt att bygga det</h3>
         <div class="file-grid">
           <article class="card file-card">
-            <h3>1. Allt lokalt</h3>
+            <h3 id="c-allt-lokalt-rubrik">1. Allt lokalt</h3>
             <p class="tag">Enklast</p>
             <p>En schemalagd uppgift på datorn söker, läser profilen, bedömer annonserna och skriver utkast. Datorn måste vara på när den körs.</p>
           </article>
           <article class="card file-card">
-            <h3>2. Delat, med en överlämning</h3>
+            <h3 id="c-delat-med-en-overlamning-rubrik">2. Delat, med en överlämning</h3>
             <p class="tag">Vanligast</p>
             <p>Molnet söker varje dag och skriver en lista över nya annonser till en överenskommen plats. Claude Code på datorn läser listan, jämför med profilen och skriver CV och ansökan.</p>
           </article>
           <article class="card file-card">
-            <h3>3. Allt i molnet</h3>
+            <h3 id="c-allt-i-molnet-rubrik">3. Allt i molnet</h3>
             <p class="tag">Kräver att profilen flyttar</p>
             <p>En sammanfattning av profilen, utan känsliga uppgifter, läggs på kontot eller i ett repo. Molnet gör allt, och utkasten hamnar till exempel i Google Drive.</p>
           </article>
@@ -788,7 +790,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           konventionerna i fas 4.
         </p>
 
-        <h3 class="sub">Arbetsflöde eller agent?</h3>
+        <h3 id="c-arbetsflode-eller-agent-rubrik" class="sub">Arbetsflöde eller agent?</h3>
         <p>
           En jobbsökare är ett bra exempel på <em>fasta steg med agentiska steg inuti</em>:
         </p>
@@ -841,7 +843,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           </table>
         </div>
 
-        <h3 class="sub">Så samarbetar delarna</h3>
+        <h3 id="c-sa-samarbetar-delarna-rubrik" class="sub">Så samarbetar delarna</h3>
         <ul>
           <li><strong>Gränssnittet är publikt:</strong> skillen beskriver vilka privata filer den läser och skriver, med fält, format och en påhittad exempelfil.</li>
           <li><strong>En källa för varje sak:</strong> den privata delen pekar på skillen och kopierar den inte.</li>
@@ -849,20 +851,20 @@ eventuella länkar till andra filer i skill-mappen.</pre>
           <li><strong>Riktningen avgör risken:</strong> att det privata läser det publika är låg risk. Att något går från privat till publikt är hög risk, och en människa granskar det före commit.</li>
         </ul>
 
-        <h3 class="sub">Tre zoner, inte två</h3>
+        <h3 id="c-tre-zoner-inte-tva-rubrik" class="sub">Tre zoner, inte två</h3>
         <div class="file-grid">
           <article class="card file-card">
-            <h3>Publik</h3>
+            <h3 id="c-zon-publik-rubrik">Publik</h3>
             <p class="tag">Alla kan läsa</p>
             <p>Det som ligger i ett publikt repo. Det som en gång har pushats kan finnas kvar i historiken.</p>
           </article>
           <article class="card file-card">
-            <h3>Privat men behandlad</h3>
+            <h3 id="c-privat-men-behandlad-rubrik">Privat men behandlad</h3>
             <p class="tag">Publiceras inte</p>
             <p>Läses av en AI-modell eller connector, eller lagras hos en leverantör, till exempel i molnlagring eller ett privat repo.</p>
           </article>
           <article class="card file-card">
-            <h3>Lämnar aldrig datorn</h3>
+            <h3 id="c-lamnar-aldrig-datorn-rubrik">Lämnar aldrig datorn</h3>
             <p class="tag">Ingen molntjänst</p>
             <p>Läses inte av en AI-tjänst i molnet och synkas inte.</p>
           </article>
@@ -1060,27 +1062,27 @@ eventuella länkar till andra filer i skill-mappen.</pre>
         </p>
         <div class="file-grid">
           <article class="card file-card">
-            <h3>Skillen ligger där läsaren är</h3>
+            <h3 id="d-skillen-ligger-dar-lasaren-ar-rubrik">Skillen ligger där läsaren är</h3>
             <p class="tag">Åtkomst</p>
             <p>En session på datorn kan läsa filer direkt. En molnsession körs isolerat och har ingen väg in på din disk; kontot är det enda som följer med dit.</p>
           </article>
           <article class="card file-card">
-            <h3>Molnet läser inte din disk</h3>
+            <h3 id="d-molnet-laser-inte-din-disk-rubrik">Molnet läser inte din disk</h3>
             <p class="tag">Säkerhet</p>
             <p>Det som ligger lokalt stannar lokalt tills du själv laddar upp det. Inget i dina mappar lämnar datorn av sig självt.</p>
           </article>
           <article class="card file-card">
-            <h3>Projektskills följer koden</h3>
+            <h3 id="d-projektskills-foljer-koden-rubrik">Projektskills följer koden</h3>
             <p class="tag">Delning och historik</p>
             <p>En skill i repots <code>.claude/skills/</code> följer med i Git: andra som arbetar i repot får den, och varje ändring syns i historiken.</p>
           </article>
           <article class="card file-card">
-            <h3>Kontoskills följer dig</h3>
+            <h3 id="d-kontoskills-foljer-dig-rubrik">Kontoskills följer dig</h3>
             <p class="tag">Flera enheter</p>
             <p>En skill på kontot finns i chatten, i Cowork och i Claude Code, på alla datorer där du loggar in.</p>
           </article>
         </div>
-        <h3 class="sub">Vad det kostar användaren</h3>
+        <h3 id="d-vad-det-kostar-anvandaren-rubrik" class="sub">Vad det kostar användaren</h3>
         <ul>
           <li><strong>Samma regel på flera ställen</strong> – som sidramen ovan – och de kan glida isär.</li>
           <li><strong>Svårt att se vad som gäller:</strong> appens inställningar visar bara kontots skills, inte de som ligger på datorn eller i repot.</li>
@@ -1112,7 +1114,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
             </tbody>
           </table>
         </div>
-        <h3 class="sub">Så ser du om Cowork är anslutet till datorn</h3>
+        <h3 id="d-sa-ser-du-om-cowork-ar-anslutet-till-rubrik" class="sub">Så ser du om Cowork är anslutet till datorn</h3>
         <p>
           Bredvid konversationens rubrik i skrivbordsappen finns en ikon för datorn med en
           liten prick. <strong>Grön prick:</strong> Cowork är anslutet till datorn och kan
@@ -1145,7 +1147,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
             </tbody>
           </table>
         </div>
-        <h3 class="sub">Var ska en ny skill sparas?</h3>
+        <h3 id="d-var-ska-en-ny-skill-sparas-rubrik" class="sub">Var ska en ny skill sparas?</h3>
         <ol class="phases">
           <li><strong>Gäller den bara ett repo?</strong> Lägg den i repots <code>.claude/skills/</code>. Exempel: <code>langkatekesen-protokoll</code>.</li>
           <li><strong>Ska den gälla överallt, även i Cowork?</strong> Ladda upp den till kontot som .skill-fil. Den laddas då också ned till Claude Code när du är inloggad. Exempel: <code>kent-agentiska-arbetsfloden</code>.</li>
@@ -1272,7 +1274,7 @@ eventuella länkar till andra filer i skill-mappen.</pre>
     Höj versionsnumret och datumet vid varje ändring av sidan.
   -->
   <footer class="site-footer">
-    <p class="versionsrad">Version 1.16 · 2026-11-27 · Kent Lundgren</p>
+    <p class="versionsrad">Version 1.17 · 2026-11-27 · Kent Lundgren</p>
   </footer>
 
   <!--

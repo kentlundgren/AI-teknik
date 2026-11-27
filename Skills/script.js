@@ -2,7 +2,7 @@
   script.js
   Interaktivitet för Skills-sidan (index.html).
 
-  Tre saker hanteras här:
+  Fyra saker hanteras här:
     1. Växling mellan Del A (var skills bor), Del B (skapa en skill),
        Del C (agentiska arbetsflöden) och Del D (samma förmåga, olika ställen),
        så att delarna hålls tydligt åtskilda.
@@ -13,6 +13,11 @@
        "</> teknik" nere till höger.
     3. Språkväxlaren för förslagen i Del D (svenska/engelska). Länken
        #delD-forslag-en öppnar förslagen direkt på engelska.
+
+    4. Rubrikankare: varje H2 och H3 med id i Del A-D får ett klickbart #.
+       Klick på # eller på rubriken lägger rubrikens #-adress i adressfältet.
+
+  UPPDATERING 2026-11-27: rubrikankare (punkt 4). Sidans version 1.17.
 
   Versionsraden i sidfoten är statisk text i index.html, så att den syns även
   om JavaScript inte körs.
@@ -136,6 +141,31 @@ document.addEventListener("DOMContentLoaded", function () {
     knapp.addEventListener("click", function () {
       visaSprak(knapp.dataset.lang);
       history.replaceState(null, "", knapp.dataset.lang === "en" ? "#delD-forslag-en" : "#delD-forslag");
+    });
+  });
+
+  /* -------------------------------------------------------------
+     Rubrikankare: klickbart # vid varje rubrik
+     ------------------------------------------------------------- */
+  flikar.forEach(function (flik) {
+    flik.del.querySelectorAll("h2[id], h3[id]").forEach(function (rubrik) {
+      const ankare = document.createElement("a");
+      ankare.className = "ankare";
+      ankare.href = "#" + rubrik.id;
+      ankare.textContent = "#";
+      ankare.setAttribute("aria-label", "Länk till rubriken " + rubrik.textContent.trim());
+      rubrik.classList.add("har-ankare");
+      rubrik.appendChild(ankare);
+
+      // Klick på själva rubriken gör samma sak som klick på #. Länkar och
+      // knappar inne i rubriken fungerar som vanligt, och den som markerar
+      // text i rubriken flyttas inte.
+      rubrik.addEventListener("click", function (e) {
+        if (e.target.closest("a, button") || String(window.getSelection())) {
+          return;
+        }
+        ankare.click();
+      });
     });
   });
 
